@@ -1,0 +1,241 @@
+---
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes
+title: Gemini Enterprise Agent Platform release notes
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+data_source: docs.cloud.google.com
+---
+
+This page documents production updates to Gemini Enterprise Agent Platform. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality.
+
+You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
+
+## May 19, 2026
+
+Feature
+
+**Gemini 3.5 Flash is generally available (GA)**
+
+For details, see the [model specifications page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) .
+
+Feature
+
+**Managed Agents API on Agent Platform**
+
+Managed Agents API on Agent Platform is in Preview. This feature allows you to build and scale autonomous agents, including those built from configuration using the Antigravity harness. These agents run in a fully managed and isolated sandbox environment, equipped with tools and skills, and can be interacted with via a dedicated API.
+
+For more information, see the following:
+
+  - [Managed Agents API on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
+  - [Create and manage agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage)
+  - [Interact with agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents)
+  - [Managed Agents API on Agent Platform sandbox environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment)
+
+Feature
+
+**Manage agent revisions and traffic splitting**
+
+Agent revisions and traffic splitting are now available in public preview. You can create immutable revisions of deployed agents, and split traffic between the different active revisions. This enables canary deployments and safe testing of new agent versions. For more information, see [Manage revisions and traffic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) .
+
+Feature
+
+**Manage and discover agent skills with Skill Registry.**
+
+Manage and discover agent skills with the Skill Registry, in public preview. This secure, private, and low-latency repository stores skills as self-contained packages, including instructions, code, and documentation, to enhance agent abilities.
+
+For more information, see:
+
+  - [Skill Registry overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry)
+  - [Create and manage skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage)
+
+Feature
+
+**AI Content Detection API available**
+
+AI Content Detection API is available in [Preview](https://cloud.google.com/products#product-launch-stages) . For details see [AI Content Detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/ai-content-detection) .
+
+Change
+
+Memory Bank and Sessions support for multi-regional and global endpoints is in [Preview](https://cloud.google.com/products#product-launch-stages) . For more, see [Supported locations for agents in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#multi-regional_and_global_endpoints) .
+
+## May 14, 2026
+
+Feature
+
+**Priority PayGo is generally available (GA)**
+
+Priority PayGo is a consumption option that provides more consistent performance than standard PayGo without the upfront commitment of Provisioned Throughput. It is ideal for business-critical workloads with fluctuating or unpredictable traffic patterns.
+
+For more information, see [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) .
+
+## May 11, 2026
+
+Change
+
+You can purchase **Provisioned Throughput for Gemma 4** . To learn more, see the list of [supported open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#open-models) .
+
+## May 08, 2026
+
+Change
+
+**Gemini Distillation Service Early Access**
+
+We're introduction Gemini Distillation Service in Early Access. For information about requesting access, see [Gemini Distillation Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/distillation) .
+
+Change
+
+**Improvements to the Provisioned Throughput orders page** have now made it possible to:
+
+  - View all scheduled orders by using the Start Date column.
+  - Enable filtering and sorting of orders by using column names.
+  - Download all order data to a CSV file (including across all regions).
+
+See [View standard Provisioned Throughput orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#view-orders) .
+
+## May 07, 2026
+
+Change
+
+**Gemini 3.1 Flash-Lite is now generally available**
+
+Our most cost-efficient Gemini model, **3.1 Flash-Lite** , is out of preview and is now generally available. For technical information on this model, see the [model information card](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite) .
+
+Change
+
+You can purchase **Provisioned Throughput for Gemini 3.1 Flash-Lite** . To learn more, see the [Provisioned Throughput overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) .
+
+## May 06, 2026
+
+Fixed
+
+Fixed an issue with **Audio track extraction (Gemini Embedding 2 only)** where the `audio_track_extraction` feature did not work. For more information, see [Issue \#504505771](https://issuetracker.google.com/504505771) .
+
+Change
+
+**Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image**
+
+Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are introducing the following changes:
+
+  - Upgrades to improve 4K outputs and efficiency in both models
+  - Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview will now return a maximum of 1 thought image.
+  - The image\_size parameter for Gemini 3.1 Flash Image Preview now accepts "512", "512p", "512P", "512PX", "512px" to generate 0.5MP resolution output images.
+  - The default thinking level for Gemini 3.1 Flash Image Preview changed to Minimal.
+
+## April 28, 2026
+
+Feature
+
+**Improved transcription quality for Gemini Live API**
+
+You can now improve transcription quality for multilingual automatic speech recognition (ASR) by using the `[input/output]_audio_transcription.language_codes` field.
+
+For more information, see [Enable audio transcription for the session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription) .
+
+Feature
+
+**Asynchronous function calling with Live API**
+
+Asynchronous function calling is now available in [public preview](https://cloud.google.com/products#product-launch-stages) in Gemini Live API. You can run functions in parallel with conversation, manage background processing, and handle function responses with policies including `SILENT` , `WHEN_IDLE` , and `INTERRUPT` . For more information, see [Asynchronous function calling with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/asynchronous-function-calling) .
+
+## April 22, 2026
+
+Change
+
+### Initial release of Gemini Enterprise Agent Platform
+
+This initial release includes (but is not limited to) the following releases or changes:
+
+  - Change **Vertex AI** is now part of Gemini Enterprise Agent Platform. Information on model support for Vertex AI is now under [Gemini Enterprise Agent Platform \> Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
+  - Change **Agent Builder** is now part of Gemini Enterprise Agent Platform. Features have been renamed as follows:
+      - **Agent Engine** is now [**Agent Runtime**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) .
+      - **Agent Builder Sessions** is [**Agent Platform Sessions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) .
+      - **Memory Bank** is now [**Agent Platform Memory Bank**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) .
+  - Change **Agent Runtime** now supports long-running operations (up to 7 days).
+  - Change **Agent Runtime** now supports sub-second cold starts.
+  - Change Provisioning for **Agent Runtime** has been reduced to less than 1 minute.
+  - Release You can now use your own [custom-built containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/build/runtime/setup#byoc) when you deploy agents with **Agent Runtime** .
+  - Change When [creating a Session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) , you can specify your own session ID.
+  - Release Memory Bank now enables continuous event streaming with automated memory generation triggered by configurable criteria like event count or idle time. For more information, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
+  - Release Memory Bank now automatically maintains an immutable version history of memories through revision resources. For more information, see [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
+  - Release [**Agent Identity**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) for General Availability. Agent Identity helps let your agent securely authenticate to MCP servers, cloud resources, endpoints, and other agents, either acting as itself or acting on behalf of the end user.
+  - Release [**Agent Gateway**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) for Private Preview. Agent Gateway is the networking component of the Gemini Enterprise Agent Platform ecosystem. It secures and governs connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
+  - Release [**Agent Registry**](https://docs.cloud.google.com/agent-registry/overview) for Public Preview. Agent Registry is a centralized, unified catalog that lets you store, discover, and govern Model Context Protocol (MCP) servers, tools, and AI agents within Google Cloud.
+  - Release New [**IAM governance policies**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/govern/policies/overview) are available in Private Preview.
+  - Release [**Agent Observability**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) for Preview. Agent Observability in Gemini Enterprise Agent Platform provides comprehensive visibility into the performance, behavior, and health of your deployed agents and Model Context Protocol (MCP) servers. By monitoring key metrics, tracing execution paths, and observing your multi-agent system as a whole, you can diagnose issues, optimize resource consumption, and improve the reliability of your agents.
+  - Release [**Gemini Embedding 2**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2) ( `gemini-embedding-2` ) for General Availability.
+  - Release The [**Gemini Deep Research Agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/deep-research) , a pre-built agent designed to help you plan, execute, and synthesize multi-step research tasks. It uses Gemini 3.1 Pro to bridge the gap between public web data and private enterprise context by simultaneously grounding research across three distinct, high-fidelity data streams.
+  - Release [**Agent Platform remote MCP server**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp) for General Availability. Support for Model Context Protocol (MCP) use is available for Agent Platform.
+  - Change **Google Cloud console navigation** : The navigation menus under Agent Platform (formerly Vertex AI) and Data Analytics have been updated to centralize agentic products and features. Bookmarked links will continue to work via automatic redirects.
+
+Change
+
+### Vertex AI to Gemini Enterprise Agent Platform naming changes
+
+The table below lists all of the features that have been transitioned from Vertex AI and what their new names are in Agent Platform.
+
+#### Click to expand naming changes list
+
+| Vertex AI name                                                                             | Agent Platform name                                           |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| Vertex AI Platform                                                                         | Agent Platform                                                |
+| Generative AI on Vertex AI                                                                 | Generative AI                                                 |
+| Vertex AI Studio                                                                           | Agent Studio                                                  |
+| Vertex AI API                                                                              | Agent Platform API                                            |
+| Vertex AI Model Garden                                                                     | Model Garden                                                  |
+| Vertex AI Models as a Service (MaaS)                                                       | MaaS                                                          |
+| (Gemini/Veo) on Vertex AI                                                                  | (Gemini/Veo) on Agent Platform                                |
+| (Claude/Llama/DeepSeek/etc.) on Vertex AI                                                  | (Claude/Llama/DeepSeek/etc.), available on Agent Platform     |
+| Pre-trained APIs on Vertex AI                                                              | Pre-trained APIs on Agent Platform                            |
+| (Provisioned Throughput/Pay-as-you-go/etc.) on Vertex AI                                   | (Provisioned Throughput/Pay-as-you-go/etc.) on Agent Platform |
+| Gemini Live API on Vertex AI                                                               | Gemini Live API on Agent Platform                             |
+| Vertex AI Search                                                                           | Agent Search                                                  |
+| Vertex AI Search for Industry                                                              | Agent Search for Industry                                     |
+| Vertex AI Search for Commerce                                                              | Agent Search for Commerce                                     |
+| Recommendations from Vertex AI Search                                                      | Recommendations                                               |
+| Vertex AI Conversation                                                                     | Agent Conversation                                            |
+| Vertex AI RAG Engine                                                                       | RAG Engine                                                    |
+| Vertex AI Vector Search                                                                    | Vector Search                                                 |
+| Vertex AI Vector Search 2.0                                                                | Agent Retrieval                                               |
+| Vertex AI Agent Engine                                                                     | Agent Runtime                                                 |
+| Vertex AI Studio App Builder                                                               | App Builder in Agent Studio                                   |
+| Vertex AI Agent Engine Memory Bank                                                         | Agent Platform Memory Bank                                    |
+| Vertex AI Agent Engine Sessions                                                            | Agent Platform Sessions                                       |
+| Vertex AI Agent Engine Code Execution                                                      | Agent Platform Code Execution                                 |
+| Grounding with Google \[...\] in Vertex AI                                                 | Grounding with Google \[...\] in Agent Platform               |
+| Grounding with Google \[...\] in Vertex AI Search                                          | Grounding with Google \[...\] in Agent Search                 |
+| Grounding with Google \[...\] in Vertex AI Studio                                          | Grounding with Google \[...\] in Agent Studio                 |
+| Vertex AI Training                                                                         | Agent Platform Managed Training                               |
+| Vertex AI Serverless Training                                                              | Agent Platform Serverless Training                            |
+| Vertex AI Training Clusters (VTC)                                                          | Managed Training Clusters                                     |
+| Ray on Vertex AI                                                                           | Ray on Agent Platform                                         |
+| Reinforcement Learning from Human Feedback (RLHF)/Reinforcement Learning (RL) on Vertex AI | Reinforcement Learning on Agent Platform                      |
+| Vertex AI Neural Architecture Search                                                       | Neural Architecture Search on Agent Platform                  |
+| Vertex AI Prediction/Vertex AI Inference                                                   | Agent Platform Inference                                      |
+| Vertex AI Vision                                                                           | Agent Platform Vision                                         |
+| Vertex AI Batch Inference                                                                  | Agent Platform Batch Inference                                |
+| Vertex AI Online Inference                                                                 | Agent Platform Online Inference                               |
+| Vertex AI Endpoints                                                                        | Agent Platform Endpoints                                      |
+| Vertex AI Forecasting/Forecasting with AutoML                                              | Forecasting on Agent Platform                                 |
+| Vertex AI Pipelines                                                                        | Agent Platform Pipelines                                      |
+| Vertex AI Notebooks                                                                        | Agent Platform Notebooks                                      |
+| Vertex AI Colab Enterprise                                                                 | Agent Platform Colab Enterprise                               |
+| Vertex AI Workbench                                                                        | Agent Platform Workbench                                      |
+| Vertex AI Workbench Instances                                                              | Agent Platform Workbench Instances                            |
+| Vertex AI Feature Store                                                                    | Agent Platform Feature Store                                  |
+| Vertex AI Model Registry                                                                   | Agent Platform Model Registry                                 |
+| Vertex AI Model Evaluation                                                                 | Agent Platform Model Evaluation                               |
+| Gen AI evaluation service on Vertex AI                                                     | Gen AI evals                                                  |
+| Vertex AI AutoML (Vision/Video/Tables)                                                     | Agent Platform AutoML                                         |
+| Data Labeling on Vertex AI                                                                 | Data Labeling                                                 |
+| Vertex AI on GDC                                                                           | Agent Platform on GDC                                         |
+| Vertex AI Experiments                                                                      | Experiments on Agent Platform                                 |
+| Vertex AI Model Monitoring                                                                 | Model Monitoring on Agent Platform                            |
+| Vertex AI Media Studio                                                                     | Agent Media Studio                                            |
+| Vertex AI                                                                                  | Agent Platform                                                |
+| Vertex AI Generative AI                                                                    | Agent Platform Generative AI                                  |
+
+Issue
+
+The following known issues affect Gemini Enterprise Agent Platform:
+
+  - **Audio track extraction (Gemini Embedding 2 only):** The `audio_track_extraction` feature does not work. For more information, see [Issue \#504505771](https://issuetracker.google.com/504505771) .

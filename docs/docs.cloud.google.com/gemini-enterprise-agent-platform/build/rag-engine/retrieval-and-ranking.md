@@ -1,0 +1,275 @@
+---
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking
+title: Reranking for Gemini Enterprise Agent Platform RAG Engine
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+data_source: docs.cloud.google.com
+---
+
+> The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
+
+The page explains reranking and types of rankers. The page also demonstrates how to use the Gemini Enterprise Agent Platform ranking API to rerank your retrieved responses.
+
+## Available rerankers
+
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ranker options</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Latency</strong></th>
+<th><strong>Accuracy</strong></th>
+<th><strong>Pricing</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agent Platform ranking API</td>
+<td><p>The Agent Platform ranking API is a standalone semantic reranker designed for highly-precise relevance scoring and low latency.</p>
+<p>For more information about Agent Platform ranking API, see <a href="https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking">Improve search and RAG quality with ranking API</a> .</p></td>
+<td>Very low (less than 100 milliseconds)</td>
+<td>State-of-the-art performance</td>
+<td>Per Gemini Enterprise Agent Platform RAG Engine request</td>
+</tr>
+<tr class="even">
+<td>LLM reranker</td>
+<td>LLM reranker uses a separate call to Gemini to assess relevance of chunks to a query.</td>
+<td>High (1 to 2 seconds)</td>
+<td>Model dependent</td>
+<td>LLM token pricing</td>
+</tr>
+</tbody>
+</table>
+
+## Use the Agent Platform ranking API
+
+To use the Agent Platform ranking API, you must enable the Discovery Engine API. All supported models can be found in the [Improve search and RAG quality with ranking API](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking#models) .
+
+These code samples demonstrate how to enable reranking with the Agent Platform ranking API in the tool configuration.
+
+### Python
+
+To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) ). For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+
+Replace the following variables used in the sample code:
+
+  - **PROJECT\_ID** : The ID of your Google Cloud project.
+  - **LOCATION** : The region to process the request.
+  - **MODEL\_NAME** : LLM model for content generation. For example, `gemini-2.0-flash` .
+  - **INPUT\_PROMPT** : The text sent to the LLM for content generation.
+  - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource.  
+    Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+  - **SIMILARITY\_TOP\_K** : Optional: The number of top contexts to retrieve.
+  - **RANKER\_MODEL\_NAME** : The name of the model used for reranking. For example, `semantic-ranker-default@latest` .
+
+<!-- end list -->
+
+    from vertexai import rag
+    from vertexai.generative_models import GenerativeModel, Tool
+    import vertexai
+    
+    PROJECT_ID = "PROJECT_ID"
+    CORPUS_NAME = "projects/{PROJECT_ID}/locations/LOCATION/ragCorpora/RAG_CORPUS_RESOURCE"
+    
+    # Initialize Agent Platform API once per session
+    vertexai.init(project=PROJECT_ID, location="LOCATION")
+    
+    config = rag.RagRetrievalConfig(
+        top_k=10,
+        ranking=rag.Ranking(
+            rank_service=rag.RankService(
+                model_name=RANKER_MODEL_NAME
+            )
+        )
+    )
+    
+    rag_retrieval_tool = Tool.from_retrieval(
+        retrieval=rag.Retrieval(
+            source=rag.VertexRagStore(
+                rag_resources=[
+                    rag.RagResource(
+                        rag_corpus=CORPUS_NAME,
+                    )
+                ],
+                rag_retrieval_config=config
+            ),
+        )
+    )
+    
+    rag_model = GenerativeModel(
+        model_name="MODEL_NAME", tools=[rag_retrieval_tool]
+    )
+    response = rag_model.generate_content("INPUT_PROMPT")
+    print(response.text)
+    # Example response:
+    #   The sky appears blue due to a phenomenon called Rayleigh scattering.
+    #   Sunlight, which contains all colors of the rainbow, is scattered
+    #   by the tiny particles in the Earth's atmosphere....
+    #   ...
+
+### REST
+
+To generate content using Gemini models, make a call to the Agent Platform `GenerateContent` API. By specifying the `RAG_CORPUS_RESOURCE` when you make the request, the model automatically retrieves data from the Gemini Enterprise Agent Platform RAG Engine.
+
+Replace the following variables used in the sample code:
+
+  - **PROJECT\_ID** : The ID of your Google Cloud project.
+  - **LOCATION** : The region to process the request.
+  - **MODEL\_NAME** : LLM model for content generation. For example, `gemini-2.0-flash` .
+  - **GENERATION\_METHOD** : LLM method for content generation. Options include `generateContent` and `streamGenerateContent` .
+  - **INPUT\_PROMPT** : The text sent to the LLM for content generation.
+  - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource.  
+    Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+  - **SIMILARITY\_TOP\_K** : Optional: The number of top contexts to retrieve.
+  - **RANKER\_MODEL\_NAME** : The name of the model used for reranking. For example, `semantic-ranker-default@latest` .
+
+<!-- end list -->
+
+    curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/publishers/google/models/MODEL_NAME:GENERATION_METHOD" \
+    -d '{
+      "contents": {
+        "role": "user",
+        "parts": {
+          "text": "INPUT_PROMPT"
+        }
+      },
+      "tools": {
+        "retrieval": {
+          "disable_attribution": false,
+          "vertex_rag_store": {
+            "rag_resources": {
+                "rag_corpus": "RAG_CORPUS_RESOURCE"
+              },
+            "rag_retrieval_config": {
+              "top_k": SIMILARITY_TOP_K,
+              "ranking": {
+                "rank_service": {
+                  "model_name": "RANKER_MODEL_NAME"
+                }
+              }
+            }
+          }
+        }
+      }
+    }'
+
+## Use the LLM reranker in Gemini Enterprise Agent Platform RAG Engine
+
+This section presents the prerequisites and code samples for using an LLM reranker.
+
+The LLM reranker supports only Gemini models, which are accessible when the Gemini Enterprise Agent Platform RAG Engine API is enabled. To view the list of supported models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-rag-models#supported-gemini-models) .
+
+To retrieve relevant contexts using the Gemini Enterprise Agent Platform RAG Engine API, do the following:
+
+### Python
+
+To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) ). For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+
+Replace the following variables used in the code sample:
+
+  - **PROJECT\_ID** : The ID of your Google Cloud project.
+  - **LOCATION** : The region to process the request.
+  - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+  - **TEXT** : The query text to get relevant contexts.
+  - **MODEL\_NAME** : The name of the model used for reranking.
+
+<!-- end list -->
+
+    from vertexai import rag
+    import vertexai
+    
+    PROJECT_ID = "PROJECT_ID"
+    CORPUS_NAME = "projects/[PROJECT_ID]/locations/LOCATION/ragCorpora/RAG_CORPUS_RESOURCE"
+    MODEL_NAME= "MODEL_NAME"
+    
+    # Initialize Agent Platform API once per session
+    vertexai.init(project=PROJECT_ID, location="LOCATION")
+    
+    rag_retrieval_config = rag.RagRetrievalConfig(
+        top_k=10,
+        ranking=rag.Ranking(
+            llm_ranker=rag.LlmRanker(
+                model_name=MODEL_NAME
+            )
+        )
+    )
+    
+    response = rag.retrieval_query(
+        rag_resources=[
+            rag.RagResource(
+                rag_corpus=CORPUS_NAME,
+            )
+        ],
+        text="TEXT",
+        rag_retrieval_config=rag_retrieval_config,
+    )
+    print(response)
+    # Example response:
+    # contexts {
+    #   contexts {
+    #     source_uri: "gs://your-bucket-name/file.txt"
+    #     text: "....
+    #   ....
+
+### REST
+
+Replace the following variables used in the code sample:
+
+  - **PROJECT\_ID** : The ID of your Google Cloud project.
+  - **LOCATION** : The region to process the request.
+  - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
+  - **TEXT** : The query text to get relevant contexts.
+  - **MODEL\_NAME** : The name of the model used for reranking.
+
+<!-- end list -->
+
+    curl -X POST \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION:retrieveContexts" \
+      -d '{
+        "vertex_rag_store": {
+          "rag_resources": {
+              "rag_corpus": "RAG_CORPUS_RESOURCE"
+            }
+        },
+        "query": {
+          "text": "TEXT",
+          "rag_retrieval_config": {
+            "top_k": 10,
+            "ranking": {
+              "llm_ranker": {
+                "model_name": "MODEL_NAME"
+              }
+            }
+          }
+        }
+      }'
+
+## What's next
+
+  - To learn more about the Gemini Enterprise Agent Platform RAG Engine API, see the following:
+    
+      - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
+    
+      - [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagEngineConfig)
+    
+      - [`RagChunk`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagChunk)
+    
+      - [`RagContexts`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagContexts)
+    
+      - [`RagFileTransformationConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagFileTransformationConfig)
+    
+      - [`RagQuery`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagQuery)
+
+  - [Manage your RAG knowledge base (corpus)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/manage-your-rag-corpus)

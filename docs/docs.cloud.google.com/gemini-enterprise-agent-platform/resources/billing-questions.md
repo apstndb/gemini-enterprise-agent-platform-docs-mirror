@@ -1,0 +1,21 @@
+---
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/resources/billing-questions
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/billing-questions
+title: Billing questions
+description: Get help with billing questions for Gemini Enterprise Agent Platform.
+data_source: docs.cloud.google.com
+---
+
+To get help with billing questions, use the following resources:
+
+  - To view billing reports, see [View your billing reports and cost trends](https://docs.cloud.google.com/billing/docs/how-to/reports) .
+
+  - To learn more about billing, read the [Cloud Billing documentation](https://docs.cloud.google.com/billing/docs) .
+
+  - To resolve billing concerns, use the [Google Cloud Billing Troubleshooter](https://support.google.com/cloud/troubleshooter/7279311) .
+
+  - To request help with billing questions, contact [Cloud Billing Support](https://docs.cloud.google.com/support/billing) .
+
+  - To change or disable billing on a project, go to the **Billing** page in the Google Cloud console. For more information, see [Modify a project's billing settings](https://docs.cloud.google.com/billing/docs/how-to/modify-project) .
+    
+    > **Caution:** When you disable billing for a project, you also disable all product resources in that project.

@@ -1,0 +1,117 @@
+---
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions
+title: Model versions and lifecycle
+description: Learn about key terms, lifecycle stages, and important dates for Gemini and embedding models on {{dynamic_data.site_values.cloud_name}} Gemini Enterprise Agent Platform, including recommended upgrades and migration paths.
+data_source: docs.cloud.google.com
+---
+
+This document defines key terms related to the lifecycle stages and important dates for Gemini and embedding models that are available on Google Cloud Gemini Enterprise Agent Platform. It also gives you the recommended upgrades for the models and points you to available migration paths.
+
+## Key Terms
+
+**Stable model** : A publicly released version of the model that is available and supported for production use starting on the release date. A model's retirement date will be announced once the next *stable* version of the model is publicly released. One month before the retirement date, new access to the model is blocked for online inference, batch inference, and tuning. After the retirement date, the model is no longer accessible or supported by Google.
+
+  - **Latest stable models** : The latest version within the model family recommended for new and active projects and should be the target for migrations from earlier versions. See [Latest stable models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#latest-stable) .
+  - **Retired models** : The model version is past its retirement date and has been permanently deactivated. Retired models are no longer accessible or supported by Google. API requests referencing a retired model ID typically returns a 404 error. See [Retired models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#retired-models) .
+  - **Recommended upgrades** : The latest stable model that we recommend switching to. Latest stable models tend to offer better performance and more capabilities as compared to legacy stable models. See the recommended upgrades in the [Retired models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#retired-models) section.
+
+## Latest stable models
+
+> **Caution:** As of March 6, 2026, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are only available for existing customers. This includes both model serving and Provisioned Throughput. New projects should use `gemini-2.5-flash` , `gemini-2.5-flash-lite` , or more recent releases.
+
+The following table lists the latest stable models:
+
+### Gemini models
+
+| Model ID                             | Release date      | Retirement date              |
+| ------------------------------------ | ----------------- | ---------------------------- |
+| `gemini-3.5-flash`                   | May 19, 2026      | No retirement date announced |
+| `gemini-3.1-flash-lite`              | May 7, 2026       | No retirement date announced |
+| `gemini-live-2.5-flash-native-audio` | December 12, 2025 | December 13, 2026            |
+| `gemini-2.5-pro`                     | June 17, 2025     | Not before October 16, 2026  |
+| `gemini-2.5-flash`                   | June 17, 2025     | Not before October 16, 2026  |
+| `gemini-2.5-flash-lite`              | July 22, 2025     | Not before October 16, 2026  |
+| `gemini-2.5-flash-image`             | October 2, 2025   | October 2, 2026              |
+| `gemini-2.0-flash-001`               | February 5, 2025  | June 1, 2026                 |
+| `gemini-2.0-flash-lite-001`          | February 25, 2025 | June 1, 2026                 |
+
+### Veo models
+
+| Model ID                    | Release date      | Retirement date              |
+| --------------------------- | ----------------- | ---------------------------- |
+| `veo-3.1-generate-001`      | November 17, 2025 | No retirement date announced |
+| `veo-3.1-fast-generate-001` | November 17, 2025 | No retirement date announced |
+| `veo-3.0-generate-001`      | July 29, 2025     | June 30, 2026                |
+| `veo-3.0-fast-generate-001` | July 29, 2025     | June 30, 2026                |
+| `veo-2.0-generate-001`      | May 27, 2025      | June 30, 2026                |
+
+### Embeddings models
+
+| Model ID                          | Release date      | Retirement date              |
+| --------------------------------- | ----------------- | ---------------------------- |
+| `gemini-embedding-001`            | May 20, 2025      | No retirement date announced |
+| `text-embedding-005`              | November 18, 2024 | April 1, 2027                |
+| `text-embedding-004`              | May 14, 2024      | April 1, 2027                |
+| `text-multilingual-embedding-002` | May 14, 2024      | April 1, 2027                |
+| `multimodalembedding@001`         | February 12, 2024 | April 1, 2027                |
+
+## Migrate to a latest stable model
+
+To learn how to migrate to a latest stable model, see [Migrate to the latest Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) . This guide gives you a set of migration steps that aims to minimize some potential risks involved in model migration and helps you use new models in an optimal way.
+
+However, if you don't have time to follow the guide and just need to quickly resolve the errors caused by models reaching their retirement dates, do the following:
+
+1.  Update your application to point to the recommended upgrades.
+2.  Test all mission critical features to make sure everything works as expected.
+3.  Deploy the updates like you normally would.
+
+## Gemini auto-updated aliases
+
+The auto-updated alias of a Gemini model always points to the latest stable model. When a new latest stable model is available, the auto-updated alias automatically points to the new version.
+
+The following table shows the auto-updated aliases for Gemini models and the latest stable models that they point to.
+
+| Auto-updated alias      | Stable version reference    |
+| ----------------------- | --------------------------- |
+| `gemini-2.5-pro`        | `gemini-2.5-pro`            |
+| `gemini-2.5-flash`      | `gemini-2.5-flash`          |
+| `gemini-2.5-flash-lite` | `gemini-2.5-flash-lite`     |
+| `gemini-2.0-flash-lite` | `gemini-2.0-flash-lite-001` |
+| `gemini-2.0-flash`      | `gemini-2.0-flash-001`      |
+
+## Retired models
+
+#### The following table lists the retired models (click to expand)
+
+| Model ID                                         | Release date       | Retirement date    | Recommended upgrade      |
+| ------------------------------------------------ | ------------------ | ------------------ | ------------------------ |
+| `gemini-1.5-pro-001`                             | May 24, 2024       | May 24, 2025       | `gemini-2.0-flash`       |
+| `gemini-1.5-pro-002`                             | September 24, 2024 | September 24, 2025 | `gemini-2.0-flash`       |
+| `gemini-1.5-flash-001`                           | May 24, 2024       | May 24, 2025       | `gemini-2.0-flash-lite`  |
+| `gemini-1.5-flash-002`                           | September 24, 2024 | September 24, 2025 | `gemini-2.0-flash-lite`  |
+| ` textembedding-gecko@003           *          ` | December 12, 2023  | May 24, 2025       | `gemini-embedding-001`   |
+| `textembedding-gecko-multilingual@001`           | November 2, 2023   | May 24, 2025       | `gemini-embedding-001`   |
+| `gemini-1.0-pro-001`                             | February 15, 2024  | April 21, 2025     | `gemini-2.0-flash`       |
+| `gemini-1.0-pro-002`                             | April 9, 2024      | April 21, 2025     | `gemini-2.0-flash`       |
+| `gemini-1.0-pro-vision-001`                      | February 15, 2024  | April 21, 2025     | `gemini-2.0-flash`       |
+| `text-bison`                                     | May 2023           | April 21, 2025     | `gemini-2.0-flash-lite`  |
+| `chat-bison`                                     | May 2023           | April 21, 2025     | `gemini-2.0-flash-lite`  |
+| `code-gecko`                                     | May 2023           | April 21, 2025     | `gemini-2.0-flash-lite`  |
+| `textembedding-gecko@002`                        | November 2, 2023   | April 21, 2025     | `gemini-embedding-001`   |
+| `textembedding-gecko@001`                        | June 7, 2023       | April 21, 2025     | `gemini-embedding-001`   |
+| `imagetext`                                      | June 7, 2023       | September 24, 2025 | `gemini-2.5-flash-image` |
+
+## What's next
+
+Resource
+
+### [Deployment and endpoint locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/locations)
+
+List of what endpoints are available for deploying Vertex-hosted models such as Gemini, Veo, and more.
+
+Resource
+
+### [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)
+
+List of Google models that are available when using Agent Platform, such as Gemini, Veo, and Gemma.

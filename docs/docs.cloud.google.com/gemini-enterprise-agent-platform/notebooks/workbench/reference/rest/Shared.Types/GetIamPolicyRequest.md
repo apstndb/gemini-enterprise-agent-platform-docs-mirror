@@ -1,0 +1,77 @@
+---
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/GetIamPolicyRequest
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/GetIamPolicyRequest
+title: GetIamPolicyRequest
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+data_source: docs.cloud.google.com
+---
+
+Request message for `instances.getIamPolicy` method.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;resource&quot;: string,&quot;options&quot;: {object (GetPolicyOptions)}}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`resource`
+
+`string`
+
+REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field.
+
+`options`
+
+` object ( GetPolicyOptions  ` )
+
+OPTIONAL: A `GetPolicyOptions` object for specifying options to `instances.getIamPolicy` .
+
+## GetPolicyOptions
+
+Encapsulates settings provided to instances.getIamPolicy.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;requestedPolicyVersion&quot;: integer
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`requestedPolicyVersion`
+
+`integer`
+
+Optional. The maximum policy version that will be used to format the policy.
+
+Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.
+
+Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.
+
+The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.
+
+To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies) .
