@@ -1,0 +1,23 @@
+# settings.toml: Configuration for the Gemini Enterprise Agent Platform mirror
+
+# Discovery entry points
+seeds = [
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform",
+]
+
+# Path prefixes to mirror. The Agent Registry pages live outside the
+# gemini-enterprise-agent-platform/ path but are part of the same product.
+prefixes = [
+    "/gemini-enterprise-agent-platform/",
+    "/agent-registry/",
+]
+
+# Recursive discovery from Markdown content
+recursive = true
+
+# Rate limiting: requests per minute (default: 50.0)
+# qpm = 50.0
+
+# Wait duration when quota is exceeded (default: 1m10s)
+# qw = "1m10s"
