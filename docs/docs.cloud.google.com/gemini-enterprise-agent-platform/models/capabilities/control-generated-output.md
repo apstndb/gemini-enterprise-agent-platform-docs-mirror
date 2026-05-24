@@ -200,7 +200,15 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     #             "1 teaspoon baking soda",
     #             "1 teaspoon salt",
     #             "1 cup (2 sticks) unsalted butter, softened",
-    #             "3/4 cup granulated sugar",#             "3/4 cup packed brown sugar",#             "1 teaspoon vanilla extract",#             "2 large eggs",#             "2 cups chocolate chips",#         ],#         "recipe_name": "Chocolate Chip Cookies",#     }# ]
+    #             "3/4 cup granulated sugar",
+    #             "3/4 cup packed brown sugar",
+    #             "1 teaspoon vanilla extract",
+    #             "2 large eggs",
+    #             "2 cups chocolate chips",
+    #         ],
+    #         "recipe_name": "Chocolate Chip Cookies",
+    #     }
+    # ]
 
 ### Go
 
@@ -226,28 +234,28 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     // generateWithRespSchema shows how to use a response schema to generate output in a specific format.
     func generateWithRespSchema(w io.Writer) error {
-        ctx := context.Background(&)
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
-            return fmt.Errorf("f&ailed to create genai client: %w", err)
+            return fmt.Errorf("failed to create genai client: %w", err)
         }
     
-        config := genai.GenerateContentConfig{
+        config := &genai.GenerateContentConfig{
             ResponseMIMEType: "application/json",
             // See the OpenAPI specification for more details and examples:
-            //   http&s://spec.openapis.org/oas/v3.0.3.html#sche&ma-object
-            ResponseSchema: genai.Schema{
+            //   https://spec.openapis.org/oas/v3.0.3.html#schema-object
+            ResponseSchema: &genai.Schema{
                 Type: "array",
-                Items: genai.Schema{
+                Items: &genai.Schema{
                     Type: "object",
                     Properties: map[string]*genai.Schema{
-                        &"recipe_name": {Type: "string"},
+                        "recipe_name": {Type: "string"},
                         "ingredients": {
                             Type:  "array",
-                            Items: genai.Schema{Type: "string"},
+                            Items: &genai.Schema{Type: "string"},
                         },
                     },
                     Required: []string{"recipe_name", "ingredients"},
@@ -275,7 +283,20 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         // [
         //   {
         //     "ingredients": [
-        //       "2 1/4 cups all-purpose flour",//"1 teaspoon baking soda",//...//],//"recipe_name":"Chocolate Chip Cookies"//},//{//...//},//...//]returnnil}
+        //       "2 1/4 cups all-purpose flour",
+        //       "1 teaspoon baking soda",
+        //       ...
+        //     ],
+        //     "recipe_name": "Chocolate Chip Cookies"
+        //   },
+        //   {
+        //     ...
+        //   },
+        //   ...
+        // ]
+    
+        return nil
+    }
 
 ### Node.js
 
@@ -347,7 +368,15 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
       //             "3/4 cup granulated sugar",
       //             "3/4 cup packed brown sugar",
       //             "1 teaspoon vanilla extract",
-      //           "2 large eggs",  //             "2 cups chocolate chips",  //         ],  //         "recipe_name": "Chocolate Chip Cookies",  //     }  // ]  return response.text;}
+      //             "2 large eggs",
+      //             "2 cups chocolate chips",
+      //         ],
+      //         "recipe_name": "Chocolate Chip Cookies",
+      //     }
+      // ]
+    
+      return response.text;
+    }
 
 ### Java
 
@@ -433,7 +462,15 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
           //            "3/4 cup packed brown sugar",
           //            "1 teaspoon vanilla extract",
           //            "2 large eggs",
-          //"2 cups chocolate chips",//],//"recipe_name":"Chocolate Chip Cookies",//}//]returnresponse.text();}}}
+          //            "2 cups chocolate chips",
+          //        ],
+          //        "recipe_name": "Chocolate Chip Cookies",
+          //    }
+          // ]
+          return response.text();
+        }
+      }
+    }
 
 ### REST
 
@@ -560,9 +597,9 @@ You should receive a JSON response similar to the following.
     LOCATION="us-central1"
     MODEL_ID="gemini-2.5-flash"
     PROJECT_ID="test-project"
-    GENERATE_RESPONSE_<<METHO>D="generateContent"
+    GENERATE_RESPONSE_METHOD="generateContent"
     
-    cat  EOF  request.json
+    cat << EOF > request.json
     {
       "contents": {
         "role": "user",
@@ -671,8 +708,12 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     print(response.text)
     # Example output:
     # {"forecast": [{"Day": "Sunday", "Forecast": "sunny", "Temperature": 77, "Wind Speed": 10, "Humidity": "50%"},
-    #   {"Day": "Monday", "Forecast": "partly cloudy";, "Temperature": 72, "Wind Speed": 15},
-    #   {"Day": "Tuesday", "Forecast": "rain showers", "Temperature": 64, "Wind Speed": null, "Humidity": "70%"},#   {"Day": "Wednesday", "Forecast": "thunderstorms", "Temperature": 68, "Wind Speed": null},#   {"Day": "Thursday", "Forecast": "cloudy", "Temperature": 66, "Wind Speed": null, "Humidity": "60%"},#   {"Day": "Friday", "Forecast": "partly cloudy", "Temperature": 73, "Wind Speed": 12},#   {"Day": "Saturday", "Forecast": "sunny", "Temperature": 80, "Wind Speed": 8, "Humidity": "40%"}]}
+    #   {"Day": "Monday", "Forecast": "partly cloudy", "Temperature": 72, "Wind Speed": 15},
+    #   {"Day": "Tuesday", "Forecast": "rain showers", "Temperature": 64, "Wind Speed": null, "Humidity": "70%"},
+    #   {"Day": "Wednesday", "Forecast": "thunderstorms", "Temperature": 68, "Wind Speed": null},
+    #   {"Day": "Thursday", "Forecast": "cloudy", "Temperature": 66, "Wind Speed": null, "Humidity": "60%"},
+    #   {"Day": "Friday", "Forecast": "partly cloudy", "Temperature": 73, "Wind Speed": 12},
+    #   {"Day": "Saturday", "Forecast": "sunny", "Temperature": 80, "Wind Speed": 8, "Humidity": "40%"}]}
 
 ### Go
 
@@ -698,9 +739,9 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     // generateWithNullables shows how to use the response schema with nullable values.
     func generateWithNullables(w io.Writer) error {
-        ctx := context.Background(&)
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -719,21 +760,21 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     Finally, Saturday rounds off the week with sunny skies, a temperature of 80°F, and a humidity level of 40%. Winds will be gentle at 8 km/h.
     `
         contents := []*genai.Content{
-            {Parts: []*genai.&Part{
+            {Parts: []*genai.Part{
                 {Text: prompt},
             },
                 Role: genai.RoleUser},
         }
-        config := genai.GenerateContentConfig{
+        config := &genai.GenerateContentConfig{
             ResponseMIMEType: "application/json",
             // See the OpenAPI specification for more details and examples:
-        &   //   https://spec.openapis.org/oas/v3.0.3.html#schema-object
-            ResponseSchema: genai.Schema{
+            //   https://spec.openapis.org/oas/v3.0.3.html#schema-object
+            ResponseSchema: &genai.Schema{
                 Type: "object",
-        &       Properties: map[string]*genai.Schema{
+                Properties: map[string]*genai.Schema{
                     "forecast": {
                         Type: "array",
-                        Items: genai.Schema{
+                        Items: &genai.Schema{
                             Type: "object",
                             Properties: map[string]*genai.Schema{
                                 "Day":         {Type: "string", Nullable: genai.Ptr(true)},
@@ -763,7 +804,16 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         //    "forecast": [
         //        {"Day": "Sunday", "Forecast": "Sunny", "Temperature": 77, "Wind Speed": 10, "Humidity": "50%"},
         //        {"Day": "Monday", "Forecast": "Partly Cloudy", "Temperature": 72, "Wind Speed": 15},
-        //        {"Day": "Tuesday", "Forecast": "Rain Showers", "Temperature":64,"Wind Speed":null,"Humidity":"70%"},//{"Day":"Wednesday","Forecast":"Thunderstorms","Temperature":68,"Wind Speed":null},//{"Day":"Thursday","Forecast":"Cloudy","Temperature":66,"Wind Speed":null,"Humidity":"60%"},//{"Day":"Friday","Forecast":"Partly Cloudy","Temperature":73,"Wind Speed":12},//{"Day":"Saturday","Forecast":"Sunny","Temperature":80,"Wind Speed":8,"Humidity":"40%"}//]//}returnnil}
+        //        {"Day": "Tuesday", "Forecast": "Rain Showers", "Temperature": 64, "Wind Speed": null, "Humidity": "70%"},
+        //        {"Day": "Wednesday", "Forecast": "Thunderstorms", "Temperature": 68, "Wind Speed": null},
+        //        {"Day": "Thursday", "Forecast": "Cloudy", "Temperature": 66, "Wind Speed": null, "Humidity": "60%"},
+        //        {"Day": "Friday", "Forecast": "Partly Cloudy", "Temperature": 73, "Wind Speed": 12},
+        //        {"Day": "Saturday", "Forecast": "Sunny", "Temperature": 80, "Wind Speed": 8, "Humidity": "40%"}
+        //    ]
+        // }
+    
+        return nil
+    }
 
 ### Node.js
 
@@ -841,7 +891,13 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
       //  {"forecast": [{"Day": "Sunday", "Forecast": "sunny", "Temperature": 77, "Wind Speed": 10, "Humidity": "50%"},
       //   {"Day": "Monday", "Forecast": "partly cloudy", "Temperature": 72, "Wind Speed": 15},
       //   {"Day": "Tuesday", "Forecast": "rain showers", "Temperature": 64, "Wind Speed": null, "Humidity": "70%"},
-      //   {"Day": "Wednesday", "Forecast": &quot;thunderstorms", "Temperature": 68, "Wind Speed": null},  //   {"Day": "Thursday", "Forecast": "cloudy", "Temperature": 66, "Wind Speed": null, "Humidity": "60%"},  //   {"Day": "Friday", "Forecast": "partly cloudy", "Temperature": 73, "Wind Speed": 12},  //   {"Day": "Saturday", "Forecast": "sunny", "Temperature": 80, "Wind Speed": 8, "Humidity": "40%"}]}  return response.text;}
+      //   {"Day": "Wednesday", "Forecast": "thunderstorms", "Temperature": 68, "Wind Speed": null},
+      //   {"Day": "Thursday", "Forecast": "cloudy", "Temperature": 66, "Wind Speed": null, "Humidity": "60%"},
+      //   {"Day": "Friday", "Forecast": "partly cloudy", "Temperature": 73, "Wind Speed": 12},
+      //   {"Day": "Saturday", "Forecast": "sunny", "Temperature": 80, "Wind Speed": 8, "Humidity": "40%"}]}
+    
+      return response.text;
+    }
 
 ### Java
 
@@ -944,7 +1000,18 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
           // {"forecast": [{"Day": "Sunday", "Forecast": "sunny", "Temperature": 77, "Wind Speed": 10,
           // "Humidity": "50%"},
           //  {"Day": "Monday", "Forecast": "partly cloudy", "Temperature": 72, "Wind Speed": 15},
-          //  {"Day": "Tuesday", "Forecast": "rain showers", "Temperature": 64, "Wind Speed":null,//"Humidity":"70%"},//{"Day":"Wednesday","Forecast":"thunderstorms","Temperature":68,"Wind Speed":null},//{"Day":"Thursday","Forecast":"cloudy","Temperature":66,"Wind Speed":null,//"Humidity":"60%"},//{"Day":"Friday","Forecast":"partly cloudy","Temperature":73,"Wind Speed":12},//{"Day":"Saturday","Forecast":"sunny","Temperature":80,"Wind Speed":8,"Humidity"://"40%"}]}returnresponse.text();}}}
+          //  {"Day": "Tuesday", "Forecast": "rain showers", "Temperature": 64, "Wind Speed": null,
+          // "Humidity": "70%"},
+          //  {"Day": "Wednesday", "Forecast": "thunderstorms", "Temperature": 68, "Wind Speed": null},
+          //  {"Day": "Thursday", "Forecast": "cloudy", "Temperature": 66, "Wind Speed": null,
+          // "Humidity": "60%"},
+          //  {"Day": "Friday", "Forecast": "partly cloudy", "Temperature": 73, "Wind Speed": 12},
+          //  {"Day": "Saturday", "Forecast": "sunny", "Temperature": 80, "Wind Speed": 8, "Humidity":
+          // "40%"}]}
+          return response.text();
+        }
+      }
+    }
 
 #### Classify a product
 
@@ -977,7 +1044,14 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
             response_mime_type="text/x.enum",
             response_schema={
                 "type": "STRING",
-                "enum": ["Percussion", "String", "Woodwind","Brass","Keyboard"],},),)print(response.text)# Example output:# Woodwind
+                "enum": ["Percussion", "String", "Woodwind", "Brass", "Keyboard"],
+            },
+        ),
+    )
+    
+    print(response.text)
+    # Example output:
+    # Woodwind
 
 ### Go
 
@@ -1003,9 +1077,9 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     // generateWithEnumSchema shows how to use enum schema to generate output.
     func generateWithEnumSchema(w io.Writer) error {
-        ctx := context.Background(&)
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -1015,12 +1089,12 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         modelName := "gemini-2.5-flash"
         contents := []*genai.Content{
             {Parts: []*genai.Part{
-                {Text: "What t&ype of instrument is an oboe?"},
+                {Text: "What type of instrument is an oboe?"},
             }, Role: genai.RoleUser},
         }
-        config := ge&nai.GenerateContentConfig{
+        config := &genai.GenerateContentConfig{
             ResponseMIMEType: "text/x.enum",
-            ResponseSchema: genai.Schema{
+            ResponseSchema: &genai.Schema{
                 Type: "STRING",
                 Enum: []string{"Percussion", "String", "Woodwind", "Brass", "Keyboard"},
             },
@@ -1028,7 +1102,18 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
         resp, err := client.Models.GenerateContent(ctx, modelName, contents, config)
         if err != nil {
-            return fmt.Errorf("failed to generate content: %w",err)}respText:=resp.Text()fmt.Fprintln(w,respText)//Exampleresponse://Woodwindreturnnil}
+            return fmt.Errorf("failed to generate content: %w", err)
+        }
+    
+        respText := resp.Text()
+    
+        fmt.Fprintln(w, respText)
+    
+        // Example response:
+        // Woodwind
+    
+        return nil
+    }
 
 ### Node.js
 
@@ -1075,7 +1160,11 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         },
       });
     
-      console.log(response.text);  // Example output:  //  Woodwind  return response.text;}
+      console.log(response.text);
+      // Example output:
+      //  Woodwind
+      return response.text;
+    }
 
 ### Java
 
@@ -1134,4 +1223,10 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
           GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
     
-          System.out.print(response.text());//Exampleresponse://Woodwindreturnresponse.text();}}}
+          System.out.print(response.text());
+          // Example response:
+          // Woodwind
+          return response.text();
+        }
+      }
+    }

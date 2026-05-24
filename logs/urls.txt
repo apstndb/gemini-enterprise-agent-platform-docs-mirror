@@ -48,7 +48,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/cre
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-llamaindex-agent	2026-05-22T17:11:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent	2026-05-22T17:11:37Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent	2026-05-24T01:53:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-ag2-agent	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent	2026-05-22T17:11:50Z
@@ -326,7 +326,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/train-model	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/create-dataset	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/evaluate-model	2026-05-22T17:11:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions	2026-05-22T17:11:37Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions	2026-05-24T03:45:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/interpret-results	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/prepare-data	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/train-model	2026-05-22T17:11:43Z
@@ -391,7 +391,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/migrate-kfp	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/notebooks	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/output-html-md	2026-05-22T17:11:43Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/persistent-resources	2026-05-23T04:18:54Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/persistent-resources	2026-05-24T03:45:51Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/request-gcp-machine-resources	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/rerun-pipeline-task	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/route-pubsub	2026-05-22T17:11:57Z
@@ -416,7 +416,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-model-garden	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions	2026-05-23T04:21:54Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions	2026-05-22T17:11:57Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions	2026-05-23T05:28:22Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging	2026-05-22T17:11:57Z
@@ -464,10 +464,10 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/use-terraform-vertex-ai	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations	2026-05-22T17:12:03Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset	2026-05-22T17:11:37Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset	2026-05-23T05:28:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions	2026-05-23T04:22:10Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions	2026-05-23T04:22:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions	2026-05-23T05:28:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview	2026-05-21T16:38:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data	2026-05-22T17:11:50Z
@@ -477,7 +477,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet	2026-05-22T17:11:50Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset	2026-05-23T04:22:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset	2026-05-23T05:28:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/evaluate-model	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions	2026-05-23T04:22:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical	2026-05-22T17:11:43Z
@@ -486,11 +486,11 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl	2026-05-22T17:11:37Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-batch-predictions	2026-05-23T04:22:10Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-online-predictions	2026-05-23T04:22:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-batch-predictions	2026-05-24T03:44:30Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-online-predictions	2026-05-24T03:44:30Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting	2026-05-22T17:11:37Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions	2026-05-23T04:22:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions	2026-05-24T03:44:30Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-online-predictions	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview	2026-05-22T17:11:50Z
@@ -540,7 +540,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/cluster-resiliency	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources	2026-05-22T17:11:43Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster	2026-05-23T04:22:04Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster	2026-05-23T05:26:16Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/get-started	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-shared-slurm-cluster	2026-05-22T17:11:57Z
@@ -604,7 +604,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabiliti
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-resume	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters	2026-05-22T17:11:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output	2026-05-23T04:19:06Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output	2026-05-23T05:22:41Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/datasets	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding	2026-05-22T17:11:50Z
@@ -746,8 +746,8 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/op
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/examples	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview	2026-05-22T17:11:43Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial	2026-05-23T04:22:07Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial-tpu	2026-05-23T04:22:07Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial	2026-05-24T03:43:33Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial-tpu	2026-05-24T03:43:33Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-models-with-custom-weights	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/lora-qlora	2026-05-22T17:11:50Z
@@ -878,7 +878,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translate/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-use-supervised-tuning	2026-05-22T17:11:37Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings	2026-05-23T04:22:03Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings	2026-05-24T03:46:59Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-function-calling	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/audio_tune	2026-05-22T17:11:43Z
@@ -1164,7 +1164,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api	2026-05-22T17:12:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-api-v1	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained	2026-05-22T17:12:03Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api	2026-05-22T17:11:50Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api	2026-05-23T05:27:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest	2026-05-19T18:54:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AcceleratorType	2026-05-19T18:54:29Z

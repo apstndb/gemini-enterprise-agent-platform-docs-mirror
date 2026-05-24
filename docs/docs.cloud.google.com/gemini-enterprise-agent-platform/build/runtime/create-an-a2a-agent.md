@@ -39,7 +39,7 @@ To create an A2A agent, you need to define the following components: an `AgentCa
 The following code sample defines an `AgentCard` for a currency exchange rate agent:
 
     from a2a.types import AgentCard, AgentSkill
-    from vertexai.preview.reasoning_engines.templates.a2a import create_agent_card
+    from vertexai.agent_engines.templates.a2a import create_agent_card
     
     # Define the skill for the CurrencyAgent
     currency_skill = AgentSkill(
@@ -65,18 +65,19 @@ The following code sample defines an `AgentCard` for a currency exchange rate ag
 The following code example defines an `AgentExecutor` that responds with the currency exchange rate. It takes a `CurrencyAgent` instance and initializes the ADK Runner to execute requests.
 
     import requests
-    from a2a.server.agent_execution import AgentExecutor, RequestContext
-    from a2a.server.events import EventQueue
+    from a2a.server.agent_execution.agent_executor import AgentExecutor
+    from a2a.server.agent_execution.context import RequestContext
+    from a2a.server.events.event_queue import EventQueue
     from a2a.server.tasks import TaskUpdater
-    from a2a.types import TaskState, TextPart, UnsupportedOperationError, Part
-    from a2a.utils import new_agent_text_message
-    from a2a.utils.errors import ServerError
+    from a2a import types as a2a_types
+    from a2a.types import Part
+    
     from google.adk import Runner
     from google.adk.agents import LlmAgent
-    from google.adk.artifacts import InMemoryArtifactService
+    from google.adk.artifacts.in_memory_artifact_service import InMemoryArtifactService
     from google.adk.memory.in_memory_memory_service import InMemoryMemoryService
-    from google.adk.sessions import InMemorySessionService
-    from google.genai import types
+    from google.adk.sessions.in_memory_session_service import InMemorySessionService
+    from google.genai import types as genai_types
     
     class CurrencyAgentExecutorWithRunner(AgentExecutor):
         """Executor that takes an LlmAgent instance and initializes the ADK Runner internally."""
@@ -95,8 +96,14 @@ The following code example defines an `AgentExecutor` that responds with the cur
                     memory_service=InMemoryMemoryService(),
                 )
     
-        async def cancel(self, context: RequestContext, event_queue: EventQueue):
-            raise ServerError(error=UnsupportedOperationError())
+        async def cancel(self, context: RequestContext, event_queue: EventQueue) -> None:
+            task_id = context.task_id
+            updater = TaskUpdater(
+                event_queue=event_queue,
+                task_id=task_id or "",
+                context_id=context.context_id or "",
+            )
+            await updater.cancel()
     
         async def execute(
             self,
@@ -111,12 +118,19 @@ The following code example defines an `AgentExecutor` that responds with the cur
             user_id = context.message.metadata.get('user_id') if context.message and context.message.metadata else 'a2a_user'
     
             updater = TaskUpdater(event_queue, context.task_id, context.context_id)
-            if not context.current_task:
-                await updater.submit()
+            
+            task = a2a_types.Task(
+                id=context.task_id,
+                context_id=context.context_id,
+                status=a2a_types.TaskStatus(state=a2a_types.TaskState.TASK_STATE_SUBMITTED),
+                history=[context.message] if context.message else [],
+            )
+            await event_queue.enqueue_event(task)
+    
             await updater.start_work()
     
             query = context.get_user_input()
-            content = types.Content(role='user', parts=[types.Part(text=query)])
+            content = genai_types.Content(role='user', parts=[genai_types.Part.from_text(text=query)])
     
             try:
                 session = await self.runner.session_service.get_session(
@@ -144,23 +158,22 @@ The following code example defines an `AgentExecutor` that responds with the cur
                     )
                     if response_text:
                         await updater.add_artifact(
-                            [TextPart(text=response_text)],
+                            [Part(text=response_text)],
                             name='result',
+                            last_chunk=True,
                         )
                         await updater.complete()
                         return
     
                 await updater.update_status(
-                    TaskState.failed,
-                    message=new_agent_text_message('Failed to generate a final response with text content.'),
-                    final=True
+                    a2a_types.TaskState.TASK_STATE_FAILED,
+                    message=updater.new_agent_message([Part(text='Failed to generate a final response with text content.')]),
                 )
     
             except Exception as e:
                 await updater.update_status(
-                    TaskState.failed,
-                    message=new_agent_text_message(f"An error occurred: {str(e)}"),
-                    final=True,
+                    a2a_types.TaskState.TASK_STATE_FAILED,
+                    message=updater.new_agent_message([Part(text=f"An error occurred: {str(e)}")]),
                 )
 
 ### Define an `LlmAgent`
@@ -202,7 +215,7 @@ Then, define an ADK `LlmAgent` that uses the tool.
 
 Once you have defined your agent's components, create an instance of the [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) class that uses the `AgentCard` , `AgentExecutor` , and `LlmAgent` to begin local testing.
 
-    from vertexai.preview.reasoning_engines import A2aAgent
+    from vertexai.agent_engines.templates.a2a import A2aAgent
     
     a2a_agent = A2aAgent(
         agent_card=agent_card, # Assuming agent_card is defined
@@ -234,39 +247,24 @@ The following code retrieves the agent's authenticated card, which describes the
 
 The following code simulates a client sending a new message to the agent. The [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) creates a new task and returns the task's ID.
 
-    import json
-    from starlette.requests import Request
-    import asyncio
+    from a2a.types import SendMessageRequest, Message, Part
+    from a2a.server.context import ServerCallContext
     
-    # 1. Define the message payload you want to send.
-    message_data = {
-        "message": {
-            "messageId": "local-test-message-id",
-            "content":[
-                  {
-                      "text": "What is the exchange rate from USD to EUR today?"
-                  }
-              ],
-            "role": "ROLE_USER",
-        },
-    }
+    # 1. Define the message
+    message = Message(
+        role="ROLE_USER",
+        message_id="local-test-message-id",
+        parts=[Part(text="What is the exchange rate from USD to EUR today?")]
+    )
     
     # 2. Construct the request
-    scope = {
-        "type": "http",
-        "http_version": "1.1",
-        "method": "POST",
-        "headers": [(b"content-type", b"application/json")],
-    }
+    request = SendMessageRequest(message=message)
     
-    async def receive():
-        byte_data = json.dumps(message_data).encode("utf-8")
-        return {"type": "http.request", "body": byte_data, "more_body": False}
+    # 3. Construct context
+    context = ServerCallContext()
     
-    post_request = Request(scope, receive=receive)
-    
-    # 3. Call the agent
-    send_message_response = await a2a_agent.on_message_send(request=post_request, context=None)
+    # 4. Call the agent
+    send_message_response = await a2a_agent.on_message_send(request=request, context=context)
     
     print(send_message_response)
 
@@ -274,33 +272,18 @@ The following code simulates a client sending a new message to the agent. The [`
 
 The following code retrieves the status and the result of a task. The output shows that the task is completed and includes the "Hello World" response artifact.
 
-    from starlette.requests import Request
-    import asyncio
+    from a2a.types import GetTaskRequest
     
     # 1. Provide the task_id from the previous step.
     # In a real application, you would store and retrieve this ID.
-    task_id_to_get = send_message_response['task']['id']
+    task_id_to_get = send_message_response.id
     
-    # 2. Define the path parameters for the request.
-    task_data = {"id": task_id_to_get}
+    # 2. Construct the request
+    request = GetTaskRequest(id=task_id_to_get)
     
-    # 3. Construct the starlette.requests.Request object directly.
-    scope = {
-        "type": "http",
-        "http_version": "1.1",
-        "method": "GET",
-        "headers": [],
-        "query_string": b'',
-        "path_params": task_data,
-    }
-    
-    async def empty_receive():
-        return {"type": "http.disconnect"}
-    
-    get_request = Request(scope, empty_receive)
-    
-    # 4. Call the agent's handler to get the task status.
-    task_status_response = await a2a_agent.on_get_task(request=get_request, context=None)
+    # 3. Call the agent's handler to get the task status.
+    # Reusing the context constructed in the previous step
+    task_status_response = await a2a_agent.on_get_task(request=request, context=context)
     
     print(f"Successfully retrieved status for Task ID: {task_id_to_get}")
     print("\nFull task status response:")
