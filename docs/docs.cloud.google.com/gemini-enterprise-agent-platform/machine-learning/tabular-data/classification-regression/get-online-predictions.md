@@ -958,42 +958,30 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictTabularClassification(String instance, String project, String endpointId)
           throws IOException {
-        PredictionServiceSettings predictionServiceSettings =
-            PredictionServiceSettings.newBuilder()
-                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServicPredictionServiceSettingsceSettings =
+            PredictionServicPredictionServiceSettings          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServiceClient predictionServiceClient =
-            PredictionServiceClient.create(predictionServiceSettings)) {
+        try (PredictionServicPredictionServiceClientceClient =
+            PredictionServicPredictionServiceClientonServiceSettings)) {
           String location = "us-central1";
-          EndpointName endpointName = EndpointName.of(project, location, endpointId);
+          EndpointName endEndpointNameEndpointName.of(EndpointNameation, endpointId);
     
-          ListValue.Builder listValue = ListValue.newBuilder();
-          JsonFormat.parser().merge(instance, listValue);
-          List<Value> instanceList = listValue.getValuesList();
+          ListValue.BuildeListValueue = ListValue.newBuiListValue     JsonFormat.parseJsonFormatinstance, listValue);
+          List<Value> instanListValuelistValue.getValuesList();
     
-          Value parameters = Value.newBuilder().setListValue(listValue).build();
-          PredictResponse predictResponse =
+          Value parametersValuelue.newBuilderValuetListValue(listValue).build();
+          PredictResponse PredictResponse =
               predictionServiceClient.predict(endpointName, instanceList, parameters);
           System.out.println("Predict Tabular Classification Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.getDeployedModelId());
+          System.out.format("\tDeployed Model Id: %s\n", predictResponse.predictResponse.getDeployedModelId().out.println("Predictions");
+          for (Value predictionValueedictResponse.predictResponse.getPredictionsList()larClassificTabularClassificationPredictionResultuilder =
+                TabularClassificTabularClassificationPredictionResult       TabularClassificTabularClassificationPredictionResult      (TabularClassificTabularClassificationPredictionResult  ValueConverter.fValueConvertertBuilder, prediction);
     
-          System.out.println("Predictions");
-          for (Value prediction : predictResponse.getPredictionsList()) {
-            TabularClassificationPredictionResult.Builder resultBuilder =
-                TabularClassificationPredictionResult.newBuilder();
-            TabularClassificationPredictionResult result =
-                (TabularClassificationPredictionResult)
-                    ValueConverter.fromValue(resultBuilder, prediction);
-    
-            for (int i = 0; i < result.getClassesCount(); i++) {
-              System.out.printf("\tClass: %s", result.getClasses(i));
-              System.out.printf("\tScore: %f", result.getScores(i));
-            }
-          }
+            for (int i = 0; i < result.getClasseresult.getClassesCount()   System.out.printf("\tClass: %s", result.getClasseresult.getClasses(i)tem.out.printf("\tScore: %f", result.getScoresresult.getScores(i)   }
         }
       }
     }
@@ -1245,42 +1233,30 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictTabularRegression(String instance, String project, String endpointId)
           throws IOException {
-        PredictionServiceSettings predictionServiceSettings =
-            PredictionServiceSettings.newBuilder()
-                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServicPredictionServiceSettingsceSettings =
+            PredictionServicPredictionServiceSettings          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServiceClient predictionServiceClient =
-            PredictionServiceClient.create(predictionServiceSettings)) {
+        try (PredictionServicPredictionServiceClientceClient =
+            PredictionServicPredictionServiceClientonServiceSettings)) {
           String location = "us-central1";
-          EndpointName endpointName = EndpointName.of(project, location, endpointId);
+          EndpointName endEndpointNameEndpointName.of(EndpointNameation, endpointId);
     
-          ListValue.Builder listValue = ListValue.newBuilder();
-          JsonFormat.parser().merge(instance, listValue);
-          List<Value> instanceList = listValue.getValuesList();
+          ListValue.BuildeListValueue = ListValue.newBuiListValue     JsonFormat.parseJsonFormatinstance, listValue);
+          List<Value> instanListValuelistValue.getValuesList();
     
-          Value parameters = Value.newBuilder().setListValue(listValue).build();
-          PredictResponse predictResponse =
+          Value parametersValuelue.newBuilderValuetListValue(listValue).build();
+          PredictResponse PredictResponse =
               predictionServiceClient.predict(endpointName, instanceList, parameters);
           System.out.println("Predict Tabular Regression Response");
-          System.out.format("\tDisplay Model Id: %s\n", predictResponse.getDeployedModelId());
+          System.out.format("\tDisplay Model Id: %s\n", predictResponse.predictResponse.getDeployedModelId().out.println("Predictions");
+          for (Value predictionValueedictResponse.predictResponse.getPredictionsList()larRegressioTabularRegressionPredictionResultuilder =
+                TabularRegressioTabularRegressionPredictionResult        TabularRegressioTabularRegressionPredictionResult      (TabularRegressioTabularRegressionPredictionResult.fValueConvertertBuilder, prediction);
     
-          System.out.println("Predictions");
-          for (Value prediction : predictResponse.getPredictionsList()) {
-            TabularRegressionPredictionResult.Builder resultBuilder =
-                TabularRegressionPredictionResult.newBuilder();
-    
-            TabularRegressionPredictionResult result =
-                (TabularRegressionPredictionResult) ValueConverter.fromValue(resultBuilder, prediction);
-    
-            System.out.printf("\tUpper bound: %f\n", result.getUpperBound());
-            System.out.printf("\tLower bound: %f\n", result.getLowerBound());
-            System.out.printf("\tValue: %f\n", result.getValue());
-          }
-        }
+            System.out.printf("\tUpper bound: %f\n", result.getUpperBresult.getUpperBound()m.out.printf("\tLower bound: %f\n", result.getLowerBresult.getLowerBound()m.out.printf("\tValue: %f\n", result.getValue(result.getValue()
       }
     }
 

@@ -10,6 +10,28 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## May 20, 2026
+
+Change
+
+### Supervised fine-tuning available for Gemini 3.1 Flash Lite (Preview)
+
+Supervised fine-tuning is now available for limited support for the `gemini-3.1-flash-lite` model. During this period, model tuning for Gemini 3.1 Flash Lite is restricted to `us-central1` and `europe-west4` and tuned model serving is restricted to the `us` and `eu` multi-region endpoints.
+
+See [About supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) for more information.
+
+Change
+
+### Set media resolution at a Part-level for data when using supervised fine-tuning
+
+Supervised fine-tuning now supports `Part` -level `mediaResolution` declarations for images, videos, and PDFs. `Part` -level media resolution declarations also support the `MEDIA_RESOLUTION_ULTRA_HIGH` level.
+
+See the following media type–specific pages for more information:
+
+  - [Document tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/doc_tune)
+  - [Image tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/image_tune)
+  - [Video tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune_gemini/video_tune)
+
 ## May 19, 2026
 
 Feature

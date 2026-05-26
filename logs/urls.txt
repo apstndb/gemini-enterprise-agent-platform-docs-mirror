@@ -467,7 +467,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset	2026-05-25T03:34:44Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model	2026-05-22T17:11:37Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions	2026-05-23T04:22:10Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions	2026-05-25T03:33:17Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions	2026-05-26T06:50:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging	2026-05-22T17:11:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview	2026-05-21T16:38:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data	2026-05-22T17:11:50Z
@@ -2682,7 +2682,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/goo
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.rpc	2026-05-19T18:54:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type	2026-05-19T18:54:16Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp	2026-05-22T17:12:03Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-05-21T16:38:12Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-05-26T06:47:53Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources	2026-05-22T17:11:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations	2026-05-22T17:11:50Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas	2026-05-22T17:11:50Z
