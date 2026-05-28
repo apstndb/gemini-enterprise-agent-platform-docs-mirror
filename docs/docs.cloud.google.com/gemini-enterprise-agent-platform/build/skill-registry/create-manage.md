@@ -127,7 +127,26 @@ Before using any of the request data, make the following replacements:
 
 Organize skill files (such as `SKILL.md` , instructions, and code files) in a local directory. The SDK supports passing either a local directory path (which is automatically compressed) or a pre-zipped path.
 
-    from google.cloud.aiplatform import agentplatform
+For `google-cloud-aiplatform` (which provides `agentplatform` ) version `1.154.0` and later:
+
+    import agentplatform
+    
+    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
+    
+    skill = client.skills.create(
+        skill_id="SKILL_ID",
+        display_name="DISPLAY_NAME",
+        description="DESCRIPTION",
+        config={
+            # Local directory path (automatically compressed) or pre-zipped file path (.zip)
+            "local_path": "SKILL_PATH",
+        },
+    )
+    print(skill.name)
+
+For `google-cloud-aiplatform` (which provides `agentplatform` ) versions older than `1.154.0` :
+
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
@@ -207,7 +226,7 @@ The following `curl` command updates the display name, description, and zipped s
 
 The SDK supports updating the skill files by passing either an unzipped local directory path or a pre-zipped path.
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
@@ -260,7 +279,7 @@ Before using any of the request data, make the following replacements:
 
 ### SDK
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
@@ -296,7 +315,7 @@ Before using any of the request data, make the following replacements:
 
 ### SDK
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
@@ -337,7 +356,7 @@ Before using any of the request data, make the following replacements:
 
 ### SDK
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
@@ -385,15 +404,15 @@ Before using any of the request data, make the following replacements:
 
 ### SDK
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
     response = client.skills.revisions.list(
         name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
     )
-    for revision in response.revisions:
-        print(revision.name, revision.create_time)
+    for skill_revision in response.skill_revisions:
+        print(skill_revision.name, skill_revision.create_time)
 
 ## Get a skill revision
 
@@ -424,7 +443,7 @@ Before using any of the request data, make the following replacements:
 
 ### SDK
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     
@@ -461,7 +480,7 @@ Before using any of the request data, make the following replacements:
 
 ### SDK
 
-    from google.cloud.aiplatform import agentplatform
+    import agentplatform
     
     client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     

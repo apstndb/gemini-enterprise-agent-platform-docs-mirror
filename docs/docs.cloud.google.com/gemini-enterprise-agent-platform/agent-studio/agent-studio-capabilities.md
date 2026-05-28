@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities
 title: Agent Studio capabilities
-description: Learn about the capabilities of Agent Studio for discovering models, prompt engineering, and collaborative development within the Agent Platform platform.
+description: Learn about the capabilities of Agent Studio for discovering models, prompt engineering, and collaborative development within Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

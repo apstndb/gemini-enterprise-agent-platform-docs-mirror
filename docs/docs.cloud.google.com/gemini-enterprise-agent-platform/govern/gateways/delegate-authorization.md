@@ -78,14 +78,9 @@ The following steps show you how to configure an authorization extension with an
     
     2.  Import the authorization extension. Use the [`gcloud beta service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-extensions/authz-extensions/import) with the following sample values.
         
-        ``` 
-          gcloud beta service-extensions authz-extensions import my-iap-request-authz-ext 
-        
-              --source=iap-request-authz-extension.yaml 
-        
-              --location=LOCATION
-          
-        ```
+            gcloud beta service-extensions authz-extensions import my-iap-request-authz-ext \
+                --source=iap-request-authz-extension.yaml \
+                --location=LOCATION
 
 4.  In the same project, configure an authorization policy that delegates the decision to the extension.
     
@@ -108,14 +103,9 @@ The following steps show you how to configure an authorization extension with an
     
     2.  Import the authorization policy to the project. Use the [`gcloud beta network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/authorization-policies/import) with the following sample values.
         
-        ``` 
-          gcloud beta network-security authz-policies import my-iap-request-authz-policy 
-        
-              --source=iap-request-authz-policy.yaml 
-        
-              --location=LOCATION
-          
-        ```
+            gcloud beta network-security authz-policies import my-iap-request-authz-policy \
+                --source=iap-request-authz-policy.yaml \
+                --location=LOCATION
 
 ### Delegate authorization to Model Armor
 
@@ -283,19 +273,14 @@ When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryp
 
 2.  Create the authorization extension to point to the custom service.
     
-    ``` 
-      gcloud beta service-extensions authz-extensions import custom-authz-extension 
-    
-        --source=custom-authz-extension.yaml 
-    
-        --location=LOCATION
-      
-    ```
+        gcloud beta service-extensions authz-extensions import custom-authz-extension \
+          --source=custom-authz-extension.yaml \
+          --location=LOCATION
 
 3.  After you create the extension, configure a `CUSTOM` authorization policy that delegates decisions to the authorization extension.
     
     ``` 
-      $ cat >authz-policy.yaml <<EOF
+      cat >authz-policy.yaml <<EOF
       name: authz-with-extension
       target:
         resources:
@@ -327,7 +312,7 @@ The following example uses IAP as a centralized request authorization system and
     
     1.  Define the authorization extension.
         
-            $ cat >iap-extension.yaml <<EOF
+            cat >iap-extension.yaml <<EOF
             name: iap-extension
             service: iap.googleapis.com
             failOpen: true
@@ -344,7 +329,7 @@ The following example uses IAP as a centralized request authorization system and
     
     3.  Configure the `REQUEST_AUTHZ` authorization policy that delegates to the extension.
         
-            $ cat >authz-policy-request-authz.yaml <<EOF
+            cat >authz-policy-request-authz.yaml <<EOF
             name: authz-iap
             target:
               resources:
@@ -373,7 +358,7 @@ The following example uses IAP as a centralized request authorization system and
     
     1.  Define the extension.
         
-            $ cat >ma-extension-file.yaml <<EOF
+            cat >ma-extension-file.yaml <<EOF
             name: ma-extension
             service: modelarmor.LOCATION.rep.googleapis.com
             metadata:
@@ -402,7 +387,7 @@ The following example uses IAP as a centralized request authorization system and
     
     3.  Configure the `CONTENT_AUTHZ` authorization policy that delegates to the extension.
         
-            $ cat >authz-policy-content-authz.yaml <<EOF
+            cat >authz-policy-content-authz.yaml <<EOF
             name: authz-ma
             target:
               resources:
@@ -439,7 +424,7 @@ You can restrict access based on MCP method parameters such as the names of spec
     
     When writing an `ALLOW` policy, make sure you specify `baseProtocolMethodsOption: MATCH_BASE_PROTOCOL_METHODS` so that non-access specific MCP RPCs like initialize, logging, completion, notifications, and ping continue to work. Failing to do so results in the inability to establish an MCP session.
     
-        $ cat >authz-policy-restrict-tools.yaml <<EOF
+        cat >authz-policy-restrict-tools.yaml <<EOF
         name: my-authz-policy-restrict-tools
         target:
           resources:
@@ -463,7 +448,7 @@ You can restrict access based on MCP method parameters such as the names of spec
     
     This example disallows all prompts/ method access to an MCP server behind an Agent Gateway.
     
-        $ cat >authz-policy-disallow-prompts.yaml <<EOF
+        cat >authz-policy-disallow-prompts.yaml <<EOF
         name: my-authz-policy-disallow-prompts
         target:
           resources:

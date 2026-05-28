@@ -181,16 +181,15 @@ The following prompt template shows you an example of what a well-structured pro
 
 Prompt design best practices include the following:
 
-  - [Give clear and specific instructions](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/clear-instructions)
-  - [Include few-shot examples](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/few-shot-examples)
-  - [Assign a role](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/assign-role)
-  - [Add contextual information](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/contextual-information)
-  - [Use system instructions](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/system-instructions)
-  - [Structure prompts](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/structure-prompts)
-  - [Instruct the model to explain its reasoning](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/explain-reasoning)
-  - [Break down complex tasks](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/break-down-prompts)
-  - [Experiment with parameter values](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/adjust-parameter-values)
-  - [Prompt iteration strategies](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/prompt-iteration)
+  - [Give clear and specific instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/clear-instructions)
+  - [Include few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples)
+  - [Add contextual information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/contextual-information)
+  - [Use system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions)
+  - [Structure prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/structure-prompts)
+  - [Instruct the model to explain its reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/explain-reasoning)
+  - [Break down complex tasks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/break-down-prompts)
+  - [Experiment with parameter values](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/adjust-parameter-values)
+  - [Prompt iteration strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-iteration)
 
 ## Prompt health checklist
 

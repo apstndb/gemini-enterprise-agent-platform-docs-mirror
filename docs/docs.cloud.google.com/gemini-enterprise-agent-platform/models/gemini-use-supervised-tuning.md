@@ -205,15 +205,15 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your project ID.
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - BASE\_MODEL : Name of the foundation model to tune.
-  - TRAINING\_DATASET\_URI : Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-about) .
+  - TRAINING\_DATASET\_URI : Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare) .
   - VALIDATION\_DATASET\_URI Optional: The Cloud Storage URI of your validation dataset file.
-  - EPOCH\_COUNT Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/tuning#supervisedtuningspec)
-  - ADAPTER\_SIZE Optional: The [Adapter size](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/tuning#adaptersize) to use for the tuning job. The adapter size influences the number of trainable parameters for the tuning job. A larger adapter size implies that the model can learn more complex tasks, but it requires a larger training dataset and longer training times.
-  - LEARNING\_RATE\_MULTIPLIER : Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/tuning#supervisedtuningspec)
+  - EPOCH\_COUNT Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+  - ADAPTER\_SIZE Optional: The [Adapter size](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#adaptersize) to use for the tuning job. The adapter size influences the number of trainable parameters for the tuning job. A larger adapter size implies that the model can learn more complex tasks, but it requires a larger training dataset and longer training times.
+  - LEARNING\_RATE\_MULTIPLIER : Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
   - EXPORT\_LAST\_CHECKPOINT\_ONLY Optional: Set to `true` to use only the latest checkpoint.
-  - METRIC\_SPEC Optional: One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/evaluation) you are using to run an evaluation using the Gen AI evaluation service. You can use the following metric specs: `"pointwise_metric_spec"` , `"pairwise_metric_spec"` , `"exact_match_spec"` , `"bleu_spec"` , and `"rouge_spec"` .
+  - METRIC\_SPEC Optional: One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation) you are using to run an evaluation using the Gen AI evaluation service. You can use the following metric specs: `"pointwise_metric_spec"` , `"pairwise_metric_spec"` , `"exact_match_spec"` , `"bleu_spec"` , and `"rouge_spec"` .
   - METRIC\_SPEC\_FIELD\_NAME Optional: The required fields for your chosen metric spec. For example, `"metric_prompt_template"`
   - METRIC\_SPEC\_FIELD\_NAME\_CONTENT Optional: The field content for your chosen metric spec. For example, you can use the following field content for a pointwise evaluation: `"Evaluate the fluency of this sentence: {response}. Give score from 0 to 1. 0 - not fluent at all. 1 - very fluent."`
   - CLOUD\_STORAGE\_BUCKET Optional: The Cloud Storage bucket to store the results of an evaluation run by the Gen AI evaluation service.
@@ -440,7 +440,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
 
 HTTP method and URL:
 
@@ -540,7 +540,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
 HTTP method and URL:
@@ -616,7 +616,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
 HTTP method and URL:

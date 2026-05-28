@@ -214,6 +214,12 @@ See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generati
 
 ## 2.5 Flash-Lite
 
+> **Preview**
+> 
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+> **Caution:** `gemini-2.5-flash-lite-preview-09-2025` will be discontinued on July 9, 2026. Update your application to use `gemini-2.5-flash-lite` or other supported model.
+
 [Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=gemini-2.5-flash-lite-preview-09-2025) [(Preview) Deploy example app](https://console.cloud.google.com/vertex-ai/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-2.5-flash-lite-preview-09-2025)
 
 Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
@@ -336,6 +342,7 @@ Versions
 
   - Launch stage: Public preview
   - Release date: September 25, 2025
+  - Discontinuation date: July 9, 2026
 
 Supported languages
 

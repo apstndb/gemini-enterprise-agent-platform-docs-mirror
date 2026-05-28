@@ -28,7 +28,7 @@ The customer's security responsibilities include the following:
     
       - Learn more about [Gemini Enterprise Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
-  - **Secure applications** : You are responsible for securing your own applications running on the Gemini Enterprise Agent Platform platform, including implementing secure coding practices and regularly testing for vulnerabilities.
+  - **Secure applications** : You are responsible for securing your own applications running on Gemini Enterprise Agent Platform, including implementing secure coding practices and regularly testing for vulnerabilities.
     
       - Learn more about [Customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
     

@@ -68,7 +68,7 @@ client = OpenAI()
 <td><code dir="ltr" translate="no"></code>
 <pre dir="ltr" data-is-upgraded="" data-syntax="Python" translate="no"><code>from google import genai
 
-# Use vertexai=True to use the Agent Platform platform
+# Use vertexai=True to use Agent Platform
 client = genai.Client(
     vertexai=True,
     project=&#39;your-project-id&#39;,

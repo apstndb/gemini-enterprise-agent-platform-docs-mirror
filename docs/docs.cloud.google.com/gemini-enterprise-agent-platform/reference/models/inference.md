@@ -569,6 +569,12 @@ Specify a lower value for less random responses and a higher value for more rand
   - Default for `gemini-2.0-flash-lite` : `0.95`
   - Default for `gemini-2.0-flash` : `0.95`
 
+`topK`
+
+Optional: `float`
+
+Specifies the top-k sampling threshold. The model considers only the top k most probable tokens for the next token. This can be useful for generating more coherent and less random text. For example, a \`topK\` of 40 means the model will choose the next word from the 40 most likely words.
+
 `candidateCount`
 
 Optional: `int`

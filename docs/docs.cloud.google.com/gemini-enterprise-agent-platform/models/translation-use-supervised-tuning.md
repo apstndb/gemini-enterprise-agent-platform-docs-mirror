@@ -29,7 +29,7 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded. Supported region: `us-central1` .
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded. Supported region: `us-central1` .
   - BASE\_MODEL : Name of the translation model to tune. Supported values: `translation-llm-002` .
   - TRAINING\_DATASET\_URI : Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare) .
   - VALIDATION\_DATASET\_URI Optional: The Cloud Storage URI of your validation dataset file.
@@ -164,7 +164,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
 
 HTTP method and URL:
 
@@ -240,7 +240,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
 HTTP method and URL:
@@ -344,7 +344,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
-  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
 HTTP method and URL:

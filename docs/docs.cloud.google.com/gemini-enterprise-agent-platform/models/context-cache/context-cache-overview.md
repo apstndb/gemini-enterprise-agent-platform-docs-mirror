@@ -64,7 +64,7 @@ Using the Gemini Enterprise API, you can:
 
 You can also use the Gemini Enterprise API to [retrieve information about a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo) .
 
-Explicit caches interact with implicit caching, potentially leading to additional caching beyond the specified contents when [creating a cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) . To prevent cache data retention, disable implicit caching and avoid creating explicit caches. For more information, see [Enable and disable caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vertex-ai-zero-data-retention#enabling-disabling-caching) .
+Explicit caches interact with implicit caching, potentially leading to additional caching beyond the specified contents when [creating a cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) . To prevent cache data retention, disable implicit caching and avoid creating explicit caches. For more information, see [Enable and disable caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention#enabling-disabling-caching) .
 
 ### Supported models
 
@@ -138,4 +138,4 @@ For more information, see [VPC Service Controls with Gemini Enterprise Agent Pla
 ## What's next
 
   - Learn about [the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) .
-  - Learn how to [use multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/send-multimodal-prompts) .
+  - Learn how to [use multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) .

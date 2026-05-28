@@ -6,7 +6,7 @@ description: You can generate Veo on Gemini Enterprise Agent Platform videos fro
 data_source: docs.cloud.google.com
 ---
 
-You can use Veo on Gemini Enterprise Agent Platform to generate new videos using an existing image as the first frame. Image first frame to video available through [Gemini Enterprise Agent Platform Media Studio](https://console.cloud.google.com/vertex-ai/studio/media/video) or using the [Gemini Enterprise Agent Platform video generation API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/veo-video-generation) .
+You can use Veo on Gemini Enterprise Agent Platform to generate new videos using an existing image as the first frame. Image first frame to video available through [Gemini Enterprise Agent Platform Media Studio](https://console.cloud.google.com/vertex-ai/studio/media/video) or using the [Gemini Enterprise Agent Platform video generation API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) .
 
 The following models support generating videos from an image:
 

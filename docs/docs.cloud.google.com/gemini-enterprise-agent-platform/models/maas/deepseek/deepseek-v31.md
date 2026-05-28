@@ -41,7 +41,7 @@ Consumption options
 
 Supported
 
-  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/dynamic-shared-quota)
+  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
 
 Not supported
 

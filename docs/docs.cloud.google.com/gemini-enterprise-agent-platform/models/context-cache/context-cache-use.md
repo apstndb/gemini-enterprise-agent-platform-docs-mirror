@@ -26,9 +26,9 @@ The context cache object you use in your code includes the following properties:
 
 If the following features are specified when you create a context cache, you shouldn't specify them again in your request:
 
-  - The `GenerativeModel.system_instructions` property. This property is used to specify instructions to the model before the model receives instructions from a user. For more information, see [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/learn/prompts/system-instructions) .
+  - The `GenerativeModel.system_instructions` property. This property is used to specify instructions to the model before the model receives instructions from a user. For more information, see [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) .
 
-  - The `GenerativeModel.tool_config` property. The [`tool_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling) property is used to specify tools used by the Gemini model, such as a tool used by the [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) feature.
+  - The `GenerativeModel.tool_config` property. The [`tool_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) property is used to specify tools used by the Gemini model, such as a tool used by the [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) feature.
 
   - The `GenerativeModel.tools` property. The `GenerativeModel.tools` property is used to specify functions to create a function calling application. For more information, see [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .
 

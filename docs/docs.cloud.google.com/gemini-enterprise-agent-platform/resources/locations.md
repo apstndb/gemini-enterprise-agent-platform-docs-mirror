@@ -6,6 +6,10 @@ description: Learn about the regional and global endpoints available for Google 
 data_source: docs.cloud.google.com
 ---
 
+This page lists the supported locations for Google and Partner models and generative AI features on Gemini Enterprise Agent Platform.
+
+To see supported locations for Google agents and agent infrastructure features, see [Supported locations for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
+
 Google and Partner models and generative AI features on Gemini Enterprise Agent Platform are exposed as specific [regional endpoints](https://cloud.google.com/about/locations) and a global endpoint. Global endpoints cover the entire world and provide higher availability and reliability than single regions.
 
 > **Important:** Endpoints don't guarantee data residency or in-region ML processing. For information about data residency, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) .

@@ -304,7 +304,7 @@ Before using any of the request data, make the following replacements:
     
         {"response": "The Roman Senate was filled with exuberance due to Pompey's defeat in Asia."}
 
-  - METRIC\_SPEC : One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/evaluation) you are using for evaluation. You can use the following metric specs when running evaluations at scale: `"pointwise_metric_spec"` , `"pairwise_metric_spec"` , `"exact_match_spec"` , `"bleu_spec"` , and `"rouge_spec"` .
+  - METRIC\_SPEC : One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation) you are using for evaluation. You can use the following metric specs when running evaluations at scale: `"pointwise_metric_spec"` , `"pairwise_metric_spec"` , `"exact_match_spec"` , `"bleu_spec"` , and `"rouge_spec"` .
 
   - METRIC\_SPEC\_FIELD\_NAME : The required fields for your chosen metric spec. For example, `"metric_prompt_template"`
 

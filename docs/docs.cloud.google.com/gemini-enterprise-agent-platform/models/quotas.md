@@ -165,7 +165,7 @@ Resource
 
 ### [Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/models/quotas)
 
-Quotas and system limits related to the Agent Platform platform, excluding product-specific quotas and system limits.
+Quotas and system limits related to Agent Platform, excluding product-specific quotas and system limits.
 
 Overview
 

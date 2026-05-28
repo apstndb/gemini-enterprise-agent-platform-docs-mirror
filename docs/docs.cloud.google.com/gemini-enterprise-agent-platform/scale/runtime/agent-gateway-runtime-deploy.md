@@ -24,8 +24,14 @@ This page describes how to route Agent Runtime traffic through Agent Gateway. Ag
 
 ### Limitations
 
-  - For a given project and region, there can only be one Agent-to-Anywhere (egress) instance and one Client-to-Agent (ingress) instance of Agent Gateway. All Agent Runtime agents within that same project and region that are configured to use Agent Gateway must use these specific gateway instances.
+  - While a single project and region can host multiple Agent-to-Anywhere (egress) and Client-to-Agent (ingress) Agent Gateway instances, all Agent Runtime agents deployed within that same project and region must bind to the same specific egress and ingress Agent Gateway instances.
+    
+    For example, if a project and region contains `egress-gateway-X` and `egress-gateway-Y` , all agents in that project and region must be configured to use the same gateway for egress. That is, either all agents use `egress-gateway-X` or all agents use `egress-gateway-Y` . You can't configure `agent-A` to use `egress-gateway-X` and `agent-B` to use `egress-gateway-Y` .
+    
+    This same binding rule applies to ingress gateways within a project and region as well.
+
   - The [Security Command Center Agent Engine Threat Detection service](https://docs.cloud.google.com/security-command-center/docs/agent-platform-threat-detection-overview) isn't available when Agent Gateway is enabled for an agent.
+
   - You can't unbind a Runtime agent from an Agent Gateway resource. For this reason, ensure that you use a dedicated test project.
 
 ## Route Agent Runtime traffic through Agent Gateway
@@ -36,7 +42,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     
     Ensure that the gateway is configured to meet your deployment's needs. For example, if your agent requires LLM access, configure the gateway to allow this access to prevent potential Agent Runtime deployment failures.
 
-2.  Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime-deploy#configure-agent) .
+2.  Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
     
     You must also make sure the Runtime instance is assigned an [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) by using the `identity_type` parameter as shown in this example.
     

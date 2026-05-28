@@ -163,6 +163,33 @@ Before running this code, set the variables described in the REST tab.
 
 The streaming response yields `InteractionSSEEvent` objects. The final `interaction.complete` event contains the `environment_id` and interaction `id` , which you can reuse in subsequent calls to maintain session state and conversation history. For more information, see [Manage session state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents#manage-session-state) .
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const stream = await client.interactions.create({
+        agent: "antigravity-preview-05-2026",
+        input: "Who are you, can you execute python code? Show me an example.",
+        environment: { type: "remote" },
+        stream: true,
+        background: true,
+        store: true,
+    });
+    
+    for await (const event of stream) {
+        console.log(event);
+    }
+
+The streaming response yields event objects. The final `interaction.complete` event contains the `environment_id` and interaction `id` , which you can reuse in subsequent calls to maintain session state and conversation history. For more information, see [Manage session state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents#manage-session-state) .
+
 ## Interact with a custom agent created using Agents API
 
 To interact with a custom agent created as described in [Create and manage agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage) , you must specify it by using its agent ID.
@@ -310,6 +337,30 @@ Before running this code, set the variables described in the REST tab.
     for event in stream:
         print(event)
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const stream = await client.interactions.create({
+        agent: "AGENT_ID",
+        input: "Tell me the name of python packages used for data analysis.",
+        stream: true,
+        background: true,
+        store: true,
+    });
+    
+    for await (const event of stream) {
+        console.log(event);
+    }
+
 ## Manage session state and multi-turn interactions
 
 By default, interactions are stateless unless you target a specific environment container or conversation history. In multi-turn assistant flows, you can retain local files, code execution context, system modifications, runtime-installed open source software libraries, and conversation history across conversations:
@@ -419,6 +470,34 @@ Before running this code, set the variables described in the REST tab.
         print(event)
 
 In the Python SDK, pass the `environment_id` string directly as the `environment` parameter to reuse an existing sandbox container. Use `previous_interaction_id` to continue the conversation history.
+
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const stream = await client.interactions.create({
+        agent: "AGENT_ID",
+        input: "What did I ask you before and what did you do?",
+        previous_interaction_id: "PREVIOUS_INTERACTION_ID",
+        environment: "ENV_ID",
+        stream: true,
+        background: true,
+        store: true,
+    });
+    
+    for await (const event of stream) {
+        console.log(event);
+    }
+
+In the JavaScript SDK, pass the `environment_id` string directly as the `environment` parameter to reuse an existing sandbox container. Use `previous_interaction_id` to continue the conversation history.
 
 ## Override configurations during interaction
 
@@ -542,6 +621,40 @@ Before running this code, set the variables described in the REST tab.
     
     for event in stream:
         print(event)
+
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const stream = await client.interactions.create({
+        agent: "AGENT_ID",
+        input: "Analyze our database and summarize recent purchase events.",
+        tools: [
+            {
+                type: "mcp_server",
+                url: "MCP_SERVER_URL",
+                name: "MCP_SERVER_NAME",
+                headers: {
+                    "MCP_HEADER_KEY": "MCP_HEADER_VALUE",
+                },
+            },
+        ],
+        stream: true,
+        background: true,
+        store: true,
+    });
+    
+    for await (const event of stream) {
+        console.log(event);
+    }
 
 ## What's next
 

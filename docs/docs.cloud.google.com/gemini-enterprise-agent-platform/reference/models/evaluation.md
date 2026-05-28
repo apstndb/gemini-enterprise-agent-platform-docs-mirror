@@ -2414,9 +2414,9 @@ Before using any of the request data, make the following replacements:
   - LOCATION : The region to process the request.
   - PREDICTION : LLM response.
   - REFERENCE : Golden LLM response for reference.
-  - ROUGE\_TYPE : The calculation used to determine the rouge score. See [`metric_spec.rouge_type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/evaluation#rougeinput) for acceptable values.
-  - USE\_STEMMER : Determines whether the Porter stemmer is used to strip word suffixes to improve matching. For acceptable values, see [`metric_spec.use_stemmer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/evaluation#rougeinput) .
-  - SPLIT\_SUMMARIES : Determines if new lines are added between `rougeLsum` sentences. For acceptable values, see [`metric_spec.split_summaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/evaluation#rougeinput) .
+  - ROUGE\_TYPE : The calculation used to determine the rouge score. See [`metric_spec.rouge_type`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation#rougeinput) for acceptable values.
+  - USE\_STEMMER : Determines whether the Porter stemmer is used to strip word suffixes to improve matching. For acceptable values, see [`metric_spec.use_stemmer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation#rougeinput) .
+  - SPLIT\_SUMMARIES : Determines if new lines are added between `rougeLsum` sentences. For acceptable values, see [`metric_spec.split_summaries`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation#rougeinput) .
 
 HTTP method and URL:
 

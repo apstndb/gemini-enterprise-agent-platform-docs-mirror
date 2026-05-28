@@ -45,7 +45,7 @@ The following base and tuned Gemini models support batch inference:
 
 ## Global endpoint model support
 
-Batch inference supports using the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/locations#global-endpoint) for base Gemini models. It doesn't support the global endpoint for tuned Gemini models.
+Batch inference supports using the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global-endpoint) for base Gemini models. It doesn't support the global endpoint for tuned Gemini models.
 
 The global endpoint helps improve overall availability by serving your requests from any region that's supported by the model that you're using. Note that it doesn't support data residency requirements. If you have data residency requirements, use the regional endpoints.
 

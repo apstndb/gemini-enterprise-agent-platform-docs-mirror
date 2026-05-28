@@ -126,4 +126,4 @@ Translate your organization's specific policies into clear, actionable instructi
   - Learn about [safety and content filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters) .
   - Learn about [abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring) .
   - Learn more about [responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
-  - Learn about [data governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vertex-ai-zero-data-retention) .
+  - Learn about [data governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) .

@@ -106,12 +106,6 @@ The following table shows the auto-updated aliases for Gemini models and the lat
 
 Resource
 
-### [Deployment and endpoint locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/locations)
+### [Deployment and endpoint locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)
 
-List of what endpoints are available for deploying Vertex-hosted models such as Gemini, Veo, and more.
-
-Resource
-
-### [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)
-
-List of Google models that are available when using Agent Platform, such as Gemini, Veo, and Gemma.
+Learn about deployment and endpoint locations for models in Agent Platform.

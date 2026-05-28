@@ -330,7 +330,7 @@ Resource
 
 ### [Agent Platform quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas)
 
-Quotas and limits related to the Agent Platform platform, excluding product-specific limitations.
+Quotas and limits related to Agent Platform, excluding product-specific limitations.
 
 Overview
 

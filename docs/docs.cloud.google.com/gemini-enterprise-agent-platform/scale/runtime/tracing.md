@@ -79,11 +79,15 @@ Note the following:
 
   - `OTEL_SEMCONV_STABILITY_OPT_IN` enables use of the latest generative AI semantic conventions.
 
-  - `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` enables the logging of input prompts and output responses.
+  - `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` enables the logging of input prompts, output responses, and user IDs (the `user.id` field). Capturing these details facilitates agent observability and anomaly detection by tracking usage and interactions over time.
+    
+    > **Note:** Ensure you have any necessary end user consents, notices, and data handling policies in place for your collection of this information.
+    
+    > **Important:** Logging of `user.id` is included when opting in to "Enable logging of prompt inputs and response outputs" effective May 22, 2026, with Agent Development Kit version 2.1. If you opted in prior to May 22, your logging does not include `user.id` . You will need to redeploy your agents and opt-in again for this setting to take effect.
 
-  - To use trace ingestion, you need to [enable the Telemetry API](https://console.cloud.google.com/apis/enableflow?apiid=telemetry.googleapis.com) . For more information, see [Telemetry (OTLP) API overview](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/overview)
+  - To use trace ingestion, you need to [enable the Telemetry API](https://console.cloud.google.com/flows/enableapi?apiid=telemetry.googleapis.com) . For more information, see [Telemetry (OTLP) API overview](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/overview) .
 
-  - To use log ingestion, you need to [enable the Logging API](https://console.cloud.google.com/apis/enableflow?apiid=logging.googleapis.com) For more information, see [Cloud Logging API overview](https://docs.cloud.google.com/logging/docs/reference/api-overview) .
+  - To use log ingestion, you need to [enable the Logging API](https://console.cloud.google.com/flows/enableapi?apiid=logging.googleapis.com) . For more information, see [Cloud Logging API overview](https://docs.cloud.google.com/logging/docs/reference/api-overview) .
 
 > **Note:** If you were previously setting the `enable_tracing` flag, we recommend you use the environment variables instead. For example, set `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=true` instead of `enable_tracing=true` , and set `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=false` instead of `enable_tracing=false` .
 

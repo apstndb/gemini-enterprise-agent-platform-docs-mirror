@@ -182,6 +182,43 @@ Before running this code, set the variables described in the REST tab.
         },
     )
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const agent = await client.agents.create({
+        id: "AGENT_ID",
+        base_agent: "antigravity-preview-05-2026",
+        description: "AGENT_DESCRIPTION",
+        system_instruction: "INSTRUCTIONS",
+        tools: [
+            { type: "code_execution" },
+            { type: "google_search" },
+            { type: "url_context" },
+        ],
+        base_environment: {
+            type: "remote",
+            sources: [
+                {
+                    type: "gcs",
+                    source: "GCS_BUCKET",
+                    target: "/.agent",
+                },
+            ],
+            network: {
+                allowlist: [{ domain: "*" }],
+            },
+        },
+    });
+
 ### Create an agent with Google first-party tools
 
 To create an agent with Google first-party tools (such as Grounding with Google Search and URL context), add these tools to the `tools` list in the agent configuration:
@@ -352,6 +389,34 @@ Before running this code, set the variables described in the REST tab.
         ],
     )
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const agent = await client.agents.create({
+        id: "AGENT_ID",
+        base_agent: "antigravity-preview-05-2026",
+        description: "AGENT_DESCRIPTION",
+        tools: [
+            {
+                type: "mcp_server",
+                name: "MCP_SERVER_NAME",
+                url: "MCP_SERVER_URL",
+                headers: {
+                    "MCP_HEADER_KEY": "MCP_HEADER_VALUE",
+                },
+            },
+        ],
+    });
+
 ### Attach skills to an agent
 
 To load a reusable skill directly when creating the agent, mount it inside `base_environment.sources` .
@@ -463,6 +528,36 @@ Before running this code, set the variables described in the REST tab.
         },
     )
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const agent = await client.agents.create({
+        id: "AGENT_ID",
+        base_agent: "antigravity-preview-05-2026",
+        base_environment: {
+            type: "remote",
+            sources: [
+                {
+                    type: "skill_registry",
+                    source: "SKILL_RESOURCE_NAME",
+                    target: "./skills",
+                },
+            ],
+            network: {
+                allowlist: [{ domain: "*" }],
+            },
+        },
+    });
+
 #### Attach a skill from Google Cloud Storage
 
 Alternatively, you can attach custom skills directly from a Google Cloud Storage bucket when creating the agent.
@@ -567,6 +662,36 @@ Before running this code, set the variables described in the REST tab.
         },
     )
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const agent = await client.agents.create({
+        id: "AGENT_ID",
+        base_agent: "antigravity-preview-05-2026",
+        base_environment: {
+            type: "remote",
+            sources: [
+                {
+                    type: "gcs",
+                    source: "GCS_SOURCE_PATH",
+                    target: "./skills",
+                },
+            ],
+            network: {
+                allowlist: [{ domain: "*" }],
+            },
+        },
+    });
+
 ## List agents
 
 To list all saved agents in your project, send a `GET` request. You can use optional pagination to control the number of results per page.
@@ -625,6 +750,26 @@ Before running this code, set the variables described in the REST tab.
     
     for agent in response.agents:
         print(agent)
+
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const response = await client.agents.list();
+    
+    if (response.agents) {
+        for (const agent of response.agents) {
+            console.log(agent);
+        }
+    }
 
 ## Get an agent
 
@@ -701,6 +846,21 @@ Before running this code, set the variables described in the REST tab.
     agent = client.agents.get(id="AGENT_ID")
     print(agent)
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const agent = await client.agents.get("AGENT_ID");
+    console.log(agent);
+
 ## Update an agent
 
 To update an existing agent's configuration, send a `PATCH` request. While the agent's ID is immutable, you can modify parameters such as instructions, tools, and environment variables. Use the `update_mask` query parameter to specify exactly which fields to update. This ensures that only the fields you intend to change are affected, preserving other configurations.
@@ -744,6 +904,10 @@ Before calling the API, make the following replacements:
 ### Python
 
 > **Note:** The `update` method is not yet available in the Python SDK. Use the REST API to update agents.
+
+### JavaScript
+
+> **Note:** The `update` method is not yet available in the JavaScript SDK. Use the REST API to update agents.
 
 ### Update an agent with Google first-party tools
 
@@ -847,6 +1011,10 @@ Before calling the API, make the following replacements:
 
 > **Note:** The `update` method is not yet available in the Python SDK. Use the REST API to update agents.
 
+### JavaScript
+
+> **Note:** The `update` method is not yet available in the JavaScript SDK. Use the REST API to update agents.
+
 ### Attach skills to an agent
 
 To attach or modify skills within `base_environment.sources` during an agent update, send a `PATCH` request using `update_mask=base_environment` .
@@ -925,6 +1093,10 @@ Before calling the API, make the following replacements:
 
 > **Note:** The `update` method is not yet available in the Python SDK. Use the REST API to update agent skills.
 
+### JavaScript
+
+> **Note:** The `update` method is not yet available in the JavaScript SDK. Use the REST API to update agent skills.
+
 #### Attach a skill from Google Cloud Storage
 
 Alternatively, you can attach custom skills directly from a Google Cloud Storage bucket when creating the agent.
@@ -998,6 +1170,10 @@ Before calling the API, make the following replacements:
 
 > **Note:** The `update` method is not yet available in the Python SDK. Use the REST API to update agent skills.
 
+### JavaScript
+
+> **Note:** The `update` method is not yet available in the JavaScript SDK. Use the REST API to update agent skills.
+
 ## Delete an agent
 
 To delete a specific custom agent config, send a `DELETE` request. This is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage#get-details-of-lro) and deletes the configuration permanently.
@@ -1056,6 +1232,21 @@ Before running this code, set the variables described in the REST tab.
     response = client.agents.delete(id="AGENT_ID")
     print(response)
 
+### JavaScript
+
+Before running this code, set the variables described in the REST tab.
+
+    import { GoogleGenAI } from "@google/genai";
+    
+    const client = new GoogleGenAI({
+        vertexai: true,
+        project: "PROJECT_ID",
+        location: "global",
+    });
+    
+    const response = await client.agents.delete("AGENT_ID");
+    console.log(response);
+
 ## Get details of a long-running operation
 
 Operations like `CreateAgent` , `UpdateAgent` , and `DeleteAgent` are asynchronous. The initial API response returns a `name` field containing the operation ID. Use `GetOperation` on this ID to poll the progress.
@@ -1083,6 +1274,10 @@ Before calling the API, make the following replacements:
 ### Python
 
 > **Note:** When using the Python SDK, operations like `agents.create()` and `agents.delete()` return the final result directly. Use `client.agents.get(id="AGENT_ID")` to verify provisioning status.
+
+### JavaScript
+
+> **Note:** When using the JavaScript SDK, operations like `agents.create()` and `agents.delete()` return the final result directly. Use `client.agents.get("AGENT_ID")` to verify provisioning status.
 
 ## Configure network access
 

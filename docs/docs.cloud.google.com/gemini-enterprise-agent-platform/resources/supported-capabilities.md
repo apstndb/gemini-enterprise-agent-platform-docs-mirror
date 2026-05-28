@@ -36,7 +36,7 @@ Model-level capabilities, tools, and features
 
 Platform-level capabilities, tools, and features
 
-[Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/batch-prediction-api)
+[Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/batch-prediction-api)
 
 [Chat completions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview)
 
@@ -56,7 +56,7 @@ Implicit caching only
 
 [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
 
-[Single Zone PT (SZPT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt)
+[Single Zone PT (SZPT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput//szpt)
 
 [Grounding with Agent Platform Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search)
 

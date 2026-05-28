@@ -148,4 +148,4 @@ Online prediction
 
 Online prediction
 
-Prompt logging for Partner and Open Models (MaaS) is turned off by default and adheres to the [Agent Platform Zero Data Retention](https://cloud.google.com/gemini-enterprise-agent-platform/models/vertex-ai-zero-data-retention) policy.
+Prompt logging for Partner and Open Models (MaaS) is turned off by default and adheres to the [Agent Platform Zero Data Retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) policy.

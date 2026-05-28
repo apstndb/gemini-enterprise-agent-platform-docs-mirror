@@ -271,7 +271,7 @@ Include a `google` field to contain any Gemini-specific `extra_content` features
   - Learn more about [authentication and credentialing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials) with the OpenAI-compatible syntax.
   - See examples of calling the [Chat Completions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/examples) with the OpenAI-compatible syntax.
   - See examples of calling the [Inference API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) with the OpenAI-compatible syntax.
-  - See examples of calling the [Function Calling API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling#examples) with OpenAI-compatible syntax.
+  - See examples of calling the [Function Calling API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling#examples) with OpenAI-compatible syntax.
   - Learn more about the [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) .
   - Learn more about [migrating from Azure OpenAI to the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-from-azure-to-gemini) .
   - To migrate your existing OpenAI SDK code to use the Google Gen AI SDK, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .

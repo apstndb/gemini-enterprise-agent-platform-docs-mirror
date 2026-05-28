@@ -1562,7 +1562,7 @@ Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to de
 <p>Tutorial steps</p>
 <ul>
 <li>Upload a pretrained model as a Gemini Enterprise Agent Platform model resource.</li>
-<li>Create an Gemini Enterprise Agent Platform endpoint resource.</li>
+<li>Create a Gemini Enterprise Agent Platform endpoint resource.</li>
 <li>Deploy the model resource to the endpoint resource.</li>
 <li>Configure the endpoint resource for model monitoring.</li>
 <li>Initialize the baseline distribution for model monitoring.</li>

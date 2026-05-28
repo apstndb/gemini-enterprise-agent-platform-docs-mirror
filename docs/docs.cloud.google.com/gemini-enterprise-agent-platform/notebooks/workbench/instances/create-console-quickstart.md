@@ -34,9 +34,9 @@ When you finish the tasks that are described in this document, you can avoid con
 
 ## Open JupyterLab
 
-After you create your instance, Agent Platform Workbench automatically starts the instance. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
+After you create your instance, Agent Platform Workbench automatically starts the instance. The **Open JupyterLab** link is initially disabled while the instance is provisioning. Wait for the instance status to become active.
 
-Next to your instance's name, click **Open JupyterLab** .
+When the instance is ready to use, next to your instance's name, click **Open JupyterLab** .
 
 Your Agent Platform Workbench instance opens JupyterLab.
 
@@ -72,7 +72,7 @@ Resetting an instance forcibly wipes the memory contents of your instance and re
 
 2.  Select the instance that you want to reset.
 
-3.  Click ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/reset.png) **Reset** , and then click **Reset** to confirm.
+3.  Click ![Reset icon](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/reset.png) **Reset** , and then click **Reset** to confirm.
 
 ## Clean up
 

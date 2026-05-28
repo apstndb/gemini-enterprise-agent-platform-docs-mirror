@@ -337,5 +337,5 @@ For more information, see [Gemini Enterprise Agent Platform pricing](https://clo
 For more information on using Gemini Live API, see:
 
   - [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
-  - [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/multimodal-live)
+  - [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live)
   - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)

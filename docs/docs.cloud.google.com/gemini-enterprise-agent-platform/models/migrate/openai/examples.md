@@ -680,6 +680,6 @@ The following sample shows how to use the global endpoint in OpenAI compatible m
 ## What's next
 
   - See examples of calling the [Inference API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) with the OpenAI-compatible syntax.
-  - See examples of calling the [Function Calling API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling#examples) with OpenAI-compatible syntax.
+  - See examples of calling the [Function Calling API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling#examples) with OpenAI-compatible syntax.
   - Learn more about the [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) .
   - Learn more about [migrating from Azure OpenAI to the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-from-azure-to-gemini) .

@@ -12,7 +12,7 @@ This page provides information on downloading and installing the latest librarie
 
 We've recently launched a new set of libraries that provide a more consistent and streamlined experience for accessing Google's generative AI models across different Google services.
 
-Gemini Enterprise Agent Platform libraries are only supported on the Gemini Enterprise Agent Platform platform.
+Gemini Enterprise Agent Platform libraries are only supported on Gemini Enterprise Agent Platform.
 
 ## Key library updates
 

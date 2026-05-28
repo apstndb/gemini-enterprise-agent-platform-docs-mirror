@@ -6,7 +6,7 @@ description: Covers approaches to creating a proxy task, requirements of a good 
 data_source: docs.cloud.google.com
 ---
 
-Before you run a Agent Platform Neural Architecture Search job to search for an optimal model, define your **proxy task** . [Stage1-search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#two_stages) uses a much smaller representation of a complete model training which typically finishes within two hours. This representation is called a **proxy task** and it reduces the [**search cost**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#nas_search_cost) significantly. Each trial during the search trains a model using the proxy-task settings.
+Before you run an Agent Platform Neural Architecture Search job to search for an optimal model, define your **proxy task** . [Stage1-search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#two_stages) uses a much smaller representation of a complete model training which typically finishes within two hours. This representation is called a **proxy task** and it reduces the [**search cost**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#nas_search_cost) significantly. Each trial during the search trains a model using the proxy-task settings.
 
 The following sections describe what is involved in applying proxy task design:
 
@@ -764,4 +764,4 @@ The reward reported to the controller should be in the range \[1e-3, 10\]. If th
 
 ### Save data for post-search analysis
 
-Your proxy task code should save any additional metrics and data to the Cloud Storage location, which might be helpful to analyze your search space later. **Our Agent Platform Neural Architecture Search platform only supports up to five floating-point `other_metrics` to be recorded.** Any additional metrics should be saved to the Cloud Storage location for later analysis.
+Your proxy task code should save any additional metrics and data to the Cloud Storage location, which might be helpful to analyze your search space later. **Our Agent Platform Neural Architecture Search only supports up to five floating-point `other_metrics` to be recorded.** Any additional metrics should be saved to the Cloud Storage location for later analysis.

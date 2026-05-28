@@ -6,7 +6,7 @@ description: An overview of safety settings for Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-Generative AI models like Gemini require robust safety measures to mitigate risks such as generating harmful content, leaking sensitive information, or being misused. Google Cloud's Gemini Enterprise Agent Platform platform provides a suite of tools and practices to implement holistic safety for your Gemini models.
+Generative AI models like Gemini require robust safety measures to mitigate risks such as generating harmful content, leaking sensitive information, or being misused. Google Cloud's Gemini Enterprise Agent Platform provides a suite of tools and practices to implement holistic safety for your Gemini models.
 
 ## Potential safety risks and mitigation strategies
 

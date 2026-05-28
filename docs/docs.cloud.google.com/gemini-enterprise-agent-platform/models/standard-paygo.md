@@ -12,7 +12,7 @@ Standard pay-as-you-go (Standard PayGo) is a consumption option for utilizing Ge
 
 Each Standard PayGo usage tier aims to provide a Baseline Throughput, measured in tokens per minute (TPM), which serves as a predictable performance floor for your organization's traffic. The throughput limits are based on requests sent to the global endpoint. Using the global endpoint is a best practice, as it provides access to a larger, multi-region pool of throughput capacity and allows routing of your requests to the location with the most availability to maximize performance.
 
-Your traffic isn't strictly capped at the Baseline Throughput limit. Agent Platform lets traffic burst beyond this limit on a best-effort basis. However, during periods of high demand across the Agent Platform platform, this excess burst traffic might have higher variability in performance. To optimize performance and minimize the likelihood of receiving these errors, it's also a best practice to smoothen your traffic as evenly as possible throughout each minute. Avoid sending requests in sharp, second-level spikes. High and instantaneous traffic can lead to throttling even if your average per-minute usage is below your limit. Distributing your API calls more evenly helps the system manage your load predictably and improves overall performance.
+Your traffic isn't strictly capped at the Baseline Throughput limit. Agent Platform lets traffic burst beyond this limit on a best-effort basis. However, during periods of high demand across Agent Platform, this excess burst traffic might have higher variability in performance. To optimize performance and minimize the likelihood of receiving these errors, it's also a best practice to smoothen your traffic as evenly as possible throughout each minute. Avoid sending requests in sharp, second-level spikes. High and instantaneous traffic can lead to throttling even if your average per-minute usage is below your limit. Distributing your API calls more evenly helps the system manage your load predictably and improves overall performance.
 
 The following tiers are available in Standard PayGo:
 
@@ -98,7 +98,7 @@ Resource
 
 ### [Agent Platform quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
 
-Quotas and limits related to the Agent Platform platform, excluding product-specific limitations.
+Quotas and limits related to the Agent Platform, excluding product-specific limitations.
 
 Overview
 

@@ -47,7 +47,7 @@ Supported
 
 Not supported
 
-  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/dynamic-shared-quota) preview Preview feature
+  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) preview Preview feature
   - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) preview Preview feature
 
 Versions
@@ -72,7 +72,7 @@ global endpoint:
   - QPM: 100
   - Input TPM: 540,000
   - Output TPM: 80,000
-  - Context length: 200,000
+  - Context length: 2,000,000
 
 Pricing
 
@@ -142,7 +142,7 @@ global endpoint:
   - QPM: 100
   - Input TPM: 540,000
   - Output TPM: 80,000
-  - Context length: 200,000
+  - Context length: 2,000,000
 
 Pricing
 

@@ -54,7 +54,7 @@ Consumption options
 
 Supported
 
-  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/GA)
+  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
 
 Not supported
 

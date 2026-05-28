@@ -127,6 +127,21 @@ The following table summarizes the main differences between the Gemini API and G
 </tbody>
 </table>
 
+## Enable APIs
+
+To use Gemini Enterprise Agent Platform, you must enable the Gemini Enterprise Agent Platform API in your Google Cloud project:
+
+Additionally, to build and deploy agents using features like Agent Runtime on Gemini Enterprise Agent Platform or Agent Studio on Gemini Enterprise Agent Platform, you might need to enable the following APIs:
+
+  - [Cloud Storage API](https://console.cloud.google.com/apis/library/storage.googleapis.com)
+  - [Cloud Logging API](https://console.cloud.google.com/apis/library/logging.googleapis.com)
+  - [Cloud Monitoring API](https://console.cloud.google.com/apis/library/monitoring.googleapis.com)
+  - [Cloud Trace API](https://console.cloud.google.com/apis/library/cloudtrace.googleapis.com)
+  - [Cloud Resource Manager API](https://console.cloud.google.com/apis/library/cloudresourcemanager.googleapis.com)
+  - [Artifact Registry API](https://console.cloud.google.com/apis/library/artifactregistry.googleapis.com)
+
+Other features, such as Agent Gateway or integrations with other Google services like Google Workspace, might require enabling additional APIs. To enable other APIs, visit the [API Library](https://console.cloud.google.com/apis/library) in the Google Cloud console.
+
 ## Migration steps
 
 The following sections cover the steps required to migrate your Gemini API code to Gemini Enterprise Agent Platform. These steps assume you have prompt data from Google AI Studio saved in Google Drive.

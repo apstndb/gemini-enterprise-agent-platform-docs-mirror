@@ -20,29 +20,29 @@ This page describes what Gemini Enterprise Agent Platform RAG Engine is and how 
 
 ## Overview
 
-Gemini Enterprise Agent Platform RAG Engine, a component of the Gemini Enterprise Agent Platform Platform, facilitates Retrieval-Augmented Generation (RAG). Gemini Enterprise Agent Platform RAG Engine is also a data framework for developing context-augmented large language model (LLM) applications. Context augmentation occurs when you apply an LLM to your data. This implements retrieval-augmented generation (RAG).
+Gemini Enterprise Agent Platform RAG Engine, a component of Gemini Enterprise Agent Platform, facilitates Retrieval-Augmented Generation (RAG). Gemini Enterprise Agent Platform RAG Engine is also a data framework for developing context-augmented large language model (LLM) applications. Context augmentation occurs when you apply an LLM to your data. This implements retrieval-augmented generation (RAG).
 
-A common problem with LLMs is that they don't understand private knowledge, that is, your organization's data. With Gemini Enterprise Agent Platform RAG Engine, you can enrich the LLM context with additional private information, because the model can reduce hallucination and answer questions more accurately.
+A common problem with LLMs is that they don't understand private knowledge, that is, your organization's data. With Gemini Enterprise Agent Platform RAG Engine, you can enrich the LLM context with additional private information, so that the model can reduce hallucinations and answer questions more accurately.
 
 By combining additional knowledge sources with the existing knowledge that LLMs have, a better context is provided. The improved context along with the query enhances the quality of the LLM's response.
 
-The following image illustrates the key concepts to understanding Gemini Enterprise Agent Platform RAG Engine.
+The following image illustrates the key concepts for understanding Gemini Enterprise Agent Platform RAG Engine.
 
 ![Agent Platform RAG key concepts](https://docs.cloud.google.com/static/vertex-ai/images/Vertex-RAG-Diagram.png)
 
 These concepts are listed in the order of the retrieval-augmented generation (RAG) process.
 
-1.  **Data ingestion** : Intake data from different data sources. For example, local files, Cloud Storage, and Google Drive.
+1.  **Data ingestion** : Ingest data from different data sources. For example, local files, Cloud Storage, and Google Drive.
 
 2.  [**Data transformation**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/fine-tune-rag-transformations) : Conversion of the data in preparation for indexing. For example, data is split into chunks.
 
-1\. [**Embedding**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) : Numerical representations of words or pieces of text. These numbers capture the semantic meaning and context of the text. Similar or related words or text tend to have similar embeddings, which means they are closer together in the high-dimensional vector space.
+3.  [**Embedding**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) : Numerical representations of words or pieces of text. These numbers capture the semantic meaning and context of the text. Similar or related words or text tend to have similar embeddings, which means they are closer together in the high-dimensional vector space.
 
-1.  **Data indexing** : Gemini Enterprise Agent Platform RAG Engine creates an index called a [corpus](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/manage-your-rag-corpus#corpus-management) . The index structures the knowledge base so it's optimized for searching. For example, the index is like a detailed table of contents for a massive reference book.
+4.  **Data indexing** : Gemini Enterprise Agent Platform RAG Engine creates an index called a [corpus](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/manage-your-rag-corpus#corpus-management) . The index structures the knowledge base so it's optimized for searching. For example, the index is like a detailed table of contents for a massive reference book.
 
-2.  **Retrieval** : When a user asks a question or provides a prompt, the retrieval component in Gemini Enterprise Agent Platform RAG Engine searches through its knowledge base to find information that is relevant to the query.
+5.  **Retrieval** : When a user asks a question or provides a prompt, the retrieval component in Gemini Enterprise Agent Platform RAG Engine searches through its knowledge base to find information that is relevant to the query.
 
-3.  **Generation** : The retrieved information becomes the context added to the original user query as a guide for the generative AI model to generate factually [grounded](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) and relevant responses.
+6.  **Generation** : The retrieved information becomes the context added to the original user query as a guide for the generative AI model to generate factually [grounded](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) and relevant responses.
 
 ## Supported regions
 

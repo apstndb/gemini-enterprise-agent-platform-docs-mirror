@@ -18,7 +18,7 @@ Overview
 
 ### [Network access with Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/netsec-overview)
 
-Information on the ways that you can use enterprise networking options to access the Agent Platform platform.
+Information on the ways that you can use enterprise networking options to access Agent Platform.
 
 Overview
 

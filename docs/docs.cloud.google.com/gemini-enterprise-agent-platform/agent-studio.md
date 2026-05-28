@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio
 title: Agent Studio overview
-description: Explore the capabilities of Agent Studio for discovering models, engineering prompts, and building AI agents in the Agent Platform platform.
+description: Explore the capabilities of Agent Studio for discovering models, engineering prompts, and building AI agents in Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

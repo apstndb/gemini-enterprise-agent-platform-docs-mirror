@@ -90,7 +90,7 @@ The `role` field of `systemInstruction` is ignored and doesn't affect the perfor
 
 `tools`
 
-Optional. A piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model. See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling) .
+Optional. A piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model. See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .
 
 ### Contents
 
@@ -147,7 +147,7 @@ Optional: `FunctionCall` .
 
 It contains a string representing the `FunctionDeclaration.name` field and a structured JSON object containing any parameters for the function call predicted by the model.
 
-See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling) .
+See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .
 
 `functionResponse`
 
@@ -155,7 +155,7 @@ Optional: `FunctionResponse` .
 
 The result output of a `FunctionCall` that contains a string representing the `FunctionDeclaration.name` field and a structured JSON object containing any output from the function call. It is used as context to the model.
 
-See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling) .
+See [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .
 
 ## Best practices
 
@@ -179,5 +179,5 @@ Once you have your training dataset and you've trained the model, it's time to d
 
 ## What's next
 
-  - Choose a region to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-region-settings) .
+  - Choose a region to [tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
   - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

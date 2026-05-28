@@ -43,7 +43,7 @@ Usage types
 
 Supported
 
-  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/dynamic-shared-quota)
+  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
   - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
 
 Not supported

@@ -112,4 +112,4 @@ By following these guidelines, you can use system instructions to help the model
 
   - Learn about [abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring) .
   - Learn more about [responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .
-  - Learn about [data governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vertex-ai-zero-data-retention) .
+  - Learn about [data governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) .

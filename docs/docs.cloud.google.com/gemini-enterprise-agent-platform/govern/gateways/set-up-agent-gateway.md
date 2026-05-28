@@ -184,7 +184,7 @@ To configure Agent Gateway for private outbound communication with a VPC network
         Perform this step in the project where the Agent Gateway was created.
         
             gcloud alpha projects add-iam-policy-binding TARGET_PROJECT_ID \
-             --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+             --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-agentgateway.iam.gserviceaccount.com \
              --role=roles/dns.peer
     
     3.  Gather the DNS information to enable peering. This includes the domain name, the target project ID, and the name of the VPC network you want to connect to. You'll need this information when you update the Agent Gateway resource.

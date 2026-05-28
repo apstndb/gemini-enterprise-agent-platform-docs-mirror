@@ -6,6 +6,10 @@ description: Review the locations where agents deployed to Gemini Enterprise Age
 data_source: docs.cloud.google.com
 ---
 
+This page lists the supported locations for Google agents and agent infrastructure features (such as runtime, sessions, and memory banks) in Gemini Enterprise Agent Platform.
+
+To see supported locations for generative AI models on Agent Platform, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+
 Runtime, Sessions, and Memory Bank are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
 
 | Region                                       | Location          | Supported versions                                                              |
@@ -49,3 +53,9 @@ For [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Memory Bank and Sessions support multi-regional and global endpoints. For global requests, set your location to `global` . For multi-regional requests, set your location to `us` or `eu` .
+
+### Supported agents
+
+Usage of the global endpoint is supported for the following Google agents.
+
+  - [Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/google/deep-research) (Preview)

@@ -1991,4 +1991,4 @@ Here are some more use cases:
 
 ## What's next
 
-  - See the [API reference for function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-reference/function-calling) .
+  - See the [API reference for function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling) .

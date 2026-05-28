@@ -7254,6 +7254,12 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. healthChecks. listTagBindings`
 
+`compute.hosts.*`
+
+  - `compute.hosts.get`
+  - `compute.hosts.getVersion`
+  - `compute.hosts.list`
+
 `compute.httpHealthChecks.get`
 
 `compute.httpHealthChecks.list`

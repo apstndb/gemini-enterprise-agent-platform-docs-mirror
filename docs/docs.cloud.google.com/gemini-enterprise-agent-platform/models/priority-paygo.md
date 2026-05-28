@@ -219,7 +219,7 @@ You can verify whether a request utilized Priority PayGo from the traffic type i
 You can verify whether Priority PayGo was utilized for a request from the `traffic_type` field in the response. If your request was processed using Priority PayGo, the `traffic_type` field is set to `ON_DEMAND_PRIORITY` .
 
     sdk_http_response=HttpResponse(
-      headers=
+      headers=<dict len=9>
     ) candidates=[Candidate(
       avg_logprobs=-0.539712212302468,
       content=Content(
@@ -231,25 +231,25 @@ You can verify whether Priority PayGo was utilized for a request from the `traff
         ],
         role='model'
       ),
-      finish_reason=nishReason.STOP: 'STOP'>
+      finish_reason=<FinishReason.STOP: 'STOP'>
     )] create_time=datetime.datetime(2025, 12, 3, 20, 32, 55, 916498, tzinfo=TzInfo(0)) model_version='gemini-2.5-flash' prompt_feedback=None response_id='response_id' usage_metadata=GenerateContentResponseUsageMetadata(
       candidates_token_count=1408,
       candidates_tokens_details=[
         ModalityTokenCount(
-          modality=ty.TEXT: 'TEXT'>,
+          modality=<MediaModality.TEXT: 'TEXT'>,
           token_count=1408
         ),
       ],
       prompt_token_count=5,
       prompt_tokens_details=[
         ModalityTokenCount(
-          modality=ty.TEXT: 'TEXT'>,
+          modality=<MediaModality.TEXT: 'TEXT'>,
           token_count=5
         ),
       ],
       thoughts_token_count=1356,
       total_token_count=2769,
-      traffic_type=fficType.ON_DEMAND_PRIORITY: 'ON_DEMAND_PRIORITY'>
+      traffic_type=<TrafficType.ON_DEMAND_PRIORITY: 'ON_DEMAND_PRIORITY'>
     ) automatic_function_calling_history=[] parsed=None
 
 ### REST
