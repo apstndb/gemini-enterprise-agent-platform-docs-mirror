@@ -124,7 +124,7 @@ For data drift analysis, the drift can be volatile if an inadequate volume data 
 
 ### Baseline dataset
 
-You can set your baseline dataset to any supported data source, such as a Agent Platform managed dataset that contains your model's training data. Similar to target datasets, you can choose to have Model Monitoring v2 process the entire dataset or a particular window.
+You can set your baseline dataset to any supported data source, such as an Agent Platform managed dataset that contains your model's training data. Similar to target datasets, you can choose to have Model Monitoring v2 process the entire dataset or a particular window.
 
 ### Time specification
 

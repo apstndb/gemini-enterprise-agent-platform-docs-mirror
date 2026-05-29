@@ -25,7 +25,7 @@ This guide covers the following tasks:
 
   - Configure a consumer VPC network, subnet, and network attachment.
   - Add firewall rules to your Google Cloud network host project.
-  - Create a Agent Platform resource specifying the network attachment to use a Private Service Connect interface.
+  - Create an Agent Platform resource specifying the network attachment to use a Private Service Connect interface.
 
 ## Before you begin
 

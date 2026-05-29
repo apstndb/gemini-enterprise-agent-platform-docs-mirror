@@ -52,8 +52,6 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your Google Cloud project ID.

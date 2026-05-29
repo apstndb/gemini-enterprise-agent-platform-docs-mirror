@@ -10,7 +10,7 @@ To use the OpenAI Python libraries, install the OpenAI SDK:
 
     pip install openai
 
-To authenticate with the Chat Completions API, you can either modify your client setup or change your environment configuration to use Google authentication and a Agent Platform endpoint. Choose whichever method that's easier, and follow the steps for setting up depending on whether you want to call Gemini models or self-deployed Model Garden models.
+To authenticate with the Chat Completions API, you can either modify your client setup or change your environment configuration to use Google authentication and an Agent Platform endpoint. Choose whichever method that's easier, and follow the steps for setting up depending on whether you want to call Gemini models or self-deployed Model Garden models.
 
 Certain models in Model Garden and [supported Hugging Face models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models) need to be [deployed to a Gemini Enterprise Agent Platform endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) first before they can serve requests. When calling these self-deployed models from the Chat Completions API, you need to specify the endpoint ID. To list your existing Agent Platform endpoints, use the [`gcloud ai endpoints list` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/list) .
 

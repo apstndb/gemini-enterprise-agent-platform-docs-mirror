@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 This page describes the Vertex AI RAG Engine pricing and billing based on the Vertex AI RAG Engine components you use, such as models, reranking, and vector storage.
 
-For more information, see the [Vertex AI RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/%7Brag-overview) page.
+For more information, see the [Vertex AI RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) page.
 
 ## Pricing and billing
 
@@ -76,7 +76,7 @@ This table explains how billing works when you use the RAG components.
 <p>For more pricing details on Spanner, see <a href="https://docs.cloud.google.com/spanner/pricing">Spanner pricing</a> .</p></td>
 </tr>
 <tr class="even">
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine/retrieval-and-ranking">Reranking for Vertex AI RAG Engine</a></td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking">Reranking for Vertex AI RAG Engine</a></td>
 <td><p>The following ranking tools are supported post retrieval:</p>
 <ul>
 <li><strong>LLM Reranker</strong> : Vertex AI RAG Engine uses the LLM model that you specified to rerank the retrieval results, and you will see and pay LLM model costs directly from your project.</li>
@@ -98,9 +98,9 @@ The following code samples demonstrate how to delete a Vertex AI RAG Engine for 
 
   - To learn how to use the Vertex AI SDK to run Vertex AI RAG Engine tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
 
-  - To learn about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/gemini-enterprise-agent-platform/models/grounding/overview) .
+  - To learn about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
 
-  - To learn more about the responses from RAG, see [Retrieval and Generation Output of Vertex AI RAG Engine](https://docs.cloud.google.com/vertex-ai/docs/model-reference/rag-output-explained) .
+  - To learn more about the responses from RAG, see [Retrieval and Generation Output of Vertex AI RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained) .
 
   - To learn about the RAG architecture:
     

@@ -98,7 +98,7 @@ Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classif
 #### Input-Output
 
   - Takes a BigQuery table or a CSV file from Cloud Storage as input.
-  - Produces a Agent Platform model as output.
+  - Produces an Agent Platform model as output.
   - Intermediate outputs include dataset statistics and dataset splits.
 
 For more information, see [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl) .
@@ -131,7 +131,7 @@ Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks.
 #### Input-Output
 
   - Takes a BigQuery table or a CSV file from Cloud Storage as input.
-  - Produces a Agent Platform model as output.
+  - Produces an Agent Platform model as output.
   - Intermediate outputs include dataset statistics and dataset splits.
 
 For more information, see [Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting) .

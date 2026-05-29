@@ -34,6 +34,37 @@ To find out how many tokens your workload requires, refer to the [SDK tokenizer]
 
 **Burndown rates**
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+
+Latest supported version: `gemini-3-pro-image`
+
+500
+
+Tokens
+
+1
+
+1 input text token = 1 token  
+1 input image token = 1 token  
+1 output text token = 6 tokens  
+1 output thinking token = 6 tokens  
+1 output image token = 60 tokens  
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+
+Latest supported version: `gemini-3.1-flash-image`
+
+2015
+
+Tokens
+
+1
+
+1 input text token = 1 token  
+1 input image token = 1 token  
+1 output text token = 6 tokens  
+1 output image token = 120 tokens  
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 
 Latest supported version: `gemini-3.5-flash`
@@ -137,7 +168,7 @@ Tokens
 1 output response text token = 6 tokens  
 1 output reasoning text token = 6 tokens  
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview)
 
 Latest supported version: `gemini-3-pro-image-preview` ( [preview](https://cloud.google.com/products#product-launch-stages) )
 
@@ -417,6 +448,17 @@ The following table shows the throughput, purchase increment, and burndown rates
 </thead>
 <tbody>
 <tr class="odd">
+<td>Anthropic's Claude Opus 4.8</td>
+<td>210</td>
+<td>35</td>
+<td>1</td>
+<td>1 input token = 1 token<br />
+1 output token = 5 tokens<br />
+1 cache write 5m token = 1.25 tokens<br />
+1 cache write 1h token = 2 tokens<br />
+1 cache hit token = 0.1 token</td>
+</tr>
+<tr class="even">
 <td>Anthropic's Claude Opus 4.7</td>
 <td>210</td>
 <td>35</td>
@@ -427,7 +469,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Sonnet 4.6</td>
 <td>350</td>
 <td>25</td>
@@ -438,7 +480,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4.6</td>
 <td>210</td>
 <td>35</td>
@@ -449,7 +491,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.5</td>
 <td>210</td>
 <td>35</td>
@@ -460,7 +502,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Sonnet 4.5</td>
 <td>350</td>
 <td>25</td>
@@ -479,7 +521,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 4 tokens<br />
 1 cache hit token = 0.2 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.1</td>
 <td>70</td>
 <td>35</td>
@@ -490,7 +532,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Haiku 4.5</td>
 <td>1,050</td>
 <td>8</td>
@@ -502,7 +544,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4</td>
 <td>70</td>
 <td>35</td>
@@ -513,7 +555,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Sonnet 4</td>
 <td>350</td>
 <td>25</td>
@@ -532,7 +574,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 4 tokens<br />
 1 cache hit token = 0.2 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3.7 Sonnet (deprecated)</td>
 <td>350</td>
 <td>25</td>
@@ -542,7 +584,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 5m token = 1.25 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3.5 Sonnet v2 (deprecated)</td>
 <td>350</td>
 <td>25</td>
@@ -552,7 +594,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 5m token = 1.25 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3.5 Haiku (deprecated)</td>
 <td>2,000</td>
 <td>10</td>
@@ -563,7 +605,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3 Opus</td>
 <td>70</td>
 <td>35</td>
@@ -573,7 +615,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 5m token = 1.25 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3 Haiku (deprecated)</td>
 <td>4,200</td>
 <td>5</td>
@@ -584,7 +626,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3.5 Sonnet (deprecated)</td>
 <td>350</td>
 <td>25</td>
@@ -811,12 +853,14 @@ The following table lists the Google models for which Provisioned Throughput sup
 
 | Model                                                                                                                          | Latest supported model version          |
 | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)                 | `gemini-3-pro-image`                    |
+| [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)         | `gemini-3.1-flash-image`                |
 | [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)                     | `gemini-3.5-flash`                      |
 | [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)           | `gemini-3.1-flash-lite`                 |
 | [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview | `gemini-3.1-flash-image-preview`        |
 | [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview                 | `gemini-3.1-pro-preview`                |
 | [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview                 | `gemini-3-flash-preview`                |
-| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview         | `gemini-3-pro-image-preview`            |
+| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview | `gemini-3-pro-image-preview`            |
 | [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)                         | `gemini-2.5-pro`                        |
 | [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) preview             | `gemini-2.5-flash-preview-09-2025`      |
 | [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) preview   | `gemini-2.5-flash-lite-preview-09-2025` |

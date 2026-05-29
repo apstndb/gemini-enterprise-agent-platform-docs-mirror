@@ -31,7 +31,7 @@ The following table lists the latest stable models:
 | `gemini-live-2.5-flash-native-audio` | December 12, 2025 | December 13, 2026            |
 | `gemini-2.5-pro`                     | June 17, 2025     | Not before October 16, 2026  |
 | `gemini-2.5-flash`                   | June 17, 2025     | Not before October 16, 2026  |
-| `gemini-2.5-flash-lite`              | July 22, 2025     | Not before October 16, 2026  |
+| `gemini-2.5-flash-lite`              | July 22, 2025     | July 22, 2026                |
 | `gemini-2.5-flash-image`             | October 2, 2025   | October 2, 2026              |
 | `gemini-2.0-flash-001`               | February 5, 2025  | June 1, 2026                 |
 | `gemini-2.0-flash-lite-001`          | February 25, 2025 | June 1, 2026                 |

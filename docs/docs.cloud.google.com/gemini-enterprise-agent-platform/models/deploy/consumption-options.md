@@ -56,7 +56,7 @@ Tasks that can tolerate slower response times and higher throttling in exchange 
 
 Per-token (discounted rate)
 
-[Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini)
+[Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
 
 Cost-optimized for high-volume, asynchronous processing
 
@@ -81,7 +81,7 @@ Organizations often have to make tradeoffs between reliability and cost while ch
 
 ### Asynchronous, high-volume workloads
 
-If you have a large backlog of requests (for example, if you have millions of documents to summarize), and immediate latency is not a concern, you should submit a [batch job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) by formulating requests into a JSON file or spreadsheet. This is useful for use cases like image labeling, bulk document processing, or sentiment analysis on historical data.
+If you have a large backlog of requests (for example, if you have millions of documents to summarize), and immediate latency is not a concern, you should submit a [batch job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference) by formulating requests into a JSON file or spreadsheet. This is useful for use cases like image labeling, bulk document processing, or sentiment analysis on historical data.
 
 This is the most cost-effective option for high-volume inference.
 

@@ -45,49 +45,53 @@ For more advanced automation, you can connect to the sandbox browser over a Chro
 To connect Playwright to the sandbox:
 
 1.  Generate the WebSocket URL and required headers for your sandbox by using the Python SDK `generate_browser_ws_headers` method.
-
-<!-- end list -->
-
-    service_account_email = "SERVICE_ACCOUNT_EMAIL"
-    ws_url, ws_headers = client.agent_engines.sandboxes.generate_browser_ws_headers(
-        sandbox_environment=sandbox,
-        service_account_email=service_account_email,
-    )
-
-1.  Use Playwright's `connect_over_cdp` method to establish a connection.
-
-Use the generated WebSocket URL and headers to connect over CDP using Playwright:
-
-    import asyncio
-    from playwright.async_api import async_playwright
-    import nest_asyncio
-    nest_asyncio.apply()
     
-    async def connect_over_cdp(ws_url, ws_headers):
-        async with async_playwright() as p:
-            try:
-                browser = await p.chromium.connect_over_cdp(
-                    endpoint_url=ws_url,
-                    headers=ws_headers
-                )
-                print("Successfully connected to browser over CDP.")
+    ``` 
+      service_account_email = "SERVICE_ACCOUNT_EMAIL"
+      ws_url, ws_headers = client.agent_engines.sandboxes.generate_browser_ws_headers(
+          sandbox_environment=sandbox,
+          service_account_email=service_account_email,
+      )
+    ```
+
+2.  Use Playwright's `connect_over_cdp` method to establish a connection.
     
-                # You can now interact with the browser
-                page = browser.contexts[0].pages[0]
-                await page.goto("https://www.example.com")
-                print(f"Page title: {await page.title()}")
+    Use the generated WebSocket URL and headers to connect over CDP using Playwright:
     
-                await browser.close()
-                print("Browser connection closed.")
-            except Exception as e:
-                print(f"An error occurred: {e}")
+    ``` 
+      import asyncio
+      from playwright.async_api import async_playwright
+      import nest_asyncio
+      nest_asyncio.apply()
     
-    # Run CDP connection
-    asyncio.run(connect_over_cdp(ws_url, ws_headers))
+      async def connect_over_cdp(ws_url, ws_headers):
+          async with async_playwright() as p:
+              try:
+                  browser = await p.chromium.connect_over_cdp(
+                      endpoint_url=ws_url,
+                      headers=ws_headers
+                  )
+                  print("Successfully connected to browser over CDP.")
+    
+                  # You can now interact with the browser
+                  page = browser.contexts[0].pages[0]
+                  await page.goto("https://www.example.com")
+                  print(f"Page title: {await page.title()}")
+    
+                  await browser.close()
+                  print("Browser connection closed.")
+              except Exception as e:
+                  print(f"An error occurred: {e}")
+    
+      # Run CDP connection
+      asyncio.run(connect_over_cdp(ws_url, ws_headers))
+    ```
 
 ## Live streaming view
 
 Computer Use sandboxes support a live streaming view (VNC), letting you to visually monitor the agent's actions in real-time. You can debug and observe the agent's behavior.
+
+For example, you can use noVNC to connect to the sandbox through WebSocket.
 
 ## What's next
 

@@ -108,7 +108,7 @@ Deploying Agent Platform services with [private services access](https://docs.cl
       - Running multiple workloads in parallel might still cause a [RANGES\_EXHAUSTED](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting?component=any#ranges_exhausted_ranges_not_reserved) even after correct initial configuration.
   - Networking deployment and troubleshooting complexity:
       - Because transitive peering is not supported, you need to deploy complex workarounds to grant connectivity between different networks peered to your VPC network.
-      - The state of the routing table in the producer environment is not immediately obvious. Because you don't have access to the tenant project, it is often difficult to determine what targets a Agent Platform workload can actually reach without extensive testing.
+      - The state of the routing table in the producer environment is not immediately obvious. Because you don't have access to the tenant project, it is often difficult to determine what targets an Agent Platform workload can actually reach without extensive testing.
 
 An alternative pattern is to deploy these services to a [Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints) .
 

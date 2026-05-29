@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models
 title: Use embedding models with Gemini Enterprise Agent Platform RAG Engine
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Review supported text and multimodal embedding models and learn how to associate them with your Gemini Enterprise Agent Platform RAG Engine corpus to configure vector representation storage.
 data_source: docs.cloud.google.com
 ---
 
@@ -62,7 +62,7 @@ Embedding models are used to create a corpus and used for search and retrieval d
 
 ### Open source embedding models
 
-The following open embedding models are also supported. You can find them in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-open-models#open-model-garden) .
+The following open embedding models are also supported. You can find them in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#open-models) .
 
   - `e5-base-v2`
   - `e5-large-v2`

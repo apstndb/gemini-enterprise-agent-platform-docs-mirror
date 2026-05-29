@@ -10,6 +10,29 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## May 28, 2026
+
+Feature
+
+**Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image**
+
+Gemini Enterprise Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image are [Generally Available](https://cloud.google.com/products#product-launch-stages) .
+
+With this release, Gemini 3.1 Flash Image and Gemini 3 Pro Image support 4K image outputs in [Preview](https://cloud.google.com/products#product-launch-stages) .
+
+Also supported in this release, Gemini 3.1 Flash Image supports video inputs in [Preview](https://cloud.google.com/products#product-launch-stages) . You can use video inputs to generate thumbnails or representative images of videos.
+
+For more information, see the following:
+
+  - [Gemini 3.1 Flash Image (Nano Banana 2)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+  - [Gemini 3 Pro Image (Nano Banana Pro)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+
+Feature
+
+**Anthropic's Claude Opus 4.8**
+
+[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
+
 ## May 27, 2026
 
 Feature

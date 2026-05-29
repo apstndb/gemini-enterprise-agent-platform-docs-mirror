@@ -18,9 +18,9 @@ Consider a scenario where you want to apply a standardized configuration to mult
 
   - Use Terraform to apply the changes in the execution plan. Terraform invokes the Agent Platform API in the background to apply the planned changes.
     
-      - If a Agent Platform resource or infrastructure object defined in the Terraform configuration does not exist, Terraform creates it.
+      - If an Agent Platform resource or infrastructure object defined in the Terraform configuration does not exist, Terraform creates it.
     
-      - If a Agent Platform resource or infrastructure object exists but has a different configuration, Terraform updates it to match your Terraform configuration.
+      - If an Agent Platform resource or infrastructure object exists but has a different configuration, Terraform updates it to match your Terraform configuration.
     
       - If any Agent Platform resource or infrastructure object matches your Terraform configuration, Terraform leaves it unchanged.
 

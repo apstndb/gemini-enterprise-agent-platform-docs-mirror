@@ -129,6 +129,14 @@ curl -X POST \
   }'
 ```
 
+#### Private connectivity to multi-region endpoints
+
+Private Google Access isn't supported for multi-region endpoints. If you attempt to connect to a multi-region endpoint using Private Google Access, you might experience connectivity issues, SSL/TLS handshake errors, or certificate mismatch warnings.
+
+To establish private connectivity to multi-region endpoints, you must configure [Private Service Connect endpoints for regional Google APIs](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints) .
+
+> **Note:** Configuring Private Google Access endpoints for regional Google APIs is only supported using the [Google Cloud CLI](https://cloud.google.com/sdk/docs) ( `gcloud` ).
+
 ## Global endpoint
 
 Selecting a global endpoint for your requests can improve overall availability while reducing resource exhausted (429) errors. Don't use the global endpoint if you have ML processing requirements, because you can't control or know which region your ML processing requests are sent to when a request is made.
@@ -137,12 +145,14 @@ Selecting a global endpoint for your requests can improve overall availability w
 
 Usage of the global endpoint is supported for the following Google models in specified regions. For details about which models support the global endpoint, see the **Global** tab in the [Google model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models) .
 
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) (Preview)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) (Preview)
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) (Preview)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) (Preview)
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) (Preview)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) (Preview)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) (Preview)
@@ -166,12 +176,14 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 | Model                                                                                                                          | Latest supported model version          |
 | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)                 | `gemini-3-pro-image`                    |
+| [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)         | `gemini-3.1-flash-image`                |
 | [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)                     | `gemini-3.5-flash`                      |
 | [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)           | `gemini-3.1-flash-lite`                 |
 | [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview | `gemini-3.1-flash-image-preview`        |
 | [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview                 | `gemini-3.1-pro-preview`                |
 | [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview                 | `gemini-3-flash-preview`                |
-| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview         | `gemini-3-pro-image-preview`            |
+| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview | `gemini-3-pro-image-preview`            |
 | [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)                         | `gemini-2.5-pro`                        |
 | [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) preview             | `gemini-2.5-flash-preview-09-2025`      |
 | [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) preview   | `gemini-2.5-flash-lite-preview-09-2025` |
@@ -190,6 +202,12 @@ Global
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -205,7 +223,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -244,7 +262,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -313,6 +331,12 @@ European Union multi-region
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -328,7 +352,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -367,7 +391,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -451,6 +475,12 @@ Dallas
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -466,7 +496,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -505,7 +535,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -574,6 +604,12 @@ São Paulo
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -589,7 +625,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -628,7 +664,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -721,6 +757,12 @@ Paris
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -736,7 +778,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -775,7 +817,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -859,6 +901,12 @@ Seoul
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -874,7 +922,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -913,7 +961,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -985,6 +1033,12 @@ Dammam
 
 Gemini models
 
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)  
+`(gemini-3-pro-image)`
+
+[Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)  
+`(gemini-3.1-flash-image)`
+
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)  
 `(gemini-3.5-flash)`
 
@@ -1000,7 +1054,7 @@ Gemini models
 [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview  
 `(gemini-3-flash-preview)`
 
-[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) preview  
+[Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview  
 `(gemini-3-pro-image-preview)`
 
 [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)  
@@ -1039,7 +1093,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo on Gemini Enterprise Agent Platform models
+Veo models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -1111,6 +1165,8 @@ Global
 
 Anthropic models
 
+Claude Opus 4.8
+
 Claude Opus 4.7
 
 Claude Opus 4.6
@@ -1158,6 +1214,8 @@ European Union multi-region
 (eu)
 
 Anthropic models
+
+Claude Opus 4.8
 
 Claude Opus 4.7
 
@@ -1222,6 +1280,8 @@ Dallas
 
 Anthropic models
 
+Claude Opus 4.8
+
 Claude Opus 4.7
 
 Claude Opus 4.6
@@ -1269,6 +1329,8 @@ São Paulo
 (southamerica-east1)
 
 Anthropic models
+
+Claude Opus 4.8
 
 Claude Opus 4.7
 
@@ -1342,6 +1404,8 @@ Paris
 
 Anthropic models
 
+Claude Opus 4.8
+
 Claude Opus 4.7
 
 Claude Opus 4.6
@@ -1405,6 +1469,8 @@ Seoul
 
 Anthropic models
 
+Claude Opus 4.8
+
 Claude Opus 4.7
 
 Claude Opus 4.6
@@ -1455,6 +1521,8 @@ Dammam
 (me-central2)
 
 Anthropic models
+
+Claude Opus 4.8
 
 Claude Opus 4.7
 

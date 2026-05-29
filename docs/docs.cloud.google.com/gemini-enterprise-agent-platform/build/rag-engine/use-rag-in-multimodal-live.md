@@ -14,7 +14,7 @@ data_source: docs.cloud.google.com
 
 Retrieval-augmented generation (RAG) is a technique that's used to retrieve and provide relevant information to LLMs to generate verifiable responses. The information can include fresh information, a topic and context, or ground truth.
 
-This page shows you how to use Vertex AI RAG Engine with the [Gemini Live API](https://docs.cloud.google.com/vertex-ai/docs/live-api/tools#use-rag-with-live-api) , which lets you specify and retrieve information from the RAG corpus.
+This page shows you how to use Vertex AI RAG Engine with the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-rag-with-live-api) , which lets you specify and retrieve information from the RAG corpus.
 
 ## Prerequisites
 
@@ -253,7 +253,7 @@ This code sample demonstrates how to specify your memory corpus to store context
 
   - To learn more about Vertex AI RAG Engine, see [Vertex AI RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - To learn more about the RAG API, see [Vertex AI RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1) .
+  - To learn more about the RAG API, see [Vertex AI RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
 
   - To manage your RAG corpora, see [Corpus management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/manage-your-rag-corpus#corpus-management) .
 

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/train-and-deploy-model
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/train-and-deploy-model
 title: Train and deploy your model
-description: Use a Agent Platform tabular dataset to train and deploy a model as part of an end-to-end tutorial on using the Agent Platform SDK for Python to create a custom-trained model.
+description: Use an Agent Platform tabular dataset to train and deploy a model as part of an end-to-end tutorial on using the Agent Platform SDK for Python to create a custom-trained model.
 data_source: docs.cloud.google.com
 ---
 

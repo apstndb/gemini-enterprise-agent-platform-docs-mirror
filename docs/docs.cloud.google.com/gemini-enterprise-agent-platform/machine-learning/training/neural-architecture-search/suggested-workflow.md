@@ -27,11 +27,11 @@ Here we summarize a suggested workflow for Agent Platform Neural Architecture Se
 
 ![NAS search.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_search.png)
 
-The above figure shows a typical Agent Platform Neural Architecture Search curve. The `Y-axis` here shows the trial-rewards and the `X-axis` shows the number of trials launched so far. The first \~100-200 trials are mostly **random explorations** of the search space by the controller. During these initial explorations, the rewards show a large variance because many kinds of models in the search space are being tried out. As the number of trials increase, the controller starts finding better models. Therefore, first the reward starts increasing and then later the reward-variance and the reward-growth starts decreasing thus showing **convergence** . The number of trials at which the convergence happens can vary based on the search-space size but typically it is of the order of \~2000 trials.
+The above figure shows a typical Agent Platform Neural Architecture Search curve. The `Y-axis` here shows the trial-rewards and the `X-axis` shows the number of trials launched so far. The first \~100-200 trials are mostly **random explorations** of the search space by the controller. During these initial explorations, the rewards show a large variance because many kinds of models in the search space are being tried out. As the number of trials increases, the controller starts finding better models. Therefore, the reward first starts increasing, and then later the reward variance and reward growth start decreasing, thus showing **convergence** . The number of trials at which the convergence happens can vary based on the search space size, but typically it is of the order of \~2,000 trials.
 
 ## Two stages of Agent Platform Neural Architecture Search: proxy-task and full training
 
-The Agent Platform Neural Architecture Search works in two stages:
+Agent Platform Neural Architecture Search works in two stages:
 
   - Stage1-search uses a much smaller *representation* of the full training which typically finishes within \~1-2 hours. This representation is called a **proxy task** and it helps keep the [search cost](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/suggested-workflow#nas_search_cost) down.
 
@@ -77,7 +77,7 @@ In this case you may only run the [augmentation-search](https://docs.cloud.googl
 
   - Agent Platform Neural Architecture Search can go up to 10^20 in search space size. But if your search space is larger, you can divide your search space into *mutually-exclusive* parts. For example, you can search for encoder separately from the decoder or the head first. If you still want to do a joint search over all of them, then you can create a smaller search space around previously found best individual options.
 
-  - (Optional) You can *model-scaling* from *block-design* when designing a search space. The block design search should be done first with a scaled-down model. This can keep the cost of proxy-task runtime much lower. You can then do a separate search to *scale* the model up. For more information, see [`Examples of scaled down models`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#scaled_down_model) .
+  - (Optional) You can separate *model scaling* from *block design* when designing a search space. The block design search should be done first with a scaled-down model. This can keep the cost of proxy-task runtime much lower. You can then do a separate search to *scale* the model up. For more information, see [`Examples of scaled down models`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design#scaled_down_model) .
 
 ## Optimizing training and search time
 
@@ -95,7 +95,7 @@ Before running Agent Platform Neural Architecture Search, it is important to opt
 
 ### Number of GPUs for each search-trial
 
-Use a smaller number of GPUs per trial to reduce the starting time. For example, 2 GPUs take 5 minutes to start, while 8 GPUs take 20 minutes. It is more efficient to use 2 GPUs per trial to run a Agent Platform Neural Architecture Search job proxy task.
+Use a smaller number of GPUs per trial to reduce the starting time. For example, 2 GPUs take 5 minutes to start, while 8 GPUs take 20 minutes. It is more efficient to use 2 GPUs per trial to run an Agent Platform Neural Architecture Search job proxy task.
 
 ## Total trials and parallel trials for search
 

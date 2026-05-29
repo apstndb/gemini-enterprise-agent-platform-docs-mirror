@@ -1017,7 +1017,7 @@ By default, 1 frame per second (FPS) is sampled from the video. You might want t
 
 ## Adjust media resolution
 
-You can adjust [`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.evaluationRuns#MediaResolution) to process your videos with fewer tokens.
+You can adjust [`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MediaResolution) to process your videos with fewer tokens.
 
 ## Set optional model parameters
 

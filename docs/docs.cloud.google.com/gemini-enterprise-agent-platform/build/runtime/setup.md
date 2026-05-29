@@ -41,7 +41,7 @@ You have the following options when setting up identity and permissions:
 
 ### Agent identity
 
-To set up IAM policies before deploying the agent, you can create an agent identity without deploying your agent code. To do so, create a Agent Platform instance with just the `identity_type` field:
+To set up IAM policies before deploying the agent, you can create an agent identity without deploying your agent code. To do so, create an Agent Platform instance with just the `identity_type` field:
 
     remote_app = client.agent_engines.create(
           config={

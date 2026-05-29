@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 Using private IP to connect to your training jobs provides more network security and lower network latency than using public IP. To use private IP, you use [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with any type of [Gemini Enterprise Agent Platform serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) . This allows your training code to access private IP addresses inside your Google Cloud or on-premises networks.
 
-This guide shows how to run serverless training jobs in your network after you have already [set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) to peer your network with a Agent Platform `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` resource.
+This guide shows how to run serverless training jobs in your network after you have already [set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) to peer your network with an Agent Platform `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` resource.
 
 ## Overview
 
@@ -152,7 +152,7 @@ This section explains how to test that a serverless training resource can access
 
 1.  Create a Compute Engine instance in your VPC network.
 2.  [Check your firewall rules](https://docs.cloud.google.com/vpc/docs/using-firewalls#listing-rules-vm) to make sure that they don't restrict ingress from the Agent Platform network. If so, add a rule to ensure the Agent Platform network can access the IP range you reserved for Agent Platform (and other service producers).
-3.  Set up a local server on the VM instance in order to create an endpoint for a Agent Platform `CustomJob` to access.
+3.  Set up a local server on the VM instance in order to create an endpoint for an Agent Platform `CustomJob` to access.
 4.  Create a Python training application to run on Agent Platform. Instead of model training code, create code that accesses the endpoint you set up in the previous step.
 5.  Follow the previous example to create a `CustomJob` .
 

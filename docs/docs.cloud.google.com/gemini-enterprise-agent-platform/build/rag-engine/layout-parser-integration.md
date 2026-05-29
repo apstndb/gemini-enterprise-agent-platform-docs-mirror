@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration
 title: Use Document AI layout parser with Vertex AI RAG Engine
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Use the Document AI layout parser with Vertex AI RAG Engine to extract and parse content elements from documents, improving retrieval and semantic coherence.
 data_source: docs.cloud.google.com
 ---
 
@@ -98,7 +98,7 @@ To turn on Layout Parser, follow these steps:
 
 If you don't have a RAG corpus, then create a RAG corpus. For example, see [Create a RAG corpus example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone#create-rag-corpus) .
 
-If you already have a RAG corpus, existing files that were imported without a layout parser won't be re-imported when you [Import files using Layout Parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/layout-parser-integration#importing_files_using_layout_parser) . If you want to use a layout parser with your files, delete the files first. For example, see [Delete a RAG file example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/delete) .
+If you already have a RAG corpus, existing files that were imported without a layout parser won't be re-imported when you [Import files using Layout Parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration#importing_files_using_layout_parser) . If you want to use a layout parser with your files, delete the files first. For example, see [Delete a RAG file example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/delete) .
 
 ### Importing files using layout parser
 
@@ -106,7 +106,7 @@ Files and folders from various sources can be imported using the layout parser.
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
 Replace the following variables used in the code sample:
 
@@ -146,7 +146,7 @@ Replace the following variables used in the code sample:
 
 ### REST
 
-The code sample shows how to import Cloud Storage files using the layout parser. For more configuration options, including importing files from another source, refer to the [`ImportRagFilesConfig` reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/gemini-enterprise-agent-platform/rest/v1/projects.locations.ragCorpora.ragFiles/import#ImportRagFilesConfig) .
+The code sample shows how to import Cloud Storage files using the layout parser. For more configuration options, including importing files from another source, refer to the [`ImportRagFilesConfig` reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import#ImportRagFilesConfig) .
 
 Before using any of the request data, replace the following variables used in the code sample:
 

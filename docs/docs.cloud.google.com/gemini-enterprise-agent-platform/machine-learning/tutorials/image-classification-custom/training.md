@@ -40,7 +40,7 @@ The rest of this document assumes that you are using the same Cloud Shell enviro
 
 ## Run a custom training pipeline
 
-This section describes using the training package that you uploaded to Cloud Storage to run a Vertex AI custom training pipeline.
+This section describes using the training package that you uploaded to Cloud Storage to run an Vertex AI custom training pipeline.
 
 1.  In the Google Cloud console, in the Vertex AI section, go to the **Training pipelines** page.
 

@@ -149,7 +149,7 @@ You first need to create an Agent Runtime instance to use for Memory Bank. This 
       project="PROJECT_ID",
       location="LOCATION"
     )
-    # If you don't have an Agent Runtime instance already, create a Agent Platform
+    # If you don't have an Agent Runtime instance already, create an Agent Platform
     # Memory Bank instance using the default configuration.
     agent_engine = client.agent_engines.create()
     

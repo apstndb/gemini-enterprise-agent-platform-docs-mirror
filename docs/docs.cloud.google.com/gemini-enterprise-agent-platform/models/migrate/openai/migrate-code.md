@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code
-title: Migrate from OpenAI SDK to Gen AI SDK
+title: Migrate from OpenAI SDK to Google Gen AI SDK
 description: Learn how to migrate your code from using the OpenAI SDK to using Google Gen AI SDKs for Gemini models in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
@@ -20,9 +20,9 @@ The following notebook demonstrates a practical migration from the `openai` libr
 
 ### API & Syntax Mapping
 
-The following table compares the core components, methods, and parameters of the OpenAI SDK with the Gen AI SDK.
+The following table compares the core components, methods, and parameters of the OpenAI SDK with the Google Gen AI SDK.
 
-| Feature                   | OpenAI SDK ( `openai` )                           | Gen AI SDK ( `google-genai` )                                |
+| Feature                   | OpenAI SDK ( `openai` )                           | Google Gen AI SDK ( `google-genai` )                         |
 | :------------------------ | :------------------------------------------------ | :----------------------------------------------------------- |
 | **Client Initialization** | `client = OpenAI(api_key=...)`                    | `client = genai.Client(vertexai=True, ...)`                  |
 | **Generation Method**     | `client.chat.completions.create`                  | `client.models.generate_content`                             |
@@ -37,7 +37,7 @@ The following table compares the core components, methods, and parameters of the
 
 ### Installation and Setup
 
-Uninstall the OpenAI library and install the Gen AI SDK.
+Uninstall the OpenAI library and install the Google Gen AI SDK.
 
     pip install google-genai
 

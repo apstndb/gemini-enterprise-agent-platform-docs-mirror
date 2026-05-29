@@ -236,8 +236,6 @@ Gemini models are natively multimodal and provide best in class performance on [
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .

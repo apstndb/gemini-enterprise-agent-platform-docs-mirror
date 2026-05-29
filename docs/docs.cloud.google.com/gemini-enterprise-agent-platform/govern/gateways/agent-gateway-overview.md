@@ -55,7 +55,7 @@ Agent Gateway facilitates two primary governed access paths: **Client-to-Agent**
 
 ![Agent Gateway modes of operation (click to enlarge).](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/agent-gateway-modes.png)
 
-  - **Client-to-Agent (ingress)** : This mode is used to secure communications between clients (such as Cursor, Claude Code, Gemini CLI,) and agents (and tools) running on Google Cloud. In this mode, Agent Gateway acts as a frontend for your agent and lets you control which clients can access your agents (and tools) and which security policies must be applied to such interactions.
+  - **Client-to-Agent (ingress)** : This mode is used to secure communications between clients (such as Cursor, Claude Code, Gemini CLI) and agents (and tools) running on Google Cloud. In this mode, Agent Gateway acts as a frontend for your agent and lets you control which clients can access your agents (and tools) and which security policies must be applied to such interactions.
 
   - **Agent-to-Anywhere (egress)** : This mode is used to secure communications between agents running on Google Cloud and servers, agents, tools, or APIs running anywhere. For example, Agent Gateway can be used to enforce access permissions and security guardrails for your agents that need to communicate with MCP servers that are either created and hosted by your own organization, or remote MCP servers hosted by third-parties.
 

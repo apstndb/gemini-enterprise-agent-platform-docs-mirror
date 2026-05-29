@@ -40,7 +40,7 @@ Steps:
 
 ### Use the Colab Enterprise notebook
 
-For flexibility and customization, you can use Colab Enterprise notebook examples to deploy a Agent Platform endpoint with vLLM TPU by using the Agent Platform SDK for Python.
+For flexibility and customization, you can use Colab Enterprise notebook examples to deploy an Agent Platform endpoint with vLLM TPU by using the Agent Platform SDK for Python.
 
 1.  Open the [vLLM TPU notebook](https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_vllm_tpu_qwen3_deployment.ipynb) in Colab Enterprise.
 

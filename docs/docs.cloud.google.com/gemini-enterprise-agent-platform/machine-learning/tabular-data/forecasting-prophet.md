@@ -38,7 +38,7 @@ This workflow uses the following APIs:
 
 Prophet is designed for a single time series. Vertex AI aggregates data by time series ID and trains a Prophet model for each time series. The model training pipeline performs hyperparameter tuning using [grid search](https://en.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search) and Prophet's built-in backtesting logic.
 
-To support multiple time series, the pipeline uses a Vertex AI [Custom Training Job](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) and [Dataflow](https://cloud.google.com/dataflow/docs/about-dataflow) to train multiple Prophet models in parallel. Overall, the number of models trained is the product of the number of time series and the number of hyperparameter tuning trials.
+To support multiple time series, the pipeline uses an Vertex AI [Custom Training Job](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) and [Dataflow](https://cloud.google.com/dataflow/docs/about-dataflow) to train multiple Prophet models in parallel. Overall, the number of models trained is the product of the number of time series and the number of hyperparameter tuning trials.
 
 The following sample code demonstrates how to run a Prophet model training pipeline:
 

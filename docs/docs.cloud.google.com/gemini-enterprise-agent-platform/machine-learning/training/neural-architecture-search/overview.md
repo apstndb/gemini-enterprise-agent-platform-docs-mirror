@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/overview
-title: About Agent Platform Neural Architecture Search
+title: About Agent Platform Vertex AI Neural Architecture Search
 description: Search for optimal neural architectures involving accuracy, latency, memory, a combination of these, or a custom metric.
 data_source: docs.cloud.google.com
 ---
@@ -161,11 +161,11 @@ Agent Platform Neural Architecture Search Neural Architecture Search offers preb
 
 The full set of features that Agent Platform Neural Architecture Search Neural Architecture Search offers can be used easily for customized architectures and use cases as well:
 
-  - A Agent Platform Neural Architecture Search Neural Architecture Search language to define a custom search space over possible neural-architectures and integrate this search space with custom trainer code.
+  - An Agent Platform Neural Architecture Search Neural Architecture Search language to define a custom search space over possible neural-architectures and integrate this search space with custom trainer code.
   - Ready-to-use prebuilt state-of-the-art search spaces with code.
   - Ready-to-use prebuilt Trainer, with code, which runs on GPU.
   - A Managed Service for architecture-search including
-      - A Agent Platform Neural Architecture Search Neural Architecture Search controller which samples the search space to find the best architecture.
+      - An Agent Platform Neural Architecture Search Neural Architecture Search controller which samples the search space to find the best architecture.
       - Prebuilt docker/libraries, with code, to calculate latency/FLOPs/Memory on custom hardware.
   - Tutorials to teach NAS usage.
   - A set of tools to design proxy-tasks.
@@ -191,7 +191,7 @@ These resulting models are leading the way in all 3 key classes of computer visi
 
 With Agent Platform Neural Architecture Search Neural Architecture Search, engineers can optimize models for *accuracy* , *latency* , and *memory* in the same trial, reducing the time needed to deploy models. Agent Platform Neural Architecture Search Neural Architecture Search explores many different types of models: the *controller* proposes ML models, then trains and evaluates models and iterates 1k+ times to find the best solutions *with latency and/or memory constraint on targeting devices* . The following figure shows the key components of the architecture search framework:
 
-![Components of a Agent Platform Neural Architecture Search Neural Architecture Search framework.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_components.png)
+![Components of an Agent Platform Neural Architecture Search Neural Architecture Search framework.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_components.png)
 
   - *Model* : A neural architecture with operations and connections.
   - *Search space* : The space of possible models (operations and connections) that can be designed and optimized.
@@ -202,7 +202,7 @@ With Agent Platform Neural Architecture Search Neural Architecture Search, engin
 
 ## User setup tasks
 
-Agent Platform Neural Architecture Search Neural Architecture Search offers prebuilt trainer integrated with prebuilt search spaces which can be easily used with provided notebooks without any further setup.
+Agent Platform Neural Architecture Search Neural Architecture Search offers prebuilt trainer integrated with prebuilt search spaces which can be used with provided notebooks without any further setup.
 
 However, most users need to use their custom trainer, custom search spaces, custom metrics (memory, latency, and training time, for examples), and custom reward (combination of things such as accuracy and latency). For this, you need to:
 

@@ -15,7 +15,7 @@ Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low
   - **Improved audio input:** Improved audio-input quality for tasks like Automated Speech Recognition (ASR).
   - **Expanded thinking support:** You can control how much reasoning the model performs by choosing from minimal, low, medium, or high [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) . This feature lets you balance response quality and speed for your specific use case.
 
-[Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=gemini-3.1-flash-lite) [(Preview) Deploy example app](https://console.cloud.google.com/vertex-ai/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-flash-lite)
+[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-flash-lite) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-flash-lite)
 
 Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -67,7 +67,7 @@ Supported
   - [Standard PayGo with Usage Tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
   - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
   - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
-  - [Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini)
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
 
 Not supported
 
@@ -166,7 +166,7 @@ Security controls
   - VPC-SC
   - AXT
 
-**Batch prediction**
+**Batch inference**
 
   - Data residency
   - CMEK

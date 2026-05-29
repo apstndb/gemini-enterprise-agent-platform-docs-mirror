@@ -20,7 +20,7 @@ This page shows you how to connect your RAG Engine corpus to your [Weaviate](htt
 
 You can also follow along using this notebook [RAG Engine with Weaviate](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_weaviate.ipynb) .
 
-You can use your Weaviate database instance, which is an open source database, with RAG Engine to index and conduct a vector-based similarity search. A similarity search is a way to find pieces of text that are similar to the text that you're looking for, which requires the use of an [embedding model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models) . The embedding model produces vector data for each piece of text being compared. The similarity search is used to retrieve semantic contexts for [grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/gemini-enterprise-agent-platform/models/grounding/overview) to return the most accurate content from your LLM.
+You can use your Weaviate database instance, which is an open source database, with RAG Engine to index and conduct a vector-based similarity search. A similarity search is a way to find pieces of text that are similar to the text that you're looking for, which requires the use of an [embedding model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models) . The embedding model produces vector data for each piece of text being compared. The similarity search is used to retrieve semantic contexts for [grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) to return the most accurate content from your LLM.
 
 With RAG Engine, you can continue to use your fully-managed vector database instance, which you are responsible for provisioning. RAG Engine uses the vector database for storage, index management, and search.
 
@@ -789,7 +789,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Use the RAG file
 
-The [RAG API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/upload) handles the file upload, import, listing, and deletion.
+The [RAG API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload) handles the file upload, import, listing, and deletion.
 
 ### REST
 
@@ -804,7 +804,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:upload
+    POST https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload
 
 Request JSON body:
 
@@ -824,7 +824,7 @@ Save the request body in a file named `  INPUT_FILE  ` , and execute the followi
     curl -X POST \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @INPUT_FILE \
-         "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:upload"
+         "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload"
 
 #### PowerShell
 
@@ -837,7 +837,7 @@ Save the request body in a file named `  INPUT_FILE  ` , and execute the followi
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile INPUT_FILE `
-        -Uri "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/ragFiles:upload" | Select-Object -Expand Content
+        -Uri "https://LOCATION-aiplatform.googleapis.com/upload/v1beta1/projects/PROJECT_ID/locations/LOCATION/ragCorpora/RAG_CORPUS_ID/media:upload" | Select-Object -Expand Content
 
 A successful response returns the `RagFile` resource. The last component of the `RagFile.name` field is the server-generated `rag_file_id` .
 

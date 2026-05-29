@@ -24,6 +24,19 @@ The following models are available from Anthropic to use in Gemini Enterprise Ag
 
 Anthropic's Claude models support Agent Platform request-response logging. Enable 30-day request-response logging of your prompt and completion activity to track any model misuse by your users. For more information, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+### Claude Opus 4.8
+
+Claude Opus 4.8 is a high-intelligence Opus model built for coding and agents, featuring deep reasoning for enterprise workflows.
+
+**Retirement Date:** Not sooner than May 28, 2027.
+
+  - **Coding** : Claude Opus 4.8 is an advanced coding model for real-world work, and runs independently for longer than previous Opus models. It reads codebases like a subject matter expert and plans before it edits. On long, multi-stage tasks it keeps track of dependencies, gets unstuck on its own, and persists over hours with stronger memory and longer context.
+  - **Enterprise workflows** : Claude Opus 4.8 is built for scalable workflows. It is better at following instructions, staying in scope, and producing professional-grade outputs. It reasons across long documents, checks its work, and manages multi-stage projects end-to-end with professional polish on spreadsheets, slides, and docs.
+  - **Long-running agents** : Claude Opus 4.8 sets a new bar for agentic workflows, pairing improved tool use with creative problem-solving across multi-step tasks. It is designed to work independently for longer, unblocking itself across multi-stage projects and complex dependency chains with minimal oversight.
+  - **Financial analysis** : Claude Opus 4.8 brings deeper reasoning and precision to financial workflows like investment research and earnings analysis, reading dense filings and charts at high fidelity and carrying context across an entire reporting cycle.
+  - **Cybersecurity** : Claude Opus 4.8 brings deeper reasoning to security workflows like threat intelligence synthesis, vulnerability finding, alert triage, and incident response. It holds long traces and large codebases in context to help catch subtle patterns and complex attack vectors.
+  - **Computer use** : Claude Opus 4.8 is a highly capable model for computer-use tasks, pairing improved vision with deep reasoning for multi-step tasks that span multiple applications and require planning and judgment.
+
 ### Claude Opus 4.7
 
 Claude Opus 4.7 is optimized for coding, enterprise agents, and professional work.
@@ -45,13 +58,13 @@ Claude Sonnet 4.6 delivers frontier intelligence at scale—built for coding, ag
   - **Coding** : Handle everyday development tasks with enhanced performance––or plan and execute complex software projects spanning hours or days––with the ability to save, maintain, and reference information across multiple sessions.
   - **Cybersecurity** : Deploy agents that autonomously patch vulnerabilities before exploitation––shifting from reactive detection to proactive defense.
   - **Financial analysis** : Conduct entry-level financial analysis, deliver advanced predictive analysis, or preemptively develop intelligent risk management strategies that leverage best-in-class domain knowledge.
-  - **Computer use** : Claude Sonnet 4.6 is our most accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
+  - **Computer use** : Claude Sonnet 4.6 is a highly accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
   - **Business tasks** : Generate and edit office files like slides, documents, and spreadsheets with minimal input.
   - **Research** : Perform focused analysis across multiple data sources, turning expert analysis into final deliverables. Ideal for complex problem solving, rapid business intelligence, and real-time decision support.
 
 ### Claude Opus 4.6
 
-Claude Opus 4.6 is the next generation of Anthropic's most intelligent model, and the world's best model for coding, enterprise agents, and professional work.
+Claude Opus 4.6 is optimized for coding, enterprise agents, and professional work.
 
 **Retirement Date:** Not sooner than February 5, 2027.
 
@@ -59,13 +72,13 @@ Claude Opus 4.6 is the next generation of Anthropic's most intelligent model, an
   - **Coding:** Handle everyday development tasks with enhanced performance––or plan and execute complex software projects spanning hours or days––with the ability to save, maintain, and reference information across multiple sessions.
   - **Cybersecurity:** Deploy agents that autonomously patch vulnerabilities before exploitation––shifting from reactive detection to proactive defense.
   - **Financial analysis:** Conduct entry-level financial analysis, deliver advanced predictive analysis, or preemptively develop intelligent risk management strategies that leverage best-in-class domain knowledge.
-  - **Computer use:** Claude Opus 4.6 is our most accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
+  - **Computer use:** Claude Opus 4.6 is a highly accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
   - **Business tasks:** Generate and edit office files like slides, documents, and spreadsheets with minimal input.
   - **Research:** Perform focused analysis across multiple data sources, turning expert analysis into final deliverables. Ideal for complex problem solving, rapid business intelligence, and real-time decision support.
 
 ### Claude Opus 4.5
 
-Claude Opus 4.5 is an industry leader across coding, agents, computer use, and enterprise workflows.
+Claude Opus 4.5 is optimized for coding, agents, computer use, and enterprise workflows.
 
 **Retirement Date:** Not sooner than Nov 24, 2026.
 
@@ -74,7 +87,7 @@ Claude Opus 4.5 is an industry leader across coding, agents, computer use, and e
   - **Enterprise workflows** : Opus 4.5 can power agents that manage sprawling professional projects from start to finish. It better leverages memory to maintain context and consistency across files, alongside a step-change improvement in creating spreadsheets, slides, and docs.
   - **Financial analysis** : Opus 4.5 connects the dots across complex information systems—regulatory filings, market reports, internal data—making sophisticated predictive modeling and proactive compliance possible.
   - **Cybersecurity** : Opus 4.5 brings professional-grade analysis to security workflows, correlating logs, vulnerability databases, and threat intelligence for proactive threat detection and automated incident response.
-  - **Computer use** : Our best computer-using model yet, Claude Opus 4.5 navigates new experiences with confident, consistent approaches that deliver more human-like browsing, enabling better web QA, workflow automation, and advanced user experiences.
+  - **Computer use** : A highly capable computer-use model, Claude Opus 4.5 navigates new experiences with confident, consistent approaches that deliver more human-like browsing, enabling better web QA, workflow automation, and advanced user experiences.
 
 ### Claude Sonnet 4.5
 
@@ -86,7 +99,7 @@ Claude Sonnet 4.5 is Anthropic's Sonnet-class model for powering real-world agen
   - **Coding** : Handle everyday development tasks with enhanced performance - or plan and execute complex software projects spanning hours or days - with the ability to save, maintain, and reference information across multiple sessions.
   - **Cybersecurity** : Deploy agents that autonomously patch vulnerabilities before exploitation, shifting from reactive detection to proactive defense.
   - **Financial analysis** : Conduct entry-level financial analysis, deliver advanced predictive analysis, or preemptively develop intelligent risk management strategies that leverage best-in-class domain knowledge.
-  - **Computer use** : Anthropic's most accurate model for computer use, enabling developers to direct the model to use computers the way people do.
+  - **Computer use** : A highly accurate model for computer use, enabling developers to direct the model to use computers the way people do.
   - **Business tasks** : Generate and edit office files like slides, documents, and spreadsheets with minimal input.
   - **Research** : Perform focused analysis across multiple data sources, turning expert analysis into final deliverables. Ideal for complex problem solving, rapid business intelligence, and real-time decision support.
 
@@ -105,7 +118,7 @@ Claude Opus 4.1 is Anthropic's Opus-class model and an industry leader for codin
 
 ### Claude Haiku 4.5
 
-Claude Haiku 4.5 delivers near-frontier performance for a wide range of use cases, and stands out as one of the best coding models in the world—with the right speed and cost to power free products and high-volume user experiences.
+Claude Haiku 4.5 delivers near-frontier performance for a wide range of use cases, and is a highly capable coding model—with the right speed and cost to power free products and high-volume user experiences.
 
 **Retirement Date:** Not sooner than Oct 15, 2026.
 

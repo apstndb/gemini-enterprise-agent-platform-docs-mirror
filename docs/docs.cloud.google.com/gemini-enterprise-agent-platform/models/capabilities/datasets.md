@@ -174,7 +174,7 @@ A template defines how to transform the multimodal dataset to a format that can 
 Call the [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/patch) method and update the `metadata` field with the following:
 
   - The URI of the BigQuery table. For datasets created from a BigQuery table, this is your source `bigquery_uri` . For datasets created from other sources, such as JSONL or DataFrame, this is the BigQuery table where your data was copied.
-  - A [`gemini_template_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GeminiTemplateConfig) .
+  - A [`gemini_template_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiRequestReadConfig#GeminiTemplateConfig) .
 
 <!-- end list -->
 

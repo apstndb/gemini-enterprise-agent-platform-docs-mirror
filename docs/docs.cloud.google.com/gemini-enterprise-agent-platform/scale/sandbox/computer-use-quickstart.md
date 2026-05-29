@@ -55,8 +55,8 @@ To use the sandbox, first create an Agent Platform instance.
 
 Replace the following:
 
-  - 'PROJECT\_ID': Your Google Cloud project ID.
-  - 'LOCATION': The region for your instance (such as `us-central1` ).
+  - `PROJECT_ID` : Your Google Cloud project ID.
+  - `LOCATION` : The region for your instance (such as `us-central1` ).
 
 ## Create a template for Computer Use
 
@@ -107,7 +107,7 @@ Replace `SERVICE_ACCOUNT_EMAIL` with the email of the service account that has t
 
 ## Send a request to the sandbox
 
-Send a HTTP GET request to the sandbox API server to check its status.
+Send an HTTP GET request to the sandbox API server to check its status.
 
     response = client.agent_engines.sandboxes.send_command(
         http_method="GET",
@@ -115,6 +115,33 @@ Send a HTTP GET request to the sandbox API server to check its status.
         sandbox_environment=sandbox
     )
     print(f"Sandbox response: {response.body}")
+
+Send an HTTP POST request to navigate to a specific page.
+
+    data = {"command": "Page.navigate", "params": {"url": "https://example.com"}}
+    
+    response = client.agent_engines.sandboxes.send_command(
+        http_method="POST",
+        path="cdp",
+        access_token=access_token,
+        request_dict=data,
+        sandbox_environment=sandbox
+    )
+
+The following table lists additional methods and paths you can send to your sandbox:
+
+| Method | Path                     | Description                                           |
+| :----- | :----------------------- | :---------------------------------------------------- |
+| GET    | /                        | Gets sandbox health check                             |
+| POST   | /tabs                    | Creates a new tab and returns its details.            |
+| GET    | /tabs                    | Lists details for all open tabs.                      |
+| POST   | /tabs/{tab\_id}/activate | Sets a tab as active and brings it to the foreground. |
+| DELETE | /tabs/{tab\_id}          | Closes a specific tab.                                |
+| GET    | /cdp\_ws\_endpoint       | Returns the CDP WebSocket endpoint path.              |
+| POST   | /cdp                     | Runs a CDP command on the active tab.                 |
+| POST   | /cdps                    | Runs multiple CDP commands on the active tab.         |
+
+For more information about the supported CDP commands and format, see the [CDP site](https://chromedevtools.github.io/devtools-protocol/) .
 
 ## Clean up
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 [Video](https://www.youtube.com/watch?v=CN2X6oIlnmI)
 
-This page shows you how to create a Agent Platform dataset from your image data so you can start training object detection models. You can create a dataset using either the Google Cloud console or the Agent Platform API.
+This page shows you how to create an Agent Platform dataset from your image data so you can start training object detection models. You can create a dataset using either the Google Cloud console or the Agent Platform API.
 
 ## Create an empty dataset and import or associate your data
 

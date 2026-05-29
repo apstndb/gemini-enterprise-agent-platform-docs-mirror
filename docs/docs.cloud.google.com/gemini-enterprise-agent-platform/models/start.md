@@ -65,7 +65,7 @@ On your local machine, click one of the following tabs to install the SDK for yo
 
 ### Python
 
-Install and update the Gen AI SDK for Python by running this command.
+Install and update the Google Gen AI SDK for Python by running this command.
 
     pip install --upgrade google-genai
 
@@ -82,7 +82,7 @@ export GOOGLE_GENAI_USE_VERTEXAI=True
 
 ### Go
 
-Install and update the Gen AI SDK for Go by running this command.
+Install and update the Google Gen AI SDK for Go by running this command.
 
     go get google.golang.org/genai
 
@@ -99,7 +99,7 @@ export GOOGLE_GENAI_USE_VERTEXAI=True
 
 ### Node.js
 
-Install and update the Gen AI SDK for Node.js by running this command.
+Install and update the Google Gen AI SDK for Node.js by running this command.
 
     npm install @google/genai
 
@@ -116,7 +116,7 @@ export GOOGLE_GENAI_USE_VERTEXAI=True
 
 ### Java
 
-Install and update the Gen AI SDK for Java by running this command.
+Install and update the Google Gen AI SDK for Java by running this command.
 
 #### Maven
 

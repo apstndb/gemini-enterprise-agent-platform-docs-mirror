@@ -90,7 +90,7 @@ The following examples show how you can extend a Veo video:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -131,8 +131,6 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     # gs://your-bucket/your-prefix
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 For more information about the Veo API, see the following:
 

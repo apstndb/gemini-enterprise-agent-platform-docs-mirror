@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-7
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-7
 title: Claude Opus 4.7
-description: The next generation of Anthropic's most intelligent model, Claude Opus 4.7 is an industry leader across coding, agents, computer use, and enterprise workflows.
+description: Claude Opus 4.7 is optimized for coding, agents, computer use, and enterprise workflows.
 data_source: docs.cloud.google.com
 ---
 

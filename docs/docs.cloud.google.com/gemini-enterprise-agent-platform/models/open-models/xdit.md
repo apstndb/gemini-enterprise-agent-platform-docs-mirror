@@ -60,7 +60,7 @@ You can deploy a custom Agent Platform endpoint with the xDiT container by using
 
 ### Use the Colab Enterprise notebook
 
-For flexibility and customization, use the Colab Enterprise notebook examples to deploy a Agent Platform endpoint with the xDiT container by using the Agent Platform SDK for Python.
+For flexibility and customization, use the Colab Enterprise notebook examples to deploy an Agent Platform endpoint with the xDiT container by using the Agent Platform SDK for Python.
 
 1.  Navigate to the [model card page](https://console.cloud.google.com/vertex-ai/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Open notebook** .
 

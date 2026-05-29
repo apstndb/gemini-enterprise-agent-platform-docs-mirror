@@ -30,7 +30,7 @@ The rest of this document assumes that you are using the same Cloud Shell enviro
 
 ## Create an endpoint
 
-To get online predictions from the ML model that you trained when following the previous page of this tutorial, create a Vertex AI *endpoint* . Endpoints serve online predictions from one or more models.
+To get online predictions from the ML model that you trained when following the previous page of this tutorial, create an Vertex AI *endpoint* . Endpoints serve online predictions from one or more models.
 
 1.  In the Google Cloud console, in the Vertex AI section, go to the **Models** page.
 

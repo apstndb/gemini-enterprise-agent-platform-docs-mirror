@@ -190,7 +190,7 @@ The following are important:
 1.  Before you query the RAG corpus, you must rebuild the ANN index at least once.
 2.  Only one concurrent index rebuild is supported on a project in each location.
 
-To upload your local file into your RAG corpus, see [Upload a RAG file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/upload) . To import data into your RAG corpus and trigger an ANN index rebuild, see the following code sample that demonstrates how to import from Cloud Storage. To learn about the supported data sources, see [Data sources supported for RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion#supported-data-sources) .
+To upload your local file into your RAG corpus, see [Upload a RAG file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload) . To import data into your RAG corpus and trigger an ANN index rebuild, see the following code sample that demonstrates how to import from Cloud Storage. To learn about the supported data sources, see [Data sources supported for RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion#supported-data-sources) .
 
 ### Python
 
@@ -253,7 +253,7 @@ To perform the following setup steps, verify that your user account has the appr
 
 #### Enable the API
 
-To enable the Cloud KMS API, do the following:
+To enable the Cloud Key Management Service API, do the following:
 
 1.  Navigate to the Google Cloud console.
 2.  Select the project where you want to manage your keys, and create your RAG corpus.

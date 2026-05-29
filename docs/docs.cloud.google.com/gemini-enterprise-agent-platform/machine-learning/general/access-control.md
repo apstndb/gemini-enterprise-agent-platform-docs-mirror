@@ -8161,7 +8161,7 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 ## Grant Agent Platform service agents access to other resources
 
-Sometimes you need to grant additional roles to a Agent Platform service agent. For example, if you need Agent Platform to access a Cloud Storage bucket in a different project, you'll need to grant one or more additional roles to the service agent.
+Sometimes you need to grant additional roles to an Agent Platform service agent. For example, if you need Agent Platform to access a Cloud Storage bucket in a different project, you'll need to grant one or more additional roles to the service agent.
 
 > **Note:** If you want your custom training code to obtain an OAuth 2.0 access token with the `https://www.googleapis.com/auth/cloud-platform` scope, then you must use a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) for training. You can't give this level of access to the Gemini Enterprise Agent Platform Custom Code Service Agent.
 

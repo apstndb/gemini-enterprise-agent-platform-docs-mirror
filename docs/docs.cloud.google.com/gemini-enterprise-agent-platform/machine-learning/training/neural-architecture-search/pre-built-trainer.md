@@ -159,7 +159,7 @@ In the shared source code, the reward is calculated as follows:
 
 You can use other variants of the `reward` calculation on page 3 of [the mnasnet paper](https://arxiv.org/pdf/1807.11626.pdf) .
 
-  - `target_device_type` specifies the target device type that is [supported in Google Cloud](https://cloud.google.com/ml-engine/reference/rest/v1/AcceleratorType) , such as, `NVIDIA_TESLA_P100` .
+  - `target_device_type` specifies the target device type that is [supported in Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/reference/rest/Shared.Types/AcceleratorType) , such as, `NVIDIA_TESLA_P100` .
   - `use_prebuilt_latency_calculator` uses our prebuilt latency-calculator [`tf_vision/latency_computation_using_saved_model.py`](https://github.com/google/vertex-ai-nas/blob/main/tf_vision/latency_computation_using_saved_model.py) .
   - `target_device_latency_ms` specifies the target device latency.
 

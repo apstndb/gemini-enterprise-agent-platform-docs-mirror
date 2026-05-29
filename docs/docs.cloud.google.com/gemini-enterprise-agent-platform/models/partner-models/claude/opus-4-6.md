@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-6
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-6
 title: Claude Opus 4.6
-description: The next generation of Anthropic's most intelligent model, Claude Opus 4.6 is an industry leader across coding, agents, computer use, and enterprise workflows.
+description: Claude Opus 4.6 is optimized for coding, agents, computer use, and enterprise workflows.
 data_source: docs.cloud.google.com
 ---
 
-Claude Opus 4.6 is the next generation of Anthropic's most intelligent model, and the world's best model for coding, enterprise agents, and professional work.
+Claude Opus 4.6 is optimized for coding, enterprise agents, and professional work.
 
 **Retirement Date:** Not sooner than February 5, 2027.
 

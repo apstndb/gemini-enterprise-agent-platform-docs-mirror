@@ -187,8 +187,6 @@ Replace `  MODEL  ` with the model name you want to use, for example `meta/llama
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your Google Cloud project ID.

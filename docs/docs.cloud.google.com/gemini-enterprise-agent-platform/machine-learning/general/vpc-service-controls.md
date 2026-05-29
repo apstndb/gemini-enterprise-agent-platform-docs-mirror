@@ -171,6 +171,7 @@ Agent Platform APIs that you can incorporate into your service perimeter include
       - Private online inference endpoints
       - Colab Enterprise
       - Agent Runtime
+      - Managed training clusters
   - [Notebooks API](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_notebooks) supports the following service:
       - Vertex AI Workbench
 

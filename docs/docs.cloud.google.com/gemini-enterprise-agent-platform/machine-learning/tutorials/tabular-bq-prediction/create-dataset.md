@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-dataset
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-dataset
 title: Create a Gemini Enterprise Agent Platform tabular dataset
-description: Download a publicly available BigQuery dataset, then use it to create a Agent Platform tabular dataset, as part of a tutorial that shows you how to use the Agent Platform SDK for Python to create a custom-trained model.
+description: Download a publicly available BigQuery dataset, then use it to create an Agent Platform tabular dataset, as part of a tutorial that shows you how to use the Agent Platform SDK for Python to create a custom-trained model.
 data_source: docs.cloud.google.com
 ---
 
@@ -97,7 +97,7 @@ To create your BigQuery dataset that's used to create a Gemini Enterprise Agent 
 
 To convert your BigQuery dataset a Gemini Enterprise Agent Platform tabular dataset, run the following code. You can ignore the warning about the required number of rows to train using tabular data. Because the purpose of this tutorial is to quickly show you how to get predictions, a relatively small set of data is used to show you how to generate predictions. In a real world scenario, you want at least 1000 rows in a tabular dataset. The [`create_from_dataframe`](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TabularDataset#google_cloud_aiplatform_TabularDataset_create_from_dataframe) command returns a Gemini Enterprise Agent Platform [`TabularDataset`](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TabularDataset#google_cloud_aiplatform_TabularDataset) .
 
-    # Create a Agent Platform tabular dataset
+    # Create an Agent Platform tabular dataset
     dataset = aiplatform.TabularDataset.create_from_dataframe(
         df_source=df_train,
         staging_path=f"bq://{bq_dataset_id}.table-unique",

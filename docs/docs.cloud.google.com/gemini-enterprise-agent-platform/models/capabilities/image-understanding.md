@@ -91,7 +91,47 @@ The following table lists the models that support image understanding:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21</li>
+<li>Supported resolutions: 512, 1K, 2K, 4K (Preview)</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">image/png</code></li>
+<li><code dir="ltr" translate="no">image/jpeg</code></li>
+<li><code dir="ltr" translate="no">image/webp</code></li>
+<li><code dir="ltr" translate="no">image/heic</code></li>
+<li><code dir="ltr" translate="no">image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9, 9:16</li>
+<li>Supported resolutions: 1K, 2K, 4K (Preview)</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">image/png</code></li>
+<li><code dir="ltr" translate="no">image/jpeg</code></li>
+<li><code dir="ltr" translate="no">image/webp</code></li>
+<li><code dir="ltr" translate="no">image/heic</code></li>
+<li><code dir="ltr" translate="no">image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview">Gemini 3 Pro Image</a> preview</li>
 </ul></td>
 <td style="text-align: left;"><ul>
 <li>Maximum images per prompt: 14</li>

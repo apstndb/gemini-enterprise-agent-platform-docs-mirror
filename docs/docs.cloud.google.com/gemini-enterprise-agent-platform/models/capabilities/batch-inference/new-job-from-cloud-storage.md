@@ -1,78 +1,28 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-from-bigquery
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-from-bigquery
-title: Batch inference for BigQuery
-description: Learn how to use batch inference with Agent Platform using Gemini models and BigQuery.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-cloud-storage
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-cloud-storage
+title: Batch inference from Cloud Storage
+description: Learn how to use batch inference with Agent Platform using Gemini models and Cloud Storage.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to get batch inferences using BigQuery.
+This page describes how to get batch inferences using Cloud Storage.
 
 ## 1\. Prepare your inputs
 
-### BigQuery storage input
+Batch inference for Gemini models accepts one JSON Lines (JSONL) file stored in Cloud Storage as input data. Each line in the batch input data is a request to the model.
 
-Your service account must have have appropriate BigQuery permissions. To grant the service account the **BigQuery User** role, use the [`gcloud iam service-accounts add-iam-policy-binding`](https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/add-iam-policy-binding) command as follows:
+For example:
 
-``` 
-    gcloud projects add-iam-policy-binding PROJECT_ID \
-        --member="serviceAccount:SERVICE_ACCOUNT_ID@PROJECT_ID.iam.gserviceaccount.com" \
-        --role="roles/bigquery.user"
-```
+    {"request":{"contents": [{"role": "user", "parts": [{"text": "What is the relation between the following video and image samples?"}, {"fileData": {"fileUri": "gs://cloud-samples-data/generative-ai/video/animals.mp4", "mimeType": "video/mp4"}}, {"fileData": {"fileUri": "gs://cloud-samples-data/generative-ai/image/cricket.jpeg", "mimeType": "image/jpeg"}}]}], "generationConfig": {"temperature": 0.9, "topP": 1, "maxOutputTokens": 256}}}
 
-Replace the following values:
+Download the [sample batch request file](https://storage.googleapis.com/cloud-samples-data/generative-ai/batch/batch_requests_for_multimodal_input_2.jsonl)
 
-  - PROJECT\_ID : The ID for the project that your service account was created in.
-  - SERVICE\_ACCOUNT\_ID : The ID for the service account.
-
-A `request` column is required, and must be [valid JSON](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#json_type) . This JSON data represents your input for the model.
-
-The content in the `request` column must match the structure of a [`GenerateContentRequest`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/generateContent#request-body) .
-
-Your input table can have column data types other than `request` . These columns can have [BigQuery data types](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types) except for the following: array, struct, range, datetime, and geography. These columns are ignored for content generation but included in the output table.
-
-> **Important:** Don't use `response` or `status` as column names. These keywords are reserved by the system to provide information about the outcome of the batch inference job.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Example input (JSON)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" translate="no"><code>{
-  &quot;contents&quot;: [
-    {
-      &quot;role&quot;: &quot;user&quot;,
-      &quot;parts&quot;: [
-        {
-          &quot;text&quot;: &quot;Give me a recipe for banana bread.&quot;
-        }
-      ]
-    }
-  ],
-  &quot;system_instruction&quot;: {
-    &quot;parts&quot;: [
-      {
-        &quot;text&quot;: &quot;You are a chef.&quot;
-      }
-    ]
-  }
-}
-        </code></pre></td>
-</tr>
-</tbody>
-</table>
+After you prepare your input data and upload it to Cloud Storage, make sure the [AI Platform Service Agent](https://docs.cloud.google.com/iam/docs/service-agents#ai-platform-service-agent) has permission to read the Cloud Storage file.
 
 ## 2\. Submit a batch job
 
-You can create a batch job through the Google Cloud console, the Google Gen AI SDK, or the REST API.
-
-The job and your table must be in the same region.
+You can create a batch job by using the Google Cloud console, the REST API, or the Google Gen AI SDK.
 
 > To see an example of using batch inference, run the "Intro to Batch Predictions with the Gemini API" notebook in one of the following environments:
 > 
@@ -91,10 +41,10 @@ Before using any of the request data, make the following replacements:
 
   - ENDPOINT\_PREFIX : The region of the model resource followed by `-` . For example, `us-central1-` . If using the global endpoint, leave blank. **Note:** The global endpoint isn't supported for batch inference using tuned models.
   - LOCATION : A region that supports Gemini models. If using the global endpoint, enter `global` .
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
-  - MODEL\_PATH : The publisher model name, for example, `publishers/google/models/gemini-2.0-flash-001` ; or the tuned endpoint name, for example, ` projects/ PROJECT_ID /locations/ LOCATION /models/ MODEL_ID  ` , where MODEL\_ID is the model ID of the tuned model.
-  - INPUT\_URI : The BigQuery table where your batch inference input is located such as `bq://myproject.mydataset.input_table` . The dataset must be located in the same region as the batch inference job. Multi-region datasets are not supported.
-  - OUTPUT\_FORMAT : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .
+  - PROJECT\_ID : Your project ID.
+  - MODEL\_PATH : the publisher model name, for example, `publishers/google/models/gemini-2.5-flash` ; or the tuned endpoint name, for example, ` projects/ PROJECT_ID /locations/ LOCATION /models/ MODEL_ID  ` , where MODEL\_ID is the model ID of the tuned model.
+  - INPUT\_URI : The Cloud Storage location of your JSONL batch inference input such as `gs://bucketname/path/to/file.jsonl` .
+  - OUTPUT\_FORMAT : To output to a Cloud Storage bucket, specify `jsonl` .
   - DESTINATION : For BigQuery, specify `bigqueryDestination` . For Cloud Storage, specify `gcsDestination` .
   - OUTPUT\_URI\_FIELD\_NAME : For BigQuery, specify `outputUri` . For Cloud Storage, specify `outputUriPrefix` .
   - OUTPUT\_URI : For BigQuery, specify the table location such as `bq://myproject.mydataset.output_result` . The region of the output BigQuery dataset must be the same as the Agent Platform batch inference job. For Cloud Storage, specify the bucket and directory location such as `gs://mybucket/path/to/output` .
@@ -106,12 +56,12 @@ HTTP method and URL:
 Request JSON body:
 
     {
-      "displayName": "my-bigquery-batch-inference-job",
+      "displayName": "my-cloud-storage-batch-inference-job",
       "model": "MODEL_PATH",
       "inputConfig": {
-        "instancesFormat": "bigquery",
-        "bigquerySource":{
-          "inputUri" : "INPUT_URI"
+        "instancesFormat": "jsonl",
+        "gcsSource": {
+          "uris" : "INPUT_URI"
         }
       },
       "outputConfig": {
@@ -158,12 +108,14 @@ You should receive a JSON response similar to the following.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
-      "displayName": "my-bigquery-batch-inference-job",
+      "displayName": "my-cloud-storage-batch-inference-job",
       "model": "publishers/google/models/gemini-2.5-flash",
       "inputConfig": {
-        "instancesFormat": "bigquery",
-        "bigquerySource": {
-          "inputUri" : "INPUT_URI"
+        "instancesFormat": "jsonl",
+        "gcsSource": {
+          "uris": [
+            "INPUT_URI"
+          ]
         }
       },
       "outputConfig": {
@@ -178,7 +130,7 @@ You should receive a JSON response similar to the following.
       "modelVersionId": "1"
     }
 
-The response includes a unique identifier for the batch job. You can poll for the status of the batch job using the BATCH\_JOB\_ID . For more information, see [Monitor the job status](https://docs.cloud.google.com/gemini-enterprise-agent-platform#monitor) . Note: Custom Service account, live progress, CMEK, and VPCSC reports are not supported.
+The response includes a unique identifier for the batch job. You can poll for the status of the batch job using the BATCH\_JOB\_ID . For more information, see [Monitor the job status](https://docs.cloud.google.com/gemini-enterprise-agent-platform#monitor) . Note: Custom service accounts and CMEK aren't supported.
 
 ### Python
 
@@ -202,15 +154,16 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     from google.genai.types import CreateBatchJobConfig, JobState, HttpOptions
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    
     # TODO(developer): Update and un-comment below line
-    # output_uri = f"bq://your-project.your_dataset.your_table"
+    # output_uri = "gs://your-bucket/your-prefix"
     
+    # See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.batches.Batches.create
     job = client.batches.create(
         # To use a tuned model, set the model param to your tuned model using the following format:
         # model="projects/{PROJECT_ID}/locations/{LOCATION}/models/{MODEL_ID}
         model="gemini-2.5-flash",
-        src="bq://storage-samples.generative_ai.batch_requests_for_multimodal_input",
+        # Source link: https://storage.cloud.google.com/cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl
+        src="gs://cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl",
         config=CreateBatchJobConfig(dest=output_uri),
     )
     print(f"Job name: {job.name}")
@@ -240,7 +193,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 ## 3\. Monitor the job status and progress
 
-After the job is submitted, you can check the status of your batch job using API, SDK and Google Cloud console.
+After the job is submitted, you can check the status of your batch job by using the Google Cloud console, the REST API, or the Google Gen AI SDK.
 
 ### Console
 
@@ -340,61 +293,92 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     # Job state: JOB_STATE_SUCCEEDED
 ```
 
-The status of the a given batch job can be any of the following:
-
-  - `JOB_STATE_PENDING` : Queue for capacity. The job can be in `queue` state up to 72-hour before entering `running` state.
-  - `JOB_STATE_RUNNING` : The input file was successfully validated and the batch is being run.
-  - `JOB_STATE_SUCCEEDED` : The batch has been completed and the results are ready
-  - `JOB_STATE_FAILED` : the input file has failed the validation process, or couldn't be completed within the 24-hour time window after entering `RUNNING` state.
-  - `JOB_STATE_CANCELLING` : The batch is being cancelled.
-  - `JOB_STATE_CANCELLED` : The batch was cancelled.
+For descriptions of job state statuses, see [JobState](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/JobState) .
 
 ## 4\. Retrieve batch output
 
-When a batch inference task completes, the output is stored in the BigQuery table that you specified in your request.
+When a batch inference job completes, the output is stored in the Cloud Storage bucket that you specified when you created the job. For successful rows, model responses are stored in the `response` field. Otherwise, error details are stored in the `status` field for further inspection.
 
-For succeeded rows, model responses are stored in the `response` column. Otherwise, error details are stored in the `status` column for further inspection.
+During long-running jobs, completed inferences are continuously exported to the specified output destination. If the batch inference job is terminated, all completed rows are exported. You are only charged for completed inferences.
 
-### Output example
+> **Caution:** [Soft delete](https://docs.cloud.google.com/storage/docs/soft-delete) is enabled on Cloud Storage buckets, which retain content in a deleted state, potentially resulting in significant storage costs. We highly recommend you [Disable soft delete](https://docs.cloud.google.com/storage/docs/disable-soft-delete) to prevent unexpected charges.
+
+### Output examples
+
+> **Note:** The following examples represent one line in the output JSONL file. They have been formatted for readability.
 
 **Successful example**
 
     {
-      "candidates": [
-        {
-          "content": {
-            "role": "model",
+      "status": "",
+      "processed_time": "2024-11-01T18:13:16.826+00:00",
+      "request": {
+        "contents": [
+          {
             "parts": [
               {
-                "text": "In a medium bowl, whisk together the flour, baking soda, baking powder."
+                "fileData": null,
+                "text": "What is the relation between the following video and image samples?"
+              },
+              {
+                "fileData": {
+                  "fileUri": "gs://cloud-samples-data/generative-ai/video/animals.mp4",
+                  "mimeType": "video/mp4"
+                },
+                "text": null
+              },
+              {
+                "fileData": {
+                  "fileUri": "gs://cloud-samples-data/generative-ai/image/cricket.jpeg",
+                  "mimeType": "image/jpeg"
+                },
+                "text": null
               }
-            ]
-          },
-          "finishReason": "STOP",
-          "safetyRatings": [
-            {
-              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-              "probability": "NEGLIGIBLE",
-              "probabilityScore": 0.14057204,
-              "severity": "HARM_SEVERITY_NEGLIGIBLE",
-              "severityScore": 0.14270912
-            }
-          ]
+            ],
+            "role": "user"
+          }
+        ]
+      },
+      "response": {
+        "candidates": [
+          {
+            "avgLogprobs": -0.5782725546095107,
+            "content": {
+              "parts": [
+                {
+                  "text": "This video shows a Google Photos marketing campaign where animals at the Los Angeles Zoo take self-portraits using a modified Google phone housed in a protective case. The image is unrelated."
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP"
+          }
+        ],
+        "modelVersion": "gemini-2.0-flash-001@default",
+        "usageMetadata": {
+          "candidatesTokenCount": 36,
+          "promptTokenCount": 29180,
+          "totalTokenCount": 29216
         }
-      ],
-      "usageMetadata": {
-        "promptTokenCount": 8,
-        "candidatesTokenCount": 396,
-        "totalTokenCount": 404
       }
     }
 
 **Failed example**
 
-  - Request
-    
-        {"contents":[{"parts":{"text":"Explain how AI works in a few words."},"role":"tester"}]}
-
-  - Response
-    
-        Bad Request: {"error": {"code": 400, "message": "Please use a valid role: user, model.", "status": "INVALID_ARGUMENT"}}
+    {
+      "status": "Bad Request: {\"error\": {\"code\": 400, \"message\": \"Please use a valid role: user, model.\", \"status\": \"INVALID_ARGUMENT\"}}",
+      "processed_time": "2025-07-09T19:57:43.558+00:00",
+      "request": {
+        "contents": [
+          {
+            "parts": [
+              {
+                "text": "Explain how AI works in a few words"
+              }
+            ],
+            "role": "tester"
+          }
+        ]
+      },
+      "response": {}
+    }

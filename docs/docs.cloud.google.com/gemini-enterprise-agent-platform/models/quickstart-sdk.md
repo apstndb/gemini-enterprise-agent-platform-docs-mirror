@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk
-title: Develop Gemini API code with the Gen AI SDK
+title: Develop Gemini API code with the Google Gen AI SDK
 description: Accelerate your development workflow with the Google Gen AI SDK, enhanced by the Google Developer Knowledge MCP server.
 data_source: docs.cloud.google.com
 ---
 
-This guide shows you how to accelerate your development workflow with the Gen AI SDK, enhanced by the Google Developer Knowledge MCP server. By connecting your AI-powered development tools to the [Developer Knowledge MCP server](https://developers.google.com/knowledge/mcp) , you can rapidly prototype and write code with in-context assistance from Google's official and up-to-date developer documentation. This connection lets you interact with your tools to get accurate code examples, explanations, and troubleshooting advice for the Gemini API.
+This guide shows you how to accelerate your development workflow with the Google Gen AI SDK, enhanced by the Google Developer Knowledge MCP server. By connecting your AI-powered development tools to the [Developer Knowledge MCP server](https://developers.google.com/knowledge/mcp) , you can rapidly prototype and write code with in-context assistance from Google's official and up-to-date developer documentation. This connection lets you interact with your tools to get accurate code examples, explanations, and troubleshooting advice for the Gemini API.
 
 ## Before you begin
 
@@ -16,7 +16,7 @@ Before you begin, you need to complete the following steps:
       - [Google Cloud console quickstart for Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart)
       - [API quickstart for Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start)
   - Have an AI-powered development tool installed and configured to connect to the Developer Knowledge MCP server. Examples include [Antigravity](https://antigravity.google/) , [Gemini CLI](https://geminicli.com/) , or [Gemini Code Assist in your IDE](https://docs.cloud.google.com/gemini/docs/codeassist/overview) . This connection allows your tool to search and retrieve information from Google's official developer documentation.
-  - [Install the Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries#install) for your preferred language.
+  - [Install the Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries#install) for your preferred language.
 
 ## Connect to the Developer Knowledge MCP server
 
@@ -32,11 +32,11 @@ See [Connect to the Developer Knowledge MCP server](https://developers.google.co
 
 ## Example prompts
 
-Once your tool is connected to the Developer Knowledge MCP server, you can ask it for help as you write code with the Gen AI SDK. Here are some example prompts you can use with your configured AI tool:
+Once your tool is connected to the Developer Knowledge MCP server, you can ask it for help as you write code with the Google Gen AI SDK. Here are some example prompts you can use with your configured AI tool:
 
-  - "Using the Gen AI SDK in Python, how do I generate text with Gemini and handle potential API errors?"
+  - "Using the Google Gen AI SDK in Python, how do I generate text with Gemini and handle potential API errors?"
 
-  - "Show me the Gen AI SDK code for Node.js to call the Gemini API for summarizing a long document. What are the best practices for chunking input, according to the official documentation?"
+  - "Show me the Google Gen AI SDK code for Node.js to call the Gemini API for summarizing a long document. What are the best practices for chunking input, according to the official documentation?"
 
   - "I'm encountering an authentication error with the Java Gen AI SDK when running on Cloud Run. What are the common causes and how can I troubleshoot?"
 
@@ -48,7 +48,7 @@ Your AI tool uses the Developer Knowledge MCP server to provide answers and code
 
 ## What's next
 
-  - Explore advanced features of the Gen AI SDK.
+  - Explore advanced features of the Google Gen AI SDK.
   - Dive deeper into the Gemini API documentation.
   - [Review Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
   - Learn more about other tools available using the Developer Knowledge MCP server.

@@ -50,8 +50,6 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your Google Cloud project ID.
@@ -149,8 +147,6 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
     print(response)
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
     curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -443,8 +439,6 @@ Replace `  MODEL  ` with the model name you want to use, for example `xai/grok-4
     }
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 

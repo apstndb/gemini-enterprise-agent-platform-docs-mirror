@@ -67,7 +67,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Specific to Ray on Vertex AI
 
-  - If you use a managed dataset in a Agent Platform training pipeline that utilizes Ray for distributed training, the data from the managed dataset is made available to the training containers, which your Ray application can then access (via mounted Cloud Storage or BigQuery if the dataset is linked to those sources). The environment variables `AIP_TRAINING_DATA_URI` , `AIP_VALIDATION_DATA_URI` , and `AIP_TEST_DATA_URI` would point to the data.
+  - If you use a managed dataset in an Agent Platform training pipeline that utilizes Ray for distributed training, the data from the managed dataset is made available to the training containers, which your Ray application can then access (via mounted Cloud Storage or BigQuery if the dataset is linked to those sources). The environment variables `AIP_TRAINING_DATA_URI` , `AIP_VALIDATION_DATA_URI` , and `AIP_TEST_DATA_URI` would point to the data.
 
 ### Learn more
 

@@ -261,8 +261,8 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## What's next
 
-  - To learn more about the RAG API, see [Vertex AI RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1) .
+  - To learn more about the RAG API, see [Vertex AI RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
 
-  - To learn more about the responses from RAG, see [Retrieval and Generation Output of Vertex AI RAG Engine](https://docs.cloud.google.com/vertex-ai/docs/model-reference/rag-output-explained) .
+  - To learn more about the responses from RAG, see [Retrieval and Generation Output of Vertex AI RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained) .
 
   - To learn about the Vertex AI RAG Engine, see the [Vertex AI RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .

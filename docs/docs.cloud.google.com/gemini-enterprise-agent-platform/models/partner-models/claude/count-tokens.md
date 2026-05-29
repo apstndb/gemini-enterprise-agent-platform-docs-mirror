@@ -14,6 +14,7 @@ There is no cost for using the `count-tokens` endpoint.
 
 The following models support count tokens:
 
+  - [Claude Opus 4.8](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
   - [Claude Opus 4.7](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
   - [Claude Opus 4.6](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
   - [Claude Sonnet 4.6](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)

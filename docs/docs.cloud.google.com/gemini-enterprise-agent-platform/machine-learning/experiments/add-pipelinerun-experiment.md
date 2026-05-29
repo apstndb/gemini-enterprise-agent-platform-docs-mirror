@@ -139,7 +139,7 @@ See [`init`](https://docs.cloud.google.com/python/docs/reference/aiplatform/late
 
   - `experiment_name` : Provide a name for your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `run_name` : Specify a run name.
-  - `pipeline_job` : A Vertex AI PipelineJob
+  - `pipeline_job` : An Vertex AI PipelineJob
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
 

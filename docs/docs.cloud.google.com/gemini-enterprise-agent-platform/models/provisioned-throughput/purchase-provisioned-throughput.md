@@ -2,13 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput
 title: Purchase Provisioned Throughput
-description: Learn how to estimate your Provisioned Throughput requirement and place an order for GSUs.
+description: Estimate your Provisioned Throughput requirement and place an order for GSUs.
 data_source: docs.cloud.google.com
 ---
 
 This page provides details to consider before subscribing to Provisioned Throughput, the permissions you must have to place or to view a Provisioned Throughput order, and the instructions for placing and viewing your orders for standard Provisioned Throughput.
 
-If you want to purchase Single Zone Provisioned Throughput, [contact your Google Cloud account representative](https://cloud.google.com/contact) for assistance. For more information about Single Zone Provisioned Throughput, See [Single Zone Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt) .
+If you want to purchase Single Zone Provisioned Throughput, [contact your Google Cloud account representative](https://cloud.google.com/contact) for assistance. For more information about Single Zone Provisioned Throughput, see [Single Zone Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt) .
 
 ## What to consider before purchasing
 
@@ -24,11 +24,11 @@ To help you decide whether you want to purchase Provisioned Throughput, consider
     
     You can configure monthly subscriptions to renew automatically each month. Weekly terms don't support automatic renewal.
     
-    For more information, see [Change Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) . You can also [contact your Google Cloud account representative](https://cloud.google.com/contact) for assistance.
+    For more information, see [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) . You can also [contact your Google Cloud account representative](https://cloud.google.com/contact) for assistance.
 
   - **You can change your auto-renewal behavior, model, model version, or region with notice.**
     
-    After you've chosen your project, region, model, model version, and auto-renewal behavior and your order is approved and activated, Provisioned Throughput is enabled, subject to available capacity. You can change your auto-renewal behavior, model, model version, or region by [modifying your existing Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) using the Google Cloud console.
+    After you've chosen your project, region, model, model version, and auto-renewal behavior, and your order is approved and activated, Provisioned Throughput is enabled, subject to available capacity. You can change your auto-renewal behavior, model, model version, or region by [modifying your existing Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) by using the Google Cloud console.
     
     All changes are processed on a best-effort basis and are typically fulfilled within 10 business days of the initial request.
     
@@ -50,7 +50,7 @@ You can purchase Provisioned Throughput for Google models in preview, provided t
 
 If you have an active Provisioned Throughput order for a preview model and a generally available version of the model is released, then you can do either of the following:
 
-  - Move the order to the generally available version of the model. Note that after you move your order to the generally available model, you can't switch your order back to the preview model. For more information about changing an order, see [Change Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
+  - Move the order to the generally available version of the model. Note that after you move your order to the generally available model, you can't switch your order back to the preview model. For more information about changing an order, see [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
 
   - Alternatively, continue using Provisioned Throughput for the preview version of a model as long as the preview version is stable. For more information about stable and retired models, see [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) .
 
@@ -83,8 +83,6 @@ If you expect your QPM to exceed 30,000, then to maximize your Provisioned Throu
 Provisioned Throughput orders are processed based on the size of the order and the available capacity. Depending on the number of GSUs requested and the available capacity, it might take from a few minutes to a few weeks to process your order. While placing a Provisioned Throughput order, you can use the Generative AI scale unit estimator tool to calculate the number of GSUs that you need to purchase. After reviewing the estimate, you can either proceed with it, or modify the number of GSUs to purchase.
 
 Follow these steps to purchase standard Provisioned Throughput. For assistance with purchasing Single Zone Provisioned Throughput, [contact your Google Cloud account representative](https://cloud.google.com/contact) .
-
-### Console
 
 1.  In the Google Cloud console, go to the **Provisioned Throughput** page.
 
@@ -153,8 +151,8 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
               - **Session memory (cached) tokens per query**
               - **Output response text tokens per query**
               - **Output audio tokens per query**
-        
-        > **Note:** For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLScxBeD4UJ8GbUfX4SXjj5a1XJ1K7Urwvb0iSGdGccNcFRBrpQ/viewform) . For more information about using Provisioned Throughput for Gemini 2.5 Flash with Gemini Live API, see [Provisioned Throughput for Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api) .
+            
+            > **Note:** For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLScxBeD4UJ8GbUfX4SXjj5a1XJ1K7Urwvb0iSGdGccNcFRBrpQ/viewform) . For more information about using Provisioned Throughput for Gemini 2.5 Flash with Gemini Live API, see [Provisioned Throughput for Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api) .
         
           - For the [Gemini 2.0 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash) and [Gemini 2.0 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash-lite) models, enter the following:
             
@@ -183,7 +181,7 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
 
 9.  Optional: Modify the **Number of generative AI scale units (GSUs) per month** .
 
-10. Select your **Term** . Note that term fees are not cancelable for the duration of the term and will apply regardless of actual usage or if the model is discontinued. Google recommends [changing your assigned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) prior to its [discontinuation date](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available) . Google won't proactively cancel auto-renewal for discontinued models.
+10. Select your **Term** . Note that term fees are not cancelable for the duration of the term and will apply regardless of actual usage or if the model is discontinued. Google recommends [changing your assigned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) prior to the model's [discontinuation date](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available) . Google won't proactively cancel auto-renewal for discontinued models.
     
     The following options are available:
     
@@ -305,9 +303,8 @@ After you submit your Provisioned Throughput order, the order status might appea
 
 Follow these steps to view your Provisioned Throughput orders:
 
-### Console
-
 1.  In the Google Cloud console, go to the Provisioned Throughput page.
+
 2.  Select the **Region** . Your list of orders appears.
 
 ## What's next

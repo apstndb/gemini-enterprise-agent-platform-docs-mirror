@@ -6,11 +6,11 @@ description: Create a Gemini Enterprise Agent Platform dataset from your tabular
 data_source: docs.cloud.google.com
 ---
 
-This page shows you how to create a Agent Platform dataset from your tabular data so you can start training forecast models. You can create a dataset using either the Google Cloud console or the Agent Platform API.
+This page shows you how to create an Agent Platform dataset from your tabular data so you can start training forecast models. You can create a dataset using either the Google Cloud console or the Agent Platform API.
 
 ## Before you begin
 
-Before creating a Agent Platform dataset from your tabular data, [prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data) .
+Before creating an Agent Platform dataset from your tabular data, [prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data) .
 
 ## Create an empty dataset and associate your prepared data
 

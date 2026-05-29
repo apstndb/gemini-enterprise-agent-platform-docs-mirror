@@ -1,10 +1,8 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-to-image-generation
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image-preview
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/quotas
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-templates
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-data-catalog
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/samples
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/image/overview
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3
+404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/resume

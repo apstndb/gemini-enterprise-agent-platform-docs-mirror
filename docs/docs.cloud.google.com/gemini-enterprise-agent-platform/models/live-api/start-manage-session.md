@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 The Gemini Live API enables low-latency voice and text interactions by processing continuous streams of audio or text called *sessions* to deliver immediate, human-like spoken responses. Session lifecycle management, from the initial handshake to graceful termination, is controlled by the developer.
 
-This page shows you how to start a conversation session with Gemini models using the Gemini Live API. You can start a session using Vertex AI Studio, the Gen AI SDK, or WebSockets.
+This page shows you how to start a conversation session with Gemini models using the Gemini Live API. You can start a session using Vertex AI Studio, the Google Gen AI SDK, or WebSockets.
 
 This page also shows you how to do the following:
 
@@ -30,7 +30,7 @@ You can have up to 1,000 concurrent sessions per project on a pay-as-you-go ( [P
 
 ## Start a session
 
-The following tabs show how to start a live conversation session using Vertex AI Studio, the Gen AI SDK, or WebSockets:
+The following tabs show how to start a live conversation session using Vertex AI Studio, the Google Gen AI SDK, or WebSockets:
 
 ### Console
 
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
 ## Extend a session
 
-> **Note:** Session extension is only available when using the Gen AI SDK, not Vertex AI Studio.
+> **Note:** Session extension is only available when using the Google Gen AI SDK, not Vertex AI Studio.
 
 The default maximum length of a conversation session is 10 minutes. A `goAway` notification ( [`BidiGenerateContentServerMessage.goAway`](https://ai.google.dev/api/live#bidigeneratecontentservermessage) ) is sent to the client 60 seconds before the session ends.
 

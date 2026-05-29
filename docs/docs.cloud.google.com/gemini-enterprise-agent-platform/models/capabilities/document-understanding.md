@@ -84,13 +84,41 @@ The following table lists the models that support document understanding:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum number of files per prompt: As supported by the 128k token context window</li>
+<li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
+<li>Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">application/pdf</code></li>
+<li><code dir="ltr" translate="no">text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview">Gemini 3 Pro Image</a> preview</li>
 </ul></td>
 <td style="text-align: left;"><ul>
 <li>Maximum number of files per prompt: As supported by the 65,536 token context window</li>
 <li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
 <li>Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)</li>
 <li>Maximum file size per file for direct uploads through the console: 7 MB</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">application/pdf</code></li>
+<li><code dir="ltr" translate="no">text/plain</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image">Gemini 3 Pro Image</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum number of files per prompt: As supported by the 65,536 token context window</li>
+<li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
+<li>Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)</li>
 </ul></td>
 <td><ul>
 <li><code dir="ltr" translate="no">application/pdf</code></li>

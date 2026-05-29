@@ -189,7 +189,7 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : The region where the training code is run and the `Model` is stored.
   - PROJECT\_ID : Your project ID.
   - TRAINING\_PIPELINE\_NAME : Required. A display name for the trainingPipeline.
-  - If your training application uses a Agent Platform dataset, specify the following:
+  - If your training application uses an Agent Platform dataset, specify the following:
       - DATASET\_ID : The ID of the dataset.
       - ANNOTATIONS\_FILTER : Filters the dataset by the annotations that you specify.
       - ANNOTATION\_SCHEMA\_URI : Filters the dataset by the specified annotation schema URI.
@@ -732,7 +732,7 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : Your project's region.
   - PROJECT\_ID : Your project ID.
   - TRAINING\_PIPELINE\_NAME : Required. A display name for the trainingPipeline.
-  - If your training application uses a Agent Platform dataset, specify the following:
+  - If your training application uses an Agent Platform dataset, specify the following:
       - DATASET\_ID : The ID of the dataset.
       - ANNOTATIONS\_FILTER : Filters the dataset by the annotations that you specify.
       - ANNOTATION\_SCHEMA\_URI : Filters the dataset by the specified annotation schema URI.

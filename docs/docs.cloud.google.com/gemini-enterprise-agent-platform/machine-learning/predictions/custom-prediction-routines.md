@@ -103,7 +103,7 @@ Then, upload to Model Registry.
         artifact_uri={GCS_PATH_TO_MODEL_ARTIFACTS},
     )
 
-Once your model is uploaded to Model Registry, it may be used to [get batch inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/batch-predictions) or deployed to a Agent Platform endpoint to get online inferences.
+Once your model is uploaded to Model Registry, it may be used to [get batch inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/batch-predictions) or deployed to an Agent Platform endpoint to get online inferences.
 
 ### Deploy to Agent Platform endpoint
 

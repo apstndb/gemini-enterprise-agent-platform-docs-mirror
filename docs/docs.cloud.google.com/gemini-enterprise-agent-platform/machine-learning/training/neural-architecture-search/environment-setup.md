@@ -175,7 +175,7 @@ For example, the following commands create a service account named `my-nas-sa` u
 
 ## Download code
 
-To start a Agent Platform Neural Architecture Search experiment, you need to download the sample Python code, which includes prebuilt trainers, search space definitions, and associated client libraries.
+To start an Agent Platform Neural Architecture Search experiment, you need to download the sample Python code, which includes prebuilt trainers, search space definitions, and associated client libraries.
 
 Run the following steps to download the source code.
 

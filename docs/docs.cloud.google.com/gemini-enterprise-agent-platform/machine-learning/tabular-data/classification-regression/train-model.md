@@ -13,7 +13,7 @@ This page shows you how to train a classification or regression model from a tab
 Before you train a model, you must complete the following:
 
   - [Prepare your training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data)
-  - [Create a Agent Platform dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
+  - [Create an Agent Platform dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
 
 ## Train a model
 

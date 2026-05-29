@@ -18,7 +18,7 @@ Before you train a model, complete the following:
 
   - [Prepare your training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data)
 
-  - [Create a Vertex AI dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
+  - [Create an Vertex AI dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
 
   - Enable the following APIs: Vertex AI, Dataflow, Compute Engine, Cloud Storage.
 

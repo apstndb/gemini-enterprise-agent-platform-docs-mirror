@@ -13,7 +13,7 @@ This page shows you how to train a forecast model from a tabular dataset using e
 Before you train a forecast model, complete the following:
 
   - [Prepare your training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data)
-  - [Create a Vertex AI dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset)
+  - [Create an Vertex AI dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset)
 
 ## Train a model
 

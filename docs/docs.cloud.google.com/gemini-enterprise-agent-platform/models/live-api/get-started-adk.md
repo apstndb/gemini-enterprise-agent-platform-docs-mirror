@@ -144,7 +144,7 @@ To stop the `adk web` tool, press `Ctrl+C` in the terminal where it is running.
 
   - To learn more about Live API development using ADK, see the [ADK documentation](https://google.github.io/adk-docs/streaming/) .
   - See the [Bidi-streaming demo](https://github.com/google/adk-samples/tree/main/python/agents/bidi-demo) .
-  - [Get started using the Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-sdk) .
+  - [Get started using the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-sdk) .
   - [Get started using WebSockets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-websocket) .
   - Learn how to [configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice) .
   - Learn how to [configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities) .

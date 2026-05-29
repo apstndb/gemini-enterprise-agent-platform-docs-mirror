@@ -52,7 +52,7 @@ To learn more, see [Create a serverless training custom job](https://docs.cloud.
 
 ### Gemini Enterprise Agent Platform training clusters
 
-For large-scale, high-performance, and mission-critical training, you can reserve a dedicated cluster of accelerators. This provides assures capacity and eliminates queues, ensuring your jobs start immediately.
+For large-scale, high-performance, and mission-critical training, you can reserve a dedicated cluster of accelerators. This provides assured capacity and eliminates queues, ensuring your jobs start immediately.
 
 While you have exclusive use of these resources, Agent Platform still handles the operational overhead of managing the cluster, including hardware maintenance and OS patching. This "managed serverful" approach gives you the power of a dedicated cluster without the management complexity.
 

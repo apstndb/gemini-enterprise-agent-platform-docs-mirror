@@ -43,7 +43,7 @@ For the quotas of Gemini models, see [Generative AI on Gemini Enterprise Agent P
 | Vertex ML Metadata requests                                                                                                          | 12,000              |
 | Number of count tokens or compute tokens requests                                                                                    | 3,000               |
 
-<span class="small"><sup>1</sup> Resource management requests include any request that isn't a job, an LRO, an online inference request, a Agent Platform Vizier request, an ML metadata request, a Vertex AI TensorBoard Timeseries Insights API read request, a Vertex AI Feature Store request, a Vertex AI Feature Store streaming request, or a Vector Search request. Resource management requests can be both global and regional.</span>
+<span class="small"><sup>1</sup> Resource management requests include any request that isn't a job, an LRO, an online inference request, an Agent Platform Vizier request, an ML metadata request, a Vertex AI TensorBoard Timeseries Insights API read request, a Vertex AI Feature Store request, a Vertex AI Feature Store streaming request, or a Vector Search request. Resource management requests can be both global and regional.</span>
 
 <span class="small"><sup>2</sup> This quota applies for public endpoints only.</span> <span class="small"><sup>3</sup> Job or LRO submission requests can be both global and regional.</span>  
   

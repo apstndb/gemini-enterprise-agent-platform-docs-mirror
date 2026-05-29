@@ -18,26 +18,6 @@ Designed to deliver strong agentic capabilities (near-Pro level) at substantial 
 
 [](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
 
-3.1 Pro preview
-
-Designed for comprehensive multimodal understanding and complex problem solving
-
-  - Features a 1 million token context window
-  - Improved performance on agentic workflows and autonomous coding tasks
-  - Designed for complex multimodal tasks and advanced reasoning
-
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro)
-
-3 Flash preview
-
-Our most powerful agentic and coding model, with the best multimodal understanding capabilities
-
-  - The latest in our workhorse line of Gemini models
-  - Enhanced multimodal and coding capabilities
-  - Features our new near-zero thinking level option
-
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash)
-
 3.1 Flash-Lite
 
 Our most cost-efficient model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic
@@ -48,17 +28,21 @@ Our most cost-efficient model, optimized for low latency use cases for high-volu
 
 [](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
 
-2.5 Flash Image 🍌
+3.1 Flash Image 🍌
 
-Jumpstart your creative workflow with image generation and conversational editing
+Turn ideas into production-ready assets
 
   - Generate high-quality images
   - Capable of turn-based conversational editing
-  - Same balance of speed and price as Gemini 2.5 Flash
+  - Capable of multi-image fusion and character consistency for advanced creative workflows
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
+[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3.1-flash-image)
 
 ## Generally available Gemini models
+
+🍌 [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
+
+🍌 [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
 
 spark [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) Gemini 3.5 Flash delivers near-Pro intelligence at Flash-tier cost and speed: Pro-level coding proficiency, parallel agentic execution, all at the same price point as a Flash model.
 
@@ -80,13 +64,13 @@ performance\_auto [Gemini 2.0 Flash-Lite](https://docs.cloud.google.com/gemini-e
 
 ## Preview Gemini models
 
-preview [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
+preview [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image-preview) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 
 preview [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) Our latest reasoning-first model optimized for complex agentic workflows and coding. Features adaptive thinking, a 1M token context window, and integrated grounding for sophisticated multimodal problem solving.
 
 preview [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) Our best model for complex multimodal understanding, designed to tackle the most challenging agentic problems with strong coding and state-of-the-art reasoning capabilities.
 
-preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
+preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
 
 ## Gemma models
 
@@ -185,9 +169,3 @@ To learn more about Model Garden, including available models and capabilities, s
 ## Model versions
 
 To see all model versions, including legacy and retired models, see [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) .
-
-## What's next
-
-  - Explore pretrained models in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
-  - Learn how to control access to specific models in Model Garden by using a [Model Garden organization policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) .
-  - Learn about [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing) .

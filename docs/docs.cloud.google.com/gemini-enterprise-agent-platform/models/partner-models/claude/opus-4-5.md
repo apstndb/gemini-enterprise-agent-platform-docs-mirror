@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-5
 title: Claude Opus 4.5
-description: The next generation of Anthropic's most intelligent model, Claude Opus 4.5 is an industry leader across coding, agents, computer use, and enterprise workflows.
+description: Claude Opus 4.5 is optimized for coding, agents, computer use, and enterprise workflows.
 data_source: docs.cloud.google.com
 ---
 
-The next generation of Anthropic's most intelligent model, Claude Opus 4.5 is an industry leader across coding, agents, computer use, and enterprise workflows.
+Claude Opus 4.5 is optimized for coding, agents, computer use, and enterprise workflows.
 
 [Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-opus-4-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
 

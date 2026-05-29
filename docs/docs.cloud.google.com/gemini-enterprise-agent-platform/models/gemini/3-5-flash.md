@@ -64,7 +64,7 @@ Supported
   - [Standard PayGo with Usage Tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
   - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
   - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
-  - [Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini)
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
 
 Not supported
 
@@ -146,7 +146,7 @@ Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterp
   - us
   - eu
 
-Dynamic shared quota
+Standard pay-as-you-go
 
 Global
 
@@ -174,7 +174,7 @@ Security controls
   - VPC-SC
   - AXT
 
-**Batch prediction**
+**Batch inference**
 
   - Data residency
   - CMEK

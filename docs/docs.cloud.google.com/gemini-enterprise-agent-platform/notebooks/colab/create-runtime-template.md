@@ -208,7 +208,7 @@ For more information, see the [`notebookRuntimeTemplates.create` REST API docume
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) . For more information, see the [Terraform provider reference documentation](https://registry.terraform.io/providers/hashicorp/google/latest/docs) .
 
-The following sample uses the [`google_colab_runtime_template`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/colab_runtime_template) Terraform resource to create a Colab Enterprise runtime template.
+The following sample uses the [`google_colab_runtime_template`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/colab_runtime_template) Terraform resource to create an Colab Enterprise runtime template.
 
     resource "google_compute_network" "my_network" {
       name = "{{index $.Vars "network_name"}}"

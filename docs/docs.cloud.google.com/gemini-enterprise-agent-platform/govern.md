@@ -107,7 +107,7 @@ Learn how to secure your agentic applications in the Securing Cross-Cloud Agenti
 
 Resource
 
-### [Whitepaper: Building secure multi-agent systems on Google Cloud](https://services.google.com/fh/files/events/agent_security.pdf)
+### [Whitepaper: Building secure multi-agent systems on Google Cloud](https://goo.gle/agent-security-enterprise)
 
 Learn how to build secure multi-agent architectures on Google Cloud's Gemini Enterprise Agent Platform.
 

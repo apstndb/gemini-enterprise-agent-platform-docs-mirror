@@ -183,7 +183,7 @@ Granting a principal access to a Agent Platform Workbench instance doesn't grant
 
 ### API
 
-To grant a role to a principal on a Agent Platform Workbench instance, use the [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/reference/rest/v2/projects.locations.instances/getIamPolicy) method to retrieve the current policy, edit the current policy's access, and then use the [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/reference/rest/v2/projects.locations.instances/setIamPolicy) method to update the policy on the instance.
+To grant a role to a principal on a Agent Platform Workbench instance, use the [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/getIamPolicy) method to retrieve the current policy, edit the current policy's access, and then use the [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/setIamPolicy) method to update the policy on the instance.
 
 ### Retrieve the current policy
 

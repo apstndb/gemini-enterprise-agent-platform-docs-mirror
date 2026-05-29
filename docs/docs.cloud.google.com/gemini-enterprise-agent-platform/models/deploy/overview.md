@@ -18,7 +18,7 @@ When you deploy a model to an endpoint, Gemini Enterprise Agent Platform associa
 
 ## Deploy a tuned model
 
-Tuned models are automatically uploaded to the [Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) and deployed to a Agent Platform shared public [`endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints) . Tuned models don't appear in the Model Garden because they are tuned with your data. For more information, see [Overview of model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+Tuned models are automatically uploaded to the [Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) and deployed to an Agent Platform shared public [`endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints) . Tuned models don't appear in the Model Garden because they are tuned with your data. For more information, see [Overview of model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
 
 Once the endpoint is *active* , it is ready to accept prompt requests at its URI. The format of the API call for a tuned model is the same as the foundation model it was tuned from. For example, if your model is tuned on Gemini, then your prompt request should follow the [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) .
 

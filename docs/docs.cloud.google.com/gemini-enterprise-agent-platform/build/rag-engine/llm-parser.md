@@ -86,7 +86,7 @@ Replace the values in the following variables used in the code samples:
 
   - **CUSTOM\_PARSING\_PROMPT** : Optional: Custom prompt that is configured by the customer for LLM parser to use for parsing documents.
 
-  - **MAX\_PARSING\_REQUESTS\_PER\_MIN** : Optional: The maximum number of requests the job can make to the Agent Platform model per minute. For more information, see [Generative AI on Agent Platform rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas) and the [Quotas & System Limits](https://console.cloud.google.com/iam-admin/quotas) page for your project to set an appropriate value.
+  - **MAX\_PARSING\_REQUESTS\_PER\_MIN** : Optional: The maximum number of requests the job can make to the Agent Platform model per minute. For more information, see [Generative AI on Agent Platform rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) and the [Quotas & System Limits](https://console.cloud.google.com/iam-admin/quotas) page for your project to set an appropriate value.
 
 ### REST
 

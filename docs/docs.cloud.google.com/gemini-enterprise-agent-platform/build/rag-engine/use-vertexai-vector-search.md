@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb)
 
-This page shows you how to connect your Gemini Enterprise Agent Platform RAG Engine to [Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/vector-search/overview) .
+This page shows you how to connect your Gemini Enterprise Agent Platform RAG Engine to [Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
 You can also follow along using the [Gemini Enterprise Agent Platform RAG Engine with Agent Platform Vector Search](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) notebook.
 
@@ -24,13 +24,13 @@ To integrate with Gemini Enterprise Agent Platform RAG Engine, an empty Vector S
 
 ### Set up Vertex AI SDK
 
-To set up Vertex AI SDK, see [Setup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/vector-search/quickstart#setup) .
+To set up Vertex AI SDK, see [Setup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart#setup) .
 
 ### Create Vector Search index
 
 To create a Vector Search index that's compatible with your RAG Corpus, the index has to meet the following criteria:
 
-1.  `IndexUpdateMethod` must be `STREAM_UPDATE` , see [Create stream index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/vector-search/create-manage-index#create-stream-index) .
+1.  `IndexUpdateMethod` must be `STREAM_UPDATE` , see [Create stream index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/create-manage-index#create-stream-index) .
 
 2.  Distance measure type must be explicitly set to one of the following:
     
@@ -77,7 +77,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Create Vector Search index endpoint
 
-[Public endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/vector-search/deploy-index-public) are supported by Gemini Enterprise Agent Platform RAG Engine.
+[Public endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public) are supported by Gemini Enterprise Agent Platform RAG Engine.
 
 ### Python
 

@@ -36,7 +36,7 @@ For more information about the Gemini models, see [Gemini models](https://docs.c
 
 This code sample demonstrates how to use Grounding with Google Maps to ground your model's responses.
 
-Search results can be customized for a specific geographic location by using the latitude and longitude coordinates. For more information, see the [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/grounding) API.
+Search results can be customized for a specific geographic location by using the latitude and longitude coordinates.
 
 ### Console
 
@@ -60,7 +60,7 @@ To use Grounding with Google Maps with Gemini Enterprise Agent Platform, follow 
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -115,6 +115,10 @@ Before using any of the request data, make the following replacements:
   - LATITUDE : The latitude of the location. For example, a latitude of `37.7749` represents San Francisco. You can obtain latitude and longitude coordinates using services like Google Maps or other geocoding tools.
   - LONGITUDE : The longitude of the location. For example, a longitude of `-122.4194` represents San Francisco.
   - ENABLE\_WIDGET : Whether to return a token and enable the Google Maps widget (default is `false` ).
+  - GROUNDING\_TYPES : The types of Google Maps grounding to enable. Currently supports `places` and `routing` .
+      - `places` : Search for place information including establishments, prominent points of interest, and geographical locations.
+      - `routing` : Find directions and search along route. Routing is in Private Preview.
+    If not specified, it defaults to `places` only.
 
 HTTP method and URL:
 
@@ -131,7 +135,11 @@ Request JSON body:
       }],
       "tools": [{
         "googleMaps": {
-          "enableWidget": "ENABLE_WIDGET"
+          "enableWidget": "ENABLE_WIDGET",
+          "groundingTypes": {
+            "places": {},
+            "routing": {}
+          }
         }
       }],
       "toolConfig": {
@@ -308,21 +316,21 @@ This code sample demonstrates a place source and a place answer source in the re
       }
     ],
 
-## Routing
+## Routing - Find Directions
 
-> **Preview — Grounding with Google Search**
+> **Private Preview — Grounding with Google Search**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Grounding with Google Maps supports Routing capabilities. This feature lets your AI agents understand physical movement, real-time travel estimates, and the spatial relationships between locations. By grounding responses in Google Maps's routing engine, your model can provide performance-optimized directions and accurate travel times that account for real-time conditions. This integration enables Grounding with Google Maps to filter places based on travel time, offer precise point-to-point directions, and calculate estimated commute times for specific modes of transportation.
+Grounding with Google Maps supports Find Directions capability. This feature lets your AI agents understand physical movement, real-time travel estimates, and the spatial relationships between locations. With Find Directions capability, your model can provide performance-optimized directions and accurate travel times that account for real-time conditions. This integration enables Grounding with Google Maps to filter places based on travel time, offer precise point-to-point directions, and calculate estimated commute times for specific modes of transportation.
 
-Routing capabilities are available as a Restricted [Preview](https://cloud.google.com/products#product-launch-stages) . To access this feature for your project, contact your Google Cloud account team to request addition to the allowlist. Alternatively, you can submit the [participation form](https://forms.gle/tMWmCTxKhXCqwXts5) to be considered. Google is accepting interest from a limited cohort of partners to pilot the Grounding with Google Maps Routing tool.
+Find Directions capabilities are available as a Restricted [Preview](https://cloud.google.com/products#product-launch-stages) . To access this feature for your project, contact your Google Cloud account team to request addition to the allowlist. Alternatively, you can submit the [participation form](https://forms.gle/tMWmCTxKhXCqwXts5) to be considered. Google is accepting interest from a limited cohort of partners to pilot Find Directions as a new feature in Grounding with Google Maps.
 
 ### Capabilities
 
-The Routing tool calculates precise travel distances and durations between origins and destinations.
+Find Directions calculates precise travel distances and durations between origins and destinations.
 
-The Routing tool supports the following:
+Find Directions supports the following:
 
   - **Modes of transportation** : Routing for driving, walking, bicycling, transit, and two-wheeled motorized vehicles (not all travel modes are available in all countries)
 
@@ -330,7 +338,7 @@ The Routing tool supports the following:
 
   - **Real-time traffic** : Accounting for current traffic conditions to provide accurate "live" travel times rather than static averages
 
-The following are examples of the types of questions that the Routing tool supports:
+The following are examples of the types of questions that Find Directions supports:
 
   - **Proximity based on travel time** : "What are some American restaurants within a 10-minute walk from the Hilton Hotel on 1335 6th Ave in NYC?"
 
@@ -338,7 +346,7 @@ The following are examples of the types of questions that the Routing tool suppo
 
 ### Understand the response
 
-When a prompt triggers the Routing tool, the model generates a natural language answer backed by structured metadata. This lets you display precise travel information to the user.
+When a prompt triggers Find Directions capability, the model generates a natural language answer backed by structured metadata. This lets you display precise travel information to the user.
 
 The following data is returned in a payload response:
 
@@ -372,9 +380,9 @@ The following is an example response for the prompt: "How long does it take to t
 > 
 >   - **Bus:** A direct King County Metro bus from Pike St & 4th Ave (near Pike Place Market) to Capitol Hill takes about 11 minutes, with departures every 20 minutes. Alternatively, the Line 49 bus takes around 16 minutes.
 
-## Search Along Route
+## Routing - Search Along Route
 
-> **Preview — Grounding with Google Search**
+> **Private Preview — Grounding with Google Search**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 

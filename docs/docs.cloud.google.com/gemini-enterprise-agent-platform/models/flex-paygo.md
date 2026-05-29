@@ -32,12 +32,14 @@ Flex PayGo is ideal for the synchronous, latency-tolerant, and non-critical task
 
 The following [preview](https://cloud.google.com/products#product-launch-stages) Gemini models support Flex PayGo in the `global` endpoint only. Flex PayGo doesn't support regional or multi-regional endpoints.
 
+  - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+  - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [`gemini-3.5-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [`gemini-3.1-flash-lite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [`gemini-3.1-flash-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [`gemini-3.1-pro-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro)
   - [`gemini-3-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash)
-  - [`gemini-3-pro-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+  - [`gemini-3-pro-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview)
 
 ## Request payload limit
 

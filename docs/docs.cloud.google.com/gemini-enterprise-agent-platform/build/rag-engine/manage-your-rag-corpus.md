@@ -71,7 +71,7 @@ The following corpus operations are supported:
 </tbody>
 </table>
 
-Concurrent operations on corpora aren't supported. For more information, see the [RAG API reference for v1beta1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1) or [RAG API reference for v1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1) .
+Concurrent operations on corpora aren't supported. For more information, see the [RAG API reference for v1beta1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora) or [RAG API reference for v1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
 
 ### File management
 
@@ -96,8 +96,8 @@ The following file operations are supported:
 <tr class="odd">
 <td>Upload a RAG file.</td>
 <td>Upload a file from local storage with additional information that provides context to the LLM to generate more accurate responses.</td>
-<td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/upload">Upload parameters v1beta1</a></p>
-<p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/upload">Upload parameters v1</a></p></td>
+<td><p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media/upload">Upload parameters v1beta1</a></p>
+<p><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/media/upload">Upload parameters v1</a></p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -133,7 +133,7 @@ The following file operations are supported:
 
 ## What's next
 
-  - [Gemini Enterprise Agent Platform RAG Engine quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/quotas#rag-quotas)
+  - [Gemini Enterprise Agent Platform RAG Engine quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#rag-engine-quotas)
 
   - To learn more about the Gemini Enterprise Agent Platform RAG Engine, see the following:
     
