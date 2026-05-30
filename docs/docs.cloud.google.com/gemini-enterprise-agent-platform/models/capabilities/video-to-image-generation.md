@@ -16,8 +16,6 @@ The following Gemini models support image generation from a video:
 
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
 
-For more information about Gemini model capabilities, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#gemini-models) .
-
 ## Generate images from video
 
 The following shows how to generate images from video using either Agent Studio or using the API.

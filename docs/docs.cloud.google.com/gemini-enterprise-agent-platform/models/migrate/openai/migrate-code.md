@@ -81,9 +81,9 @@ client = genai.Client(
 
 **Tip:** You can also set environment variables to initialize the client without arguments, similar to how the OpenAI client reads the API key from the environment.
 
-Set `GOOGLE_GENAI_USE_VERTEXAI` , `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` , as shown:
+Set `GOOGLE_GENAI_USE_ENTERPRISE` , `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` , as shown:
 
-    export GOOGLE_GENAI_USE_VERTEXAI=true
+    export GOOGLE_GENAI_USE_ENTERPRISE=true
     export GOOGLE_CLOUD_PROJECT='your-project-id'
     export GOOGLE_CLOUD_LOCATION='global'
 

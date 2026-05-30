@@ -31,7 +31,7 @@ The following table lists the latest stable models:
 | `gemini-live-2.5-flash-native-audio` | December 12, 2025 | December 13, 2026            |
 | `gemini-2.5-pro`                     | June 17, 2025     | Not before October 16, 2026  |
 | `gemini-2.5-flash`                   | June 17, 2025     | Not before October 16, 2026  |
-| `gemini-2.5-flash-lite`              | July 22, 2025     | July 22, 2026                |
+| `gemini-2.5-flash-lite`              | July 22, 2025     | Not before October 16, 2026  |
 | `gemini-2.5-flash-image`             | October 2, 2025   | October 2, 2026              |
 | `gemini-2.0-flash-001`               | February 5, 2025  | June 1, 2026                 |
 | `gemini-2.0-flash-lite-001`          | February 25, 2025 | June 1, 2026                 |
@@ -65,20 +65,6 @@ However, if you don't have time to follow the guide and just need to quickly res
 1.  Update your application to point to the recommended upgrades.
 2.  Test all mission critical features to make sure everything works as expected.
 3.  Deploy the updates like you normally would.
-
-## Gemini auto-updated aliases
-
-The auto-updated alias of a Gemini model always points to the latest stable model. When a new latest stable model is available, the auto-updated alias automatically points to the new version.
-
-The following table shows the auto-updated aliases for Gemini models and the latest stable models that they point to.
-
-| Auto-updated alias      | Stable version reference    |
-| ----------------------- | --------------------------- |
-| `gemini-2.5-pro`        | `gemini-2.5-pro`            |
-| `gemini-2.5-flash`      | `gemini-2.5-flash`          |
-| `gemini-2.5-flash-lite` | `gemini-2.5-flash-lite`     |
-| `gemini-2.0-flash-lite` | `gemini-2.0-flash-lite-001` |
-| `gemini-2.0-flash`      | `gemini-2.0-flash-001`      |
 
 ## Retired models
 

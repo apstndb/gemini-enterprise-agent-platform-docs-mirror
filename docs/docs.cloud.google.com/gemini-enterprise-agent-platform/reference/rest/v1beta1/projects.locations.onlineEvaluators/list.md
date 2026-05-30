@@ -26,7 +26,7 @@ Required. The parent resource of the OnlineEvaluators to list. Format: projects/
 
 `pageSize` `integer`
 
-Optional. The maximum number of OnlineEvaluators to return. The service may return fewer than this value. If unspecified, at most 50 OnlineEvaluators will be returned. The maximum value is 100; values above 100 will be coerced to 100. Based on aip.dev/158.
+Optional. The maximum number of OnlineEvaluators to return. The service may return fewer than this value. If unspecified, at most 100 OnlineEvaluators will be returned. The maximum value is 100; values above 100 will be coerced to 100. Based on aip.dev/158.
 
 `pageToken` `string`
 

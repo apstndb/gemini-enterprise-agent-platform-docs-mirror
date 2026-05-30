@@ -75,7 +75,7 @@ To run the agent, configure it to use Google Cloud Gemini Enterprise Agent Platf
     
         GOOGLE_CLOUD_PROJECT=PROJECT_ID
         GOOGLE_CLOUD_LOCATION=LOCATION
-        GOOGLE_GENAI_USE_VERTEXAI=True
+        GOOGLE_GENAI_USE_ENTERPRISE=True
 
 ## Run the agent with the dev UI
 

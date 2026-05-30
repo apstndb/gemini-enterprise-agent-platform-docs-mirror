@@ -42,7 +42,7 @@ The instance to be evaluated.
 
 `autoraterConfig` ` object ( AutoraterConfig  ` )
 
-Optional. Autorater config used for evaluation.
+Optional. Autorater config used for evaluation. Not applicable for predefined metrics (PredefinedMetricSpec); the server uses its own model configuration for predefined metrics and this field is ignored.
 
 `metric_inputs` `Union type`
 

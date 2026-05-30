@@ -152,4 +152,4 @@ To avoid incurring charges, delete the resources created in this quickstart.
 
 ## What's next
 
-  - Explore [Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/snapshots) for sandbox lifecycle management.
+  - Explore [Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) for sandbox lifecycle management.

@@ -30,9 +30,9 @@ Set up your project, image repository, and permissions.
 
 To allow the Agent Sandbox to pull your custom container image from Artifact Registry, grant the **[Artifact Registry Reader](https://docs.cloud.google.com/artifact-registry/docs/access-control#roles)** ( `roles/artifactregistry.reader` ) role on the repository that contains the image to the Agent Sandbox service agent:
 
-  - **Agent Sandbox service agent** : `service-<var>PROJECT_NUMBER</var>@gcp-sa-vertex-sandbox.iam.gserviceaccount.com`
+  - **Agent Sandbox service agent** : `service- PROJECT_NUMBER @gcp-sa-vertex-sandbox.iam.gserviceaccount.com`
 
-Replace `<var>PROJECT_NUMBER</var>` with the project number of your project.
+Replace `PROJECT_NUMBER` with the project number of your project.
 
 For more information about granting roles, see [Grant permissions to a service agent](https://docs.cloud.google.com/iam/docs/create-service-agents) .
 
@@ -120,4 +120,5 @@ After you define your template, you can provision a new sandbox environment by r
 
 ## What's next
 
-  - Learn how to [manage your sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage) .
+  - Learn how to [manage your sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes) .
+  - Learn how to [manage sandbox templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-templates) .

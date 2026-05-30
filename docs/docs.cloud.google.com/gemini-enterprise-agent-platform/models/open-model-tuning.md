@@ -383,7 +383,7 @@ Upload your JSONL files to Cloud Storage.
 
 > **Note:** Multimodal datasets apply to supervised fine-tuning only.
 
-> **Note:** OpenAI Prompt Completion and Gemini Enterprise Agent Platform Text Bison are text-only dataset formats, and as a result, multimodal tuning with some models may not support these two formats. Refer to [model-specific documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-model-tuning#limitations) for more information.
+> **Note:** OpenAI Prompt Completion and Gemini Enterprise Agent Platform Text Bison are text-only dataset formats, and as a result, multimodal tuning with some models might not support these two formats. Refer to [model-specific documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-model-tuning#limitations) for more information.
 
 ### Turn based chat format
 
@@ -517,7 +517,7 @@ When the tuning job finishes, the model artifacts for the tuned model are stored
 
   - A maximum of 10 checkpoints are stored.
   - If the number of epochs (E) is less than 10, then exactly E checkpoints are stored (one for each epoch).
-  - Intermediate checkpoints from range M to N are ordered. Note that intermediate checkpoints are not always consecutively numbered. For example, checkpoints may be numbered 1, 3, 5, 10 rather than 1, 2, 3, 4.
+  - Intermediate checkpoints from range M to N are ordered. Note that intermediate checkpoints are not always consecutively numbered. For example, checkpoints might be numbered 1, 3, 5, 10 rather than 1, 2, 3, 4.
 
 ## Deploy tuned model
 
@@ -591,7 +591,7 @@ In addition to the tuning job quota, distillation fine-tuning uses the teacher m
 
 ## Pricing
 
-You are billed for tuning based on [pricing for Model tuning](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) . The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. For distillation tuning, you are also billed for the API calls made to the teacher model to generate responses, based on [pricing for managed models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+You are billed for tuning based on [pricing for Model tuning](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) . The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. For distillation tuning, you are also billed for the API calls made to the teacher model to generate responses, based on [pricing for managed models](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 You are also billed for related services, such as Cloud Storage and Gemini Enterprise Agent Platform Prediction.
 

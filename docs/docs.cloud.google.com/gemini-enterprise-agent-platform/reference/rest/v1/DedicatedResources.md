@@ -24,7 +24,7 @@ If traffic increases, it may dynamically be deployed onto more replicas, and as 
 
 Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use `  minReplicaCount  ` as the default value.
 
-The value of this field impacts the charge against Vertex CPU and GPU quotas. Specifically, you will be charged for (maxReplicaCount \* number of cores in the selected machine type) and (maxReplicaCount \* number of GPUs per replica in the selected machine type).
+The value of this field impacts the charge against Agent Platform CPU and GPU quotas. Specifically, you will be charged for (maxReplicaCount \* number of cores in the selected machine type) and (maxReplicaCount \* number of GPUs per replica in the selected machine type).
 
 `requiredReplicaCount` `integer`
 

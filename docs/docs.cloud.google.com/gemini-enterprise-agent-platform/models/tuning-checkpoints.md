@@ -55,7 +55,7 @@ Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Pla
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
 Create the tuning job:
 

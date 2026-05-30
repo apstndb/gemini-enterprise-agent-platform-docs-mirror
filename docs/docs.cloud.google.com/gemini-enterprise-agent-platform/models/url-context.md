@@ -82,7 +82,7 @@ You can provide specific URLs that you want the model to analyze directly in you
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import { GoogleGenAI } from "@google/genai";
     
@@ -178,7 +178,7 @@ Example prompts:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import { GoogleGenAI } from "@google/genai";
     

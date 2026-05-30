@@ -96,4 +96,4 @@ For example, you can use noVNC to connect to the sandbox through WebSocket.
 ## What's next
 
   - [Computer Use quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use-quickstart)
-  - Explore [Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/snapshots) for sandbox lifecycle management.
+  - Explore [Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) for sandbox lifecycle management.

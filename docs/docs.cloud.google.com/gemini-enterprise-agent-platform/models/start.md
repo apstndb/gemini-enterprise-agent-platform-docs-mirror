@@ -76,7 +76,7 @@ Set environment variables:
 # with appropriate values for your project.
 export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT_ID
 export GOOGLE_CLOUD_LOCATION=global
-export GOOGLE_GENAI_USE_VERTEXAI=True
+export GOOGLE_GENAI_USE_ENTERPRISE=True
     
 ```
 
@@ -93,7 +93,7 @@ Set environment variables:
 # with appropriate values for your project.
 export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT_ID
 export GOOGLE_CLOUD_LOCATION=global
-export GOOGLE_GENAI_USE_VERTEXAI=True
+export GOOGLE_GENAI_USE_ENTERPRISE=True
     
 ```
 
@@ -110,7 +110,7 @@ Set environment variables:
 # with appropriate values for your project.
 export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT_ID
 export GOOGLE_CLOUD_LOCATION=global
-export GOOGLE_GENAI_USE_VERTEXAI=True
+export GOOGLE_GENAI_USE_ENTERPRISE=True
     
 ```
 
@@ -140,7 +140,7 @@ Set environment variables:
 # with appropriate values for your project.
 export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT_ID
 export GOOGLE_CLOUD_LOCATION=global
-export GOOGLE_GENAI_USE_VERTEXAI=True
+export GOOGLE_GENAI_USE_ENTERPRISE=True
     
 ```
 

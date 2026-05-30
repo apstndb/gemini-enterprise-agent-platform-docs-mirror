@@ -137,7 +137,7 @@ Versions
 
   - Launch stage: Public preview
   - Release date: November 20, 2025
-  - Discontinuation date: July 19, 2026
+  - Discontinuation date: July 17, 2026
 
 Supported languages
 

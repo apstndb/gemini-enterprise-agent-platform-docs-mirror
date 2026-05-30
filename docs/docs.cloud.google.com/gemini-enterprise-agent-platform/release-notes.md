@@ -12,9 +12,28 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 ## May 28, 2026
 
+Deprecated
+
+### Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview deprecation
+
+Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are deprecated. We recommend that you update your model endpoints before July 19, 2026, to avoid service disruption.
+
+The following are the discontinued endpoints and recommended endpoint migration:
+
+| Discontinued endpoints           | Recommended endpoint migration |
+| -------------------------------- | ------------------------------ |
+| `gemini-3.1-flash-image-preview` | `gemini-3.1-flash-image`       |
+| `gemini-3-pro-image-preview`     | `gemini-3-pro-image`           |
+
 Feature
 
-**Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image**
+### Anthropic's Claude Opus 4.8
+
+[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
+
+Feature
+
+### Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image
 
 Gemini Enterprise Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image are [Generally Available](https://cloud.google.com/products#product-launch-stages) .
 
@@ -26,12 +45,6 @@ For more information, see the following:
 
   - [Gemini 3.1 Flash Image (Nano Banana 2)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3 Pro Image (Nano Banana Pro)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-
-Feature
-
-**Anthropic's Claude Opus 4.8**
-
-[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
 
 ## May 27, 2026
 
@@ -63,8 +76,8 @@ Additional Agent Platform [sandbox](https://docs.cloud.google.com/gemini-enterpr
 
   - **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) (Preview)** : Enables agents to automate browser-based tasks within an isolated web browser environment. You can control the browser using the API or connect directly using the Chrome DevTools Protocol (CDP).
   - **[Custom container sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) (Preview)** : Bring your own container (BYOC) to run custom workloads with specialized dependencies hosted in Artifact Registry.
-  - **[Sandbox templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage) (Preview)** : Define sandbox specifications as reusable templates relying on pre-warmed pools to facilitate rapid, reliable startups.
-  - **[Sandbox snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/snapshots) (Preview)** : Save the exact state of your sandbox environment (including dependencies and file systems) and restore it to a new sandbox.
+  - **[Sandbox templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-templates) (Preview)** : Define sandbox specifications as reusable templates relying on pre-warmed pools to facilitate rapid, reliable startups.
+  - **[Sandbox snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) (Preview)** : Save the exact state of your sandbox environment (including dependencies and file systems) and restore it to a new sandbox.
 
 ## May 20, 2026
 
@@ -92,13 +105,13 @@ See the following media type–specific pages for more information:
 
 Feature
 
-**Gemini 3.5 Flash is generally available (GA)**
+### Gemini 3.5 Flash is generally available (GA)
 
 For details, see the [model specifications page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) .
 
 Feature
 
-**Managed Agents API on Agent Platform**
+### Managed Agents API on Agent Platform
 
 Managed Agents API on Agent Platform is in Preview. This feature allows you to build and scale autonomous agents, including those built from configuration using the Antigravity harness. These agents run in a fully managed and isolated sandbox environment, equipped with tools and skills, and can be interacted with via a dedicated API.
 
@@ -111,13 +124,13 @@ For more information, see the following:
 
 Feature
 
-**Manage agent revisions and traffic splitting**
+### Manage agent revisions and traffic splitting
 
 Agent revisions and traffic splitting are now available in public preview. You can create immutable revisions of deployed agents, and split traffic between the different active revisions. This enables canary deployments and safe testing of new agent versions. For more information, see [Manage revisions and traffic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) .
 
 Feature
 
-**Manage and discover agent skills with Skill Registry.**
+### Manage and discover agent skills with Skill Registry
 
 Manage and discover agent skills with the Skill Registry, in public preview. This secure, private, and low-latency repository stores skills as self-contained packages, including instructions, code, and documentation, to enhance agent abilities.
 
@@ -128,9 +141,17 @@ For more information, see:
 
 Feature
 
-**AI Content Detection API available**
+### AI Content Detection API available
 
 AI Content Detection API is available in [Preview](https://cloud.google.com/products#product-launch-stages) . For details see [AI Content Detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/ai-content-detection) .
+
+Feature
+
+### Provisioned Throughput for Gemini now supports latency SLA
+
+Provisioned Throughput now provides a tokens per second latency SLA, covering generation speed from the first returned token to the last.
+
+For more information, see the [Gemini Enterprise Agent Platform Online Inference Service Level Agreement (SLA)](https://cloud.google.com/vertex-ai/generative-ai/sla?e=48754805) .
 
 Change
 

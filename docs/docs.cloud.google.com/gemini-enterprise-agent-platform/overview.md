@@ -97,6 +97,6 @@ Learn the five ways to deploy an agent on Agent Platform Runtime based on your d
 
 Guide
 
-### [Common scenarios](https://docs.cloud.google.com/gemini-enterprise-agent-platform/common-scenarios)
+### [Common use cases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents#common_use_cases)
 
-Explore common scenarios for agents and models.
+Explore common use cases for agents.

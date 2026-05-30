@@ -22,17 +22,17 @@ Grok 4.3 is xAI's flagship model.
 
 Grok 4.20 (Reasoning) is xAI's flagship model, featuring an industry-leading low hallucination rate. Excels at document understanding tasks and long-horizon agentic tool calling.
 
-### Grok 4.20 (Non-Reasoning)
+### Grok 4.20 (Non-reasoning)
 
-Grok 4.20 (Non-Reasoning) is xAI's flagship non-thinking model, featuring an industry-leading low hallucination rate. Excels in latency-sensitive use cases like customer support and categorization.
+Grok 4.20 (Non-reasoning) is xAI's flagship non-thinking model, featuring an industry-leading low hallucination rate. Excels in latency-sensitive use cases like customer support and categorization.
 
 ### Grok 4.1 Fast (Reasoning)
 
 Grok 4.1 Fast (Reasoning) is xAI's most cost-effective model, featuring strong tool-calling capabilities and efficient knowledge base synthesis. Excels at search tasks involving web data and internal knowledge base tools.
 
-### Grok 4.1 Fast (Non-Reasoning)
+### Grok 4.1 Fast (Non-reasoning)
 
-Grok 4.1 Fast (Non-Reasoning) is xAI's most cost-effective non-thinking model, optimized for low-latency performance. Excels at high-volume tasks like summarization and categorization.
+Grok 4.1 Fast (Non-reasoning) is xAI's most cost-effective non-thinking model, optimized for low-latency performance. Excels at high-volume tasks like summarization and categorization.
 
 ## Use xAI models
 
@@ -42,9 +42,9 @@ For managed models, you can use curl commands to send requests to the Gemini Ent
 
   - For Grok 4.3, use `grok-4.3`
   - For Grok 4.20 (Reasoning), use `grok-4.20-reasoning`
-  - For Grok 4.20 (Non-Reasoning), use `grok-4.20-non-reasoning`
+  - For Grok 4.20 (Non-reasoning), use `grok-4.20-non-reasoning`
   - For Grok 4.1 Fast (Reasoning), use `grok-4.1-fast-reasoning`
-  - For Grok 4.1 Fast (Non-Reasoning), use `grok-4.1-fast-non-reasoning`
+  - For Grok 4.1 Fast (Non-reasoning), use `grok-4.1-fast-non-reasoning`
 
 ## Grok quotas
 

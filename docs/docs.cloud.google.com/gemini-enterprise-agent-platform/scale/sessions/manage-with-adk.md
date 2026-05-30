@@ -29,7 +29,7 @@ To use the ADK, set your environment variables:
 
     import os
     
-    os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "TRUE"
+    os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     os.environ["GOOGLE_CLOUD_PROJECT"] = "PROJECT_ID"
     os.environ["GOOGLE_CLOUD_LOCATION"] = "LOCATION"
 

@@ -8205,15 +8205,6 @@ A service for managing memories for LLM applications.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.memories.retrieve</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -23033,6 +23024,12 @@ Fields
 
 Output only. Number of examples in the tuning dataset.
 
+`total_billable_token_count`
+
+`int64`
+
+Output only. Number of billable tokens in the tuning dataset.
+
 `total_tuning_character_count`
 
 `int64`
@@ -23179,7 +23176,7 @@ If traffic increases, it may dynamically be deployed onto more replicas, and as 
 
 Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use `  min_replica_count  ` as the default value.
 
-The value of this field impacts the charge against Vertex CPU and GPU quotas. Specifically, you will be charged for (max\_replica\_count \* number of cores in the selected machine type) and (max\_replica\_count \* number of GPUs per replica in the selected machine type).
+The value of this field impacts the charge against Agent Platform CPU and GPU quotas. Specifically, you will be charged for (max\_replica\_count \* number of cores in the selected machine type) and (max\_replica\_count \* number of GPUs per replica in the selected machine type).
 
 `required_replica_count`
 
@@ -26195,7 +26192,7 @@ The instance to be evaluated.
 
 `  AutoraterConfig  `
 
-Optional. Autorater config used for evaluation.
+Optional. Autorater config used for evaluation. Not applicable for predefined metrics (PredefinedMetricSpec); the server uses its own model configuration for predefined metrics and this field is ignored.
 
 Union field `metric_inputs` . Instances and specs for evaluation `metric_inputs` can be only one of the following:
 
@@ -38939,7 +38936,7 @@ Required. The parent resource of the OnlineEvaluators to list. Format: projects/
 
 `int32`
 
-Optional. The maximum number of OnlineEvaluators to return. The service may return fewer than this value. If unspecified, at most 50 OnlineEvaluators will be returned. The maximum value is 100; values above 100 will be coerced to 100. Based on aip.dev/158.
+Optional. The maximum number of OnlineEvaluators to return. The service may return fewer than this value. If unspecified, at most 100 OnlineEvaluators will be returned. The maximum value is 100; values above 100 will be coerced to 100. Based on aip.dev/158.
 
 `page_token`
 
@@ -40495,9 +40492,9 @@ Fields
 
 Immutable. The type of the machine.
 
-See the [list of machine types supported for prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types)
+See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
 
-See the [list of machine types supported for custom training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types) .
+See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
 
 For `  DeployedModel  ` this field is optional, and the default value is `n1-standard-2` . For `  BatchPredictionJob  ` or as part of `  WorkerPoolSpec  ` this field is required.
 
@@ -40513,9 +40510,9 @@ Immutable. The type of accelerator(s) that may be attached to the machine as per
 
 The number of accelerators to attach to the machine.
 
-For accelerator optimized machine types ( <https://cloud.google.com/compute/docs/accelerator-optimized-machines> , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Vertex will co-schedule the replicas of the model into the same VM to save cost.
+For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost.
 
-For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Vertex will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
+For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
 
 When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM.
 
@@ -46487,7 +46484,7 @@ Required. The name of the Schedule resource to be paused. Format: `projects/{pro
 
 ## PersistentDiskSpec
 
-Represents the spec of \[persistent disk\]\[https://cloud.google.com/compute/docs/disks/persistent-disks\] options.
+Represents the spec of \[persistent disk\]\[https://cloud.google.com/compute/docs/disks/persistent-disks\] and \[hyperdisk\]\[https://cloud.google.com/compute/docs/disks/hyperdisks\] options.
 
 Fields
 
@@ -46495,7 +46492,7 @@ Fields
 
 `string`
 
-Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk)
+Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput)
 
 `disk_size_gb`
 

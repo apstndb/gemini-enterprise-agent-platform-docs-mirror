@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring
 title: Abuse monitoring
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how Google detects potential abuse and violations of its Acceptable Use Policy and Prohibited Use Policy for Generative AI Services.
 data_source: docs.cloud.google.com
 ---
 

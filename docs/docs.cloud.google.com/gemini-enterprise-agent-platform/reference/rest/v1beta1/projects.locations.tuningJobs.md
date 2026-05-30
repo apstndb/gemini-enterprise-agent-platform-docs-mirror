@@ -1068,6 +1068,10 @@ Fields
 
 Output only. Number of examples in the tuning dataset.
 
+`totalBillableTokenCount` `string ( int64 format)`
+
+Output only. Number of billable tokens in the tuning dataset.
+
 `totalTuningCharacterCount` `string ( int64 format)`
 
 Output only. Number of tuning characters in the tuning dataset.
@@ -1115,7 +1119,7 @@ Output only. Dataset distributions for the user output tokens.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tuningDatasetExampleCount&quot;: string,&quot;totalTuningCharacterCount&quot;: string,&quot;totalBillableCharacterCount&quot;: string,&quot;tuningStepCount&quot;: string,&quot;userInputTokenDistribution&quot;: {object (DatasetDistribution)},&quot;userMessagePerExampleDistribution&quot;: {object (DatasetDistribution)},&quot;userDatasetExamples&quot;: [{object (Content)}],&quot;droppedExampleIndices&quot;: [string],&quot;droppedExampleReasons&quot;: [string],&quot;userOutputTokenDistribution&quot;: {object (DatasetDistribution)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tuningDatasetExampleCount&quot;: string,&quot;totalBillableTokenCount&quot;: string,&quot;totalTuningCharacterCount&quot;: string,&quot;totalBillableCharacterCount&quot;: string,&quot;tuningStepCount&quot;: string,&quot;userInputTokenDistribution&quot;: {object (DatasetDistribution)},&quot;userMessagePerExampleDistribution&quot;: {object (DatasetDistribution)},&quot;userDatasetExamples&quot;: [{object (Content)}],&quot;droppedExampleIndices&quot;: [string],&quot;droppedExampleReasons&quot;: [string],&quot;userOutputTokenDistribution&quot;: {object (DatasetDistribution)}}</code></pre></td>
 </tr>
 </tbody>
 </table>

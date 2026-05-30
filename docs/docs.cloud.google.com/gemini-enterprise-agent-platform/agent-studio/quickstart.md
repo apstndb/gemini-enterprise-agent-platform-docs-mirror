@@ -12,7 +12,7 @@ You can use [Agent Studio](https://console.cloud.google.com/agent-platform/studi
 
 In this quickstart, you:
 
-  - Send these prompts to the Gemini API using samples from the generative AI prompt gallery, including the following:
+  - Send these prompts to the Agent Platform API using samples from the generative AI prompt gallery, including the following:
       - A summarization text prompt
       - A code generation prompt
   - View the code used to generate the responses
@@ -25,7 +25,7 @@ The sample prompts in [Agent Studio](https://console.cloud.google.com/agent-plat
 
 ## Test the Gemini flash model using a summarization text prompt
 
-Send a summarization text prompt to the Gemini API in Gemini Enterprise Agent Platform. A summarization task extracts the most important information from text. You can provide information in the prompt to help the model create a summary, or ask the model to create a summary on its own.
+Send a summarization text prompt to the Agent Platform API. A summarization task extracts the most important information from text. You can provide information in the prompt to help the model create a summary, or ask the model to create a summary on its own.
 
 1.  Go to the **Prompt Gallery** page from the Agent Platform section in the Google Cloud console.  
 
@@ -47,7 +47,7 @@ Send a summarization text prompt to the Gemini API in Gemini Enterprise Agent Pl
 
 ## Test the Gemini flash model using a code generation prompt
 
-Send a code generation prompt to the Gemini API in Gemini Enterprise Agent Platform. A code generation task generates code using a natural language description.
+Send a code generation prompt to the Agent Platform API. A code generation task generates code using a natural language description.
 
 1.  Go to the **Prompt Gallery** page from the Agent Platform section in the Google Cloud console.  
 

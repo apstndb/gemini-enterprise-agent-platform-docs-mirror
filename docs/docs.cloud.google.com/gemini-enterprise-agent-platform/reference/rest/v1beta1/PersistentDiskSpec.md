@@ -6,13 +6,13 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Represents the spec of \[persistent disk\]\[https://cloud.google.com/compute/docs/disks/persistent-disks\] options.
+Represents the spec of \[persistent disk\]\[https://cloud.google.com/compute/docs/disks/persistent-disks\] and \[hyperdisk\]\[https://cloud.google.com/compute/docs/disks/hyperdisks\] options.
 
 Fields
 
 `diskType` `string`
 
-type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid state Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk)
+type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid state Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput)
 
 `diskSizeGb` `string ( int64 format)`
 

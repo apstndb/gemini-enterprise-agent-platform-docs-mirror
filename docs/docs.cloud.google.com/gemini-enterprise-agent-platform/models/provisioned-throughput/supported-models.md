@@ -639,7 +639,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 </tbody>
 </table>
 
-For information about supported locations, see [Anthropic Claude region availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/use-claude#regions) . To order Provisioned Throughput for Anthropic models, contact your [Google Cloud account representative](https://cloud.google.com/contact) .
+For information about supported locations, see [Anthropic Claude region availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models) . To order Provisioned Throughput for Anthropic models, contact your [Google Cloud account representative](https://cloud.google.com/contact) .
 
 ## Open models
 
