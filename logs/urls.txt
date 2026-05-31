@@ -616,13 +616,13 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabiliti
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/datasets	2026-05-29T18:13:47Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts	2026-05-29T18:13:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding	2026-05-29T19:44:13Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images	2026-05-29T19:44:13Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images	2026-05-30T05:32:22Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-for-filtering-and-moderation	2026-05-29T18:13:47Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-generation-best-practices	2026-05-29T18:13:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-generation-limitations	2026-05-29T18:13:02Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-responsible-ai	2026-05-29T18:13:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count	2026-05-29T19:44:13Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation	2026-05-29T19:44:13Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation	2026-05-30T05:32:22Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding	2026-05-29T19:44:13Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/list-token	2026-05-29T19:44:13Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/process-blocked-responses	2026-05-29T18:13:47Z
@@ -867,7 +867,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-si
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/speech-to-text	2026-05-29T18:13:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/text-to-speech	2026-05-29T18:13:02Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo	2026-05-29T19:44:13Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start	2026-05-29T18:14:00Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start	2026-05-30T05:31:29Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys	2026-05-29T18:14:00Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/overview	2026-05-29T18:13:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/express-mode/vertex-ai-express-mode-api-quickstart	2026-05-29T18:13:02Z
@@ -964,7 +964,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workben
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebooks	2026-05-28T20:57:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference	2026-05-29T18:13:02Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/authentication	2026-05-28T20:58:03Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries	2026-05-28T20:57:35Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries	2026-05-30T05:32:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest	2026-05-28T20:58:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/Binding	2026-05-28T20:56:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/Shared.Types/CancelOperationRequest	2026-05-28T20:58:29Z
@@ -2696,7 +2696,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/goo
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.rpc	2026-05-28T20:57:54Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type	2026-05-28T20:56:21Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp	2026-05-29T18:13:20Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-05-29T18:30:26Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-05-30T05:31:52Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources	2026-05-29T20:58:29Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations	2026-05-29T18:13:47Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas	2026-05-29T18:14:00Z

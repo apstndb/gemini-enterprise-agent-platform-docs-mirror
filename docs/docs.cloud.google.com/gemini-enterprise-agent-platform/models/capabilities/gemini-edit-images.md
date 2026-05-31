@@ -72,7 +72,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     image = Image.open("test_resources/example-image-eiffel-tower.png")
     
     response = client.models.generate_content(
-        model="gemini-3-pro-image-preview",
+        model="gemini-3.1-flash-image",
         contents=[image, "Edit this image to make it look like a cartoon."],
         config=GenerateContentConfig(response_modalities=[Modality.TEXT, Modality.IMAGE]),
     )

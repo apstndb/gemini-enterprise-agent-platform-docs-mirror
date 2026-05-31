@@ -12,11 +12,17 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 ## May 28, 2026
 
+Feature
+
+### Anthropic's Claude Opus 4.8
+
+[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
+
 Deprecated
 
 ### Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview deprecation
 
-Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are deprecated. We recommend that you update your model endpoints before July 19, 2026, to avoid service disruption.
+Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are deprecated. We recommend that you update your model endpoints before July 17, 2026, to avoid service disruption.
 
 The following are the discontinued endpoints and recommended endpoint migration:
 
@@ -24,12 +30,6 @@ The following are the discontinued endpoints and recommended endpoint migration:
 | -------------------------------- | ------------------------------ |
 | `gemini-3.1-flash-image-preview` | `gemini-3.1-flash-image`       |
 | `gemini-3-pro-image-preview`     | `gemini-3-pro-image`           |
-
-Feature
-
-### Anthropic's Claude Opus 4.8
-
-[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
 
 Feature
 
