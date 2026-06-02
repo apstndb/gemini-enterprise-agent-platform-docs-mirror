@@ -121,7 +121,7 @@ To enable tracing for `LanggraphAgent` , specify `enable_tracing=True` when you 
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-To enable tracing for `LlamaIndexQueryPipelineAgent` , specify `enable_tracing=True` when you [develop a LlamaIndex agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/develop-a-llamaindex-agent) . For example:
+To enable tracing for `LlamaIndexQueryPipelineAgent` , specify `enable_tracing=True` when you [develop a LlamaIndex agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-llamaindex-agent) . For example:
 
     from vertexai.preview import reasoning_engines
     

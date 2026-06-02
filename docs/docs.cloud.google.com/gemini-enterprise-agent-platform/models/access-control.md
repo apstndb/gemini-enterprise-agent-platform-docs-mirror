@@ -40,7 +40,7 @@ The following table maps generative AI operations to the permissions required fo
 </ul></td>
 </tr>
 <tr class="even">
-<td>Save, view, update, and delete prompts in Gemini Enterprise Agent Platform Studio</td>
+<td>Save, view, update, and delete prompts in Vertex AI Studio</td>
 <td><ul>
 <li><code dir="ltr" translate="no">aiplatform.datasets.create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.datasets.update</code></li>

@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This page shows you how to use Gemini Enterprise Agent Platform Studio to convert speech to text.
+This page shows you how to use Vertex AI Studio to convert speech to text.
 
 To learn how to convert text to speech, see [Convert text to speech](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/text-to-speech) .
 
@@ -14,7 +14,7 @@ To learn how to convert text to speech, see [Convert text to speech](https://doc
 
 To convert speech to text, do the following:
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Gemini Enterprise Agent Platform Studio** page.
+1.  In the Agent Platform section of the Google Cloud console, go to the **Vertex AI Studio** page.
 
 2.  Click **Generate speech** .
 

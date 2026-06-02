@@ -53,7 +53,7 @@ Once you create the Agent Platform instance with the agent identity, you can do 
 
 1.  Grant the agent identity additional roles as needed for your use case.
 
-2.  Add agent code using [`agent_engine.update(...)`](https://docs.cloud.google.com/agent-builder/agent-engine/manage/overview#update) .
+2.  Add agent code using [`agent_engine.update(...)`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .
 
 ### Default Service Agent
 
@@ -121,7 +121,7 @@ The need for a Cloud Storage bucket depends on whether the Agent Platform SDK fo
 
 ### Deploy from source files
 
-If you deploy an agent [from source files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/deploy-an-agent#create-agent-engine) , a Cloud Storage bucket is not required.
+If you deploy an agent [from source files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance) , a Cloud Storage bucket is not required.
 
 ### Deploy from object
 

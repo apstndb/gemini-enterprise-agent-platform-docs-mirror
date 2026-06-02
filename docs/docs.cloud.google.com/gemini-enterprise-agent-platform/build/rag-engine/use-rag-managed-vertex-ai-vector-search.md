@@ -14,13 +14,13 @@ data_source: docs.cloud.google.com
 
 > RAG Engine corpora that are backed by Vector Search 2.0 are available only in `us-central1` .
 
-This page shows you how Vertex AI RAG Engine uses [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview) , which is a Google Cloud product that serves as a comprehensive storage and retrieval system to store and manage vector representations of your documents. The Gemini Enterprise Agent Platform Vector Search 2.0 is then used to retrieve relevant documents based on the document's semantic similarity to a given query.
+This page shows you how RAG Engine on Gemini Enterprise Agent Platform uses [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview) , which is a Google Cloud product that serves as a comprehensive storage and retrieval system to store and manage vector representations of your documents. The Gemini Enterprise Agent Platform Vector Search 2.0 is then used to retrieve relevant documents based on the document's semantic similarity to a given query.
 
 RAG will manage the Vector Search 2.0 collections for you and you will have full access to the Vector Search 2.0 collections in your project.
 
 ## Choosing a RAG backend
 
-When using Vertex AI RAG Engine, you can choose between different backend storage options for your RAG corpora. The following table summarizes the key differences:
+When using RAG Engine on Gemini Enterprise Agent Platform, you can choose between different backend storage options for your RAG corpora. The following table summarizes the key differences:
 
 | Backend Option                 | Underlying Technology                              | Management by RAG Engine                                                         | Data Visibility in Project           | CMEK Support |
 | :----------------------------- | :------------------------------------------------- | :------------------------------------------------------------------------------- | :----------------------------------- | :----------- |

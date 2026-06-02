@@ -103,11 +103,11 @@ In the gcloud CLI you can configure both IAM allow and IAM deny policies that Ag
 
 #### Policies in the Google Cloud console
 
-To create IAM policies by using the Google Cloud console, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#console) .
+To create IAM policies by using the Google Cloud console, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#create-ag-iam-policy) .
 
 #### Policies in the gcloud CLI
 
-To create IAM policies by using the gcloud CLI, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#gcloud) .
+To create IAM policies by using the gcloud CLI, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#create-ag-iam-policy) .
 
 ### IAP and Context-Aware Access provide end-to-end security
 
@@ -140,6 +140,6 @@ Get an overview of Agent Gateway.
 
 Guide
 
-### [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/security-controls)
+### [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls)
 
 Learn about security controls for Google Agent Platform.

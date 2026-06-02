@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag
-title: Use Vertex AI Feature Store in Gemini Enterprise Agent Platform RAG Engine
-description: Learn how to use Vertex AI Feature Store as the vector database for Gemini Enterprise Agent Platform RAG Engine to handle large data volumes and improve performance.
+title: Use Vertex AI Feature Store in RAG Engine
+description: Learn how to use Vertex AI Feature Store as the vector database for RAG Engine to handle large data volumes and improve performance.
 data_source: docs.cloud.google.com
 ---
 
@@ -207,7 +207,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Upload data and online serving
 
-The RAG API handles data upload and online serving. To learn more about the Gemini Enterprise Agent Platform RAG Engine API, see the following:
+The RAG API handles data upload and online serving. To learn more about the RAG Engine on Gemini Enterprise Agent Platform API, see the following:
 
   - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
 
@@ -559,4 +559,4 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## What's next
 
-  - [Use a Weaviate database with Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db)
+  - [Use a Weaviate database with RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db)

@@ -36,7 +36,7 @@ Turn ideas into production-ready assets
   - Capable of turn-based conversational editing
   - Capable of multi-image fusion and character consistency for advanced creative workflows
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3.1-flash-image)
+[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
 
 ## Generally available Gemini models
 
@@ -57,10 +57,6 @@ spark [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-p
 performance\_auto [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) Built for massive scale. Balances cost and performance for high-throughput tasks, optimized for efficiency without sacrificing multimodal understanding.
 
 audio\_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api) Designed for real-time, bidirectional streaming. Features low-latency built-in audio and affective dialogue capabilities for natural, conversational interactions.
-
-spark [Gemini 2.0 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash) Multimodal performance for developers needing a cost-effective model for general-purpose tasks.
-
-performance\_auto [Gemini 2.0 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash-lite) Streamlined and ultra-efficient for simple, high-frequency tasks where speed and price are the priority.
 
 ## Preview Gemini models
 

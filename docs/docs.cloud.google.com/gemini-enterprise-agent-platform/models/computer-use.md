@@ -43,6 +43,8 @@ Additionally, you can [view the reference implementation for the Computer Use mo
 
 The Computer Use model and tool is supported when using the following models:
 
+#### Click to expand supported models
+
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 
 ## How the Computer Use model and tool works

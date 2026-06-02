@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 You can use Memory Bank to generate structured profiles, which are data structures with static schemas populated and updated using LLMs. By defining a fixed schema, you ensure your agents have immediate, low-latency access to evolving information without the need for expensive search operations during a session.
 
-To complete the steps demonstrated in this guide, you must first follow the steps in [Set up for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/set-up) .
+To complete the steps demonstrated in this guide, you must first follow the steps in [Set up for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup) .
 
 ## Overview
 
@@ -36,7 +36,7 @@ Structured profiles are generated through the same methods ( [`GenerateMemories`
 When using structured profiles, Memory Bank performs the following operations during memory generation:
 
   - **Extraction** : Extracts information and context that fits the schema from the data source. Only information that aligns with the schema will be extracted. You can inspect what information and context was extracted using [memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
-  - **Consolidation** : Updates (if necessary) existing fields in the profile. An [LLM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/set-up#generation-config) will judge how to update the existing content based on the newly extracted information and context. If the field does not already exist in the profile, consolidation will be skipped, and the field will be updated directly with the extracted information.
+  - **Consolidation** : Updates (if necessary) existing fields in the profile. An [LLM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) will judge how to update the existing content based on the newly extracted information and context. If the field does not already exist in the profile, consolidation will be skipped, and the field will be updated directly with the extracted information.
 
 Profiles are isolated based on the `scope` (like `{"user_id": "123"}` ) that you provided when ingesting data to Memory Bank. For each schema and scope, Memory Bank maintains a single profile as the source-of-truth. A generated profile is composed of one or more `Memory` instances. Each `Memory` instance represents a single field within the profile that you can use to inspect the field's metadata and revision history, like:
 
@@ -60,7 +60,7 @@ Profiles are isolated based on the `scope` (like `{"user_id": "123"}` ) that you
 
 ## Schema definition
 
-The profiles that Memory Bank generate align with the schema that was defined when the [Agent Platform instance was created or updated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/set-up#create-update) . You can use a `pydantic` model to define the fields you want Memory Bank to extract and maintain. For example:
+The profiles that Memory Bank generate align with the schema that was defined when the [Agent Platform instance was created or updated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#create-update) . You can use a `pydantic` model to define the fields you want Memory Bank to extract and maintain. For example:
 
     from pydantic import BaseModel, Field
     from typing import Literal

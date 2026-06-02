@@ -22,6 +22,8 @@ You can use Gemini to generate images from a text prompt. Supported interfaces i
 
 The following Gemini models support image generation:
 
+#### Click to expand supported models
+
   - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [`gemini-3.1-flash-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview
@@ -381,6 +383,8 @@ Gemini generates an image based on your description. This process takes a few se
 You can use Gemini to generate interleaved images with text responses. For example, you can generate images for each step of a generated recipe without having to make separate requests to the model.
 
 The following Gemini models support generating interleaved images and text:
+
+#### Click to expand supported models
 
   - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)

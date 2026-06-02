@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning
 title: Introduction to tuning
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
@@ -73,6 +73,8 @@ Supervised fine-tuning of a text model is a good option when the output of your 
 
 The following Gemini models support supervised tuning:
 
+#### Click to expand supported models
+
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
@@ -90,6 +92,8 @@ Preference tuning enables the model to learn from subjective user preferences th
 
 The following Gemini models support preference tuning:
 
+#### Click to expand supported models
+
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 
@@ -102,6 +106,8 @@ Tuning checkpoints let you save tuning progress, compare checkpoint performance,
 #### Models that support tuning checkpoints
 
 The following Gemini models support tuning checkpoints:
+
+#### Click to expand supported models
 
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
@@ -117,6 +123,8 @@ Continuous tuning lets you continue tuning an already tuned model or model check
 #### Models that support continuous tuning
 
 The following Gemini models support continuous tuning:
+
+#### Click to expand supported models
 
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)

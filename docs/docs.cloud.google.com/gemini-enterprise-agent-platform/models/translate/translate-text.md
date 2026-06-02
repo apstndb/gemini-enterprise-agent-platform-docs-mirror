@@ -31,11 +31,11 @@ For translation tasks, Generative AI on Gemini Enterprise Agent Platform offers 
 
 ## Usage
 
-This section shows you how to use Gemini Enterprise Agent Platform Studio to rapidly translate text from one language to another. You can use the Translation LLM or the NMT model to translate text by using the Google Cloud console or API. Note that the languages that each model supports can vary. Before you request translations, check that the model you're using [supports your source and target languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translate/translate-text#supported-languages) .
+This section shows you how to use Vertex AI Studio to rapidly translate text from one language to another. You can use the Translation LLM or the NMT model to translate text by using the Google Cloud console or API. Note that the languages that each model supports can vary. Before you request translations, check that the model you're using [supports your source and target languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translate/translate-text#supported-languages) .
 
 ### Console
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Translate text** page in **Gemini Enterprise Agent Platform Studio** .
+1.  In the Agent Platform section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
 
 2.  In the **Run settings** pane, select a translation model in the **Model** field.
 
@@ -49,7 +49,7 @@ This section shows you how to use Gemini Enterprise Agent Platform Studio to rap
 
 7.  To get the code or curl command that demonstrate how to request translations, click code **Get code** .
 
-Note that in Gemini Enterprise Agent Platform Studio, the Translation LLM lets you provide example translations to tailor model responses to more closely match your style, tone, and industry domain. The model uses your examples as few-shot context before translating your text.
+Note that in Vertex AI Studio, the Translation LLM lets you provide example translations to tailor model responses to more closely match your style, tone, and industry domain. The model uses your examples as few-shot context before translating your text.
 
 ### API
 
@@ -365,7 +365,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 Customize responses from the Translation LLM by providing your own example translations. Custom translations only work with the Translation LLM.
 
-You can request customized translation through the Gemini Enterprise Agent Platform Studio console or API with one difference. The console supports custom translations only when you provide examples in a TMX or TSV file. The API supports custom translations only when you provide examples (up to 5 sentence pairs) inline as part of the translation request.
+You can request customized translation through the Vertex AI Studio console or API with one difference. The console supports custom translations only when you provide examples in a TMX or TSV file. The API supports custom translations only when you provide examples (up to 5 sentence pairs) inline as part of the translation request.
 
 ### Data requirements
 
@@ -375,7 +375,7 @@ To get the most accurate results, include specific examples from a wide variety 
 
 ### Console
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Translate text** page in **Gemini Enterprise Agent Platform Studio** .
+1.  In the Agent Platform section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
 
 2.  In the **Run settings** pane, configure your translation settings.
     
@@ -384,7 +384,7 @@ To get the most accurate results, include specific examples from a wide variety 
 
 3.  Click **Add examples** .
     
-    1.  Select a local file or a file from Cloud Storage. Gemini Enterprise Agent Platform Studio determines the source and target languages from your file.
+    1.  Select a local file or a file from Cloud Storage. Vertex AI Studio determines the source and target languages from your file.
     2.  Select the number of examples for the model to use before generating a response.
     
     The number of examples you select counts toward the input character limit per request of 3,000.

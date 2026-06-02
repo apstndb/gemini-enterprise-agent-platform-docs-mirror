@@ -15,9 +15,9 @@ There are also services and component APIs that implement the RAG lifecycle, suc
   - **Gemini Enterprise Agent Platform Vector Search** : This search service is highly performant and uses a high-quality vector database.
   - **Check grounding API** : This API compares RAG output with the retrieved facts and helps to ensure that all statements are grounded before returning the response to the user.
 
-## Ground responses using Vertex AI RAG Engine
+## Ground responses using RAG Engine on Gemini Enterprise Agent Platform
 
-To ground responses using Vertex AI RAG Engine, you must create a prompt. Do the following:
+To ground responses using RAG Engine, you must create a prompt. Do the following:
 
 1.  In the Google Cloud console, go to the **Create prompt** page using Vertex AI Studio.
 

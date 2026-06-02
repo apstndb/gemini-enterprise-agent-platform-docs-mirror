@@ -28,8 +28,8 @@ To specify that this pipeline run uses a custom service account, a customer-mana
 Use the following instructions to configure advanced options such as a custom service account.
 
   - To specify a service account , select a service account from the **Service account** drop-down list.  
-    If you do not specify a service account, Gemini Enterprise Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.  
-    Learn more about [configuring a service account for use with Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) .
+    If you do not specify a service account, Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.  
+    Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) .
   - To use a customer managed encryption key (CMEK), select **Use a customer-managed encryption key** . The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
   - To use a peered VPC network in this pipeline run, enter the VPC network name in the **Peered VPC network** box.
 

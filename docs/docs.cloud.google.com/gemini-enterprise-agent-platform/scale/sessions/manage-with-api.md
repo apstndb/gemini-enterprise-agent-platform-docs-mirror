@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This section describes how to use Agent Platform Sessions to manage sessions using the Google Cloud console or direct API calls. You can use the Google Cloud console or direct API calls if you don't want to use an ADK agent to manage sessions.
 
-To manage sessions using the ADK agent, see [Manage sessions with Agent Development Kit](https://docs.cloud.google.com/agent-builder/agent-engine/sessions/manage-sessions-adk) .
+To manage sessions using the ADK agent, see [Manage sessions with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk) .
 
 ## Create an Agent Runtime instance
 
@@ -32,7 +32,7 @@ If you don't have an existing Agent Runtime instance, create one using the follo
 Replace the following:
 
   - PROJECT\_ID : Your project ID.
-  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/agent-engine/overview#supported-regions) for Sessions.
+  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#supported-regions-agent-engine) for Sessions.
 
 ## List sessions
 

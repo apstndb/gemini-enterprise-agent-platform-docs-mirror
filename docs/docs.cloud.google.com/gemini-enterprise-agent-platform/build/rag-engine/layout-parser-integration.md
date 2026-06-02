@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration
-title: Use Document AI layout parser with Vertex AI RAG Engine
-description: Use the Document AI layout parser with Vertex AI RAG Engine to extract and parse content elements from documents, improving retrieval and semantic coherence.
+title: Use Document AI layout parser with RAG Engine
+description: Use the Document AI layout parser with RAG Engine to extract and parse content elements from documents, improving retrieval and semantic coherence.
 data_source: docs.cloud.google.com
 ---
 
@@ -24,9 +24,9 @@ When it's used for retrieval and LLM generation, the document's layout is consid
 
 For file types used by layout detection, see [Layout detection per file type](https://docs.cloud.google.com/document-ai/docs/layout-parse-chunk#parser-types) .
 
-## Use the layout parser in Vertex AI RAG Engine
+## Use the layout parser in RAG Engine
 
-To use the layout parser in Vertex AI RAG Engine, you must create a corpus. To create a corpus, do the following:
+To use the layout parser in RAG Engine, you must create a corpus. To create a corpus, do the following:
 
 1.  In the Google Cloud console, go to the **RAG Engine** page.
 
@@ -225,6 +225,6 @@ The prediction generates a grounded response using the retrieved contexts. For a
 
 ## What's next
 
-  - [Vector database choices in Vertex AI RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)
+  - [Vector database choices in RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)
 
   - For information about importing RAG files, see [Method: ragFiles.import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora.ragFiles/import)

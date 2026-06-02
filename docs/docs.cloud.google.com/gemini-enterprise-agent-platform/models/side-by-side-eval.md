@@ -517,7 +517,7 @@ To create a pairwise model evaluation job by using the Google Cloud console, per
 
 ## View evaluation results
 
-You can find the evaluation results in the [Gemini Enterprise Agent Platform Pipelines](https://console.cloud.google.com/vertex-ai/pipelines/runs) by inspecting the following artifacts produced by the AutoSxS pipeline:
+You can find the evaluation results in the [Agent Platform Pipelines](https://console.cloud.google.com/vertex-ai/pipelines/runs) by inspecting the following artifacts produced by the AutoSxS pipeline:
 
   - The [judgments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval#judgments) table is produced by the AutoSxS arbiter.
   - [Aggregate metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval#aggregate-metrics) are produced by the AutoSxS metrics component.

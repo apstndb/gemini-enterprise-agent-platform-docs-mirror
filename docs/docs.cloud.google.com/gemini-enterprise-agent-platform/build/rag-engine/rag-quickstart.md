@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart
 title: RAG quickstart
-description: Run Retrieval Augmented Generation (RAG) tasks on Gemini Enterprise Agent Platform. Configure IAM, install Vertex AI SDK, and run Vertex AI RAG Engine code.
+description: Run Retrieval Augmented Generation (RAG) tasks on Gemini Enterprise Agent Platform. Configure IAM, install Vertex AI SDK, and run RAG Engine on Gemini Enterprise Agent Platform code.
 data_source: docs.cloud.google.com
 ---
 
@@ -14,9 +14,9 @@ data_source: docs.cloud.google.com
 
 > **Important:** By default, a RAG corpus uses `RagManagedDb` . For more information, see [Understanding RagManagedDb](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/understanding-ragmanageddb) .
 
-This page shows you how to use the Vertex AI SDK to run Vertex AI RAG Engine tasks.
+This page shows you how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks.
 
-You can also follow along using this notebook [Intro to Vertex AI RAG Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/intro_rag_engine.ipynb) .
+You can also follow along using this notebook [Intro to RAG Engine](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/intro_rag_engine.ipynb) .
 
 ## Required roles
 
@@ -32,7 +32,7 @@ Replace the following:
 
 ## Prepare your Google Cloud console
 
-To use Vertex AI RAG Engine, do the following:
+To use RAG Engine, do the following:
 
 1.  [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
@@ -44,9 +44,9 @@ To use Vertex AI RAG Engine, do the following:
     
     `gcloud auth application-default login`
 
-## Run Vertex AI RAG Engine
+## Run RAG Engine
 
-Copy and paste this sample code into the Google Cloud console to run Vertex AI RAG Engine.
+Copy and paste this sample code into the Google Cloud console to run RAG Engine.
 
 ### Python
 
@@ -261,8 +261,8 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## What's next
 
-  - To learn more about the RAG API, see [Vertex AI RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
+  - To learn more about the RAG API, see [RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
 
-  - To learn more about the responses from RAG, see [Retrieval and Generation Output of Vertex AI RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained) .
+  - To learn more about the responses from RAG, see [Retrieval and Generation Output of RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/rag-output-explained) .
 
-  - To learn about the Vertex AI RAG Engine, see the [Vertex AI RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+  - To learn about the RAG Engine, see the [RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .

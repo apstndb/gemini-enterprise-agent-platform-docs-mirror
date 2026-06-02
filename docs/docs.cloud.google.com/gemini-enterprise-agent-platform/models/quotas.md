@@ -79,7 +79,7 @@ To view and edit the quotas in the Google Cloud console, do the following:
 3.  Click the three dots at the end of the row, and select **Edit quota** .
 4.  Enter a new quota value in the pane, and click **Submit request** .
 
-## Vertex AI RAG Engine
+## RAG Engine on Gemini Enterprise Agent Platform
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 

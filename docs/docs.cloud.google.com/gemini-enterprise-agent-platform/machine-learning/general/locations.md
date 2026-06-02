@@ -119,7 +119,7 @@ Some Agent Platform features aren't available in all regions. The following tabl
 
 The following sortable table lets you select different options to see where Agent Platform features are available. For example, to see a list of regions where Agent Platform Feature Store is available in Europe, you can select **Europe** from the **Select a location** drop-down menu, and **Agent Platform Feature Store** from the **Select a feature** drop-down menu.
 
-Africa Asia Pacific Europe Middle East North America South America AutoML for image data AutoML for tabular data AutoML Forecasting Custom model batch inference Custom model online inference Custom model training Data labeling Model Monitoring Model Registry Agent Platform Neural Architecture Search Ray on Agent Platform Vector Search Agent Runtime Gemini Enterprise Agent Platform Experiments Agent Platform Feature Store Gemini Enterprise Agent Platform Pipelines Vertex AI TensorBoard Agent Platform Vizier Vertex Explainable AI Agent Platform ML Metadata
+Africa Asia Pacific Europe Middle East North America South America AutoML for image data AutoML for tabular data AutoML Forecasting Custom model batch inference Custom model online inference Custom model training Data labeling Model Monitoring Model Registry Agent Platform Neural Architecture Search Ray on Agent Platform Vector Search Agent Runtime Gemini Enterprise Agent Platform Experiments Agent Platform Feature Store Agent Platform Pipelines Vertex AI TensorBoard Agent Platform Vizier Vertex Explainable AI Agent Platform ML Metadata
 
 <table>
 <colgroup>
@@ -150,7 +150,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -165,7 +165,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -184,7 +184,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -203,7 +203,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -221,7 +221,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 </ul></td>
@@ -239,7 +239,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -258,7 +258,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -278,7 +278,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -297,7 +297,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -317,7 +317,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -335,7 +335,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 </ul></td>
@@ -353,7 +353,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -371,7 +371,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 </ul></td>
@@ -388,7 +388,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -408,7 +408,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -428,7 +428,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -448,7 +448,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -471,7 +471,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -490,7 +490,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -508,7 +508,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 </ul></td>
@@ -526,7 +526,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -543,7 +543,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -558,7 +558,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -573,7 +573,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -592,7 +592,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -611,7 +611,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -630,7 +630,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -649,7 +649,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -667,7 +667,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 </ul></td>
@@ -689,7 +689,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -709,7 +709,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -729,7 +729,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -744,7 +744,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -763,7 +763,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -783,7 +783,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -802,7 +802,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -822,7 +822,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>
@@ -841,7 +841,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Vector Search</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
-<li>Gemini Enterprise Agent Platform Pipelines</li>
+<li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
 <li>Vertex Explainable AI</li>

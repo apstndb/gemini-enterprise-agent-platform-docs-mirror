@@ -262,11 +262,11 @@ By default, Llama Guard 3 8B is enabled on all predictions that you make with Ll
 
 If you want to disable Llama Guard, modify the model safety setting. For more information, see the `model_safety_settings` field in the [streaming](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/use-llama#streaming) or [unary](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/use-llama#unary) example.
 
-### Use Gemini Enterprise Agent Platform Studio
+### Use Vertex AI Studio
 
-For Llama models, you can use Gemini Enterprise Agent Platform Studio to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Gemini Enterprise Agent Platform Studio to compare Llama model responses with other supported models such as Google's Gemini.
+For Llama models, you can use Vertex AI Studio to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Vertex AI Studio to compare Llama model responses with other supported models such as Google's Gemini.
 
-For more information, see [Quickstart: Send text prompts to Gemini using Gemini Enterprise Agent Platform Studio](https://docs.cloud.google.com/vertex-ai/docs/start/quickstarts/quickstart) .
+For more information, see [Quickstart: Send text prompts to Gemini using Vertex AI Studio](https://docs.cloud.google.com/vertex-ai/docs/start/quickstarts/quickstart) .
 
 ## Llama model region availability and quotas
 

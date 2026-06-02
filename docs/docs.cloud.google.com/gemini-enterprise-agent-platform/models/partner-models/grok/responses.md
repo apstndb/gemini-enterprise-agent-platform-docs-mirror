@@ -14,7 +14,7 @@ This page shows how to make calls to Grok models using the Responses API.
 
 To use Grok models with Gemini Enterprise Agent Platform, you must perform the following steps. The Gemini Enterprise Agent Platform API ( `aiplatform.googleapis.com` ) must be enabled.
 
-> **Note:** Setting `store` to `true` and the `previous_response_id` parameter are not supported for Grok models at this time, and `store` defaults to `false` . Support is planned for an upcoming release. When support is added, the default behavior will change to `store: true` , and `previous_response_id` will be enabled. If you want to prevent your responses from being stored after this change, explicitly set `store` to `false` (or `False` in Python) in your requests.
+> **Note:** Setting `store` to `true` and the `previous_response_id` parameter for stateful API calls are not supported for Grok models at this time, and `store` defaults to `false` . Support is planned for an upcoming release. When support is added, the default behavior will change to `store: true` , and `previous_response_id` will be enabled. If you want to prevent your responses from being stored after this change, explicitly set `store` to `false` (or `False` in Python) in your requests.
 
 ## Make a non-streaming call to the Responses API
 

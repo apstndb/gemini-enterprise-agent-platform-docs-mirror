@@ -18,8 +18,6 @@ This document defines key terms related to the lifecycle stages and important da
 
 ## Latest stable models
 
-> **Caution:** As of March 6, 2026, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are only available for existing customers. This includes both model serving and Provisioned Throughput. New projects should use `gemini-2.5-flash` , `gemini-2.5-flash-lite` , or more recent releases.
-
 The following table lists the latest stable models:
 
 ### Gemini models
@@ -33,8 +31,6 @@ The following table lists the latest stable models:
 | `gemini-2.5-flash`                   | June 17, 2025     | Not before October 16, 2026  |
 | `gemini-2.5-flash-lite`              | July 22, 2025     | Not before October 16, 2026  |
 | `gemini-2.5-flash-image`             | October 2, 2025   | October 2, 2026              |
-| `gemini-2.0-flash-001`               | February 5, 2025  | June 1, 2026                 |
-| `gemini-2.0-flash-lite-001`          | February 25, 2025 | June 1, 2026                 |
 
 ### Veo models
 
@@ -72,18 +68,20 @@ However, if you don't have time to follow the guide and just need to quickly res
 
 | Model ID                                         | Release date       | Retirement date    | Recommended upgrade      |
 | ------------------------------------------------ | ------------------ | ------------------ | ------------------------ |
-| `gemini-1.5-pro-001`                             | May 24, 2024       | May 24, 2025       | `gemini-2.0-flash`       |
-| `gemini-1.5-pro-002`                             | September 24, 2024 | September 24, 2025 | `gemini-2.0-flash`       |
-| `gemini-1.5-flash-001`                           | May 24, 2024       | May 24, 2025       | `gemini-2.0-flash-lite`  |
-| `gemini-1.5-flash-002`                           | September 24, 2024 | September 24, 2025 | `gemini-2.0-flash-lite`  |
+| `gemini-2.0-flash`                               | February 5, 2025   | June 1, 2026       | `gemini-3.1-flash-lite`  |
+| `gemini-2.0-flash-lite`                          | February 25, 2025  | June 1, 2026       | `gemini-3.1-flash-lite`  |
+| `gemini-1.5-pro-001`                             | May 24, 2024       | May 24, 2025       | `gemini-2.5-flash`       |
+| `gemini-1.5-pro-002`                             | September 24, 2024 | September 24, 2025 | `gemini-2.5-flash`       |
+| `gemini-1.5-flash-001`                           | May 24, 2024       | May 24, 2025       | `gemini-2.5-flash-lite`  |
+| `gemini-1.5-flash-002`                           | September 24, 2024 | September 24, 2025 | `gemini-2.5-flash-lite`  |
 | ` textembedding-gecko@003           *          ` | December 12, 2023  | May 24, 2025       | `gemini-embedding-001`   |
 | `textembedding-gecko-multilingual@001`           | November 2, 2023   | May 24, 2025       | `gemini-embedding-001`   |
-| `gemini-1.0-pro-001`                             | February 15, 2024  | April 21, 2025     | `gemini-2.0-flash`       |
-| `gemini-1.0-pro-002`                             | April 9, 2024      | April 21, 2025     | `gemini-2.0-flash`       |
-| `gemini-1.0-pro-vision-001`                      | February 15, 2024  | April 21, 2025     | `gemini-2.0-flash`       |
-| `text-bison`                                     | May 2023           | April 21, 2025     | `gemini-2.0-flash-lite`  |
-| `chat-bison`                                     | May 2023           | April 21, 2025     | `gemini-2.0-flash-lite`  |
-| `code-gecko`                                     | May 2023           | April 21, 2025     | `gemini-2.0-flash-lite`  |
+| `gemini-1.0-pro-001`                             | February 15, 2024  | April 21, 2025     | `gemini-2.5-flash`       |
+| `gemini-1.0-pro-002`                             | April 9, 2024      | April 21, 2025     | `gemini-2.5-flash`       |
+| `gemini-1.0-pro-vision-001`                      | February 15, 2024  | April 21, 2025     | `gemini-2.5-flash`       |
+| `text-bison`                                     | May 2023           | April 21, 2025     | `gemini-2.5-flash-lite`  |
+| `chat-bison`                                     | May 2023           | April 21, 2025     | `gemini-2.5-flash-lite`  |
+| `code-gecko`                                     | May 2023           | April 21, 2025     | `gemini-2.5-flash-lite`  |
 | `textembedding-gecko@002`                        | November 2, 2023   | April 21, 2025     | `gemini-embedding-001`   |
 | `textembedding-gecko@001`                        | June 7, 2023       | April 21, 2025     | `gemini-embedding-001`   |
 | `imagetext`                                      | June 7, 2023       | September 24, 2025 | `gemini-2.5-flash-image` |

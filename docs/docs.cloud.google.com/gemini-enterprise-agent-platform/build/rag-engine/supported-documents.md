@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents
-title: Document types for Gemini Enterprise Agent Platform RAG Engine
+title: Document types for RAG Engine
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
@@ -26,7 +26,7 @@ The default parser supports the following file types and their file size limits:
 
 Additional file types are supported by an [Llm Parser](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/llm-parser) .
 
-Using Gemini Enterprise Agent Platform RAG Engine with other document types is possible but can generate lower-quality responses.
+Using RAG Engine with other document types is possible but can generate lower-quality responses.
 
 ## What's next
 

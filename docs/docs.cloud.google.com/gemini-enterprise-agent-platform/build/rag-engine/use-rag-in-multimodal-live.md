@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live
-title: Use Vertex AI RAG Engine in Gemini Live API
+title: Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API
 description: Reduce your hallucinations on your LLM responses using context information leveraging Agent Platform RAG Engine. Learn how to use RAG to improve your LLM's responses by incorporating relevant information retrieval.
 data_source: docs.cloud.google.com
 ---
@@ -14,11 +14,11 @@ data_source: docs.cloud.google.com
 
 Retrieval-augmented generation (RAG) is a technique that's used to retrieve and provide relevant information to LLMs to generate verifiable responses. The information can include fresh information, a topic and context, or ground truth.
 
-This page shows you how to use Vertex AI RAG Engine with the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-rag-with-live-api) , which lets you specify and retrieve information from the RAG corpus.
+This page shows you how to use RAG Engine with the [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-rag-with-live-api) , which lets you specify and retrieve information from the RAG corpus.
 
 ## Prerequisites
 
-The following prerequisites must be completed before you can use Vertex AI RAG Engine with the multimodal Live API:
+The following prerequisites must be completed before you can use RAG Engine with the multimodal Live API:
 
 1.  Enable the RAG API in Agent Platform.
 
@@ -28,7 +28,7 @@ The following prerequisites must be completed before you can use Vertex AI RAG E
 
 ## Set up
 
-You can use Vertex AI RAG Engine with the Live API by specifying Vertex AI RAG Engine as a tool. The following code sample demonstrates how to specify Vertex AI RAG Engine as a tool:
+You can use RAG Engine with the Live API by specifying RAG Engine as a tool. The following code sample demonstrates how to specify RAG Engine as a tool:
 
 Replace the following variables:
 
@@ -163,11 +163,11 @@ To learn how to install the generative AI SDK, see [Install a library](https://a
               display.display(display.Markdown(message.text))
               continue
 
-## Use Vertex AI RAG Engine as the context store
+## Use RAG Engine as the context store
 
-You can use Vertex AI RAG Engine as the context store for Gemini Live API to store session context to form and retrieve past contexts that are related to your conversation and enrich the current context for model generation. You can also take advantage of this feature to share contexts across your different Live API sessions.
+You can use RAG Engine as the context store for Gemini Live API to store session context to form and retrieve past contexts that are related to your conversation and enrich the current context for model generation. You can also take advantage of this feature to share contexts across your different Live API sessions.
 
-Vertex AI RAG Engine supports storing and indexing the following forms of data from session contexts:
+RAG Engine supports storing and indexing the following forms of data from session contexts:
 
   - Text
   - Audio speech
@@ -251,12 +251,12 @@ This code sample demonstrates how to specify your memory corpus to store context
 
 ## What's next
 
-  - To learn more about Vertex AI RAG Engine, see [Vertex AI RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+  - To learn more about RAG Engine on Gemini Enterprise Agent Platform, see [RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - To learn more about the RAG API, see [Vertex AI RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
+  - To learn more about the RAG API, see [RAG Engine API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
 
   - To manage your RAG corpora, see [Corpus management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/manage-your-rag-corpus#corpus-management) .
 
   - To manage your RAG files, see [File management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/manage-your-rag-corpus#file-management) .
 
-  - To learn how to use the Vertex AI SDK to run Vertex AI RAG Engine tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .
+  - To learn how to use the Vertex AI SDK to run RAG Engine on Gemini Enterprise Agent Platform tasks, see [RAG quickstart for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart) .

@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search
-title: Use Gemini Enterprise Agent Platform Search as a retrieval backend using Gemini Enterprise Agent Platform RAG Engine
+title: Use Agent Search as a retrieval backend using RAG Engine
 description: Integrate Agent Platform Search with Agent Platform RAG Engine for enhanced RAG application performance and data management.
 data_source: docs.cloud.google.com
 ---
@@ -12,39 +12,39 @@ data_source: docs.cloud.google.com
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vertex_ai_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vertex_ai_search.ipynb)
 
-This page introduces Gemini Enterprise Agent Platform Search integration with the Gemini Enterprise Agent Platform RAG Engine.
+This page introduces Agent Search integration with the RAG Engine.
 
-Gemini Enterprise Agent Platform Search provides a solution for retrieving and managing data within your Gemini Enterprise Agent Platform RAG applications. By using Gemini Enterprise Agent Platform Search as your retrieval backend, you can improve performance, scalability, and ease of integration.
+Agent Search provides a solution for retrieving and managing data within your Gemini Enterprise Agent Platform RAG applications. By using Agent Search as your retrieval backend, you can improve performance, scalability, and ease of integration.
 
-  - **Enhanced performance and scalability** : Gemini Enterprise Agent Platform Search is designed to handle large volumes of data with exceptionally low latency. This translates to faster response times and improved performance for your RAG applications, especially when dealing with complex or extensive knowledge bases.
+  - **Enhanced performance and scalability** : Agent Search is designed to handle large volumes of data with exceptionally low latency. This translates to faster response times and improved performance for your RAG applications, especially when dealing with complex or extensive knowledge bases.
 
   - **Simplified data management** : Import your data from various sources, such as websites, BigQuery datasets, and Cloud Storage buckets, that can streamline your [data ingestion process](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - **Seamless integration** : Agent Platform provides built-in integration with Gemini Enterprise Agent Platform Search, which lets you select Gemini Enterprise Agent Platform Search as the corpus backend for your RAG application. This simplifies the integration process and helps to ensure optimal compatibility between components.
+  - **Seamless integration** : Agent Platform provides built-in integration with Agent Search, which lets you select Agent Search as the corpus backend for your RAG application. This simplifies the integration process and helps to ensure optimal compatibility between components.
 
-  - **Improved LLM output quality** : By using the retrieval capabilities of Gemini Enterprise Agent Platform Search, you can help to ensure that your RAG application retrieves the most relevant information from your corpus, which leads to more accurate and informative LLM-generated outputs.
+  - **Improved LLM output quality** : By using the retrieval capabilities of Agent Search, you can help to ensure that your RAG application retrieves the most relevant information from your corpus, which leads to more accurate and informative LLM-generated outputs.
 
-## Gemini Enterprise Agent Platform Search
+## Agent Search
 
-[Gemini Enterprise Agent Platform Search](https://docs.cloud.google.com/generative-ai-app-builder/docs/enterprise-search-introduction) brings together deep information retrieval, natural-language processing, and the latest features in large language model (LLM) processing, which helps to understand user intent and to return the most relevant results for the user.
+[Agent Search](https://docs.cloud.google.com/generative-ai-app-builder/docs/enterprise-search-introduction) brings together deep information retrieval, natural-language processing, and the latest features in large language model (LLM) processing, which helps to understand user intent and to return the most relevant results for the user.
 
-With Gemini Enterprise Agent Platform Search, you can build a Google-quality search application using data that you control.
+With Agent Search, you can build a Google-quality search application using data that you control.
 
-### Configure Gemini Enterprise Agent Platform Search
+### Configure Agent Search
 
-To set up a Gemini Enterprise Agent Platform Search, do the following:
+To set up a Agent Search, do the following:
 
 1.  [Create a search data store](https://docs.cloud.google.com/generative-ai-app-builder/docs/create-data-store-es) .
 
 2.  [Create a search application](https://docs.cloud.google.com/generative-ai-app-builder/docs/create-engine-es) .
 
-## Use the Gemini Enterprise Agent Platform Search as a retrieval backend for Gemini Enterprise Agent Platform RAG Engine
+## Use the Agent Search as a retrieval backend for RAG Engine
 
-Once the Gemini Enterprise Agent Platform Search is set up, follow these steps to set it as the retrieval backend for the RAG application.
+Once the Agent Search is set up, follow these steps to set it as the retrieval backend for the RAG application.
 
-### Set the Gemini Enterprise Agent Platform Search as the retrieval backend to create a RAG corpus
+### Set the Agent Search as the retrieval backend to create a RAG corpus
 
-These code samples show you how to configure Gemini Enterprise Agent Platform Search as the retrieval backend for a RAG corpus.
+These code samples show you how to configure Agent Search as the retrieval backend for a RAG corpus.
 
 ### REST
 
@@ -60,7 +60,7 @@ To use the command line to create a RAG corpus, do the following:
     
       - **DISPLAY\_NAME** : The display name of the RAG corpus that you want to create.
     
-      - **ENGINE\_NAME** : The full resource name of the Gemini Enterprise Agent Platform Search engine or Gemini Enterprise Agent Platform Search Datastore. For example,
+      - **ENGINE\_NAME** : The full resource name of the Agent Search engine or Agent Search Datastore. For example,
         
         `projects/ PROJECT_NUMBER /locations/ LOCATION /collections/default_collection/engines/ ENGINE_NAME /servingConfigs/default_search`
     
@@ -128,7 +128,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Retrieve contexts using the RAG API
 
-After the RAG corpus creation, relevant contexts can be retrieved from Gemini Enterprise Agent Platform Search through the `RetrieveContexts` API.
+After the RAG corpus creation, relevant contexts can be retrieved from Agent Search through the `RetrieveContexts` API.
 
 ### REST
 
@@ -203,7 +203,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### REST
 
-To generate content using Gemini models, make a call to the Agent Platform `GenerateContent` API. By specifying the `RAG_CORPUS_RESOURCE` in the request, it automatically retrieves data from Gemini Enterprise Agent Platform Search.
+To generate content using Gemini models, make a call to the Agent Platform `GenerateContent` API. By specifying the `RAG_CORPUS_RESOURCE` in the request, it automatically retrieves data from Agent Search.
 
 Replace the following variables used in the sample code:
 
@@ -215,7 +215,7 @@ Replace the following variables used in the sample code:
 
   - **GENERATION\_METHOD** : LLM method for content generation. For example, `generateContent` , `streamGenerateContent` .
 
-  - **INPUT\_PROMPT** : The text that is sent to the LLM for content generation. Try to use a prompt relevant to the documents in Gemini Enterprise Agent Platform Search.
+  - **INPUT\_PROMPT** : The text that is sent to the LLM for content generation. Try to use a prompt relevant to the documents in Agent Search.
 
   - **RAG\_CORPUS\_RESOURCE** : The name of the RAG corpus resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
 

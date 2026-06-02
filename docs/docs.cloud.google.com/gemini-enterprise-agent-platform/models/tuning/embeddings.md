@@ -1,8 +1,8 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings
 title: Tune text embeddings
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to tune text embedding models on Gemini Enterprise Agent Platform for scenarios requiring specialized knowledge or highly tailored performance.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,15 +10,15 @@ This page shows you how to tune [text embedding models](https://docs.cloud.googl
 
 Foundation embedding models are pre-trained on a massive dataset of text, providing a strong baseline for many tasks. For scenarios requiring specialized knowledge or highly tailored performance, model tuning lets you fine-tune the model's representations using your own relevant data. Tuning is supported for the following text embedding models:
 
-| Model                             |
-| :-------------------------------- |
-| `text-embedding-004`              |
-| `text-embedding-005`              |
-| `text-multilingual-embedding-002` |
+#### Click to expand supported models
+
+  - `text-embedding-004`
+  - `text-embedding-005`
+  - `text-multilingual-embedding-002`
 
 Text embedding models support [supervised tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-text-models-supervised) . Supervised tuning uses labeled examples that demonstrate the type of output you'd like from your text embedding model during inference.
 
-To learn more about model tuning, see [How model tuning works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models#how_model_tuning_works) .
+To learn more about model tuning, see [How model tuning works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning#how_model_tuning_works) .
 
 ### Expected quality improvement
 
@@ -40,7 +40,7 @@ The model tuning workflow on Gemini Enterprise Agent Platform is as follows:
   - Upload the model tuning dataset to a Cloud Storage bucket.
   - Configure your project for Gemini Enterprise Agent Platform Pipelines.
   - Create a model tuning job.
-  - Deploy the tuned model to a Gemini Enterprise Agent Platform endpoint of the same name. Unlike text or Codey model tuning jobs, a text embedding tuning job doesn't deploy your tuned models to a Gemini Enterprise Agent Platform endpoint.
+  - Deploy the tuned model to a Gemini Enterprise Agent Platform endpoint of the same name. Unlike text model tuning jobs, a text embedding tuning job doesn't deploy your tuned models to a Gemini Enterprise Agent Platform endpoint.
 
 ## Prepare your embeddings dataset
 
@@ -107,7 +107,7 @@ Tuning is executed within your project using the [Gemini Enterprise Agent Platfo
 
 The pipeline executes training code under two service agents. These service agents must be granted specific roles in order to begin training using your project and dataset.
 
-> **Note:** If your dataset and pipeline job are in the same project, these service accounts will have access to your dataset by default. The only preparation necessary is granting the [Compute Engine default service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings#compute-engine-service-account) (or your custom service account) the `Agent Platform User` role.
+> **Note:** If your dataset and pipeline job are in the same project, these service accounts will have access to your dataset by default. The only preparation necessary is granting the [Compute Engine default service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings#compute-engine-service-account) (or your custom service account) the `Agent Platform User` role.
 
 ##### Compute Engine default service account
 
@@ -116,9 +116,7 @@ The pipeline executes training code under two service agents. These service agen
 This service account requires:
 
   - `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
-
   - `Storage Object User` access to the output Cloud Storage directory of your pipeline, PIPELINE\_OUTPUT\_DIRECTORY .
-
   - `Agent Platform User` access to your project.
 
 Instead of the [Compute Engine default service account](https://docs.cloud.google.com/compute/docs/access/service-accounts#default_service_account) , you can specify a custom service account. For more information, see [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
@@ -130,7 +128,6 @@ Instead of the [Compute Engine default service account](https://docs.cloud.googl
 This service account requires:
 
   - `Storage Object Viewer` access to each dataset file you created in Cloud Storage.
-
   - `Storage Object User` access to the output Cloud Storage directory of your pipeline, PIPELINE\_OUTPUT\_DIRECTORY .
 
 > **Note:** The Gemini Enterprise Agent Platform Tuning [Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) runs proprietary Google code and cannot be substituted with a custom service account.
@@ -499,7 +496,7 @@ To tune a text embedding model by using the Google Cloud console, you can launch
 5.  In the **Region** drop-down list, select the region to create the pipeline run, which will be the same region in which your tuned model is created.
 6.  Click **Continue** . The **Runtime configuration** pane appears.
 7.  Under **Cloud storage location** , click **Browse** to select the Cloud Storage bucket for storing the pipeline output artifacts, and then click **Select** .
-8.  Under **Pipeline parameters** , specify your parameters for the tuning pipeline. The three required parameters are `corpus_path` , `queries_path` , and `train_label_path` , with formats described in [Prepare your embeddings dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-embeddings#prepare-tuning) . For more detailed information about each parameter, refer to the REST tab of this section.
+8.  Under **Pipeline parameters** , specify your parameters for the tuning pipeline. The three required parameters are `corpus_path` , `queries_path` , and `train_label_path` , with formats described in [Prepare your embeddings dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/embeddings#prepare-tuning) . For more detailed information about each parameter, refer to the REST tab of this section.
 9.  Click **Submit** to create your pipeline run.
 
 ### Other supported features

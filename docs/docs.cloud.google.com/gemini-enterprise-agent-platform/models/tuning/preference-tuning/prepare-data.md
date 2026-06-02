@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning-prepare
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/prepare-data
 title: Prepare preference tuning data for Gemini models
 description: Learn how to prepare datasets for Gemini preference tuning.
 data_source: docs.cloud.google.com

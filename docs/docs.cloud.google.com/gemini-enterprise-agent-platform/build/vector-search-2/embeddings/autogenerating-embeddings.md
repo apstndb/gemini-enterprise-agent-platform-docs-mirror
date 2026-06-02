@@ -70,6 +70,16 @@ text, image, video, and PDF data into a single, unified embedding space.</td>
 <td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#api-limits">API limits</a></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><code dir="ltr" translate="no">gemini-embedding-2</code></td>
+<td style="text-align: left;">This is a next-generation multimodal embedding model from Google. Built on<br />
+on the latest Gemini model architecture, this "omni embedding model" maps<br />
+text, image, video, and PDF data into a single, unified embedding space.</td>
+<td style="text-align: left;">3072</td>
+<td style="text-align: left;">8192</td>
+<td style="text-align: left;">Interleaved text, image, video, and PDF</td>
+<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#api-limits">API limits</a></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><code dir="ltr" translate="no">text-embedding-004</code></td>
 <td style="text-align: left;">Specialized in English and code tasks.</td>
 <td style="text-align: left;">768</td>
@@ -77,7 +87,7 @@ text, image, video, and PDF data into a single, unified embedding space.</td>
 <td style="text-align: left;">English</td>
 <td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings#api_limits">API limits</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><code dir="ltr" translate="no">text-embedding-005</code></td>
 <td style="text-align: left;">Specialized in English and code tasks.</td>
 <td style="text-align: left;">768</td>
@@ -85,7 +95,7 @@ text, image, video, and PDF data into a single, unified embedding space.</td>
 <td style="text-align: left;">English</td>
 <td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings#api_limits">API limits</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><code dir="ltr" translate="no">text-multilingual-embedding-002</code></td>
 <td style="text-align: left;">Specialized in multilingual tasks.</td>
 <td style="text-align: left;">768</td>

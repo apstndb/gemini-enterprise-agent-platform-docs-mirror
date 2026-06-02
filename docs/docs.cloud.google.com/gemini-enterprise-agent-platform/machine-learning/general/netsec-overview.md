@@ -199,7 +199,7 @@ The following table shows the supported access methods for connecting from on-pr
 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#use-psc-i-egress">Learn more</a></td>
 </tr>
 <tr class="odd">
-<td>Gemini Enterprise Agent Platform Pipelines, custom training, Ray on Agent Platform (control plane)</td>
+<td>Agent Platform Pipelines, custom training, Ray on Agent Platform (control plane)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -219,7 +219,7 @@ The following table shows the supported access methods for connecting from on-pr
 <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress">Learn more</a></td>
 </tr>
 <tr class="odd">
-<td>Gemini Enterprise Agent Platform Pipelines</td>
+<td>Agent Platform Pipelines</td>
 <td></td>
 <td></td>
 <td></td>

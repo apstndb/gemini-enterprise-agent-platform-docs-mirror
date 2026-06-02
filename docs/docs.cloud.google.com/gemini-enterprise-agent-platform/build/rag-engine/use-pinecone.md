@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone
-title: Use Pinecone with Gemini Enterprise Agent Platform RAG Engine
+title: Use Pinecone with RAG Engine
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
@@ -14,29 +14,29 @@ data_source: docs.cloud.google.com
 
 This page shows you how to connect your RAG corpus to your [Pinecone](https://www.pinecone.io/) database.
 
-You can also follow along using this notebook [Gemini Enterprise Agent Platform RAG Engine with Pinecone](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb) .
+You can also follow along using this notebook [RAG Engine with Pinecone](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_pinecone.ipynb) .
 
-You can use your Pinecone database instance with Gemini Enterprise Agent Platform RAG Engine to index, and conduct a vector-based similarity search. A similarity search is a way to find pieces of text that are similar to the text that you're looking for, which requires the use of an [embedding model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models) . The embedding model produces vector data for each piece of text being compared. The similarity search is used to retrieve semantic contexts for [grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) to return the most accurate content from your LLM.
+You can use your Pinecone database instance with RAG Engine to index, and conduct a vector-based similarity search. A similarity search is a way to find pieces of text that are similar to the text that you're looking for, which requires the use of an [embedding model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models) . The embedding model produces vector data for each piece of text being compared. The similarity search is used to retrieve semantic contexts for [grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) to return the most accurate content from your LLM.
 
-With Gemini Enterprise Agent Platform RAG Engine, you can continue to use your fully-managed vector database instance, which you're responsible for provisioning. Gemini Enterprise Agent Platform RAG Engine uses your vector database for storage, index management, and search.
+With RAG Engine, you can continue to use your fully-managed vector database instance, which you're responsible for provisioning. RAG Engine uses your vector database for storage, index management, and search.
 
-## Consider whether to use Pinecone with Gemini Enterprise Agent Platform RAG Engine
+## Consider whether to use Pinecone with RAG Engine
 
 Consider whether using the Pinecone database is the best choice for your RAG application by reviewing the following:
 
   - You must create, configure, and manage the scaling of your Pinecone database instance.
 
-  - Gemini Enterprise Agent Platform RAG Engine uses the default namespace on your index. Ensure that this namespace isn't modifiable by anything else.
+  - RAG Engine uses the default namespace on your index. Ensure that this namespace isn't modifiable by anything else.
 
-  - You must provide a Pinecone API key, which allows Gemini Enterprise Agent Platform RAG Engine to interact with the Pinecone database. Gemini Enterprise Agent Platform RAG Engine doesn't store and manage your Pinecone API key. Instead, you must do the following:
+  - You must provide a Pinecone API key, which allows RAG Engine to interact with the Pinecone database. RAG Engine doesn't store and manage your Pinecone API key. Instead, you must do the following:
     
       - Store your key in the Google Cloud Secret Manager.
     
       - Grant your project's service account permissions to access your secret.
     
-      - Provide Gemini Enterprise Agent Platform RAG Engine access to your secret's resource name.
+      - Provide RAG Engine access to your secret's resource name.
     
-      - When you interact with your RAG corpus, Gemini Enterprise Agent Platform RAG Engine accesses your secret resource using your service account.
+      - When you interact with your RAG corpus, RAG Engine accesses your secret resource using your service account.
     
       - RAG corpus and the Pinecone index have a one-to-one mapping. This association is made as part of the [`ragCorpora.create` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/create) or the [`ragCorpora.patch` method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora/patch) .
 
@@ -46,12 +46,12 @@ To create your Pinecone index, you must follow these steps:
 
 1.  See the [Pinecone quickstart guide](https://docs.pinecone.io/guides/get-started/quickstart) to get the index configurations that must be specified on your index to make the index compatible with RAG corpus.
 
-2.  You want to ensure that the location of the [Pinecone index](https://docs.pinecone.io/guides/indexes/understanding-indexes) is the same as or close to where you use Gemini Enterprise Agent Platform RAG Engine for the following reasons:
+2.  You want to ensure that the location of the [Pinecone index](https://docs.pinecone.io/guides/indexes/understanding-indexes) is the same as or close to where you use RAG Engine for the following reasons:
     
       - You want to maintain reduced latencies.
       - You want to meet your data residency requirements that are set by applicable laws.
 
-3.  During Pinecone index creation, specify the embedding dimension to use with Gemini Enterprise Agent Platform RAG Engine. This table provides the dimension sizes or location of the dimension sizes:
+3.  During Pinecone index creation, specify the embedding dimension to use with RAG Engine. This table provides the dimension sizes or location of the dimension sizes:
     
     | Model                        | Dimension size                                                                                                                                                  |
     | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,17 +70,17 @@ To create your Pinecone index, you must follow these steps:
 
 ## Create your Pinecone API key
 
-Gemini Enterprise Agent Platform RAG Engine can only connect to your Pinecone index by using your API key for authentication and authorization. You must follow the [Pinecone official guide](https://docs.pinecone.io/guides/get-started/authentication) to authentication to configure the API key-based authentication in your Pinecone project.
+RAG Engine can only connect to your Pinecone index by using your API key for authentication and authorization. You must follow the [Pinecone official guide](https://docs.pinecone.io/guides/get-started/authentication) to authentication to configure the API key-based authentication in your Pinecone project.
 
 ## Store your API key in Secret Manager
 
-An API key holds Sensitive Personally Identifiable Information (SPII), which is subject to legal requirements. If the SPII data is compromised or misused, an individual might experience a significant risk or harm. To minimize risks to an individual while using Gemini Enterprise Agent Platform RAG Engine, don't store and manage your API key, and avoid sharing the unencrypted API key.
+An API key holds Sensitive Personally Identifiable Information (SPII), which is subject to legal requirements. If the SPII data is compromised or misused, an individual might experience a significant risk or harm. To minimize risks to an individual while using RAG Engine, don't store and manage your API key, and avoid sharing the unencrypted API key.
 
 To protect SPII, you must do the following:
 
 1.  Store your API key in [Secret Manager](https://cloud.google.com/security/products/secret-manager) .
 
-2.  Grant your Gemini Enterprise Agent Platform RAG Engine service account the permissions to your secret(s), and manage the access control at the secret resource level.
+2.  Grant your RAG Engine service account the permissions to your secret(s), and manage the access control at the secret resource level.
     
     1.  Navigate to your [project's permissions](https://console.cloud.google.com/iam-admin/iam?_ga=2.174137698.1529967577.1726609616-1380734187.1726608127) .
     
@@ -94,13 +94,13 @@ To protect SPII, you must do the following:
     
     5.  Add the `Secret Manager Secret Accessor` role to the service account.
 
-3.  During the creation or update of the RAG corpus, pass the secret resource name to Gemini Enterprise Agent Platform RAG Engine, and store the secret resource name.
+3.  During the creation or update of the RAG corpus, pass the secret resource name to RAG Engine, and store the secret resource name.
 
-When making API requests to your Pinecone index(es), Gemini Enterprise Agent Platform RAG Engine uses each service account to read the API key that corresponds to your secret resources in Secret Manager from your project(s).
+When making API requests to your Pinecone index(es), RAG Engine uses each service account to read the API key that corresponds to your secret resources in Secret Manager from your project(s).
 
-## Provision your Gemini Enterprise Agent Platform RAG Engine service account
+## Provision your RAG Engine service account
 
-When you create the first RAG corpus in your project, Gemini Enterprise Agent Platform RAG Engine creates a dedicated service account. You can find your service account from your project's [Identity and Access Management page](https://console.cloud.google.com/iam-admin/iam) .
+When you create the first RAG corpus in your project, RAG Engine creates a dedicated service account. You can find your service account from your project's [Identity and Access Management page](https://console.cloud.google.com/iam-admin/iam) .
 
 The service account follows this fixed format:
 
@@ -112,7 +112,7 @@ For example,
 
 ## Prepare your RAG corpus
 
-To use your Pinecone index with Gemini Enterprise Agent Platform RAG Engine, you must associate the index with a RAG corpus during its creation stage. After the association is made, this binding is permanent for the lifetime of the RAG corpus. The association can be done using either the `CreateRagCorpus` or the `UpdateRagCorpus` API.
+To use your Pinecone index with RAG Engine, you must associate the index with a RAG corpus during its creation stage. After the association is made, this binding is permanent for the lifetime of the RAG corpus. The association can be done using either the `CreateRagCorpus` or the `UpdateRagCorpus` API.
 
 For the association to be considered complete, you must set three key fields on the RAG corpus:
 
@@ -350,4 +350,4 @@ The `UpdateRagCorpus` API lets you update the vector database configuration. If 
 
 ## What's next
 
-  - [Use Gemini Enterprise Agent Platform Vector Search with Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search)
+  - [Use Gemini Enterprise Agent Platform Vector Search with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search)

@@ -310,7 +310,7 @@ To create a [`PipelineJob`](https://docs.cloud.google.com/gemini-enterprise-agen
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to create the pipeline run. For more information about the regions where Gemini Enterprise Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform Pipelines locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to create the pipeline run. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform Pipelines locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to create the pipeline run.
   - DISPLAY\_NAME : The name of the pipeline run. This will be displayed in the Google Cloud console.
 

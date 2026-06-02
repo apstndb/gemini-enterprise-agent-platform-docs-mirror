@@ -30,7 +30,7 @@ To delete an ongoing or scheduled pipeline run, send a `DELETE` request by using
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the pipeline run is located. For more information about the regions where Gemini Enterprise Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project containing the pipeline run.
   - PIPELINE\_RUN\_ID : The unique ID of the pipeline run that you want to delete. The pipeline run ID is displayed in the **Runs** tab on the **Pipelines** page in the Google Cloud console.
 
@@ -116,7 +116,7 @@ To batch delete multiple ongoing or scheduled pipeline runs, send a `POST` reque
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the pipeline runs are located. For more information about the regions where Gemini Enterprise Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline runs are located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project containing the pipeline runs.
   - PIPELINE\_RUN\_ID\_1 , PIPELINE\_RUN\_ID\_2 : The IDs of the pipeline jobs that you want to delete. You can find the job ID in the **Runs** tab on the **Pipelines** page in the Google Cloud console.
 

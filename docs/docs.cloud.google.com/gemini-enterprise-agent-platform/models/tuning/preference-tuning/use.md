@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-preference-tuning
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-preference-tuning
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/use
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/use
 title: Tune Gemini models by using preference tuning
 description: Tune Gemini models using preference tuning.
 data_source: docs.cloud.google.com

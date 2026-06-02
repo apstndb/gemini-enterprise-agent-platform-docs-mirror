@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-vector-search
-title: Use Agent Platform Vector Search with Gemini Enterprise Agent Platform RAG Engine
+title: Use Agent Platform Vector Search with RAG Engine
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
@@ -12,15 +12,15 @@ data_source: docs.cloud.google.com
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_vector_search.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb)
 
-This page shows you how to connect your Gemini Enterprise Agent Platform RAG Engine to [Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
+This page shows you how to connect your RAG Engine to [Gemini Enterprise Agent Platform Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
-You can also follow along using the [Gemini Enterprise Agent Platform RAG Engine with Agent Platform Vector Search](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) notebook.
+You can also follow along using the [RAG Engine with Agent Platform Vector Search](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_vector_search.ipynb) notebook.
 
 ## Agent Platform Vector Search setup
 
 Agent Platform Vector Search is based on Vector Search technology developed by Google research. With Vector Search you can use the same infrastructure that provides a foundation for Google products such as Google Search, YouTube, and Google Play.
 
-To integrate with Gemini Enterprise Agent Platform RAG Engine, an empty Vector Search index is required.
+To integrate with RAG Engine, an empty Vector Search index is required.
 
 ### Set up Vertex AI SDK
 
@@ -77,7 +77,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Create Vector Search index endpoint
 
-[Public endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public) are supported by Gemini Enterprise Agent Platform RAG Engine.
+[Public endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public) are supported by RAG Engine.
 
 ### Python
 
@@ -159,7 +159,7 @@ Identify the resource name of your index and index endpoint, which have the foll
   - `projects/${PROJECT_NUMBER}/locations/${LOCATION_ID}/indexes/${INDEX_ID}`
   - `projects/${PROJECT_NUMBER}/locations/${LOCATION_ID}/indexEndpoints/${INDEX_ENDPOINT_ID}` .
 
-## Use Agent Platform Vector Search in Gemini Enterprise Agent Platform RAG Engine
+## Use Agent Platform Vector Search in RAG Engine
 
 After the Vector Search instance is set up, follow the steps in this section to set the Vector Search instance as the vector database for the RAG application.
 
@@ -450,4 +450,4 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## What's next
 
-  - [Use Gemini Enterprise Agent Platform Search as a retrieval backend using Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search)
+  - [Use Agent Search as a retrieval backend using RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-vertexai-search)

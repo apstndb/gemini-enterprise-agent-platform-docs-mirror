@@ -41,6 +41,6 @@ The corresponding prompt template would be similar to the following:
 
 ## What's next
 
-  - Start prompting in the [Gemini Enterprise Agent Platform Studio](https://console.cloud.google.com/agent-platform/studio/multimodal;mode=prompt) .
+  - Start prompting in the [Vertex AI Studio](https://console.cloud.google.com/agent-platform/studio/multimodal;mode=prompt) .
   - Learn more about [prompting strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) .
   - Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

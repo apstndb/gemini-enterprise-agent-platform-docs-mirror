@@ -18,6 +18,8 @@ The thinking process is enabled by default. When you use Agent Studio on Gemini 
 
 Thinking is supported in the following models:
 
+#### Click to expand supported models
+
   - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
@@ -576,7 +578,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 ## View thought summaries
 
-> **Experimental — Thinking**
+> **Experimental**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 

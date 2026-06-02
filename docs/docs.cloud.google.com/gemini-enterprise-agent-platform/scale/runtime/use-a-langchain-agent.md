@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langchain-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langchain-agent
 title: Use a LangChain agent
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to query and interact with deployed LangChain agents on Agent Runtime, including multimodal inputs and custom configurations.
 data_source: docs.cloud.google.com
 ---
 
@@ -16,7 +16,7 @@ This tutorial assumes that you have read and followed the instructions in:
 
 ## Get an instance of an agent
 
-To query a [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query a [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
 To get the [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent) that corresponds to a specific resource ID:
 
@@ -171,7 +171,7 @@ When querying the agent, you can also specify a `config` for the agent (which fo
       - `tags` / `metadata` : classifier for the run when [tracing with OpenTelemetry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#tracing) .
   - Custom configuration parameters (via `configurable` ):
       - `session_id` : the session under which the run is happening (see [Store chat history](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent#chat-history) ).
-      - `thread_id` : the thread under which the run is happening (see [Store Checkpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/develop-a-langgraph-agent#store-checkpoints) ).
+      - `thread_id` : the thread under which the run is happening (see [Store Checkpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent#store-checkpoints) ).
 
 As an example:
 

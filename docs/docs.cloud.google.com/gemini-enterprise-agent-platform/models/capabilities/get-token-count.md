@@ -16,6 +16,8 @@ This page shows you how to get the token count for a prompt by using the `countT
 
 The following multimodal models support getting an estimate of the prompt token count:
 
+#### Click to expand supported models
+
   - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)

@@ -22,6 +22,8 @@ Intermediate checkpoints are [deployed to new endpoints](https://docs.cloud.goog
 
 The following Gemini models support checkpoints:
 
+#### Click to expand supported models
+
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)

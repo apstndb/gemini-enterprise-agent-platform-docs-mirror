@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking
-title: Reranking for Gemini Enterprise Agent Platform RAG Engine
+title: Reranking for RAG Engine on Gemini Enterprise Agent Platform
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
@@ -36,7 +36,7 @@ The page explains reranking and types of rankers. The page also demonstrates how
 <p>For more information about Agent Platform ranking API, see <a href="https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking">Improve search and RAG quality with ranking API</a> .</p></td>
 <td>Very low (less than 100 milliseconds)</td>
 <td>State-of-the-art performance</td>
-<td>Per Gemini Enterprise Agent Platform RAG Engine request</td>
+<td>Per RAG Engine request</td>
 </tr>
 <tr class="even">
 <td>LLM reranker</td>
@@ -116,7 +116,7 @@ Replace the following variables used in the sample code:
 
 ### REST
 
-To generate content using Gemini models, make a call to the Agent Platform `GenerateContent` API. By specifying the `RAG_CORPUS_RESOURCE` when you make the request, the model automatically retrieves data from the Gemini Enterprise Agent Platform RAG Engine.
+To generate content using Gemini models, make a call to the Agent Platform `GenerateContent` API. By specifying the `RAG_CORPUS_RESOURCE` when you make the request, the model automatically retrieves data from the RAG Engine.
 
 Replace the following variables used in the sample code:
 
@@ -163,13 +163,13 @@ Replace the following variables used in the sample code:
       }
     }'
 
-## Use the LLM reranker in Gemini Enterprise Agent Platform RAG Engine
+## Use the LLM reranker in RAG Engine
 
 This section presents the prerequisites and code samples for using an LLM reranker.
 
-The LLM reranker supports only Gemini models, which are accessible when the Gemini Enterprise Agent Platform RAG Engine API is enabled. To view the list of supported models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-rag-models#supported-gemini-models) .
+The LLM reranker supports only Gemini models, which are accessible when the RAG Engine on Gemini Enterprise Agent Platform API is enabled. To view the list of supported models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-rag-models#supported-gemini-models) .
 
-To retrieve relevant contexts using the Gemini Enterprise Agent Platform RAG Engine API, do the following:
+To retrieve relevant contexts using the RAG Engine API, do the following:
 
 ### Python
 
@@ -258,7 +258,7 @@ Replace the following variables used in the code sample:
 
 ## What's next
 
-  - To learn more about the Gemini Enterprise Agent Platform RAG Engine API, see the following:
+  - To learn more about the RAG Engine on Gemini Enterprise Agent Platform API, see the following:
     
       - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
     

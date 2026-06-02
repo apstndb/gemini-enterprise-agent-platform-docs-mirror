@@ -133,9 +133,9 @@ The following file operations are supported:
 
 ## What's next
 
-  - [Gemini Enterprise Agent Platform RAG Engine quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#rag-engine-quotas)
+  - [RAG Engine on Gemini Enterprise Agent Platform quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#rag-engine-quotas)
 
-  - To learn more about the Gemini Enterprise Agent Platform RAG Engine, see the following:
+  - To learn more about the RAG Engine on Gemini Enterprise Agent Platform, see the following:
     
       - [`RagEngineConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/RagEngineConfig)
     

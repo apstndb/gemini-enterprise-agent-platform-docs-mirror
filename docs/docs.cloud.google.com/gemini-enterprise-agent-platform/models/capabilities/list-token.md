@@ -24,6 +24,8 @@ Listing tokens returns a list of the tokens that your prompt is broken down into
 
 The following table shows you the models that support token listing and token counting:
 
+#### Click to expand supported models
+
   - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)

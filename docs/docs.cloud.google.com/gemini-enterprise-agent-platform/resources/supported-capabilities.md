@@ -20,7 +20,7 @@ Multi-regions
 
 Model-level capabilities, tools, and features
 
-[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/code-execution)
+[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)
 
 [Controllable parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/adjust-parameter-values)
 

@@ -22,6 +22,8 @@ Gemini supports improved editing of images and multi-turn editing, and supports 
 
 The following Gemini models support image editing:
 
+#### Click to expand supported models
+
   - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [`gemini-3.1-flash-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview
@@ -393,6 +395,8 @@ Gemini generates an image based on your description. This process takes a few se
 Multi-turn editing lets you respond to the model with changes after it displays an edited image response.
 
 The following Gemini models support multi-turn editing:
+
+#### Click to expand supported models
 
   - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)

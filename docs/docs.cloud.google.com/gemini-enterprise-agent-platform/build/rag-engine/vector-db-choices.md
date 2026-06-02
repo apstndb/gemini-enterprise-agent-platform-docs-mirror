@@ -1,28 +1,28 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices
-title: Vector database choices in Gemini Enterprise Agent Platform RAG Engine
+title: Vector database choices in RAG Engine
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> The Gemini Enterprise Agent Platform RAG Engine-managed Spanner instance is used as a vector database and is GA with billing enabled. For more information, see [Gemini Enterprise Agent Platform RAG Engine billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
+> The RAG Engine-managed Spanner instance is used as a vector database and is GA with billing enabled. For more information, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
 
-This page introduces the vector databases supported on Gemini Enterprise Agent Platform RAG Engine. You can also see how to connect a vector database (vector store) to your RAG corpus.
+This page introduces the vector databases supported on RAG Engine. You can also see how to connect a vector database (vector store) to your RAG corpus.
 
 Vector databases play a crucial role in enabling retrieval for RAG applications. Vector databases offer a specialized way to store and query vector embeddings, which are mathematical representations of text or other data that capture semantic meaning and relationships. Vector embeddings allow RAG systems to quickly and accurately find the most relevant information within a vast knowledge base, even when dealing with complex or nuanced queries. When combined with an embedding model, vector databases can help overcome the limitations of LLMs, and provide more accurate, relevant, and comprehensive responses.
 
 ## Supported vector databases
 
-When creating a RAG corpus, Gemini Enterprise Agent Platform RAG Engine offers the enterprise-ready `RagManagedDb` as the default vector database, which requires no additional provisioning or managing. `RagManagedDb` offers both KNN and ANN search options and allows switching to a basic tier for some quick prototyping and experimentation. To learn more about choosing a retrieval strategy on `RagManagedDb` or for updating the tier, see [Use `RagManagedDb` with RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag) . For Gemini Enterprise Agent Platform RAG Engine to automatically create and manage the vector database for you, see [REST Resource: projects.locations.ragCorpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
+When creating a RAG corpus, RAG Engine offers the enterprise-ready `RagManagedDb` as the default vector database, which requires no additional provisioning or managing. `RagManagedDb` offers both KNN and ANN search options and allows switching to a basic tier for some quick prototyping and experimentation. To learn more about choosing a retrieval strategy on `RagManagedDb` or for updating the tier, see [Use `RagManagedDb` with RAG](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag) . For RAG Engine to automatically create and manage the vector database for you, see [REST Resource: projects.locations.ragCorpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora) .
 
-In addition to the default `RagManagedDb` , Gemini Enterprise Agent Platform RAG Engine lets you provision and use your vector database within your RAG corpus. In this case, you are responsible for the lifecycle and scalability of your vector database.
+In addition to the default `RagManagedDb` , RAG Engine lets you provision and use your vector database within your RAG corpus. In this case, you are responsible for the lifecycle and scalability of your vector database.
 
 ## Compare vector database options
 
-This table lists your choices of vector databases that are supported within Gemini Enterprise Agent Platform RAG Engine and provides links to pages that explain how to use the vector databases within your RAG corpus.
+This table lists your choices of vector databases that are supported within RAG Engine and provides links to pages that explain how to use the vector databases within your RAG corpus.
 
 <table style="width:100%;">
 <colgroup>

@@ -172,7 +172,7 @@ The next steps focus on using your cluster effectively for large-scale training.
 
   - Adapt your code for distributed training: To take full advantage of a multi-node cluster and high-performance storage, adapt your training code for a distributed environment.
       - [Learn about distributed training on Vertex AI](https://docs.cloud.google.com/vertex-ai/machine-learning/training/distributed-training)
-  - Orchestrate your jobs with Gemini Enterprise Agent Platform Pipelines: For production workflows, automate the process of data preparation, job submission, and model registration using Gemini Enterprise Agent Platform Pipelines.
+  - Orchestrate your jobs with Gemini Enterprise Agent Platform Pipelines: For production workflows, automate the process of data preparation, job submission, and model registration using Agent Platform Pipelines.
       - [Run a custom training job in a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline#run_a_custom_training_job_in_a_pipeline)
   - Monitor and debug your training jobs: Track the progress and resource utilization of your distributed training jobs to identify and resolve issues.
       - [Monitor training jobs on Vertex AI](https://docs.cloud.google.com/vertex-ai/docs/general/monitoring-metrics)

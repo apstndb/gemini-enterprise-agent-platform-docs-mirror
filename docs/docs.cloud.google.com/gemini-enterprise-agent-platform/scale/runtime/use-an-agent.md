@@ -93,7 +93,7 @@ For deployed agents developed using Agent Development Kit (ADK), you can use the
 
 4.  You can **Type a message** to interact with your agent, and click **New Session** to start a new session with your agent.
 
-5.  If you [enabled traces through OpenTelemetry](https://docs.cloud.google.com/agent-builder/agent-engine/manage/tracing#write-traces) , you can view details about your agent's behavior during your interactions:
+5.  If you [enabled traces through OpenTelemetry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing#write-traces) , you can view details about your agent's behavior during your interactions:
     
       - **Trace** : Traces of your conversations with the agent.
     

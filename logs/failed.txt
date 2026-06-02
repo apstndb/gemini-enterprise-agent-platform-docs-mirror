@@ -1,3 +1,7 @@
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/faq
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-data-catalog
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/samples

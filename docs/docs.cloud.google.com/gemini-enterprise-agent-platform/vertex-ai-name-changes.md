@@ -26,7 +26,7 @@ With the introduction of Gemini Enterprise Agent Platform, some Vertex AI produc
 | Vertex AI Search for Commerce                                                                 | AI Commerce Search on Gemini Enterprise for Customer Experience                  |
 | Recommendations from Vertex AI Search                                                         | Recommendations from Agent Search (or Recommendations AI)                        |
 | Vertex AI Conversation                                                                        | Agent Conversation on Gemini Enterprise Agent Platform                           |
-| Vertex AI RAG Engine                                                                          | RAG Engine on Gemini Enterprise Agent Platform                                   |
+| RAG Engine on Gemini Enterprise Agent Platform                                                | RAG Engine on Gemini Enterprise Agent Platform                                   |
 | Vertex AI Vector Search                                                                       | Vector Search on Gemini Enterprise Agent Platform                                |
 | Vertex AI Vector Search 2.0                                                                   | Agent Retrieval on Gemini Enterprise Agent Platform                              |
 | Vertex AI Agent Engine                                                                        | Agent Runtime on Gemini Enterprise Agent Platform                                |

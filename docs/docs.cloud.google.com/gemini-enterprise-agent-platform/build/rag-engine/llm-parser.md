@@ -2,17 +2,17 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/llm-parser
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/llm-parser
 title: Use the LLM parser
-description: Learn how to use the Gemini Enterprise Agent Platform RAG Engine LLM parser to process and extract information from documents.
+description: Learn how to use the RAG Engine on Gemini Enterprise Agent Platform LLM parser to process and extract information from documents.
 data_source: docs.cloud.google.com
 ---
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-This page explains how to use the Gemini Enterprise Agent Platform RAG Engine LLM parser.
+This page explains how to use the RAG Engine on Gemini Enterprise Agent Platform LLM parser.
 
 ## Introduction
 
-Gemini Enterprise Agent Platform RAG Engine uses LLMs for document parsing. LLMs have the ability to effectively process documents in the following ways:
+RAG Engine uses LLMs for document parsing. LLMs have the ability to effectively process documents in the following ways:
 
   - Understand and interpret semantic content across various formats.
   - Retrieve relevant document chunks.
@@ -25,13 +25,15 @@ Gemini Enterprise Agent Platform RAG Engine uses LLMs for document parsing. LLMs
   - Understand relationships between charts and text.
   - Provide more contextually rich and accurate responses.
 
-The capabilities of the Gemini Enterprise Agent Platform RAG Engine significantly improves the quality of generated responses.
+The capabilities of the RAG Engine significantly improves the quality of generated responses.
 
 ## Supported models
 
 > **Note:** Gemini 3.x are not available at the moment for use with LLM Parser. Use Gemini 2.x variants.
 
-The following models support the Gemini Enterprise Agent Platform RAG Engine LLM parser:
+The following models support the RAG Engine LLM parser:
+
+#### Click to expand supported models
 
 ## Supported file types
 
@@ -158,11 +160,11 @@ To learn how to install or update the Agent Platform SDK for Python, see [Instal
 
 ## Prompting
 
-The Gemini Enterprise Agent Platform RAG Engine LLM parser uses a predefined and tuned prompt for parsing documents. However, if you have specialized documents that might not be suitable for a general prompt, you have the option to specify your custom parsing prompt when using the API. When requesting Gemini to parse your documents, Gemini Enterprise Agent Platform RAG Engine appends a prompt to your default system prompt.
+The RAG Engine on Gemini Enterprise Agent Platform LLM parser uses a predefined and tuned prompt for parsing documents. However, if you have specialized documents that might not be suitable for a general prompt, you have the option to specify your custom parsing prompt when using the API. When requesting Gemini to parse your documents, RAG Engine appends a prompt to your default system prompt.
 
 ### Prompt template table
 
-To help with document parsing, the following table provides a prompt template example to guide you in creating prompts that Gemini Enterprise Agent Platform RAG Engine can use to parse your documents:
+To help with document parsing, the following table provides a prompt template example to guide you in creating prompts that RAG Engine can use to parse your documents:
 
 | **Instruction**                                                                  | **Template statement**                                                                                                                                                                            | **Example**                                                          |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -184,7 +186,7 @@ Follow these guidelines to write your prompt to send to the LLM parser.
 
 ## Parsing quality analysis
 
-This table lists results from scenarios that customers ran using Gemini Enterprise Agent Platform RAG Engine. The feedback shows that the LLM parser improves the quality of parsing documents.
+This table lists results from scenarios that customers ran using RAG Engine on Gemini Enterprise Agent Platform. The feedback shows that the LLM parser improves the quality of parsing documents.
 
 | **Scenario**                                                        | **Result**                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -203,9 +205,9 @@ After you enter a prompt that's sent to a generative AI model, the retrieval com
 
 ## What's next
 
-  - To learn more about Gemini Enterprise Agent Platform RAG Engine, see [Gemini Enterprise Agent Platform RAG Engine overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
+  - To learn more about RAG Engine on Gemini Enterprise Agent Platform, see [RAG Engine on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) .
 
-  - To learn more about the Gemini Enterprise Agent Platform RAG Engine, see the following:
+  - To learn more about the RAG Engine on Gemini Enterprise Agent Platform, see the following:
     
       - [`GenerateContentResponse`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse)
     

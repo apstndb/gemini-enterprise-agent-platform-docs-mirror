@@ -22,11 +22,13 @@ This tool is useful for tasks like the following:
 
 Note that the index used to pull data may not necessarily be up to date, so some information may be stale.
 
-This guide explains how to use the URL context tool in the Gemini API in Gemini Enterprise Agent Platform.
+This guide explains how to use the URL context tool in the Gemini API.
 
 ## Supported models
 
 The following models provide support for URL Context:
+
+#### Click to expand supported models
 
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)

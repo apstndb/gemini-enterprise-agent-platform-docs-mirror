@@ -52,12 +52,12 @@ The following table summarizes the main differences between the Gemini API and G
 <td>API &amp; SDK</td>
 <td>Server and mobile/web client SDKs
 <ul>
-<li>Server: Python, Node.js, Go, Dart, ABAP</li>
+<li>Server: Python, JavaScript/TypeScript, Go, Java, C#, ABAP</li>
 <li>Mobile/Web client (via <a href="https://firebase.google.com/docs/ai-logic">Firebase AI Logic</a> ): Android (Kotlin/Java), Swift, Web, Flutter, and Unity</li>
 </ul></td>
 <td>Server and mobile/web client SDKs
 <ul>
-<li>Server: Python, Node.js, Go, Java, ABAP</li>
+<li>Server: Python, JavaScript/TypeScript, Go, Java, C#, ABAP</li>
 <li>Mobile/Web client (via <a href="https://firebase.google.com/docs/ai-logic">Firebase AI Logic</a> ): Android (Kotlin/Java), Swift, Web, Flutter, and Unity</li>
 </ul></td>
 </tr>

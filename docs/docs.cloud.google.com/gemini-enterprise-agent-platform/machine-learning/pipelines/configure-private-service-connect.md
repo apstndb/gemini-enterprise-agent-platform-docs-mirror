@@ -20,7 +20,7 @@ Pricing for Private Service Connect interfaces is described on the [All networki
 
 ## Before you begin
 
-To use a Private Service Connect interface with Gemini Enterprise Agent Platform Pipelines, you must first [Set up a Private Service Connect interface for Gemini Enterprise Agent Platform resources](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) .
+To use a Private Service Connect interface with Agent Platform Pipelines, you must first [Set up a Private Service Connect interface for Gemini Enterprise Agent Platform resources](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) .
 
 ## Create a pipeline run with Private Service Connect interfaces
 

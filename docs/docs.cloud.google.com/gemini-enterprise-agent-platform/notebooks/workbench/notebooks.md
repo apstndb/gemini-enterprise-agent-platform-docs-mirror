@@ -1792,7 +1792,7 @@ Learn to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pip
 BigQuery ML components<br />
 </td>
 <td><strong>Training an acquisition-prediction model using Swivel, BigQuery ML and Gemini Enterprise Agent Platform Pipelines</strong> .<br />
-Learn how to build a simple BigQuery ML pipeline using Gemini Enterprise Agent Platform Pipelines in order to calculate text embeddings of content from articles and classify them into the *corporate acquisitions* category. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction">Gemini Enterprise Agent Platform Pipelines</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/bigqueryml-component">BigQuery ML components</a> .
+Learn how to build a simple BigQuery ML pipeline using Agent Platform Pipelines in order to calculate text embeddings of content from articles and classify them into the *corporate acquisitions* category. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction">Gemini Enterprise Agent Platform Pipelines</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/bigqueryml-component">BigQuery ML components</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Creating a component for Dataflow job that ingests data to BigQuery.</li>

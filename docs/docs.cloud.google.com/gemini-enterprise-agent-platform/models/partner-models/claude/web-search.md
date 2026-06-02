@@ -47,7 +47,7 @@ Additionally, you can configure the organization policy constraint `constraints/
 
 To ensure continued access to web search for these specific model versions after June 2026, configure the `constraints/vertexai.allowedPartnerModelFeatures` organization policy to allow web search by the end of June 2026.
 
-For detailed instructions on configuring organization policy constraints, see [Control access to Model Garden models](https://docs.cloud.google.com/vertex-ai/docs/control-model-access) .
+For detailed instructions on configuring organization policy constraints, see [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) .
 
 ## Use web search
 

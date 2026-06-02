@@ -24,7 +24,7 @@ Several tools are compatible with various versions of Gemini Live API-supported 
 
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#function-calling)
   - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#grounding-google-search)
-  - [Grounding with Vertex AI RAG Engine (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-rag-with-live-api)
+  - [Grounding with RAG Engine on Gemini Enterprise Agent Platform (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-rag-with-live-api)
 
 To enable a particular tool for usage in returned responses, include the name of the tool in the `tools` list when you initialize the model. The following sections provide examples of how to use each of the built-in tools in your code.
 
@@ -176,13 +176,13 @@ if __name__ == "__main__":
   
 ```
 
-### Grounding with Vertex AI RAG Engine
+### Grounding with RAG Engine on Gemini Enterprise Agent Platform
 
 > **Preview**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-You can use Vertex AI RAG Engine with the Live API for grounding, storing, and retrieving contexts. Use this for tasks like retrieving information from a document corpus. Like Grounding with Google Search, RAG grounding is handled server-side and automatically retrieves information from your specified corpus:
+You can use RAG Engine with the Live API for grounding, storing, and retrieving contexts. Use this for tasks like retrieving information from a document corpus. Like Grounding with Google Search, RAG grounding is handled server-side and automatically retrieves information from your specified corpus:
 
 ### Python
 
@@ -248,7 +248,7 @@ if __name__ == "__main__":
   
 ```
 
-For more information, see [Use Vertex AI RAG Engine in Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live) .
+For more information, see [Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live) .
 
 ## Configure native audio capabilities
 

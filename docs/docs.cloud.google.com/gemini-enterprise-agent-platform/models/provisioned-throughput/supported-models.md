@@ -10,7 +10,7 @@ The following tables show the models that support Provisioned Throughput, the th
 
 ## Google models
 
-> **Caution:** As of March 6, 2026, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are only available for existing customers. This includes both model serving and Provisioned Throughput. New projects should use `gemini-2.5-flash` , `gemini-2.5-flash-lite` , or more recent releases.
+> **Caution:** As of June 1, 2026, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
 
 Provisioned Throughput only supports models that you call directly from your project using the specific model ID and not a model alias. To use Provisioned Throughput to make API calls to a model, you must use the specific model version ID (for example, `gemini-2.0-flash-001` ) and not a [model version alias](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias) .
 
@@ -46,8 +46,8 @@ Tokens
 
 1 input text token = 1 token  
 1 input image token = 1 token  
-1 output text token = 6 tokens  
-1 output thinking token = 6 tokens  
+1 output response text token = 6 tokens  
+1 output reasoning text token = 6 tokens  
 1 output image token = 60 tokens  
 
 [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
@@ -62,7 +62,9 @@ Tokens
 
 1 input text token = 1 token  
 1 input image token = 1 token  
-1 output text token = 6 tokens  
+1 input video token = 1 token  
+1 output response text token = 6 tokens  
+1 output reasoning text token = 6 tokens  
 1 output image token = 120 tokens  
 
 [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)

@@ -34,7 +34,7 @@ Discover, test, tune, and deploy models by using Model Garden in the Google Clou
 
 4.  Click **Open fine-tuning pipeline** .
     
-    You're taken to the Gemini Enterprise Agent Platform Pipelines page.
+    You're taken to the Agent Platform Pipelines page.
 
 5.  To start tuning, click **Create run** .
 

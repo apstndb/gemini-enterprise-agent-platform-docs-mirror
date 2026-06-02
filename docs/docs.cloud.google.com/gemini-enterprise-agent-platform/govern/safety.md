@@ -75,7 +75,7 @@ Get an overview of how security administrators can define, apply, and manage pol
 
 Guide
 
-### [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/security-controls)
+### [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls)
 
 Learn about security controls for Google Agent Platform.
 

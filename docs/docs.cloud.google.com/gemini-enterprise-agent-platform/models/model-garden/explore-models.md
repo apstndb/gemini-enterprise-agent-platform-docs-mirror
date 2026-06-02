@@ -40,8 +40,6 @@ To filter models in the filter pane, specify the following:
 
 To learn more about each model, click its model card.
 
-For a list of models available in Model Garden, see [Models available in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/available-models) .
-
 ## Model security scanning
 
 Google does thorough testing and benchmarking on the serving and tuning containers that we provide. Active vulnerability scanning is also applied to container artifacts.

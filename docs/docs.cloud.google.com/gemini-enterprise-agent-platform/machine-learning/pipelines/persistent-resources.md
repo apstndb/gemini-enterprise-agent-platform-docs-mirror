@@ -410,7 +410,7 @@ Replace the following:
 
   - PROJECT\_ID : The Google Cloud project that the pipeline runs in.
 
-  - LOCATION : The region where the pipeline run is executed. For more information about the regions where Gemini Enterprise Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . If you don't set this parameter, Gemini Enterprise Agent Platform Pipelines uses the default location set in `aiplatform.init` .
+  - LOCATION : The region where the pipeline run is executed. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . If you don't set this parameter, Agent Platform Pipelines uses the default location set in `aiplatform.init` .
 
   - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource that you created.
 

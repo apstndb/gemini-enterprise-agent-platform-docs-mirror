@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps
 title: Grounding with Google Maps in Gemini Enterprise Agent Platform
-description: Enhance generative AI applications with Google Maps geospatial data. Ground Gemini models, integrate place properties, and render contextual widgets.
+description: Enhance generative AI applications with Google Maps geospatial data. Ground Gemini models and integrate place properties.
 data_source: docs.cloud.google.com
 ---
 
@@ -28,6 +28,24 @@ This can be beneficial for use cases in real estate, travel, mobility, and socia
 
 This section lists the models that support Grounding with Google Maps.
 
+#### Click to expand supported models
+
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview
+  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview
+  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
+  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) preview
+  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) preview
+  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
+  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+  - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
+  - [Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview
+
 Gemini 3 Pro and Gemini 3 Pro Image are limited to 5,000 search queries per day.
 
 For more information about the Gemini models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview#gemini-models) .
@@ -42,7 +60,7 @@ Search results can be customized for a specific geographic location by using the
 
 To use Grounding with Google Maps with Gemini Enterprise Agent Platform, follow these steps:
 
-1.  In the Google Cloud console, go to the **Gemini Enterprise Agent Platform Studio** page.
+1.  In the Google Cloud console, go to the **Vertex AI Studio** page.
 
 2.  In the **Tools** section, click **Grounding: Google** . A configuration pane appears.
 
@@ -60,7 +78,7 @@ To use Grounding with Google Maps with Gemini Enterprise Agent Platform, follow 
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Google Gen AI SDK with Vertex AI:
+Set environment variables to use the Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -84,9 +102,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         config=GenerateContentConfig(
             tools=[
                 # Use Google Maps Tool
-                Tool(google_maps=GoogleMaps(
-                  enable_widget=False # Optional: return Maps widget token
-                ))
+                Tool(google_maps=GoogleMaps())
             ],
             tool_config=types.ToolConfig(
                 retrieval_config = types.RetrievalConfig(
@@ -114,7 +130,6 @@ Before using any of the request data, make the following replacements:
   - PROMPT : The prompt to send to the model.
   - LATITUDE : The latitude of the location. For example, a latitude of `37.7749` represents San Francisco. You can obtain latitude and longitude coordinates using services like Google Maps or other geocoding tools.
   - LONGITUDE : The longitude of the location. For example, a longitude of `-122.4194` represents San Francisco.
-  - ENABLE\_WIDGET : Whether to return a token and enable the Google Maps widget (default is `false` ).
   - GROUNDING\_TYPES : The types of Google Maps grounding to enable. Currently supports `places` and `routing` .
       - `places` : Search for place information including establishments, prominent points of interest, and geographical locations.
       - `routing` : Find directions and search along route. Routing is in Private Preview.
@@ -135,7 +150,6 @@ Request JSON body:
       }],
       "tools": [{
         "googleMaps": {
-          "enableWidget": "ENABLE_WIDGET",
           "groundingTypes": {
             "places": {},
             "routing": {}
@@ -236,7 +250,6 @@ You should receive a JSON response similar to the following:
                 ]
               },
             ],
-            "googleMapsWidgetContextToken": "widgetcontent/..."
           }
         }
       ],
@@ -318,7 +331,7 @@ This code sample demonstrates a place source and a place answer source in the re
 
 ## Routing - Find Directions
 
-> **Private Preview — Grounding with Google Search**
+> **Private Preview**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
@@ -382,7 +395,7 @@ The following is an example response for the prompt: "How long does it take to t
 
 ## Routing - Search Along Route
 
-> **Private Preview — Grounding with Google Search**
+> **Private Preview**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
@@ -574,11 +587,10 @@ The following CSS renders **Google Maps** with the appropriate typographic style
     color: #5e5e5e;
     }
 
-### Context token, place ID, and review ID
+### Place ID and review ID
 
-The Google Maps data includes context token, place ID, and review ID. You might cache, store, and export the following response data:
+The Google Maps data includes place ID and review ID. You might cache, store, and export the following response data:
 
-  - `googleMapsWidgetContextToken`
   - `placeId`
   - `reviewId`
 
@@ -587,73 +599,6 @@ The restrictions against caching in the Grounding with Google Maps Terms don't a
 ### Prohibited Territory
 
 Grounding with Google Maps has restrictions for certain content and activities to maintain a safe and reliable platform. Customer won't distribute or market a Customer Application that offers Grounding with Google Maps in a Prohibited Territory. For more information, see [Google Maps Platform Prohibited Territories](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories) . The list of Prohibited Territories may be updated from time to time.
-
-## Optional: Google Maps contextual widget
-
-The contextual widget is a Google Maps Pre-GA Offering that's a visual container used to support or supplement other Google Maps content. The Google Maps contextual widget lets you integrate Grounding with Google Maps into your applications to create a conversational LLM-powered chat experience. The contextual widget is rendered using the context token, `googleMapsWidgetContextToken` , which is returned in the Agent Platform API response and can be used to render visual content.
-
-The contextual widget serves different functions depending on your scenario:
-
-  - It displays user reviews and photos, which is user-generated content (UGC), in the scenario where Google Maps prompting is used for answer generation.
-
-  - It helps to enrich results with map visualizations and data when Gemini Enterprise Agent Platform generates just a text response.
-
-For more information on the contextual widget, see [Maps grounding widget](https://developers.google.com/maps/documentation/javascript/maps-grounding-widget) .
-
-### Render the Google Maps contextual widget
-
-To render and use the Google Maps contextual widget, use the alpha version of the Google Maps JavaScript API on the page that displays the widget. For more information, see [Load the Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/load-maps-js-api) .
-
-The following code samples demonstrate how to use a contextual widget:
-
-1.  Create a contextual widget.
-    
-    ``` 
-      <body>
-       <gmp-place-contextual id="widget"></gmp-place-contextual>
-      </body>
-    ```
-
-2.  In any response that is grounded with Google Maps, there's a corresponding `googleMapsWidgetContextToken` that's used to render the contextual widget and placed in close proximity to the generated response.
-    
-    To update the context token, set the `widget.contextToken property` .
-    
-        "googleMapsWidgetContextToken": "widgetcontent/AcBXPQdpWQWbap9H-OH8sEKmOXxmEKAYvff0tvthhneMQC3VrqWCjpnPBl4-Id98FGiA_S_t8aeAeJj0T6JkWFX56Bil8oBSR0W8JH3C_RSYLbTjxKdpxc9yNn6JcZTtolIRZon9xi6WpNGuSyjcIxWu2S0hwpasNOpUlWrG1RxVCB4WD1fsz_pwR236mG36lMxevXTQ_JnfdYNuQwQ4Lc3vn...<snip>...
-        Ts5VJE_b3IC5eE_6wez0nh61r7foTUZpP7BXMwxR-7Wyfcj6x1v6mIWsFGr1o0p_HSAMNqWPg-aFVnkPLhAkOR6MaNZOfezTva-gxHlu7z_haFvYxcUE1qfNVQ",
-    
-        function updateWidget(contextToken) {
-          let widget = document.querySelector('#widget');
-          widget.contextToken = contextToken;
-        }
-
-3.  Optional: Specify the list layout. Valid values include the following:
-    
-      - **Compact layout** : `<gmp-place-contextual-list-config layout="compact">`
-      - **Vertical layout** : `<gmp-place-contextual-list-config layout="vertical">`
-    
-    This code sample demonstrates changing the list layout to a compact layout.
-    
-    ``` 
-       <gmp-place-contextual id="widget">
-         <gmp-place-contextual-list-config layout="compact">
-         </gmp-place-contextual-list-config>
-       </gmp-place-contextual>
-    ```
-
-4.  Optional: Change the map mode. Valid values include the following:
-    
-      - **2D roadmap map** : `map-mode="roadmap"`
-      - **3D hybrid map** : `map-mode="hybrid"`
-      - **No map** : `map-mode="none"`
-    
-    This code sample demonstrates changing the map mode to a 2D map.
-    
-    ``` 
-       <gmp-place-contextual id="widget">
-         <gmp-place-contextual-list-config map-mode="roadmap">
-         </gmp-place-contextual-list-config>
-       </gmp-place-contextual>
-    ```
 
 ## What's next
 

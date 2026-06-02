@@ -156,7 +156,7 @@ To learn how to use the [`HyperparameterTuningJob`](https://docs.cloud.google.co
 
 ## Pipeline training class
 
-A pipeline orchestrates your ML workflow in Gemini Enterprise Agent Platform. You can use a pipeline to automate, monitor, and govern your machine learning systems. To learn more about pipelines in Gemini Enterprise Agent Platform, see [Introduction to Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) .
+A pipeline orchestrates your ML workflow in Gemini Enterprise Agent Platform. You can use a pipeline to automate, monitor, and govern your machine learning systems. To learn more about pipelines in Gemini Enterprise Agent Platform, see [Introduction to Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) .
 
 ### [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob)
 

@@ -10,9 +10,15 @@ data_source: docs.cloud.google.com
 > 
 > This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
 
+> To see an example of Image generation from videos with Gemini, run the "Gemini 3.1 Flash Image Generation in Agent Platform" notebook in one of the following environments:
+> 
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_flash_image_gen.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_3_1_flash_image_gen.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_3_1_flash_image_gen.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_flash_image_gen.ipynb)
+
 You can use Gemini to generate images from a video, which can be useful to credate an image for a thumbnail for a video. Supported interfaces include the Google Cloud console and the Agent Platform API.
 
 The following Gemini models support image generation from a video:
+
+#### Click to expand supported models
 
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
 
@@ -52,7 +58,7 @@ To generate images from video with Gemini, do the following:
     
     ### Google Drive
     
-    1.  Choose an account and give consent to Gemini Enterprise Agent Platform Studio to access your account the first time you select this option. You can upload multiple files that have a total size of up to 10 MB. A single file can't exceed 7 MB.
+    1.  Choose an account and give consent to Vertex AI Studio to access your account the first time you select this option. You can upload multiple files that have a total size of up to 10 MB. A single file can't exceed 7 MB.
     
     2.  Click the file that you want to add.
     
@@ -65,6 +71,50 @@ To generate images from video with Gemini, do the following:
 5.  Click the **Prompt** ( send ) button.
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
+
+### Python
+
+#### Install
+
+    pip install --upgrade google-genai
+
+To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
+
+Set environment variables to use the Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_VERTEXAI=True
+
+    from google import genai
+    from google.genai.types import GenerateContentConfig, Modality, Part
+    from PIL import Image
+    from io import BytesIO
+    
+    client = genai.Client()
+    
+    # A video on 'The ABCs of agent building'
+    video = "https://www.youtube.com/watch?v=rjoMZyxncUI"
+    
+    response = client.models.generate_content(
+        model="gemini-3.1-flash-image",
+        contents=[
+            Part.from_uri(
+                file_uri=video,
+                mime_type="video/mp4"
+            ), 
+            "Generate an infographic of the topics covered in this video."
+        ],
+        config=GenerateContentConfig(response_modalities=[Modality.TEXT, Modality.IMAGE]),
+    )
+    for part in response.candidates[0].content.parts:
+        if part.text:
+            print(part.text)
+        elif part.inline_data:
+            image = Image.open(BytesIO((part.inline_data.data)))
+            image.save("output_folder/video-image.png")
 
 ### REST
 

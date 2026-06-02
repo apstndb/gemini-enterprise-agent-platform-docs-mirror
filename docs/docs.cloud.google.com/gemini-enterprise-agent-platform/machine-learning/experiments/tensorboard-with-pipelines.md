@@ -42,7 +42,7 @@ Learn more about [how Agent Platform](https://docs.cloud.google.com/gemini-enter
 
 ### Build and run a pipeline
 
-The following example shows how to build and run a pipeline using Kubeflow Pipelines DSL package. For more examples and additional details, see [Gemini Enterprise Agent Platform Pipelines documentation](https://docs.cloud.google.com/vertex-ai/docs/pipelines) .
+The following example shows how to build and run a pipeline using Kubeflow Pipelines DSL package. For more examples and additional details, see [Agent Platform Pipelines documentation](https://docs.cloud.google.com/vertex-ai/docs/pipelines) .
 
 #### Create a training component
 

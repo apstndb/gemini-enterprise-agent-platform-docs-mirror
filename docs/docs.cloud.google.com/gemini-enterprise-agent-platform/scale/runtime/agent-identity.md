@@ -51,7 +51,7 @@ You have the following options when creating an agent identity:
           config={"identity_type": types.IdentityType.AGENT_IDENTITY}
         )
     
-    Once you create the Agent Runtime instance with the agent identity, you can add agent code using [`agent_engine.update(...)`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-an-agent#update) .
+    Once you create the Agent Runtime instance with the agent identity, you can add agent code using [`agent_engine.update(...)`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .
 
   - **Create an Agent Runtime instance while deploying agent code** : If you want to provision the agent identity while deploying your agent code, use the Agent Platform SDK for Python and the `identity_type=AGENT_IDENTITY` flag.
     
@@ -171,7 +171,7 @@ Replace the following:
 
   - PROJECT\_NUMBER : Your project number.
 
-  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/agent-builder/locations#supported-regions-agent-engine) for Runtime.
+  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#supported-regions-agent-engine) for Runtime.
 
   - AGENT\_ENGINE\_ID : The resource ID of your Agent Runtime instance.
 
@@ -306,7 +306,7 @@ You can see the list of your agent identities in Agent Runtime using the Google 
 
 ### REST API
 
-You can retrieve the agent identity when [getting an Agent Runtime instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-an-agent#get) using the REST API.
+You can retrieve the agent identity when [getting an Agent Runtime instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) using the REST API.
 
 The response includes the agent identity in the following format:
 

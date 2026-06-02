@@ -1,16 +1,16 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag
-title: Use RagManagedDb with Vertex AI RAG Engine
+title: Use RagManagedDb with RAG Engine on Gemini Enterprise Agent Platform
 description: Configure `RagManagedDb` for vector database management, retrieval strategies (KNN, ANN), and Customer-Managed Encryption Keys (CMEK).
 data_source: docs.cloud.google.com
 ---
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-> The Vertex AI RAG Engine-managed Spanner instance is used as a vector database and is GA with billing enabled. For more information, see [Vertex AI RAG Engine billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
+> The RAG Engine-managed Spanner instance is used as a vector database and is GA with billing enabled. For more information, see [RAG Engine on Gemini Enterprise Agent Platform billing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing) .
 
-This page shows you how Vertex AI RAG Engine uses `RagManagedDb` , which is an enterprise-ready vector database used to store and manage vector representations of your documents. The vector database is then used to retrieve relevant documents based on the document's semantic similarity to a given query.
+This page shows you how RAG Engine on Gemini Enterprise Agent Platform uses `RagManagedDb` , which is an enterprise-ready vector database used to store and manage vector representations of your documents. The vector database is then used to retrieve relevant documents based on the document's semantic similarity to a given query.
 
 In addition, this page shows you how to implement CMEK.
 
@@ -116,13 +116,13 @@ The `tree_depth` determines the number of layers or the levels in the tree. Foll
 
   - If you have approximately 10,000 RAG files in the RAG corpus, set the value to 2.
   - If you have more RAG files than that, set this to 3.
-  - If the `tree_depth` isn't specified, Vertex AI RAG Engine assigns a default value of 2 for this parameter.
+  - If the `tree_depth` isn't specified, RAG Engine assigns a default value of 2 for this parameter.
 
 The `leaf_count` determines the number of leaf nodes in the tree-based structure. Each leaf node contains groups of closely related vectors along with their corresponding centroid. Follow these guidelines:
 
   - The recommended value is `10 * sqrt(num of RAG files in your RAG corpus)` .
 
-  - If not specified, Vertex AI RAG Engine assigns a *default value of 500* for this parameter.
+  - If not specified, RAG Engine assigns a *default value of 500* for this parameter.
 
 ### Python
 
@@ -183,7 +183,7 @@ Replace the following variables:
 
 ### Importing your data into ANN `RagManagedDb`
 
-You can use either the `ImportRagFiles` API or the `UploadRagFile` API to import your data into the ANN `RagManagedDb` . However, unlike the KNN retrieval strategy, the ANN approach requires the underlying tree-based index to be rebuilt at least once and optionally after importing significant amounts of data for optimal recall. To have Vertex AI RAG Engine rebuild your ANN index, set the `rebuild_ann_index` to true in your `ImportRagFiles` API request.
+You can use either the `ImportRagFiles` API or the `UploadRagFile` API to import your data into the ANN `RagManagedDb` . However, unlike the KNN retrieval strategy, the ANN approach requires the underlying tree-based index to be rebuilt at least once and optionally after importing significant amounts of data for optimal recall. To have RAG Engine rebuild your ANN index, set the `rebuild_ann_index` to true in your `ImportRagFiles` API request.
 
 The following are important:
 
@@ -237,15 +237,15 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
 
 ## Manage your encryption
 
-Vertex AI RAG Engine provides robust options for managing how your data at rest is encrypted. By default, all user data within `RagManagedDb` is encrypted using a Google-owned and Google-managed encryption key, which is the default setting. This default setting helps you to verify that your data is secure without requiring any specific configuration.
+RAG Engine provides robust options for managing how your data at rest is encrypted. By default, all user data within `RagManagedDb` is encrypted using a Google-owned and Google-managed encryption key, which is the default setting. This default setting helps you to verify that your data is secure without requiring any specific configuration.
 
-If you require more control over your keys used for encryption, Vertex AI RAG Engine supports Customer-Managed Encryption Key (CMEK). With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (KMS), to protect your RAG corpus data.
+If you require more control over your keys used for encryption, RAG Engine supports Customer-Managed Encryption Key (CMEK). With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (KMS), to protect your RAG corpus data.
 
-For information on CMEK limitations for RAG corpora, see [CMEK limitations for Vertex AI RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-supports-cmek#cmek-limitations) .
+For information on CMEK limitations for RAG corpora, see [CMEK limitations for RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-supports-cmek#cmek-limitations) .
 
 ### Set up your KMS key and grant permissions
 
-Before you can create a RAG corpus encrypted with CMEK, you must set up a cryptographic key in Google Cloud KMS, and grant the Vertex AI RAG Engine service account the necessary permissions to use this key.
+Before you can create a RAG corpus encrypted with CMEK, you must set up a cryptographic key in Google Cloud KMS, and grant the RAG Engine service account the necessary permissions to use this key.
 
 #### Prerequisites
 
@@ -269,7 +269,7 @@ To create a key ring, do the following:
     Enter the following:
     
       - **Key ring name** : Enter a unique name for your key ring such as rag-engine-cmek-keys.
-      - **Location type** : Select Region. The Cloud Key Management Service key ring must be in the same region as the Vertex AI RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
+      - **Location type** : Select Region. The Cloud Key Management Service key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
       - **Location** : Choose the selected region such as `us-central1` . This region should ideally match the region where your RAG Engine resources will reside.
 
 2.  Click **Create** .
@@ -298,21 +298,21 @@ To copy the key resource name, do the following:
 
 3.  Copy the resource name, and remove the `/cryptoKeyVersions/VERSION_NUMBER` part. The correctly formatted resource name is ` projects/ YOUR_PROJECT_ID /locations/ YOUR_REGION /keyRings/ YOUR_KEY_RING_NAME /cryptoKeys/ YOUR_KEY_NAME  ` .
 
-#### Grant Permissions to the Vertex AI RAG Engine service agent
+#### Grant Permissions to the RAG Engine service agent
 
-For the Vertex AI RAG Engine to encrypt and decrypt data using your KMS key, its service agent needs appropriate permissions on that specific key.
+For the RAG Engine to encrypt and decrypt data using your KMS key, its service agent needs appropriate permissions on that specific key.
 
-To identify your Vertex AI RAG Engine service agent, do the following:
+To identify your RAG Engine service agent, do the following:
 
 1.  Navigate to the **IAM & Admin \> IAM** page in the Google Cloud console for your project.
 
 2.  On the Identity and Access Management page, enable the **Include Google-provided role grants** checkbox.
 
-3.  In the filter or search bar for the principals list, search for the Vertex AI RAG Engine service agent. It follows the pattern `service- YOUR_PROJECT_NUMBER @gcp-sa-vertex-rag.iam.gserviceaccount.com` .
+3.  In the filter or search bar for the principals list, search for the RAG Engine service agent. It follows the pattern `service- YOUR_PROJECT_NUMBER @gcp-sa-vertex-rag.iam.gserviceaccount.com` .
     
     Replace YOUR\_PROJECT\_NUMBER with your Google Cloud project number.
 
-If your Vertex AI RAG Engine service agent isn't present yet, do the following to trigger service agent creation:
+If your RAG Engine service agent isn't present yet, do the following to trigger service agent creation:
 
 1.  [Enable the Resource Manager API](https://console.cloud.google.com/apis/enableflow?apiid=cloudresourcemanager.googleapis.com) .
 
@@ -325,7 +325,7 @@ If your Vertex AI RAG Engine service agent isn't present yet, do the following t
     
         curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json; charset=utf-8" -d "" "https://serviceusage.googleapis.com/v1beta1/projects/PROJECT_ID/services/aiplatform.googleapis.com:generateServiceIdentity"
 
-3.  Verify that the Vertex AI RAG Engine service agent was created.
+3.  Verify that the RAG Engine service agent was created.
 
 To grant permissions on the KMS key, do the following:
 
@@ -339,7 +339,7 @@ To grant permissions on the KMS key, do the following:
 
 5.  Click **Add Principal** .
 
-6.  In the **New principals** field, type the Vertex AI RAG Engine service agent's email address.
+6.  In the **New principals** field, type the RAG Engine service agent's email address.
 
 7.  In the **Select a role** drop-down, select the Cloud KMS CryptoKey Encrypter/Decrypter role ( `roles/cloudkms.cryptoKeyEncrypterDecrypter` ). This role grants the service agent the necessary permissions to use the key for encryption and decryption operations.
 
@@ -387,7 +387,7 @@ Replace the variables in the following code samples:
 
 ### Quotas
 
-When you use CMEK with Gemini Enterprise Agent Platform services, such as the Vertex AI RAG Engine, there's a quota on the number of unique Cloud KMS keys that can be in use per project per region. This quota is tracked by the metric `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys` .
+When you use CMEK with Gemini Enterprise Agent Platform services, such as the RAG Engine on Gemini Enterprise Agent Platform, there's a quota on the number of unique Cloud KMS keys that can be in use per project per region. This quota is tracked by the metric `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys` .
 
 Each time you use a new, unique KMS key to create a resource like a RAG corpus within a project and region, the KMS key consumes one unit of this quota. This quota unit isn't released even if the resources using that specific key are deleted.
 

@@ -117,7 +117,7 @@ Be careful about retrying an event. We recommend retrying no more than two times
 ## What's next
 
   - Generative AI on Gemini Enterprise Agent Platform has some limitations. To learn more, see [Model limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai#limitations) .
-  - Try a quickstart tutorial using [Gemini Enterprise Agent Platform Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+  - Try a quickstart tutorial using [Vertex AI Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
   - Explore pretrained models in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
   - Learn about [quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas) .
   - Learn about [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .

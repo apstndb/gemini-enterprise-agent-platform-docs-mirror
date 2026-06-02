@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-After a document is ingested, Gemini Enterprise Agent Platform RAG Engine runs a set of transformations to prepare the data for indexing. You can control your use cases using the following parameters:
+After a document is ingested, RAG Engine on Gemini Enterprise Agent Platform runs a set of transformations to prepare the data for indexing. You can control your use cases using the following parameters:
 
 | Parameter       | Description                                                                                                                                                                           |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,4 +21,4 @@ For example, if you convert 1,000 words into an embedding array that was meant f
 
 ## What's next
 
-  - Use [Document AI layout parser with Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .
+  - Use [Document AI layout parser with RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/layout-parser-integration) .

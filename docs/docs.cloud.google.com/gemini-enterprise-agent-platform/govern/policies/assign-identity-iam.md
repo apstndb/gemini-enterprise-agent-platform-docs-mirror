@@ -522,9 +522,9 @@ To configure IAP-based authentication for MCP servers that you deploy on Cloud R
       - `  SERVICE_NAME  ` : The service name.
       - `  REGION  ` : The region.
 
-3.  Create and Configure an OAuth Client.
+3.  Create and configure an OAuth client.
     
-    Follow the instructions at Sharing OAuth clients for programmatic access to register your OAuth client's universal client ID for use with IAP.
+    Follow the instructions at [Sharing OAuth clients for programmatic access](https://docs.cloud.google.com/iap/docs/sharing-oauth-clients) to register your OAuth client's universal client ID for use with IAP.
     
     Make sure to record the following values that you obtain when completing this step:
     

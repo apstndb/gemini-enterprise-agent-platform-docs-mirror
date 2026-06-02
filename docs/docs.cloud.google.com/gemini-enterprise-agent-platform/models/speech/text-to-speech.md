@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/text-to-speech
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/text-to-speech
 title: Convert text to speech
-description: Learn how to convert text to speech using Gemini Enterprise Agent Platform Studio.
+description: Learn how to convert text to speech using Vertex AI Studio.
 data_source: docs.cloud.google.com
 ---
 
-This page shows you how to use Gemini Enterprise Agent Platform Studio to convert text to speech.
+This page shows you how to use Vertex AI Studio to convert text to speech.
 
 To learn how to convert speech to text, see [Convert speech to text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/speech-to-text) .
 
@@ -14,7 +14,7 @@ To learn how to convert speech to text, see [Convert speech to text](https://doc
 
 To convert text to speech, do the following:
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Gemini Enterprise Agent Platform Studio** page.
+1.  In the Agent Platform section of the Google Cloud console, go to the **Vertex AI Studio** page.
 
 2.  Click **Generate speech** .
 

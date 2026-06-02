@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-You can rerun specific tasks from a completed, cancelled, or failed machine learning (ML) pipeline runs. When you initiate a rerun, you can modify task-level configurations, or choose to skip tasks, and then create a run based on the updated configuration. The new pipeline run maintains a reference to the original pipeline run for traceability. If a task succeeded in a prior run, Gemini Enterprise Agent Platform Pipelines reuses the cached outcomes for that task. Otherwise, if the step had failed, Gemini Enterprise Agent Platform Pipelines runs the step during the pipeline rerun.
+You can rerun specific tasks from a completed, cancelled, or failed machine learning (ML) pipeline runs. When you initiate a rerun, you can modify task-level configurations, or choose to skip tasks, and then create a run based on the updated configuration. The new pipeline run maintains a reference to the original pipeline run for traceability. If a task succeeded in a prior run, Gemini Enterprise Agent Platform Pipelines reuses the cached outcomes for that task. Otherwise, if the step had failed, Agent Platform Pipelines runs the step during the pipeline rerun.
 
 This lets you efficiently address ML pipeline failures by making adjustments to your ML pipeline without restarting the entire ML pipeline. You can adjust a failed task, compare outcomes with different sets of parameters, or skip a non-essential task that's failing.
 
@@ -70,7 +70,7 @@ Replace the following:
 
   - PROJECT\_ID : The Google Cloud project containing the pipeline run.
 
-  - LOCATION : The region where the pipeline run is located. For more information about the regions where Gemini Enterprise Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
 
   - PIPELINE\_RUN\_RESOURCE\_NAME : The fully qualified resource name of the completed, failed, or cancelled pipeline run that you want to rerun. Enter the resource name in the format ` projects/ PROJECT_NUMBER /locations/ LOCATION /pipelineJobs/ PIPELINE_RUN_ID  ` , where:
     

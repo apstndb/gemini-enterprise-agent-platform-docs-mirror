@@ -14,7 +14,7 @@ To work with [Cloud Logging](https://docs.cloud.google.com/logging/docs) in agen
   - **Python logging** : The built-in Python logger can be integrated with Cloud Logging. Compared to writing to stdout or stderr, this supports structured logs and requires minimal set up.
   - **Cloud Logging client** : Users can write structured log, and has full control over the logger (such as, setting the `logName` and resource type).
 
-> **Note:** Cloud Logging is not supported for subresources of Agent Runtime, such as [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Code Execution](https://docs.cloud.google.com/agent-builder/agent-engine/code-execution/overview) , and [Example Store](https://docs.cloud.google.com/agent-builder/agent-engine/example-store/overview) .
+> **Note:** Cloud Logging is not supported for subresources of Agent Runtime, such as [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , and [Example Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/overview) .
 
 ## Write logs for an agent
 
@@ -24,7 +24,7 @@ When writing logs for an agent, determine the following:
   - **payload** : The contents of the log (such as text or JSON)
   - **additional fields** : For correlating across logs (such as trace/span, tags, labels)
 
-For example, to log the input of each query when [developing an agent](https://docs.cloud.google.com/agent-builder/agent-engine/develop/overview) :
+For example, to log the input of each query when [developing an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) :
 
 ### stdout or stderr
 
@@ -203,7 +203,7 @@ You can view your log entries using the [Logs Explorer](https://docs.cloud.googl
 
 4.  In **Resource Type** , select **Gemini Enterprise Agent Platform Reasoning Engine** .
 
-For Agent Development Kit-based agents, you can also view logs for your agent in the Google Cloud console using the [Agent Runtime dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-an-agent#view-metrics) .
+For Agent Development Kit-based agents, you can also view logs for your agent in the Google Cloud console using the [Agent Runtime dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#view-metrics) .
 
 ### Runtime queries
 

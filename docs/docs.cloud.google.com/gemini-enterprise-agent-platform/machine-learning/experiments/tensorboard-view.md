@@ -54,7 +54,7 @@ If you used Vertex AI TensorBoard with [custom training](https://docs.cloud.goog
 
 ### Gemini Enterprise Agent Platform Pipelines
 
-If you used Vertex AI TensorBoard with [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-with-pipelines) , the TensorBoard web app can be accessed directly from the component information display.
+If you used Vertex AI TensorBoard with [Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-with-pipelines) , the TensorBoard web app can be accessed directly from the component information display.
 
 1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Pipelines** page.
 2.  From the pipelines tab, scroll or filter the pipeline list to find your pipeline.

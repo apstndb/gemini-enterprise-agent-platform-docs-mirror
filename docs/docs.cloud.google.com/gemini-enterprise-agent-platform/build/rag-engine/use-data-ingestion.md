@@ -1,14 +1,14 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-data-ingestion
-title: Use data ingestion with Gemini Enterprise Agent Platform RAG Engine
+title: Use data ingestion with RAG Engine
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-This page explains how to perform data ingestion using a supported data source, such as Cloud Storage, Google Drive, Slack, Jira, or SharePoint, and how to use that data with Gemini Enterprise Agent Platform RAG Engine. The [ragFiles.import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) method provides data connectors to these data sources.
+This page explains how to perform data ingestion using a supported data source, such as Cloud Storage, Google Drive, Slack, Jira, or SharePoint, and how to use that data with RAG Engine. The [ragFiles.import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) method provides data connectors to these data sources.
 
 ## Data sources supported for RAG
 
@@ -82,7 +82,7 @@ To import files from [Slack](https://slack.com/) into your corpus, do the follow
 
 1.  Create a corpus, which is an index that structures and optimizes your data for searching. For more information, see [Method: ragCorpora.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora/create) .
 2.  Get your `  CHANNEL_ID  ` from the Slack channel ID.
-3.  Create and set up an app to use with Gemini Enterprise Agent Platform RAG Engine.
+3.  Create and set up an app to use with RAG Engine.
     1.  From the Slack UI, in the **Add features and functionality** section, click **Permissions** .
     2.  Add the following permissions:
           - `channels:history`
@@ -92,7 +92,7 @@ To import files from [Slack](https://slack.com/) into your corpus, do the follow
     3.  Click **Install to Workspace** to install the app into your Slack workspace.
 4.  Click **Copy** to get your API token, which authenticates your identity and grants you access to an API.
 5.  Add your API token to your Secret Manager.
-6.  To view the stored secret, grant the **Secret Manager Secret Accessor** role to your project's Gemini Enterprise Agent Platform RAG Engine service account.
+6.  To view the stored secret, grant the **Secret Manager Secret Accessor** role to your project's RAG Engine service account.
 
 The following curl and Python code samples demonstrate how to import files from your Slack resources.
 
@@ -178,7 +178,7 @@ To import files from [Jira](https://www.atlassian.com/software/jira?referer=jira
 
 7.  Add your API token to your Secret Manager.
 
-8.  Grant **Secret Manager Secret Accessor** role to your project's Gemini Enterprise Agent Platform RAG Engine service account.
+8.  Grant **Secret Manager Secret Accessor** role to your project's RAG Engine service account.
 
 ### curl
 
@@ -264,7 +264,7 @@ To import files from your SharePoint site into your corpus, do the following:
         
         2.  Use the API\_KEY\_SECRET\_VERSION to add the secret value to the Secret Manager.
 
-3.  Grant **Secret Manager Secret Accessor** role to your project's Gemini Enterprise Agent Platform RAG Engine service account.
+3.  Grant **Secret Manager Secret Accessor** role to your project's RAG Engine service account.
 
 4.  Use *{YOUR\_ORG\_ID}.sharepoint.com* as the SHAREPOINT\_SITE\_NAME .
 
@@ -339,4 +339,4 @@ To import files from your SharePoint site into your corpus, do the following:
 
 ## What's next
 
-  - [Vector database choices in Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)
+  - [Vector database choices in RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)

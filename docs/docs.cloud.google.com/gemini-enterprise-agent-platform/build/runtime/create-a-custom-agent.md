@@ -156,7 +156,7 @@ To stream responses to queries, you can define a method named `stream_query` tha
 
 Here are some key things to keep in mind when using the streaming API:
 
-  - **Maximum timeout** : The maximum timeout for streaming responses is 10 minutes. If your agent requires longer processing times, consider breaking down the task into smaller chunks.
+  - **Maximum timeout** : The maximum timeout for streaming responses is 15 minutes. If your agent requires longer processing times, consider breaking down the task into smaller chunks.
   - **Streaming models and chains** : LangChain's Runnable interface [supports streaming](https://python.langchain.com/docs/how_to/lcel_cheatsheet/#stream-a-runnable) , so you can stream responses from not only agents, but also models and chains.
   - **LangChain compatibility** : Note that asynchronous methods such as LangChain's `astream_event` method isn't supported at the moment.
   - **Throttle content generation** : If you encounter backpressure issues (where the producer generates data faster than the consumer can process it), you should throttle your content generation rate. This can help prevent buffer overflows and ensure a smooth streaming experience.

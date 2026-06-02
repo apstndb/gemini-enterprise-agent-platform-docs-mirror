@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-weaviate-db
-title: Use a Weaviate database with Vertex AI RAG Engine
-description: Learn how to connect your Vertex AI RAG Engine corpus to a Weaviate database.
+title: Use a Weaviate database with RAG Engine
+description: Learn how to connect your RAG Engine corpus to a Weaviate database.
 data_source: docs.cloud.google.com
 ---
 
@@ -1645,4 +1645,4 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## What's next
 
-  - [Use Pinecone with Vertex AI RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone)
+  - [Use Pinecone with RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-pinecone)

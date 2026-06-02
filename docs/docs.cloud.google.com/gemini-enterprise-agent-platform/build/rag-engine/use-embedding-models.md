@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models
-title: Use embedding models with Gemini Enterprise Agent Platform RAG Engine
-description: Review supported text and multimodal embedding models and learn how to associate them with your Gemini Enterprise Agent Platform RAG Engine corpus to configure vector representation storage.
+title: Use embedding models with RAG Engine
+description: Review supported text and multimodal embedding models and learn how to associate them with your RAG Engine corpus to configure vector representation storage.
 data_source: docs.cloud.google.com
 ---
 
@@ -20,7 +20,7 @@ Embedding models are an important component of semantic retrieval systems. The p
 
 ## Embedding model choices
 
-Gemini Enterprise Agent Platform RAG Engine implements retrieval-augmented generation (RAG), and it offers you the choice of the following embedding models to use within a RAG corpus:
+RAG Engine implements retrieval-augmented generation (RAG), and it offers you the choice of the following embedding models to use within a RAG corpus:
 
 | Embedding model type                                   | Description                                                                                                                                       |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -78,13 +78,13 @@ For a list of supported models, see [Embeddings models](https://docs.cloud.googl
 
 ### Gecko models
 
-Gecko models are available in English-only and multilingual versions. Unlike fine-tuned Gecko models, publisher Gecko models aren't required to be deployed, which makes them the preferred set of models to use with Gemini Enterprise Agent Platform RAG Engine.
+Gecko models are available in English-only and multilingual versions. Unlike fine-tuned Gecko models, publisher Gecko models aren't required to be deployed, which makes them the preferred set of models to use with RAG Engine.
 
 To identify the default embedding model used or you need a list of Gecko models that are recommended for use with a RAG corpus, see [Supported embedding models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models#supported-embedding-models) .
 
 ### When Gecko models are discontinued
 
-The publisher Gecko models might be discontinued. If that happens, the publisher Gecko models can't be used with Gemini Enterprise Agent Platform RAG Engine, even for a RAG corpus that was created prior to the discontinuation. When your Gecko model is discontinued, you must migrate the RAG corpus, which means that you create a new RAG corpus and re-import the data. An alternative is to use a fine-tuned Gecko model or a self-deployed OSS embedding model, which is supported after the model is discontinued.
+The publisher Gecko models might be discontinued. If that happens, the publisher Gecko models can't be used with RAG Engine, even for a RAG corpus that was created prior to the discontinuation. When your Gecko model is discontinued, you must migrate the RAG corpus, which means that you create a new RAG corpus and re-import the data. An alternative is to use a fine-tuned Gecko model or a self-deployed OSS embedding model, which is supported after the model is discontinued.
 
 ### Create a RAG corpus with a publisher Gecko model
 
@@ -209,7 +209,7 @@ These code samples demonstrate how to create a RAG corpus with your deployed, fi
 
 ## Use OSS embedding models
 
-Gemini Enterprise Agent Platform RAG Engine supports third-party open-source embedding models in English-only and multilingual variants. This table lists the supported E5 models.
+RAG Engine supports third-party open-source embedding models in English-only and multilingual variants. This table lists the supported E5 models.
 
 | Model version           | Base model                               | Parameters | embedding dimension | English only |
 | ----------------------- | ---------------------------------------- | ---------- | ------------------- | ------------ |
@@ -219,7 +219,7 @@ Gemini Enterprise Agent Platform RAG Engine supports third-party open-source emb
 | `multilingual-e5-large` | `xlm-roberta-large`                      | 560M       | 1,024               | ✗            |
 | `multilingual-e5-small` | `microsoft/Multilingual-MiniLM-L12-H384` | 118M       | 384                 | ✗            |
 
-In order to use E5 models with Gemini Enterprise Agent Platform RAG Engine, the E5 model must be deployed from Model Garden. To deploy your E5 model, see [E5 Text Embedding](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/e5) in the Google Cloud console.
+In order to use E5 models with RAG Engine, the E5 model must be deployed from Model Garden. To deploy your E5 model, see [E5 Text Embedding](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/e5) in the Google Cloud console.
 
 These code samples demonstrate how to create RAG corpus with your deployed E5 model.
 
@@ -281,4 +281,4 @@ These code samples demonstrate how to create RAG corpus with your deployed E5 mo
 
 ## What's next
 
-  - [Document types for Gemini Enterprise Agent Platform RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents)
+  - [Document types for RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents)

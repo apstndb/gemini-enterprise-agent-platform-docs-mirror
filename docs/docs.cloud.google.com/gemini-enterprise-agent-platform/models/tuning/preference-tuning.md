@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning
 title: About preference tuning for Gemini models
 description: Understand preference tuning for Gemini models.
 data_source: docs.cloud.google.com
@@ -21,6 +21,8 @@ To learn how to prepare the dataset, see [Prepare preference tuning data for Gem
 ## Supported models
 
 The following Gemini models support preference tuning:
+
+#### Click to expand supported models
 
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
