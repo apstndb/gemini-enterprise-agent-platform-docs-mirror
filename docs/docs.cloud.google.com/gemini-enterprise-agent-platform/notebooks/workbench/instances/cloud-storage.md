@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cloud-storage
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cloud-storage
 title: Access Cloud Storage buckets and files in JupyterLab in a Agent Platform Workbench instance.
-description: Learn how to access Cloud Storage buckets and files in JupyterLab in a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Access Cloud Storage buckets and files in JupyterLab
 
 This page shows you how to mount a Cloud Storage bucket to the JupyterLab interface of your Gemini Enterprise Agent Platform Workbench instance so that you can browse files that are stored in Cloud Storage. You can also open and edit files that are compatible with JupyterLab, such as text files and notebook (IPYNB) files.
 

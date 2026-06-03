@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access
 title: Use SSH to access JupyterLab
-description: Use SSH port forwarding to access the JupyterLab user interface of a Agent Platform Workbench instance.
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Use SSH to access JupyterLab
 
 This guide describes how to access your Gemini Enterprise Agent Platform Workbench instance's JupyterLab user interface by using SSH port forwarding.
 

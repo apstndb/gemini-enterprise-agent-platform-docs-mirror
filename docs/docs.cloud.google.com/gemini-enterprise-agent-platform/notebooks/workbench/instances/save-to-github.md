@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github
 title: Save a notebook to GitHub
-description: Save a notebook file to GitHub in a Agent Platform Workbench instance.
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Save a notebook to GitHub
 
 This page describes how you can save your Agent Platform Workbench instance's notebook files to GitHub by using the `jupyterlab-git` extension. You might do this to create a backup of the notebook or to make the notebook available to others.
 

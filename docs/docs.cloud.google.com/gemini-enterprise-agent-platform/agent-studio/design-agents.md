@@ -30,6 +30,8 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Create an agent
 
+> **Note:** All configuration files for created agents are stored in the `us-west1` region. If your organization has policies that prevent you from using this region, you might be unable to create an agent. For more information, see [Restrict resource locations](https://docs.cloud.google.com/organization-policy/restrict-locations) .
+
 Use the following steps to design and test an agent in Agent Studio:
 
 1.  In the Google Cloud console, go to the **Agents** page.  

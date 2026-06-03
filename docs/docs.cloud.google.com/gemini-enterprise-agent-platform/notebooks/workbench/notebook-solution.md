@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution
 title: Choose a notebook solution
-description: A single development environment for the entire data science workflow.
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Choose a notebook solution
 
 This page describes the differences between Gemini Enterprise Agent Platform's notebook environment options so that you can choose the best one for your project.
 

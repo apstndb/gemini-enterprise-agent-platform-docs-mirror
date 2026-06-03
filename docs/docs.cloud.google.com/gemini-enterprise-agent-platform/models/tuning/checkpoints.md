@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints
 title: Use checkpoints in Gemini model tuning
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
@@ -39,7 +39,7 @@ You can create a tuning job that exports checkpoints by using the Google Gen AI 
 
 ### Console
 
-To create a tuning job that exports checkpoints, go to the **Agent Platform Studio** page and select the **Tuning** tab. For more information, see [Tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+To create a tuning job that exports checkpoints, go to the **Agent Platform Studio** page and select the **Tuning** tab. For more information, see [Tune a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) .
 
 ### Google Gen AI SDK
 
@@ -332,5 +332,5 @@ The tuning job endpoint will be updated if you update a default checkpoint, and 
 
 ## What's next
 
-  - Learn more about [supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) .
-  - Learn more about [preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
+  - Learn more about [supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) .
+  - Learn more about [preference tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning) .

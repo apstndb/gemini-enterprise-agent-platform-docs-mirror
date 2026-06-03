@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-confidential-computing
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-confidential-computing
 title: Create an instance with Confidential Computing
-description: Create a Agent Platform Workbench instance that encrypts data-in-use by using Confidential Computing
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Create an instance with Confidential Computing
 
 This document describes how to create a Gemini Enterprise Agent Platform Workbench instance with Confidential Computing enabled.
 

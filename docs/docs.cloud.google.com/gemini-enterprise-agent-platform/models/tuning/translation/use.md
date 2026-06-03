@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-use-supervised-tuning
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-use-supervised-tuning
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/use
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/use
 title: Tune Translation LLM models by using supervised fine-tuning
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
@@ -12,7 +12,7 @@ This document describes how to tune a Translation LLM model by using supervised 
 
 Before you begin, you must prepare a supervised fine-tuning dataset. Depending on your use case, there are different requirements.
 
-  - Prepare a text dataset for tuning: [Text tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare)
+  - Prepare a text dataset for tuning: [Text tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data)
 
 ## Supported Models
 

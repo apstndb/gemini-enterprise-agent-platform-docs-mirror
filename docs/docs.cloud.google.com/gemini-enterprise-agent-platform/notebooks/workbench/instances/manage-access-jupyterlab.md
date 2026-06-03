@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab
 title: Manage access to a Agent Platform Workbench instance's JupyterLab interface
-description: Grant a principal access to the JupyterLab interface of a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Manage access to an instance's JupyterLab interface
 
 This page describes how to grant access to the JupyterLab interface of a Gemini Enterprise Agent Platform Workbench instance.
 

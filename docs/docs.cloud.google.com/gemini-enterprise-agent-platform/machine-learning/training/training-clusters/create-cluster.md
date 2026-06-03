@@ -534,6 +534,12 @@ These fields are defined within the `orchestrator_spec.slurm_spec` block of the 
   - PREEMPT\_MODE : The mode for the preemption plugin (for example, `REQUEUE` ).
   - PREEMPT\_EXEMPT\_TIME : The time after a job starts during which it can't be preempted.
 
+### Runtime configuration
+
+These fields are defined within the `runtime_spec` block of the JSON file.
+
+  - `service_account` : The default service account used by the cluster when running any workloads on it. If unspecified, the default Compute Engine service account is used. This field can't be updated after cluster creation.
+
 ## What's next
 
 Use your active persistent training cluster to run your machine learning workloads.

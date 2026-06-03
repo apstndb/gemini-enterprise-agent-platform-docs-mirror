@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/change-machine-type
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/change-machine-type
 title: Change machine type and configure GPUs of a Agent Platform Workbench instance
-description: Change the machine type and configure GPUs of a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Change machine type and configure GPUs of a Agent Platform Workbench instance
 
 This page shows you how to change the machine type and GPU configuration of a Gemini Enterprise Agent Platform Workbench instance.
 

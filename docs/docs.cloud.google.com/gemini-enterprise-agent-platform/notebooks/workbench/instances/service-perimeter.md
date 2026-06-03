@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/service-perimeter
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/service-perimeter
 title: Use a Agent Platform Workbench instance within a service perimeter
-description: Learn how to make a Agent Platform Workbench instance more secure by using a service perimeter
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Use an instance within a service perimeter
 
 This page describes how to use VPC Service Controls to set up a Gemini Enterprise Agent Platform Workbench instance within a service perimeter.
 

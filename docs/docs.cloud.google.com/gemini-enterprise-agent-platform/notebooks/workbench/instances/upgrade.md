@@ -6,8 +6,6 @@ description: Upgrade the environment of a Agent Platform Workbench instance
 data_source: docs.cloud.google.com
 ---
 
-# Upgrade the environment of an instance
-
 Gemini Enterprise Agent Platform Workbench instances are [Deep Learning VM Images](https://docs.cloud.google.com/ai-platform/deep-learning-vm/docs/introduction) instances with JupyterLab notebook environments enabled and ready for use. This page describes how to upgrade the environment of a Agent Platform Workbench instance.
 
 ## Reasons to upgrade

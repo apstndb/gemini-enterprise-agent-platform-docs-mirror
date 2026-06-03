@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-euc-instance
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-euc-instance
 title: Create a Agent Platform Workbench instance with user credential access
-description: Create a Agent Platform Workbench instance with user crential-based access to {{dynamic_data.site_values.cloud_name_short}} services and APIs
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Create an instance with user credential access
 
 This page describes how to create a Gemini Enterprise Agent Platform Workbench instance that accesses Google Cloud services and APIs through your user credentials.
 

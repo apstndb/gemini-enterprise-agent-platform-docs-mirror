@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation
 title: About supervised fine-tuning for Translation LLM models
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
@@ -50,7 +50,7 @@ User data, such as the transformed dataset and the tuned model, is stored in the
      https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
     ```
 
-  - If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#create_a_text_model_supervised_tuning_job) , you can select the region name in the **Region** drop down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
+  - If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) , you can select the region name in the **Region** drop down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
 
 ## Quota
 
@@ -66,4 +66,4 @@ Learn about [Translation LLM pricing](https://cloud.google.com/gemini-enterprise
 
 ## What's next
 
-  - Prepare a [supervised fine-tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare) .
+  - Prepare a [supervised fine-tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data) .

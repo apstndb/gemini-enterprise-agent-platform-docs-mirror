@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/visualize-data-bigquery
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/visualize-data-bigquery
 title: Explore and visualize data in BigQuery from within JupyterLab
-description: Explore and visualize data that is stored in BigQuery from within the JupyterLab interface of a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Explore and visualize data in BigQuery from within JupyterLab
 
 This page shows you some examples of how to explore and visualize data that is stored in BigQuery from within the JupyterLab interface of your Gemini Enterprise Agent Platform Workbench instance.
 

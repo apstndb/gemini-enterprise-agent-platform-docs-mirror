@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access
 title: Manage access to a Agent Platform Workbench instance
-description: Grant a principal access to a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Manage access to an instance
 
 This guide describes how you can grant access to a specific Gemini Enterprise Agent Platform Workbench instance. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
 

@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled
 title: Create a Managed Service for Apache Spark Spark-enabled Agent Platform Workbench instance
-description: Learn how to create a Managed Service for Apache Spark Spark-enabled Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Create a Managed Service for Apache Spark Spark-enabled instance
 
 > **Dataproc Serverless** is now **Managed Service for Apache Spark** . Until updated, the Google Cloud console and JupyterLab pages will refer to the previous name.
 

@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage
 title: Back up and restore files by using Cloud Storage
-description: Back up and restore files on a Agent Platform Workbench instance by using Cloud Storage.
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Back up and restore files by using Cloud Storage
 
 This page describes how to use Cloud Storage to back up and restore files on your Gemini Enterprise Agent Platform Workbench instance.
 

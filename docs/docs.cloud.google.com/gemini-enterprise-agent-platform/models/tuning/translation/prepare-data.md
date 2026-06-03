@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data
 title: Prepare supervised fine-tuning data for Translation LLM models
 description: Prepare supervised fine-tuning data in JSONL format for Translation LLM models. Follow best practices for creating and uploading datasets to Cloud Storage for model tuning.
 data_source: docs.cloud.google.com
@@ -33,7 +33,7 @@ Limitations:
 
 ### Dataset format
 
-Your model tuning dataset must be in the [JSON Lines](https://jsonlines.org/) (JSONL) format, where each line contains a single tuning example. Before tuning your model, you must [upload your dataset to a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-supervised-tuning-prepare#upload-datasets) . Make sure to upload to us-central1.
+Your model tuning dataset must be in the [JSON Lines](https://jsonlines.org/) (JSONL) format, where each line contains a single tuning example. Before tuning your model, you must [upload your dataset to a Cloud Storage bucket](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data#upload-datasets) . Make sure to upload to us-central1.
 
     {
       "contents": [
@@ -180,4 +180,4 @@ View on GitHub</a></td>
 
 ## What's next
 
-  - Run a [supervised fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translation-use-supervised-tuning) .
+  - Run a [supervised fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/use) .

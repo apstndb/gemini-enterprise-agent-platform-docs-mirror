@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/glossary-genai
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/glossary-genai
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/resources/glossary
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/glossary
 title: Generative AI glossary
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com

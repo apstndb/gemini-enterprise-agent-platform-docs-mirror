@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery
 title: Query data in BigQuery from within JupyterLab
-description: Query data that is stored in BigQuery from within the JupyterLab interface of a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Query data in BigQuery from within JupyterLab
 
 [Video](https://www.youtube.com/watch?v=0Ys52DsiNk8)
 

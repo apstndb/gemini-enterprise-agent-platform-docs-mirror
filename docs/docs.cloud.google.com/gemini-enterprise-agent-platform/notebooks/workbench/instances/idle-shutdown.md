@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/idle-shutdown
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/idle-shutdown
 title: Idle shutdown
-description: Learn about the idle shutdown feature of Agent Platform Workbench instances
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Idle shutdown
 
 Gemini Enterprise Agent Platform Workbench instances shut down after a specified period of inactivity by default. This page describes the idle shutdown feature and how to change the default idle shutdown settings during instance creation.
 

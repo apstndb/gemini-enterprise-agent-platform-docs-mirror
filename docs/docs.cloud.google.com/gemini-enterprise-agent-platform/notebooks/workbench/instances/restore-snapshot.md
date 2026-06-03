@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-snapshot
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-snapshot
 title: Back up and restore data by using a snapshot
-description: Back up and restore the data on a Agent Platform Workbench instance by using a snapshot.
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Back up and restore data by using a snapshot
 
 This page describes how to use a snapshot to back up and restore the data on your Gemini Enterprise Agent Platform Workbench instance.
 

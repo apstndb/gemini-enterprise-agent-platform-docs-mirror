@@ -1,12 +1,12 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-continuous-tuning
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-continuous-tuning
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning
 title: Use continuous tuning for Gemini models
 description: Tune Gemini models using continuous tuning.
 data_source: docs.cloud.google.com
 ---
 
-Continuous tuning lets you continue tuning an already tuned model or [model checkpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints) by adding more epochs or training examples. Using an already tuned model or checkpoint as a base model allows for more efficient tuning experimentation.
+Continuous tuning lets you continue tuning an already tuned model or [model checkpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) by adding more epochs or training examples. Using an already tuned model or checkpoint as a base model allows for more efficient tuning experimentation.
 
 You can use continuous tuning for the following purposes:
 
@@ -44,7 +44,7 @@ When creating a continuous tuning job, note the following:
 
   - If you don't specify a model version, the default version is used.
 
-  - If you're using a checkpoint as a base model and don't specify a checkpoint ID, the default checkpoint is used. For more information, see [Use checkpoints in supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints) . In the Google Cloud console, the default checkpoint can be found as follows:
+  - If you're using a checkpoint as a base model and don't specify a checkpoint ID, the default checkpoint is used. For more information, see [Use checkpoints in supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/checkpoints) . In the Google Cloud console, the default checkpoint can be found as follows:
     
     1.  Go to the Model Registry page.
     2.  Click the **Model Name** for the model.

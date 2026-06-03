@@ -320,7 +320,7 @@ You can enable transcriptions for both the input and output audio.
 
 To receive transcriptions, you must update your session configuration. You need to add the `input_audio_transcription` and `output_audio_transcription` objects and ensure `text` is included in `response_modalities` .
 
-To improve transcription quality for multilingual automatic speech recognition (ASR), you can provide language hints using the `language_codes` field within `input_audio_transcription` or `output_audio_transcription` . Providing hints is recommended to improve transcription quality, as it reduces the risk of incorrect language detection, especially for short prompts. The `language_codes` field accepts a list of [BCP-47 language codes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/live-api/configure-language-voice#languages_supported) (for example, "en-US", "es-US").
+To improve transcription quality for multilingual automatic speech recognition (ASR), you can provide language hints using the `language_codes` field within `input_audio_transcription` or `output_audio_transcription` . Providing hints is recommended to improve transcription quality, as it reduces the risk of incorrect language detection, especially for short prompts. The `language_codes` field accepts a list of [BCP-47 language codes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported) (for example, "en-US", "es-US").
 
     config = {
         "response_modalities": ["audio", "text"],

@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create
 title: Create a Agent Platform Workbench instance
-description: Create a Agent Platform Workbench instance
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Create a Agent Platform Workbench instance
 
 This page shows you how to create a Gemini Enterprise Agent Platform Workbench instance by using the Google Cloud console or the Google Cloud CLI. While creating your instance, you can configure your instance's hardware, encryption type, network, and other details.
 

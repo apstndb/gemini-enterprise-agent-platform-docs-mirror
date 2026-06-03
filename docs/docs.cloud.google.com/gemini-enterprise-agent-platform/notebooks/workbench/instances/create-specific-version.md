@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version
 title: Create a specific version of a Agent Platform Workbench instance
-description: Create a Agent Platform Workbench instance based on a specific Deep Learning VM version
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Create a specific version of an instance
 
 This page describes how to create a specific version of a Gemini Enterprise Agent Platform Workbench instance.
 

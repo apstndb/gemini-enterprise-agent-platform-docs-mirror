@@ -14,19 +14,11 @@ data_source: docs.cloud.google.com
 
 This guide explains how to create, update, and manage skills in the Skill Registry using the REST API.
 
-## Prerequisites
+## Before you begin
 
-Before using Skill Registry, ensure your environment meets the following identity and access management requirements:
+Before using Skill Registry, set up your environment:
 
-  - You must enable the Agent Platform API ( `aiplatform.googleapis.com` ) on your project.
-
-After enabling the `aiplatform` APIs:
-
-  - Users with the `aiplatform.user` role have full access to Skill Registry.
-
-  - Users with the `aiplatform.viewer` role have read-only access to the Skill Registry.
-    
-    > **Note:** Skill Registry inherits project-level permissions.
+> **Note:** For read-only access, the `roles/aiplatform.viewer` role is sufficient. Skill Registry inherits project-level permissions.
 
 ## Compliance
 
@@ -114,7 +106,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X POST \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
         -d '{
           "displayName": "DISPLAY_NAME",
@@ -213,7 +205,7 @@ Before using any of the request data, make the following replacements:
 The following `curl` command updates the display name, description, and zipped skill file.
 
     curl -X PATCH \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d '{
           "displayName": "DISPLAY_NAME",
@@ -263,7 +255,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills"
 
 #### Example output
@@ -310,7 +302,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
 
 ### SDK
@@ -351,7 +343,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X DELETE \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
 
 ### SDK
@@ -387,7 +379,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions"
 
 #### Example output
@@ -438,7 +430,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
 
 ### SDK
@@ -475,7 +467,7 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills:retrieve?query=QUERY"
 
 ### SDK
@@ -518,5 +510,19 @@ Before using any of the request data, make the following replacements:
 #### `curl` command
 
     curl -X GET \
-          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+          -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID"
+
+## What's next
+
+Guide
+
+### [Attach skills to an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage#create-attach-skills)
+
+Learn how to attach registered skills when creating or updating an agent using Managed Agents API on Agent Platform.
+
+Guide
+
+### [ADK Skill Registry integration](https://adk.dev/integrations/skills-registry/)
+
+Learn how to integrate with Skill Registry in ADK.

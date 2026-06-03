@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-model-tuning
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-model-tuning
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/open-model-tuning
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/open-model-tuning
 title: Supervised and distillation fine-tuning for open models
 description: Learn how to use supervised fine-tuning with open models.
 data_source: docs.cloud.google.com
@@ -15,8 +15,8 @@ This page describes how to perform [supervised and distillation fine-tuning](htt
 ## Supported tuning modes
 
   - **Supervised fine-tuning:**
-      - [Full fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models#tuning-approaches)
-      - Low-Rank Adaptation (LoRA): LoRA is a [parameter-efficient tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models#tuning-approaches) mode that only adjust subset of parameters. It's more cost efficient and require less training data than full fine-tuning. On the other hand, full fine-tuning has higher quality potential by adjusting all parameters.
+      - [Full fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning#tuning-approaches)
+      - Low-Rank Adaptation (LoRA): LoRA is a [parameter-efficient tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning#tuning-approaches) mode that only adjust subset of parameters. It's more cost efficient and require less training data than full fine-tuning. On the other hand, full fine-tuning has higher quality potential by adjusting all parameters.
   - **Distillation fine-tuning:** Distillation fine-tuning uses the GenAI SDK, where you specify a teacher model to generate responses that are then used to tune a smaller student model.
 
 ### Recommended use cases for distillation fine-tuning
@@ -435,7 +435,7 @@ Note that if your images are stored under a different Cloud Storage bucket from 
 
 You can tune from:
 
-  - A [supported base model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-model-tuning#supported-models) , such as Llama 3.1
+  - A [supported base model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/open-model-tuning#supported-models) , such as Llama 3.1
 
   - A model that has the same architecture as one of the supported base models. This could be either a custom model checkpoint from a repository such as Hugging Face or a previously tuned model from a Gemini Enterprise Agent Platform tuning job. This lets you continue tuning a model that has already been tuned.
 

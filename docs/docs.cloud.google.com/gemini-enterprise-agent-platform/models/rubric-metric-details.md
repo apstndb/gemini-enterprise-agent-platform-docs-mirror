@@ -590,7 +590,39 @@ The score represents the passing rate of the response based on the rubrics.</td>
 <li><code dir="ltr" translate="no">score</code></li>
 <li><code dir="ltr" translate="no">explanation</code> and corresponding <code dir="ltr" translate="no">verdicts</code></li>
 </ul>
-The score has a range of 0-1, and represents the rate of claims labeled as <code dir="ltr" translate="no">supported</code> or <code dir="ltr" translate="no">no_rad</code> (not requiring factual attributions, such as greetings, questions, or disclaimers) relative to the input prompt. The explanation contains a structured breakdown of claim, label, reasoning, and excerpts that support the context.</td>
+The score has a range of <code dir="ltr" translate="no">0-1</code> , and represents the ratio of sentences labeled as <code dir="ltr" translate="no">supported</code> or <code dir="ltr" translate="no">no_rad</code> to the total number of sentences.<br />
+<br />
+The <code dir="ltr" translate="no">explanation</code> field is a JSON string containing a list of per-event objects with the following schema:
+<pre dir="ltr" data-is-upgraded="" data-syntax="JSON" translate="no"><code>[
+  {
+    &quot;response&quot;: &quot;string&quot;,
+    &quot;score&quot;: &quot;double&quot;,
+    &quot;explanation&quot;: [
+      {
+        &quot;sentence&quot;: &quot;string&quot;,
+        &quot;label&quot;: &quot;supported | unsupported | contradictory | disputed | no_rad&quot;,
+        &quot;rationale&quot;: &quot;string&quot;,
+        &quot;supporting_excerpt&quot;: &quot;string or null&quot;,
+        &quot;contradicting_excerpt&quot;: &quot;string or null&quot;
+      }
+    ]
+  }
+]</code></pre>
+Each <code dir="ltr" translate="no">explanation</code> entry contains one object per segmented sentence with the following fields:
+<ul>
+<li><code dir="ltr" translate="no">sentence</code> : The exact sentence extracted during the sentence segmentation step.</li>
+<li><code dir="ltr" translate="no">label</code> : The classification of the sentence, one of:
+<ul>
+<li><code dir="ltr" translate="no">supported</code> : The sentence is entailed by the context.</li>
+<li><code dir="ltr" translate="no">unsupported</code> : The sentence is not entailed by the context.</li>
+<li><code dir="ltr" translate="no">contradictory</code> : The sentence is falsified by the context.</li>
+<li><code dir="ltr" translate="no">disputed</code> : The context contains both supporting and contradicting information.</li>
+<li><code dir="ltr" translate="no">no_rad</code> : The sentence does not require factual attribution (for example, opinions, greetings, questions, or disclaimers).</li>
+</ul></li>
+<li><code dir="ltr" translate="no">rationale</code> : A brief explanation for the label assignment.</li>
+<li><code dir="ltr" translate="no">supporting_excerpt</code> (present for <code dir="ltr" translate="no">supported</code> and <code dir="ltr" translate="no">disputed</code> labels): A relevant excerpt from the context that supports the sentence.</li>
+<li><code dir="ltr" translate="no">contradicting_excerpt</code> (present for <code dir="ltr" translate="no">contradictory</code> and <code dir="ltr" translate="no">disputed</code> labels): A relevant excerpt from the context that contradicts the sentence.</li>
+</ul></td>
 </tr>
 <tr class="odd">
 <td><strong>Number of LLM calls</strong></td>

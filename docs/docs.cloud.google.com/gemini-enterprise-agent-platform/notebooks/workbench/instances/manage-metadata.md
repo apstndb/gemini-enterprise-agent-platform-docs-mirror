@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata
 title: Manage features through metadata
-description: Learn how to manage features of a Agent Platform Workbench instance by modifying the metadata
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
-
-# Manage features through metadata
 
 This page describes how to manage some Gemini Enterprise Agent Platform Workbench instance features by modifying the instance's metadata key-value pairs.
 
