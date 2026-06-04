@@ -152,6 +152,11 @@ Global
 
   - global
 
+Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
+
+  - us
+  - eu
+
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
 Knowledge cutoff date

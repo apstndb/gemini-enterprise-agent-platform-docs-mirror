@@ -56,7 +56,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
 Initialize your GenAI client to use Priority PayGo. After performing this step, you won't need to make further adjustments to your code to interact with the Gemini API using Priority PayGo on the same client.
 
@@ -142,7 +142,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
 Initialize your GenAI client to use Priority PayGo. After performing this step, you won't need to make further adjustments to your code to interact with the Gemini API using Priority PayGo on the same client.
 
