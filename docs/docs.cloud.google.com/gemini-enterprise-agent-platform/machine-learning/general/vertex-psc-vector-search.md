@@ -10,7 +10,7 @@ On-premises hosts can reach a Vector Search index endpoint either through the pu
 
 In this tutorial, you use High-Availability VPN (HA VPN) to access a Vector Search index endpoint privately, between two Virtual Private Cloud (VPC) networks that can serve as a basis for multi-cloud and on-premises private connectivity.
 
-This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud, the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vector Search](https://docs.cloud.google.com/vertex-ai/docs/vector-search/overview) is helpful but not required.
+This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud, the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) is helpful but not required.
 
 > **Note:** The Vector Search index endpoint that you create is a public endpoint. In a production environment, you would [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on the Vector Search index endpoint over the public internet. This tutorial does not cover using VPC Service Controls with Gemini Enterprise Agent Platform.
 
@@ -503,7 +503,7 @@ In your Jupyterlab notebook, run the following command to enable APIs for Comput
 
 ### Prepare the sample data in a Cloud Storage bucket
 
-In this tutorial, we use the same [TheLook dataset](https://console.cloud.google.com/marketplace/product/bigquery-public-data/thelook-ecommerce) that's used in the [Vector Search quickstart](https://docs.cloud.google.com/vertex-ai/docs/vector-search/quickstart) . See the quickstart documentation page for more information about this dataset.
+In this tutorial, we use the same [TheLook dataset](https://console.cloud.google.com/marketplace/product/bigquery-public-data/thelook-ecommerce) that's used in the [Vector Search quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart) . See the quickstart documentation page for more information about this dataset.
 
 In this section you create a Cloud Storage bucket and place the dataset's embedding file in it. In a later step, you use this file to build an index.
 

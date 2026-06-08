@@ -5185,7 +5185,7 @@ python-opencv<br />
 
 ### Supported versions of Ray on Vertex AI
 
-[Ray on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray-on-vertex-ai/overview) container images are available. The following versions of prebuilt containers are supported:
+[Ray on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/overview) container images are available. The following versions of prebuilt containers are supported:
 
 <table>
 <colgroup>

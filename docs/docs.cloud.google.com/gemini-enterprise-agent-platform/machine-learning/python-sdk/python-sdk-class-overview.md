@@ -14,7 +14,7 @@ You can use the Agent Platform SDK for Python in hosted JupyterLab notebooks wit
 
 If you want to try using the Agent Platform SDK for Python right now, see the following resources:
 
-  - [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk)
+  - [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk)
   - [Vertex AI SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform)
   - [Vertex AI SDK language model reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/vertexai.language_models)
   - [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction)

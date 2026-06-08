@@ -449,23 +449,20 @@ Save the request body in a file named `request.json` , and execute the following
 
 ### Node.js
 
-    const {
-      VertexAI,
-      FunctionDeclarationSchemaType,
-    } = require('@google-cloud/vertexai');
+    const {GoogleGenAI} = require('@google/genai');
     
-    const functionDeclarations = [
+    const tools = [
       {
-        function_declarations: [
+        functionDeclarations: [
           {
             name: 'get_current_weather',
             description: 'get weather in a given location',
             parameters: {
-              type: FunctionDeclarationSchemaType.OBJECT,
+              type: 'OBJECT',
               properties: {
-                location: {type: FunctionDeclarationSchemaType.STRING},
+                location: {type: 'STRING'},
                 unit: {
-                  type: FunctionDeclarationSchemaType.STRING,
+                  type: 'STRING',
                   enum: ['celsius', 'fahrenheit'],
                 },
               },
@@ -482,24 +479,23 @@ Save the request body in a file named `request.json` , and execute the following
     async function functionCallingBasic(
       projectId = 'PROJECT_ID',
       location = 'us-central1',
-      model = 'gemini-2.0-flash-001'
+      model = 'gemini-2.5-flash'
     ) {
-      // Initialize Vertex with your Cloud project and location
-      const vertexAI = new VertexAI({project: projectId, location: location});
-    
-      // Instantiate the model
-      const generativeModel = vertexAI.preview.getGenerativeModel({
-        model: model,
+      // Initialize client with your Cloud project and location
+      const client = new GoogleGenAI({
+        vertexai: true,
+        project: projectId,
+        location: location,
       });
     
-      const request = {
-        contents: [
-          {role: 'user', parts: [{text: 'What is the weather in Boston?'}]},
-        ],
-        tools: functionDeclarations,
-      };
-      const result = await generativeModel.generateContent(request);
-      console.log(JSON.stringify(result.response.candidates[0].content));
+      const result = await client.models.generateContent({
+        model: model,
+        contents: 'What is the weather in Boston?',
+        config: {
+          tools: tools,
+        },
+      });
+      console.log(JSON.stringify(result.functionCalls));
     }
 
 ### Java
@@ -992,22 +988,18 @@ The `functionCallingConfig` ensures that the model output is always a specific f
 
 ### Node.js
 
-    const {
-      VertexAI,
-      FunctionDeclarationSchemaType,
-    } = require('@google-cloud/vertexai');
+    const {GoogleGenAI} = require('@google/genai');
     
-    const functionDeclarations = [
+    const tools = [
       {
-        function_declarations: [
+        functionDeclarations: [
           {
             name: 'get_product_sku',
-            description:
-              'Get the available inventory for a Google products, e.g: Pixel phones, Pixel Watches, Google Home etc',
+            description: 'Get the available inventory for Google products',
             parameters: {
-              type: FunctionDeclarationSchemaType.OBJECT,
+              type: 'OBJECT',
               properties: {
-                productName: {type: FunctionDeclarationSchemaType.STRING},
+                productName: {type: 'STRING'},
               },
             },
           },
@@ -1015,9 +1007,9 @@ The `functionCallingConfig` ensures that the model output is always a specific f
             name: 'get_store_location',
             description: 'Get the location of the closest store',
             parameters: {
-              type: FunctionDeclarationSchemaType.OBJECT,
+              type: 'OBJECT',
               properties: {
-                location: {type: FunctionDeclarationSchemaType.STRING},
+                location: {type: 'STRING'},
               },
             },
           },
@@ -1026,16 +1018,10 @@ The `functionCallingConfig` ensures that the model output is always a specific f
     ];
     
     const toolConfig = {
-      function_calling_config: {
+      functionCallingConfig: {
         mode: 'ANY',
-        allowed_function_names: ['get_product_sku'],
+        allowedFunctionNames: ['get_product_sku'],
       },
-    };
-    
-    const generationConfig = {
-      temperature: 0.95,
-      topP: 1.0,
-      maxOutputTokens: 8192,
     };
     
     /**
@@ -1044,31 +1030,27 @@ The `functionCallingConfig` ensures that the model output is always a specific f
     async function functionCallingAdvanced(
       projectId = 'PROJECT_ID',
       location = 'us-central1',
-      model = 'gemini-2.0-flash-001'
+      model = 'gemini-2.5-flash'
     ) {
-      // Initialize Vertex with your Cloud project and location
-      const vertexAI = new VertexAI({project: projectId, location: location});
-    
-      // Instantiate the model
-      const generativeModel = vertexAI.preview.getGenerativeModel({
-        model: model,
+      // Initialize client with your Cloud project and location
+      const client = new GoogleGenAI({
+        vertexai: true,
+        project: projectId,
+        location: location,
       });
     
-      const request = {
-        contents: [
-          {
-            role: 'user',
-            parts: [
-              {text: 'Do you have the White Pixel 8 Pro 128GB in stock in the US?'},
-            ],
-          },
-        ],
-        tools: functionDeclarations,
-        tool_config: toolConfig,
-        generation_config: generationConfig,
-      };
-      const result = await generativeModel.generateContent(request);
-      console.log(JSON.stringify(result.response.candidates[0].content));
+      const result = await client.models.generateContent({
+        model: model,
+        contents: 'Do you have the White Pixel 8 Pro 128GB in stock in the US?',
+        config: {
+          tools: tools,
+          toolConfig: toolConfig,
+          temperature: 0.95,
+          topP: 1.0,
+          maxOutputTokens: 8192,
+        },
+      });
+      console.log(JSON.stringify(result.functionCalls));
     }
 
 ### Go

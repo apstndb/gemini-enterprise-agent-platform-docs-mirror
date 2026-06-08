@@ -14,7 +14,7 @@ Before you begin, you must prepare a supervised fine-tuning dataset. Depending o
 
   - [Text tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/text)
   - [Image tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/image)
-  - [Document tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/doc)
+  - [Document tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/document)
   - [Audio tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/audio)
   - [Video tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/video)
   - [Tune function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/function-calling)

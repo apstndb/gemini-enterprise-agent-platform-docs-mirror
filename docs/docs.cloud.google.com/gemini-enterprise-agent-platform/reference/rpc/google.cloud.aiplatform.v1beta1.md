@@ -173,6 +173,8 @@ data_source: docs.cloud.google.com
   - `  BoolArray  ` (message)
   - `  CachedContent  ` (message)
   - `  CachedContent.UsageMetadata  ` (message)
+  - `  CancelAsyncQueryReasoningEngineRequest  ` (message)
+  - `  CancelAsyncQueryReasoningEngineResponse  ` (message)
   - `  CancelBatchPredictionJobRequest  ` (message)
   - `  CancelCustomJobRequest  ` (message)
   - `  CancelHyperparameterTuningJobRequest  ` (message)
@@ -1635,6 +1637,7 @@ data_source: docs.cloud.google.com
   - `  Tool.ComputerUse  ` (message)
   - `  Tool.ComputerUse.Environment  ` (enum)
   - `  Tool.GoogleSearch  ` (message)
+  - `  Tool.ParallelAiSearch  ` (message)
   - `  Tool.PhishBlockThreshold  ` (enum)
   - `  ToolCall  ` (message)
   - `  ToolCallValidInput  ` (message)
@@ -2055,15 +2058,6 @@ The service that manages Agent Platform Dataset and its child resources.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.export</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
-</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -2089,15 +2083,6 @@ The service that manages Agent Platform Dataset and its child resources.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
-</dd>
-</dl>
-<dl>
-<dt>IAM Permissions</dt>
-<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.datasets.get</code></li>
-</ul>
-<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -12949,6 +12934,41 @@ A service for executing queries on Reasoning Engine.
 </colgroup>
 <thead>
 <tr class="header">
+<th>CancelAsyncQueryReasoningEngine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CancelAsyncQueryReasoningEngine(              CancelAsyncQueryReasoningEngineRequest            </code> ) returns ( <code dir="ltr" translate="no">             CancelAsyncQueryReasoningEngineResponse            </code> )</p>
+<p>Cancels an AsyncQueryReasoningEngine operation.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.reasoningEngines.query</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
 <th>InvokeReasoningEngine</th>
 </tr>
 </thead>
@@ -19635,6 +19655,30 @@ Duration of video in seconds.
 `int32`
 
 Duration of audio in seconds.
+
+## CancelAsyncQueryReasoningEngineRequest
+
+Request message for `  ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the ReasoningEngine resource to use. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`operation_name`
+
+`string`
+
+Required. The name of the longrunning operation returned from AsyncQueryReasoningEngine. Format: `projects/{project}/locations/{location}/operations/{operation}`
+
+## CancelAsyncQueryReasoningEngineResponse
+
+This type has no fields.
+
+Response message for `  ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine  ` .
 
 ## CancelBatchPredictionJobRequest
 
@@ -36262,7 +36306,7 @@ Required. The resource name of the location to list agents from. Format: `projec
 
 `int32`
 
-Optional. The maximum number of agents to return. The service may return fewer than this value. If unspecified, at most 100 agents are returned.
+Optional. The maximum number of agents to return. The service may return fewer than this value. The maximum page size is 100; values above 100 will be coerced to 100. If unspecified, the default page size is 10.
 
 `page_token`
 
@@ -58055,6 +58099,12 @@ Optional. GoogleMaps tool type. Tool to support Google Maps in Model.
 
 Optional. Tool to support searching public web data, powered by Agent Platform Search and Sec4 compliance.
 
+`parallel_ai_search`
+
+`  ParallelAiSearch  `
+
+Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
+
 `code_execution`
 
 `  CodeExecution  `
@@ -58130,6 +58180,24 @@ Optional. List of domains to be excluded from the search results. The default li
 `  PhishBlockThreshold  `
 
 Optional. Sites with confidence level chosen & above this value will be blocked from the search results.
+
+## ParallelAiSearch
+
+ParallelAiSearch tool type. A tool that uses the Parallel.ai search engine for grounding.
+
+Fields
+
+`api_key`
+
+`string`
+
+Optional. The API key for ParallelAiSearch. If an API key is not provided, the system will attempt to verify access by checking for an active Parallel.ai subscription through the Google Cloud Marketplace. See <https://docs.parallel.ai/search/search-quickstart> for more details.
+
+`custom_configs`
+
+`  Struct  `
+
+Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: <https://docs.parallel.ai/api-reference/search-beta/search> Currently only `source_policy` , `excerpts` , `max_results` , `mode` , `fetch_policy` can be set via this field. For example: { "source\_policy": { "include\_domains": \["google.com", "wikipedia.org"\], "exclude\_domains": \["example.com"\] }, "fetch\_policy": { "max\_age\_seconds": 3600 } }
 
 ## PhishBlockThreshold
 
@@ -61180,6 +61248,14 @@ Unspecified request traffic type.
 `ON_DEMAND`
 
 Type for Pay-As-You-Go traffic.
+
+`ON_DEMAND_PRIORITY`
+
+Type for Priority Pay-As-You-Go traffic.
+
+`ON_DEMAND_FLEX`
+
+Type for Flex traffic.
 
 `PROVISIONED_THROUGHPUT`
 

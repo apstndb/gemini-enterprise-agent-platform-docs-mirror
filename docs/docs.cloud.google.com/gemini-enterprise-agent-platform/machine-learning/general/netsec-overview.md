@@ -196,7 +196,7 @@ The following table shows the supported access methods for connecting from on-pr
 <td></td>
 <td></td>
 <td><br />
-<a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#use-psc-i-egress">Learn more</a></td>
+<a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress">Learn more</a></td>
 </tr>
 <tr class="odd">
 <td>Agent Platform Pipelines, custom training, Ray on Agent Platform (control plane)</td>

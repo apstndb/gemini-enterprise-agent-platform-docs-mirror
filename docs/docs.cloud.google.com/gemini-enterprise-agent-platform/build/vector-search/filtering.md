@@ -90,7 +90,7 @@ The system behaves as follows:
 
   - Empty datapoint namespaces are not match-all wildcards. For example, Q: `{color:red}` doesn't match DB: `{}` .
     
-    ![Query and database points.](https://docs.cloud.google.com/static/vertex-ai/docs/vector-search/images/query-vs-database-points.png)
+    ![Query and database points.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/build/vector-search/images/query-vs-database-points.png)
 
 ### Specify namespaces and tokens or values in the input data
 

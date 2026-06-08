@@ -160,7 +160,7 @@ In the second example, you combine two separate queries into the same `BatchMatc
   
 ```
 
-You must make calls to these APIs from a client running in the same [VPC that the service was peered with](https://docs.cloud.google.com/vertex-ai/docs/vector-search/setup/vpc#vpc-network-peering-setup) .
+You must make calls to these APIs from a client running in the same [VPC that the service was peered with](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup/vpc#vpc-network-peering-setup) .
 
 To run a query using an `embedding_id` , use the following example.
 
@@ -272,7 +272,7 @@ In the second example, you combine two separate queries into the same `BatchMatc
   
 ```
 
-You must make calls to these APIs from a client running in the same [VPC that the service was peered with](https://docs.cloud.google.com/vertex-ai/docs/vector-search/setup/vpc#vpc-network-peering-setup) .
+You must make calls to these APIs from a client running in the same [VPC that the service was peered with](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup/vpc#vpc-network-peering-setup) .
 
 To run a query using an `embedding_id` , use the following example.
 
@@ -298,7 +298,7 @@ Use these instructions to query a VPC index from the console.
 
 The following query-time parameters can affect latency, availability, and cost when using Vector Search. This guidance applies to most cases. However, always experiment with your configurations to make sure that they work for your use case.
 
-For parameter definitions, see [Index configuration parameters](https://docs.cloud.google.com/vertex-ai/docs/vector-search/configuring-indexes) .
+For parameter definitions, see [Index configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes) .
 
 <table>
 <colgroup>

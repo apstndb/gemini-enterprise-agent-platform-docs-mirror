@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 When you run a job, Model Monitoring v2 consumes data from your target and baseline datasets, calculates metrics, and potentially generates alerts. Model Monitoring v2 offers on-demand jobs for ad hoc monitoring or scheduled jobs for continuous monitoring. No matter which option you choose, each job is a single batch execution.
 
-For more information about monitoring objectives and supported models, see [Model Monitoring v2 overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview#v2) and [Set up model monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/set-up-model-monitoring) .
+For more information about monitoring objectives and supported models, see [Model Monitoring v2 overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview#v2) and [Set up model monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/set-up-model-monitoring) .
 
 ## Run a job on demand
 
@@ -233,7 +233,7 @@ View details about a monitoring job run such as a list of monitored features and
     
     The following example shows a distribution comparison for the **country** feature from batch prediction jobs. The Google Cloud console also provide details about the comparison depending on the metric, such as the number of unique values, mean value, and the standard deviation.
     
-    ![Histograms showing example feature distribution for a target dataset and a baseline dataset.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/job-details.png)
+    ![Histograms showing example feature distribution for a target dataset and a baseline dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/job-details.png)
 
 ### View feature details
 
@@ -249,4 +249,4 @@ View information about a feature and a list of monitoring jobs that include the 
     
     The following example shows a distribution comparison for the **country** feature. After the histogram, you can see which runs generated an alert or select another monitoring job that includes monitoring data for this feature.
     
-    ![Histograms showing example input data distribution for a target dataset and a baseline dataset.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/feature-drift.png)
+    ![Histograms showing example input data distribution for a target dataset and a baseline dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/feature-drift.png)

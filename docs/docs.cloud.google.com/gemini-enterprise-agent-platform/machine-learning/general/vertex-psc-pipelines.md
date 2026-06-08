@@ -12,7 +12,7 @@ In this tutorial, you use Agent Platform Pipelines to run a custom training job 
 
 The entire process takes two to three hours to complete, including about 50 minutes for the pipeline run.
 
-This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud (VPC), the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/introduction) is helpful but not required.
+This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud (VPC), the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) is helpful but not required.
 
 ![Architectural diagram of using Private Service Connect to access training pipelines.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-psc-pipelines.png)
 

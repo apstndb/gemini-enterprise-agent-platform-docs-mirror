@@ -6,7 +6,7 @@ description: Learn how to perform machine learning (ML) with tabular data in Gem
 data_source: docs.cloud.google.com
 ---
 
-Agent Platform lets you perform machine learning with tabular data using simple processes and interfaces. You can create the following model types for your tabular data problems:
+Agent Platform lets you perform machine learning with tabular data using low-complexity processes and interfaces. You can create the following model types for your tabular data problems:
 
   - **Binary classification** models predict a binary outcome (one of two classes). Use this model type for yes or no questions. For example, you might want to build a binary classification model to predict whether a customer would buy a subscription. Generally, a binary classification problem requires less data than other model types.
   - **Multi-class classification** models predict one class from three or more discrete classes. Use this model type for categorization. For example, as a retailer, you might want to build a multi-class classification model to segment customers into different personas.
@@ -17,7 +17,7 @@ For an introduction to machine learning with tabular data, see [Introduction to 
 
 ## A note about fairness
 
-Google commits to making progress in following [responsible AI practices](https://ai.google/responsibilities/responsible-ai-practices/) . To this end, our ML products, including AutoML, are designed around core principles such as [fairness](https://cloud.google.com/inclusive-ml#fairness-in-ml-automl) and [human-centered machine learning](https://medium.com/google-design/human-centered-machine-learning-a770d10562cd) . For more information about best practices for mitigating bias when building your own ML system, see [Inclusive ML guide - AutoML](https://cloud.google.com/inclusive-ml) .
+Google commits to making progress in following [responsible AI practices](https://ai.google/responsibilities/responsible-ai-practices/) . To this end, our ML products, including AutoML, are designed around core principles such as fairness and [human-centered machine learning](https://medium.com/google-design/human-centered-machine-learning-a770d10562cd) .
 
 ## Agent Platform solutions for classification and regression
 
@@ -54,7 +54,7 @@ Agent Platform offers integrated, fully managed pipelines for end-to-end classif
 
 #### Benefits
 
-  - Easy to use: Agent Platform chooses the model type, model parameters, and hardware for you.
+  - Agent Platform chooses the model type, model parameters, and hardware for you.
 
 For further information, see [Classification and Regression Overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/overview) .
 
@@ -98,7 +98,7 @@ Agent Platform offers an integrated, fully managed pipeline for end-to-end forec
 
 #### Benefits
 
-  - Easy to use: Agent Platform chooses model parameters and hardware for you.
+  - Agent Platform chooses model parameters and hardware for you.
 
 For further information, see [Forecasting Overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) .
 
@@ -112,8 +112,8 @@ Google Cloud offers a pipeline for training a BigQuery ML ARIMA\_PLUS model and 
 
 #### Benefits
 
-  - Easy to use: BigQuery chooses model parameters and hardware for you.
-  - Fast: model training provides a low-cost baseline to compare other models against.
+  - BigQuery chooses model parameters and hardware for you.
+  - Model training provides a low-cost baseline to compare other models against.
 
 For further information, see [Forecasting with ARIMA+](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-arima/overview) .
 
@@ -134,7 +134,7 @@ Although Prophet is a multivariate model, Agent Platform supports only a univari
 
 #### Benefits
 
-  - Flexible: you can improve training speed by selecting the hardware used for training
+  - You can improve training speed by selecting the hardware used for training.
 
 For further information, see [Forecasting with Prophet](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-prophet) .
 

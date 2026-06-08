@@ -107,7 +107,7 @@ Vector Search is a managed service that builds similarity indexes, or vectors, t
 
 2.  Vector Search uses the endpoints of the vectors you create to perform a high scale, low latency search for similar vectors.
 
-For more information, see [Vector Search overview](https://docs.cloud.google.com/vertex-ai/docs/vector-search/overview) and the [Create a Vector Search index](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/vector_search/sdk_vector_search_for_indexing.ipynb) notebook on GitHub.
+For more information, see [Vector Search overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) and the [Create a Vector Search index](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/vector_search/sdk_vector_search_for_indexing.ipynb) notebook on GitHub.
 
 ### [`MatchingEngineIndex`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.MatchingEngineIndex)
 
@@ -118,7 +118,7 @@ There are two search algorithms you can use for your index:
 1.  `TreeAhConfig` uses a shallow the tree-AH algorithm (shallow tree using asymmetric hashing). Use [`MatchingEngineIndex.create_tree_ah_index`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.MatchingEngineIndex#google_cloud_aiplatform_MatchingEngineIndex_create_tree_ah_index) to create an index that uses the tree-AH algorithm algorithm.
 2.  `BruteForceConfig` uses a standard linear search) Use [`MatchingEngineIndex.create_brute_force_index`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.MatchingEngineIndex#google_cloud_aiplatform_MatchingEngineIndex_create_brute_force_index) to create an index that uses a standard linear search.
 
-For more information about how you can configure your indexes, see [Configure indices](https://docs.cloud.google.com/vertex-ai/docs/vector-search/configuring-indexes) .
+For more information about how you can configure your indexes, see [Configure indices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes) .
 
 The following code is an example of creating an index that uses the tree-AH algorithm:
 
@@ -164,4 +164,4 @@ The following code is an example of creating a matching engine index endpoint an
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .

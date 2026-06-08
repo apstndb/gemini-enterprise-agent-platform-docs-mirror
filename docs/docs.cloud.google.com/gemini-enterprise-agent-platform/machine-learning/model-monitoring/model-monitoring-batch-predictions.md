@@ -16,7 +16,7 @@ To create a batch inference job with Model Monitoring skew analysis, you must in
 
 For more information about skew, see [Introduction to Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) .
 
-For instructions on how to set up Model Monitoring for online (real-time) inferences, see [Using Model Monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring) .
+For instructions on how to set up Model Monitoring for online (real-time) inferences, see [Using Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring) .
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To use Model Monitoring with batch inferences, complete the following:
     | AutoML tabular | CSV, JSONL, BigQuery, TfRecord(tf.train.Example) | CSV, JSONL, BigQuery, TfRecord(Protobuf.Value) |
     
 
-4.  Optional: For custom-trained models, upload the [schema](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/schemas#parse-batch-schemas) for your model to Cloud Storage. Model Monitoring requires the schema to calculate the baseline distribution for skew detection.
+4.  Optional: For custom-trained models, upload the [schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/schemas#parse-batch-schemas) for your model to Cloud Storage. Model Monitoring requires the schema to calculate the baseline distribution for skew detection.
 
 ## Request a batch inference
 
@@ -147,7 +147,7 @@ Use the Google Cloud console to view the feature distribution histograms for eac
     
     Visualizing data distribution as histograms lets you quickly focus on the changes that occurred in the data. Afterward, you might decide to adjust your feature generation pipeline or retrain the model.
     
-    ![Histograms showing example input data distribution and training data distribution for skew detection.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/skew_detection_distribution_bp.png)
+    ![Histograms showing example input data distribution and training data distribution for skew detection.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/skew_detection_distribution_bp.png)
 
 ### Console (JSON file)
 
@@ -245,5 +245,5 @@ Learn more about how to use Model Monitoring to get visualizations and statistic
 
 ## What's next
 
-  - Learn how to use [Model Monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring) .
+  - Learn how to use [Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring) .
   - Learn how Model Monitoring [calculates training-serving skew and inference drift](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) .

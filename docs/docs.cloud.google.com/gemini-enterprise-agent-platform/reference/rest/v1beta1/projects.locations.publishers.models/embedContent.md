@@ -292,6 +292,14 @@ Unspecified request traffic type.
 
 type for Pay-As-You-Go traffic.
 
+`ON_DEMAND_PRIORITY`
+
+type for priority Pay-As-You-Go traffic.
+
+`ON_DEMAND_FLEX`
+
+type for Flex traffic.
+
 `PROVISIONED_THROUGHPUT`
 
 type for Provisioned Throughput traffic.

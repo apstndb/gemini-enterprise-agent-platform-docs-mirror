@@ -7444,16 +7444,6 @@ Agent Platform Pipelines have the following limits. Note that, unlike quotas, yo
 
 Colab Enterprise quotas and limits are listed separately. See [Colab Enterprise quotas and limits](https://docs.cloud.google.com/colab/docs/quotas) .
 
-## Quota increases
-
-If you want to increase any of your quotas for Gemini Enterprise Agent Platform, you can use the Google Cloud console to request a quota increase.
-
-> **Note:** refer to [Available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#available-regions) and [Region considerations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) and only apply for quota increase in the supported locations.
-
-For more information about submitting a quota increase request, see the following sections of [View and manage quotas](https://docs.cloud.google.com/docs/quotas/view-manage) :
-
-  - [Request a quota adjustment](https://docs.cloud.google.com/docs/quotas/help/request_increase)
-
 ## Quotas by region and model
 
 ### View and edit the quotas in the Google Cloud console
@@ -7732,31 +7722,20 @@ Additionally, the relevant quota for model-based metrics depends on which judge 
 </tbody>
 </table>
 
-## Gemini Enterprise Agent Platform Agent Engine quotas
-
-The following quotas apply to [Vertex AI Agent Engine](https://docs.cloud.google.com/vertex-ai/docs/agent-engine/overview) for a given project in each region:
-
-| Description                                                                          | Quota | Metric                                                                         |
-| ------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------ |
-| Create, delete, or update Vertex AI Agent Engine resources per minute                | 10    | `aiplatform.googleapis.com/reasoning_engine_service_write_requests`            |
-| Create, delete, or update Vertex AI Agent Engine sessions per minute                 | 100   | `aiplatform.googleapis.com/session_write_requests`                             |
-| Get, list, or retrieve Vertex AI Agent Engine sessions per minute                    | 10000 | `aiplatform.googleapis.com/session_read_requests`                              |
-| `Query` or `StreamQuery` Vertex AI Agent Engine per minute                           | 90    | `aiplatform.googleapis.com/reasoning_engine_service_query_requests`            |
-| Append event to Vertex AI Agent Engine sessions per minute                           | 300   | `aiplatform.googleapis.com/session_event_append_requests`                      |
-| Maximum number of Vertex AI Agent Engine resources                                   | 100   | `aiplatform.googleapis.com/reasoning_engine_service_entities`                  |
-| Create, delete, or update Vertex AI Agent Engine memory resources per minute         | 100   | `aiplatform.googleapis.com/memory_bank_write_requests`                         |
-| Get, list, or retrieve from Vertex AI Agent Engine Memory Bank per minute            | 300   | `aiplatform.googleapis.com/memory_bank_read_requests`                          |
-| Sandbox environment (Code Execution) execute requests per minute                     | 1000  | `aiplatform.googleapis.com/sandbox_environment_execute_requests`               |
-| Sandbox environment (Code Execution) entities per region                             | 1000  | `aiplatform.googleapis.com/sandbox_environment_entities`                       |
-| Sandbox environment (Code Execution) write requests per minute                       | 500   | `aiplatform.googleapis.com/sandbox_environment_write_requests`                 |
-| A2A Agent post requests like `sendMessage` and `cancelTask` per minute               | 60    | `aiplatform.googleapis.com/a2a_agent_post_requests`                            |
-| A2A Agent get requests like `getTask` and `getCard` per minute                       | 600   | `aiplatform.googleapis.com/a2a_agent_get_requests`                             |
-| Concurrent live bidirectional connections using the `BidiStreamQuery` API per minute | 10    | `aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests` |
-
 ## Troubleshoot error code 429
 
 To troubleshoot the 429 error, see [Error code 429](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/error-code-429) .
 
-## What's next
+## Quota increases
 
-  - Learn more about [Agent Platform quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/quotas) .
+If you want to increase any of your quotas for Gemini Enterprise Agent Platform, you can use the Google Cloud console to request a quota increase.
+
+> **Note:** refer to [Available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#available-regions) and [Region considerations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) and only apply for quota increase in the supported locations.
+
+For more information about submitting a quota increase request, see the following sections of [View and manage quotas](https://docs.cloud.google.com/docs/quotas/view-manage) :
+
+  - [Request a quota adjustment](https://docs.cloud.google.com/docs/quotas/help/request_increase)
+
+## Related resources
+
+  - Learn more about quotas and limits for [agents in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas) .

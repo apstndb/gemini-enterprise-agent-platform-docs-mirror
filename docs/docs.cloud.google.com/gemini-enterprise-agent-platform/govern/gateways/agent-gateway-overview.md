@@ -148,9 +148,14 @@ To learn more, see the following pages:
   - [Authorization policies overview](https://docs.cloud.google.com/load-balancing/docs/auth-policy/auth-policy-overview)
   - [Delegate authorization with Service Extensions for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)
 
+## Supported protocols
+
+Agent Gateway supports all HTTP-based traffic, including MCP and A2A traffic. At a minimum, the gateway acts as a passthrough that securely terminates and routes incoming traffic.
+
+For MCP traffic only, Agent Gateway can parse request data to extract attributes. This lets you create authorization policies with conditions based on those attributes. For example, you can create policies that restrict access to specific tools. For details, see [Authorization based on MCP attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#mcp-attributes) .
+
 ## Limitations
 
-  - For authorization policies, [conditions based on agentic protocol attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#mcp-attributes) are only supported for the Model Context Protocol (MCP). Other agentic protocols aren't supported.
   - For Gemini Enterprise, Client-to-Agent mode is not supported by Agent Gateway.
   - Agent Gateway doesn't support VPC Service Controls. To ensure that agents are only using the Agent Gateway resources you approve of, you can use custom organization policy constraints to restrict agent and gateway bindings. For details, see [Restrict Agent Runtime to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#restrict-ae) and [Restrict Gemini Enterprise to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#restrict-ge) .
 

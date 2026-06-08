@@ -1116,6 +1116,10 @@ Async query using a reasoning engine.
 
 Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
 
+`  CancelAsyncQueryReasoningEngine  `
+
+Cancels an AsyncQueryReasoningEngine operation.
+
 `  InvokeReasoningEngine  `
 
 Invokes reasoning engine with arbitrary HTTP requests for both unary and server-side streaming cases.
@@ -1183,6 +1187,38 @@ Resumes a paused Schedule to start scheduling new runs.
 `  UpdateSchedule  `
 
 Updates an active or paused Schedule.
+
+## `        google.cloud.aiplatform.v1.SessionService       `
+
+Methods
+
+`  AppendEvent  `
+
+Appends an event to a given session.
+
+`  CreateSession  `
+
+Creates a new `  Session  ` .
+
+`  DeleteSession  `
+
+Deletes details of the specific `  Session  ` .
+
+`  GetSession  `
+
+Gets details of the specific `  Session  ` .
+
+`  ListEvents  `
+
+Lists `  Events  ` in a given session.
+
+`  ListSessions  `
+
+Lists `  Sessions  ` in a given reasoning engine.
+
+`  UpdateSession  `
+
+Updates the specific `  Session  ` .
 
 ## `        google.cloud.aiplatform.v1.SpecialistPoolService       `
 
@@ -2874,6 +2910,10 @@ Async query using a reasoning engine.
 `  BidiInvokeReasoningEngine  `
 
 Invokes reasoning engine with arbitrary WebSocket requests for bidi streaming
+
+`  CancelAsyncQueryReasoningEngine  `
+
+Cancels an AsyncQueryReasoningEngine operation.
 
 `  InvokeReasoningEngine  `
 

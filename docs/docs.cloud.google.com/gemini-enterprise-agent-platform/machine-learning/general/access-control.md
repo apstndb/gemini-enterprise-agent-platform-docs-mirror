@@ -2939,7 +2939,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <tr class="even">
 <td><h4 id="aiplatform.customCodeServiceAgent" class="role-title add-link" data-text="Vertex AI Custom Code Service Agent" tabindex="-1">Vertex AI Custom Code Service Agent</h4>
 <p>( <code dir="ltr" translate="no">roles/  aiplatform.customCodeServiceAgent</code> )</p>
-<p>Gives Vertex AI Custom Code the proper permissions.</p>
+<p>Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.create IAM permission is highly privileged. Through Vertex AI Custom Training jobs, it effectively grants editor-level access to other services activated for the consumer project, such as GCS and BigQuery.</p>
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
@@ -4602,6 +4602,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">bigquery.tables.export</code></p>
 <p><code dir="ltr" translate="no">bigquery.tables.get</code></p>
 <p><code dir="ltr" translate="no">bigquery.tables.getData</code></p>
+<p><code dir="ltr" translate="no">bigquery.tables.list</code></p>
 <p><code dir="ltr" translate="no">bigquery.tables.update</code></p>
 <p><code dir="ltr" translate="no">bigquery.tables.updateData</code></p>
 <p><code dir="ltr" translate="no">bigtable.tables.get</code></p>
@@ -4696,6 +4697,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">iam.serviceAccounts.actAs</code></p>
 <p><code dir="ltr" translate="no">iam.  serviceAccounts.  getAccessToken</code></p>
 <p><code dir="ltr" translate="no">iam.  serviceAccounts.  getOpenIdToken</code></p>
+<p><code dir="ltr" translate="no">logging.links.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">logging.links.create</code></li>
+<li><code dir="ltr" translate="no">logging.links.delete</code></li>
+<li><code dir="ltr" translate="no">logging.links.get</code></li>
+<li><code dir="ltr" translate="no">logging.links.list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">logging.logEntries.create</code></p>
 <p><code dir="ltr" translate="no">logging.logEntries.route</code></p>
 <p><code dir="ltr" translate="no">logging.views.access</code></p>
@@ -4720,6 +4728,10 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">notebooks.instances.create</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.delete</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.get</code></p>
+<p><code dir="ltr" translate="no">observability.links.create</code></p>
+<p><code dir="ltr" translate="no">observability.links.delete</code></p>
+<p><code dir="ltr" translate="no">observability.links.get</code></p>
+<p><code dir="ltr" translate="no">observability.links.list</code></p>
 <p><code dir="ltr" translate="no">resourcemanager.projects.get</code></p>
 <p><code dir="ltr" translate="no">resourcemanager.projects.list</code></p>
 <p><code dir="ltr" translate="no">run.executions.delete</code></p>
@@ -5778,6 +5790,8 @@ Gives Vertex AI the permissions it needs to function.
 
 `bigquery.tables.getData`
 
+`bigquery.tables.list`
+
 `bigquery.tables.update`
 
 `bigquery.tables.updateData`
@@ -5931,6 +5945,13 @@ Gives Vertex AI the permissions it needs to function.
 
 `iam. serviceAccounts. getOpenIdToken`
 
+`logging.links.*`
+
+  - `logging.links.create`
+  - `logging.links.delete`
+  - `logging.links.get`
+  - `logging.links.list`
+
 `logging.logEntries.create`
 
 `logging.logEntries.route`
@@ -5973,6 +5994,14 @@ Gives Vertex AI the permissions it needs to function.
 `notebooks.instances.delete`
 
 `notebooks.instances.get`
+
+`observability.links.create`
+
+`observability.links.delete`
+
+`observability.links.get`
+
+`observability.links.list`
 
 `resourcemanager.projects.get`
 
@@ -6160,7 +6189,7 @@ Vertex AI Service Agent used by Vertex RAG to access user imported data, Vertex 
 
 ( `roles/ aiplatform.customCodeServiceAgent` )
 
-Gives Vertex AI Custom Code the proper permissions.
+Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.create IAM permission is highly privileged. Through Vertex AI Custom Training jobs, it effectively grants editor-level access to other services activated for the consumer project, such as GCS and BigQuery.
 
 > **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents) .
 

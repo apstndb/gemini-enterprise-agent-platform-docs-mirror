@@ -10,30 +10,33 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 02, 2026
+
+Announcement
+
+**Updates to abuse monitoring and zero data retention documentation**
+
+Documentation for abuse monitoring, zero data retention, and responsible AI has been updated to align with the Advanced AI Safety Addendum. These updates include new details regarding Advanced AI safety, partner-specific terms, and request-response logging for models like Claude Mythos and Opus.
+
+For more information, see:
+
+  - [Abuse monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring)
+  - [Zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
+  - [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai)
+
+## June 01, 2026
+
+Breaking
+
+**Gemini 2.0 Flash and Gemini 2.0 Flash-Lite are discontinued**
+
+Gemini 2.0 Flash and 2.0 Flash-Lite are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
+
 ## May 28, 2026
 
 Feature
 
-### Anthropic's Claude Opus 4.8
-
-[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
-
-Deprecated
-
-### Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview deprecation
-
-Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are deprecated. We recommend that you update your model endpoints before July 17, 2026, to avoid service disruption.
-
-The following are the discontinued endpoints and recommended endpoint migration:
-
-| Discontinued endpoints           | Recommended endpoint migration |
-| -------------------------------- | ------------------------------ |
-| `gemini-3.1-flash-image-preview` | `gemini-3.1-flash-image`       |
-| `gemini-3-pro-image-preview`     | `gemini-3-pro-image`           |
-
-Feature
-
-### Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image
+**Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image**
 
 Gemini Enterprise Agent Platform Gemini 3.1 Flash Image and Gemini 3 Pro Image are [Generally Available](https://cloud.google.com/products#product-launch-stages) .
 
@@ -46,6 +49,25 @@ For more information, see the following:
   - [Gemini 3.1 Flash Image (Nano Banana 2)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3 Pro Image (Nano Banana Pro)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
 
+Deprecated
+
+**Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview deprecation**
+
+Gemini Enterprise Agent Platform Gemini 3.1 Flash Image Preview and Gemini 3 Pro Image Preview are deprecated. We recommend that you update your model endpoints before July 17, 2026, to avoid service disruption.
+
+The following are the discontinued endpoints and recommended endpoint migration:
+
+| Discontinued endpoints           | Recommended endpoint migration |
+| -------------------------------- | ------------------------------ |
+| `gemini-3.1-flash-image-preview` | `gemini-3.1-flash-image`       |
+| `gemini-3-pro-image-preview`     | `gemini-3-pro-image`           |
+
+Feature
+
+**Anthropic's Claude Opus 4.8**
+
+[Claude Opus 4.8](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-8) is available in Model Garden.
+
 ## May 27, 2026
 
 Feature
@@ -54,7 +76,7 @@ Feature
 
 Prompt input and response output logging now includes the `user.id` field. This addition allows better tracking of anomalous tool interactions.
 
-> **Important:** Logging of `user.id` is included when opting in to "Enable logging of prompt inputs and response outputs" effective May 22, 2026 and later and with Agent Development Kit version 2.1 and later. If you opted in prior to this change, your logs do not include `user.id` . You will need to redeploy your agents and opt-in again for this setting to take effect.
+> **Important:** Logging of `user.id` is included when opting in to "Enable logging of prompt inputs and response outputs" effective May 22, 2026 and later and with the Agent Development Kit (ADK) version 2.1 and later. If you opted in prior to this change, your logs do not include `user.id` . You will need to redeploy your agents and opt-in again for this setting to take effect.
 
 For details on configuration, see [Write traces for an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing#write-traces) .
 
@@ -62,15 +84,7 @@ For details on configuration, see [Write traces for an agent](https://docs.cloud
 
 Feature
 
-### The Gemini Deep Research Agent (Preview)
-
-The Gemini Deep Research Agent is in Preview. The Gemini Deep Research Agent is a managed AI agent that plans, executes, and synthesizes complex, multi-step research workflows across the public web and private enterprise data to generate comprehensive, cited reports.
-
-For more information, see [Use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
-
-Feature
-
-### Agent Platform Sandboxes
+**Agent Platform Sandboxes**
 
 Additional Agent Platform [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) features are now available:
 
@@ -79,11 +93,19 @@ Additional Agent Platform [sandbox](https://docs.cloud.google.com/gemini-enterpr
   - **[Sandbox templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-templates) (Preview)** : Define sandbox specifications as reusable templates relying on pre-warmed pools to facilitate rapid, reliable startups.
   - **[Sandbox snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) (Preview)** : Save the exact state of your sandbox environment (including dependencies and file systems) and restore it to a new sandbox.
 
+Feature
+
+**The Gemini Deep Research Agent releaased in Preview**
+
+The Gemini Deep Research Agent has been released in Preview. The Gemini Deep Research Agent is a managed AI agent that plans, executes, and synthesizes complex, multi-step research workflows across the public web and private enterprise data to generate comprehensive, cited reports.
+
+For more information, see [Use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
+
 ## May 20, 2026
 
 Change
 
-### Supervised fine-tuning available for Gemini 3.1 Flash Lite (Preview)
+**Supervised fine-tuning available for Gemini 3.1 Flash Lite (Preview)**
 
 Supervised fine-tuning is now available for limited support for the `gemini-3.1-flash-lite` model. During this period, model tuning for Gemini 3.1 Flash Lite is restricted to `us-central1` and `europe-west4` and tuned model serving is restricted to the `us` and `eu` multi-region endpoints.
 
@@ -91,7 +113,7 @@ See [About supervised fine-tuning](https://docs.cloud.google.com/gemini-enterpri
 
 Change
 
-### Set media resolution at a Part-level for data when using supervised fine-tuning
+**Set media resolution at a Part-level for data when using supervised fine-tuning**
 
 Supervised fine-tuning now supports `Part` -level `mediaResolution` declarations for images, videos, and PDFs. `Part` -level media resolution declarations also support the `MEDIA_RESOLUTION_ULTRA_HIGH` level.
 
@@ -105,32 +127,19 @@ See the following media type–specific pages for more information:
 
 Feature
 
-### Gemini 3.5 Flash is generally available (GA)
+**Gemini 3.5 Flash is generally available (GA)**
 
 For details, see the [model specifications page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) .
 
 Feature
 
-### Managed Agents API on Agent Platform
-
-Managed Agents API on Agent Platform is in Preview. This feature allows you to build and scale autonomous agents, including those built from configuration using the Antigravity harness. These agents run in a fully managed and isolated sandbox environment, equipped with tools and skills, and can be interacted with via a dedicated API.
-
-For more information, see the following:
-
-  - [Managed Agents API on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
-  - [Create and manage agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage)
-  - [Interact with agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents)
-  - [Managed Agents API on Agent Platform sandbox environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment)
-
-Feature
-
-### Manage agent revisions and traffic splitting
+**Manage agent revisions and traffic splitting**
 
 Agent revisions and traffic splitting are now available in public preview. You can create immutable revisions of deployed agents, and split traffic between the different active revisions. This enables canary deployments and safe testing of new agent versions. For more information, see [Manage revisions and traffic](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) .
 
 Feature
 
-### Manage and discover agent skills with Skill Registry
+**Manage and discover agent skills with Skill Registry**
 
 Manage and discover agent skills with the Skill Registry, in public preview. This secure, private, and low-latency repository stores skills as self-contained packages, including instructions, code, and documentation, to enhance agent abilities.
 
@@ -141,13 +150,28 @@ For more information, see:
 
 Feature
 
-### AI Content Detection API available
+**Managed Agents API on Agent Platform released in Preview**
+
+The Managed Agents API on Agent Platform has been released in Preview.
+
+This feature allows you to build and scale autonomous agents, including those built from configuration using the Antigravity harness. These agents run in a fully managed and isolated sandbox environment, equipped with tools and skills, and can be interacted with via a dedicated API.
+
+For more information, see the following:
+
+  - [Managed Agents API on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
+  - [Create and manage agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage)
+  - [Interact with agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/interact-with-agents)
+  - [Managed Agents API on Agent Platform sandbox environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment)
+
+Feature
+
+**AI Content Detection API available**
 
 AI Content Detection API is available in [Preview](https://cloud.google.com/products#product-launch-stages) . For details see [AI Content Detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/ai-content-detection) .
 
 Feature
 
-### Provisioned Throughput for Gemini now supports latency SLA
+**Provisioned Throughput for Gemini now supports latency SLA**
 
 Provisioned Throughput now provides a tokens per second latency SLA, covering generation speed from the first returned token to the last.
 
@@ -240,35 +264,7 @@ Asynchronous function calling is now available in [public preview](https://cloud
 
 Change
 
-### Initial release of Gemini Enterprise Agent Platform
-
-This initial release includes (but is not limited to) the following releases or changes:
-
-  - Change **Vertex AI** is now part of Gemini Enterprise Agent Platform. Information on model support for Vertex AI is now under [Gemini Enterprise Agent Platform \> Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
-  - Change **Agent Builder** is now part of Gemini Enterprise Agent Platform. Features have been renamed as follows:
-      - **Agent Engine** is now [**Agent Runtime**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) .
-      - **Agent Builder Sessions** is [**Agent Platform Sessions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) .
-      - **Memory Bank** is now [**Agent Platform Memory Bank**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) .
-  - Change **Agent Runtime** now supports long-running operations (up to 7 days).
-  - Change **Agent Runtime** now supports sub-second cold starts.
-  - Change Provisioning for **Agent Runtime** has been reduced to less than 1 minute.
-  - Release You can now use your own [custom-built containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/build/runtime/setup#byoc) when you deploy agents with **Agent Runtime** .
-  - Change When [creating a Session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) , you can specify your own session ID.
-  - Release Memory Bank now enables continuous event streaming with automated memory generation triggered by configurable criteria like event count or idle time. For more information, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
-  - Release Memory Bank now automatically maintains an immutable version history of memories through revision resources. For more information, see [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
-  - Release [**Agent Identity**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) for General Availability. Agent Identity helps let your agent securely authenticate to MCP servers, cloud resources, endpoints, and other agents, either acting as itself or acting on behalf of the end user.
-  - Release [**Agent Gateway**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) for Private Preview. Agent Gateway is the networking component of the Gemini Enterprise Agent Platform ecosystem. It secures and governs connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
-  - Release [**Agent Registry**](https://docs.cloud.google.com/agent-registry/overview) for Public Preview. Agent Registry is a centralized, unified catalog that lets you store, discover, and govern Model Context Protocol (MCP) servers, tools, and AI agents within Google Cloud.
-  - Release New [**IAM governance policies**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/govern/policies/overview) are available in Private Preview.
-  - Release [**Agent Observability**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) for Preview. Agent Observability in Gemini Enterprise Agent Platform provides comprehensive visibility into the performance, behavior, and health of your deployed agents and Model Context Protocol (MCP) servers. By monitoring key metrics, tracing execution paths, and observing your multi-agent system as a whole, you can diagnose issues, optimize resource consumption, and improve the reliability of your agents.
-  - Release [**Gemini Embedding 2**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2) ( `gemini-embedding-2` ) for General Availability.
-  - Release The [**Gemini Deep Research Agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/deep-research) , a pre-built agent designed to help you plan, execute, and synthesize multi-step research tasks. It uses Gemini 3.1 Pro to bridge the gap between public web data and private enterprise context by simultaneously grounding research across three distinct, high-fidelity data streams.
-  - Release [**Agent Platform remote MCP server**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp) for General Availability. Support for Model Context Protocol (MCP) use is available for Agent Platform.
-  - Change **Google Cloud console navigation** : The navigation menus under Agent Platform (formerly Vertex AI) and Data Analytics have been updated to centralize agentic products and features. Bookmarked links will continue to work via automatic redirects.
-
-Change
-
-### Vertex AI to Gemini Enterprise Agent Platform naming changes
+**Vertex AI to Gemini Enterprise Agent Platform naming changes**
 
 The table below lists all of the features that have been transitioned from Vertex AI and what their new names are in Agent Platform.
 
@@ -332,6 +328,34 @@ The table below lists all of the features that have been transitioned from Verte
 | Vertex AI Media Studio                                                                     | Agent Media Studio                                            |
 | Vertex AI                                                                                  | Agent Platform                                                |
 | Vertex AI Generative AI                                                                    | Agent Platform Generative AI                                  |
+
+Change
+
+**Initial release of Gemini Enterprise Agent Platform**
+
+This initial release includes (but is not limited to) the following releases or changes:
+
+  - Change **Vertex AI** is now part of Gemini Enterprise Agent Platform. Information on model support for Vertex AI is now under [Gemini Enterprise Agent Platform \> Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) .
+  - Change **Agent Builder** is now part of Gemini Enterprise Agent Platform. Features have been renamed as follows:
+      - **Agent Engine** is now [**Agent Runtime**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) .
+      - **Agent Builder Sessions** is [**Agent Platform Sessions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) .
+      - **Memory Bank** is now [**Agent Platform Memory Bank**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) .
+  - Change **Agent Runtime** now supports long-running operations (up to 7 days).
+  - Change **Agent Runtime** now supports sub-second cold starts.
+  - Change Provisioning for **Agent Runtime** has been reduced to less than 1 minute.
+  - Release You can now use your own [custom-built containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/build/runtime/setup#byoc) when you deploy agents with **Agent Runtime** .
+  - Change When [creating a Session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) , you can specify your own session ID.
+  - Release Memory Bank now enables continuous event streaming with automated memory generation triggered by configurable criteria like event count or idle time. For more information, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
+  - Release Memory Bank now automatically maintains an immutable version history of memories through revision resources. For more information, see [Memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/scale/memory-bank/revisions) .
+  - Release [**Agent Identity**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) for General Availability. Agent Identity helps let your agent securely authenticate to MCP servers, cloud resources, endpoints, and other agents, either acting as itself or acting on behalf of the end user.
+  - Release [**Agent Gateway**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) for Private Preview. Agent Gateway is the networking component of the Gemini Enterprise Agent Platform ecosystem. It secures and governs connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
+  - Release [**Agent Registry**](https://docs.cloud.google.com/agent-registry/overview) for Public Preview. Agent Registry is a centralized, unified catalog that lets you store, discover, and govern Model Context Protocol (MCP) servers, tools, and AI agents within Google Cloud.
+  - Release New [**IAM governance policies**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/gemini-enterprise-agent-platform/govern/policies/overview) are available in Private Preview.
+  - Release [**Agent Observability**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) for Preview. Agent Observability in Gemini Enterprise Agent Platform provides comprehensive visibility into the performance, behavior, and health of your deployed agents and Model Context Protocol (MCP) servers. By monitoring key metrics, tracing execution paths, and observing your multi-agent system as a whole, you can diagnose issues, optimize resource consumption, and improve the reliability of your agents.
+  - Release [**Gemini Embedding 2**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2) ( `gemini-embedding-2` ) for General Availability.
+  - Release The [**Gemini Deep Research Agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/deep-research) , a pre-built agent designed to help you plan, execute, and synthesize multi-step research tasks. It uses Gemini 3.1 Pro to bridge the gap between public web data and private enterprise context by simultaneously grounding research across three distinct, high-fidelity data streams.
+  - Release [**Agent Platform remote MCP server**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp) for General Availability. Support for Model Context Protocol (MCP) use is available for Agent Platform.
+  - Change **Google Cloud console navigation** : The navigation menus under Agent Platform (formerly Vertex AI) and Data Analytics have been updated to centralize agentic products and features. Bookmarked links will continue to work via automatic redirects.
 
 Issue
 

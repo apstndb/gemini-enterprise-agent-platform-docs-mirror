@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/resources/supported-capabilities
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/supported-capabilities
 title: Supported capabilities
-description: 'Discover Gemini 2.5 Flash and Pro ML Processing capabilities: system instructions, structured output, function calling, code execution, and regional endpoints.'
+description: 'Discover Gemini ML Processing capabilities: system instructions, structured output, function calling, code execution, and regional endpoints.'
 data_source: docs.cloud.google.com
 ---
 
@@ -56,7 +56,7 @@ Implicit caching only
 
 [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
 
-[Single Zone PT (SZPT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput//szpt)
+[Single Zone PT (SZPT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt)
 
 [Grounding with Agent Platform Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search)
 

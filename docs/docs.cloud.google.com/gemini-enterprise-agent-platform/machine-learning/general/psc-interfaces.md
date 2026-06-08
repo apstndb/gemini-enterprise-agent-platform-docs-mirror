@@ -59,7 +59,7 @@ The following pages discuss specific use cases for Gemini Enterprise Agent Platf
 
   - [Configure Private Service Connect interface for a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect)
   - [Use Private Service Connect interface for Gemini Enterprise Agent Platform Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress)
-  - [Create a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#enable_interface)
+  - [Create a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#enable_interface)
   - [Using Private Service Connect interface with Agent Runtime](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/private-service-connect-interface)
 
 ## VPC Service Controls considerations

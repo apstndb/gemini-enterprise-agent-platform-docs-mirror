@@ -71,7 +71,7 @@ The Vertex AI SDK includes the following methods to import a model to the Gemini
 
 #### Deploy a model
 
-After you register a model, you need to deploy the model to an endpoint before you can use it for predictions. Use the [`Model.deploy`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model#google_cloud_aiplatform_Model_deploy) method to deploy your model to an [`Endpoint`](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/prediction-classes#endpoint) . For more information, see [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
+After you register a model, you need to deploy the model to an endpoint before you can use it for predictions. Use the [`Model.deploy`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model#google_cloud_aiplatform_Model_deploy) method to deploy your model to an [`Endpoint`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/prediction-classes#endpoint) . For more information, see [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
 ### [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation)
 
@@ -111,4 +111,4 @@ The following code sample shows how to create a reference to a model evaluation 
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .

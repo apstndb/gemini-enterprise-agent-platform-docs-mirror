@@ -41,7 +41,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import requests
     from google import genai
@@ -161,7 +161,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import (
         "context"
@@ -321,7 +321,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     const {GoogleGenAI} = require('@google/genai');
     
@@ -473,7 +473,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import static com.google.genai.types.Type.Known.ARRAY;
     import static com.google.genai.types.Type.Known.INTEGER;

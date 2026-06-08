@@ -36,6 +36,7 @@ data_source: docs.cloud.google.com
   - `  ReasoningEngineExecutionService  ` (interface)
   - `  ReasoningEngineService  ` (interface)
   - `  ScheduleService  ` (interface)
+  - `  SessionService  ` (interface)
   - `  SpecialistPoolService  ` (interface)
   - `  TensorboardService  ` (interface)
   - `  VertexRagDataService  ` (interface)
@@ -55,6 +56,8 @@ data_source: docs.cloud.google.com
   - `  AnnotationSpec  ` (message)
   - `  ApiAuth  ` (message)
   - `  ApiAuth.ApiKeyConfig  ` (message)
+  - `  AppendEventRequest  ` (message)
+  - `  AppendEventResponse  ` (message)
   - `  Artifact  ` (message)
   - `  Artifact.State  ` (enum)
   - `  AskContextsRequest  ` (message)
@@ -121,6 +124,8 @@ data_source: docs.cloud.google.com
   - `  BoolArray  ` (message)
   - `  CachedContent  ` (message)
   - `  CachedContent.UsageMetadata  ` (message)
+  - `  CancelAsyncQueryReasoningEngineRequest  ` (message)
+  - `  CancelAsyncQueryReasoningEngineResponse  ` (message)
   - `  CancelBatchPredictionJobRequest  ` (message)
   - `  CancelCustomJobRequest  ` (message)
   - `  CancelHyperparameterTuningJobRequest  ` (message)
@@ -221,6 +226,8 @@ data_source: docs.cloud.google.com
   - `  CreateReasoningEngineRequest  ` (message)
   - `  CreateRegistryFeatureOperationMetadata  ` (message)
   - `  CreateScheduleRequest  ` (message)
+  - `  CreateSessionOperationMetadata  ` (message)
+  - `  CreateSessionRequest  ` (message)
   - `  CreateSpecialistPoolOperationMetadata  ` (message)
   - `  CreateSpecialistPoolRequest  ` (message)
   - `  CreateStudyRequest  ` (message)
@@ -286,6 +293,7 @@ data_source: docs.cloud.google.com
   - `  DeleteReasoningEngineRequest  ` (message)
   - `  DeleteSavedQueryRequest  ` (message)
   - `  DeleteScheduleRequest  ` (message)
+  - `  DeleteSessionRequest  ` (message)
   - `  DeleteSpecialistPoolRequest  ` (message)
   - `  DeleteStudyRequest  ` (message)
   - `  DeleteTensorboardExperimentRequest  ` (message)
@@ -354,6 +362,8 @@ data_source: docs.cloud.google.com
   - `  EvaluationParserConfig.CustomCodeParserConfig  ` (message)
   - `  Event  ` (message)
   - `  Event.Type  ` (enum)
+  - `  EventActions  ` (message)
+  - `  EventMetadata  ` (message)
   - `  ExactMatchInput  ` (message)
   - `  ExactMatchInstance  ` (message)
   - `  ExactMatchMetricValue  ` (message)
@@ -555,6 +565,7 @@ data_source: docs.cloud.google.com
   - `  GetRagFileRequest  ` (message)
   - `  GetReasoningEngineRequest  ` (message)
   - `  GetScheduleRequest  ` (message)
+  - `  GetSessionRequest  ` (message)
   - `  GetSpecialistPoolRequest  ` (message)
   - `  GetStudyRequest  ` (message)
   - `  GetTensorboardExperimentRequest  ` (message)
@@ -648,6 +659,8 @@ data_source: docs.cloud.google.com
   - `  ListEndpointsResponse  ` (message)
   - `  ListEntityTypesRequest  ` (message)
   - `  ListEntityTypesResponse  ` (message)
+  - `  ListEventsRequest  ` (message)
+  - `  ListEventsResponse  ` (message)
   - `  ListExecutionsRequest  ` (message)
   - `  ListExecutionsResponse  ` (message)
   - `  ListFeatureGroupsRequest  ` (message)
@@ -710,6 +723,8 @@ data_source: docs.cloud.google.com
   - `  ListSavedQueriesResponse  ` (message)
   - `  ListSchedulesRequest  ` (message)
   - `  ListSchedulesResponse  ` (message)
+  - `  ListSessionsRequest  ` (message)
+  - `  ListSessionsResponse  ` (message)
   - `  ListSpecialistPoolsRequest  ` (message)
   - `  ListSpecialistPoolsResponse  ` (message)
   - `  ListStudiesRequest  ` (message)
@@ -1113,6 +1128,8 @@ data_source: docs.cloud.google.com
   - `  SecretRef  ` (message)
   - `  Segment  ` (message)
   - `  ServiceAccountSpec  ` (message)
+  - `  Session  ` (message)
+  - `  SessionEvent  ` (message)
   - `  SharePointSources  ` (message)
   - `  SharePointSources.SharePointSource  ` (message)
   - `  ShieldedVmConfig  ` (message)
@@ -1220,6 +1237,7 @@ data_source: docs.cloud.google.com
   - `  Tool.ComputerUse  ` (message)
   - `  Tool.ComputerUse.Environment  ` (enum)
   - `  Tool.GoogleSearch  ` (message)
+  - `  Tool.ParallelAiSearch  ` (message)
   - `  Tool.PhishBlockThreshold  ` (enum)
   - `  ToolCall  ` (message)
   - `  ToolCallValidInput  ` (message)
@@ -1275,6 +1293,7 @@ data_source: docs.cloud.google.com
   - `  TrajectorySingleToolUseMetricValue  ` (message)
   - `  TrajectorySingleToolUseResults  ` (message)
   - `  TrajectorySingleToolUseSpec  ` (message)
+  - `  Transcription  ` (message)
   - `  Trial  ` (message)
   - `  Trial.Parameter  ` (message)
   - `  Trial.State  ` (enum)
@@ -1333,6 +1352,7 @@ data_source: docs.cloud.google.com
   - `  UpdateReasoningEngineOperationMetadata  ` (message)
   - `  UpdateReasoningEngineRequest  ` (message)
   - `  UpdateScheduleRequest  ` (message)
+  - `  UpdateSessionRequest  ` (message)
   - `  UpdateSpecialistPoolOperationMetadata  ` (message)
   - `  UpdateSpecialistPoolRequest  ` (message)
   - `  UpdateTensorboardExperimentRequest  ` (message)
@@ -10240,6 +10260,41 @@ A service for executing queries on Reasoning Engine.
 </colgroup>
 <thead>
 <tr class="header">
+<th>CancelAsyncQueryReasoningEngine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CancelAsyncQueryReasoningEngine(              CancelAsyncQueryReasoningEngineRequest            </code> ) returns ( <code dir="ltr" translate="no">             CancelAsyncQueryReasoningEngineResponse            </code> )</p>
+<p>Cancels an AsyncQueryReasoningEngine operation.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.reasoningEngines.query</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
 <th>InvokeReasoningEngine</th>
 </tr>
 </thead>
@@ -10767,6 +10822,201 @@ A service for creating and managing Agent Platform's Schedule resources to perio
 <li><code dir="ltr" translate="no">aiplatform.schedules.update</code></li>
 </ul>
 <p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+## SessionService
+
+The service that manages Vertex Session related resources.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AppendEvent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc AppendEvent(              AppendEventRequest            </code> ) returns ( <code dir="ltr" translate="no">             AppendEventResponse            </code> )</p>
+<p>Appends an event to a given session.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CreateSession</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CreateSession(              CreateSessionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Creates a new <code dir="ltr" translate="no">            Session           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteSession</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteSession(              DeleteSessionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deletes details of the specific <code dir="ltr" translate="no">            Session           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetSession</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetSession(              GetSessionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Session            </code> )</p>
+<p>Gets details of the specific <code dir="ltr" translate="no">            Session           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListEvents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListEvents(              ListEventsRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListEventsResponse            </code> )</p>
+<p>Lists <code dir="ltr" translate="no">            Events           </code> in a given session.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListSessions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListSessions(              ListSessionsRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListSessionsResponse            </code> )</p>
+<p>Lists <code dir="ltr" translate="no">            Sessions           </code> in a given reasoning engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sessions.list</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>UpdateSession</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc UpdateSession(              UpdateSessionRequest            </code> ) returns ( <code dir="ltr" translate="no">             Session            </code> )</p>
+<p>Updates the specific <code dir="ltr" translate="no">            Session           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -13471,6 +13721,30 @@ The API key string.
 
 Either this or `api_key_secret_version` must be set.
 
+## AppendEventRequest
+
+Request message for `  SessionService.AppendEvent  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the session to append event to. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+
+`event`
+
+`  SessionEvent  `
+
+Required. The event to append to the session.
+
+## AppendEventResponse
+
+This type has no fields.
+
+Response message for `  SessionService.AppendEvent  ` .
+
 ## Artifact
 
 Instance of a general artifact.
@@ -15151,6 +15425,30 @@ Duration of video in seconds.
 `int32`
 
 Duration of audio in seconds.
+
+## CancelAsyncQueryReasoningEngineRequest
+
+Request message for `  ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the ReasoningEngine resource to use. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`operation_name`
+
+`string`
+
+Required. The name of the longrunning operation returned from AsyncQueryReasoningEngine. Format: `projects/{project}/locations/{location}/operations/{operation}`
+
+## CancelAsyncQueryReasoningEngineResponse
+
+This type has no fields.
+
+Response message for `  ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine  ` .
 
 ## CancelBatchPredictionJobRequest
 
@@ -17268,6 +17566,44 @@ Required. The resource name of the Location to create the Schedule in. Format: `
 
 Required. The Schedule to create.
 
+## CreateSessionOperationMetadata
+
+Metadata associated with the `  SessionService.CreateSession  ` operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## CreateSessionRequest
+
+Request message for `  SessionService.CreateSession  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the location to create the session in. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`session`
+
+`  Session  `
+
+Required. The session to create.
+
+`session_id`
+
+`string`
+
+Optional. The user defined ID to use for session, which will become the final component of the session resource name. If not provided, Agent Platform will generate a value for this ID.
+
+This value may be up to 63 characters, and valid characters are `[a-z0-9-]` . The first and last characters must be a letter or number.
+
 ## CreateSpecialistPoolOperationMetadata
 
 Runtime operation information for `  SpecialistPoolService.CreateSpecialistPool  ` .
@@ -18703,6 +19039,18 @@ Fields
 `string`
 
 Required. The name of the Schedule resource to be deleted. Format: `projects/{project}/locations/{location}/schedules/{schedule}`
+
+## DeleteSessionRequest
+
+Request message for `  SessionService.DeleteSession  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the session. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
 
 ## DeleteSpecialistPoolRequest
 
@@ -21082,6 +21430,108 @@ An input of the Execution.
 `OUTPUT`
 
 An output of the Execution.
+
+## EventActions
+
+Actions are parts of events that are executed by the agent.
+
+Fields
+
+`skip_summarization`
+
+`bool`
+
+Optional. If true, it won't call model to summarize function response. Only used for function\_response event.
+
+`state_delta`
+
+`  Struct  `
+
+Optional. Indicates that the event is updating the state with the given delta.
+
+`artifact_delta`
+
+`map<string, int32>`
+
+Optional. Indicates that the event is updating an artifact. key is the filename, value is the version.
+
+`escalate`
+
+`bool`
+
+Optional. The agent is escalating to a higher level agent.
+
+`requested_auth_configs`
+
+`  Struct  `
+
+Optional. Will only be set by a tool response indicating tool request euc. Struct key is the function call id since one function call response (from model) could correspond to multiple function calls. Struct value is the required auth config, which can be another struct.
+
+`transfer_agent`
+
+`string`
+
+Optional. If set, the event transfers to the specified agent.
+
+## EventMetadata
+
+Metadata relating to a LLM response event.
+
+Fields
+
+`grounding_metadata`
+
+`  GroundingMetadata  `
+
+Optional. Metadata returned to client when grounding is enabled.
+
+`partial`
+
+`bool`
+
+Optional. Indicates whether the text content is part of a unfinished text stream. Only used for streaming mode and when the content is plain text.
+
+`turn_complete`
+
+`bool`
+
+Optional. Indicates whether the response from the model is complete. Only used for streaming mode.
+
+`interrupted`
+
+`bool`
+
+Optional. Flag indicating that LLM was interrupted when generating the content. Usually it's due to user interruption during a bidi streaming.
+
+`long_running_tool_ids[]`
+
+`string`
+
+Optional. Set of ids of the long running function calls. Agent client will know from this field about which function call is long running. Only valid for function call event.
+
+`branch`
+
+`string`
+
+Optional. The branch of the event. The format is like agent\_1.agent\_2.agent\_3, where agent\_1 is the parent of agent\_2, and agent\_2 is the parent of agent\_3. Branch is used when multiple child agents shouldn't see their siblings' conversation history.
+
+`custom_metadata`
+
+`  Struct  `
+
+The custom metadata of the LlmResponse.
+
+`input_transcription`
+
+`  Transcription  `
+
+Optional. Audio transcription of user input.
+
+`output_transcription`
+
+`  Transcription  `
+
+Optional. Audio transcription of model output.
 
 ## ExactMatchInput
 
@@ -25986,6 +26436,18 @@ Fields
 
 Required. The name of the Schedule resource. Format: `projects/{project}/locations/{location}/schedules/{schedule}`
 
+## GetSessionRequest
+
+Request message for `  SessionService.GetSession  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the session. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+
 ## GetSpecialistPoolRequest
 
 Request message for `  SpecialistPoolService.GetSpecialistPool  ` .
@@ -28860,6 +29322,64 @@ The EntityTypes matching the request.
 
 A token, which can be sent as `  ListEntityTypesRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
 
+## ListEventsRequest
+
+Request message for `  SessionService.ListEvents  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the session to list events from. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+
+`page_size`
+
+`int32`
+
+Optional. The maximum number of events to return. The service may return fewer than this value. If unspecified, at most 100 events will be returned. These events are ordered by timestamp in ascending order.
+
+`page_token`
+
+`string`
+
+Optional. The `  next_page_token  ` value returned from a previous list `  SessionService.ListEvents  ` call.
+
+`filter`
+
+`string`
+
+Optional. The standard list filter. Supported fields: \* `timestamp` range (i.e. `timestamp>="2025-01-31T11:30:00-04:00"` where the timestamp is in RFC 3339 format)
+
+More detail in [AIP-160](https://google.aip.dev/160) .
+
+`order_by`
+
+`string`
+
+Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields: \* `timestamp`
+
+Example: `timestamp desc` .
+
+## ListEventsResponse
+
+Response message for `  SessionService.ListEvents  ` .
+
+Fields
+
+`session_events[]`
+
+`  SessionEvent  `
+
+A list of events matching the request. Ordered by timestamp in ascending order.
+
+`next_page_token`
+
+`string`
+
+A token, which can be sent as `  ListEventsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+
 ## ListExecutionsRequest
 
 Request message for `  MetadataService.ListExecutions  ` .
@@ -30796,6 +31316,64 @@ List of Schedules in the requested page.
 `string`
 
 A token to retrieve the next page of results. Pass to `  ListSchedulesRequest.page_token  ` to obtain that page.
+
+## ListSessionsRequest
+
+Request message for `  SessionService.ListSessions  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the location to list sessions from. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`page_size`
+
+`int32`
+
+Optional. The maximum number of sessions to return. The service may return fewer than this value. If unspecified, the default page size is 100. Values greater than 100 will be capped at 100.
+
+`page_token`
+
+`string`
+
+Optional. The `  next_page_token  ` value returned from a previous list `  SessionService.ListSessions  ` call.
+
+`filter`
+
+`string`
+
+Optional. The standard list filter. Supported fields: \* `display_name` \* `user_id` \* `labels`
+
+Example: `display_name="abc"` , `user_id="123"` , `labels.key="value"` .
+
+`order_by`
+
+`string`
+
+Optional. A comma-separated list of fields to order by, sorted in ascending order. Use "desc" after a field name for descending. Supported fields: \* `create_time` \* `update_time`
+
+Example: `create_time desc` .
+
+## ListSessionsResponse
+
+Response message for `  SessionService.ListSessions  ` .
+
+Fields
+
+`sessions[]`
+
+`  Session  `
+
+A list of sessions matching the request.
+
+`next_page_token`
+
+`string`
+
+A token, which can be sent as `  ListSessionsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
 ## ListSpecialistPoolsRequest
 
@@ -42151,6 +42729,138 @@ The users must have `iam.serviceAccounts.actAs` permission on this service accou
 
 Do not set this field if you want to submit jobs using custom service account to this PersistentResource after creation, but only specify the `service_account` inside the job.
 
+## Session
+
+A session contains a set of actions between users and Vertex agents.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name of the session. Format: 'projects/{project}/locations/{location}/reasoningEngines/{reasoning\_engine}/sessions/{session}'.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when the session was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when the session was updated.
+
+`display_name`
+
+`string`
+
+Optional. The display name of the session.
+
+`labels`
+
+`map<string, string>`
+
+The labels with user-defined metadata to organize your Sessions.
+
+Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed.
+
+See <https://goo.gl/xmQnxf> for more information and examples of labels.
+
+`session_state`
+
+`  Struct  `
+
+Optional. Session specific memory which stores key conversation points.
+
+`user_id`
+
+`string`
+
+Required. Immutable. String id provided by the user
+
+Union field `expiration` . The expiration of the session. `expiration` can be only one of the following:
+
+`expire_time`
+
+`  Timestamp  `
+
+Optional. Timestamp of when this session is considered expired. This is *always* provided on output, regardless of what was sent on input. The minimum value is 24 hours from the time of creation.
+
+`ttl`
+
+`  Duration  `
+
+Optional. Input only. The TTL for this session. The minimum value is 24 hours.
+
+## SessionEvent
+
+An event represents a message from either the user or agent.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name of the event. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}/events/{event}` .
+
+`author`
+
+`string`
+
+Required. The name of the agent that sent the event, or user.
+
+`content`
+
+`  Content  `
+
+Optional. Content of the event provided by the author.
+
+`invocation_id`
+
+`string`
+
+Required. The invocation id of the event, multiple events can have the same invocation id.
+
+`actions`
+
+`  EventActions  `
+
+Optional. Actions executed by the agent.
+
+`timestamp`
+
+`  Timestamp  `
+
+Required. Timestamp when the event was created on client side.
+
+`error_code`
+
+`string`
+
+Optional. Error code if the response is an error. Code varies by model.
+
+`error_message`
+
+`string`
+
+Optional. Error message if the response is an error.
+
+`event_metadata`
+
+`  EventMetadata  `
+
+Optional. Metadata relating to this event.
+
+`raw_event`
+
+`  Struct  `
+
+Optional. Weakly typed raw event data in proto struct format.
+
 ## SharePointSources
 
 The SharePointSources to pass to ImportRagFiles.
@@ -44837,6 +45547,12 @@ Optional. GoogleMaps tool type. Tool to support Google Maps in Model.
 
 Optional. Tool to support searching public web data, powered by Agent Platform Search and Sec4 compliance.
 
+`parallel_ai_search`
+
+`  ParallelAiSearch  `
+
+Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
+
 `code_execution`
 
 `  CodeExecution  `
@@ -44912,6 +45628,24 @@ Optional. List of domains to be excluded from the search results. The default li
 `  PhishBlockThreshold  `
 
 Optional. Sites with confidence level chosen & above this value will be blocked from the search results.
+
+## ParallelAiSearch
+
+ParallelAiSearch tool type. A tool that uses the Parallel.ai search engine for grounding.
+
+Fields
+
+`api_key`
+
+`string`
+
+Optional. The API key for ParallelAiSearch. If an API key is not provided, the system will attempt to verify access by checking for an active Parallel.ai subscription through the Google Cloud Marketplace. See <https://docs.parallel.ai/search/search-quickstart> for more details.
+
+`custom_configs`
+
+`  Struct  `
+
+Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: <https://docs.parallel.ai/api-reference/search-beta/search> Currently only `source_policy` , `excerpts` , `max_results` , `mode` , `fetch_policy` can be set via this field. For example: { "source\_policy": { "include\_domains": \["google.com", "wikipedia.org"\], "exclude\_domains": \["example.com"\] }, "fetch\_policy": { "max\_age\_seconds": 3600 } }
 
 ## PhishBlockThreshold
 
@@ -45776,6 +46510,24 @@ Fields
 `string`
 
 Required. Spec for tool name to be checked for in the predicted trajectory.
+
+## Transcription
+
+Audio transcription in Server Content.
+
+Fields
+
+`text`
+
+`string`
+
+Optional. Transcription text.
+
+`finished`
+
+`bool`
+
+Optional. The bool indicates the end of the transcription.
 
 ## Trial
 
@@ -47050,6 +47802,24 @@ Required. The Schedule which replaces the resource on the server. The following 
 
 Required. The update mask applies to the resource. See `  google.protobuf.FieldMask  ` .
 
+## UpdateSessionRequest
+
+Request message for `  SessionService.UpdateSession  ` .
+
+Fields
+
+`session`
+
+`  Session  `
+
+Required. The session to update. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. Field mask is used to control which fields get updated. If the mask is not present, all fields will be updated.
+
 ## UpdateSpecialistPoolOperationMetadata
 
 Runtime operation metadata for `  SpecialistPoolService.UpdateSpecialistPool  ` .
@@ -47459,6 +48229,14 @@ Unspecified request traffic type.
 `ON_DEMAND`
 
 Type for Pay-As-You-Go traffic.
+
+`ON_DEMAND_PRIORITY`
+
+Type for Priority Pay-As-You-Go traffic.
+
+`ON_DEMAND_FLEX`
+
+Type for Flex traffic.
 
 `PROVISIONED_THROUGHPUT`
 

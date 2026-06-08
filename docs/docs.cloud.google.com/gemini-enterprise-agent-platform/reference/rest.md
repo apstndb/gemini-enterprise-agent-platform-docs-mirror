@@ -1771,6 +1771,11 @@ Methods
 `POST /v1/{name}:asyncQuery`  
 Async query using a reasoning engine.
 
+`  cancelAsyncQuery  `
+
+`POST /v1/{name}:cancelAsyncQuery`  
+Cancels an AsyncQueryReasoningEngine operation.
+
 `  create  `
 
 `POST /v1/{parent}/reasoningEngines`  
@@ -1819,6 +1824,49 @@ Queries using a reasoning engine.
 
 `POST /v1/{name}:streamQuery`  
 Streams queries using a reasoning engine.
+
+## REST Resource: [v1.projects.locations.reasoningEngines.sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions)
+
+Methods
+
+`  appendEvent  `
+
+`POST /v1/{name}:appendEvent`  
+Appends an event to a given session.
+
+`  create  `
+
+`POST /v1/{parent}/sessions`  
+Creates a new `  Session  ` .
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes details of the specific `  Session  ` .
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets details of the specific `  Session  ` .
+
+`  list  `
+
+`GET /v1/{parent}/sessions`  
+Lists `  Sessions  ` in a given reasoning engine.
+
+`  patch  `
+
+`PATCH /v1/{session.name}`  
+Updates the specific `  Session  ` .
+
+## REST Resource: [v1.projects.locations.reasoningEngines.sessions.events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions.events)
+
+Methods
+
+`  list  `
+
+`GET /v1/{parent}/events`  
+Lists `  Events  ` in a given session.
 
 ## REST Resource: [v1.projects.locations.schedules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.schedules)
 
@@ -4259,6 +4307,11 @@ Methods
 
 `POST /v1beta1/{name}:asyncQuery`  
 Async query using a reasoning engine.
+
+`  cancelAsyncQuery  `
+
+`POST /v1beta1/{name}:cancelAsyncQuery`  
+Cancels an AsyncQueryReasoningEngine operation.
 
 `  create  `
 

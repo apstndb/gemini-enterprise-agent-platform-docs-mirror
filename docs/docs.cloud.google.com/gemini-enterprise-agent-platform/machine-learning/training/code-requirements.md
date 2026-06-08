@@ -14,7 +14,7 @@ Perform serverless training on Gemini Enterprise Agent Platform to run your own 
 
 First, determine what structure you want your ML training code to take. You can provide training code to Agent Platform in one of the following forms:
 
-  - **A Python script to use with a prebuilt container.** Use the [Vertex AI SDK](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) to [create a custom job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob#google_cloud_aiplatform_CustomJob_from_local_script) . This method lets you provide your training application as a single Python script.
+  - **A Python script to use with a prebuilt container.** Use the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to [create a custom job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob#google_cloud_aiplatform_CustomJob_from_local_script) . This method lets you provide your training application as a single Python script.
 
   - **A Python training application to use with a prebuilt container.** Create a [Python source distribution](https://packaging.python.org/en/latest/overview/#python-source-distributions) with code that trains an ML model and exports it to Cloud Storage. This training application can use any of the dependencies included in the prebuilt container that you plan to use it with.
     

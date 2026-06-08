@@ -52,7 +52,7 @@ For more information about MLOps, see [Continuous delivery and automation pipeli
 
   - **Scale AI and Python applications** : [Ray](https://docs.ray.io/en/latest/ray-overview/index.html) is an open-source framework for scaling AI and Python applications. Ray provides the infrastructure to perform distributed computing and parallel processing for your machine learning (ML) workflow.
     
-      - [Ray on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray-on-vertex-ai/overview) is designed so you can use the same open source Ray code to write programs and develop applications on Gemini Enterprise Agent Platform with minimal changes. You can then use Gemini Enterprise Agent Platform's integrations with other Google Cloud services such as [Vertex AI Inference](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices) and [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) as part of your machine learning (ML) workflow.
+      - [Ray on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/overview) is designed so you can use the same open source Ray code to write programs and develop applications on Gemini Enterprise Agent Platform with minimal changes. You can then use Gemini Enterprise Agent Platform's integrations with other Google Cloud services such as [Vertex AI Inference](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices) and [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) as part of your machine learning (ML) workflow.
 
 ## What's next
 

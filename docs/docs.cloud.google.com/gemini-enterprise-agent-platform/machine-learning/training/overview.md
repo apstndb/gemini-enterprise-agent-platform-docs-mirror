@@ -194,7 +194,7 @@ After you've determined the type of container image to use, package your trainin
 
   - **Single Python file for use in a prebuilt container**
     
-    Write your training application as a single Python file and use the [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) to create a `CustomJob` or `CustomTrainingJob` class. The Python file is packaged into a Python source distribution and installed to a prebuilt container image. Delivering your training application as a single Python file is suitable for prototyping. For production training applications, you'll likely have your training application arranged into more than one file.
+    Write your training application as a single Python file and use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to create a `CustomJob` or `CustomTrainingJob` class. The Python file is packaged into a Python source distribution and installed to a prebuilt container image. Delivering your training application as a single Python file is suitable for prototyping. For production training applications, you'll likely have your training application arranged into more than one file.
 
   - **Python source distribution for use in a prebuilt container**
     

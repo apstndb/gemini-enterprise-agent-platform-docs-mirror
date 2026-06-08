@@ -1,16 +1,17 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vertex-psc-batch-predictions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vertex-psc-batch-predictions
-title: Use Private Service Connect to access Gemini Enterprise Agent Platform batch inferences from on-premises
 description: This tutorial shows you how to access batch inferences via Private Service Connect.
 data_source: docs.cloud.google.com
 ---
+
+Use Private Service Connect to access Gemini Enterprise Agent Platform batch inferences from on-premises
 
 Batch inferences are asynchronous requests that request inferences directly from the model resource without the need to deploy the model to an endpoint.
 
 In this tutorial, you use High-Availability VPN (HA VPN) to send batch inference requests to a trained model privately, between two Virtual Private Cloud networks that can serve as a basis for multi-cloud and on-premises private connectivity.
 
-This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud (VPC), the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/workbench/introduction) is helpful but not required.
+This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud (VPC), the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) is helpful but not required.
 
 ![Architectural diagram of using Private Service Connect to access batch inferences.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-psc-batch-predictions.png)
 
@@ -75,7 +76,7 @@ When you finish the tasks that are described in this document, you can avoid con
     Replace the following:
     
       - `  PROJECT_ID  ` : Your project ID.
-      - `  USER_IDENTIFIER  ` : The identifier for your user account. For example, `myemail@example.com` .
+      - `  USER_IDENTIFIER  ` : The identifier for your user account. For examples, see [Represent workforce pool users in IAM policies](https://docs.cloud.google.com/iam/docs/workforce-identity-federation#representing-workforce-users) .
       - `  ROLE  ` : The IAM role that you grant to your user account.
 
 8.  Enable the DNS, Artifact Registry, IAM, Compute Engine, Notebooks, and Agent Platform APIs:
@@ -457,13 +458,13 @@ In this section, you create a VM instance that simulates an on-premises client a
 3.  Assign the [Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) role to the service account:
     
         gcloud projects add-iam-policy-binding $projectid \
-          --member="serviceAccount:onprem-user-managed-sa@$projectid.iam.gserviceaccount.com" \
+          --member="serviceAccount:onprem-user-managed-sa@$projectid." \
           --role="roles/aiplatform.user"
 
 4.  Assign the [Storage Object Viewer ( `storage.objectViewer` )](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) role to the service account:
     
         gcloud projects add-iam-policy-binding $projectid \
-          --member="serviceAccount:onprem-user-managed-sa@$projectid.iam.gserviceaccount.com" \
+          --member="serviceAccount:onprem-user-managed-sa@$projectid." \
           --role="roles/storage.objectViewer"
 
 ### Create the `on-prem-client` VM instance
@@ -480,7 +481,7 @@ The VM instance that you create doesn't have an external IP address and doesn't 
           --scopes=https://www.googleapis.com/auth/cloud-platform \
           --no-address \
           --shielded-secure-boot \
-          --service-account=onprem-user-managed-sa@$projectid.iam.gserviceaccount.com \
+          --service-account=onprem-user-managed-sa@$projectid. \
           --metadata startup-script="#! /bin/bash
             sudo apt-get update
             sudo apt-get install tcpdump dnsutils -y"
@@ -607,25 +608,25 @@ In this section, to [control access to your Vertex AI Workbench instance](https:
 3.  Assign the [Agent Platform User ( `roles/aiplatform.user` )](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) IAM role to the service account:
     
         gcloud projects add-iam-policy-binding $projectid \
-          --member="serviceAccount:workbench-sa@$projectid.iam.gserviceaccount.com" \
+          --member="serviceAccount:workbench-sa@$projectid." \
           --role="roles/aiplatform.user"
 
 4.  Assign the [BigQuery User ( `roles/bigquery.user` )](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.user) IAM role to the service account:
     
         gcloud projects add-iam-policy-binding $projectid \
-          --member="serviceAccount:workbench-sa@$projectid.iam.gserviceaccount.com" \
+          --member="serviceAccount:workbench-sa@$projectid." \
           --role="roles/bigquery.user"
 
 5.  Assign the [Storage Admin ( `roles/storage.admin` )](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) IAM role to the service account:
     
         gcloud projects add-iam-policy-binding $projectid \
-          --member="serviceAccount:workbench-sa@$projectid.iam.gserviceaccount.com" \
+          --member="serviceAccount:workbench-sa@$projectid." \
           --role="roles/storage.admin"
 
 6.  Assign the [Logs Viewer ( `roles/logging.viewer` )](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) IAM role to the service account:
     
         gcloud projects add-iam-policy-binding $projectid \
-          --member="serviceAccount:workbench-sa@$projectid.iam.gserviceaccount.com" \
+          --member="serviceAccount:workbench-sa@$projectid." \
           --role="roles/logging.viewer"
 
 ### Create the Vertex AI Workbench instance
@@ -641,7 +642,7 @@ In this section, to [control access to your Vertex AI Workbench instance](https:
           --shielded-secure-boot=True \
           --subnet=workbench-subnet \
           --disable-public-ip \
-          --service-account-email=workbench-sa@$projectid.iam.gserviceaccount.com
+          --service-account-email=workbench-sa@$projectid.
 
 2.  In the Google Cloud console, go to the **Instances** tab on the **Gemini Enterprise Agent Platform Workbench** page.
 

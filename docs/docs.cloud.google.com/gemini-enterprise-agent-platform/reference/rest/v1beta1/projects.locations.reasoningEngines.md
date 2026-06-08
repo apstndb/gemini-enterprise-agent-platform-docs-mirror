@@ -536,6 +536,10 @@ Traffic distribution configuration, where all traffic is sent to the latest Runt
 
 Async query using a reasoning engine.
 
+### `            cancelAsyncQuery           `
+
+Cancels an AsyncQueryReasoningEngine operation.
+
 ### `            create           `
 
 Creates a reasoning engine.

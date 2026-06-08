@@ -654,7 +654,7 @@ Gemini 3 models also support the following features:
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)
   - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search)
-  - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/code-execution)
+  - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)
   - [URL Context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)
   - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)
   - [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)

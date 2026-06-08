@@ -14,7 +14,7 @@ To start a monitoring job, Model Monitoring needs to know the schema of your tab
     
       - Model Monitoring can automatically parse schemas for models that use a standard key-value input format.
     
-      - For custom-trained models that don't use a key-value input format, you may need to provide a schema when [creating your monitoring job](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring) .
+      - For custom-trained models that don't use a key-value input format, you may need to provide a schema when [creating your monitoring job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring) .
     
     Schema generation varies based on whether you are enabling Model Monitoring for an online inference endpoint or batch inferences.
 
@@ -37,7 +37,7 @@ If the inputs are not in `" key ":" value "` format, Model Monitoring tries to i
 
 ### Custom instance schemas
 
-You can provide your own input schema when you [create a Model Monitoring job](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring) to guarantee that Model Monitoring correctly parses your model's inputs.
+You can provide your own input schema when you [create a Model Monitoring job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring) to guarantee that Model Monitoring correctly parses your model's inputs.
 
 This schema is called the *analysis instance schema* . The schema file specifies the format of the input payload, the names of each feature, and the type of each feature.
 
@@ -156,5 +156,5 @@ The corresponding schema must also specify two features:
 
 ## What's next
 
-  - [Enable skew and drift detection](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring) for your models.
+  - [Enable skew and drift detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring) for your models.
   - Try the example notebook [in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) or [view it on GitHub](https://www.github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) .

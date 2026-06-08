@@ -56,10 +56,10 @@ For large-scale, high-performance, and mission-critical training, you can reserv
 
 While you have exclusive use of these resources, Agent Platform still handles the operational overhead of managing the cluster, including hardware maintenance and OS patching. This "managed serverful" approach gives you the power of a dedicated cluster without the management complexity.
 
-## Ray on Vertex AI
+## Ray on Gemini Enterprise Agent Platform
 
-Ray on Vertex AI is a service that lets you use the open-source Ray framework for scaling AI and Python applications directly within Agent Platform. Ray is designed to provide the infrastructure for distributed computing and parallel processing for your ML workflow.
+Ray on Gemini Enterprise Agent Platform is a service that lets you use the open-source Ray framework for scaling AI and Python applications directly within Agent Platform. Ray is designed to provide the infrastructure for distributed computing and parallel processing for your ML workflow.
 
-Ray on Vertex AI provides a managed environment for running distributed applications using the Ray framework, offering scalability and integration with Google Cloud services.
+Ray on Gemini Enterprise Agent Platform provides a managed environment for running distributed applications using the Ray framework, offering scalability and integration with Google Cloud services.
 
-To learn more about Ray on Vertex AI see [Ray on Vertex AI overview](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray-on-vertex-ai/overview) .
+To learn more about Ray on Gemini Enterprise Agent Platform see [Ray on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/overview) .

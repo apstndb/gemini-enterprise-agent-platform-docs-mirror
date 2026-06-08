@@ -59,7 +59,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Command-line
 
-The `publicEndpointDomainName` listed below can be found at [Deploy](https://docs.cloud.google.com/vertex-ai/docs/vector-search/deploy-index-public) and is formatted as `<number>.<region>-<number>.vdb.vertexai.goog` .
+The `publicEndpointDomainName` listed below can be found at [Deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public) and is formatted as `<number>.<region>-<number>.vdb.vertexai.goog` .
 
 ``` 
   $ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer `gcloud auth print-access-token`" https://1957880287.us-central1-181224308459.vdb.vertexai.goog/v1/projects/181224308459/locations/us-central1/indexEndpoints/3370566089086861312:findNeighbors -d '{deployed_index_id: "test_index_public1", queries: [{datapoint: {datapoint_id: "0", feature_vector: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}, neighbor_count: 5}]}'
@@ -233,7 +233,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Command-line
 
-The `PUBLIC_ENDPOINT_DOMAIN` listed below can be found at [deployed index](https://docs.cloud.google.com/vertex-ai/docs/vector-search/deploy-index-public) and is formatted as `<number>.<region>-<number>.vdb.vertexai.goog` .
+The `PUBLIC_ENDPOINT_DOMAIN` listed below can be found at [deployed index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/deploy-index-public) and is formatted as `<number>.<region>-<number>.vdb.vertexai.goog` .
 
 This curl example demonstrates how to query with [token and numeric restricts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/filtering) .
 
@@ -246,7 +246,7 @@ This curl example demonstrates how to query with [token and numeric restricts](h
 
 The following query-time parameters can affect latency, availability, and cost when using Vector Search. This guidance applies to most cases. However, always experiment with your configurations to make sure that they work for your use case.
 
-For parameter definitions, see [Index configuration parameters](https://docs.cloud.google.com/vertex-ai/docs/vector-search/configuring-indexes) .
+For parameter definitions, see [Index configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/configuring-indexes) .
 
 <table>
 <colgroup>

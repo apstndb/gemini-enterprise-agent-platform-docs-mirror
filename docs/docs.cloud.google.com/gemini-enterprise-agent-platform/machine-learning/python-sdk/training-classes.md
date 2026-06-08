@@ -174,4 +174,4 @@ For more tutorial notebooks, see [Gemini Enterprise Agent Platform notebook tuto
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .

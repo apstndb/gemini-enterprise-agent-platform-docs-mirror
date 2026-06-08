@@ -26,7 +26,7 @@ Required. The resource name of the location to list agents from. Format: `projec
 
 `pageSize` `integer`
 
-Optional. The maximum number of agents to return. The service may return fewer than this value. If unspecified, at most 100 agents are returned.
+Optional. The maximum number of agents to return. The service may return fewer than this value. The maximum page size is 100; values above 100 will be coerced to 100. If unspecified, the default page size is 10.
 
 `pageToken` `string`
 

@@ -26,7 +26,7 @@ To use Model Monitoring, complete the following:
 
 2.  If you are enabling skew detection, upload your training data to [Cloud Storage](https://docs.cloud.google.com/storage/docs/uploading-objects) or [BigQuery](https://docs.cloud.google.com/bigquery/docs/loading-data) and obtain the URI link to the data. For drift detection, training data is not required.
 
-3.  Optional: For custom-trained models, upload the [analysis instance schema](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/schemas) for your model to Cloud Storage. Model Monitoring requires the schema to begin the monitoring process and calculate the baseline distribution for skew detection. If you don't provide the schema during job creation, the job remains in a pending state until Model Monitoring can automatically parse the schema from the first 1000 prediction requests the model receives.
+3.  Optional: For custom-trained models, upload the [analysis instance schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/schemas) for your model to Cloud Storage. Model Monitoring requires the schema to begin the monitoring process and calculate the baseline distribution for skew detection. If you don't provide the schema during job creation, the job remains in a pending state until Model Monitoring can automatically parse the schema from the first 1000 prediction requests the model receives.
 
 ## Create a Model Monitoring job
 
@@ -36,7 +36,7 @@ To set up either skew detection or drift detection, create a model deployment mo
 
 To create a model deployment monitoring job using the Google Cloud console, create an endpoint:
 
-> **Note:** To enable model monitoring for an existing endpoint, [edit the endpoint's settings](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring#update-model-monitoring-job) .
+> **Note:** To enable model monitoring for an existing endpoint, [edit the endpoint's settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring#update-model-monitoring-job) .
 
 1.  In the Google Cloud console, go to the **Agent Platform Endpoints** page.
 
@@ -611,7 +611,7 @@ You can use the Google Cloud console to visualize the distributions of each moni
     
     For each monitored feature, you can view the distributions of the 50 most recent monitoring jobs in the Google Cloud console. For skew detection, the training data distribution is displayed right next to the input data distribution:
     
-    ![Histograms showing example input data distribution and training data distribution for skew detection.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/skew_detection_distribution.png)
+    ![Histograms showing example input data distribution and training data distribution for skew detection.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/skew_detection_distribution.png)
     
     Visualizing data distribution as histograms lets you quickly focus on the changes that occurred in the data. Afterward, you might decide to adjust your feature generation pipeline or retrain the model.
 

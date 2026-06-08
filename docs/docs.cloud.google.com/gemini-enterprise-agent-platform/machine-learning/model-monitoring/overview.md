@@ -18,7 +18,7 @@ Model Monitoring can track and alert you when deviations exceed a specified thre
 
 For example, Model Monitoring can provide visualizations like in the following figure, which overlays two graphs from two datasets. This visualization lets you quickly compare and see deviations between the two sets of data.
 
-![An example of a numerical distribution of a baseline and tartget datasets.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/drift-sample.png)
+![An example of a numerical distribution of a baseline and tartget datasets.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/drift-sample.png)
 
 ## Model Monitoring versions
 
@@ -105,9 +105,9 @@ For more information about feature attributions and metrics, see [Feature-based 
 
 You must first register your models in Model Registry. If you are serving models outside of Agent Platform, you don't need to upload the model artifact. You then create a model monitor, which you associate with a model version, and define your model schema. For some models, such as AutoML models, the schema is provided for you.
 
-In the model monitor, you can optionally specify default configurations such as monitoring objectives, a training dataset, monitoring output location, and notification settings. For more information, see [Set up model monitoring](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/set-up-model-monitoring) .
+In the model monitor, you can optionally specify default configurations such as monitoring objectives, a training dataset, monitoring output location, and notification settings. For more information, see [Set up model monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/set-up-model-monitoring) .
 
-After you create a model monitor, you can run a monitoring job on demand or schedule regular jobs for continuous monitoring. When you run a job, Model Monitoring uses the default configuration set in the model monitor unless you provide a different monitoring configuration. For example, if you provide different monitoring objectives or a different comparison dataset, Model Monitoring uses the job's configurations instead of the default configuration from the model monitor. For more information, see [Run a monitoring job](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/run-monitoring-job) .
+After you create a model monitor, you can run a monitoring job on demand or schedule regular jobs for continuous monitoring. When you run a job, Model Monitoring uses the default configuration set in the model monitor unless you provide a different monitoring configuration. For example, if you provide different monitoring objectives or a different comparison dataset, Model Monitoring uses the job's configurations instead of the default configuration from the model monitor. For more information, see [Run a monitoring job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/run-monitoring-job) .
 
 ### Pricing
 
@@ -169,7 +169,7 @@ To detect drift for v1, Model Monitoring uses [TensorFlow Data Validation (TFDV)
     
       - For numerical features, Model Monitoring divides the range of possible feature values into equal intervals and computes the number or percentage of feature values that falls in each interval.
     
-    The baseline is calculated when you [create a Model Monitoring job](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/using-model-monitoring) , and is only recalculated if you update the training dataset for the job.
+    The baseline is calculated when you [create a Model Monitoring job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring) , and is only recalculated if you update the training dataset for the job.
 
 2.  Calculate the statistical distribution of the latest feature values seen in production.
 
@@ -185,21 +185,21 @@ The following example shows skew or drift between the baseline and latest distri
 
 ### Baseline distribution
 
-![An example feature distribution of baseline dataset.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/categorical_baseline_stats.png)
+![An example feature distribution of baseline dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/categorical_baseline_stats.png)
 
 ### Latest distribution
 
-![An example feature distribution of latest dataset.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/categorical_current_stats.png)
+![An example feature distribution of latest dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/categorical_current_stats.png)
 
 The following example shows skew or drift between the baseline and latest distributions of a numerical feature:
 
 ### Baseline distribution
 
-![An example feature distribution of baseline dataset.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/example_histogram.png)
+![An example feature distribution of baseline dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/example_histogram.png)
 
 ### Latest distribution
 
-![An example feature distribution of latest dataset.](https://docs.cloud.google.com/static/vertex-ai/docs/model-monitoring/images/current_dataset_histogram.png)
+![An example feature distribution of latest dataset.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/model-monitoring/images/current_dataset_histogram.png)
 
 ### Considerations when using Model Monitoring
 
@@ -219,5 +219,5 @@ The following example shows skew or drift between the baseline and latest distri
 
 ## What's next
 
-  - [Get started with Model Monitoring v2](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/set-up-model-monitoring)
-  - [Provide schema to Model Monitoring v1](https://docs.cloud.google.com/vertex-ai/docs/model-monitoring/schemas)
+  - [Get started with Model Monitoring v2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/set-up-model-monitoring)
+  - [Provide schema to Model Monitoring v1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/schemas)

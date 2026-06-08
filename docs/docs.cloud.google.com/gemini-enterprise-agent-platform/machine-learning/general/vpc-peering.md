@@ -11,8 +11,8 @@ You can configure Gemini Enterprise Agent Platform to peer with [Virtual Private
   - [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip)
   - [NFS shares for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share)
   - [Private inference endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints)
-  - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#use-psc-i-egress)
-  - [Vector matching online queries](https://docs.cloud.google.com/vertex-ai/docs/vector-search/setup/vpc#vpc-network-peering-setup)
+  - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
+  - [Vector matching online queries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup/vpc#vpc-network-peering-setup)
   - [Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/use-components#set_up)
 
 This guide shows how to set up [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with Agent Platform resources. This guide is recommended for networking administrators who are already familiar with Google Cloud networking concepts.

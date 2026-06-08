@@ -262,7 +262,7 @@ Run the following code to import and initialize the SDK for Agent Runtime:
 
 where
 
-  - `  PROJECT_ID  ` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#project) under which you [develop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/deploy-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/deploy-an-agent) agents, and
+  - `  PROJECT_ID  ` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#project) under which you [develop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents, and
   - `  LOCATION  ` is one of the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) .
 
 ## (Optional) Bring your own container (BYOC)

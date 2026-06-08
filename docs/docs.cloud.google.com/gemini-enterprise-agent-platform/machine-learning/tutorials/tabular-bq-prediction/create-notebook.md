@@ -60,7 +60,7 @@ Your notebook is where you run the code in this tutorial. It's a file with the e
 
 ### Install the Agent Platform SDK for Python
 
-After you open your notebook, you must install the Agent Platform SDK for Python. You use the Agent Platform SDK for Python to make Agent Platform API calls that create your dataset, create your model, train and deploy your model, and make predictions with your model. For more information, see [Use the Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+After you open your notebook, you must install the Agent Platform SDK for Python. You use the Agent Platform SDK for Python to make Agent Platform API calls that create your dataset, create your model, train and deploy your model, and make predictions with your model. For more information, see [Use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
 
 When you install Agent Platform SDK for Python, other Google Cloud SDKs on which it's dependent are also installed. Two of those SDKs are used in this tutorial:
 

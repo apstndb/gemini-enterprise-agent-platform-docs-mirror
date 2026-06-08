@@ -889,7 +889,7 @@ Gemini's thinking capability helps the model provide more contextually relevant 
 
 Guide
 
-### [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/function-calling)
+### [Introduction to function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)
 
 Learn how to enable Gemini models to use external tools during response generation using function calling.
 

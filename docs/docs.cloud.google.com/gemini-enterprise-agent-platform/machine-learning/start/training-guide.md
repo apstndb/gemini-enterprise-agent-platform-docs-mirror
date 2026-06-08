@@ -84,7 +84,7 @@ In both scenarios, this high level directory will also contain a subdirectory `t
 
 Training jobs on Gemini Enterprise Agent Platform automatically provisions compute resources, execute the training application code, and ensure deletion of compute resources once the training job is finished.
 
-As you build out more complicated workflows, it's likely that you'll use the [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) to configure, submit, and monitor your training jobs. However, the first time you run a custom training job it can be easier to use the Google Cloud console.
+As you build out more complicated workflows, it's likely that you'll use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to configure, submit, and monitor your training jobs. However, the first time you run a custom training job it can be easier to use the Google Cloud console.
 
 1.  In the Google Cloud console, go to the **Training** page.
 

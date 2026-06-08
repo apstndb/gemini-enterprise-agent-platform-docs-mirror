@@ -691,6 +691,10 @@ Use Agent Identity. The `serviceAccount` field must not be set.
 
 Async query using a reasoning engine.
 
+### `            cancelAsyncQuery           `
+
+Cancels an AsyncQueryReasoningEngine operation.
+
 ### `            create           `
 
 Creates a reasoning engine.

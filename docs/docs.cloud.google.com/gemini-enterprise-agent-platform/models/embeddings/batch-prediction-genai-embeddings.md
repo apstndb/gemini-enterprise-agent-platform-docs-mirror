@@ -206,7 +206,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import time
     
@@ -265,7 +265,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import (
         "context"
@@ -360,7 +360,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     const {GoogleGenAI} = require('@google/genai');
     
@@ -435,7 +435,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # with appropriate values for your project.
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=us-central1
-    export GOOGLE_GENAI_USE_VERTEXAI=True
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     import static com.google.genai.types.JobState.Known.JOB_STATE_CANCELLED;
     import static com.google.genai.types.JobState.Known.JOB_STATE_FAILED;

@@ -10,7 +10,7 @@ This guide shows how to set up a [Private Service Connect interface](https://doc
 
 You can configure Private Service Connect interface connections for certain resources in Gemini Enterprise Agent Platform, including:
 
-  - [Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#enable_interface)
+  - [Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#enable_interface)
   - [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress)
   - [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect)
   - [Agent Runtime](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/deploy#psc-i)
@@ -156,7 +156,7 @@ When configuring Agent Platform with a Shared VPC, create the network attachment
 
 ## What's next
 
-  - Learn how to use Private Service Connect interface egress for [Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster) .
+  - Learn how to use Private Service Connect interface egress for [Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster) .
   - Learn how to use Private Service Connect interface egress for [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress) .
   - Learn how to use Private Service Connect interface egress for [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect) .
   - Learn how to use Private Service Connect interface egress for [Agent Runtime](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/deploy#psc-i)

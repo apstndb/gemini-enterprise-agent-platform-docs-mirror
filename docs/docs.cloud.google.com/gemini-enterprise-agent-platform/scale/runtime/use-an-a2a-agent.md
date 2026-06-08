@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent
-title: Use an Agent2Agent agent
-description: Operate Agent2Agent agents on Agent Engine. Send messages, manage tasks, and access agent capabilities via SDKs or HTTP.
+title: Use an Agent2Agent (A2A) agent
+description: Operate Agent2Agent (A2A) agents on Agent Runtime. Send messages, manage tasks, and access agent capabilities via SDKs or HTTP.
 data_source: docs.cloud.google.com
 ---
 
@@ -14,7 +14,7 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create an Agent2Agent agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) to create an agent as an instance of [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) .
+  - [Create an Agent2Agent (A2A) agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) to create an agent as an instance of [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
@@ -120,7 +120,7 @@ The rest of this section assumes that you have an `AgentEngine` instance, named 
 
 ## Supported operations
 
-An A2A agent hosted on Agent Engine exposes a set of operations that correspond directly to the A2A protocol's API endpoints.
+An A2A agent hosted on Agent Runtime exposes a set of operations that correspond directly to the A2A protocol's API endpoints.
 
   - [`on_message_send`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent#send_a_message) : Sends a new message to the agent to start a task.
   - [`on_get_task`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent#get_a_task) : Retrieves the status and artifacts of an existing task.
@@ -129,7 +129,7 @@ An A2A agent hosted on Agent Engine exposes a set of operations that correspond 
 
 ## Retrieve the agent card
 
-Note that Agent Engine does not serve the public agent card. To retrieve the authenticated agent card:
+Note that Agent Runtime does not serve the public agent card. To retrieve the authenticated agent card:
 
 ### Agent Platform SDK
 
@@ -238,7 +238,7 @@ To cancel a task:
 
     from a2a.types import TaskQueryParams
     
-    task_data ={
+    task_data = {
         "id":task_id,
     }
     response = await a2a_client.cancel_task(TaskQueryParams(**task_data))
