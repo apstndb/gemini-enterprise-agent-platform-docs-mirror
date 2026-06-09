@@ -46,7 +46,7 @@ When you select a specific agent from the Registry, the **Observability** tab pr
   - **Models:** Breaks down performance by the underlying foundation model. You can monitor p95 latency, total call counts, error rates, quota failures, and token usage isolated by specific models.
   - **Tools:** Monitors the external tools and services connected to the agent. This view details p95 latency, call counts, and error rates per tool, as well as the frequency of interactions where no tool was called.
   - **Usage:** Provides infrastructure-level metrics for the agent's runtime environment, including container CPU allocation, container memory allocation, and token usage.
-  - **Logs:** Displays a filterable stream of raw agent logs, including severity, timestamps, and execution summaries for deep-dive troubleshooting. For more information, see [View agent logs](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent/manage/logging) .
+  - **Logs:** Displays a filterable stream of raw agent logs, including severity, timestamps, and execution summaries for deep-dive troubleshooting. For more information, see [View agent logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging#view-logs) .
 
 In addition to the dashboards on the **Observability** tab, you can use the agent's **Traces** tab to inspect the step-by-step execution of specific sessions, including directed acyclic graphs of spans and inputs/outputs. For more information, see [View Agent Traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces) . You can also use the **Topology** tab to view the specific inbound and outbound dependencies for that single agent.
 

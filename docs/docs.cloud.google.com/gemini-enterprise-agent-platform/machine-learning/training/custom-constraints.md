@@ -26,7 +26,7 @@ By default, organization policies are inherited by the descendants of the resour
 
 ### Benefits
 
-You can use custom organization policies to allow or deny specific values for Agent Platform training resources. For example, if a request to create a Gemini Enterprise Agent Platform serverless training job fails to satisfy custom constraint validation as set by your organization policy, the request fails and an error is returned to the caller.
+You can use custom organization policies to allow or deny specific values for Agent Platform training resources. For example, if a request to create a Vertex AI serverless training job fails to satisfy custom constraint validation as set by your organization policy, the request fails and an error is returned to the caller.
 
 ## Limitations
 

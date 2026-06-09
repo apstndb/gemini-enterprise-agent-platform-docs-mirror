@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 > To learn more, run the "Build Pipelines that generate model metrics and visualizations, and compare pipeline runs" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/metrics_viz_run_compare_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fmetrics_viz_run_compare_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fmetrics_viz_run_compare_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/metrics_viz_run_compare_kfp.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/metrics_viz_run_compare_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fmetrics_viz_run_compare_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fmetrics_viz_run_compare_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/metrics_viz_run_compare_kfp.ipynb)
 
 Agent Platform Pipelines lets you run machine learning (ML) pipelines that were built using the Kubeflow Pipelines SDK or TensorFlow Extended in a serverless manner. This document describes how to use Agent Platform Pipelines to visualize, analyze, and compare pipeline runs.
 
-To learn more about running and scheduling pipelines, read the guide to [running a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+To learn more about running and scheduling pipelines, read the guide to [running a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
 
 ## Visualize pipeline runs using Google Cloud console
 
@@ -51,7 +51,7 @@ Use the following instructions to learn more about using Google Cloud console to
         
           - Click the artifact's **URI** to open that location in Cloud Storage.
         
-          - Click **Open in ML Metadata** to view the lineage of the artifact in Vertex ML Metadata. For more information about pipeline artifact lineage, see [Track the lineage of pipeline artifacts](https://docs.cloud.google.com/vertex-ai/docs/pipelines/lineage) . If you're new to Vertex ML Metadata, read the [introduction to Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) .
+          - Click **Open in ML Metadata** to view the lineage of the artifact in Vertex ML Metadata. For more information about pipeline artifact lineage, see [Track the lineage of pipeline artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage) . If you're new to Vertex ML Metadata, read the [introduction to Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) .
 
 ## Compare pipeline runs using Google Cloud console
 
@@ -72,4 +72,4 @@ Use the following instructions to compare pipeline runs in Google Cloud console.
 ## What's next
 
   - Read the [introduction to Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) to learn more about orchestrating ML workflows.
-  - Learn how to [build a machine learning pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+  - Learn how to [build a machine learning pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .

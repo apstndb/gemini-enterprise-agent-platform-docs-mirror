@@ -35,15 +35,15 @@ To export an HTML file, define a component with the `Output[HTML]` artifact. You
 
 **HTML artifact in the Google Cloud console:**
 
-![HTML artifact in the console](https://docs.cloud.google.com/static/vertex-ai/docs/pipelines/images/pipeline-html-artifact.png)
+![HTML artifact in the console](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/pipeline-html-artifact.png)
 
 **HTML artifact information in the Google Cloud console:**
 
-![HTML artifact info in the console](https://docs.cloud.google.com/static/vertex-ai/docs/pipelines/images/html-artifact-info.png)
+![HTML artifact info in the console](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/html-artifact-info.png)
 
 **Click "View HTML" to open HTML file on a new tab**
 
-![HTML artifact info in the console](https://docs.cloud.google.com/static/vertex-ai/docs/pipelines/images/open-html.png)
+![HTML artifact info in the console](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/open-html.png)
 
 ### Output Markdown
 
@@ -62,11 +62,11 @@ To export a Markdown file, define a component with the `Output[Markdown]` artifa
 
 **Markdown artifact in the Google Cloud console:**
 
-![Markdown artifact in the console](https://docs.cloud.google.com/static/vertex-ai/docs/pipelines/images/pipeline-markdown-artifact.png)
+![Markdown artifact in the console](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/pipeline-markdown-artifact.png)
 
 **Markdown artifact information in the Google Cloud console:**
 
-![Markdown artifact info in the console](https://docs.cloud.google.com/static/vertex-ai/docs/pipelines/images/md-artifact-info.png)
+![Markdown artifact info in the console](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/md-artifact-info.png)
 
 ### Create your pipeline
 

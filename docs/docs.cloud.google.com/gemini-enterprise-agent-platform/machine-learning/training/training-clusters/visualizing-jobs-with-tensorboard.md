@@ -84,7 +84,7 @@ To visualize metrics from a running job, you must periodically close and recreat
 
 ### Viewing Vertex AI TensorBoard
 
-Once your job is submitted, you can monitor its progress by going to the to the [Vertex AI Experiments](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-view#console_name) page in the Google Cloud console.
+Once your job is submitted, you can monitor its progress by going to the to the [Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-view#console_name) page in the Google Cloud console.
 
 ## What's next
 

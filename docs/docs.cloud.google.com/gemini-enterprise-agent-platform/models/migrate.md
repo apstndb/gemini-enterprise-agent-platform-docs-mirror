@@ -247,7 +247,6 @@ If you experience an overuse of tool calls: 1. **Reduce the thinking level** ( `
   - Review pricing. Gemini 3.5 Flash is more expensive than Gemini 3 Flash Preview.
   - Remove `temperature` , `top_p` , `top_k` from your config.
   - Replace `thinking_budget` with `thinking_level` .
-  - Add `id` and matching `name` to all `FunctionResponse` parts.
   - Test your prompts. Default effort changed from `high` → `medium` .
   - Thought preservation is now on by default. Reasoning context carries forward across turns.
   - Reduce unnecessary tool calls by adjusting thinking level or adding system instructions.

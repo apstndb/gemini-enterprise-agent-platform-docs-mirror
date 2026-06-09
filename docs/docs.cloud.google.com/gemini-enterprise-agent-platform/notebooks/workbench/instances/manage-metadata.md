@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to manage some Gemini Enterprise Agent Platform Workbench instance features by modifying the instance's metadata key-value pairs.
+This page describes how to manage some Vertex AI Workbench instance features by modifying the instance's metadata key-value pairs.
 
 ## Metadata keys
 
@@ -167,7 +167,7 @@ For information about features and their respective metadata keys, see the follo
 
 ## Startup script execution order
 
-If you use multiple startup scripts for your Agent Platform Workbench instance, they run in the following order:
+If you use multiple startup scripts for your Vertex AI Workbench instance, they run in the following order:
 
 1.  `startup-script` : Runs first during each boot after the initial boot.
 2.  `startup-script-url` : Runs second during each boot after the initial boot.
@@ -241,17 +241,17 @@ Reserved metadata keys include and are not limited to:
 
 ## Create an instance with specific metadata
 
-You can create a Agent Platform Workbench instance with specific metadata by using the Google Cloud console, the Google Cloud CLI, Terraform, or the Notebooks API.
+You can create a Vertex AI Workbench instance with specific metadata by using the Google Cloud console, the Google Cloud CLI, Terraform, or the Notebooks API.
 
 ### Console
 
-When you create a Agent Platform Workbench instance, you can add metadata in the **Environment** section of **Advanced options** .
+When you create a Vertex AI Workbench instance, you can add metadata in the **Environment** section of **Advanced options** .
 
 ![The Add metadata button in the Environment section](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/metadata-during-create.png)
 
 ### gcloud
 
-When you create a Agent Platform Workbench instance, you can add metadata by using the following command:
+When you create a Vertex AI Workbench instance, you can add metadata by using the following command:
 
     gcloud workbench instances create INSTANCE_NAME --metadata=KEY=VALUE
 
@@ -285,11 +285,11 @@ Use the [`instances.create`](https://docs.cloud.google.com/gemini-enterprise-age
 
 ## Update an instance's metadata
 
-You can update the metadata of a Agent Platform Workbench instance by using the Google Cloud console, the Google Cloud CLI, Terraform, or the Notebooks API.
+You can update the metadata of a Vertex AI Workbench instance by using the Google Cloud console, the Google Cloud CLI, Terraform, or the Notebooks API.
 
 ### Console
 
-To update the metadata of a Agent Platform Workbench instance, do the following:
+To update the metadata of a Vertex AI Workbench instance, do the following:
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
@@ -303,13 +303,13 @@ To update the metadata of a Agent Platform Workbench instance, do the following:
 
 ### gcloud
 
-You can update the metadata on a Agent Platform Workbench instance by using the following command:
+You can update the metadata on a Vertex AI Workbench instance by using the following command:
 
     gcloud workbench instances update INSTANCE_NAME --metadata=KEY=VALUE
 
 ### Terraform
 
-You can change the metadata key-value pairs to manage the corresponding features on Agent Platform Workbench instances.
+You can change the metadata key-value pairs to manage the corresponding features on Vertex AI Workbench instances.
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) .
 
@@ -337,11 +337,11 @@ Use the [`instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agen
 
 ## Remove metadata from an instance
 
-You can remove metadata from a Agent Platform Workbench instance by using the Google Cloud console, the Google Cloud CLI, Terraform, or the Notebooks API.
+You can remove metadata from a Vertex AI Workbench instance by using the Google Cloud console, the Google Cloud CLI, Terraform, or the Notebooks API.
 
 ### Console
 
-To remove metadata from a Agent Platform Workbench instance, do the following:
+To remove metadata from a Vertex AI Workbench instance, do the following:
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
@@ -355,13 +355,13 @@ To remove metadata from a Agent Platform Workbench instance, do the following:
 
 ### gcloud
 
-You can remove metadata from a Agent Platform Workbench instance by using the following command:
+You can remove metadata from a Vertex AI Workbench instance by using the following command:
 
     gcloud workbench instances update INSTANCE_NAME --metadata=KEY
 
 ### Terraform
 
-You can remove metadata key-value pairs to manage the corresponding features of a Agent Platform Workbench instance.
+You can remove metadata key-value pairs to manage the corresponding features of a Vertex AI Workbench instance.
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) .
 

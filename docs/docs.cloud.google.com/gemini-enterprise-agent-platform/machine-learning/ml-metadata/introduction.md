@@ -26,7 +26,7 @@ In the metadata graph, artifacts and executions are nodes, and events are edges 
 
 You can apply key-value pair metadata to artifacts, executions, and contexts. For example, a model could have metadata that describes the framework used to train the model and performance metrics, such as the model's accuracy, precision, and recall.
 
-Learn more about [tracking your ML system's metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) . If you're interested in analyzing metadata from Agent Platform Pipelines, check out [this step-by-step tutorial](https://codelabs.developers.google.com/vertex-mlmd-pipelines#0) .
+Learn more about [tracking your ML system's metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) . If you're interested in analyzing metadata from Agent Platform Pipelines, check out [this step-by-step tutorial](https://codelabs.developers.google.com/vertex-mlmd-pipelines#0) .
 
 ## ML artifact lineage
 
@@ -48,4 +48,4 @@ By tracking your ML system's metadata using Agent Platform ML Metadata, you can 
   - Which deployment targets was a certain model deployed to and when was it deployed?
   - Which version of your model was used to create a prediction at a given point in time?
 
-Learn more about [analyzing your ML system's metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/analyzing) .
+Learn more about [analyzing your ML system's metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/analyzing) .

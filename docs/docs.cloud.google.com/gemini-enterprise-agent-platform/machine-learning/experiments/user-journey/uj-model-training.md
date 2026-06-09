@@ -23,17 +23,17 @@ In the "Build Vertex AI Experiments lineage for custom training" notebook, you'l
 
 You can view the artifact lineage in the Google Cloud console.
 
-![Vertex AI view artifact lineage](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/artifact-lineage-graph.png)
+![Agent Platform view artifact lineage](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/artifact-lineage-graph.png)
 
 ## Relevant content
 
-[Manually log data to an experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data)
+[Manually log data to an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data)
 
-  - [Log summary metrics](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#summary-metrics)
-  - [Log time series metrics](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#time_series_metrics)
-  - [Log parameters](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#parameters)
-  - [Log classification metrics](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#classification-metrics)
+  - [Log summary metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#summary-metrics)
+  - [Log time series metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#time_series_metrics)
+  - [Log parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#parameters)
+  - [Log classification metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#classification-metrics)
 
 <!-- end list -->
 
-  - [Track executions and artifacts](https://docs.cloud.google.com/vertex-ai/docs/experiments/track-executions-artifacts)
+  - [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts)

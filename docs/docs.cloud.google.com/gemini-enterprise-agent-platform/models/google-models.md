@@ -70,7 +70,7 @@ preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-age
 
 ## Gemma models
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 4](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma4) An open model well-suited for tasks like text generation, coding, and reasoning, and supporting multimodal input (text and image for all variants, and additionally audio for the E2B and E4B variants).
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 4](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma4) An open model well-suited for tasks like text generation, coding, and reasoning, and supporting multimodal input (text and image for all variants, and additionally audio for the E2B and E4B variants).
 
 ![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3n](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma3n) An open model designed for efficient execution on low-resource devices, supporting multimodal input (text, image, video, and audio) and text output in over 140 languages.
 

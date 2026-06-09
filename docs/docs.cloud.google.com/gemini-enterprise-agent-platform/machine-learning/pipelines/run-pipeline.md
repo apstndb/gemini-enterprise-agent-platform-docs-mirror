@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Agent Platform Pipelines lets you run machine learning (ML) pipelines that were built using the Kubeflow Pipelines SDK or TensorFlow Extended in a serverless manner. This document describes how to run an ML pipeline.
 
-You can also create pipeline runs using prebuilt templates in the **Template Gallery** . For more information about the **Template Gallery** , see [Use a prebuilt template from the Template Gallery](https://docs.cloud.google.com/vertex-ai/docs/pipelines/use-template-gallery) .
+You can also create pipeline runs using prebuilt templates in the **Template Gallery** . For more information about the **Template Gallery** , see [Use a prebuilt template from the Template Gallery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-template-gallery) .
 
 You can use Gemini Enterprise Agent Platform Experiments to track, analyze, and compare your pipeline runs by [associating the pipeline runs with an experiment or an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/add-pipelinerun-experiment) . By comparing the parameters, outputs, and performance metrics of the pipeline runs, you can identify the pipeline configuration that works best for your use case. For more information, see [Introduction to Gemini Enterprise Agent Platform Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) .
 
@@ -16,7 +16,7 @@ You can use Gemini Enterprise Agent Platform Experiments to track, analyze, and 
 
 Before you run a pipeline with Agent Platform Pipelines, use the following instructions to set up your Google Cloud project and development environment:
 
-1.  [Build a pipeline.](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline)
+1.  [Build a pipeline.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline)
 
 2.  To run a pipeline using the Agent Platform SDK for Python, install the Vertex SDK.
     
@@ -98,7 +98,7 @@ Use the following instructions to run an ML pipeline using Google Cloud console.
                 
                 If you don't specify a service account, Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.
                 
-                Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) .
+                Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
             
               - To use a CMEK, select **Use a customer-managed encryption key** . The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
             
@@ -168,7 +168,7 @@ To set up authentication, you must create a service account key, and set an envi
     
     2.  Click the name of the service account that you use to run pipelines. The **Service account details** page appears.
         
-        If you followed the instructions in the guide to configuring your project for Gemini Enterprise Agent Platform Pipelines, this is the same service account that you created in the [Configure a service account with granular permissions](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) section. Otherwise, Gemini Enterprise Agent Platform uses the Compute Engine default service account to run pipelines. The Compute Engine default service account is named like the following: `  PROJECT_NUMBER -compute@developer.gserviceaccount.com `
+        If you followed the instructions in the guide to configuring your project for Gemini Enterprise Agent Platform Pipelines, this is the same service account that you created in the [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) section. Otherwise, Gemini Enterprise Agent Platform uses the Compute Engine default service account to run pipelines. The Compute Engine default service account is named like the following: `  PROJECT_NUMBER -compute@developer.gserviceaccount.com `
     
     3.  Click the **Permissions** tab.
     
@@ -267,7 +267,7 @@ Replace the following:
 
   - PIPELINE\_PARAMETERS : ( *optional* ) The pipeline parameters to pass to this run. For example, create a `dict()` with the parameter names as the dictionary keys and the parameter values as the dictionary values.
 
-  - ENABLE\_CACHING : ( *optional* ) Specifies if this pipeline run uses execution caching. Execution caching reduces costs by skipping pipeline tasks where the output is known for the current set of inputs. If the enable caching argument is not specified, execution caching is used in this pipeline run. [Learn more about execution caching](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline#caching) .
+  - ENABLE\_CACHING : ( *optional* ) Specifies if this pipeline run uses execution caching. Execution caching reduces costs by skipping pipeline tasks where the output is known for the current set of inputs. If the enable caching argument is not specified, execution caching is used in this pipeline run. [Learn more about execution caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline#caching) .
 
   - CMEK : ( *optional* ) The name of the customer-managed encryption key that you want to use for this pipeline run.
 
@@ -303,4 +303,4 @@ Replace the following:
 
 ## What's next
 
-  - Learn how to [create and pipeline run and add it to an experiment or an experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/add-pipelinerun-experiment) .
+  - Learn how to [create and pipeline run and add it to an experiment or an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/add-pipelinerun-experiment) .

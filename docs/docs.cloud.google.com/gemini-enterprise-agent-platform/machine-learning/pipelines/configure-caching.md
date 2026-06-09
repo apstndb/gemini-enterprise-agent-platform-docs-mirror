@@ -24,7 +24,7 @@ You can turn off execution caching at task level by setting the following:
 
     eval_task.set_caching_options(False)
 
-You can turn off execution caching for an entire pipeline job. When you run a pipeline using `PipelineJob()` , you can use the `enable_caching` argument to specify that this pipeline run does not use caching. All steps within the pipeline job won't use caching. [Learn more about creating pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+You can turn off execution caching for an entire pipeline job. When you run a pipeline using `PipelineJob()` , you can use the `enable_caching` argument to specify that this pipeline run does not use caching. All steps within the pipeline job won't use caching. [Learn more about creating pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
 
 Use the following sample to turn off caching:
 

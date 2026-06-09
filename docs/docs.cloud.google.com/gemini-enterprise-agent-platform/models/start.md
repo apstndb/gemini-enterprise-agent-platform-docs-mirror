@@ -161,7 +161,7 @@ Replace GOOGLE\_CLOUD\_PROJECT\_ID with your Google Cloud project ID.
 
 ## Make your first request
 
-Use the [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) method to send a request to the Gemini API in Gemini Enterprise Agent Platform.
+Use the [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) method to send a request to the Gemini API in Vertex AI.
 
 The following examples show how to make a request using one of the SDKs or REST. To run an SDK example, copy the code to a file (for example, `request.py` ) and run the file from your terminal (for example, `python request.py` ).
 
@@ -746,7 +746,7 @@ Gemini can understand images as well. The following code uses the image generate
 
 ## Use code execution
 
-The Gemini API in Gemini Enterprise Agent Platform code execution feature enables the model to generate and run Python code and learn iteratively from the results until it arrives at a final output. Gemini Enterprise Agent Platform provides code execution as a tool, similar to function calling. You can use this code execution capability to build applications that benefit from code-based reasoning and that produce text output. For example:
+The Gemini API in Vertex AI code execution feature enables the model to generate and run Python code and learn iteratively from the results until it arrives at a final output. Gemini Enterprise Agent Platform provides code execution as a tool, similar to function calling. You can use this code execution capability to build applications that benefit from code-based reasoning and that produce text output. For example:
 
 ### Python
 

@@ -10,7 +10,7 @@ This page describes how to allow traffic from internal IP addresses in a VPC net
 
 ## Reference architecture
 
-In the following reference architecture, a Shared VPC is deployed with a Gemini model in the service project, `ph-fm-svc-project` (foundation model service project) with the following service policy attributes allowing known public access to the Gemini Enterprise API for Generative AI on Gemini Enterprise Agent Platform:
+In the following reference architecture, a Shared VPC is deployed with a Gemini model in the service project, `ph-fm-svc-project` (foundation model service project) with the following service policy attributes allowing known public access to the Gemini Enterprise API for Generative AI on Vertex AI:
 
   - A single VPC Service Controls perimeter
   - Access level - Known external public endpoint CIDR range

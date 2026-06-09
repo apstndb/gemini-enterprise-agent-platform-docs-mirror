@@ -92,5 +92,5 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 ### Learn more
 
   - [Agent Platform for BigQuery users](https://docs.cloud.google.com/vertex-ai/docs/beginner/bqml)
-  - [Build a pipeline for continuous model training](https://docs.cloud.google.com/vertex-ai/docs/pipelines/continuous-training-tutorial)
+  - [Build a pipeline for continuous model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/continuous-training-tutorial)
   - [Use Ray on Vertex AI with BigQuery](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/bigquery-integration)

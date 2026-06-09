@@ -131,13 +131,13 @@ When you use Artifact Registry, the repository must use [a region](https://docs.
 
 ### Permissions
 
-Agent Platform must have permission to pull the container image when you create a `Model` . Specifically, the Agent Platform Service Agent for your project must have the permissions of the [Artifact Registry Reader role ( `roles/artifactregistry.reader` )](https://docs.cloud.google.com/artifact-registry/docs/access-control#roles) for the container image's repository.
+Agent Platform must have permission to pull the container image when you create a `Model` . Specifically, the Vertex AI Service Agent for your project must have the permissions of the [Artifact Registry Reader role ( `roles/artifactregistry.reader` )](https://docs.cloud.google.com/artifact-registry/docs/access-control#roles) for the container image's repository.
 
-Agent Platform uses the Agent Platform Service Agent for your project to interact with other Google Cloud services. This service account has the email address `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` , where PROJECT\_NUMBER is replaced with the [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of your Agent Platform project.
+Agent Platform uses the Vertex AI Service Agent for your project to interact with other Google Cloud services. This service account has the email address `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` , where PROJECT\_NUMBER is replaced with the [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) of your Agent Platform project.
 
-If you have pushed your container image to the same Google Cloud project where you are using Agent Platform, you don't have to configure any permissions. The default permissions granted to the Agent Platform Service Agent are sufficient.
+If you have pushed your container image to the same Google Cloud project where you are using Agent Platform, you don't have to configure any permissions. The default permissions granted to the Vertex AI Service Agent are sufficient.
 
-On the other hand, if you have pushed your container image to a different Google Cloud project from the one where you are using Agent Platform, you must [grant the Artifact Registry Reader role for the Artifact Registry repository](https://docs.cloud.google.com/artifact-registry/docs/access-control#grant-repo) to the Agent Platform Service Agent.
+On the other hand, if you have pushed your container image to a different Google Cloud project from the one where you are using Agent Platform, you must [grant the Artifact Registry Reader role for the Artifact Registry repository](https://docs.cloud.google.com/artifact-registry/docs/access-control#grant-repo) to the Vertex AI Service Agent.
 
 > **Note:** Even if you plan to [use a custom service account in your custom container](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) , there is no need to grant your custom service account Artifact Registry permissions; only the service agent needs these permissions. Agent Platform doesn't use your custom service account to pull container images. It only uses the custom service account to run your model serving code.
 

@@ -21,7 +21,7 @@ The process to create a custom MetadataSchema is similar to creating new metadat
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region of your MetadataStore.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). or number.
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) or number.
   - METADATA\_STORE : The metadata store ID where the MetadataSchema is created. The default metadata store is named `default` . Unless a new MetadataStore is required, you can use the default store.
   - METADATA\_SCHEMA\_ID : (Optional) The ID of the MetadataSchema record. If the ID is not specified, Vertex ML Metadata creates a unique identifier for this MetadataSchema .
   - METADATA\_SCHEMA\_TITLE : The title of the schema that describes the metadata field. The title of the schema must meet the format \` . \`. The namespace must start with a lowercase letter, can contain lowercase characters and numbers, and can be two to twenty characters long. The schema name must start with an uppercase letter, can include letters and numbers, and can be two to fortynice characters long.
@@ -104,7 +104,7 @@ You should see output similar to the following. You can use the METADATA\_SCHEMA
       "createTime": "2021-04-06T05:24:04.575481815Z"
     }
 
-Subsequent calls to create, get, or list Artifacts can then refer to this schema by specifying the name (demo.Artifact) in the schema\_title field and version (0.0.1) in the schema\_version of the Artifact resource. For more information about how to create, get, or list metadata resources, see [Track Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
+Subsequent calls to create, get, or list Artifacts can then refer to this schema by specifying the name (demo.Artifact) in the schema\_title field and version (0.0.1) in the schema\_version of the Artifact resource. For more information about how to create, get, or list metadata resources, see [Track Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .
 
 ## Version your schemas
 
@@ -120,8 +120,8 @@ The following example creates a 0.0.2 version of the demo.Artifact schema:
     
     store_client.create_metadata_schema(parent=metadata_store.name, metadata_schema=sample_schema_versioned)
 
-Fields in the schema are always considered optional, so there is no backward or forward compatibility between versions of the same schema\_title. Users can still use the schema\_title to filter and group resources for analysis. For more information about how to use filter functions, see [Analyzing Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/analyzing) .
+Fields in the schema are always considered optional, so there is no backward or forward compatibility between versions of the same schema\_title. Users can still use the schema\_title to filter and group resources for analysis. For more information about how to use filter functions, see [Analyzing Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/analyzing) .
 
 ## What's next
 
-  - [Get started tracking your Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
+  - [Get started tracking your Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .

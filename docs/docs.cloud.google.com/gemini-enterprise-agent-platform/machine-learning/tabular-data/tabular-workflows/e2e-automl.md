@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl
 title: Tabular Workflow for End-to-End AutoML
-description: Learn about the pipeline and components of Tabular Workflow for End-to-End AutoML .
+description: Learn about the pipeline and components of Tabular Workflow for End-to-End AutoML.
 data_source: docs.cloud.google.com
 ---
 
@@ -19,7 +19,7 @@ Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classif
 
 ## Benefits
 
-The following lists some of the benefits of Tabular Workflow for End-to-End AutoML :
+The following lists some of the benefits of Tabular Workflow for End-to-End AutoML:
 
   - Supports **large datasets** that are multiple TB in size and have up to 1000 columns.
   - Allows you to **improve stability and lower training time** by limiting the search space of architecture types or skipping architecture search.
@@ -36,7 +36,7 @@ Tabular Workflow for End-to-End AutoML is a managed instance of Gemini Enterpris
 
 ## Overview of pipeline and components
 
-The following diagram shows the modeling pipeline for Tabular Workflow for End-to-End AutoML :
+The following diagram shows the modeling pipeline for Tabular Workflow for End-to-End AutoML:
 
 ![Pipeline for End-to-End AutoML Tables](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/e2e-automl-pipeline.svg)  
 

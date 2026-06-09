@@ -6,9 +6,9 @@ description: Learn how to create Identity and Access Management policies to gove
 data_source: docs.cloud.google.com
 ---
 
-> **Preview — feature**
+> **Preview**
 > 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 You can create policies to govern agentic communication with services. Agent Gateway (Private preview) uses Identity-Aware Proxy (IAP) to enforce policies.
 
@@ -460,9 +460,9 @@ To define an agent-to-endpoint egress policy by using the Google Cloud console, 
 
 ## Authenticate your Cloud Run MCP server with IAP
 
-> **Preview — Cloud Run `functional-type` flag**
+> **Preview**
 > 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 To configure IAP-based authentication for MCP servers that you deploy on Cloud Run, do the following:
 

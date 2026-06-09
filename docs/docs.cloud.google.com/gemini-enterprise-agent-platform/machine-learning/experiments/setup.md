@@ -10,14 +10,14 @@ Vertex AI Experiments is supported by the Agent Platform SDK for Python and Goog
 
 ## Set up
 
-1.  Create a Service account. See [Create a service account with required permissions](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
+1.  Create a Service account. See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
 2.  Install the [Agent Platform SDK for Python.](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk)
 3.  Check for existence of the `default` Metadata Store in your project. (required)
       - To see if your project has the `default` Metadata Store, go to the `Metadata` page in the Google Cloud console.
       - If the `default` Metadata Store doesn't exist, it's created when
           - you run the first PipelineJob ,
           - or, create your first experiment in the Agent Platform SDK for Python.  
-            Optional: To configure with CMEK, see [Configure your project's metadata store.](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/configure)
+            Optional: To configure with CMEK, see [Configure your project's metadata store.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure)
 
 ## Supported Locations
 
@@ -25,11 +25,11 @@ The [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/
 
 ## What's next
 
-  - [Create an experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-experiment)
+  - [Create an experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-experiment)
 
 ## Relevant notebook tutorials
 
-1.  [Compare trained and evaluated models](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)
-2.  [Model training with prebuilt data pre-processing code](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-model-training)
-3.  [Compare pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-pipeline-runs)
-4.  [Autologging](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-autologging)
+1.  [Compare trained and evaluated models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
+2.  [Model training with prebuilt data pre-processing code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-model-training)
+3.  [Compare pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-pipeline-runs)
+4.  [Autologging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-autologging)

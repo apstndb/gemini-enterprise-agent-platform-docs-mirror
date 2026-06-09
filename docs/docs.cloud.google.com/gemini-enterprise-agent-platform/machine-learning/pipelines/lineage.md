@@ -118,6 +118,6 @@ Follow these instructions to view the lineage graph for a pipeline artifact on K
 
 ## What's next
 
-  - Learn how to [run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
-  - Get started [visualizing and analyzing pipeline results](https://docs.cloud.google.com/vertex-ai/docs/pipelines/visualize-pipeline) .
-  - Learn how to [build a machine learning pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+  - Learn how to [run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
+  - Get started [visualizing and analyzing pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) .
+  - Learn how to [build a machine learning pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .

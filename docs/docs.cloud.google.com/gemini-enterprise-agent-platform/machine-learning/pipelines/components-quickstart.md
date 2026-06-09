@@ -47,6 +47,6 @@ For example, you can use the following code to import and use the [Dataflow comp
 
 ## What's next
 
-  - Read the [Introduction to Google Cloud Pipeline Components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/components-introduction) .
-  - See all [tutorials that use the `google_cloud_pipeline_components` SDK](https://docs.cloud.google.com/vertex-ai/docs/pipelines/notebooks) .
-  - Get started with [Dataflow components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/dataflow-component) .
+  - Read the [Introduction to Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/components-introduction) .
+  - See all [tutorials that use the `google_cloud_pipeline_components` SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/notebooks) .
+  - Get started with [Dataflow components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataflow-component) .

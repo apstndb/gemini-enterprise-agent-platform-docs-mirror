@@ -115,7 +115,7 @@ Before using any of the request data, make the following replacements:
         }' \
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills?skillId=SKILL_ID"
 
-### SDK
+### Python
 
 Organize skill files (such as `SKILL.md` , instructions, and code files) in a local directory. The SDK supports passing either a local directory path (which is automatically compressed) or a pre-zipped path.
 
@@ -130,7 +130,7 @@ For `google-cloud-aiplatform` (which provides `agentplatform` ) version `1.154.0
         display_name="DISPLAY_NAME",
         description="DESCRIPTION",
         config={
-            # Local directory path (automatically compressed) or pre-zipped file path (.zip)
+            # Local directory path (automatically compressed) or pre-zipped path (.zip)
             "local_path": "SKILL_PATH",
         },
     )
@@ -147,11 +147,33 @@ For `google-cloud-aiplatform` (which provides `agentplatform` ) versions older t
         description="DESCRIPTION",
         config={
             "skill_id": "SKILL_ID",
-            # Local directory path (automatically compressed) or pre-zipped file path (.zip)
+            # Local directory path (automatically compressed) or pre-zipped path (.zip)
             "local_path": "SKILL_PATH",
         },
     )
     print(skill.name)
+
+### Node.js
+
+Organize skill files (such as `SKILL.md` , instructions, and code files) in a local directory. The SDK supports passing either a local directory path (which is automatically compressed) or a pre-zipped path.
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const skill = await client.skills.create({
+      skillId: 'SKILL_ID',
+      displayName: 'DISPLAY_NAME',
+      description: 'DESCRIPTION',
+      config: {
+        // Local directory path (automatically compressed) or pre-zipped path (.zip)
+        localPath: 'SKILL_PATH',
+      },
+    });
+    console.log(skill.name);
 
 ## Update a skill
 
@@ -214,7 +236,7 @@ The following `curl` command updates the display name, description, and zipped s
         }' \
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID?updateMask=displayName,description,zippedFilesystem"
 
-### SDK
+### Python
 
 The SDK supports updating the skill files by passing either an unzipped local directory path or a pre-zipped path.
 
@@ -227,11 +249,33 @@ The SDK supports updating the skill files by passing either an unzipped local di
         config={
             "display_name": "DISPLAY_NAME",
             "description": "DESCRIPTION",
-            # Optional. Local directory path (automatically compressed) or pre-zipped file path (.zip)
+            # Optional. Local directory path (automatically compressed) or pre-zipped path (.zip)
             "local_path": "SKILL_PATH",
         },
     )
     print(skill.name)
+
+### Node.js
+
+The SDK supports updating the skill files by passing either an unzipped local directory path or a pre-zipped path.
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const skill = await client.skills.update({
+      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+      config: {
+        displayName: 'DISPLAY_NAME',
+        description: 'DESCRIPTION',
+        // Optional. Local directory path (automatically compressed) or pre-zipped path (.zip)
+        localPath: 'SKILL_PATH',
+      },
+    });
+    console.log(skill.name);
 
 ## List skills
 
@@ -269,7 +313,7 @@ Before using any of the request data, make the following replacements:
     "state": "ACTIVE"
     }
 
-### SDK
+### Python
 
     import agentplatform
     
@@ -278,6 +322,20 @@ Before using any of the request data, make the following replacements:
     pager = client.skills.list()
     for skill in pager:
         print(skill.name, skill.display_name)
+
+### Node.js
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const pager = await client.skills.list();
+    for await (const skill of pager) {
+      console.log(skill.name, skill.displayName);
+    }
 
 ## Get a skill
 
@@ -305,7 +363,7 @@ Before using any of the request data, make the following replacements:
           -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
 
-### SDK
+### Python
 
     import agentplatform
     
@@ -315,6 +373,20 @@ Before using any of the request data, make the following replacements:
         name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
     )
     print(skill)
+
+### Node.js
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const skill = await client.skills.get({
+      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+    });
+    console.log(skill);
 
 ## Delete a skill
 
@@ -346,7 +418,7 @@ Before using any of the request data, make the following replacements:
           -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
 
-### SDK
+### Python
 
     import agentplatform
     
@@ -355,6 +427,19 @@ Before using any of the request data, make the following replacements:
     client.skills.delete(
         name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID"
     )
+
+### Node.js
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    await client.skills.delete({
+      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+    });
 
 ## List skill revisions
 
@@ -394,7 +479,7 @@ Before using any of the request data, make the following replacements:
       ]
     }
 
-### SDK
+### Python
 
     import agentplatform
     
@@ -405,6 +490,22 @@ Before using any of the request data, make the following replacements:
     )
     for skill_revision in response.skill_revisions:
         print(skill_revision.name, skill_revision.create_time)
+
+### Node.js
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const response = await client.skills.revisions.list({
+      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID',
+    });
+    for (const revision of response.skillRevisions || []) {
+      console.log(revision.name, revision.createTime);
+    }
 
 ## Get a skill revision
 
@@ -433,7 +534,7 @@ Before using any of the request data, make the following replacements:
           -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
 
-### SDK
+### Python
 
     import agentplatform
     
@@ -443,6 +544,20 @@ Before using any of the request data, make the following replacements:
         name="projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID"
     )
     print(revision)
+
+### Node.js
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const revision = await client.skills.revisions.get({
+      name: 'projects/PROJECT_ID/locations/LOCATION/skills/SKILL_ID/revisions/REVISION_ID',
+    });
+    console.log(revision);
 
 ## Retrieve skills
 
@@ -470,7 +585,7 @@ Before using any of the request data, make the following replacements:
           -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
           "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/skills:retrieve?query=QUERY"
 
-### SDK
+### Python
 
     import agentplatform
     
@@ -482,6 +597,25 @@ Before using any of the request data, make the following replacements:
     )
     for retrieved_skill in response.retrieved_skills:
         print(retrieved_skill.skill_name, retrieved_skill.description)
+
+### Node.js
+
+    import { Client } from '@google-cloud/agentplatform';
+    
+    const client = new Client({
+      project: 'PROJECT_ID',
+      location: 'LOCATION',
+    });
+    
+    const response = await client.skills.retrieve({
+      query: 'QUERY',
+      config: {
+        topK: TOP_K,
+      },
+    });
+    for (const retrievedSkill of response.retrievedSkills || []) {
+      console.log(retrievedSkill.skillName, retrievedSkill.description);
+    }
 
 ## Get details of a long-running operation
 

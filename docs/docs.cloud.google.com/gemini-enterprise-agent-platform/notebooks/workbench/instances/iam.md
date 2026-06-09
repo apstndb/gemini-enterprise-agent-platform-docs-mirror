@@ -1,45 +1,45 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam
-title: Agent Platform Workbench instances access control
+title: Vertex AI Workbench instances access control
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) and an access mode to manage access to Gemini Enterprise Agent Platform Workbench resources. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
+This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) and an access mode to manage access to Vertex AI Workbench resources. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
 
-Agent Platform Workbench uses IAM to manage access to instances and an access mode to manage access to each instance's JupyterLab interface.
+Vertex AI Workbench uses IAM to manage access to instances and an access mode to manage access to each instance's JupyterLab interface.
 
 ## Control access to an instance with IAM
 
-You can manage access to a Agent Platform Workbench instance at the project level or per instance.
+You can manage access to a Vertex AI Workbench instance at the project level or per instance.
 
   - To grant access to resources at the project level, assign one or more [roles](https://docs.cloud.google.com/iam/docs/understanding-roles) to a principal (user, group, or [service account](https://docs.cloud.google.com/iam/docs/overview#service_account) ).
   - To grant access to a specific instance, set an IAM policy on that resource. The policy defines which roles are assigned to which principals. To learn more, see [Manage access to an instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access) .
 
-Access to an instance can include a broad range of abilities. For example, you might grant a principal the ability to start, stop, and upgrade an instance. However, even granting a principal full access to a Agent Platform Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. See the following section.
+Access to an instance can include a broad range of abilities. For example, you might grant a principal the ability to start, stop, and upgrade an instance. However, even granting a principal full access to a Vertex AI Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. See the following section.
 
 ## Control access to an instance's JupyterLab interface with the access mode
 
-You control access to a Agent Platform Workbench instance's JupyterLab interface through the instance's access mode. You set a JupyterLab access mode when you create a Agent Platform Workbench instance. The access mode can't be changed after the notebook is created.
+You control access to a Vertex AI Workbench instance's JupyterLab interface through the instance's access mode. You set a JupyterLab access mode when you create a Vertex AI Workbench instance. The access mode can't be changed after the notebook is created.
 
 The JupyterLab access mode determines who can use the instance's JupyterLab interface. The access mode also determines which credentials are used when your instance interacts with other Google Cloud services. To learn more, see [Manage access to an instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
 
 ## Types of IAM roles
 
-There are different types of IAM roles that can be used in Agent Platform Workbench:
+There are different types of IAM roles that can be used in Vertex AI Workbench:
 
-  - [Predefined roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam_roles) let you grant a set of related permissions to your Agent Platform Workbench resources at the project level.
+  - [Predefined roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam_roles) let you grant a set of related permissions to your Vertex AI Workbench resources at the project level.
 
-  - [Basic roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#basic-roles) (Owner, Editor, and Viewer) provide access control to your Agent Platform Workbench resources at the project level, and are common to all Google Cloud services.
+  - [Basic roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#basic-roles) (Owner, Editor, and Viewer) provide access control to your Vertex AI Workbench resources at the project level, and are common to all Google Cloud services.
 
   - [Custom roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#custom-roles) enable you to choose a specific set of permissions, create your own role with those permissions, and grant the role to users in your organization.
 
-To add, update, or remove these roles in your Agent Platform Workbench project, see the documentation on [granting, changing, and revoking access](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To add, update, or remove these roles in your Vertex AI Workbench project, see the documentation on [granting, changing, and revoking access](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
-## Predefined Agent Platform Workbench IAM roles
+## Predefined Vertex AI Workbench IAM roles
 
-Agent Platform Workbench resources are managed through the Notebooks API. Therefore, Notebooks roles define permissions and access to the use of Agent Platform Workbench.
+Vertex AI Workbench resources are managed through the Notebooks API. Therefore, Notebooks roles define permissions and access to the use of Vertex AI Workbench.
 
 <table>
 <colgroup>
@@ -4514,23 +4514,23 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 
 The older Google Cloud [basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#basic) are common to all Google Cloud services. These roles are Owner, Editor, and Viewer.
 
-The basic roles provide permissions across Google Cloud, not just for Agent Platform Workbench. For this reason, you should use Agent Platform Workbench roles whenever possible.
+The basic roles provide permissions across Google Cloud, not just for Vertex AI Workbench. For this reason, you should use Vertex AI Workbench roles whenever possible.
 
 ## Custom roles
 
-If the predefined IAM roles for Agent Platform Workbench don't meet your needs, you can define custom roles. Custom roles enable you to choose a specific set of permissions, create your own role with those permissions, and grant the role to users in your organization. For more information, see [Understanding IAM custom roles](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) .
+If the predefined IAM roles for Vertex AI Workbench don't meet your needs, you can define custom roles. Custom roles enable you to choose a specific set of permissions, create your own role with those permissions, and grant the role to users in your organization. For more information, see [Understanding IAM custom roles](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) .
 
 ## Project-level access versus resource-level policies
 
-A resource inherits all policies from its [ancestry](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) . A [policy](https://docs.cloud.google.com/iam/docs/policies#structure) set at the resource level doesn't affect project-level policies. You can use project-level access and resource-level policies to customize permissions. For example, you can grant users `roles/notebooks.viewer` permissions at the project level so that they can view all Agent Platform Workbench resources in the project, and then you can grant each user `roles/notebooks.admin` permissions on a specific Agent Platform Workbench instance so that they have all of the `admin` abilities to administer that instance.
+A resource inherits all policies from its [ancestry](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) . A [policy](https://docs.cloud.google.com/iam/docs/policies#structure) set at the resource level doesn't affect project-level policies. You can use project-level access and resource-level policies to customize permissions. For example, you can grant users `roles/notebooks.viewer` permissions at the project level so that they can view all Vertex AI Workbench resources in the project, and then you can grant each user `roles/notebooks.admin` permissions on a specific Vertex AI Workbench instance so that they have all of the `admin` abilities to administer that instance.
 
-Not all Agent Platform Workbench predefined roles and resources support resource-level policies. To see which roles can be used on which resources, [view the descriptions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam_roles) for each role.
+Not all Vertex AI Workbench predefined roles and resources support resource-level policies. To see which roles can be used on which resources, [view the descriptions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam_roles) for each role.
 
 Changes to the ability to access a resource take time to propagate. For more information, see [Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation) .
 
 ## What's next
 
-  - [Grant a principal access to a Agent Platform Workbench instance.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access)
+  - [Grant a principal access to a Vertex AI Workbench instance.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access)
 
   - [Grant a principal access to JupyterLab.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab)
 

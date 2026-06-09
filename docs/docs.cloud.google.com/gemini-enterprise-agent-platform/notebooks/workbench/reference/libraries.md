@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries
-title: Agent Platform Workbench client libraries
-description: Start writing code for Agent Platform Workbench in C++, C#, Go, Java, Node.js, PHP, Python, Ruby.
+title: Vertex AI Workbench client libraries
+description: Start writing code for Vertex AI Workbench in C++, C#, Go, Java, Node.js, PHP, Python, Ruby.
 data_source: docs.cloud.google.com
 ---
 
@@ -55,11 +55,11 @@ If you are using [Maven](https://maven.apache.org/) , add the following to your 
 
 If you are using [Gradle](https://gradle.org/) , add the following to your dependencies:
 
-    implementation 'com.google.cloud:google-cloud-notebooks:1.90.0'
+    implementation 'com.google.cloud:google-cloud-notebooks:1.91.0'
 
 If you are using [sbt](https://www.scala-sbt.org/) , add the following to your dependencies:
 
-    libraryDependencies += "com.google.cloud" % "google-cloud-notebooks" % "1.90.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-notebooks" % "1.91.0"
 
 For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup) .
 

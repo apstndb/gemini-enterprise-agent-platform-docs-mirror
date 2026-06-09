@@ -8,13 +8,13 @@ data_source: docs.cloud.google.com
 
 You can use the Agent Platform SDK for Python to view Vertex AI Experiments runs data and compare the runs.
 
-  - [Get runs data](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#api-analyze-runs)
-  - [Compare runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#api-compare-runs)
+  - [Get runs data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#api-analyze-runs)
+  - [Compare runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#api-compare-runs)
 
 The Google Cloud console provides a visualization of the data associated with these runs.
 
-  - [View experiment run data](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#view-experiment-run-data)
-  - [Compare experiment runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#compare-experiment-runs)
+  - [View experiment run data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#view-experiment-run-data)
+  - [Compare experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#compare-experiment-runs)
 
 ## Get experiment runs data
 
@@ -231,8 +231,8 @@ To share the data with others, use the URLs associated with the views. For examp
 
 ![Vertex AI share data](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-share-data.png)
 
-See [Create and manage experiment runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-manage-exp-run) for how to update the status of a run.
+See [Create and manage experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-manage-exp-run) for how to update the status of a run.
 
 ## What's next
 
-  - [Track executions and artifacts](https://docs.cloud.google.com/vertex-ai/docs/experiments/track-executions-artifacts)
+  - [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts)

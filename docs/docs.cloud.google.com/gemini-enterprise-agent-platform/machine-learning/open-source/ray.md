@@ -85,11 +85,11 @@ The following diagram shows the architecture and workflow for Ray on Agent Platf
     
       - Use [Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction) in the Google Cloud console.
     
-      - Use a [Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) notebook.
+      - Use a [Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) notebook.
 
 4.  Develop your application and train your model on the Ray cluster on Gemini Enterprise Agent Platform using the following options:
     
-      - Use the Agent Platform SDK for Python in your preferred environment (Colab Enterprise or a Agent Platform Workbench notebook).
+      - Use the Agent Platform SDK for Python in your preferred environment (Colab Enterprise or a Vertex AI Workbench notebook).
     
       - Write a Python script using your preferred environment. Submit a Ray Job to the Ray cluster on Gemini Enterprise Agent Platform using the Agent Platform SDK for Python, Ray Job CLI, or Ray dashboard.
 

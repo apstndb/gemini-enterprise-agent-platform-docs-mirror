@@ -40,9 +40,9 @@ To get started, see [Terraform support for Gemini Enterprise Agent Platform](htt
 
 ### Python
 
-Use the [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) to programmatically automate your Gemini Enterprise Agent Platform workflow.
+Use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to programmatically automate your Gemini Enterprise Agent Platform workflow.
 
-The Agent Platform SDK for Python is similar to the Gemini Enterprise Agent Platform Python client library, except the SDK is higher-level and less granular. For more information, see the [Understand the SDK and client library differences](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk#sdk-vs-client-library) .
+The Agent Platform SDK for Python is similar to the Gemini Enterprise Agent Platform Python client library, except the SDK is higher-level and less granular. For more information, see the [Understand the SDK and client library differences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk#sdk-vs-client-library) .
 
 To get started, see [Install the Agent Platform SDK](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk) .
 
@@ -52,7 +52,7 @@ Client libraries use each supported language's natural conventions to call the A
 
 The following languages are supported for Gemini Enterprise Agent Platform:
 
-  - Python. The Gemini Enterprise Agent Platform Python client library is installed when you install the [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+  - Python. The Gemini Enterprise Agent Platform Python client library is installed when you install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
 
   - Java
 

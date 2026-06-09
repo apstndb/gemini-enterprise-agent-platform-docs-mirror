@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 TensorBoard time series metrics can be manually logged with a Vertex AI Experiments run. These metrics are visualized in the Vertex AI Experiments console, or in your Vertex AI TensorBoard experiment web app.
 
-For more details on logging metrics and parameters, see [Manually log data to an experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data) .
+For more details on logging metrics and parameters, see [Manually log data to an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data) .
 
 ### Python
 

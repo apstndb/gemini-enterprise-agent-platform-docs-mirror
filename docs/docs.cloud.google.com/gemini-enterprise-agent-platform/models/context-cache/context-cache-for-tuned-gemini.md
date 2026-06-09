@@ -57,7 +57,7 @@ You can use REST to create a context cache by using the Agent Platform API to se
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - LOCATION : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
   - MODEL\_ID : The fine-tuned Gemini model ID.
   - MODEL\_VERSION : The fine-tuned Gemini model version.
@@ -177,7 +177,7 @@ You can use REST to specify a context cache with a prompt by using the Agent Pla
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - LOCATION : The region where the request to [create the context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) was processed.
   - ENDPOINT\_ID : The endpoint where the fine-tuned model is deployed.
   - PROMPT\_TEXT : The text prompt to submit to the model.

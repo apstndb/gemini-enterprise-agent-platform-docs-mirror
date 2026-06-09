@@ -14,7 +14,7 @@ Agent Platform Pipelines automatically labels the following resources, regardles
 
 ### `CustomJob` resources
 
-Agent Platform Pipelines automatically propagates the labels from your pipeline run to [`CustomJob`](https://docs.cloud.google.com/vertex-ai/docs/pipelines/customjob-component) resources. This is supported by the following components in all versions of the Google Cloud Pipeline Components SDK:
+Agent Platform Pipelines automatically propagates the labels from your pipeline run to [`CustomJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/customjob-component) resources. This is supported by the following components in all versions of the Google Cloud Pipeline Components SDK:
 
   - [`CustomTrainingJobOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/custom_job.html#v1.custom_job.CustomTrainingJobOp)
 
@@ -42,7 +42,7 @@ Agent Platform Pipelines automatically propagates labels from your pipeline run 
 
 ### Gemini Enterprise API dataset resources
 
-Agent Platform Pipelines automatically propagates labels from your pipeline run to Gemini Enterprise API dataset resources generated from the following [Gemini Enterprise API components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/vertex-automl-component#dataset_operators) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK:
+Agent Platform Pipelines automatically propagates labels from your pipeline run to Gemini Enterprise API dataset resources generated from the following [Gemini Enterprise API components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/vertex-automl-component#dataset_operators) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK:
 
   - [`ImageDatasetCreateOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/dataset.html#v1.dataset.ImageDatasetCreateOp)
 
@@ -56,15 +56,15 @@ Agent Platform Pipelines automatically propagates labels from your pipeline run 
 
 ### Google Cloud BigQuery Job resources
 
-Agent Platform Pipelines automatically propagates labels from your pipeline run to Google Cloud BigQuery Job resources resources generated from any of the [BigQuery ML components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/gcpc-list#bqml_components) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK.
+Agent Platform Pipelines automatically propagates labels from your pipeline run to Google Cloud BigQuery Job resources resources generated from any of the [BigQuery ML components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list#bqml_components) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK.
 
 ### Google Cloud Managed Service for Apache Spark Job resources
 
-Agent Platform Pipelines automatically propagates labels from your pipeline run to Google Cloud Managed Service for Apache Spark Job resources resources generated from any of the [Managed Service for Apache Spark components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/gcpc-list#dataproc_sl_components) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK.
+Agent Platform Pipelines automatically propagates labels from your pipeline run to Google Cloud Managed Service for Apache Spark Job resources resources generated from any of the [Managed Service for Apache Spark components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list#dataproc_sl_components) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK.
 
 ### `TrainingPipeline` and `Model` resources
 
-Agent Platform Pipelines automatically propagates labels from your pipeline run to `TrainingPipeline` and `Model` resources resources generated from the following [AutoML components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/gcpc-list#experimental_automl_components) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK:
+Agent Platform Pipelines automatically propagates labels from your pipeline run to `TrainingPipeline` and `Model` resources resources generated from the following [AutoML components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list#experimental_automl_components) if you use v1.0.31 or later of the Google Cloud Pipeline Components SDK:
 
   - [`AutoMLImageTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLImageTrainingJobRunOp)
 
@@ -151,4 +151,4 @@ Agent Platform Pipelines doesn't propagate billing labels to Cloud Storage resou
 
 ## What's next
 
-  - [Understand pipeline run costs](https://docs.cloud.google.com/vertex-ai/docs/pipelines/understand-pipeline-cost-labels)
+  - [Understand pipeline run costs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/understand-pipeline-cost-labels)

@@ -152,7 +152,7 @@ The preceding example demonstrates all the flags necessary to import most models
 
 ### REST
 
-Use the following code sample to upload a model using the [`upload` method of the `model` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/upload) .
+Use the following code sample to upload a model using the [`upload` method of the `model` resource](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models/upload) .
 
 Before using any of the request data, make the following replacements:
 
@@ -434,7 +434,7 @@ To import a model with Vertex Explainable AI settings enabled, refer to the [Ver
 
 ### Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Vertex AI provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
 
 ## Limitations
 

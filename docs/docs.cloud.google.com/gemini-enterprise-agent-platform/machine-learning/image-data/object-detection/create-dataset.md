@@ -263,7 +263,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-The following sample uses the Google Cloud SDK for Python to both create a dataset and import data. If you run this sample code, then you can skip the [Import data section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/create-dataset#import-data) of this guide.
+The following sample uses the Vertex AI SDK for Python to both create a dataset and import data. If you run this sample code, then you can skip the [Import data section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/create-dataset#import-data) of this guide.
 
 This particular sample imports data for single-label classification. If your model has a different objective, then you must adjust the code.
 
@@ -301,7 +301,7 @@ This particular sample imports data for single-label classification. If your mod
 
 ## Import data
 
-After you create an empty dataset you can import your data into the dataset. If you used the Agent Platform SDK for Python to create the dataset, then you might have already imported data when you created the dataset. If so, you can skip this section.
+After you create an empty dataset you can import your data into the dataset. If you used the Vertex AI SDK for Python to create the dataset, then you might have already imported data when you created the dataset. If so, you can skip this section.
 
 ### REST
 
@@ -523,4 +523,4 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Vertex AI provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .

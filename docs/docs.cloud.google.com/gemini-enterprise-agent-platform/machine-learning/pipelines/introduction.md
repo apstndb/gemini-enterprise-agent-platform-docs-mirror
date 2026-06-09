@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 > To learn more, run the "Agent Platform Pipelines: Lightweight Python function-based components, and component I/O" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb)
 
 [Video](https://www.youtube.com/watch?v=1ykDWsnL2LE)
 
-Agent Platform Pipelines lets you automate, monitor, and govern your machine learning (ML) systems in a serverless manner by using ML pipelines to orchestrate your ML workflows. You can batch run ML pipelines defined using the Kubeflow Pipelines or the TensorFlow Extended (TFX) framework. To learn how to choose a framework for defining your ML pipeline, see [Interfaces to define a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/interfaces#define) .
+Agent Platform Pipelines lets you automate, monitor, and govern your machine learning (ML) systems in a serverless manner by using ML pipelines to orchestrate your ML workflows. You can batch run ML pipelines defined using the Kubeflow Pipelines or the TensorFlow Extended (TFX) framework. To learn how to choose a framework for defining your ML pipeline, see [Interfaces to define a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/interfaces#define) .
 
 This page provides an overview of the following:
 
@@ -28,7 +28,7 @@ This page provides an overview of the following:
 
   - [Add pipeline runs to experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#experiments)
 
-> **Note:** If you're experienced in creating ML pipelines using the Kubeflow Pipelines SDK and want to understand the differences between Agent Platform Pipelines and Kubeflow Pipelines, see [Migrate from Kubeflow Pipelines to Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/migrate-kfp) .
+> **Note:** If you're experienced in creating ML pipelines using the Kubeflow Pipelines SDK and want to understand the differences between Agent Platform Pipelines and Kubeflow Pipelines, see [Migrate from Kubeflow Pipelines to Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/migrate-kfp) .
 
 ## What is an ML pipeline?
 
@@ -90,15 +90,15 @@ A pipeline component is a self-contained set of code that performs a specific st
 
   - **Logic** : This is the component's executable code. For containerized components, the logic also contains the definition of the environment, or container image, where the component runs.
 
-Components are the basis of defining tasks in an ML pipeline. To define pipeline tasks, you can either use predefined [Google Cloud Pipeline Components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/components-introduction) or create your own custom components.
+Components are the basis of defining tasks in an ML pipeline. To define pipeline tasks, you can either use predefined [Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/components-introduction) or create your own custom components.
 
 #### Predefined components
 
-Use predefined Google Cloud Pipeline Components if you want to use features of Gemini Enterprise API, such as AutoML, in your pipeline. To learn how to use Google Cloud Pipeline Components to define a pipeline, see [Build a Pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+Use predefined Google Cloud Pipeline Components if you want to use features of Gemini Enterprise API, such as AutoML, in your pipeline. To learn how to use Google Cloud Pipeline Components to define a pipeline, see [Build a Pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 #### Custom components
 
-You can author your own custom components to use in your ML pipeline. For more information about authoring custom components, see [Build your own pipeline components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-own-components) .
+You can author your own custom components to use in your ML pipeline. For more information about authoring custom components, see [Build your own pipeline components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-own-components) .
 
 To learn how to author custom Kubeflow Pipelines components, see the ["Pipelines with lightweight components based on Python functions"](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb) tutorial notebook on GitHub. To learn how to author custom TFX components, see the [TFX Python function component tutorial](https://www.tensorflow.org/tfx/tutorials/tfx/python_function_component) on the [TensorFlow Extended in Production tutorials](https://www.tensorflow.org/tfx/tutorials#tensorflow-in-production-tutorials) .
 
@@ -114,9 +114,9 @@ From definition to execution and monitoring, the lifecycle of an ML pipeline com
 
 1.  **Define** : The process of defining an ML pipeline and its task is also called building a pipeline. In this stage, you need to perform the following steps:
     
-    1.  **Choose an ML framework** : Agent Platform Pipelines supports ML pipelines defined using the TFX or Kubeflow Pipelines framework. To learn how to choose a framework for building your pipeline, see [Interfaces to define a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/interfaces#define) .
+    1.  **Choose an ML framework** : Agent Platform Pipelines supports ML pipelines defined using the TFX or Kubeflow Pipelines framework. To learn how to choose a framework for building your pipeline, see [Interfaces to define a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/interfaces#define) .
     
-    2.  **Define pipeline tasks and configure pipeline** : For more information, see [Build a Pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+    2.  **Define pipeline tasks and configure pipeline** : For more information, see [Build a Pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 2.  **Compile** : In this stage, you need to perform the following steps:
     
@@ -126,17 +126,17 @@ From definition to execution and monitoring, the lifecycle of an ML pipeline com
 
 3.  **Run** : Create an execution instance of your ML pipeline using the compiled YAML file or a pipeline template. The execution instance of a pipeline definition is called a [pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#pipeline-run-definition) .
     
-    You can create a one-time occurrence of a pipeline run or use the [scheduler API](https://docs.cloud.google.com/vertex-ai/docs/pipelines/schedule-pipeline-run) to create recurring pipeline runs from the same ML pipeline definition. You can also clone an existing pipeline run. To learn how to choose an interface to run an ML pipeline, see [Interfaces to run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/interfaces#run) . For more information about how to create a pipeline run, see [Run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+    You can create a one-time occurrence of a pipeline run or use the [scheduler API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/schedule-pipeline-run) to create recurring pipeline runs from the same ML pipeline definition. You can also clone an existing pipeline run. To learn how to choose an interface to run an ML pipeline, see [Interfaces to run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/interfaces#run) . For more information about how to create a pipeline run, see [Run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
 
 4.  **Monitor, visualize, and analyze runs** : After you create a pipeline run, you can do the following to monitor the performance, status, and costs of pipeline runs:
     
-      - Configure email notifications for pipeline failures. For more information, see [Configure email notifications](https://docs.cloud.google.com/vertex-ai/docs/pipelines/email-notifications) .
+      - Configure email notifications for pipeline failures. For more information, see [Configure email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/email-notifications) .
     
-      - Use Cloud Logging to create log entries for monitoring events. For more information, see [View pipeline job logs](https://docs.cloud.google.com/vertex-ai/docs/pipelines/logging) .
+      - Use Cloud Logging to create log entries for monitoring events. For more information, see [View pipeline job logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/logging) .
     
-      - Visualize, analyze, and compare pipeline runs. For more information, see [Visualize and analyze pipeline results](https://docs.cloud.google.com/vertex-ai/docs/pipelines/visualize-pipeline) .
+      - Visualize, analyze, and compare pipeline runs. For more information, see [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) .
     
-      - Use Cloud Billing export to BigQuery to analyze pipeline run costs. For more information, see [Understand pipeline run costs](https://docs.cloud.google.com/vertex-ai/docs/pipelines/understand-pipeline-cost-labels) .
+      - Use Cloud Billing export to BigQuery to analyze pipeline run costs. For more information, see [Understand pipeline run costs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/understand-pipeline-cost-labels) .
 
 5.  **Optional: stop or delete pipeline runs** : There is no restriction on how long you can keep a pipeline run active. You can optionally do the following:
     
@@ -154,7 +154,7 @@ A pipeline run is an execution instance of your ML pipeline definition. Each pip
 
   - Use a pipeline template from the Template Gallery
 
-For more information about how to create a pipeline run, see [Run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) . For more information about how to create a pipeline run from a pipeline template, see [Create, upload, and use a pipeline template](https://docs.cloud.google.com/vertex-ai/docs/pipelines/create-pipeline-template) .
+For more information about how to create a pipeline run, see [Run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) . For more information about how to create a pipeline run from a pipeline template, see [Create, upload, and use a pipeline template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/create-pipeline-template) .
 
 For information about capturing and storing pipeline run metadata using Agent Platform ML Metadata, see [Use Agent Platform ML Metadata to track the lineage of ML artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#track-lineage) .
 
@@ -176,9 +176,9 @@ Lineage graphs help you analyze upstream root cause and downstream impact. Each 
     
     [Learn about Knowledge Catalog usage costs.](https://cloud.google.com/dataplex/pricing)
 
-For more information about tracking the lineage of ML artifacts using Agent Platform ML Metadata and Knowledge Catalog, see [Track the lineage of pipeline artifacts](https://docs.cloud.google.com/vertex-ai/docs/pipelines/lineage) .
+For more information about tracking the lineage of ML artifacts using Agent Platform ML Metadata and Knowledge Catalog, see [Track the lineage of pipeline artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage) .
 
-For more information about visualizing, analyzing, and comparing pipeline runs, see [Visualize and analyze pipeline results](https://docs.cloud.google.com/vertex-ai/docs/pipelines/visualize-pipeline) . For a list of first-party artifact types defined in Google Cloud Pipeline Components, see [ML Metadata artifact types](https://docs.cloud.google.com/vertex-ai/docs/pipelines/artifact-types) .
+For more information about visualizing, analyzing, and comparing pipeline runs, see [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) . For a list of first-party artifact types defined in Google Cloud Pipeline Components, see [ML Metadata artifact types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/artifact-types) .
 
 ## Add pipeline runs to experiments
 
@@ -188,10 +188,10 @@ For more information about experimenting with ML workflows using Agent Platform 
 
 ## What's next
 
-  - Learn about the [interfaces you can use to define and run pipelines using Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/interfaces) .
+  - Learn about the [interfaces you can use to define and run pipelines using Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/interfaces) .
 
-  - Get started by [learning how to define a pipeline using the Kubeflow Pipelines SDK](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+  - Get started by [learning how to define a pipeline using the Kubeflow Pipelines SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
-  - [Learn how to run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+  - [Learn how to run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
 
   - Learn about [best practices for implementing custom-trained ML models on Gemini Enterprise Agent Platform](https://cloud.google.com/architecture/ml-on-gcp-best-practices#machine-learning-workflow-orchestration) .

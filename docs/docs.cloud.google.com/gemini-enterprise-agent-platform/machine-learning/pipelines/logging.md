@@ -108,8 +108,8 @@ Use the following instructions to view logs for your Agent Platform Pipelines ta
 
 ## What's next
 
-  - Learn how to [view pipeline metrics](https://docs.cloud.google.com/vertex-ai/docs/pipelines/metrics) .
+  - Learn how to [view pipeline metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics) .
 
-  - Learn how to [create custom metrics in the Logs Explorer](https://docs.cloud.google.com/vertex-ai/docs/pipelines/metrics#build-custom-metrics) to monitor the pipeline job failure rate.
+  - Learn how to [create custom metrics in the Logs Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/metrics#build-custom-metrics) to monitor the pipeline job failure rate.
 
-  - Learn how to [configure email notifications](https://docs.cloud.google.com/vertex-ai/docs/pipelines/email-notifications) .
+  - Learn how to [configure email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/email-notifications) .

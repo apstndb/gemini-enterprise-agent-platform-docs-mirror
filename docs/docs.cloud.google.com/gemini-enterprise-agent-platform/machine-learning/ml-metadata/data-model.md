@@ -65,11 +65,11 @@ The following is an example of how the predefined `Model` system type is specifi
 
 The title of the schema must use the format `<namespace>.<type name>` . Vertex ML Metadata publishes and maintains system-defined schemas for representing common types widely used in ML workflows. These schemas live under the namespace `system` , and can be accessed as MetadataSchema resources in the API. Schemas are always versioned.
 
-To learn more about schemas, see [System schemas](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/system-schemas) . Additionally, Vertex ML Metadata lets you create user-defined Custom Schemas. To learn more about System Schemas, see [How to register your own custom schemas](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/custom-schemas#how_to_register_your_own_custom_schemas) .
+To learn more about schemas, see [System schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/system-schemas) . Additionally, Vertex ML Metadata lets you create user-defined Custom Schemas. To learn more about System Schemas, see [How to register your own custom schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/custom-schemas#how_to_register_your_own_custom_schemas) .
 
 The Metadata resources exposed closely mirror those of the open source implementation of [ML Metadata (MLMD)](https://github.com/google/ml-metadata) .
 
 ## What's next
 
-  - [Learn more about predefined system schemas](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/system-schemas) .
-  - [Start tracking with Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
+  - [Learn more about predefined system schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/system-schemas) .
+  - [Start tracking with Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .

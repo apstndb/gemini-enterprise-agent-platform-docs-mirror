@@ -44,7 +44,7 @@ Sample `hello-world-scheduled-pipeline` :
 
 1.  Open the Cloud Storage browser in the Google Cloud console.  
 
-2.  Click the Cloud Storage bucket you created when you [configured your project](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project) .
+2.  Click the Cloud Storage bucket you created when you [configured your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project) .
 
 3.  Using either an existing folder or a new folder, upload your compiled pipeline YAML (in this example `hello_world_scheduled_pipeline.yaml` ) to the selected folder.
 
@@ -60,7 +60,7 @@ Sample `hello-world-scheduled-pipeline` :
 
 4.  In the **Trigger** section, select **Cloud Pub/Sub** as the Trigger type.
     
-    ![create function configuration choose pubsub as Trigger type image](https://docs.cloud.google.com/static/vertex-ai/docs/pipelines/images/trigger-type-cloud-pubsub.png)
+    ![create function configuration choose pubsub as Trigger type image](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/trigger-type-cloud-pubsub.png)
 
 5.  In the **Select a Cloud Pub/Sub topic** list, click **Create a topic** .
 
@@ -147,6 +147,6 @@ Sample `hello-world-scheduled-pipeline` :
 ## What's next
 
   - Learn more about [Google Cloud Pub/Sub](https://docs.cloud.google.com/pubsub/docs) .
-  - [Visualize and analyze pipeline results](https://docs.cloud.google.com/vertex-ai/docs/pipelines/visualize-pipeline) .
+  - [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) .
   - Learn how to [create triggers in Cloud Runfrom Pub/Sub events](https://docs.cloud.google.com/functions/docs/calling/pubsub) .
   - To view code samples for using Pub/Sub, refer to the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?p=pubsub) .

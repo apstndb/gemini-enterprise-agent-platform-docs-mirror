@@ -191,7 +191,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>The pipeline job and all of its sub-resources.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline">Running a pipeline</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline">Running a pipeline</a></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -200,7 +200,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>All content in the metadata store.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/configure">Configuring your project's metadata store</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure">Configuring your project's metadata store</a></li>
 </ul></td>
 </tr>
 <tr class="odd">

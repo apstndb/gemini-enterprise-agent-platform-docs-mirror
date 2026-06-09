@@ -237,16 +237,16 @@ The Google Cloud SDK includes the following preview operators related to model e
 
   - See the following reference pages for specific Google Cloud Pipeline Components information:
     
-      - [Dataflow components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/dataflow-component)
+      - [Dataflow components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataflow-component)
     
-      - [Managed Service for Apache Spark components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/dataproc-component)
+      - [Managed Service for Apache Spark components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataproc-component)
     
-      - [CustomJob components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/customjob-component)
+      - [CustomJob components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/customjob-component)
     
-      - [Batch prediction component](https://docs.cloud.google.com/vertex-ai/docs/pipelines/batchprediction-component)
+      - [Batch prediction component](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/batchprediction-component)
     
-      - [Model and endpoint components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/model-endpoint-component)
+      - [Model and endpoint components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/model-endpoint-component)
     
-      - [Model evaluation component](https://docs.cloud.google.com/vertex-ai/docs/pipelines/model-evaluation-component)
+      - [Model evaluation component](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/model-evaluation-component)
     
-      - [Gemini Enterprise Agent Platform (aiplatform) AutoML components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/vertex-automl-component)
+      - [Gemini Enterprise Agent Platform (aiplatform) AutoML components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/vertex-automl-component)

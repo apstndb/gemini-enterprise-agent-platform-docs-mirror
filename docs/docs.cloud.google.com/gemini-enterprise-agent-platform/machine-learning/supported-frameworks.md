@@ -6560,7 +6560,7 @@ Other <a href="https://docs.cloud.google.com/deep-learning-containers/docs/overv
 
 ## Supported frameworks for pipelines
 
-[Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline#version-pipeline) supports the following ML framework SDK versions:
+[Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline#version-pipeline) supports the following ML framework SDK versions:
 
   - [Kubeflow Pipelines (KFP) SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#supported-kfp-sdk)
 

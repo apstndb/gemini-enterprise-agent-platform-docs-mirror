@@ -30,7 +30,7 @@ To create a pipeline run, you must first create a pipeline spec. A pipeline spec
 
 Follow these instructions to create an in-memory pipeline spec that you can use to create the pipeline run:
 
-1.  Define a pipeline and compile it into a YAML file. For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+1.  Define a pipeline and compile it into a YAML file. For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 2.  Use the following code sample to convert the compiled pipeline YAML file to an in-memory pipeline spec.
     

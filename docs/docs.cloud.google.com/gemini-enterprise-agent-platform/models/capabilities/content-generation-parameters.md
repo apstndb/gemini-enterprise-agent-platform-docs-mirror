@@ -60,7 +60,7 @@ Use these parameters to return more information about the tokens in the response
 
 > **Preview**
 > 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 ### Seed
 
@@ -138,9 +138,9 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     // generateWithConfig shows how to generate text using a text prompt and custom configuration.
     func generateWithConfig(w io.Writer) error {
-        ctx := context.Background()
+        ctx := context.Background(&)
     
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        client, err := genai.NewClient(ctx, genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -149,8 +149,8 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
         modelName := "gemini-2.5-flash"
         contents := genai.Text("Why is the sky blue?")
-        // See the documentation: https://pkg.go.dev/google.golang.org/genai#GenerateContentConfig
-        config := &genai.GenerateContentConfig{
+        // See the documentati&on: https://pkg.go.dev/google.golang.org/genai#GenerateContentConfig
+        config := genai.GenerateContentConfig{
             Temperature:      genai.Ptr(float32(0.0)),
             CandidateCount:   int32(1),
             ResponseMIMEType: "application/json",
@@ -166,11 +166,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         fmt.Fprintln(w, respText)
         // Example response:
         // {
-        //   "explanation": "The sky is blue due to a phenomenon called Rayleigh scattering ...
-        // }
-    
-        return nil
-    }
+        //   &quot;explanation":"The sky is blue due to a phenomenon called Rayleigh scattering ...//}returnnil}
 
 ### Node.js
 
@@ -227,10 +223,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
       // Example response:
       // {
       //   "explanation": "The sky appears blue due to a phenomenon called Rayleigh scattering. When ...
-      // }
-    
-      return response.text;
-    }
+      // }  return response.text;}
 
 ### Java
 
@@ -292,12 +285,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
           // Example response:
           // {
           //  "explanation": "The sky appears blue due to a phenomenon called Rayleigh scattering.
-          // Sunlight, which appears white, is actually composed of all the colors of the rainbow...
-          // }
-          return response.text();
-        }
-      }
-    }
+          // Sunlight, which appears white, is actually composed of all the colors oftherainbow...//}returnresponse.text();}}}
 
 ## What's next
 

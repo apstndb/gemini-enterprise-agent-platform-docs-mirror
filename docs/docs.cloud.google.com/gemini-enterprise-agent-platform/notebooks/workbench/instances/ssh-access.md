@@ -38,7 +38,7 @@ To set up [SSH port forwarding](https://cloud.google.com/solutions/connecting-se
 
 ## Why you might need to access your instance by using SSH
 
-To get HTTPS access to JupyterLab, your Agent Platform Workbench instance must have access to a Google Cloud proxy service. When the instance starts, it attempts to register itself with the proxy service. If it fails to get proxy access, your instance prompts you to access JupyterLab through SSH.
+To get HTTPS access to JupyterLab, your Vertex AI Workbench instance must have access to a Google Cloud proxy service. When the instance starts, it attempts to register itself with the proxy service. If it fails to get proxy access, your instance prompts you to access JupyterLab through SSH.
 
 The following are common reasons why you might not have HTTPS access to JupyterLab:
 
@@ -56,17 +56,17 @@ For changes to take effect, you might need to restart the notebook's VM when att
 
 ## Your JupyterLab instance's proxy-mode metadata setting is incorrect
 
-By default, when you create a Agent Platform Workbench instance, Agent Platform Workbench adds the proxy-mode metadata setting. If you change or remove the proxy-mode metadata setting, then the instance can't connect to the proxy service.
+By default, when you create a Vertex AI Workbench instance, Vertex AI Workbench adds the proxy-mode metadata setting. If you change or remove the proxy-mode metadata setting, then the instance can't connect to the proxy service.
 
 To add or modify the metadata to ensure there's a proxy-mode entry set to the correct value (for example: `project_editors` ), use the [`projects.locations.instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/patch) method in the Notebooks API or the [`gcloud workbench instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/update) command in the Agent Platform SDK.
 
 ## The network is blocking internet access
 
-Your JupyterLab instance accesses the proxy service through a public URL. If your Virtual Private Cloud network settings block access to the public internet or your firewall rules block egress traffic, you must use SSH to access your Agent Platform Workbench instance. If possible, you might want to work with your network and firewall administrators to allow access to your instance through the public internet.
+Your JupyterLab instance accesses the proxy service through a public URL. If your Virtual Private Cloud network settings block access to the public internet or your firewall rules block egress traffic, you must use SSH to access your Vertex AI Workbench instance. If possible, you might want to work with your network and firewall administrators to allow access to your instance through the public internet.
 
 ## Your instance doesn't have an external IP address
 
-You might have created your Agent Platform Workbench instance without an external IP address. If you need to change this, complete the following steps.
+You might have created your Vertex AI Workbench instance without an external IP address. If you need to change this, complete the following steps.
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
@@ -86,13 +86,13 @@ You might have created your Agent Platform Workbench instance without an externa
 
 ## VPC Service Controls settings are blocking access to Artifact Registry
 
-To connect to the proxy service, your Agent Platform Workbench instance runs an agent that it downloads from Artifact Registry. Without this agent your instance cannot connect to the proxy service.
+To connect to the proxy service, your Vertex AI Workbench instance runs an agent that it downloads from Artifact Registry. Without this agent your instance cannot connect to the proxy service.
 
 If your VPC Service Controls settings are blocking access to Artifact Registry, you must add the Artifact Registry service to the service perimeter of your VPC Service Controls. [Learn more about how service perimeters work and what services VPC Service Controls can be used to secure](https://docs.cloud.google.com/vpc-service-controls/docs/overview#capabilities) .
 
 ## Further troubleshooting
 
-If you are still having trouble connecting, try reviewing the console logs for your virtual machine. These logs might help you discover why the Agent Platform Workbench instance is unable to register with the proxy service.
+If you are still having trouble connecting, try reviewing the console logs for your virtual machine. These logs might help you discover why the Vertex AI Workbench instance is unable to register with the proxy service.
 
 To access these logs, complete the following steps:
 
@@ -104,4 +104,4 @@ To access these logs, complete the following steps:
 
 ## What's next
 
-For tips on resolving other issues, see the [troubleshooting section on Agent Platform Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) .
+For tips on resolving other issues, see the [troubleshooting section on Vertex AI Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) .

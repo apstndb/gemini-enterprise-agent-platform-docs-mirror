@@ -132,7 +132,7 @@ If you specify the [`baseOutputDirectory` API field](https://docs.cloud.google.c
 
   - `AIP_MODEL_DIR` : a Cloud Storage URI of a directory intended for [saving model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#export) .
   - `AIP_CHECKPOINT_DIR` : a Cloud Storage URI of a directory intended for [saving checkpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#resilience) .
-  - `AIP_TENSORBOARD_LOG_DIR` : a Cloud Storage URI of a directory intended for saving [TensorBoard](https://www.tensorflow.org/tensorboard) logs. See [Using Vertex AI TensorBoard with custom training](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training) .
+  - `AIP_TENSORBOARD_LOG_DIR` : a Cloud Storage URI of a directory intended for saving [TensorBoard](https://www.tensorflow.org/tensorboard) logs. See [Using Vertex AI TensorBoard with custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training) .
 
 The values of these environment variables differ slightly depending on whether you are using hyperparameter tuning. To learn more, see the [API reference for `baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) .
 
@@ -162,7 +162,7 @@ If you want to use certain optional serverless training features, you might need
 
 ### Write code to enable autologging
 
-You can enable autologging using the Agent Platform SDK for Python to automatically capture parameters and performance metrics when submitting the custom job. For details, see [Run training job with experiment tracking](https://docs.cloud.google.com/vertex-ai/docs/experiments/run-training-job-experiments) .
+You can enable autologging using the Agent Platform SDK for Python to automatically capture parameters and performance metrics when submitting the custom job. For details, see [Run training job with experiment tracking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/run-training-job-experiments) .
 
 > To see an example of how to create a custom job with autologging enabled, run the " Experiments: Autologging" notebook in one of the following environments:
 > 
@@ -303,13 +303,13 @@ Alternatively, you can run a different container on each of several *worker pool
 
 To use Vertex AI TensorBoard with serverless training, you must do the following:
 
-  - Create a Vertex AI TensorBoard instance in your project to store your experiments (see [Create a TensorBoard instance](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create-tensorboard-instance) ).
+  - Create a Vertex AI TensorBoard instance in your project to store your experiments (see [Create a TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) ).
 
   - Configure a service account to run the serverless training job with appropriate permissions.
 
-  - Adjust your serverless training code to write out TensorBoard compatible logs to Cloud Storage (see [Changes to your training script](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training#script_changes) )
+  - Adjust your serverless training code to write out TensorBoard compatible logs to Cloud Storage (see [Changes to your training script](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#script_changes) )
 
-For a step-by-step guide, see [Using Vertex AI TensorBoard with serverless training](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training) .
+For a step-by-step guide, see [Using Vertex AI TensorBoard with serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training) .
 
 ## What's next
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 As a data scientist experimenting with large models, you need a way to run experiments on a scalable training service to log parameters and metrics. This enables reproducibility.
 
-With Vertex AI training and experiments autologging integration, you can run your ML experiments at scale and autolog their parameters and metrics by using the `enable_autolog` argument.
+With Gemini Enterprise Agent Platform training and experiments autologging integration, you can run your ML experiments at scale and autolog their parameters and metrics by using the `enable_autolog` argument.
 
 ## Notebook: Vertex AI Experiments: Custom training autologging - Local script
 
@@ -19,14 +19,14 @@ With Vertex AI training and experiments autologging integration, you can run you
 This tutorial uses the following Google Cloud ML services and resources:
 
   - Vertex AI Experiments
-  - Vertex AI training
+  - Gemini Enterprise Agent Platform training
 
 The steps performed include:
 
 1.  Formalize model experiment in a script.
-2.  Run model training using local script on Vertex AI training.
+2.  Run model training using local script on Gemini Enterprise Agent Platform training.
 3.  Check out ML experiment parameters and metrics in Vertex AI Experiments.
 
 ## Relevant content
 
-  - [Run training job with experiment tracking](https://docs.cloud.google.com/vertex-ai/docs/experiments/run-training-job-experiments)
+  - [Run training job with experiment tracking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/run-training-job-experiments)

@@ -239,7 +239,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Your region.
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
   - METADATA\_STORE : The metadata store ID where the artifact is created. The default metadata store is named `default` .
 
@@ -781,4 +781,4 @@ You should see output similar to the following. EXECUTION\_ID is The ID of the e
 
 ## What's next
 
-  - [Get started tracking your Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
+  - [Get started tracking your Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .

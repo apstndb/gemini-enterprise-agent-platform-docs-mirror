@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To learn more, run the "Learn how to use control structures in a Kubeflow pipeline" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/control_flow_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fcontrol_flow_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fcontrol_flow_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/control_flow_kfp.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/control_flow_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fcontrol_flow_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Fcontrol_flow_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/control_flow_kfp.ipynb)
 
 Agent Platform Pipelines lets you orchestrate your machine learning (ML) workflows in a serverless manner. Before Agent Platform Pipelines can orchestrate your ML workflow, you must describe your workflow as a pipeline. ML pipelines are portable and scalable ML workflows that are based on containers and Google Cloud services.
 
@@ -37,7 +37,7 @@ This guide describes how to build pipelines using the Kubeflow Pipelines SDK.
 
 Before you build and run your pipelines, use the following instructions to set up your Google Cloud project and development environment.
 
-1.  To get your Google Cloud project ready to run ML pipelines, follow the instructions in the guide to [configuring your Google Cloud project](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project) .
+1.  To get your Google Cloud project ready to run ML pipelines, follow the instructions in the guide to [configuring your Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project) .
 
 2.  Install v2 or later of the Kubeflow Pipelines SDK.
     
@@ -91,7 +91,7 @@ To set up authentication, you must create a service account key, and set an envi
     
     2.  Click the name of the service account that you use to run pipelines. The **Service account details** page appears.
         
-        If you followed the instructions in the guide to configuring your project for Gemini Enterprise Agent Platform Pipelines, this is the same service account that you created in the [Configure a service account with granular permissions](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) section. Otherwise, Gemini Enterprise Agent Platform uses the Compute Engine default service account to run pipelines. The Compute Engine default service account is named like the following: `  PROJECT_NUMBER -compute@developer.gserviceaccount.com `
+        If you followed the instructions in the guide to configuring your project for Gemini Enterprise Agent Platform Pipelines, this is the same service account that you created in the [Configure a service account with granular permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) section. Otherwise, Gemini Enterprise Agent Platform uses the Compute Engine default service account to run pipelines. The Compute Engine default service account is named like the following: `  PROJECT_NUMBER -compute@developer.gserviceaccount.com `
     
     3.  Click the **Permissions** tab.
     
@@ -201,7 +201,7 @@ Replace the following:
 
   - PROJECT\_ID : The Google Cloud project that this pipeline runs in.
 
-  - PIPELINE\_ROOT\_PATH : Specify a Cloud Storage URI that your [pipelines service account can access](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) . The artifacts of your pipeline runs are stored within the pipeline root. The Cloud Storage URI must start with `gs://` .
+  - PIPELINE\_ROOT\_PATH : Specify a Cloud Storage URI that your [pipelines service account can access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) . The artifacts of your pipeline runs are stored within the pipeline root. The Cloud Storage URI must start with `gs://` .
     
     The pipeline root can be set as an argument of the `@kfp.dsl.pipeline` annotation on the pipeline function, or it can be set when you call `create_run_from_job_spec` to create a pipeline run.
 
@@ -256,7 +256,7 @@ To learn more about building pipelines, read the [building Kubeflow pipelines](h
 
 ## Test a pipeline locally (optional)
 
-After you define your pipelines and components, you can test the component code by executing the code in your local authoring environment. By executing your pipeline or a component locally, you can identify and debug potential issues before you [create a pipeline run](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) in a remote environment, such as Agent Platform Pipelines. For more information about locally executing pipelines and components, see [Local execution](https://www.kubeflow.org/docs/components/pipelines/v2/local-execution) in the [KFP documentation](https://www.kubeflow.org/docs/components/pipelines/v2/introduction) .
+After you define your pipelines and components, you can test the component code by executing the code in your local authoring environment. By executing your pipeline or a component locally, you can identify and debug potential issues before you [create a pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) in a remote environment, such as Agent Platform Pipelines. For more information about locally executing pipelines and components, see [Local execution](https://www.kubeflow.org/docs/components/pipelines/v2/local-execution) in the [KFP documentation](https://www.kubeflow.org/docs/components/pipelines/v2/introduction) .
 
 > **Note:** You can't locally test your pipeline code if any of the components requires authentication to use Google Cloud services. These include Google Cloud Pipeline Components. [Learn more about the limitations of local execution.](https://www.kubeflow.org/docs/components/pipelines/v2/local-execution/#limitations)
 
@@ -339,13 +339,13 @@ Use the following process to build a pipeline.
       - PIPELINE\_FUNCTION : The name of your pipeline's function.
       - PIPELINE\_PACKAGE\_PATH : The path to where to store your compiled pipeline.
 
-5.  [Run your pipeline using Google Cloud console or Python](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+5.  [Run your pipeline using Google Cloud console or Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
 
 ## Accessing Google Cloud resources in a pipeline
 
 If you don't specify a service account when you run a pipeline, Agent Platform Pipelines uses the Compute Engine default service account to run your pipeline. Agent Platform Pipelines also uses a pipeline run's service account to authorize your pipeline to access Google Cloud resources. The Compute Engine default service account has the [**Project Editor** role](https://docs.cloud.google.com/iam/docs/roles-overview#basic) by default. This may grant your pipelines excessive access to Google Cloud resources in your Google Cloud project.
 
-We recommend that you [create a service account to run your pipelines and then grant this account granular permissions to the Google Cloud resources that are needed to run your pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) .
+We recommend that you [create a service account to run your pipelines and then grant this account granular permissions to the Google Cloud resources that are needed to run your pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
 
 Learn more about using Identity and Access Management to [create a service account](https://docs.cloud.google.com/iam/docs/creating-managing-service-accounts) and [manage the access granted to a service account](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
@@ -368,5 +368,5 @@ The SDK clients and container images that you use to build and run pipelines are
 ## What's next
 
   - Read the [introduction to Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) to learn more about orchestrating ML workflows.
-  - Learn how to [run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
-  - [Visualize and analyze the results of your pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/pipelines/visualize-pipeline) .
+  - Learn how to [run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
+  - [Visualize and analyze the results of your pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline) .

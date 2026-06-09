@@ -16,7 +16,7 @@ This guide shows how to configure email notifications from a pipeline by using t
 
 Before you build a pipeline that sends notifications, use the following instructions to set up your Google Cloud project and development environment.
 
-1.  To get your Google Cloud project ready to run ML pipelines, follow the instructions in the guide to [configuring your Google Cloud project](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project) .
+1.  To get your Google Cloud project ready to run ML pipelines, follow the instructions in the guide to [configuring your Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project) .
 
 2.  Install v2 or later of the Kubeflow Pipelines SDK.
     
@@ -55,7 +55,7 @@ Replace the following:
 
   - PIPELINE\_NAME : The name of the pipeline.
 
-  - PIPELINE\_ROOT\_PATH : Specify a Cloud Storage URI that your [pipelines service account can access](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) . The artifacts of your pipeline runs are stored within the pipeline root.
+  - PIPELINE\_ROOT\_PATH : Specify a Cloud Storage URI that your [pipelines service account can access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) . The artifacts of your pipeline runs are stored within the pipeline root.
     
     The pipeline root can be set as an argument of the `@kfp.dsl.pipeline` annotation on the pipeline function, or it can be set when you call `create_run_from_job_spec` to create a pipeline run.
 

@@ -41,3 +41,38 @@ Verify your updated version is `1.82.0` or later by running the following comman
     pip show google-cloud-aiplatform
 
 If you're in a notebook instance (For example, Jupyter or Colab or Workbench), you might need to restart your runtime to use the updated packages.
+
+## 401 Authorization Errors
+
+**Issue** :
+
+You receive an error message similar to the following:
+
+    Error Code: "401"
+    Error Details: "Context-Aware Access requirements are not met"
+
+OR
+
+    Agent Engine Error: An error occurred during invocation. Exception: API request failed with status 401:
+    Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential.
+
+**Possible cause** :
+
+By default, when you use Agent Identity with Agent Runtime, certificate bound access tokens are used for authentication to prevent token theft. A 401 error can occur at runtime in one of the following two scenarios:
+
+1.  User or Agent attempting to use an access token outside of the context in which it was issued, such as passing the token between agents.
+2.  Agent calling a non-mTLS compatible API endpoint, such as telemetry.googleapis.com instead of telemetry.mtls.googleapis.com.
+
+**Recommended solution** :
+
+For scenario \#1, if you have a legitimate reason to share tokens between agents, you can opt out of the default Context-Aware Access (CAA) policy. This action is strongly discouraged, as it leaves an agent vulnerable to credential theft.
+
+Opt out of the default CAA policy by setting the following environment variable when you create your Agent Runtime instance:
+
+    config={
+      "env_vars": {
+        "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
+      }
+    }
+
+For scenario \#2, you can similarly set the `GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES` variable to `False` to allow agents to use the non-mTLS API endpoints as a temporary workaround. In this case, the underlying issue could be a known issue with ADK.

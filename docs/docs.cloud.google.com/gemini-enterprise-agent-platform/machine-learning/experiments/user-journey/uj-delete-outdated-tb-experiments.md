@@ -26,4 +26,4 @@ The steps performed include:
 
 ## Relevant content
 
-  - [Create or delete an experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-experiment)
+  - [Create or delete an experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-experiment)

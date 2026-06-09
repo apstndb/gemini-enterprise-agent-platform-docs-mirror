@@ -1,28 +1,28 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create
-title: Create a Agent Platform Workbench instance
+title: Create a Vertex AI Workbench instance
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This page shows you how to create a Gemini Enterprise Agent Platform Workbench instance by using the Google Cloud console or the Google Cloud CLI. While creating your instance, you can configure your instance's hardware, encryption type, network, and other details.
+This page shows you how to create a Vertex AI Workbench instance by using the Google Cloud console or the Google Cloud CLI. While creating your instance, you can configure your instance's hardware, encryption type, network, and other details.
 
 ## Before you begin
 
-Before you create a Agent Platform Workbench instance, you must complete the following steps:
+Before you create a Vertex AI Workbench instance, you must complete the following steps:
 
 > **Note:** The [Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) lets you manage Agent Platform Workbench resources. For managing Agent Platform resources, see the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/reference/rest) .
 
 ### Required roles
 
-To get the permissions that you need to create and manage a Agent Platform Workbench instance, ask your administrator to grant you the [Notebooks Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.admin) ( `roles/notebooks.admin` ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to create and manage a Vertex AI Workbench instance, ask your administrator to grant you the [Notebooks Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.admin) ( `roles/notebooks.admin` ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
 ## Create an instance
 
-You can create a Agent Platform Workbench instance by using the Google Cloud console, the gcloud CLI, or Terraform:
+You can create a Vertex AI Workbench instance by using the Google Cloud console, the gcloud CLI, or Terraform:
 
 ### Console
 
@@ -35,24 +35,24 @@ You can create a Agent Platform Workbench instance by using the Google Cloud con
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance. The name must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#instances) .
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#instances) .
       - **Labels** : Optional. Provide custom key-value labels for the instance.
       - **Network tags** : Optional. Provide [network tags](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-tags) for the instance.
 
 5.  In the **Environment** section, provide the following:
     
       - **JupyterLab version** : Select a JupyterLab version.
-      - **Version** : Use the latest version or a previous version of Agent Platform Workbench instances.
+      - **Version** : Use the latest version or a previous version of Vertex AI Workbench instances.
       - **Post-startup script** : Optional. Click **Browse** to select a script to run one time, after the instance is created. The path must be a URL or Cloud Storage path, for example: ` gs:// PATH_TO_FILE / FILE_NAME  ` .
       - **Metadata** : Optional. Provide custom metadata keys for the instance.
 
 6.  In the **Machine type** section, provide the following:
     
-      - **Machine type** : Select the number of CPUs and amount of RAM for your new instance. Agent Platform Workbench provides monthly cost estimates for each machine type that you select.
+      - **Machine type** : Select the number of CPUs and amount of RAM for your new instance. Vertex AI Workbench provides monthly cost estimates for each machine type that you select.
     
       - **GPU** : Optional. If you want GPUs, select the **GPU type** and **Number of GPUs** for your new instance. The accelerator type that you want must be available in your instance's zone. To learn about accelerator availability by zone, see [GPU regions and zones availability](https://docs.cloud.google.com/compute/docs/gpus/gpu-regions-zones) . For information about the different GPUs, see [GPUs on Compute Engine](https://docs.cloud.google.com/compute/docs/gpus) .
         
-        > **Note:** You can modify the machine type and GPU configuration for your instance after it is created. For more information, see [Change machine type and configure GPUs of a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/change-machine-type) .
+        > **Note:** You can modify the machine type and GPU configuration for your instance after it is created. For more information, see [Change machine type and configure GPUs of a Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/change-machine-type) .
     
       - **Shielded VM** : Optional. Select or clear the following checkboxes:
         
@@ -136,13 +136,13 @@ You can create a Agent Platform Workbench instance by using the Google Cloud con
 
 11. Click **Create** .
     
-    Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
+    Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link.
 
 ### gcloud
 
 Before using any of the command data below, make the following replacements:
 
-  - `  INSTANCE_NAME  ` : the name of your Agent Platform Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
+  - `  INSTANCE_NAME  ` : the name of your Vertex AI Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
 
   - `  PROJECT_ID  ` : your project ID
 
@@ -198,11 +198,11 @@ Execute the following command:
 
 For more information about the command for creating an instance from the command line, see the [gcloud CLI documentation](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/create) .
 
-Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link in the Google Cloud console.
+Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link in the Google Cloud console.
 
 ### Terraform
 
-The following sample uses the [`google_workbench_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance) Terraform resource to create a Agent Platform Workbench instance named `workbench-instance-example` .
+The following sample uses the [`google_workbench_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance) Terraform resource to create a Vertex AI Workbench instance named `workbench-instance-example` .
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) .
 
@@ -264,7 +264,7 @@ Replace the following:
 
   - `  LOCATION  ` : the zone where you want your instance to be located
 
-  - `  INSTANCE_NAME  ` : the name of your Agent Platform Workbench instance
+  - `  INSTANCE_NAME  ` : the name of your Vertex AI Workbench instance
 
   - `  ENABLEMENT_BOOLEAN  ` : use one of the following:
     
@@ -273,11 +273,11 @@ Replace the following:
 
 ## Limitation of JupyterLab 4
 
-When scheduling a notebook run in JupyterLab 4, Agent Platform Workbench stores a copy of the notebook in its current state in Cloud Storage, and then runs this copy of the notebook according to the schedule. If you edit the original notebook, you must create a new schedule to run the updated version of the notebook.
+When scheduling a notebook run in JupyterLab 4, Vertex AI Workbench stores a copy of the notebook in its current state in Cloud Storage, and then runs this copy of the notebook according to the schedule. If you edit the original notebook, you must create a new schedule to run the updated version of the notebook.
 
 ## Network configuration options
 
-A Agent Platform Workbench instance must access service endpoints that are outside your VPC network.
+A Vertex AI Workbench instance must access service endpoints that are outside your VPC network.
 
 You can provide this access in one of the following ways:
 
@@ -302,13 +302,13 @@ If you use [third party credentials](https://docs.cloud.google.com/gemini-enterp
 
 ## Network tags
 
-Your new Agent Platform Workbench instance automatically has the `deeplearning-vm` and `notebook-instance` network tags assigned.
+Your new Vertex AI Workbench instance automatically has the `deeplearning-vm` and `notebook-instance` network tags assigned.
 
 ![The Virtual machines section of the console navigation menu, with VM instances selected, showing the currently assigned network tags.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/notebook-network-tags.png)
 
-These tags let you manage network access to and from your Agent Platform Workbench instance by referencing the tags in your VPC networking firewall rules. For more information about network tags, see [Add network tags](https://docs.cloud.google.com/vpc/docs/add-remove-network-tags) .
+These tags let you manage network access to and from your Vertex AI Workbench instance by referencing the tags in your VPC networking firewall rules. For more information about network tags, see [Add network tags](https://docs.cloud.google.com/vpc/docs/add-remove-network-tags) .
 
-To view the network tags for a Agent Platform Workbench instance, do the following:
+To view the network tags for a Vertex AI Workbench instance, do the following:
 
 1.  In the Google Cloud console, go to the **VM instances** page.
 
@@ -318,14 +318,14 @@ To view the network tags for a Agent Platform Workbench instance, do the followi
 
 ## Troubleshooting
 
-If you encounter a problem when you create an instance, see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) for help with common issues.
+If you encounter a problem when you create an instance, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) for help with common issues.
 
 ## What's next
 
   - To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials/jupyter-notebooks) .
   - [Create an instance with Confidential Computing enabled](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-confidential-computing) .
-  - To check on the health status of your Agent Platform Workbench instance, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .
+  - To check on the health status of your Vertex AI Workbench instance, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .
   - For a Terraform solution for simplified Agent Platform networking setup, see [Simplified Cloud Networking Configuration Solutions](https://github.com/GoogleCloudPlatform/cloudnetworking-config-solutions) .
-  - You can create a Agent Platform Workbench instance using a private IP. For a Terraform solution, see [Workbench](https://github.com/GoogleCloudPlatform/cloudnetworking-config-solutions/tree/main/execution/06-consumer/Workbench) .
+  - You can create a Vertex AI Workbench instance using a private IP. For a Terraform solution, see [Workbench](https://github.com/GoogleCloudPlatform/cloudnetworking-config-solutions/tree/main/execution/06-consumer/Workbench) .
   - To learn more about granting access, see [Manage access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access) .
   - To use CMEK, see [Customer-managed encryption keys](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .

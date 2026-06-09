@@ -23,7 +23,7 @@ Replace the following:
   - SERVICE\_ACCOUNT\_ID : The ID for the service account.
   - PROJECT\_ID : The ID of the project.
 
-Learn more about [using a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) and [configuring a service account](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) for use with Gemini Enterprise Agent Platform Pipelines.
+Learn more about [using a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) and [configuring a service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) for use with Gemini Enterprise Agent Platform Pipelines.
 
 ## Use VPC Service Controls to prevent data exfiltration
 
@@ -76,7 +76,7 @@ Replace the following:
 
 ## Consume or produce artifacts in your component
 
-The Google Cloud SDK defines a set of [ML metadata artifact types](https://docs.cloud.google.com/vertex-ai/docs/pipelines/artifact-types) that serve as component input and output. Some Google Cloud Pipeline Components consume these artifacts as input or produce them as output.
+The Google Cloud SDK defines a set of [ML metadata artifact types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/artifact-types) that serve as component input and output. Some Google Cloud Pipeline Components consume these artifacts as input or produce them as output.
 
 This page shows how to consume and produce these artifacts.
 

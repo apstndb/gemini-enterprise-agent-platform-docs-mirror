@@ -32,14 +32,14 @@ You can use a custom organization policy to allow or deny specific operations on
 
 ## Limitations
 
-Custom organization policies aren't enforced on [pipeline runs scheduled using the scheduler API](https://docs.cloud.google.com/vertex-ai/docs/pipelines/schedule-pipeline-run) .
+Custom organization policies aren't enforced on [pipeline runs scheduled using the scheduler API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/schedule-pipeline-run) .
 
 ## Before you begin
 
 1\. **Set up your project**
 
 1.  [Get your organization resource ID.](https://docs.cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id)
-2.  [Define and compile a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) that you can use to test the custom constraint.
+2.  [Define and compile a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) that you can use to test the custom constraint.
 
 ### Required roles
 

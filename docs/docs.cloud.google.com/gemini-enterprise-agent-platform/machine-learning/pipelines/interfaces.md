@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To learn more, run the "Learn how to build Python function-based Kubeflow pipeline components" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fpipelines%2Flightweight_functions_component_io_kfp.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb)
 
 This page lists the interfaces that you can use to define and run ML pipelines on Agent Platform Pipelines.
 
@@ -20,9 +20,9 @@ Agent Platform Pipelines supports ML pipelines defined using the Kubeflow Pipeli
 
 ![Kubeflow Pipelines logo](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/pipelines/images/icons/kfp_logo.png) Use KFP for all use cases where you don't need to use TensorFlow Extended to process huge amounts of structured or text data. Agent Platform Pipelines supports KFP SDK v2.0 or later.
 
-When you use the KFP SDK, you can define your ML workflow by building custom components and also by reusing prebuilt components, such as the Google Cloud Pipeline Components. Google Cloud Pipeline Components let you easily use Gemini Enterprise services like AutoML in your ML pipeline. Agent Platform Pipelines supports Google Cloud Pipeline Components SDK v2 or later. For more information about Google Cloud Pipeline Components, see [Introduction to Google Cloud Pipeline Components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/components-introduction) .
+When you use the KFP SDK, you can define your ML workflow by building custom components and also by reusing prebuilt components, such as the Google Cloud Pipeline Components. Google Cloud Pipeline Components let you easily use Gemini Enterprise services like AutoML in your ML pipeline. Agent Platform Pipelines supports Google Cloud Pipeline Components SDK v2 or later. For more information about Google Cloud Pipeline Components, see [Introduction to Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/components-introduction) .
 
-To learn how to build a pipeline using the Kubeflow Pipelines, see [Build a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) . To learn more about Kubeflow Pipelines, see the [Kubeflow Pipelines documentation](https://www.kubeflow.org/docs/components/pipelines/) .
+To learn how to build a pipeline using the Kubeflow Pipelines, see [Build a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) . To learn more about Kubeflow Pipelines, see the [Kubeflow Pipelines documentation](https://www.kubeflow.org/docs/components/pipelines/) .
 
 ### TensorFlow Extended (TFX) SDK
 
@@ -78,8 +78,8 @@ Google Cloud console is the recommended way for reviewing and monitoring your pi
 
 ## What's next
 
-  - Get started by [learning how to define a pipeline using the Kubeflow Pipelines SDK](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+  - Get started by [learning how to define a pipeline using the Kubeflow Pipelines SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
-  - [Learn how to run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+  - [Learn how to run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .
 
   - Learn about [best practices for implementing custom-trained ML models on Gemini Enterprise Agent Platform](https://cloud.google.com/architecture/ml-on-gcp-best-practices#machine-learning-workflow-orchestration) .

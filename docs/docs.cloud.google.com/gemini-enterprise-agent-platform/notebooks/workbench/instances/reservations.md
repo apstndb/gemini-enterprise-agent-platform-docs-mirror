@@ -161,7 +161,7 @@ When consuming a Compute Engine reservation, you're billed for the following:
 
 ## Troubleshoot
 
-To find methods for diagnosing and resolving errors, related to using reservations with Agent Platform Workbench instances, see [Troubleshooting Agent Platform Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#reservations-instances) .
+To find methods for diagnosing and resolving errors, related to using reservations with Agent Platform Workbench instances, see [Troubleshooting Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#reservations-instances) .
 
 ## What's next
 

@@ -58,7 +58,7 @@ Use one of the following methods to deploy a model:
         
         This is the number of nodes available to this model at all times. You are charged for the nodes, even without inference traffic. See the [pricing page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
     
-    3.  Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#enabling-and-disabling) .
+    3.  Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
     
     4.  ***Classification** models only (optional)* : In the **Explainability options** section, select check\_box **Enable feature attributions for this model** to enable [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) . Accept existing [visualization settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/visualization-settings-automl-icn) or choose new values and click **Done** .
         
@@ -853,7 +853,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
         print(model.resource_name)
         return model
 
-Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#enabling-and-disabling) .
+Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
 
 ## Get operation status
 

@@ -503,11 +503,11 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         console.error(err);
       });
 
-Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#enabling-and-disabling) .
+Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
 
 ## Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Vertex AI provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
 
 ## What's next
 

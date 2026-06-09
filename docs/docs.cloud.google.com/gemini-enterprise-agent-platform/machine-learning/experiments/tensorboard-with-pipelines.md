@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 > To see an example of TensorBoard integration with pipelines, run the " TensorBoard integration with Pipelines" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tensorboard/tensorboard_vertex_ai_pipelines_integration.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftensorboard%2Ftensorboard_vertex_ai_pipelines_integration.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftensorboard%2Ftensorboard_vertex_ai_pipelines_integration.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tensorboard/tensorboard_vertex_ai_pipelines_integration.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tensorboard/tensorboard_vertex_ai_pipelines_integration.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftensorboard%2Ftensorboard_vertex_ai_pipelines_integration.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftensorboard%2Ftensorboard_vertex_ai_pipelines_integration.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tensorboard/tensorboard_vertex_ai_pipelines_integration.ipynb)
 
 Your training code can be packaged into a custom training component and run in a pipeline job. TensorBoard logs are automatically streamed to your Vertex AI TensorBoard experiment. You can use this integration to monitor your training in near real time as Vertex AI TensorBoard streams in Vertex AI TensorBoard logs as they are written to Cloud Storage.
 
-For initial setup see [Set up for Vertex AI TensorBoard](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup) .
+For initial setup see [Set up for Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup) .
 
 ### Changes to your training script
 
@@ -42,11 +42,11 @@ Learn more about [how Agent Platform](https://docs.cloud.google.com/gemini-enter
 
 ### Build and run a pipeline
 
-The following example shows how to build and run a pipeline using Kubeflow Pipelines DSL package. For more examples and additional details, see [Agent Platform Pipelines documentation](https://docs.cloud.google.com/vertex-ai/docs/pipelines) .
+The following example shows how to build and run a pipeline using Kubeflow Pipelines DSL package. For more examples and additional details, see [Agent Platform Pipelines documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines) .
 
 #### Create a training component
 
-Package your training code into a custom component, making sure that the code is configured to write TensorBoard logs to a Cloud Storage bucket. For more examples see [Build your own pipeline components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-own-components) .
+Package your training code into a custom component, making sure that the code is configured to write TensorBoard logs to a Cloud Storage bucket. For more examples see [Build your own pipeline components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-own-components) .
 
     from kfp.v2.dsl import component
     
@@ -95,7 +95,7 @@ Create a custom training job from the component you've created by specifying the
 
 Then, build a pipeline to include this job and compile the pipeline to a JSON file.
 
-For more examples and information, see [Custom job components](https://docs.cloud.google.com/vertex-ai/docs/pipelines/customjob-component) and [Build a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+For more examples and information, see [Custom job components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/customjob-component) and [Build a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
     from kfp.v2 import compiler
     from google_cloud_pipeline_components.v1.custom_job.utils import \
@@ -125,7 +125,7 @@ For more examples and information, see [Custom job components](https://docs.clou
 
 #### Submit a Gemini Enterprise Agent Platform pipeline
 
-Submit your pipeline using the Agent Platform SDK for Python. For more information, see [Run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline#vertex-ai-sdk-for-python) .
+Submit your pipeline using the Agent Platform SDK for Python. For more information, see [Run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline#vertex-ai-sdk-for-python) .
 
 ### Python
 
@@ -164,5 +164,5 @@ Submit your pipeline using the Agent Platform SDK for Python. For more informati
 
 ## What's next
 
-  - View your results: [View TensorBoard for Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-view#vertex-ai-pipelines) .
+  - View your results: [View TensorBoard for Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-view#vertex-ai-pipelines) .
   - Learn how to optimize the performance of your custom training jobs using [Cloud Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) .

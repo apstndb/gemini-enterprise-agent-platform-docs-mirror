@@ -10,7 +10,7 @@ If you no longer need a scheduled or running pipeline run, you can cancel it. If
 
 When you initiate a pipeline run cancellation, the status of the pipeline run changes to **Canceling** . During this status, Gemini Enterprise Agent Platform Pipelines cancels all the remaining tasks in the pipeline and all the Google Cloud services and resources invoked by the pipeline run. After all of these tasks, services, and resources are canceled, the pipeline status changes to **Canceled** .
 
-Note that a canceled pipeline run isn't deleted. You have the option to [delete the pipeline run](https://docs.cloud.google.com/vertex-ai/docs/pipelines/delete-pipeline-runs) after you cancel it.
+Note that a canceled pipeline run isn't deleted. You have the option to [delete the pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/delete-pipeline-runs) after you cancel it.
 
 ## Cancel a pipeline run
 
@@ -72,7 +72,7 @@ You should receive a successful status code (2xx) and an empty response.
 
 ### Python
 
-Use the following sample to cancel an ongoing or scheduled pipeline run by using the [`PipelineJob.cancel`](https://docs.cloud.google.com/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_cancel) method:
+Use the following sample to cancel an ongoing or scheduled pipeline run by using the [`PipelineJob.cancel`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_cancel) method:
 
     from google.cloud import aiplatform
     aiplatform.init(project=PROJECT_ID, location=LOCATION)
@@ -157,7 +157,7 @@ You should receive a JSON response similar to the following:
 
 ### Python
 
-Use the following sample to cancel multiple ongoing or scheduled pipeline runs by using the [`PipelineJob.batch_cancel`](https://docs.cloud.google.com/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_batch_cancel) method:
+Use the following sample to cancel multiple ongoing or scheduled pipeline runs by using the [`PipelineJob.batch_cancel`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_batch_cancel) method:
 
     from google.cloud import aiplatform_v1
     from google.api_core.client_options import ClientOptions

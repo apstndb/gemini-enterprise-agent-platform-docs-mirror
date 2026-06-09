@@ -45,7 +45,7 @@ Before you build and run your pipeline, use the following instructions to set up
 
 ## Configuring permissions
 
-If you have not already set up your gcloud CLI project for Gemini Enterprise Agent Platform Pipelines, follow the instructions in [Configure your Google Cloud project for Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project) .
+If you have not already set up your gcloud CLI project for Gemini Enterprise Agent Platform Pipelines, follow the instructions in [Configure your Google Cloud project for Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project) .
 
 Additionally, assign the following predefined Identity and Access Management permissions to use Artifact Registry as the template registry:
 
@@ -208,7 +208,7 @@ After you've uploaded your pipeline template to your repository in Artifact Regi
 
 Before you can use your pipeline template, you'll need to create a Cloud Storage bucket for staging pipeline runs.
 
-To create the bucket, follow the instructions in [Configure a Cloud Storage bucket for pipeline artifacts](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#storage) and then run the following command:
+To create the bucket, follow the instructions in [Configure a Cloud Storage bucket for pipeline artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#storage) and then run the following command:
 
     STAGING_BUCKET="gs://BUCKET_NAME"
 

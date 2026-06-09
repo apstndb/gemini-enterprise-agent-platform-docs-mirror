@@ -46,12 +46,12 @@ The TensorBoard callback is then included in the TensorFlow `model.fit` callback
             callbacks=[tensorboard_callback],
         )
 
-The TensorBoard logs are created in the specified directory and can be uploaded to a Vertex AI TensorBoard experiment by following the [Upload TensorBoard Logs](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-upload-existing-logs#one-time-logging) instructions for uploading.
+The TensorBoard logs are created in the specified directory and can be uploaded to a Vertex AI TensorBoard experiment by following the [Upload TensorBoard Logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-upload-existing-logs#one-time-logging) instructions for uploading.
 
 For more examples, see the [TensorBoard open source docs](https://www.tensorflow.org/tensorboard/get_started)
 
 ## What's next
 
   - Check out automatic log streaming
-      - [Train using a custom training job](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training)
-      - [Train using Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-with-pipelines)
+      - [Train using a custom training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training)
+      - [Train using Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-with-pipelines)

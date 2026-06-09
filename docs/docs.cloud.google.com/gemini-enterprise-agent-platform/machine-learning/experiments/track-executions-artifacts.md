@@ -115,4 +115,4 @@ The following sample uses the `  start_execution  ` method.
 
 ### Notebook samples
 
-  - [Compare models trained and evaluated locally](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)
+  - [Compare models trained and evaluated locally](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)

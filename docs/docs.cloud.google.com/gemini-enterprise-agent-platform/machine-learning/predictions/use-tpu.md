@@ -40,6 +40,10 @@ The following sample code demonstrates how to use automatic model optimization w
   )
 ```
 
+<span id="security-best-practice1"></span>
+
+> **Note:** **Security Best Practice** : When you specify an `artifact_uri` that isn't set to a Cloud Storage ( `gs://` ) location, you must set the `staging_bucket` parameter to a Cloud Storage location to help ensure full asset isolation.
+
 For more information on importing models, see [importing models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
 
 ### Prebuilt PyTorch container
@@ -57,6 +61,10 @@ For example, [TorchServe for Cloud TPU v5e Inference](https://docs.cloud.google.
         serving_container_health_route="/ping",
         serving_container_ports=[8080]
     )
+
+<span id="security-best-practice2"></span>
+
+> **Note:** **Security Best Practice** : When you specify an `artifact_uri` that isn't set to a Cloud Storage ( `gs://` ) location, you must set the `staging_bucket` parameter to a Cloud Storage location to help ensure full asset isolation.
 
 For more information, see [export model artifacts for PyTorch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts#pytorch) and the tutorial notebook for [Serve a PyTorch model using a prebuilt container](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb) .
 

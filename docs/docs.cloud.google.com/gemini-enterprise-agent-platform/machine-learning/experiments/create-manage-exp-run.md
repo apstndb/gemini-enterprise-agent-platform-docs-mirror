@@ -163,9 +163,9 @@ Follow these steps to delete an experiment run .
 
 The Google Cloud console provides a visualization of the data associated with these runs.
 
-  - [View experiment run data](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#view-experiment-run-data)
-  - [Compare experiment runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#compare-experiment-runs)
+  - [View experiment run data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#view-experiment-run-data)
+  - [Compare experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#compare-experiment-runs)
 
 ## What's next
 
-  - [Add pipeline run to an experiment or experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/add-pipelinerun-experiment)
+  - [Add pipeline run to an experiment or experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/add-pipelinerun-experiment)

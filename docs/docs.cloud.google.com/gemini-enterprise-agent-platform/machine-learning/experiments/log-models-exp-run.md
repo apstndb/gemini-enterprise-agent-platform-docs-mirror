@@ -253,11 +253,11 @@ The `register_experiment_model` API enables registering the model that was deeme
 
 ## What's next
 
-  - [Compare and analyze runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs)
+  - [Compare and analyze runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs)
 
 ### Relevant notebook sample
 
-  - [Compare models trained and evaluated locally](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)
+  - [Compare models trained and evaluated locally](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
 
 ### Blog post
 

@@ -6,13 +6,13 @@ description: Access system schemas as MetadataSchema resources in the Vertex ML 
 data_source: docs.cloud.google.com
 ---
 
-Each metadata resource is associated with a specific [MetadataSchema](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/data-model) . To simplify the metadata resource creation process Vertex ML Metadata publishes predefined types called system schemas for common ML concepts. System schemas live under the namespace `system` . You can access system schemas as MetadataSchema resources in the Vertex ML Metadata API. Schemas are always versioned. The format of system schemas is a subset of the [OpenAPI 3.0 specification](https://swagger.io/specification/#schema-object) .
+Each metadata resource is associated with a specific [MetadataSchema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/data-model) . To simplify the metadata resource creation process Vertex ML Metadata publishes predefined types called system schemas for common ML concepts. System schemas live under the namespace `system` . You can access system schemas as MetadataSchema resources in the Vertex ML Metadata API. Schemas are always versioned. The format of system schemas is a subset of the [OpenAPI 3.0 specification](https://swagger.io/specification/#schema-object) .
 
 ## How to use system schemas
 
-Gemini Enterprise Agent Platform uses system schemas to create metadata resources for tracking your ML workflows. You can then filter and group resources in metadata queries by using the `schema_title` field. For more information about how to use filter functions, see [Analyze Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/analyzing) .
+Gemini Enterprise Agent Platform uses system schemas to create metadata resources for tracking your ML workflows. You can then filter and group resources in metadata queries by using the `schema_title` field. For more information about how to use filter functions, see [Analyze Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/analyzing) .
 
-You can also use system schemas through the Vertex ML Metadata API to create metadata resources directly. You can identify a system schema by its schema title and schema version. Fields in system schemas are always considered optional. You aren't restricted to the predefined fields of system schemas and can also log additional arbitrary metadata to any metadata resource. For more information about using system schemas to create metadata resources, see [Track Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
+You can also use system schemas through the Vertex ML Metadata API to create metadata resources directly. You can identify a system schema by its schema title and schema version. Fields in system schemas are always considered optional. You aren't restricted to the predefined fields of system schemas and can also log additional arbitrary metadata to any metadata resource. For more information about using system schemas to create metadata resources, see [Track Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .
 
 ### List your schemas
 
@@ -23,7 +23,7 @@ To view a list of all your existing registered schemas using the following comma
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Your region.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
 HTTP method and URL:
 
@@ -280,5 +280,5 @@ The following examples are common system schemas that are available for immediat
 
 ## What's Next?
 
-  - [Start tracking metadata with Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
-  - [Review Vertex ML Metadata concepts and data model](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/data-model) .
+  - [Start tracking metadata with Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .
+  - [Review Vertex ML Metadata concepts and data model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/data-model) .

@@ -8,9 +8,9 @@ data_source: docs.cloud.google.com
 
 The following are required to setup Vertex AI TensorBoard:
 
-1.  [Create a service account with required permissions](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create-service-account) .
-2.  [Create a Cloud Storage bucket to store Vertex AI TensorBoard logs](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create_storage_bucket) .
-3.  [Create a Vertex AI TensorBoard instance](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create-tensorboard-instance) .
+1.  [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-service-account) .
+2.  [Create a Cloud Storage bucket to store Vertex AI TensorBoard logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create_storage_bucket) .
+3.  [Create a Vertex AI TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) .
 
 ### Create a service account with required permissions
 
@@ -50,7 +50,7 @@ A Cloud Storage bucket is required to store the Vertex AI TensorBoard logs your 
   - Gemini Enterprise Agent Platform training job
   - Vertex AI TensorBoard instance
 
-You can use an existing bucket instead of following the bucket creation step described here. When using an existing bucket, the location of the bucket has to be the same location your [Vertex AI TensorBoard instance was created in](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create-tensorboard-instance) .
+You can use an existing bucket instead of following the bucket creation step described here. When using an existing bucket, the location of the bucket has to be the same location your [Vertex AI TensorBoard instance was created in](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) .
 
     UNIQUE_SUFFIX=$(python3 -c "import uuid; print(uuid.uuid4().hex[:8])")
     GCS_BUCKET_NAME="PROJECT_ID-tb-logs-LOCATION_ID-${UNIQUE_SUFFIX}"
@@ -62,7 +62,7 @@ Replace the following:
 
 > **Note:** Using a unique suffix when naming your bucket helps prevent [bucket squatting](https://cloud.google.com/storage/docs/best-practices#naming) , where an attacker pre-creates a bucket with a predictable name. Always verify that you own the bucket before writing data to it.
 
-`GCS_BUCKET_NAME` is used to [create a custom training job](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training#aiplatform_sdk_create_training_pipeline_custom_job_sample-drest) with REST.
+`GCS_BUCKET_NAME` is used to [create a custom training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#aiplatform_sdk_create_training_pipeline_custom_job_sample-drest) with REST.
 
 ### Create a Vertex AI TensorBoard instance
 
@@ -70,7 +70,7 @@ A Vertex AI TensorBoard instance, which is a regionalized resource storing your 
 
 #### Use the default Vertex AI TensorBoard instance
 
-A default TensorBoard instance is automatically created when initializing a [Vertex AI experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-experiment#vertex-ai-sdk-for-python) . This backing TensorBoard is associated with the Vertex AI experiment and is used with all subsequent Vertex AI Experiments runs. The `tensorboard_resource_name` can be reterived directly from the experiment. This is the easiest way to get started with Vertex AI TensorBoard and should meet most users needs.
+A default TensorBoard instance is automatically created when initializing a [Gemini Enterprise Agent Platform experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-experiment#vertex-ai-sdk-for-python) . This backing TensorBoard is associated with the Gemini Enterprise Agent Platform experiment and is used with all subsequent Gemini Enterprise Agent Platform Experiments runs. The `tensorboard_resource_name` can be reterived directly from the experiment. This is the easiest way to get started with Vertex AI TensorBoard and should meet most users needs.
 
 ### Agent Platform SDK for Python
 
@@ -211,7 +211,7 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
 
 Deleting a TensorBoard instance deletes that TensorBoard and all associated TensorBoard experiments and TensorBoard runs. The Vertex AI Experiments the instance is associated with isn't deleted.
 
-To delete a Vertex AI Experiments and it's associated Vertex AI TensorBoard experiments, see [Delete an experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-experiment#delete_experiment) .
+To delete a Vertex AI Experiments and it's associated Vertex AI TensorBoard experiments, see [Delete an experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-experiment#delete_experiment) .
 
 ### Agent Platform SDK for Python
 
@@ -232,7 +232,7 @@ Delete a Vertex AI TensorBoard instance using the Agent Platform SDK for Python.
     
         tensorboard.delete()
 
-  - `tensorboard_resource_name` : Provide the [TensorBoard Resource name](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#tensorboard_resource_name) .
+  - `tensorboard_resource_name` : Provide the [TensorBoard Resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) .
   - `project` : The `PROJECT_ID` your TensorBoard instance is in.
   - `location` : The location that your TensorBoard instance is in.
 
@@ -289,4 +289,4 @@ The TensorBoard resource name can be retrieved from an Vertex AI Experiments usi
 
 The TensorBoard instance ID is a generated ID value associated with a TensorBoard instance. To find the `TENSORBOARD_INSTANCE_ID` , go to the Experiments page Vertex AI section of the Google Cloud console, and select the **TensorBoard Instances** tab.
 
-You can also retrieve the instance ID from the [TensorBoard resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) . ![TensorBoard ID](https://docs.cloud.google.com/static/vertex-ai/docs/experiments/images/tensorboard-id.png)
+You can also retrieve the instance ID from the [TensorBoard resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) . ![TensorBoard ID](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/tensorboard-id.png)

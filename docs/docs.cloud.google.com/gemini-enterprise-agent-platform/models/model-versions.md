@@ -44,13 +44,13 @@ The following table lists the latest stable models:
 
 ### Embeddings models
 
-| Model ID                          | Release date      | Retirement date              |
-| --------------------------------- | ----------------- | ---------------------------- |
-| `gemini-embedding-001`            | May 20, 2025      | No retirement date announced |
-| `text-embedding-005`              | November 18, 2024 | April 1, 2027                |
-| `text-embedding-004`              | May 14, 2024      | April 1, 2027                |
-| `text-multilingual-embedding-002` | May 14, 2024      | April 1, 2027                |
-| `multimodalembedding@001`         | February 12, 2024 | April 1, 2027                |
+| Model ID                          | Release date      | Retirement date |
+| --------------------------------- | ----------------- | --------------- |
+| `gemini-embedding-001`            | May 20, 2025      | July 14, 2026   |
+| `text-embedding-005`              | November 18, 2024 | April 1, 2027   |
+| `text-embedding-004`              | May 14, 2024      | April 1, 2027   |
+| `text-multilingual-embedding-002` | May 14, 2024      | April 1, 2027   |
+| `multimodalembedding@001`         | February 12, 2024 | April 1, 2027   |
 
 ## Migrate to a latest stable model
 

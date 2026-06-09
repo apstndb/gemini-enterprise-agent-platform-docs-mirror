@@ -32,4 +32,4 @@ Steps involved:
 
 ## Relevant content
 
-  - [Add pipeline run to experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/add-pipelinerun-experiment)
+  - [Add pipeline run to experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/add-pipelinerun-experiment)

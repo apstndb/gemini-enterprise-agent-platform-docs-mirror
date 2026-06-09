@@ -62,7 +62,7 @@ Use one of the following methods to deploy a model:
         
         Larger machine resources will increase your inference performance and increase costs.
     
-    4.  Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#enabling-and-disabling) .
+    4.  Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
     
     5.  Click **Continue**
 
@@ -492,7 +492,7 @@ Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk
 
 ### REST
 
-You use the [endpoints.predict](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
+You use the [endpoints.predict](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
 
 Deploy the model.
 
@@ -781,11 +781,11 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         console.error(err);
       });
 
-Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#enabling-and-disabling) .
+Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
 
 ### Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Vertex AI provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
 
 ## Get an online inference using your deployed model
 
@@ -843,7 +843,7 @@ To make an online inference, submit one or more test items to a model for analys
 
 ### REST
 
-You use the [endpoints.predict](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
+You use the [endpoints.predict](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
 
 Before using any of the request data, make the following replacements:
 
@@ -1124,7 +1124,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### REST
 
-You use the [endpoints.predict](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
+You use the [endpoints.predict](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
 
 Before using any of the request data, make the following replacements:
 

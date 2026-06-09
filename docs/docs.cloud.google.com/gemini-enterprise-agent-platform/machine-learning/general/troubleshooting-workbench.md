@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench
-title: Troubleshooting Agent Platform Workbench
+title: Troubleshooting Vertex AI Workbench
 description: Troubleshoot and resolve common issues when using Agent Platform Workbench.
 data_source: docs.cloud.google.com
 ---

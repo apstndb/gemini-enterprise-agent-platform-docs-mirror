@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Use the Agent Platform SDK for Python to automate your machine learning (ML) workflows. This page shows you how to install the Agent Platform SDK for Python. For more information about the Vertex AI SDK, see the following resources:
 
-  - To learn about the Agent Platform SDK for Python, see [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+  - To learn about the Agent Platform SDK for Python, see [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
   - To learn how to train a model using the Agent Platform SDK for Python, see the [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction) .
   - To learn about the classes and methods in the Agent Platform SDK for Python, see the [Vertex AI SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform) .
 
@@ -60,4 +60,4 @@ After you install the Agent Platform SDK for Python, you must initialize the SDK
 
 ## What's next
 
-  - Learn more about the [Vertex AI SDK](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn more about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .

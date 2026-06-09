@@ -22,7 +22,7 @@ Training models can be computationally expensive. Profiler lets you monitor and 
     
         pip install google-cloud-aiplatform[cloud_profiler]
 
-  - You must have a Vertex AI TensorBoard instance. See [Create a Vertex AI TensorBoard instance](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create-tensorboard-instance) for instructions.
+  - You must have a Vertex AI TensorBoard instance. See [Create a Vertex AI TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) for instructions.
 
   - You must have a service account with `roles/storage.admin` and `roles/aiplatform.user` roles. See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_service_account_with_required_permissions) for instructions.
 

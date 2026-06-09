@@ -10,7 +10,7 @@ Vertex AI TensorBoard is an enterprise-ready managed version of [Open Source Ten
 
 With Vertex AI TensorBoard, you can track, visualize, and compare ML experiments and share them with your team.
 
-![TensorBoard view appears](https://docs.cloud.google.com/static/vertex-ai/docs/experiments/images/tb-view-appears.png)
+![TensorBoard view appears](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/tb-view-appears.png)
 
 Vertex AI TensorBoard provides various detailed visualizations, that includes:
 
@@ -38,12 +38,12 @@ Integration with Gemini Enterprise Agent Platform Experiments lets you:
 The Google Cloud console is used to:
 
   - create or delete Vertex AI TensorBoard instances,
-  - create [Vertex AI Experiments](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-experiment#google-cloud-console) ,
+  - create [Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-experiment#google-cloud-console) ,
   - view Vertex AI TensorBoard instance storage size → associated costs,
-  - view associated [Vertex AI Experiments, Custom Jobs, and Pipeline Runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs) ,
-  - visualize some [time series metrics](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-view#visualize_metrics_console) .
+  - view associated [Vertex AI Experiments, Custom Jobs, and Pipeline Runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs) ,
+  - visualize some [time series metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-view#visualize_metrics_console) .
 
 ## What's next
 
-  - [Setup Vertex AI TensorBoard](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup)
+  - [Setup Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup)
   - Check out the [TensorBoard API documentation](https://www.tensorflow.org/tensorboard/get_started) .

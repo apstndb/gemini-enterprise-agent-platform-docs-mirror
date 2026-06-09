@@ -28,7 +28,7 @@ You can use Secret Manager's Python client with Agent Platform Pipelines to acce
 
 The following is a sample component that prints out the previously created secret.
 
-1.  Grant the service account that runs the pipeline with the Secret Manager permission. See the "Configure a service account with granular permissions" section of [Configure your Google Cloud project for Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) for more information.
+1.  Grant the service account that runs the pipeline with the Secret Manager permission. See the "Configure a service account with granular permissions" section of [Configure your Google Cloud project for Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) for more information.
 
 2.  Using Kubeflow Pipelines SDK, build a simple pipeline with one task.
     

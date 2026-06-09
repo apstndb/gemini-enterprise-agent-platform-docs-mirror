@@ -24,7 +24,7 @@ Before you can create a pipeline run with a persistent resource, you must first 
 
 ### Define and compile a pipeline
 
-[Define your pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline#define_your_workflow_using_kubeflow_pipelines_dsl_package) and then [compile the pipeline definition into a YAML file](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline#compile_your_pipeline_into_a_yaml_file) . For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+[Define your pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline#define_your_workflow_using_kubeflow_pipelines_dsl_package) and then [compile the pipeline definition into a YAML file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline#compile_your_pipeline_into_a_yaml_file) . For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 ### Required IAM roles
 
@@ -144,7 +144,7 @@ If you want to specify configuration options that are not available in the prece
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -320,7 +320,7 @@ To create a pipeline job, you must first create a pipeline spec. A pipeline spec
 
 Follow these instructions to create an in-memory pipeline spec that you can use to create the pipeline run:
 
-1.  Define a pipeline and compile it into a YAML file. For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+1.  Define a pipeline and compile it into a YAML file. For more information about defining and compiling a pipeline, see [Build a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 2.  Use the following code sample to convert the compiled pipeline YAML file to an in-memory pipeline spec.
     
@@ -434,4 +434,4 @@ Replace the following:
 
 ## What's next
 
-  - Learn how to [run a pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline) .
+  - Learn how to [run a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline) .

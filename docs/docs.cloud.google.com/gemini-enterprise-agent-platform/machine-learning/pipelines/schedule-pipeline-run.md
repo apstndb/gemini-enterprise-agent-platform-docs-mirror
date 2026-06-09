@@ -41,7 +41,7 @@ Before you schedule a pipeline run using the scheduler API, use the following in
       - `roles/aiplatform.admin`
       - `roles/aiplatform.user`
 
-2.  Build and compile a pipeline. For more information, see [Build a Pipeline](https://docs.cloud.google.com/vertex-ai/docs/pipelines/build-pipeline) .
+2.  Build and compile a pipeline. For more information, see [Build a Pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline) .
 
 ## Create a schedule
 
@@ -49,7 +49,7 @@ You can create a one-time or recurring schedule.
 
 ### Console
 
-Use the following instructions to create a schedule using the Google Cloud console. If a schedule already exists for the project and region, use the instructions in [Create a pipeline run](https://docs.cloud.google.com/vertex-ai/docs/pipelines/run-pipeline#create_a_pipeline_run) .
+Use the following instructions to create a schedule using the Google Cloud console. If a schedule already exists for the project and region, use the instructions in [Create a pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline#create_a_pipeline_run) .
 
 Use the following instructions to create a pipeline schedule:
 

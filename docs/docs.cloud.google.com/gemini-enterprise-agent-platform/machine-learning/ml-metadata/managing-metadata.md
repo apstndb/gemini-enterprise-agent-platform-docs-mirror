@@ -12,7 +12,7 @@ This guide demonstrates how to manage your Vertex ML Metadata.
 
 The first time that you use Vertex ML Metadata in a Google Cloud project, Gemini Enterprise Agent Platform creates your project's metadata store.
 
-If you want your metadata encrypted using a customer-managed encryption key (CMEK), you must create your metadata store using a CMEK before you use Vertex ML Metadata to track or analyze metadata. Use the [create a metadata store that uses a CMEK](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/configure) instructions to configure your project's metadata store.
+If you want your metadata encrypted using a customer-managed encryption key (CMEK), you must create your metadata store using a CMEK before you use Vertex ML Metadata to track or analyze metadata. Use the [create a metadata store that uses a CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure) instructions to configure your project's metadata store.
 
 ## Artifact management
 
@@ -25,7 +25,7 @@ Use either REST or the Vertex AI SDK for Python to create an artifact.
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Your region.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - METADATA\_STORE : The metadata store ID where the artifact is created. The default metadata store is named `default` .
   - ARTIFACT\_ID : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata creates a unique identifier for this artifact.
   - DISPLAY\_NAME : (Optional) The user-defined name of the artifact.
@@ -1353,5 +1353,5 @@ You should see output similar to the following. You can use the OPERATION\_ID in
 
 ## What's next
 
-  - [Get started tracking your Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/tracking) .
-  - [Get started analyzing your Vertex ML Metadata](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/analyzing) .
+  - [Get started tracking your Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/tracking) .
+  - [Get started analyzing your Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/analyzing) .

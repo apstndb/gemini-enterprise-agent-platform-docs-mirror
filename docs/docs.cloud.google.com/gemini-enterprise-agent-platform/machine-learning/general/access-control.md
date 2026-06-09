@@ -6,7 +6,7 @@ description: Control access to Agent Platform resources with IAM.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) to manage access to Gemini Enterprise Agent Platform resources. To manage access to Gemini Enterprise Agent Platform Workbench instances, see [Agent Platform Workbench instances access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam) .
+This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) to manage access to Gemini Enterprise Agent Platform resources. To manage access to Vertex AI Workbench instances, see [Vertex AI Workbench instances access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam) .
 
 ## Overview
 
@@ -5008,7 +5008,7 @@ When a service agent is created, the service agent is granted a predefined role 
 </tr>
 <tr class="odd">
 <td>Cloud AI Platform Notebooks Service Account</td>
-<td>Agent Platform Workbench capabilities</td>
+<td>Vertex AI Workbench capabilities</td>
 <td><code dir="ltr" translate="no">service-         PROJECT_NUMBER        @gcp-sa-notebooks.iam.gserviceaccount.com</code></td>
 <td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#notebooks.serviceAgent"><code dir="ltr" translate="no">roles/notebooks.serviceAgent</code></a></td>
 </tr>

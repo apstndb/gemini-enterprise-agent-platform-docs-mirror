@@ -6,15 +6,15 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Gemini Enterprise Agent Platform Workbench instances shut down after a specified period of inactivity by default. This page describes the idle shutdown feature and how to change the default idle shutdown settings during instance creation.
+Vertex AI Workbench instances shut down after a specified period of inactivity by default. This page describes the idle shutdown feature and how to change the default idle shutdown settings during instance creation.
 
 ## Overview
 
-To help manage costs, Agent Platform Workbench instances shut down after being idle for a specific time period by default. You can change the amount of time or turn this feature off.
+To help manage costs, Vertex AI Workbench instances shut down after being idle for a specific time period by default. You can change the amount of time or turn this feature off.
 
 ## Requirements for running idle shutdown
 
-For idle shutdown to run, your Agent Platform Workbench instance must have guest attributes enabled. Guest attributes are enabled by default but if you've turned off guest attributes, you can enable guest attributes by setting the `enable-guest-attributes` metadata key to `true` . See [Update an instance's metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata#update) .
+For idle shutdown to run, your Vertex AI Workbench instance must have guest attributes enabled. Guest attributes are enabled by default but if you've turned off guest attributes, you can enable guest attributes by setting the `enable-guest-attributes` metadata key to `true` . See [Update an instance's metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata#update) .
 
 ## Billing
 
@@ -46,7 +46,7 @@ To turn off idle shutdown or to change the inactivity time period on an existing
 
 ## Manage idle shutdown using the gcloud CLI
 
-Idle shutdown for Agent Platform Workbench instances is managed using the `metadata` flag. To enable idle shutdown, create an instance with the `idle-timeout-seconds` key in the metadata with the value set to the number of seconds.
+Idle shutdown for Vertex AI Workbench instances is managed using the `metadata` flag. To enable idle shutdown, create an instance with the `idle-timeout-seconds` key in the metadata with the value set to the number of seconds.
 
     gcloud workbench instances create INSTANCE_NAME --metadata=idle-timeout-seconds=86400
 
@@ -98,7 +98,7 @@ By default, idle shutdown looks for activity in kernels running in the following
 
 ### Scheduled executions run while instance is shut down
 
-If you have scheduled an execution of a notebook file in a Agent Platform Workbench instance that is shut down, the execution still runs on schedule.
+If you have scheduled an execution of a notebook file in a Vertex AI Workbench instance that is shut down, the execution still runs on schedule.
 
 ## What's next
 

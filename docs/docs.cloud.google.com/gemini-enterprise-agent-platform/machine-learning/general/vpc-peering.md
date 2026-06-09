@@ -13,7 +13,7 @@ You can configure Gemini Enterprise Agent Platform to peer with [Virtual Private
   - [Private inference endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints)
   - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
   - [Vector matching online queries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup/vpc#vpc-network-peering-setup)
-  - [Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/use-components#set_up)
+  - [Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-components#set_up)
 
 This guide shows how to set up [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with Agent Platform resources. This guide is recommended for networking administrators who are already familiar with Google Cloud networking concepts.
 
@@ -195,7 +195,7 @@ This section lists some common issues for configuring VPC Network Peering with A
 
   - You can check which services are using which IP addresses so that, for example, you can see which services are using large blocks of IP addresses and avoid IP address exhaustion.
 
-  - If you encounter the error `Unable to create an instance within a Shared VPC network` , see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench?component=any#create-shared-vpc-instances) .
+  - If you encounter the error `Unable to create an instance within a Shared VPC network` , see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench?component=any#create-shared-vpc-instances) .
 
   - If you encounter the error message `For the peered network $network_name, couldn't find a free blocks in allocated IP ranges. This is needed to create the cluster.` , you must increase the amount of available allocated ranges for the service. You can accomplish this in the following ways:
     

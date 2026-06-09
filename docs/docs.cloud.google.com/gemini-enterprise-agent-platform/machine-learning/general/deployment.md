@@ -87,4 +87,4 @@ Vertex AI Inference autoscaling scales the number of inference nodes based on th
   - [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
   - Learn about [Inference request-response logging for dedicated endpoints and Private Service Connect endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#dedicated-and-psc) .
   - Learn how to [get an online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) .
-  - Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#enabling-and-disabling) .
+  - Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .

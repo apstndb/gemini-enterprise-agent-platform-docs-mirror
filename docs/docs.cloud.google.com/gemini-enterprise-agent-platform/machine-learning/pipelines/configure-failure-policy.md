@@ -47,4 +47,4 @@ Replace the following:
 
 ## What's next
 
-  - Learn how to [configure retries for failed pipeline tasks](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-retries) .
+  - Learn how to [configure retries for failed pipeline tasks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-retries) .

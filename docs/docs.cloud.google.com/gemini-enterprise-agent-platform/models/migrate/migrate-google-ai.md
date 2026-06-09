@@ -46,7 +46,7 @@ The following table summarizes the main differences between the Gemini API and G
 <tr class="even">
 <td>User interface playground</td>
 <td>Google AI Studio</td>
-<td>Vertex AI Studio</td>
+<td>Agent Studio on Gemini Enterprise Agent Platform</td>
 </tr>
 <tr class="odd">
 <td>API &amp; SDK</td>
@@ -152,9 +152,9 @@ When migrating to Gemini Enterprise Agent Platform:
   - Supported regions might differ between the Gemini API and Gemini Enterprise Agent Platform. See the list of [supported regions for generative AI on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
   - Any models you created in Google AI Studio need to be retrained in Gemini Enterprise Agent Platform.
 
-### 1\. Migrate your prompts to Vertex AI Studio
+### 1\. Migrate your prompts to Agent Studio
 
-Your Google AI Studio prompt data is saved in a Google Drive folder. This section shows how to migrate your prompts to Vertex AI Studio.
+Your Google AI Studio prompt data is saved in a Google Drive folder. This section shows how to migrate your prompts to Agent Studio.
 
 1.  Open [Google Drive](https://drive.google.com) .
 
@@ -162,9 +162,9 @@ Your Google AI Studio prompt data is saved in a Google Drive folder. This sectio
 
 3.  Download your prompts from Google Drive to a local directory.
     
-    > **Note:** Prompts downloaded from Google Drive are in the text ( `txt` ) format. Before you upload them to Vertex AI Studio, change the file extensions from `.txt` to `.json` to convert them to JSON files.
+    > **Note:** Prompts downloaded from Google Drive are in the text ( `txt` ) format. Before you upload them to Agent Studio, change the file extensions from `.txt` to `.json` to convert them to JSON files.
 
-4.  Open [Vertex AI Studio](https://console.cloud.google.com/agent-platform/generative) in the Google Cloud console.
+4.  Open [Agent Studio](https://console.cloud.google.com/agent-platform/generative) in the Google Cloud console.
 
 5.  In the **Gemini Enterprise Agent Platform** menu, click **Recents \> View all** to open the **Prompt management** menu.
 
@@ -176,7 +176,7 @@ Your Google AI Studio prompt data is saved in a Google Drive folder. This sectio
 
 8.  Click **Upload** .
 
-### 2\. Upload training data to Vertex AI Studio
+### 2\. Upload training data to Agent Studio
 
 To migrate your training data to Gemini Enterprise Agent Platform, you need to upload your data to a Cloud Storage bucket. For more information, see [Introduction to tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
 
@@ -200,4 +200,4 @@ To delete an API key:
 
 ## What's next
 
-  - Try a quickstart tutorial using [Vertex AI Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdks/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdks/quickstart-multimodal) .
+  - Try a quickstart tutorial using [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk) .

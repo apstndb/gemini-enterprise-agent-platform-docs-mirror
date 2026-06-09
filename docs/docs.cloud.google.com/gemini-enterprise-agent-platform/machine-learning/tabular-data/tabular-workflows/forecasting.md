@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting
 title: Tabular Workflow for Forecasting
-description: Learn about the pipeline and components of Tabular Workflow for Forecasting .
+description: Learn about the pipeline and components of Tabular Workflow for Forecasting.
 data_source: docs.cloud.google.com
 ---
 
@@ -22,7 +22,7 @@ Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks.
 
 ## Benefits
 
-The following are some of the benefits of Tabular Workflow for Forecasting :
+The following are some of the benefits of Tabular Workflow for Forecasting:
 
   - Supports **large datasets** that are up to 1TB in size and have up to 200 columns.
   - Lets you **improve stability and lower training time** by limiting the search space of architecture types or skipping architecture search.
@@ -39,7 +39,7 @@ Tabular Workflow for Forecasting is a managed instance of Gemini Enterprise Agen
 
 ## Overview of pipeline and components
 
-The following diagram shows the modeling pipeline for Tabular Workflow for Forecasting :
+The following diagram shows the modeling pipeline for Tabular Workflow for Forecasting:
 
 ![Pipeline for Forecasting](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/forecasting.svg)  
 

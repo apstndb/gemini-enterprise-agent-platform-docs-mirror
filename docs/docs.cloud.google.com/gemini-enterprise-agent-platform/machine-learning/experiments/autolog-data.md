@@ -109,11 +109,11 @@ Vertex AI SDK autologging uses MLFlow's autologging in its implementation. Evalu
 
 ## View autologged parameters and metrics
 
-Use the Agent Platform SDK for Python to [compare runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#compare-runs) and get runs data. The [Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#console-compare-analyze-runs) provides an easy way to compare these runs.
+Use the Agent Platform SDK for Python to [compare runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#compare-runs) and get runs data. The [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#console-compare-analyze-runs) provides an easy way to compare these runs.
 
 ## Relevant notebook sample
 
-  - [Autolog data](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-autologging)
+  - [Autolog data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-autologging)
 
 ## Blog post
 

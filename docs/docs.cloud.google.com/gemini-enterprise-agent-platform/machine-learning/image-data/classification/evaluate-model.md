@@ -60,7 +60,7 @@ API requests for getting evaluation metrics is the same for each data type and o
 
 The aggregate model evaluation metrics provide information about the model as a whole. To see information about a specific slice, list the [model evaluation slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#list-slices) .
 
-To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations) method.
+To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations) method.
 
 Agent Platform returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
 
@@ -396,7 +396,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 #### Listing all evaluation slices
 
-The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/list) method lists all evaluation slices for your model. You must have the model's evaluation ID, which you can get when you [view the aggregated evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#aggregate) .
+The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations.slices/list) method lists all evaluation slices for your model. You must have the model's evaluation ID, which you can get when you [view the aggregated evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#aggregate) .
 
 You can use model evaluation slices to determine how the model performed on a specific label. The `value` field tells you which label the metrics are for.
 
@@ -666,7 +666,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 #### Getting metrics for a single slice
 
-To view evaluation metrics for a single slice, use the [`projects.locations.models.evaluations.slices.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/get) method. You must have the slice ID, which is provided when you [list all slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#list-slices) . The following sample applies to all data types and objectives.
+To view evaluation metrics for a single slice, use the [`projects.locations.models.evaluations.slices.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations.slices/get) method. You must have the slice ID, which is provided when you [list all slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#list-slices) . The following sample applies to all data types and objectives.
 
 ### REST
 

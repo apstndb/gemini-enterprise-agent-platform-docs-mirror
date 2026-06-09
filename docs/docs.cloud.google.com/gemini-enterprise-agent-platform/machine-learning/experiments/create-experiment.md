@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 You can use either the Agent Platform SDK for Python or the Google Cloud console to create or delete an experiment. The SDK is a library of Python code that you can use to programmatically create and manage experiments. The console is a web-based user interface that you can use to create and manage experiments visually.
 
-> When creating an experiment using the Google Cloud console for the first time, be sure that there's a `default` Metadata Store. To check, go to your project's **Metadata** page in the Google Cloud console. See [Configure your project's metadata store](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/configure)
+> When creating an experiment using the Google Cloud console for the first time, be sure that there's a `default` Metadata Store. To check, go to your project's **Metadata** page in the Google Cloud console. See [Configure your project's metadata store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure)
 
 ## Create experiment with a TensorBoard instance
 
@@ -88,7 +88,7 @@ Create an experiment. Add a description for the experiment to document its purpo
 
 ## Delete experiment
 
-Deleting an experiment deletes that experiment and all experiment runs associated with the experiment. The Vertex AI TensorBoard experiment associated with the experiment is not deleted. To delete a TensorBoard experiment, see [Delete outdated Vertex AI TensorBoard experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-delete-outdated-tb-experiments) .
+Deleting an experiment deletes that experiment and all experiment runs associated with the experiment. The Vertex AI TensorBoard experiment associated with the experiment is not deleted. To delete a TensorBoard experiment, see [Delete outdated Vertex AI TensorBoard experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-delete-outdated-tb-experiments) .
 
 Also, any pipeline runs, artifacts, and executions associated with the deleted experiment are not removed. These can be found in the Google Cloud console. For artifacts and executions, a $10/GB monthly charge is handled by the Vertex ML Metadata service.
 
@@ -140,9 +140,9 @@ Use the following instructions to delete an experiment.
 
 ## What's next
 
-  - [Create and manage experiment runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-manage-exp-run)
-  - [Delete outdated Vertex AI TensorBoard experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-delete-outdated-tb-experiments)
+  - [Create and manage experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-manage-exp-run)
+  - [Delete outdated Vertex AI TensorBoard experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-delete-outdated-tb-experiments)
 
 ### Relevant notebook sample
 
-  - [Model training with prebuilt data pre-processing code](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-model-training)
+  - [Model training with prebuilt data pre-processing code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-model-training)

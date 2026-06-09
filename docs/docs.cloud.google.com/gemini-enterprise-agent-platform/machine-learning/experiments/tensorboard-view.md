@@ -11,7 +11,7 @@ The Vertex AI TensorBoard web app provides a visualization of logs associated wi
     Note: If you are having trouble viewing results, make sure your user account
     has the [Agent Platform Viewer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.viewer) (or higher) role associated with it.
 
-![TensorBoard view appear](https://docs.cloud.google.com/static/vertex-ai/docs/experiments/images/tb-view-appears.png)
+![TensorBoard view appear](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/tb-view-appears.png)
 
 To learn more about each dashboard, see the [README](https://github.com/tensorflow/tensorboard/blob/master/README.md#the-visualizations) for "The Visualization".
 
@@ -23,7 +23,7 @@ The Vertex AI TensorBoard web app is accessed using the following address format
 
   - `  REGION  ` : the region your TensorBoard is located in
   - `  PROJECT_ID  ` : the project your TensorBoard was created in
-  - `  TENSORBOARD_ID  ` : the [TensorBoard ID](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#tensorboard_id)
+  - `  TENSORBOARD_ID  ` : the [TensorBoard ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id)
   - `  EXPERIMENT_NAME  ` : the name of the TensorBoard experiment
 
 This link can be shared and used by anyone who has permission.
@@ -40,11 +40,11 @@ You can access the TensorBoard web app using the Google Cloud console.
 
 ### Experiments
 
-If your Vertex AI TensorBoard is associated with a Gemini Enterprise Agent Platform Experiment, which is automatic when a [default instance](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#use_default_instance) is involved, you can access the TensorBoard web app directly from the Experiments page. ![tensorboard view](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiments-tb-view.png)
+If your Vertex AI TensorBoard is associated with a Gemini Enterprise Agent Platform Experiment, which is automatic when a [default instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#use_default_instance) is involved, you can access the TensorBoard web app directly from the Experiments page. ![tensorboard view](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiments-tb-view.png)
 
 ### Custom training
 
-If you used Vertex AI TensorBoard with [custom training](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training) you can access the TensorBoard web app directly from the custom training job.
+If you used Vertex AI TensorBoard with [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training) you can access the TensorBoard web app directly from the custom training job.
 
 1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Training** page.
 2.  Click **Custom Jobs** tab.
@@ -54,7 +54,7 @@ If you used Vertex AI TensorBoard with [custom training](https://docs.cloud.goog
 
 ### Gemini Enterprise Agent Platform Pipelines
 
-If you used Vertex AI TensorBoard with [Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-with-pipelines) , the TensorBoard web app can be accessed directly from the component information display.
+If you used Vertex AI TensorBoard with [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-with-pipelines) , the TensorBoard web app can be accessed directly from the component information display.
 
 1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Pipelines** page.
 2.  From the pipelines tab, scroll or filter the pipeline list to find your pipeline.
@@ -64,8 +64,8 @@ If you used Vertex AI TensorBoard with [Agent Platform Pipelines](https://docs.c
 
 ## Visualize Vertex AI TensorBoard metrics in the Google Cloud console
 
-If your TensorBoard instance is associated with a Vertex AI Experiments, which is automatic when using a [default TensorBoard instance](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#use_default_instance) , certain metrics can be visualized directly in the Google Cloud console, without using the web application.
+If your TensorBoard instance is associated with a Vertex AI Experiments, which is automatic when using a [default TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#use_default_instance) , certain metrics can be visualized directly in the Google Cloud console, without using the web application.
 
-The [Compare and analyze runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#console-compare-analyze-runs) document describes how to view details of your experiment runs and compare the experiment runs to each other in the Google Cloud console. TensorBoard timeseries metrics appear under the **Charts** tab in the navigation bar of the Gemini Enterprise Agent Platform Experiments console.
+The [Compare and analyze runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#console-compare-analyze-runs) document describes how to view details of your experiment runs and compare the experiment runs to each other in the Google Cloud console. TensorBoard timeseries metrics appear under the **Charts** tab in the navigation bar of the Gemini Enterprise Agent Platform Experiments console.
 
 ![Agent Platform navigation bar with timeseries data charts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-run-details.png)
