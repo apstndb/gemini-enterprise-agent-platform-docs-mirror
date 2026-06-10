@@ -192,7 +192,9 @@ tuningJobs.cancel<br />
 tuningJobs.create<br />
 deploymentResourcePool.create<br />
 deploymentResourcePool.delete<br />
-</td>
+semanticGovernancePolicies.create<br />
+semanticGovernancePolicies.update<br />
+semanticGovernancePolicies.delete</td>
 </tr>
 <tr class="even">
 <td>Data Access (ADMIN_READ) audit logs</td>
@@ -292,7 +294,8 @@ tuningJobs.list<br />
 deploymentResourcePool.get<br />
 deploymentResourcePool.list<br />
 deploymentResourcePool.queryDeployedModels<br />
-</td>
+semanticGovernancePolicies.list<br />
+semanticGovernancePolicies.get</td>
 </tr>
 <tr class="odd">
 <td>Data Access (DATA_READ) audit logs</td>
@@ -310,6 +313,8 @@ memories.retrieve<br />
 modelDeploymentMonitoringJobs.searchModelDeploymentMonitoringStatsAnomalies<br />
 modelMonitors.searchModelMonitoringAlerts<br />
 modelMonitors.searchModelMonitoringStats<br />
+onlineEvaluators.get<br />
+onlineEvaluators.list<br />
 ragFiles.get<br />
 ragFiles.list<br />
 sessions.get<br />
@@ -324,6 +329,9 @@ indexes.create<br />
 indexes.patch<br />
 indexes.removeDatapoints<br />
 indexes.upsertDatapoints<br />
+onlineEvaluators.create<br />
+onlineEvaluators.update<br />
+onlineEvaluators.delete<br />
 ragFiles.delete<br />
 ragFiles.import<br />
 ragFiles.upload<br />

@@ -988,69 +988,87 @@ The `functionCallingConfig` ensures that the model output is always a specific f
 
 ### Node.js
 
-    const {GoogleGenAI} = require('@google/genai');
+    const {GoogleGenAI, Type} = require('@google/genai');
     
-    const tools = [
-      {
-        functionDeclarations: [
-          {
-            name: 'get_product_sku',
-            description: 'Get the available inventory for Google products',
-            parameters: {
-              type: 'OBJECT',
-              properties: {
-                productName: {type: 'STRING'},
-              },
-            },
-          },
-          {
-            name: 'get_store_location',
-            description: 'Get the location of the closest store',
-            parameters: {
-              type: 'OBJECT',
-              properties: {
-                location: {type: 'STRING'},
-              },
-            },
-          },
-        ],
-      },
-    ];
-    
-    const toolConfig = {
-      functionCallingConfig: {
-        mode: 'ANY',
-        allowedFunctionNames: ['get_product_sku'],
-      },
-    };
-    
-    /**
-     * TODO(developer): Update these variables before running the sample.
-     */
-    async function functionCallingAdvanced(
-      projectId = 'PROJECT_ID',
-      location = 'us-central1',
-      model = 'gemini-2.5-flash'
+    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
+    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
+    async function generateFunctionDesc(
+      projectId = GOOGLE_CLOUD_PROJECT,
+      location = GOOGLE_CLOUD_LOCATION
     ) {
-      // Initialize client with your Cloud project and location
       const client = new GoogleGenAI({
         vertexai: true,
         project: projectId,
         location: location,
       });
     
-      const result = await client.models.generateContent({
-        model: model,
-        contents: 'Do you have the White Pixel 8 Pro 128GB in stock in the US?',
+      const get_album_sales = {
+        name: 'get_album_sales',
+        description: 'Gets the number of albums sold',
+        parameters: {
+          type: Type.OBJECT,
+          properties: {
+            albums: {
+              type: Type.ARRAY,
+              description: 'List of albums',
+              items: {
+                description: 'Album and its sales',
+                type: Type.OBJECT,
+                properties: {
+                  album_name: {
+                    type: Type.STRING,
+                    description: 'Name of the music album',
+                  },
+                  copies_sold: {
+                    type: Type.INTEGER,
+                    description: 'Number of copies sold',
+                  },
+                },
+              },
+            },
+          },
+        },
+      };
+    
+      const sales_tool = {
+        functionDeclarations: [get_album_sales],
+      };
+    
+      const prompt = `
+        At Stellar Sounds, a music label, 2024 was a rollercoaster. "Echoes of the Night", a debut synth-pop album, 
+        surprisingly sold 350,000 copies, while veteran rock band "Crimson Tide's" latest, "Reckless Hearts",
+        lagged at 120,000. Their up-and-coming indie artist, "Luna Bloom's" EP, "Whispers of Dawn",
+        secured 75,000 sales. The biggest disappointment was the highly-anticipated rap album "Street Symphony" 
+        only reaching 100,000 units. Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected
+        trends in music consumption.
+      `;
+    
+      const response = await client.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
         config: {
-          tools: tools,
-          toolConfig: toolConfig,
-          temperature: 0.95,
-          topP: 1.0,
-          maxOutputTokens: 8192,
+          tools: [sales_tool],
+          temperature: 0,
         },
       });
-      console.log(JSON.stringify(result.functionCalls));
+      const output = JSON.stringify(response.functionCalls, null, 2);
+      console.log(output);
+    
+      // Example response:
+      //    [FunctionCall(
+      //     id=None,
+      //     name="get_album_sales",
+      //     args={
+      //         "albums": [
+      //             {"album_name": "Echoes of the Night", "copies_sold": 350000},
+      //             {"copies_sold": 120000, "album_name": "Reckless Hearts"},
+      //             {"copies_sold": 75000, "album_name": "Whispers of Dawn"},
+      //             {"copies_sold": 100000, "album_name": "Street Symphony"},
+      //          ]
+      //      },
+      //     )]
+    
+      return output;
     }
 
 ### Go

@@ -1165,6 +1165,8 @@ Global
 
 Anthropic models
 
+Claude Fable 5
+
 Claude Opus 4.8
 
 Claude Opus 4.7
@@ -1214,6 +1216,8 @@ European Union multi-region
 (eu)
 
 Anthropic models
+
+Claude Fable 5
 
 Claude Opus 4.8
 
@@ -1280,6 +1284,8 @@ Dallas
 
 Anthropic models
 
+Claude Fable 5
+
 Claude Opus 4.8
 
 Claude Opus 4.7
@@ -1329,6 +1335,8 @@ São Paulo
 (southamerica-east1)
 
 Anthropic models
+
+Claude Fable 5
 
 Claude Opus 4.8
 
@@ -1404,6 +1412,8 @@ Paris
 
 Anthropic models
 
+Claude Fable 5
+
 Claude Opus 4.8
 
 Claude Opus 4.7
@@ -1469,6 +1479,8 @@ Seoul
 
 Anthropic models
 
+Claude Fable 5
+
 Claude Opus 4.8
 
 Claude Opus 4.7
@@ -1521,6 +1533,8 @@ Dammam
 (me-central2)
 
 Anthropic models
+
+Claude Fable 5
 
 Claude Opus 4.8
 

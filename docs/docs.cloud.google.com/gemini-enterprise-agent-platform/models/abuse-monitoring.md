@@ -33,13 +33,31 @@ As outlined in the [Advanced AI Safety Addendum](https://cloud.google.com/terms/
   - **Services in scope** : Models and features designated as "Advanced AI", including:
     
       - Claude Mythos (all versions)
+      - Claude Fable (all versions)
       - Claude Opus \>=4.7 when used for high risk dual use or prohibited use cases covered under Anthropic's [Cyber Verification Program](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude)
+
+  - **Customer opt-out** : Zero data retention may not be possible when using some Advanced AI features. Please contact your account team for clarification. See the following section on how to govern acceptance of the addendum.
+
+### Consent to the Advanced AI Safety Addendum
+
+Consent to the Advanced AI Safety Addendum is required once per project before Advanced AI models can be enabled in that project. Consent is performed in Model Garden through the Google Cloud console before enabling any Advanced AI model.
+
+Consenting users must acknowledge that they are acting on behalf of their organization and possess the requisite authority to bind the customer to the obligations of the addendum. In order to consent, a user must have the `aiplatform.consents.update` permission which is included in the `aiplatform.admin` role.
+
+### Govern the Advanced AI Safety Addendum
+
+To prevent your users from consenting to this addendum admins can:
+
+  - Enforce least privileges in [IAM](https://docs.cloud.google.com/iam/docs/roles-overview) for the `aiplatform.consents.update` permission.
+  - [Disable access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) included in the Advanced AI Safety Addendum scope.
 
 ## Partner-specific terms
 
+Use of partner models on Gemini Enterprise Agent Platform is subject to partner-specific terms.
+
 ### Anthropic
 
-Use of Anthropic models on Gemini Enterprise Agent Platform are further beholden to Anthropic's acceptable use policy and commercial use policy documented on anthropic.com. The abuse monitoring systems described above are used to ensure adherence to these terms.
+Use of Anthropic models on Gemini Enterprise Agent Platform is governed by Anthropic's [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) or other applicable agreement with Anthropic, with use of Anthropic Advanced AI governed by Section F of Anthropic's [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms) . The abuse monitoring systems described on this page are used to ensure adherence to these terms.
 
 ## What's next
 

@@ -2113,6 +2113,8 @@ Not available
 
 Not available
 
+> **Caution:** NVIDIA P100 GPUs reach end of support on September 15, 2026. For more information, see [NVIDIA P100 end of support](https://docs.cloud.google.com/compute/docs/eol/p100-eos) .
+
 Number of P100 GPUs for training, per region
 
 Region
@@ -5038,6 +5040,8 @@ Not available
 `africa-south1`
 
 Not available
+
+> **Caution:** NVIDIA P100 GPUs reach end of support on September 15, 2026. For more information, see [NVIDIA P100 end of support](https://docs.cloud.google.com/compute/docs/eol/p100-eos) .
 
 Number of P100 GPUs for serving, per region
 

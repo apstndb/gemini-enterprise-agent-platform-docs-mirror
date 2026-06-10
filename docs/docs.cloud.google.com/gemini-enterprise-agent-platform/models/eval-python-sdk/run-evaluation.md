@@ -26,7 +26,7 @@ After you install the Agent Platform SDK for Python, you need to authenticate. T
 
   - If you're developing locally, set up [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) in your local environment:
     
-    1.  [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI, then [initialize](https://docs.cloud.google.com/sdk/docs/initializing) it by running the following command:
+    1.  [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI, then [initialize](https://docs.cloud.google.com/sdk/docs/initialize) it by running the following command:
         
             gcloud init
     

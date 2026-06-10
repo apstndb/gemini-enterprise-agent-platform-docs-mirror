@@ -57,7 +57,7 @@ On your local machine, set up the Google Cloud CLI.
     
         gcloud auth application-default login
     
-    For more information, see [gcloud CLI authentication configuration and ADC configuration](https://docs.cloud.google.com/docs/authentication/gcloud#gcloud-credentials) .
+    For more information, see [gcloud CLI authentication configuration and ADC configuration](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc#gcloud-credentials) .
 
 > **Note:** To avoid providing your project ID and region to the Google Cloud CLI, you can use the [`gcloud config set`](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) command to set a default project and region.
 

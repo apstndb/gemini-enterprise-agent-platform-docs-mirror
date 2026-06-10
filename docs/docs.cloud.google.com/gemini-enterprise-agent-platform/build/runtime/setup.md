@@ -267,101 +267,42 @@ where
 
 ## (Optional) Bring your own container (BYOC)
 
-Agent Runtime builds a container for you as part of the deployment process. If you intend to build your own container for [deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-container-image) , you will need to follow the instructions in the following subsections. At a high level, it amounts to the following steps:
+By default, Agent Runtime builds a container for you as part of the deployment process. If you want to build a custom container for [deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-container-image) , follow the instructions in this section.
 
-1.  Build and push a container image to artifact registry.
-2.  Set up the service accounts for Agent Runtime that correspond to the user project (in [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) ) and the tenant project (that the runtime runs under).
-3.  Grant the `roles/artifactregistry.reader` role to both the user project service account as well as the tenant project service account.
+To deploy your agent with a custom container, complete the following high-level tasks:
 
-### Build and push a container image
+1.  Build and push your container image to Artifact Registry.
+2.  [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) .
+3.  Grant the Artifact Registry Reader role to Agent Runtime [default service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#default-service-agent) .
 
-To build and push a container image, follow the instructions in [Build and push a Docker image with Cloud Build](https://docs.cloud.google.com/build/docs/build-push-docker-image) .
+### Build and push your container image
 
-### Set up the service accounts for Agent Runtime
+To build and push your container image, follow the instructions in [Build and push a Docker image with Cloud Build](https://docs.cloud.google.com/build/docs/build-push-docker-image) .
 
-To set up the service accounts, deploy an agent that prints the tenant service account.
+### Set up the identity and permissions for Agent Runtime
 
-First, set up the source code for the agent:
+The Agent Runtime [default service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#default-service-agent) is required to import containers from your Artifact Registry repository.
 
-1.  Open a terminal window
+The service agent is automatically generated in your project by default. If it doesn't exist, follow [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) to create and configure it.
 
-2.  Create a new directory named `byoc_setup`
-    
-        mkdir byoc_setup
+### Grant Artifact Registry Reader role {: \#reader-role)
 
-3.  Create a file in the `byoc_setup` directory named `metadata_agent.py` with the following contents:
-    
-        class MetadataAgent:
-        
-          def query(self):
-            import requests
-            url = "http://metadata.google.internal/computeMetadata/v1/project/numeric-project-id"
-            try:
-                response = requests.get(url, headers={"Metadata-Flavor": "Google"})
-                response.raise_for_status()
-                return f"service-{response.text}@serverless-robot-prod.iam.gserviceaccount.com"
-            except Exception:
-                return None
-        
-        root_agent = MetadataAgent()
+Grant the Artifact Registry Reader role ( `roles/artifactregistry.reader` ) to the default service agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
 
-4.  Create another file in the `byoc_setup` directory named `requirements.txt` with the following contents:
-    
-        google-cloud-aiplatform[agent_engines]
+Run the following command to grant the required role to the default service agent:
 
-5.  If you have not done so, [install and initialize the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk) . In the same python session where you initialize the Agent Platform SDK for Python, run the following code to print a `  TENANT_SERVICE_ACCOUNT  ` :
-    
-        remote_agent = client.agent_engines.create( # This deploys the agent
-            config={
-                "source_packages": ["byoc_setup"],
-                "entrypoint_module": "byoc_setup.metadata_agent",
-                "entrypoint_object": "root_agent",
-                "requirements_file": "byoc_setup/requirements.txt",
-                "class_methods": [{'api_mode': '', 'name': 'query'}],
-            },
-        )
-        # This prints the tenant service account
-        # service-{tenant_project_number}@serverless-robot-prod.iam.gserviceaccount.com
-        print(remote_agent.query())
-        # This cleans up the resources
-        remote_agent.delete(force=True)
-
-6.  Look up the `  USER_SERVICE_ACCOUNT  ` in [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) . If you are using the default service agent, this should match `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` .
-
-### Grant Artifact Registry Reader roles
-
-You need to grant the Artifact Registry Reader role to both your USER\_SERVICE\_ACCOUNT and Google provided TENANT\_SERVICE\_ACCOUNT .
-
-#### User service account
-
-Run the following command to grant the required roles to your `  USER_SERVICE_ACCOUNT  ` :
-
-    gcloud projects add-iam-policy-binding <var>PROJECT_NUMBER</var> \
-      --member="serviceAccount:USER_SERVICE_ACCOUNT" \
+    gcloud projects add-iam-policy-binding PROJECT_NUMBER \
+      --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com" \
       --role="roles/artifactregistry.reader"
 
-#### Tenant service account
+#### (Optional) Grant cross-project permission
 
-If your organization enforces the `iam.allowedPolicyMemberDomains` organization policy constraint, you need to allow the Google's customer domain (which is `C02h8e9nw` ) before you can grant roles to the `  TENANT_SERVICE_ACCOUNT  ` .
+Cross-project permission is required if your container images are stored in an Artifact Registry repository in a different Google Cloud project from where your agents are deployed.
 
-For more information about the `iam.allowedPolicyMemberDomains` constraint see [Domain-restricted sharing](https://docs.cloud.google.com/organization-policy/domain-restricted-sharing) in the IAM documentation.
-
-You must ask an organization administrator, who has permissions to modify the constraints for your organization, to allow your Google Cloud project.
-
-When you have permissions, run the following command to grant the required roles to the `  TENANT_SERVICE_ACCOUNT  ` :
-
-    gcloud projects add-iam-policy-binding <var>PROJECT_NUMBER</var> \
-      --member="serviceAccount:TENANT_SERVICE_ACCOUNT" \
-      --role="roles/artifactregistry.reader"
-
-#### (Optional) Agent Platform Service Agent
-
-This is required if your container images are stored in an Artifact Registry repository in a different Google Cloud project from where your agents are deployed.
-
-In this case, you need to grant Artifact Registry Reader role to Agent Platform Service Agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` ) in your Artifact Registry repository project.
+In this case, grant Artifact Registry Reader role to the Agent Platform Service Agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` ) in your Artifact Registry repository project.
 
     gcloud projects add-iam-policy-binding AR_REPO_PROJECT_NUMBER \
-      --member="serviceAccount:Agent Platform Service Agent" \
+      --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
       --role="roles/artifactregistry.reader"
 
 ## What's next

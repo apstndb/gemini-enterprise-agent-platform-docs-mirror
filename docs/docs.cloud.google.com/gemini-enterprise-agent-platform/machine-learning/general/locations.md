@@ -1137,6 +1137,8 @@ You can search either by location or GPU model, or a combination of both.
 
 As a best practice, consider using only GPU accelerator types that are available in multiple zones. That way, if a zonal outage occurs, the accelerator's workload will try to fail over, capacity permitting.
 
+> **Caution:** NVIDIA P100 GPUs reach end of support on September 15, 2026. For more information, see [NVIDIA P100 end of support](https://docs.cloud.google.com/compute/docs/eol/p100-eos) .
+
 Asia Pacific Europe North America South America A100 40GB A100 80GB B200 GB200 RTX PRO 6000 H100 H100 Mega H200 L4 P4 P100 T4 TPU v2 TPU v2 Pod TPU v3 TPU v3 Pod TPU v5e TPU v6e TPU7x V100
 
 | Region                    | Location                                     | Accelerators                                                                                                                                                                                                                                              |

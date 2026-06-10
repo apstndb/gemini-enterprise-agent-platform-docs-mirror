@@ -34,14 +34,19 @@ Fine-tuning lets you adapt base Gemini models for specialized tasks. Here are so
 
 The `fileUri` field specifies the location of your dataset. It can be the URI for a file in a Cloud Storage bucket, or it can be a publicly available HTTP or HTTPS URL.
 
-The `mediaResolution` field is used to specify the token count per frame for the input videos. For Gemini 2.5, following is the token count per frame:
+The `mediaResolution` field is used to specify the token count per frame for the input videos. The following describes token counts for supported models:
 
-  - `MEDIA_RESOLUTION_LOW` : 64 tokens per frame
-  - `MEDIA_RESOLUTION_MEDIUM` and `MEDIA_RESOLUTION_HIGH` : 256 tokens per frame
+  - **Gemini 2.5** :
+    
+      - `MEDIA_RESOLUTION_LOW` : 64 tokens per frame
+    
+      - `MEDIA_RESOLUTION_MEDIUM` and `MEDIA_RESOLUTION_HIGH` : 256 tokens per frame
+    
+    Model tuning with `MEDIA_RESOLUTION_LOW` is roughly 4 times faster than the ones tuned with `MEDIA_RESOLUTION_MEDIUM` or `MEDIA_RESOLUTION_HIGH` with minimal performance improvement.
 
-For Gemini 3, the token counts are the same as the base model. For more information, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/get-started-with-gemini-3#media-resolution) .
-
-Model tuning with MEDIA\_RESOLUTION\_LOW is roughly 4 times faster than the ones tuned with MEDIA\_RESOLUTION\_MEDIUM or MEDIA\_RESOLUTION\_HIGH with minimal performance improvement.
+  - **Gemini 3** :
+    
+    Token counts are the same as the base model. For more information, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution) .
 
 When a video segment is used for training and validation, the video segment is in the `videoMetadata` field. During tuning, this data point is decoded to contain information from the segment extracted from the specified video file, starting from timestamp `startOffset` (the start offset, in seconds) until `endOffset` .
 

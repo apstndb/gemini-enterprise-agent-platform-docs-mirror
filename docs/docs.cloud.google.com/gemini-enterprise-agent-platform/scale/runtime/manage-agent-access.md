@@ -47,7 +47,7 @@ The service account has a *Gemini Enterprise Agent Platform Reasoning Engine Ser
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI. Then run the following command:
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI. Then run the following command:
 
     gcloud projects get-iam-policy PROJECT_ID_OR_NUMBER \
       --flatten="bindings[].members" \
@@ -102,7 +102,7 @@ Where the `  PRINCIPAL  ` is based on the [service account](https://docs.cloud.g
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI. Then run the following command:
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI. Then run the following command:
 
     gcloud projects add-iam-policy-binding PROJECT_ID --member=PRINCIPAL --role=ROLE_NAME
 
@@ -133,7 +133,7 @@ We don't recommend writing your own Python code to grant or revoke roles for dep
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI. Then run the following command:
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI. Then run the following command:
 
     gcloud projects remove-iam-policy-binding PROJECT_ID --member=PRINCIPAL --role=ROLE_NAME
 
@@ -172,7 +172,7 @@ API keys use secrets, which contain one or more secret versions, along with meta
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI. Then run the following commands:
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI. Then run the following commands:
 
     gcloud secrets create SECRET_ID --replication-policy="automatic"gcloud secrets versions add SECRET_ID --data-file="FILE_PATH"
 
@@ -237,7 +237,7 @@ Then [authenticate yourself](https://docs.cloud.google.com/gemini-enterprise-age
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI. Then run the following command:
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI. Then run the following command:
 
     gcloud secrets versions describe VERSION_ID --secret=SECRET_ID
 
@@ -278,7 +278,7 @@ Then [authenticate yourself](https://docs.cloud.google.com/gemini-enterprise-age
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI.
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI.
 
 To list all the secrets of a project, run the following command:
 
@@ -328,7 +328,7 @@ Then [authenticate yourself](https://docs.cloud.google.com/gemini-enterprise-age
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI. Then run the following command:
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI. Then run the following command:
 
     gcloud secrets update SECRET_ID --update-labels=KEY=VALUE
 
@@ -376,7 +376,7 @@ Then [authenticate yourself](https://docs.cloud.google.com/gemini-enterprise-age
 
 ### gcloud
 
-First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the `gcloud` CLI.
+First [install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the `gcloud` CLI.
 
 To delete a secret version, run the following command:
 

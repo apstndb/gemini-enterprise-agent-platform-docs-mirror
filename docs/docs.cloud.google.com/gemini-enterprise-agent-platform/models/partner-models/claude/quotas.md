@@ -48,7 +48,7 @@ The following table describes metrics for global endpoints:
 <li><code dir="ltr" translate="no">anthropic-claude-opus</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-sonnet</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-haiku</code></li>
-<li><code dir="ltr" translate="no">anthropic-claude-mythos</code></li>
+<li><code dir="ltr" translate="no">anthropic-claude-fable</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -58,7 +58,7 @@ The following table describes metrics for global endpoints:
 <li><code dir="ltr" translate="no">anthropic-claude-opus</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-sonnet</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-haiku</code></li>
-<li><code dir="ltr" translate="no">anthropic-claude-mythos</code></li>
+<li><code dir="ltr" translate="no">anthropic-claude-fable</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -68,7 +68,7 @@ The following table describes metrics for global endpoints:
 <li><code dir="ltr" translate="no">anthropic-claude-opus</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-sonnet</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-haiku</code></li>
-<li><code dir="ltr" translate="no">anthropic-claude-mythos</code></li>
+<li><code dir="ltr" translate="no">anthropic-claude-fable</code></li>
 </ul></td>
 </tr>
 </tbody>
@@ -97,7 +97,7 @@ The following table describes the metrics for multi-region endpoints, such as `u
 <li><code dir="ltr" translate="no">anthropic-claude-opus</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-sonnet</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-haiku</code></li>
-<li><code dir="ltr" translate="no">anthropic-claude-mythos</code></li>
+<li><code dir="ltr" translate="no">anthropic-claude-fable</code></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -107,7 +107,7 @@ The following table describes the metrics for multi-region endpoints, such as `u
 <li><code dir="ltr" translate="no">anthropic-claude-opus</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-sonnet</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-haiku</code></li>
-<li><code dir="ltr" translate="no">anthropic-claude-mythos</code></li>
+<li><code dir="ltr" translate="no">anthropic-claude-fable</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -117,7 +117,7 @@ The following table describes the metrics for multi-region endpoints, such as `u
 <li><code dir="ltr" translate="no">anthropic-claude-opus</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-sonnet</code></li>
 <li><code dir="ltr" translate="no">anthropic-claude-haiku</code></li>
-<li><code dir="ltr" translate="no">anthropic-claude-mythos</code></li>
+<li><code dir="ltr" translate="no">anthropic-claude-fable</code></li>
 </ul></td>
 </tr>
 </tbody>
@@ -193,6 +193,40 @@ Region
 Quotas
 
 Context length
+
+Claude Fable 5
+
+`Multi-region`
+
+  - QPM: 1,000
+  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,000,000
+
+1,000,000
+
+`Multi-region`
+
+  - QPM: 1,000
+  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,000,000
+
+1,000,000
+
+`asia-southeast1`
+
+  - QPM: 1,000
+  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,000,000
+
+1,000,000
+
+`global endpoint`
+
+  - QPM: 2,000
+  - Input TPM: 20,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 2,000,000
+
+1,000,000
 
 Claude Opus 4.8
 

@@ -57,6 +57,36 @@ Agent evaluation helps you build an initial evaluation suite, even without exist
 
   - **Prompt optimization** : Programmatically generate and validate refined system instructions by using prompt optimization. The optimization framework identifies points of failure and iteratively proposes targeted updates.
 
+## Evaluate with AI coding assistants
+
+If you use Gemini CLI or another AI coding assistant, you can install Agent [skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry) that teach your assistant the agent evaluation methodology described on this page. Each skill provides the eval workflow, dataset schema, metric selection guidance, and failure analysis steps directly in your coding session, so your assistant can build, grade, and improve evaluations without leaving your editor.
+
+Installation instructions follow each skill.
+
+### Agents CLI eval skill
+
+A CLI-driven workflow to evaluate and optimize Agent Development Kit (ADK) agents using the `agents-cli eval` commands. This skill covers:
+
+  - Preparing eval datasets and synthesizing multi-turn scenarios with user simulation
+  - Running inference, grading traces, and analyzing failure clusters
+  - Iterating on prompts and tools with the eval-fix loop
+
+To install, run the following command:
+
+    npx skills add https://github.com/google/agents-cli --skill google-agents-cli-eval
+
+### Agent Platform GenAI Evaluation Service flywheel skill
+
+An SDK-driven playbook to evaluate and improve models and agents through the Agent Platform GenAI Evaluation Service, using the Agent Platform GenAI Evaluation SDK ( `client.evals.evaluate()` ). This skill covers:
+
+  - Building eval datasets from session traces, DataFrames, or synthetic generation
+  - Selecting, configuring, and writing custom metrics with LLM-as-judge scoring
+  - Analyzing rubric verdicts and loss patterns to drive concrete improvements
+
+To install, run the following command:
+
+    npx skills add https://github.com/google/skills --skill agent-platform-eval-flywheel
+
 ## What's next
 
   - [Manage evaluation cases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/manage-eval-cases)

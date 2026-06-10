@@ -105,7 +105,7 @@ In the Terraform configuration, set the `vm_image` block within the `google_work
 
 ### Upgrade a VM image
 
-Agent Platform Workbench instances only support upgrading to the latest version based on the image family. A new instance must be created in order to use an older image.
+Agent Platform Workbench instances support upgrading to the latest version of an image family. By default, an instance is upgraded to the latest image in its current image family. To upgrade across image families (for example, between major versions), see [Upgrade across image families](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#upgrade-across-image-families) . To use an older image, a new instance must be created.
 
 To upgrade a VM image to the latest version within its image family, you can use the gcloud CLI or Terraform:
 
@@ -133,6 +133,35 @@ To upgrade an instance using Terraform, update the `family` or `name` in the `vm
     }
 
 For more information on upgrading, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/instances/upgrade) .
+
+#### Upgrade across image families
+
+To upgrade an instance to the latest image in a *different* image family (for example, to move from the legacy `workbench-instances` release track to the newer `workbench-instances-2603` release track), specify the target image family during the upgrade. This is the supported path for moving between major versions without recreating the instance.
+
+### gcloud
+
+Use the `--image-family` flag with `gcloud workbench instances upgrade` to specify the target image family. The instance is upgraded to the latest image in the specified family.
+
+    gcloud workbench instances upgrade INSTANCE_NAME \
+      --location=LOCATION \
+      --image-family=projects/IMAGE_PROJECT/global/images/family/IMAGE_FAMILY
+
+Replace the following:
+
+  - `  INSTANCE_NAME  ` : the name of your instance.
+  - `  LOCATION  ` : the region where your instance is located.
+  - `  IMAGE_PROJECT  ` : the project that hosts the image family (for example, `deeplearning-platform-release` ).
+  - `  IMAGE_FAMILY  ` : the name of the target image family (for example, `workbench-instances-2603` ).
+
+For example, to upgrade an instance to the latest image in the `workbench-instances-2603` family:
+
+    gcloud workbench instances upgrade example-instance \
+      --location=us-central1 \
+      --image-family=projects/deeplearning-platform-release/global/images/family/workbench-instances-2603
+
+If the `--image-family` flag is omitted, the instance is upgraded to the latest image in its current image family.
+
+> > **Note:** Upgrading across image families with Terraform isn't supported. Use the gcloud CLI for cross-family upgrades.
 
 ## Custom container image
 
@@ -196,7 +225,3 @@ Set the `container_image` block within the `google_workbench_instance` resource.
 To upgrade the container host image, see [Upgrade a VM image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#upgrade-vm-image) for examples using `gcloud` or Terraform.
 
 To upgrade the custom container image, a mutable tag (such as `:latest` ) can be used. When the custom container instance is restarted, the image is repulled if changes have been made to that tag in the registry. Alternatively, the instance can be updated to use a different image tag.
-
-## Limitations
-
-  - Agent Platform Workbench instances don't provide an API surface to directly upgrade between major versions. Data disks must be backed up and the restore method used to create a new instance with the latest release. For more information, see [Restore a snapshot](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/instances/restore-snapshot) .

@@ -443,6 +443,9 @@ data_source: docs.cloud.google.com
   - `  EmbedContentRequest.EmbeddingTaskType  ` (enum)
   - `  EmbedContentResponse  ` (message)
   - `  EmbedContentResponse.Embedding  ` (message)
+  - `  EnableModelRequest  ` (message)
+  - `  EnableModelResponse  ` (message)
+  - `  EnableModelResponse.EnablementState  ` (enum)
   - `  EncryptionSpec  ` (message)
   - `  Endpoint  ` (message)
   - `  EnterpriseWebSearch  ` (message)
@@ -1248,6 +1251,7 @@ data_source: docs.cloud.google.com
   - `  PublisherModel.ResourceReference  ` (message)
   - `  PublisherModel.VersionState  ` (enum)
   - `  PublisherModelConfig  ` (message)
+  - `  PublisherModelConfig.ModelProvider  ` (enum)
   - `  PublisherModelEulaAcceptance  ` (message)
   - `  PublisherModelView  ` (enum)
   - `  PurgeArtifactsMetadata  ` (message)
@@ -9562,6 +9566,41 @@ The interface of Model Garden Service.
 <li><code dir="ltr" translate="no">aiplatform.endpoints.create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.endpoints.deploy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>EnableModel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc EnableModel(              EnableModelRequest            </code> ) returns ( <code dir="ltr" translate="no">             EnableModelResponse            </code> )</p>
+<p>Enables model for the project if prerequisites are met (e.g. completed questionnaire and consents, or an active Private Offer).</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.endpoints.create</code></li>
 </ul>
 <p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
@@ -25732,6 +25771,68 @@ Fields
 
 Embedding vector values.
 
+## EnableModelRequest
+
+Request message for `  ModelGardenService.EnableModel  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the PublisherModel resource. Format: `publishers/{publisher}/models/{publisher_model}`
+
+`parent`
+
+`string`
+
+Required. The project requesting access for named model. Format: `projects/{project}`
+
+` service (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Optional. The ID links the Marketplace listing to the underlying Agent Platform model endpoint. Format: `services/{service_id}` Format: `services/{service_id}`
+
+## EnableModelResponse
+
+Response message for `  ModelGardenService.EnableModel  ` .
+
+Fields
+
+`publisher_endpoint`
+
+`string`
+
+Output only. The publisher endpoint that the project is enabled for. Format: `projects/{project}/locations/{location}/publishers/{publisher}/models/{publisher_model}`
+
+`enablement_state`
+
+`  EnablementState  `
+
+Output only. The result of the model enablement.
+
+## EnablementState
+
+State of the EnablePublisherModel response.
+
+Enums
+
+`ENABLEMENT_STATE_UNSPECIFIED`
+
+The PublisherModel enable status is unclear. The API will default to this value.
+
+`ENABLEMENT_STATE_SUCCEEDED`
+
+The PublisherModel is enabled successfully.
+
+`ENABLEMENT_STATE_FAILED`
+
+The PublisherModel is failed to enable
+
 ## EncryptionSpec
 
 Represents a customer-managed encryption key specification that can be applied to a Agent Platform resource.
@@ -33982,11 +34083,15 @@ Tool to retrieve public maps data for grounding, powered by Google.
 
 Fields
 
-`enable_widget`
+` enable_widget (deprecated)  `
 
 `bool`
 
-Optional. If true, include the widget context token in the response.
+> This item is deprecated\!
+
+Optional. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed.
+
+If true, include the widget context token in the response.
 
 ## GoogleSearchRetrieval
 
@@ -34290,11 +34395,15 @@ Optional. A web search entry point that can be used to display search results. T
 
 Optional. Output only. Metadata related to the retrieval grounding source.
 
-`google_maps_widget_context_token`
+` google_maps_widget_context_token (deprecated)  `
 
 `string`
 
-Optional. Output only. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.
+> This item is deprecated\!
+
+Optional. Output only. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and will no longer be populated once removed.
+
+A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.
 
 ## SourceFlaggingUri
 
@@ -48670,7 +48779,27 @@ Fields
 
 `  PredictRequestResponseLoggingConfig  `
 
-The prediction request/response logging config.
+Optional. The prediction request/response logging config.
+
+`data_sharing_enabled_provider`
+
+`  ModelProvider  `
+
+Optional. The model provider (publisher) for which the customer has enabled data sharing. For publisher models that are configured to require data sharing, a prediction request is only allowed when the model's publisher matches this provider. Otherwise, the request is rejected.
+
+## ModelProvider
+
+A model provider (publisher) that prediction data may be shared with.
+
+Enums
+
+`MODEL_PROVIDER_UNSPECIFIED`
+
+Unspecified model provider.
+
+`ANTHROPIC`
+
+Anthropic.
 
 ## PublisherModelEulaAcceptance
 

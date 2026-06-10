@@ -59,9 +59,9 @@ The Agent Platform SDK for Python handles creating [ExperimentRun](https://cloud
   - `staging_bucket` : The name you gave your bucket, for example, `my_bucket` .
   - `display_name` : The user-defined name of the [CustomJob](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob) .
   - `script_path` : The path, relative to the working directory on your local file system, to the script that is the entry point for your training code.
-  - `container_uri` : The URI of the training container image can be a Vertex AI [prebuilt training container](https://docs.cloud.google.com/vertex-ai/machine-learning/training/pre-built-containers) or a [custom container](https://docs.cloud.google.com/vertex-ai/machine-learning/training/containers-overview)
-  - `service_account` : See [Create a service account with required permissions](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
-  - `experiment` : Provide a name for your experiment. The experiment must have a [TensorBoard instance](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#create-tensorboard-instance) . You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
+  - `container_uri` : The URI of the training container image can be a Gemini Enterprise Agent Platform [prebuilt training container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview)
+  - `service_account` : See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
+  - `experiment` : Provide a name for your experiment. The experiment must have a [TensorBoard instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#create-tensorboard-instance) . You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `experiment_run` : (Optional) Specify a run name. If not specified, a run is auto-created.
 
 ## Manually log data
@@ -107,7 +107,7 @@ Here's how to change the training script:
 
 You have the option to create an experiment run, or not. If an experiment name isn't specified, one is created for you.
 
-Learn more, see [Manually log data to an experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data) .
+Learn more, see [Manually log data to an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data) .
 
 ### Python
 
@@ -146,19 +146,19 @@ Learn more, see [Manually log data to an experiment run](https://docs.cloud.goog
   - `staging_bucket` : The name you gave your bucket, for example, `my_bucket` .
   - `display_name` : The user-defined name of the [CustomJob](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob) .
   - `script_path` : The path, relative to the working directory on your local file system, to the script that is the entry point for your training code.
-  - `container_uri` : The URI of the training container image can be a Vertex AI [prebuilt training container](https://docs.cloud.google.com/vertex-ai/machine-learning/training/pre-built-containers) , or a [custom container](https://docs.cloud.google.com/vertex-ai/machine-learning/training/containers-overview) . If you are using a custom container, be sure [`google-cloud-aiplatform>=1.24.0`](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk#install-python-sdk) is installed.
-  - `service_account` : See [Create a service account with required permissions](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
+  - `container_uri` : The URI of the training container image can be a Gemini Enterprise Agent Platform [prebuilt training container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) , or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview) . If you are using a custom container, be sure [`google-cloud-aiplatform>=1.24.0`](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk#install-python-sdk) is installed.
+  - `service_account` : See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
   - `experiment` : Provide a name for your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `experiment_run` : Specify a run name. If not specified, a run is be auto-created.
 
 ## View autologged parameters and metrics
 
-Use the Agent Platform SDK for Python to [compare runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#compare-runs) and get runs data. The [Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/experiments/compare-analyze-runs#console-compare-analyze-runs) provides an easy way to compare these runs.
+Use the Agent Platform SDK for Python to [compare runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#compare-runs) and get runs data. The [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#console-compare-analyze-runs) provides an easy way to compare these runs.
 
 ## What's next
 
-  - [Log data to an experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data)
+  - [Log data to an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data)
 
 ## Relevant notebook sample
 
-  - [Custom training autologging](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-custom-training-autologging)
+  - [Custom training autologging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-custom-training-autologging)

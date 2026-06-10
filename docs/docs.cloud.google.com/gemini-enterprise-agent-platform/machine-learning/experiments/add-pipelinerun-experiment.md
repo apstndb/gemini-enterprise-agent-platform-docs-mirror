@@ -10,9 +10,9 @@ You can use either the Google Cloud console or the Agent Platform SDK for Python
 
 ### Google Cloud console
 
-Use the following instructions to run an ML pipeline and associate the pipeline with an experiment and, optionally, an experiment run using Google Cloud console. Experiment runs can only be created through the Agent Platform SDK for Python (see [Create and manage experiment runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-manage-exp-run#vertex-ai-sdk-for-python) ).
+Use the following instructions to run an ML pipeline and associate the pipeline with an experiment and, optionally, an experiment run using Google Cloud console. Experiment runs can only be created through the Agent Platform SDK for Python (see [Create and manage experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-manage-exp-run#vertex-ai-sdk-for-python) ).
 
-In the Google Cloud console, in the Vertex AI section, go to the **Pipelines** page.  
+In the Google Cloud console, in the Agent Platform section, go to the **Pipelines** page.  
 
 In the **Region** drop-down list, select the region that you want to create a pipeline run in.
 
@@ -29,7 +29,7 @@ Use the following instructions to configure advanced options such as a custom se
 
   - To specify a service account , select a service account from the **Service account** drop-down list.  
     If you do not specify a service account, Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.  
-    Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) .
+    Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
   - To use a customer managed encryption key (CMEK), select **Use a customer-managed encryption key** . The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
   - To use a peered VPC network in this pipeline run, enter the VPC network name in the **Peered VPC network** box.
 
@@ -113,7 +113,7 @@ Use cases:
   - When doing local model training and then running evaluation on that model (evaluation is done by using a pipeline). In this case you'd want to write the eval metrics from your pipeline run to an ExperimentRun
   - When re-running the same pipeline multiple times. For example, if you change the input parameters, or if one component fails and you need to run it again.
 
-When associating a pipeline run to an experiment run, parameters and metrics are not automatically surfaced and need to be logged manually using the [logging APIs](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data) .
+When associating a pipeline run to an experiment run, parameters and metrics are not automatically surfaced and need to be logged manually using the [logging APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data) .
 
 Note: When the optional `resume` parameter is specified as `TRUE` , the previously started run resumes. When not specified, `resume` defaults to `FALSE` and a new run is created.
 
@@ -139,30 +139,30 @@ See [`init`](https://docs.cloud.google.com/python/docs/reference/aiplatform/late
 
   - `experiment_name` : Provide a name for your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `run_name` : Specify a run name.
-  - `pipeline_job` : An Vertex AI PipelineJob
+  - `pipeline_job` : An Agent Platform PipelineJob
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
 
 ## View list of pipeline runs in Google Cloud console
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Pipelines** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Pipelines** page.
 
 2.  Check to be sure you are in the correct project.
 
 3.  A list of experiments and runs associated with your project's pipeline runs appears in the **Experiment** and **Experiment run** columns, respectively.  
 
-![Vertex AIList of experiments](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/pipeline-exp-run.png)
+![Agent PlatformList of experiments](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/pipeline-exp-run.png)
 
 ## Codelab
 
-  - [Make the Most of Experimentation: Manage Machine Learning Experiments with Vertex AI](https://codelabs.developers.google.com/vertex_experiments_pipelines_intro#0)
+  - [Make the Most of Experimentation: Manage Machine Learning Experiments with Agent Platform](https://codelabs.developers.google.com/vertex_experiments_pipelines_intro#0)
     
-    This codelab involves using Vertex AI to build a pipeline that trains a custom Keras Model in TensorFlow. Vertex AI Experiments is used to track and compare experiment runs in order to identify which combination of hyperparameters results in the best performance.
+    This codelab involves using Gemini Enterprise Agent Platform to build a pipeline that trains a custom Keras Model in TensorFlow. Vertex AI Experiments is used to track and compare experiment runs in order to identify which combination of hyperparameters results in the best performance.
 
 ## What's next
 
-  - [Log data to an experiment run](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data)
+  - [Log data to an experiment run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data)
 
 ## Relevant notebook sample
 
-  - [Compare pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-pipeline-runs)
+  - [Compare pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-pipeline-runs)

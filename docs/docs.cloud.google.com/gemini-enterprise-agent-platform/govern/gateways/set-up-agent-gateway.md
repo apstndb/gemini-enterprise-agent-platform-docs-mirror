@@ -140,97 +140,20 @@ You define Agent Gateways declaratively using YAML.
          --location=LOCATION
     
     Replace `  LOCATION  ` with the location where you want to create the Agent Gateway resource. For example, `us-central1` .
+    
+    Note that for Gemini Enterprise, you must deploy Agent Gateway in a region that corresponds to your multi-region setup. For the supported location mappings, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#route-traffic) .
 
-Note that for Gemini Enterprise, you must deploy Agent Gateway in a region that corresponds to your multi-region setup. For the supported location mappings, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#route-traffic) .
+3.  To enforce centralized access control and governance policies on traffic passing through the Agent Gateway, configure an authorization policy.
+    
+    This step is required. Each Agent Gateway must have an associated authorization policy that targets the gateway. For details, see [Delegate authorization with Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) .
 
 After an Agent Gateway has been created, it serves as the primary connection point for routing agent traffic within your project and chosen region. You can now use this endpoint to establish secure, encrypted, and authenticated communication channels between agents and their destinations (tools, other agents, or other endpoints).
 
 Next, learn how to [deploy agents and route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#route-traffic) .
 
-### Configure VPC connectivity
+### Optional: Configure VPC connectivity
 
-To configure Agent Gateway for private outbound communication with a VPC network in your organization, you must perform the following additional steps:
-
-1.  Create a Private Service Connect network attachment in the VPC network that you want to connect to.
-    
-    Note the following requirements:
-    
-      - Agent Gateway requires a minimum `/28` subnetwork for the network attachment.
-    
-      - Agent Gateway can only send to the following subnet ranges. Therefore, the subnet of the network attachment must fall within these ranges:
-        
-          - `10.0.0.0/8`
-          - `172.16.0.0/12`
-          - `192.168.0.0/16`
-    
-      - Agent Gateway *can't* send traffic to the following subnet ranges. Therefore, if you use the `10.0.0.0/8` range for the network attachment, you must ensure that it doesn't overlap with the following subnet ranges:
-        
-          - `10.0.0.0/24`
-          - `10.0.1.0/24`
-          - `10.0.2.0/24`
-    
-    For instructions, see [Create and manage Private Service Connect network attachments](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments) .
-    
-    If you have a Shared VPC setup, note the additional permissions required as documented in the [Using Private Service Connect interface with Shared VPC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface#using-with-vpc-shared-vpc) section.
-    
-    Note the URI of the network attachment. You'll need it when you update the Agent Gateway resource.
-
-2.  Configure DNS peering for the service that you are connecting to. With DNS peering, your agents can connect to services in the target VPC network using stable, human-readable DNS names instead of IP addresses. DNS peering lets Agent Gateway resolve DNS names using the records from a Cloud DNS private zone in your VPC.
-    
-    1.  Set up your private DNS zone for DNS resolution and traffic routing. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
-    
-    2.  If you're using a Shared VPC setup and the target project and VPC network are in a different project than the gateway, assign the DNS `Peer(roles/dns.peer)` role to the Agent Gateway service account.
-        
-        Perform this step in the project where the Agent Gateway was created.
-        
-            gcloud alpha projects add-iam-policy-binding TARGET_PROJECT_ID \
-             --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-agentgateway.iam.gserviceaccount.com \
-             --role=roles/dns.peer
-    
-    3.  Gather the DNS information to enable peering. This includes the domain name, the target project ID, and the name of the VPC network you want to connect to. You'll need this information when you update the Agent Gateway resource.
-
-3.  Update your Agent Gateway to include the network attachment and DNS peering information. Edit the `my-agent-gateway-egress.yaml` YAML file as follows:
-    
-    ``` 
-      name: AGENT_GATEWAY_NAME
-      protocols:
-        - MCP
-      googleManaged:
-        governedAccessPath: AGENT_TO_ANYWHERE
-      registries:
-        - AGENT_REGISTRY_PATH
-      networkConfig:
-        egress:
-          networkAttachment: PSC_NETWORK_ATTACHMENT_URI
-        dnsPeeringConfig:
-          domains:
-            - DOMAIN_NAME
-          targetProject: TARGET_PROJECT_ID
-          targetNetwork: TARGET_NETWORK_URI
-    ```
-    
-    Replace the following:
-    
-      - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
-      - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For Agent Runtime agents, use a regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ). For Gemini Enterprise, use the project's global registry ( `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ).
-      - `  PSC_NETWORK_ATTACHMENT_URI  ` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project (such as the Shared VPC host project) different from where you deployed the agent, you need to pass the full path of your network attachment.
-      - `  DOMAIN_NAME  ` : A domain name for DNS peering. This value is required and must end with a dot ( `.` ).
-      - `  TARGET_PROJECT_ID  ` : The target project for DNS peering.
-      - `  TARGET_NETWORK_URI  ` : The target network where you created the network attachment. This must be of the form: ` projects/ TARGET_PROJECT_ID /global/networks/ NETWORK_NAME  ` .
-
-4.  Run the following command to update the resource based on the YAML specification:
-    
-        gcloud alpha network-services agent-gateways import AGENT_GATEWAY_NAME \
-            --source="my-agent-gateway.yaml" \
-            --location=LOCATION
-    
-    Replace `  LOCATION  ` with the location where you want to create the Agent Gateway resource. For example, `us-central1` .
-
-### Configure authorization policies
-
-In Agent-to-Anywhere mode, you can use authorization policies to enforce centralized access control and governance policies on traffic passing through Agent Gateway.
-
-You can either enable these policies while creating the gateway as shown in the previous section, or add them to a pre-deployed gateway as demonstrated in [Delegate authorization with Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) .
+To learn how to configure your Agent Gateway so that it can privately communicate with a VPC network in your organization, see [Set up VPC connectivity for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) .
 
 ## Configure Agent Gateway in Client-to-Agent (Ingress) mode
 

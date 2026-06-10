@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging
-title: Log requests and responses
+title: Log and share requests and responses
 description: Manage request-response logging for Gemini and partner models. Persist API call data to BigQuery for foundation and fine-tuned models.
 data_source: docs.cloud.google.com
 ---
@@ -10,7 +10,9 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Gemini Enterprise Agent Platform can log samples of requests and responses for Gemini and supported partner models. The logs are saved to a BigQuery table for viewing and analysis. This page describes how to configure request-response logs for base foundation models and fine-tuned models.
+Gemini Enterprise Agent Platform can log samples of requests and responses for Gemini and supported partner models. The logs are saved to a BigQuery table for viewing and analysis. Additionally, Agent Platform can share request-response logs for specific Advanced AI models with certain MaaS Partners to help you fulfill your obligations to those MaaS partners.
+
+This page describes how to configure request-response logs for base foundation models and fine-tuned models.
 
 > To see an example of Request-response logging, run the "Intro to Request and Response Logging with Gemini" notebook in one of the following environments:
 > 
@@ -475,8 +477,238 @@ In BigQuery, the logs are recorded using the following schema:
 
 Note that request-response pairs larger than the BigQuery [write API 10MB row limit](https://docs.cloud.google.com/bigquery/quotas#write-api-limits) are not recorded.
 
+## Sharing requests and responses with MaaS partners
+
+> **Preview**
+> 
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+For certain Advanced AI models, some MaaS partners require that a log of prompts and responses are shared in a tamper-proof manner with their trust and safety teams, so that they can monitor for potential abuse. For example, use of Anthropic Advanced AI is governed by Section F of Anthropic's [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms) . While the `dataSharingEnabledProvider` feature is active, logged requests and responses under the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) will be shared with the MaaS Partner in real time.
+
+Tamper-proof request-response log sharing can be enabled using the [`setPublisherModelConfig` API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.models/setPublisherModelConfig) as discussed in the following sections.
+
+### Supported models
+
+The following table lists MaaS partners and models that support sharing requests and responses:
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Supported MaaS partner</th>
+<th>Supported models</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anthropic</td>
+<td><ul>
+<li>Claude Mythos Preview</li>
+<li>Claude Mythos 5</li>
+<li>Claude Fable 5</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+
+The MaaS Partner and model must match. The request-response log can only be shared with the MaaS Partner who published the model.
+
+### Prerequisites
+
+Google must receive consent for the Advanced AI Safety Addendum in this project before data sharing can be enabled. For more information about the addendum, see [Advanced AI safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) .
+
+You don't need to enable request-response logging for BigQuery to use request-response log sharing.
+
+### Limitations
+
+VPC Service Controls protected projects are prevented from sharing data with MaaS Partners by default. Configuring a VPC Service Controls egress rule isn't supported. To enable data sharing for a VPC Service Controls protected project, file a [support case](https://cloud.google.com/support-hub?e=13802955) .
+
+### Enable data
+
+Do the following:
+
+### REST API
+
+Before using any of the request data, make the following replacements:
+
+  - ENDPOINT\_PREFIX : the appropriate prefix for the model endpoint location. Use the following values:
+      - For the `global` endpoint, use `aiplatform` .
+      - For multi-region endpoints like `us` or `eu` , use `aiplatform. LOCATION .rep`
+      - For regional endpoints like `us-central1` , use `  LOCATION -aiplatform ` .
+  - PROJECT\_ID : Your project ID.
+  - LOCATION : The location of the model endpoint. For example, `global` , `us` , `eu` , or `us-central1` .
+  - PUBLISHER : The model publisher's name, in lowercase. For example, `anthropic` .
+  - MODEL : The foundation model name. For example, `claude-fable-5` .
+  - MAAS\_PARTNER : The model publisher's name, in uppercase. The MaaS Partner must be the uppercase version of the `MODEL` , described above. For example, `ANTHROPIC` .
+
+HTTP method and URL:
+
+    POST https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig
+
+Request JSON body:
+
+    {
+      "publisherModelConfig": {
+        "dataSharingEnabledProvider": "ANTHROPIC"
+      }
+    }
+
+To send your request, choose one of these options:
+
+#### curl
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
+
+#### PowerShell
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{  }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig" | Select-Object -Expand Content
+
+You should receive a successful status code (2xx) and an empty response.
+
+### Get sharing config
+
+Do the following:
+
+### REST API
+
+Before using any of the request data, make the following replacements:
+
+  - ENDPOINT\_PREFIX : the appropriate prefix for the model endpoint location. Use the following values:
+      - For the `global` endpoint, use `aiplatform` .
+      - For multi-region endpoints like `us` or `eu` , use `aiplatform. LOCATION .rep`
+      - For regional endpoints like `us-central1` , use `  LOCATION -aiplatform ` .
+  - PROJECT\_ID : Your project ID.
+  - LOCATION : The location of the model endpoint. For example, `global` , `us` , `eu` , or `us-central1` .
+  - PUBLISHER : The model publisher's name, in lowercase. For example, `anthropic` .
+  - MODEL : The foundation model name. For example, `claude-fable-5` .
+
+HTTP method and URL:
+
+``` 
+ https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig
+```
+
+To send your request, choose one of these options:
+
+#### curl
+
+Execute the following command:
+
+    curl -X  \
+         -H "Authorization: Bearer TOKEN" \
+         "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
+
+#### PowerShell
+
+Execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method  `
+        -Headers $headers `
+        -Uri "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following:
+
+    {
+      "loggingConfig": {},
+      "dataSharingEnabledProvider": "ANTHROPIC"
+    }
+
+### Disable data sharing
+
+Do the following:
+
+### REST API
+
+Before using any of the request data, make the following replacements:
+
+  - ENDPOINT\_PREFIX : the appropriate prefix for the model endpoint location. Use the following values:
+      - For the `global` endpoint, use `aiplatform` .
+      - For multi-region endpoints like `us` or `eu` , use `aiplatform. LOCATION .rep`
+      - For regional endpoints like `us-central1` , use `  LOCATION -aiplatform ` .
+  - PROJECT\_ID : Your project ID.
+  - LOCATION : The location of the model endpoint. For example, `global` , `us` , `eu` , or `us-central1` .
+  - PUBLISHER : The model publisher's name, in lowercase. For example, `anthropic` .
+  - MODEL : The foundation model name. For example, `claude-fable-5` .
+
+HTTP method and URL:
+
+    POST https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig
+
+Request JSON body:
+
+    {
+      "publisherModelConfig": {
+        "dataSharingEnabledProvider": "MODEL_PROVIDER_UNSPECIFIED"
+      }
+    }
+
+To send your request, choose one of these options:
+
+#### curl
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
+
+#### PowerShell
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig" | Select-Object -Expand Content
+
+You should receive a successful status code (2xx) and an empty response.
+
+### Prevent data sharing requests
+
+To prevent sharing request and response logs with MaaS partners, the project administrator can do any of the following:
+
+  - Create a [VPC Service Controls service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#service-perimeter-creation) that includes the project and `aiplatform.googleapis.com` as a restricted service
+
+  - [Disable access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) that support data sharing.
+
+  - Enforce least privileges on the `aiplatform.endpoints.setPublisherModelConfig` permission to prevent logging or log sharing from being enabled.
+
 ## What's next
 
   - [Estimate pricing](https://docs.cloud.google.com/stackdriver/estimating-bills) for online prediction logging.
+
   - Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+
   - Learn [how to create a BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables) .
+
+  - For more information about policies related to request response logging, see the following:
+    
+      - Learn about [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai)
+      - [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring)
+      - [Zero Data Retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)

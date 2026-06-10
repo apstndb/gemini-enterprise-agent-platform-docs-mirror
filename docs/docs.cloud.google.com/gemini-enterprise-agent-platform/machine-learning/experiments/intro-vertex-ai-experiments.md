@@ -8,17 +8,17 @@ data_source: docs.cloud.google.com
 
 > To see an example of getting started with Agent Platform Experiments, run the "Get started with " notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments.ipynb)
 
 Gemini Enterprise Agent Platform Experiments is a tool that helps you track and analyze different model architectures, hyperparameters, and training environments, letting you track the steps, inputs, and outputs of an experiment run. Gemini Enterprise Agent Platform Experiments can also evaluate how your model performed in aggregate, against test datasets, and during the training run. You can then use this information to select the best model for your particular use case.
 
 Experiment runs don't incur additional charges. You're only charged for resources that you use during your experiment as described in [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-| What do you want to do?      | Check out notebook sample                                                                                               |
-| :--------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
-| track metrics and parameters | [Compare models](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)               |
-| track experiment lineage     | [Model training](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-model-training)               |
-| track pipeline runs          | [Compare pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-pipeline-runs) |
+| What do you want to do?      | Check out notebook sample                                                                                                                                  |
+| :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| track metrics and parameters | [Compare models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)               |
+| track experiment lineage     | [Model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-model-training)               |
+| track pipeline runs          | [Compare pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-pipeline-runs) |
 
 ## Track steps, inputs, and outputs
 
@@ -32,8 +32,8 @@ You can then figure out what worked and what didn't, and identify further avenue
 
 For user journey examples, check out:
 
-  - [Model training](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-model-training)
-  - [Compare models](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)
+  - [Model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-model-training)
+  - [Compare models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
 
 ## Analyze model performance
 
@@ -41,8 +41,8 @@ Agent Platform Experiments lets you track and evaluate how the model performed i
 
 For user journey examples, check out:
 
-  - [Compare pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-pipeline-runs)
-  - [Compare models](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)
+  - [Compare pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-pipeline-runs)
+  - [Compare models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
 
 ## Compare model performance
 
@@ -50,8 +50,8 @@ Agent Platform Experiments lets you group and compare multiple models across exp
 
 For user journey examples, check out:
 
-  - [Compare pipeline runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-pipeline-runs)
-  - [Compare models](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-compare-models)
+  - [Compare pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-pipeline-runs)
+  - [Compare models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-compare-models)
 
 ## Search experiments
 
@@ -61,11 +61,11 @@ Agent Platform Experiments, along with [Gemini Enterprise Agent Platform ML Meta
 
 ## Scope of support
 
-Gemini Enterprise Agent Platform Experiments supports development of models using Gemini Enterprise Agent Platform custom training, Gemini Enterprise Agent Platform Workbench notebooks, Notebooks, and all Python ML Frameworks across most ML Frameworks. For some ML frameworks, such as TensorFlow, Gemini Enterprise Agent Platform Experiments provides deep integrations into the framework that makes the user experience automagical. For other ML frameworks, Gemini Enterprise Agent Platform Experiments provides a framework neutral Agent Platform SDK for Python that you can use. (see: [Prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) for TensorFlow, scikit-learn, PyTorch, XGBoost).
+Gemini Enterprise Agent Platform Experiments supports development of models using Gemini Enterprise Agent Platform custom training, Vertex AI Workbench notebooks, Notebooks, and all Python ML Frameworks across most ML Frameworks. For some ML frameworks, such as TensorFlow, Gemini Enterprise Agent Platform Experiments provides deep integrations into the framework that makes the user experience automagical. For other ML frameworks, Gemini Enterprise Agent Platform Experiments provides a framework neutral Agent Platform SDK for Python that you can use. (see: [Prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) for TensorFlow, scikit-learn, PyTorch, XGBoost).
 
 ## Data models and concepts
 
-Gemini Enterprise Agent Platform Experiments is a context in [Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) where an experiment can contain *n* experiment runs in addition to *n* pipeline runs. An experiment run consists of parameters, summary metrics, time series metrics, and [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob) , [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) , and [`Execution`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Execution) Gemini Enterprise Agent Platform resources. [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) , a managed version of open source TensorBoard, is used for time-series metrics storage. Executions and artifacts of a pipeline run are viewable in the [Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/pipelines/visualize-pipeline#visualize_pipeline_runs_using) .
+Gemini Enterprise Agent Platform Experiments is a context in [Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) where an experiment can contain *n* experiment runs in addition to *n* pipeline runs. An experiment run consists of parameters, summary metrics, time series metrics, and [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob) , [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) , and [`Execution`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Execution) Gemini Enterprise Agent Platform resources. [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) , a managed version of open source TensorBoard, is used for time-series metrics storage. Executions and artifacts of a pipeline run are viewable in the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline#visualize_pipeline_runs_using) .
 
 ## Agent Platform Experiments terms
 
@@ -75,13 +75,13 @@ Gemini Enterprise Agent Platform Experiments is a context in [Agent Platform ML 
 
   - An experiment is a context that can contain a set of n experiment runs in addition to pipeline runs where a user can investigate, as a group, different configurations such as input artifacts or hyperparameters.
 
-See [Create an experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-experiment) .
+See [Create an experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-experiment) .
 
 ##### experiment run
 
   - A specific, trackable execution within a Vertex AI Experiment, which logs inputs (like algorithm, parameters, and datasets) and outputs (like models, checkpoints, and metrics) to monitor and compare ML development iterations. For more information, see [Create and manage experiment runs](https://cloud.google.com/vertex-ai/docs/experiments/create-manage-exp-run) .
 
-See [Create and manage experiment runs](https://docs.cloud.google.com/vertex-ai/docs/experiments/create-manage-exp-run) .
+See [Create and manage experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-manage-exp-run) .
 
 ##### pipeline run
 
@@ -89,23 +89,23 @@ See [Create and manage experiment runs](https://docs.cloud.google.com/vertex-ai/
 
 One or more Gemini Enterprise Agent Platform [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob) resource can be associated with an [`ExperimentRun`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ExperimentRun) resource. In this context, the parameters, metrics, and artifacts are not inferred.
 
-See [Associate a pipeline with an experiment](https://docs.cloud.google.com/vertex-ai/docs/experiments/add-pipelinerun-experiment) .
+See [Associate a pipeline with an experiment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/add-pipelinerun-experiment) .
 
 ### Parameters and metrics
 
-See [Log parameters](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#parameters) .
+See [Log parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#parameters) .
 
 ##### summary metrics
 
   - Summary metrics are a single value for each metric key in an experiment run. For example, the test accuracy of an experiment is the accuracy calculated against a test dataset at the end of training that can be captured as a single value summary metric.
 
-See [Log summary metrics](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#summary-metrics) .
+See [Log summary metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#summary-metrics) .
 
 ##### time series metrics
 
   - Time series metrics are longitudinal metric values where each value represents a step in the training routine portion of a run. Time series metrics are stored in Vertex AI TensorBoard. Vertex AI Experiments stores a reference to the Vertex TensorBoard resource.
 
-See [Log time series metrics](https://docs.cloud.google.com/vertex-ai/docs/experiments/log-data#time-series-metrics) .
+See [Log time series metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/log-data#time-series-metrics) .
 
 ### Resource types
 
@@ -121,8 +121,8 @@ Agent Platform Experiments lets you use a schema to define the type of artifact.
 
 ## Notebook tutorial
 
-  - [Get started with Agent Platform Experiments](https://docs.cloud.google.com/vertex-ai/docs/experiments/user-journey/uj-get-started-vertex-ai-experiments)
+  - [Get started with Agent Platform Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-get-started-vertex-ai-experiments)
 
 ## What's next
 
-  - [Set up to get started with Vertex AI Experiments](https://docs.cloud.google.com/vertex-ai/docs/experiments/setup)
+  - [Set up to get started with Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/setup)

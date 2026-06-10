@@ -335,6 +335,8 @@ Replace the following:
   - ACCELERATOR\_COUNT : The number of accelerators to attach to each machine running the job. This is usually 1. If not specified, the default value is 1.
 
   - ACCELERATOR\_TYPE : Manage the accelerator config for GPU serving. When deploying a model with Compute Engine machine types, a GPU accelerator may also be selected and type must be specified. Choices are `nvidia-tesla-a100` , `nvidia-tesla-p100` , `nvidia-tesla-p4` , `nvidia-tesla-t4` , and `nvidia-tesla-v100` .
+    
+    > **Caution:** NVIDIA P100 GPUs reach end of support on September 15, 2026. For more information, see [NVIDIA P100 end of support](https://docs.cloud.google.com/compute/docs/eol/p100-eos) .
 
 The Google Cloud CLI might take a few seconds to deploy the model to the endpoint. When the model is successfully deployed, this command prints the following output:
 

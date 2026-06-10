@@ -29,6 +29,7 @@ The following Gemini models support supervised fine-tuning:
 
 #### Click to expand supported models
 
+  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
@@ -42,6 +43,20 @@ Supervised fine-tuning is not a Covered Service and is excluded from the SLO of 
 
 The following table shows the limitations on supervised fine-tuning datasets:
 
+### Gemini 3.5 Flash
+
+| Specification                                        | Value                                                                                                   |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Maximum input and output tokens per training example | 131,072                                                                                                 |
+| Maximum input and output serving tokens              | Same as base Gemini model                                                                               |
+| Maximum number of examples in a validation dataset   | 5000 examples or 30% of the number of training examples if there are more than 1000 validation examples |
+| Maximum training dataset file size                   | 1GB for JSONL                                                                                           |
+| Maximum training dataset size                        | 10M text-only examples or 300K multimodal examples                                                      |
+| Adapter size                                         | Supported values are 1, 2, 4, 8, and 16                                                                 |
+| Supported endpoint for model tuning                  | `us-central1` , and `europe-west4`                                                                      |
+| Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints only                                                               |
+| CMEK support                                         | Not supported                                                                                           |
+
 ### Gemini 3.1 Flash-Lite
 
 | Specification                                        | Value                                                                                                   |
@@ -52,7 +67,7 @@ The following table shows the limitations on supervised fine-tuning datasets:
 | Maximum training dataset file size                   | 1GB for JSONL                                                                                           |
 | Maximum training dataset size                        | 10M text-only examples or 300K multimodal examples                                                      |
 | Adapter size                                         | Supported values are 1, 2, 4, 8, and 16                                                                 |
-| Supported endpoints for model tuning                 | `us-central1` , and `europe-west4`                                                                      |
+| Supported endpoint for model tuning                  | `us-central1` , and `europe-west4`                                                                      |
 | Supported endpoint for tuned model serving           | `us` and `eu` multi-region endpoints only                                                               |
 | CMEK support                                         | Not supported                                                                                           |
 

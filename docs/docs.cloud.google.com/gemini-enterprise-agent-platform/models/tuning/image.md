@@ -32,7 +32,9 @@ The `fileUri` for your dataset can be the URI for a file in a Cloud Storage buck
 
 The [`mediaResolution` field of the `GenerationConfig` object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerationConfig#MediaResolution) is used to control the tradeoff between the quality of the media file being sent for tuning and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced tuned model behavior, but it will also use more tokens. This doesn't affect the image dimensions sent to the model. When not specified, the default resolution is `MEDIA_RESOLUTION_HIGH` .
 
-Following are the supported `mediaResolution` values for fine-tuning image data for Gemini versions below 3:
+### `mediaResolution` for Gemini versions 3 and earlier
+
+The following are the supported `mediaResolution` values for fine-tuning image data for Gemini versions 3 and earlier:
 
   - `MEDIA_RESOLUTION_LOW` : 64 tokens
   - `MEDIA_RESOLUTION_MEDIUM` : 256 tokens
@@ -72,7 +74,9 @@ The following is an example of an image dataset:
       }
     }
 
-(Gemini 3 and higher models only) Starting with the Gemini 3 models, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another). For more information about part-level resolution and their corresponding token counts, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution) .
+### `mediaResolution` for Gemini versions 3 and higher
+
+For Gemini 3 models and higher, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another). For more information about part-level resolution and their corresponding token counts, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution) .
 
 `Part` -level media resolution settings take precedence over global settings.
 

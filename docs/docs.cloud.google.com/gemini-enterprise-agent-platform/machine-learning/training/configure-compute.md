@@ -370,6 +370,8 @@ If you have [written your training code to use GPUs](https://docs.cloud.google.c
 
 Agent Platform supports the following types of GPU for serverless training:
 
+> **Caution:** NVIDIA P100 GPUs reach end of support on September 15, 2026. For more information, see [NVIDIA P100 end of support](https://docs.cloud.google.com/compute/docs/eol/p100-eos) .
+
   - `NVIDIA_GB200` <sup>+</sup> (includes [GPUDirect-RDMA](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#gpudirect-rdma) )
   - `NVIDIA_B200` <sup>\*</sup> (includes [GPUDirect-RDMA](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#gpudirect-rdma) )
   - `NVIDIA_H100_MEGA_80GB` <sup>\*</sup> (includes [GPUDirect-TCPXO](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#gpudirect-tcpxo) )

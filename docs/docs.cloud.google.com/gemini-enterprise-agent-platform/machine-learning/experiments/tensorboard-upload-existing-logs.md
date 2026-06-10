@@ -55,7 +55,7 @@ Note that after calling `start_upload_tb_log()` your thread will kept alive even
 
   - `tensorboard_experiment_name` : The name of the TensorBoard experiment to upload to.
   - `logdir` : The directory location to check for TensorBoard logs.
-  - `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
+  - `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
   - `project` : . You can find you Project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : The location where your TensorBoard instance is located.
   - `experiment_display_name` : The display name of the experiment.
@@ -101,7 +101,7 @@ Call `aiplatform.upload_tb_log` to perform a one-time upload of TensorBoard logs
 
   - `tensorboard_experiment_name` : The name of the TensorBoard experiment.
   - `logdir` : The directory location to check for TensorBoard logs.
-  - `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
+  - `tensorboard_id` : The [TensorBoard instance ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_id) . If not set, the `tensorboard_id` in `aiplatform.init` is used.
   - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : The location where your TensorBoard instance is located.
   - `experiment_display_name` : The display name of the experiment.
@@ -156,7 +156,7 @@ Call `aiplatform.upload_tb_log` to upload TensorBoard profile logs to an experim
 
   - `  PATH/TO/VIRTUAL/ENVIRONMENT  ` : your dedicated virtual environment.
 
-Install the Vertex AI TensorBoard package through Agent Platform SDK.
+Install the Agent Platform TensorBoard package through Agent Platform SDK.
 
     pip install -U pip
     pip install google-cloud-aiplatform[tensorboard]
@@ -180,7 +180,7 @@ Upload TensorBoard logs
 
 <!-- end list -->
 
-  - `  TENSORBOARD_RESOURCE_NAME  ` : The [TensorBoard Resource name](https://docs.cloud.google.com/vertex-ai/docs/experiments/tensorboard-setup#tensorboard_resource_name) used to fully identify the Vertex AI TensorBoard instance.
+  - `  TENSORBOARD_RESOURCE_NAME  ` : The [TensorBoard Resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) used to fully identify the Vertex AI TensorBoard instance.
   - `  LOG_DIR  ` : The location of the event logs that resides either in the local file system or Cloud Storage
   - `  TB_EXPERIMENT_NAME  ` : The name of the TensorBoard experiment, for example `test-experiment` .
   - `  RUN_NAME_PREFIX  ` : For profile data, this is the run prefix. The directory format within `  LOG_DIR  ` should match the following:

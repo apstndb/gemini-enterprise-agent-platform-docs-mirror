@@ -202,7 +202,7 @@ When authoring constraints, follow these guidelines:
   - **Be specific:** Specify constraints with directly stated limits (for example, "$1000", "8 AM to 4 PM EST"). Use wording that aligns with descriptions of tools and parameters.
   - **Avoid contradictions:** Ensure agent-scope and tool-scope constraints don't conflict (for example, different dollar thresholds).
 
-**Test constraints:** You can test your natural language constraints using the policy testing guide.
+**Test constraints:** You can test your natural language constraints using [dry run mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#enabling-dry-run-mode) , which evaluates policies without enforcing them.
 
 -----
 
@@ -210,92 +210,184 @@ When authoring constraints, follow these guidelines:
 
 This section covers the transition from infrastructure readiness to policy authoring.
 
-## Prerequisites: set up the network
+### Prerequisites
 
-Before you can enforce semantic rules, you must configure the underlying networking components.
+Before you configure SGP, complete the following steps.
 
-1.  **Set environment variables** : Set your project ID and preferred location:
-    
-        export PROJECT_ID=PROJECT_ID
-        export LOCATION=LOCATION
+#### Enable required APIs
 
-2.  **Provision VPC network and subnet** : Create a new VPC network and a dedicated subnet for agentic traffic.
+Before you begin, enable the APIs required for SGP and its networking components:
+
+    gcloud services enable \
+        aiplatform.googleapis.com \
+        agentregistry.googleapis.com \
+        networkservices.googleapis.com \
+        networksecurity.googleapis.com \
+        compute.googleapis.com \
+        dns.googleapis.com \
+        --project=PROJECT_ID
+
+> **Note:** This guide assumes you have already created an Agent Gateway, including the service identity and required IAM roles. For instructions, see [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
+
+> **Note:** If you authenticate with a Google user account, include the `-H "x-goog-user-project: PROJECT_ID"` header in all `curl` commands for billing and quota attribution. This header is optional when using a service account.
+
+### Provisioning and enablement
+
+Enable the SGP engine. This provisions the necessary runtime environment. Provisioning can take up to 15-20 minutes to complete.
+
+    curl -X PATCH \
+        "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine?updateMask=SemanticGovernancePolicyEngine" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "Content-Type: application/json" \
+        -H "x-goog-user-project: PROJECT_ID" \
+        -d '{}'
+
+This command returns a long-running operation. You can poll the operation status by replacing `  OPERATION  ` with the `name` value from the response:
+
+    curl "https://LOCATION-aiplatform.googleapis.com/v1beta1/OPERATION" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "Content-Type: application/json" \
+        -H "x-goog-user-project: PROJECT_ID"
+
+Alternatively, check the overall engine status until the `state` field returns `ACTIVE` :
+
+    curl "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "Content-Type: application/json" \
+        -H "x-goog-user-project: PROJECT_ID"
+
+> **Note:** Wait until the `state` field returns `ACTIVE` before proceeding. Save the `pscServiceAttachment` value from the response — you'll need it when you [configure the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) .
+
+### Configuring the network
+
+After the policy engine is provisioned, configure the networking components required for Agent Gateway to communicate with the policy engine.
+
+#### 1\. Provision VPC network and subnet
+
+In this step, you create a VPC network, a subnet, and a proxy-only subnet for agentic traffic. The IP ranges shown ( `10.11.12.0/24` and `10.11.13.0/24` ) are examples. You can use any RFC 1918 private range that fits your network design.
+
+> **Note:** The subnet range mustn't overlap with ranges reserved by Agent Gateway for internal use ( `10.0.0.0/24` , `10.0.1.0/24` , `10.0.2.0/24` ). For the full list of subnet requirements, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#psc-interface) .
+
+1.  Create the VPC network:
     
-    > **Note:** The subnet range mustn't overlap with ranges reserved by Agent Gateway for internal use ( `10.0.0.0/24` , `10.0.1.0/24` , `10.0.2.0/24` ). For the full list of subnet requirements, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#psc-interface) .
-    
-        # Create the VPC network
         gcloud compute networks create NETWORK_NAME \
             --subnet-mode=auto \
             --project=PROJECT_ID
-        
-        # Create the subnet
+    
+    Replace `  NETWORK_NAME  ` with the name for your VPC network (for example, `agent-network` ).
+
+2.  Create the subnet:
+    
         gcloud compute networks subnets create SUBNET_NAME \
             --network=NETWORK_NAME \
             --region=LOCATION \
             --range=10.11.12.0/24 \
             --project=PROJECT_ID
-
-Replace the following:
-
-  - `  PROJECT_ID  ` : your Google Cloud project ID.
-  - `  LOCATION  ` : the location where SGP runs (for example, `us-central1` ).
-  - `  NETWORK_NAME  ` : the name for your VPC network (for example, `agent-network` ).
-  - `  SUBNET_NAME  ` : the name for your subnet (for example, `agent-subnet` ).
-
-<!-- end list -->
-
-1.  **Provision private DNS zone** : Create a private DNS zone to allow the Agent Gateway to identify the policy engine:
     
-        gcloud dns managed-zones create DNS_ZONE_NAME \
-            --description="Private zone for my internal agentic VPC services" \
-            --dns-name="internal.example.com." \
-            --visibility=private \
-            --networks=NETWORK_NAME \
+    Replace `  SUBNET_NAME  ` with the name for your subnet (for example, `agent-subnet` ).
+
+3.  Create the proxy-only subnet (required for managed load balancers):
+    
+        gcloud compute networks subnets create PROXY_SUBNET_NAME \
+            --network=NETWORK_NAME \
+            --region=LOCATION \
+            --range=10.11.13.0/24 \
+            --purpose=REGIONAL_MANAGED_PROXY --role=ACTIVE \
             --project=PROJECT_ID
+    
+    Replace `  PROXY_SUBNET_NAME  ` with the name for your proxy-only subnet (for example, `agent-proxy-subnet` ).
+
+#### 2\. Provision private DNS zone
+
+Create a private DNS zone to allow Agent Gateway to resolve the policy engine's hostname:
+
+    gcloud dns managed-zones create DNS_ZONE_NAME \
+        --description="Private zone for my internal agentic VPC services" \
+        --dns-name="internal.example.com." \
+        --visibility=private \
+        --networks=NETWORK_NAME \
+        --project=PROJECT_ID
 
 Replace the following:
 
-  - `  PROJECT_ID  ` : your Google Cloud project ID.
-  - `  LOCATION  ` : the location where SGP runs (for example, `us-central1` ).
-  - `  NETWORK_NAME  ` : the name for your VPC network (for example, `agent-network` ).
-  - `  SUBNET_NAME  ` : the name for your subnet (for example, `agent-subnet` ).
   - `  DNS_ZONE_NAME  ` : the name for your DNS zone (for example, `my-private-zone` ).
+  - `  internal.example.com.  ` : the DNS name for your zone, including the trailing dot.
 
-After setting up the network, you must enable the SGP engine using the [`gcloud beta ai semantic-governance-policy-engine update`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai/semantic-governance-policy-engine) command. This provisions the necessary runtime environment. Provisioning takes approximately 15-20 minutes to complete.
+#### 3\. Create network attachment
 
-    gcloud beta ai semantic-governance-policy-engine update \
-        --location=LOCATION \
-        --gateway-config="dns-zone-name=DNS_ZONE_NAME,\
-    network=NETWORK_NAME,\
-    subnetwork=SUBNET_NAME" \
+Create a network attachment to allow Agent Gateway to connect to resources in your VPC. The connection preference must be set to `ACCEPT_AUTOMATIC` .
+
+    gcloud compute network-attachments create NETWORK_ATTACHMENT_NAME \
+        --region=LOCATION \
+        --subnets=SUBNET_NAME \
+        --connection-preference=ACCEPT_AUTOMATIC \
         --project=PROJECT_ID
 
 Replace the following:
 
-  - `  LOCATION  ` : the location where SGP runs (for example, `us-central1` ).
-  - `  DNS_ZONE_NAME  ` : the name of the DNS zone you created (for example, `my-private-zone` ).
-  - `  NETWORK_NAME  ` : the name of the VPC network you created (for example, `agent-network` ).
-  - `  SUBNET_NAME  ` : the name of the subnet you created (for example, `agent-subnet` ).
+  - `  NETWORK_ATTACHMENT_NAME  ` : the name for your network attachment (for example, `sgp-nw-attachment` ).
+  - `  SUBNET_NAME  ` : the subnet you created in step 1.
 
-To check the provisioning status, run the following `gcloud` command:
+#### 4\. Create static IP, PSC endpoint, and DNS record
 
-    gcloud beta ai semantic-governance-policy-engine describe \
-        --location=LOCATION \
+Reserve a static IP address, create a Private Service Connect (PSC) endpoint pointing to the policy engine's service attachment, and create a DNS record to make it reachable.
+
+    # Reserve a static IP address
+    gcloud compute addresses create STATIC_IP_NAME \
+        --region=LOCATION \
+        --subnet=SUBNET_NAME \
+        --purpose=GCE_ENDPOINT \
+        --project=PROJECT_ID
+    
+    # Capture the reserved IP address
+    IP=$(gcloud compute addresses describe STATIC_IP_NAME \
+        --region=LOCATION \
+        --project=PROJECT_ID \
+        --format=value(address))
+    
+    # Create the PSC endpoint
+    gcloud compute forwarding-rules create PSC_ENDPOINT_NAME \
+        --region=LOCATION \
+        --network=NETWORK_NAME \
+        --address=STATIC_IP_NAME \
+        --target-service-attachment=PSC_SERVICE_ATTACHMENT \
+        --project=PROJECT_ID
+    
+    # Create a DNS A record for the policy engine
+    gcloud dns record-sets create SGP_DNS_HOSTNAME \
+        --zone=DNS_ZONE_NAME \
+        --type=A \
+        --ttl=300 \
+        --rrdatas=$IP \
         --project=PROJECT_ID
 
-Wait until the `state` field returns `ACTIVE` before proceeding.
+Replace the following:
 
-> **Note:** Before connecting the policy engine to Agent Gateway, you must configure a network attachment and DNS peering on your agent gateway. For instructions, see [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
+  - `  STATIC_IP_NAME  ` : the name for your reserved IP address (for example, `sgp-psc-ip` ).
+  - `  PSC_ENDPOINT_NAME  ` : the name for your PSC endpoint (for example, `sgp-psc-endpoint` ).
+  - `  PSC_SERVICE_ATTACHMENT  ` : the `pscServiceAttachment` value saved from the provisioning response.
+  - `  SGP_DNS_HOSTNAME  ` : a hostname under your private DNS zone, in the format `  LOCATION . DNS_ZONE_SUFFIX  ` , where `  DNS_ZONE_SUFFIX  ` is the DNS name you specified when creating your private DNS zone. For example, if your location is `us-west1` and your DNS zone suffix is `internal.example.com` , use `us-west1.internal.example.com` .
 
-## Connect the SGP engine to Agent Gateway
+#### 5\. Configure VPC connectivity on Agent Gateway
 
-After the policy engine is provisioned, you must create an authorization extension and an authorization policy so that Agent Gateway can forward traffic to the policy engine for evaluation.
+After creating the network resources, you must register the network attachment and DNS peering on your Agent Gateway so that it can reach the policy engine over the private network.
 
-1.  **Create the authorization extension** : Create an authorization extension that points to the policy engine's DNS hostname. A DNS record is automatically created during provisioning using the format `  LOCATION . DNS_ZONE_NAME  ` , where `  DNS_ZONE_NAME  ` is the DNS name you specified when creating your private DNS zone. This is the mechanism by which Agent Gateway sends traffic to the SGP engine for evaluation.
+For detailed instructions, see [Configure VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#psc-interface) in the Agent Gateway setup guide. At a minimum, you must:
+
+  - Register the **network attachment** created in step 3 with your Agent Gateway egress configuration.
+  - Register **DNS peering** so the gateway can resolve the private DNS hostname created in step 4.
+
+> **Caution:** Without this step, the Agent Gateway cannot resolve the SGP engine's private DNS hostname. Agent sessions will fail with `FAILED_PRECONDITION` errors.
+
+### Connect the SGP engine to Agent Gateway
+
+After the network is configured, you must create an authorization extension and an authorization policy so that Agent Gateway can forward traffic to the policy engine for evaluation.
+
+1.  **Create the authorization extension** : Create an authorization extension that points to the policy engine's DNS hostname. Use the same `  SGP_DNS_HOSTNAME  ` that you created a DNS record for in [Configuring the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) (step 4). This is the mechanism by which Agent Gateway sends traffic to the SGP engine for evaluation.
     
         curl -X POST \
             "https://networkservices.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzExtensions?authzExtensionId=AUTHZ_EXTENSION_NAME" \
-            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
             -H "Content-Type: application/json" \
             -H "x-goog-user-project: PROJECT_ID" \
             -d '{
@@ -305,15 +397,17 @@ After the policy engine is provisioned, you must create an authorization extensi
               "loadBalancingScheme": "LOAD_BALANCING_SCHEME_UNSPECIFIED"
             }'
     
-    Replace `  SGP_DNS_HOSTNAME  ` with the automatically created DNS hostname in the format `  LOCATION . DNS_ZONE_NAME  ` . For example, if your location is `us-west1` and your DNS zone name is `internal.example.com` , use `us-west1.internal.example.com` .
+    Replace `  SGP_DNS_HOSTNAME  ` with the DNS hostname for which you created an A record in [Configuring the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) (step 4).
+    
+    This command returns a long-running operation. Wait for the operation to complete before proceeding.
 
 2.  **Create the authorization policy** : Create an authorization policy that binds the extension to your Agent Gateway. This tells Agent Gateway to send traffic through the policy engine for evaluation.
     
-    > **Note:** The `httpRules` must include a CEL expression to exclude gRPC traffic. Without this exclusion, the policy engine intercepts gRPC calls (such as Cloud Resource Manager) and causes agent startup failures.
+    > **Note:** The `httpRules` must include a [CEL expression](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference) to exclude gRPC traffic. Without this exclusion, the policy engine intercepts gRPC calls (such as Cloud Resource Manager) and causes agent startup failures.
     
         curl -X POST \
             "https://networksecurity.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzPolicies?authzPolicyId=AUTHZ_POLICY_NAME" \
-            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
             -H "Content-Type: application/json" \
             -H "x-goog-user-project: PROJECT_ID" \
             -d '{
@@ -335,8 +429,10 @@ After the policy engine is provisioned, you must create an authorization extensi
                 }
               }
             }'
+    
+    This command returns a long-running operation. Wait for the operation to complete before proceeding.
 
-## Create a policy
+### Create a policy
 
 Once the SGP engine is active, you can define the technical and behavioral guardrails for your agents.
 
@@ -363,12 +459,22 @@ Once the SGP engine is active, you can define the technical and behavioral guard
 
 You can configure a constraint at **agent scope** (applies to all tools) or **tool scope** using the [`gcloud beta ai semantic-governance-policies create`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai/semantic-governance-policies) command.
 
+##### Find your agent ID
+
+To create a policy, you need your agent's unique ID from the [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry) . List agents in your project to find the ID:
+
+    gcloud alpha agent-registry agents list \
+        --project=PROJECT_ID \
+        --location=LOCATION
+
+The agent ID is the last segment of the `name` field (for example, `agentregistry-00000000-0000-0000-abcd-012345678901` ). Use this value for the `  AGENT_ID  ` parameter in the following commands.
+
 Before running SGP policy commands, set the regional API endpoint override:
 
     gcloud config set api_endpoint_overrides/aiplatform \
         https://LOCATION-aiplatform.googleapis.com/
 
-#### Create an agent-scope policy
+##### Create an agent-scope policy
 
     gcloud beta ai semantic-governance-policies create POLICY_ID \
         --location=LOCATION \
@@ -378,7 +484,7 @@ Before running SGP policy commands, set the regional API endpoint override:
         --natural-language-constraint="Always use UPS as the shipping provider for shipments within the USA. Always use DHL as the shipping provider for shipments within the EU." \
         --project=PROJECT_ID
 
-#### Create a tool-scope policy
+##### Create a tool-scope policy
 
     gcloud beta ai semantic-governance-policies create POLICY_ID \
         --location=LOCATION \
@@ -389,7 +495,7 @@ Before running SGP policy commands, set the regional API endpoint override:
         --natural-language-constraint="NLC_TEXT" \
         --project=PROJECT_ID
 
-## Enabling dry run mode
+### Enabling dry run mode
 
 You can enable **dry run mode** to evaluate policies without enforcing them. In this mode, the policy engine evaluates all tool calls against your constraints and logs verdicts, but never blocks actions. This lets you test and validate your constraints before enabling enforcement.
 
@@ -397,7 +503,7 @@ To enable dry run mode, add `sgpEnforcementMode: DRY_RUN` to the metadata of you
 
     curl -X PATCH \
         "https://networkservices.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzExtensions/AUTHZ_EXTENSION_NAME?updateMask=metadata" \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
         -H "x-goog-user-project: PROJECT_ID" \
         -d '{
@@ -412,34 +518,24 @@ In dry run mode:
   - Verdicts and rationales are **logged** for review.
   - You can review the logs to identify which actions would have been blocked and refine your constraints before switching to enforcement mode.
 
-To switch back to enforcement mode, remove `sgpEnforcementMode` from the metadata:
+To switch back to normal enforcement mode, remove `sgpEnforcementMode` from the metadata:
 
     curl -X PATCH \
         "https://networkservices.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzExtensions/AUTHZ_EXTENSION_NAME?updateMask=metadata" \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
         -H "x-goog-user-project: PROJECT_ID" \
         -d '{
           "metadata": {}
         }'
 
-## Disconnect SGP
+### Manage SGP configuration
 
-You can disconnect the SGP engine from your Agent Gateway to stop tool calls from being evaluated against your constraints.
+After SGP is running, you can delete individual policies or disconnect the engine from your Agent Gateway.
 
-> **Note:** In this preview, there's no mechanism to deprovision the SGP engine once it's been enabled. However, you can stop using it by removing the associated authorization components from your agent gateway and deleting your policies.
+#### Delete an SGP policy
 
-### 1\. Delete the authorization policy
-
-The authorization policy binds SGP enforcement to your Agent Gateway. Deleting this policy stops traffic from being routed to the SGP engine for evaluation.
-
-    gcloud network-security authz-policies delete AUTHZ_POLICY_NAME \
-        --location=LOCATION \
-        --project=PROJECT_ID
-
-### 2\. Delete your SGP policies
-
-As a best practice, delete any individual technical and behavioral guardrails you have defined.
+To remove an individual policy without affecting the overall SGP integration:
 
     gcloud beta ai semantic-governance-policies delete POLICY_ID \
         --location=LOCATION \
@@ -449,9 +545,24 @@ Alternatively, use the following `curl` command:
 
     curl -X DELETE \
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicies/POLICY_ID" \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)"
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "x-goog-user-project: PROJECT_ID"
 
-### 3\. (Optional) Delete the authorization extension
+#### Disconnect SGP from Agent Gateway
+
+You can disconnect the SGP engine from your Agent Gateway to stop tool calls from being evaluated against your constraints.
+
+> **Note:** In this preview, there's no mechanism to deprovision the SGP engine once it's been enabled. However, you can stop using it by removing the associated authorization components from your agent gateway.
+
+Delete the authorization policy that binds SGP enforcement to your Agent Gateway:
+
+    gcloud network-security authz-policies delete AUTHZ_POLICY_NAME \
+        --location=LOCATION \
+        --project=PROJECT_ID
+
+To reconnect SGP later, recreate the authorization policy as described in [Connect the SGP engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) .
+
+#### (Optional) Delete the authorization extension
 
 If you no longer plan to use the SGP integration, you can also delete the authorization extension created during setup.
 

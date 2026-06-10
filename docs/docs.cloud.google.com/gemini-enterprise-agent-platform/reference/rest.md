@@ -4906,6 +4906,15 @@ Accepts the EULA acceptance status of a publisher model.
 `POST /v1beta1/{parent}/modelGardenEula:check`  
 Checks the EULA acceptance status of a publisher model.
 
+## REST Resource: [v1beta1.projects.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.publishers.models)
+
+Methods
+
+`  enableModel  `
+
+`POST /v1beta1/{parent}/{name}:enableModel`  
+Enables model for the project if prerequisites are met (e.g.
+
 ## REST Resource: [v1beta1.publishers.models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/publishers.models)
 
 Methods

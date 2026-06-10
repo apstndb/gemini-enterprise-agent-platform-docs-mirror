@@ -56,7 +56,7 @@ Use the following instructions to create a pipeline run from the **Template Gall
                 
                 If you don't specify a service account, Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.
                 
-                Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/configure-project#service-account) .
+                Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) .
             
               - To use a CMEK, select **Use a customer-managed encryption key** . The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
             

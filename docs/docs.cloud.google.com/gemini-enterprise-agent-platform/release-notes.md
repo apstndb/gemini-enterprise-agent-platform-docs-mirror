@@ -10,6 +10,14 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 09, 2026
+
+Feature
+
+**Anthropic's Claude Fable 5**
+
+[Claude Fable 5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5) is available in Model Garden.
+
 ## June 02, 2026
 
 Announcement
@@ -84,6 +92,14 @@ For details on configuration, see [Write traces for an agent](https://docs.cloud
 
 Feature
 
+**The Gemini Deep Research Agent released in Preview**
+
+The Gemini Deep Research Agent has been released in Preview. The Gemini Deep Research Agent is a managed AI agent that plans, executes, and synthesizes complex, multi-step research workflows across the public web and private enterprise data to generate comprehensive, cited reports.
+
+For more information, see [Use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
+
+Feature
+
 **Agent Platform Sandboxes**
 
 Additional Agent Platform [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) features are now available:
@@ -95,11 +111,9 @@ Additional Agent Platform [sandbox](https://docs.cloud.google.com/gemini-enterpr
 
 Feature
 
-**The Gemini Deep Research Agent releaased in Preview**
+**Identify the agents with the most content security violations**
 
-The Gemini Deep Research Agent has been released in Preview. The Gemini Deep Research Agent is a managed AI agent that plans, executes, and synthesizes complex, multi-step research workflows across the public web and private enterprise data to generate comprehensive, cited reports.
-
-For more information, see [Use the Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) .
+The **Security** dashboard displays the top 10 agents with the most content violations detected by Model Armor. The list shows the agent ID of each agent and the number of violations detected for that agent. For more information, see [Monitor content security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security) .
 
 ## May 20, 2026
 

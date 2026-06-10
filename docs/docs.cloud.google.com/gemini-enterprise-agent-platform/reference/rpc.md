@@ -2497,6 +2497,10 @@ Deploys a model to a new endpoint.
 
 Deploys publisher models.
 
+`  EnableModel  `
+
+Enables model for the project if prerequisites are met (e.g.
+
 `  ExportPublisherModel  `
 
 Exports a publisher model to a user provided Google Cloud Storage bucket.

@@ -71,6 +71,7 @@ Before using any of the request data, make the following replacements:
   - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
   - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
   - MODE : Optional: Mode to be used for the request either `one-shot` or `fast` . The default is `one-shot` . Consider `fast` mode if you want to optimize for latency.
+  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
 
 HTTP method and URL:
 
@@ -89,6 +90,9 @@ Request JSON body:
         "parallelAiSearch": {
             "api_key": "API_KEY",
             "customConfigs": {
+                "mode": "MODE",
+                "location": "SEARCH_LOCATION",
+                "max_results": MAX_RESULTS,
                 "source_policy": {
                     "exclude_domains": ["EXCLUDE_DOMAINS"],
                     "include_domains": ["INCLUDE_DOMAINS"],
@@ -96,9 +100,7 @@ Request JSON body:
                 "excerpts": {
                     "max_chars_per_result": MAX_CHARS_PER_RESULT,
                     "max_chars_total": MAX_CHARS_TOTAL
-                },
-                "max_results": MAX_RESULTS,
-                "mode": "MODE"
+                }
             }
         }
     }],

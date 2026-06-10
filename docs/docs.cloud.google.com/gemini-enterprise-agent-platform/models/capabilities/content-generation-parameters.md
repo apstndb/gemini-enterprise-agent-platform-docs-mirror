@@ -138,9 +138,9 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     // generateWithConfig shows how to generate text using a text prompt and custom configuration.
     func generateWithConfig(w io.Writer) error {
-        ctx := context.Background(&)
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -149,8 +149,8 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
         modelName := "gemini-2.5-flash"
         contents := genai.Text("Why is the sky blue?")
-        // See the documentati&on: https://pkg.go.dev/google.golang.org/genai#GenerateContentConfig
-        config := genai.GenerateContentConfig{
+        // See the documentation: https://pkg.go.dev/google.golang.org/genai#GenerateContentConfig
+        config := &genai.GenerateContentConfig{
             Temperature:      genai.Ptr(float32(0.0)),
             CandidateCount:   int32(1),
             ResponseMIMEType: "application/json",
@@ -166,7 +166,11 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         fmt.Fprintln(w, respText)
         // Example response:
         // {
-        //   &quot;explanation":"The sky is blue due to a phenomenon called Rayleigh scattering ...//}returnnil}
+        //   "explanation": "The sky is blue due to a phenomenon called Rayleigh scattering ...
+        // }
+    
+        return nil
+    }
 
 ### Node.js
 
@@ -223,7 +227,10 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
       // Example response:
       // {
       //   "explanation": "The sky appears blue due to a phenomenon called Rayleigh scattering. When ...
-      // }  return response.text;}
+      // }
+    
+      return response.text;
+    }
 
 ### Java
 
@@ -285,7 +292,12 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
           // Example response:
           // {
           //  "explanation": "The sky appears blue due to a phenomenon called Rayleigh scattering.
-          // Sunlight, which appears white, is actually composed of all the colors oftherainbow...//}returnresponse.text();}}}
+          // Sunlight, which appears white, is actually composed of all the colors of the rainbow...
+          // }
+          return response.text();
+        }
+      }
+    }
 
 ## What's next
 
