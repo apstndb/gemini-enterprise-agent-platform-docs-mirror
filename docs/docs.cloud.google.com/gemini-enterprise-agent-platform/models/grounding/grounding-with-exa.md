@@ -57,10 +57,11 @@ Before using any of the request data, make the following replacements:
   - MODEL\_ID : The ID of the model to use.
   - TEXT : The text prompt to send to the model.
   - API\_KEY : Your API key for Exa web search.
+  - SEARCH\_TYPE : Optional: The type of Exa search to run. Valid values are `auto` (the default) and `fast` . `fast` runs with lower latency at the cost of a less comprehensive search.
   - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from search results. If specified, no results will be returned from these domains. You can specify up to 1200 domains.
   - INCLUDE\_DOMAINS : Optional: List of domains to include in the search. If specified, results will only come from these domains. You can specify up to 1200 domains.
   - MAX\_CHARACTERS : Optional: Maximum number of characters to return for highlights. Controls the total length of highlight text returned per URL.
-  - NUM\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` .
+  - NUM\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `5` .
 
 HTTP method and URL:
 
@@ -79,6 +80,7 @@ Request JSON body:
         "exaAiSearch": {
             "api_key": "API_KEY",
             "customConfigs": {
+                "type": "SEARCH_TYPE",
                 "excludeDomains": ["EXCLUDE_DOMAINS"],
                 "includeDomains": ["INCLUDE_DOMAINS"],
                 "contents": {

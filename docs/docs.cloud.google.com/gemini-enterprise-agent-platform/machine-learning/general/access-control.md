@@ -4953,7 +4953,7 @@ Agent Platform uses different service agents depending on the APIs being called.
 
 A [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) is a special account used by an application or a virtual machine (VM) instance, not a person. You can create and assign permissions to service accounts to provide specific permissions to a resource or application.
 
-For information about using a service account to customize the permissions available to a custom training container or a container that serves online predictions for a custom-trained model, read [Use a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+For information about using a service account to customize the permissions available to a custom training container or a container that serves online predictions for a custom-trained model, read [Use a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
 
 Service accounts are identified by an email address.
 
@@ -8192,7 +8192,7 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 Sometimes you need to grant additional roles to an Agent Platform service agent. For example, if you need Agent Platform to access a Cloud Storage bucket in a different project, you'll need to grant one or more additional roles to the service agent.
 
-> **Note:** If you want your custom training code to obtain an OAuth 2.0 access token with the `https://www.googleapis.com/auth/cloud-platform` scope, then you must use a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) for training. You can't give this level of access to the Gemini Enterprise Agent Platform Custom Code Service Agent.
+> **Note:** If you want your custom training code to obtain an OAuth 2.0 access token with the `https://www.googleapis.com/auth/cloud-platform` scope, then you must use a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) for training. You can't give this level of access to the Gemini Enterprise Agent Platform Custom Code Service Agent.
 
 ### Role addition requirements for BigQuery
 
@@ -8270,6 +8270,6 @@ To authorize Agent Platform to access your Sheets file:
 ## What's next
 
   - [Learn more about IAM](https://docs.cloud.google.com/iam/docs) .
-  - [Learn about specific IAM permissions and the operations they support](https://docs.cloud.google.com/vertex-ai/docs/general/iam-permissions) .
-  - To learn about recommended ways to set up a project for a team, see [Set up a project for a team](https://docs.cloud.google.com/vertex-ai/docs/general/set-up-project) .
+  - [Learn about specific IAM permissions and the operations they support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) .
+  - To learn about recommended ways to set up a project for a team, see [Set up a project for a team](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/set-up-project) .
   - [Get an overview of Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) .

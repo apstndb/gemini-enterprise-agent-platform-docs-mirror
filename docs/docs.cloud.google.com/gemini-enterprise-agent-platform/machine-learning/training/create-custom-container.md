@@ -182,7 +182,7 @@ First, run [`gcloud auth configure-docker us-central1-docker.pkg.dev`](https://d
 
 If you are using an Artifact Registry image from the same Google Cloud project where you're using Agent Platform, then there is no further need to configure permissions. You can immediately [create a serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) that uses your container image.
 
-However, if you have pushed your container image to Artifact Registry in a different Google Cloud project from the project where you plan to use Agent Platform, then you must grant the Agent Platform Service Agent for your Agent Platform project permission to pull the image from the other project. [Learn more about the Agent Platform Service Agent and how to grant it permissions](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) .
+However, if you have pushed your container image to Artifact Registry in a different Google Cloud project from the project where you plan to use Agent Platform, then you must grant the Agent Platform Service Agent for your Agent Platform project permission to pull the image from the other project. [Learn more about the Agent Platform Service Agent and how to grant it permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) .
 
 ### Artifact Registry
 

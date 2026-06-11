@@ -25,7 +25,7 @@ By default, these public APIs are reachable from the internet; however, IAM perm
 
 To establish granular control over API access and explicitly restrict public internet exposure, the implementation of VPC Service Controls becomes essential. When you establish a VPC Service Controls (VPC-SC) perimeter and include the Gemini Enterprise in its protected services, all public internet access to your Agent Platform instance is automatically blocked. As a result, users attempting to access Agent Platform services programmatically or using the Google Google Cloud console are denied access unless they are included in an allowlist.
 
-To restore access for authorized sources outside the perimeter (for example, users in your corporate offices), see [Allow public endpoint access to protected resources from outside a VPC Service Controls perimeter](https://docs.cloud.google.com/vertex-ai/docs/general/vpcsc-public-endpoint#select_the_access_level) for deployment instructions.
+To restore access for authorized sources outside the perimeter (for example, users in your corporate offices), see [Allow public endpoint access to protected resources from outside a VPC Service Controls perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpcsc-public-endpoint#select_the_access_level) for deployment instructions.
 
 ### Private access
 
@@ -33,7 +33,7 @@ Organizations that need to restrict public Google APIs to private access can use
 
 As a best practice, use the restricted Virtual IP (VIP) with Private Service Connect for Google APIs or Private Google Access to provide a private network route for requests to Google Cloud services without exposing the requests to the internet. The restricted VIP supports all of the APIs that VPC Service Controls can protect that require considerations for on-premises and VPC networks. Following are some examples:
 
-  - [Allow multicloud access to protected resources from private endpoint outside a VPC Service Controls perimeter](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-multicloud-access)
+  - [Allow multicloud access to protected resources from private endpoint outside a VPC Service Controls perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-multicloud-access)
   - [Learn how to use a customer PSC Google APIs endpoint](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#using-endpoints) (VPC network example)
   - [On-premises network example](https://docs.cloud.google.com/vpc-service-controls/docs/private-connectivity#on-premises_network_example)
 
@@ -75,8 +75,8 @@ VPC Service Controls support is provided in the tuning pipeline of the following
 
 The service perimeter blocks access from Agent Platform to third-party APIs and services on the internet. If you're using [Google Cloud Pipeline components or creating your own custom pipeline components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction#pipeline-component) for use with Agent Platform Pipelines, you can't install PyPI dependencies from the public [Python Package Index (PyPI) registry](https://pypi.org/) . Instead, you must do one of the following:
 
-  - [Use custom containers](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls#use-custom-containers) .
-  - [Install packages from an Artifact Registry repository](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls#install-packages-ar-repo) .
+  - [Use custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#use-custom-containers) .
+  - [Install packages from an Artifact Registry repository](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#install-packages-ar-repo) .
 
 ### Use custom containers
 

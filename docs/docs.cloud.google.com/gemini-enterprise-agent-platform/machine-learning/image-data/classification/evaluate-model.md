@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page shows you how to evaluate your AutoML image classification models so that you can iterate on your model.
 
-Gemini Enterprise Agent Platform provides model evaluation metrics to help you determine the performance of your models, such as precision and recall metrics. Agent Platform calculates evaluation metrics by using the [test set](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+Gemini Enterprise Agent Platform provides model evaluation metrics to help you determine the performance of your models, such as precision and recall metrics. Agent Platform calculates evaluation metrics by using the [test set](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
 
 ## How you use model evaluation metrics
 
@@ -27,7 +27,7 @@ You can view and download schema files from the following Cloud Storage location
 
   - **AuPRC** : The [area under the precision-recall (PR) curve](https://developers.google.com/machine-learning/glossary#pr-auc-area-under-the-pr-curve) , also referred to as average precision. This value ranges from zero to one, where a higher value indicates a higher-quality model.
   - **Log loss** : The cross-entropy between the model inferences and the target values. This ranges from zero to infinity, where a lower value indicates a higher-quality model.
-  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Agent Platform returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
+  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Vertex AI returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
   - **Recall** : The fraction of inferences with this class that the model correctly predicted. Also called *true positive rate* .
   - **Precision** : The fraction of classification inferences produced by the model that were correct.
   - **Confusion matrix** : A [confusion matrix](https://developers.google.com/machine-learning/glossary#confusion-matrix) shows how often a model correctly predicted a result. For incorrectly predicted results, the matrix shows what the model predicted instead. The confusion matrix helps you understand where your model is "confusing" two results.
@@ -62,7 +62,7 @@ The aggregate model evaluation metrics provide information about the model as a 
 
 To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations) method.
 
-Agent Platform returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
+Vertex AI returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
 
 Select a tab that corresponds to your language or environment:
 
@@ -400,7 +400,7 @@ The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.goo
 
 You can use model evaluation slices to determine how the model performed on a specific label. The `value` field tells you which label the metrics are for.
 
-Agent Platform returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
+Vertex AI returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
 
 ### REST
 
@@ -907,6 +907,6 @@ The following suggestions can help you improve models that label items, such as 
   - Consider removing classes or labels that don't have a lot of examples. Insufficient examples prevent the model from consistently and confidently making predictions about those classes or labels.
   - Machines can't interpret the name of your classes or labels and don't understand the nuances between them, such as "door" and "door\_with\_knob." You must provide data to help machines recognize such nuances.
   - Augment your data with more examples of true positives and true negatives, especially examples that are close to a decision boundary to mitigate model confusion.
-  - Specify your own data split (training, validation, and test). Agent Platform randomly assigns items to each set. Therefore, near-duplicates can be allocated in the training and validation sets, which could lead to overfitting and then poor performance on the test set. For more information about setting your own data split, see [About data splits for AutoML models](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+  - Specify your own data split (training, validation, and test). Agent Platform randomly assigns items to each set. Therefore, near-duplicates can be allocated in the training and validation sets, which could lead to overfitting and then poor performance on the test set. For more information about setting your own data split, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
   - If your model's evaluation metrics include a confusion matrix, you can see if the model is confusing two labels, where the model is predicting a particular label significantly more than the true label. Review your data and make sure the examples are correctly labeled.
   - If you had a short training time (low maximum number of node hours), you might get a higher-quality model by allowing it to train for a longer period of time (higher maximum number of node hours).

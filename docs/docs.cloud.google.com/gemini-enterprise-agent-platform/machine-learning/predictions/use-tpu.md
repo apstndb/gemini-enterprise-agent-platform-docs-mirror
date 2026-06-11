@@ -14,7 +14,7 @@ This page describes how to deploy your models to a [single host](https://docs.cl
 
 Only [Cloud TPU version v5e, v6e,](https://docs.cloud.google.com/tpu/docs/tpu-inference) and [TPU7x](https://docs.cloud.google.com/tpu/docs/tpu7x) ( `tpu7x-standard-4t` machine type) are supported. Other Cloud TPU generations are not supported.
 
-To learn which locations Cloud TPU version v5e, v6e, and TPU7x are available in, see [locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#region_considerations) .
+To learn which locations Cloud TPU version v5e, v6e, and TPU7x are available in, see [locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) .
 
 ## Import your model
 

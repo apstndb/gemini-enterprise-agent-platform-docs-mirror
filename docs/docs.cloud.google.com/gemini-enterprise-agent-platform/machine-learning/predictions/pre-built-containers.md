@@ -16,7 +16,7 @@ Gemini Enterprise Agent Platform supports each framework version based on a sche
 
 ## Available container images
 
-Each of the following container images is available in several Artifact Registry repositories, which [store data in various locations](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) . You can use any of the URIs for an image when you perform custom training; each provides the same container image. If you use the Google Cloud console to create a [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models) resource, the Google Cloud console selects the URI that best matches the [location where you are using Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/locations) in order to reduce latency.
+Each of the following container images is available in several Artifact Registry repositories, which [store data in various locations](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) . You can use any of the URIs for an image when you perform custom training; each provides the same container image. If you use the Google Cloud console to create a [`Model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models) resource, the Google Cloud console selects the URI that best matches the [location where you are using Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) in order to reduce latency.
 
 > **Note:** Using image names without the `latest` tag isn't supported. You must use an image with the `latest` tag.
 

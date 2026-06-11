@@ -16,7 +16,7 @@ Connect to a Ray cluster on Gemini Enterprise Agent Platform and develop an appl
 
   - Write a Python script and submit the script to the Ray cluster on Gemini Enterprise Agent Platform using the [Ray Jobs API](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/index.html) . If you prefer to submit jobs programmatically, use this option.
 
-Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/overview) and [set up](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/set-up) all the prerequisite tools you need.
+Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
 
 ## Connect to a Ray cluster through Ray Client
 
@@ -227,11 +227,11 @@ The following table shows Ray on Agent Platform support for VPC peering when you
 | Ray Client (interactive mode) | Yes                   | No                     |
 | Ray JobSubmissionClient       | Yes                   | Yes                    |
 
-VPC Service Controls (VPC-SC) requires additional configurations. See [Private and public connectivity](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster#private_and_public_connectivity) for more details.
+VPC Service Controls (VPC-SC) requires additional configurations. See [Private and public connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#private_and_public_connectivity) for more details.
 
 ## Use Network File System (NFS) in your Ray code
 
-If you set an [NFS mount](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster#use_the_network_file_system_nfs) when creating the Ray cluster, read and write those NFS volumes in your application code.
+If you set an [NFS mount](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#use_the_network_file_system_nfs) when creating the Ray cluster, read and write those NFS volumes in your application code.
 
 #### RayClient
 
@@ -259,14 +259,14 @@ This section shows you how to use Network File System (NFS) in your Ray code.
         
         print(''.join(ray.get(main.remote())))
 
-Submit a Ray job using Python, the Ray Jobs CLI, or the public Ray dashboard address. For more information, see [Develop an application on the Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/develop-application#submit-ray-job-with-API) ).
+Submit a Ray job using Python, the Ray Jobs CLI, or the public Ray dashboard address. For more information, see [Develop an application on the Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/develop-application#submit-ray-job-with-API) ).
 
 ## What's next
 
-  - [Use Ray on Agent Platform with BigQuery](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/bigquery-integration)
+  - [Use Ray on Agent Platform with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/bigquery-integration)
 
-  - [Deploy a model on Gemini Enterprise Agent Platform and get inferences](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/deploy-predict)
+  - [Deploy a model on Gemini Enterprise Agent Platform and get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/deploy-predict)
 
-  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/view-logs)
+  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/view-logs)
 
-  - [Delete a Ray cluster](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/delete-cluster)
+  - [Delete a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/delete-cluster)

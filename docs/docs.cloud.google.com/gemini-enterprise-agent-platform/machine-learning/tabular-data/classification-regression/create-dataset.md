@@ -33,7 +33,7 @@ To create a machine learning model for classification or regression, you must fi
 
 6.  Select a region from the **Region** drop-down list.
 
-7.  If you want to use [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/vertex-ai/docs/general/cmek) with your dataset, open **Advanced options** and provide your key. ( [Preview](https://cloud.google.com/products/#product-launch-stages) )
+7.  If you want to use [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) with your dataset, open **Advanced options** and provide your key. ( [Preview](https://cloud.google.com/products/#product-launch-stages) )
 
 8.  Click **Create** to create your empty dataset, and advance to the **Source** tab.
 
@@ -63,7 +63,7 @@ To create a machine learning model for classification or regression, you must fi
 
 ### API
 
-When you create a dataset, you also associate it with its data source. The code needed to create a dataset depends on whether the training data resides in [Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset#gcs) or [BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset#bq) . If the data source resides in a different project, make sure you [set up the required permissions](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#foreign-project) .
+When you create a dataset, you also associate it with its data source. The code needed to create a dataset depends on whether the training data resides in [Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset#gcs) or [BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset#bq) . If the data source resides in a different project, make sure you [set up the required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#foreign-project) .
 
 > Tabular training data in Cloud Storage or BigQuery is not imported into Agent Platform. (When you import from local files, they are imported into Cloud Storage.) When you create a dataset with tabular data, the data is associated with the dataset. Changes you make to your data source in Cloud Storage or BigQuery after dataset creation are incorporated into models subsequently trained with that dataset. A snapshot of the dataset is taken when model training begins.
 
@@ -75,7 +75,7 @@ You use the [datasets.create](https://docs.cloud.google.com/gemini-enterprise-ag
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . For example, `us-central1` .
+  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) . For example, `us-central1` .
 
   - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
@@ -335,7 +335,7 @@ You use the [datasets.create](https://docs.cloud.google.com/gemini-enterprise-ag
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . For example, `us-central1` .
+  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) . For example, `us-central1` .
 
   - PROJECT : .
 
@@ -590,7 +590,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
 
 ## What's next
 

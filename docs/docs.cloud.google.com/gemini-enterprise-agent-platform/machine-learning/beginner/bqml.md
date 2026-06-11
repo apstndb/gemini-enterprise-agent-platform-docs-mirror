@@ -33,7 +33,7 @@ You can train models in Vertex AI in three ways:
 
   - [AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) : Train models on image, tabular, and video datasets without writing code.
   - [Custom Training](https://docs.cloud.google.com/vertex-ai/docs/training/understanding-training-service) : Run custom training code catered to your specific use case.
-  - [Ray on Vertex AI](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray-on-vertex-ai/overview) : Use Ray to scale AI and Python applications like machine learning.
+  - [Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) : Use Ray to scale AI and Python applications like machine learning.
 
 You can also import a model trained on another platform like BigQuery ML or XGBoost.
 

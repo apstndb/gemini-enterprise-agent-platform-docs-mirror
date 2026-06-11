@@ -18,7 +18,7 @@ Before you begin with Ray on Agent Platform, follow these steps to set up your G
 
 3.  The Ray on Agent Platform SDK for Python used here is a version of the Agent Platform SDK for Python that includes the functionality of the [Ray Client](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/ray-client.html) , Ray BigQuery connector, Ray cluster management on Gemini Enterprise Agent Platform, and predictions on Gemini Enterprise Agent Platform.
     
-      - If you use Ray on Agent Platform in the Google Cloud console, a Colab Enterprise notebook guides you through the Agent Platform SDK for Python installation process after you [create a Ray cluster](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster) .
+      - If you use Ray on Agent Platform in the Google Cloud console, a Colab Enterprise notebook guides you through the Agent Platform SDK for Python installation process after you [create a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster) .
     
       - If you use Ray on Agent Platform in the Vertex AI Workbench or other interactive Python environment, install the Agent Platform SDK for Python:
         
@@ -32,9 +32,9 @@ Before you begin with Ray on Agent Platform, follow these steps to set up your G
 
 4.  Optional: If you plan to read from BigQuery, create a new BigQuery dataset or use an existing dataset. To do this, see [create a new BigQuery dataset](https://docs.cloud.google.com/bigquery/docs/datasets) .
     
-    > **Note:** If you run code on your Ray cluster on Gemini Enterprise Agent Platform that interacts with Google services like BigQuery, the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) authenticates.
+    > **Note:** If you run code on your Ray cluster on Gemini Enterprise Agent Platform that interacts with Google services like BigQuery, the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) authenticates.
 
-5.  (Optional) To mitigate the risk of data exfiltration from Agent Platform, enable VPC Service Controls and specify a VPC network when you create a cluster. For more information, see [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) .
+5.  (Optional) To mitigate the risk of data exfiltration from Agent Platform, enable VPC Service Controls and specify a VPC network when you create a cluster. For more information, see [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) .
     
     If you enable VPC Service Controls, you can't reach resources outside the perimeter, such as files in a Cloud Storage bucket.
     
@@ -52,8 +52,8 @@ For more information about Google Cloud best practices, see the [GCP-2024-020 se
 
 ## Supported locations
 
-The [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#available-regions) table lists the available locations for Ray on Agent Platform for Custom model training.
+The [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#available-regions) table lists the available locations for Ray on Agent Platform for Custom model training.
 
 ## What's next
 
-  - [Create a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster)
+  - [Create a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster)

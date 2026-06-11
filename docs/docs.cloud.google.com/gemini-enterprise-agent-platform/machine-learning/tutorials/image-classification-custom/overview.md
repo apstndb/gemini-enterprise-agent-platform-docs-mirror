@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This tutorial walks you through the required steps to train and get predictions from your image classification model in the Google Cloud console.
 
-This tutorial is part of the "Hello custom training" tutorial, which walks you through using Agent Platform to train an image classification model and serve predictions using the model. In this tutorial, you use Agent Platform's *custom training* feature to run a TensorFlow Keras training application in one of Agent Platform's prebuilt container environments. This custom training job trains a machine learning (ML) model to classify images of flowers by their type. After you train the ML model, the tutorial shows you how to create an endpoint and serve predictions from that endpoint to a web app.
+This tutorial is part of the "Hello custom training" tutorial, which walks you through using Vertex AI to train an image classification model and serve predictions using the model. In this tutorial, you use Vertex AI's *custom training* feature to run a TensorFlow Keras training application in one of Vertex AI's prebuilt container environments. This custom training job trains a machine learning (ML) model to classify images of flowers by their type. After you train the ML model, the tutorial shows you how to create an endpoint and serve predictions from that endpoint to a web app.
 
 ## Tutorial pages
 

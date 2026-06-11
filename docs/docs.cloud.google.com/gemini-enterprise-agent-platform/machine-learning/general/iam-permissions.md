@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 The following table lists common Agent Platform operations and the permissions that they require.
 
-To determine if one or more **permissions** are included in a [Gemini Enterprise Agent Platform IAM role](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) , you can use one of the following methods:
+To determine if one or more **permissions** are included in a [Gemini Enterprise Agent Platform IAM role](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) , you can use one of the following methods:
 
   - The [`gcloud iam roles describe`](https://docs.cloud.google.com/sdk/gcloud/reference/iam/roles/describe) command
   - The [`roles.get()`](https://docs.cloud.google.com/iam/reference/rest/v1/roles/get) method in the IAM API
@@ -2201,6 +2201,6 @@ To determine if one or more **permissions** are included in a [Gemini Enterprise
 
 ## What's next
 
-  - For information about Agent Platform predefined, basic and custom roles, as well as general information about service accounts and agents, see [Access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
-  - For detailed information about controlling permissions with a custom service account, see [Using a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+  - For information about Agent Platform predefined, basic and custom roles, as well as general information about service accounts and agents, see [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
+  - For detailed information about controlling permissions with a custom service account, see [Using a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
   - Learn more about using IAM to access resources in the [Granting, changing, and revoking access to resources](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) topic of the IAM documentation.

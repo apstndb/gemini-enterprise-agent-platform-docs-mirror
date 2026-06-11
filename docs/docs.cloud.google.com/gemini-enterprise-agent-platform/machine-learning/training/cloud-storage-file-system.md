@@ -37,7 +37,7 @@ Serverless training jobs can access your Cloud Storage buckets as subdirectories
 
 ## Bucket access permissions
 
-By default, a serverless training job can access any Cloud Storage bucket within the same Google Cloud project by using the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) . To control access to buckets, you can assign a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) to the job. In this case, access to a Cloud Storage bucket is granted based on the permissions associated with the Cloud Storage roles of the custom service account.
+By default, a serverless training job can access any Cloud Storage bucket within the same Google Cloud project by using the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) . To control access to buckets, you can assign a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) to the job. In this case, access to a Cloud Storage bucket is granted based on the permissions associated with the Cloud Storage roles of the custom service account.
 
 For example, if you want to give the serverless training job read and write access to Bucket-A but only read access to Bucket-B, you can assign a custom service account that has the following roles to the job:
 

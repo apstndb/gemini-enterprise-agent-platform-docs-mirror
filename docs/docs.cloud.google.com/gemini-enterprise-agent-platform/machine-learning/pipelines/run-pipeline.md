@@ -285,7 +285,7 @@ Replace the following:
 
   - PROJECT\_ID : ( *optional* ) The Google Cloud project that you want to run the pipeline in. If you don't set this parameter, the project set in `aiplatform.init` is used.
 
-  - LOCATION : ( *optional* ) The region that you want to run the pipeline in. For more information about the regions that Agent Platform Pipelines is available in, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . If you don't set this parameter, the default location set in `aiplatform.init` is used.
+  - LOCATION : ( *optional* ) The region that you want to run the pipeline in. For more information about the regions that Agent Platform Pipelines is available in, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) . If you don't set this parameter, the default location set in `aiplatform.init` is used.
 
   - FAILURE\_POLICY : ( *optional* ) Specify the failure policy for the entire pipeline. The following configurations are available:
     

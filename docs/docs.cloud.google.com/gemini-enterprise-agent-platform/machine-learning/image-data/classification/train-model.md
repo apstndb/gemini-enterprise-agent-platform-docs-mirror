@@ -26,7 +26,7 @@ This page shows you how to train an AutoML classification model from an image da
 
 6.  Enter a name for the model.
 
-7.  If you want manually set how your training data is split, expand **Advanced options** and select a data split option. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+7.  If you want manually set how your training data is split, expand **Advanced options** and select a data split option. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
 
 8.  Click **Start Training** .
     
@@ -942,7 +942,7 @@ If any of the fractions are specified, all must be specified. The fractions must
   - VALIDATION\_FILTER : Data items that match this filter are used for the validation set. Must be "-" for video data.
   - TEST\_FILTER : Data items that match this filter are used for the test set.
 
-These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#filter) to filter your data.
+These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/vertex-ai/machine-learning/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/vertex-ai/machine-learning/general/ml-use#filter) to filter your data.
 
 The following example shows how to use the `filterSplit` object with the `ml_use` label, with the validation set included:
 

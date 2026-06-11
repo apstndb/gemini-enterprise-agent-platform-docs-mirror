@@ -6,7 +6,7 @@ description: Learn how to make API calls directly to Sessions and Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-Agent Platform Memory Bank lets you make API calls directly to Sessions and Memory Bank using the Agent Platform SDK. Use the Agent Platform SDK if you don't want an agent framework to orchestrate calls for you, or you want to integrate Sessions and Memory Bank with agent frameworks other than Agent Development Kit (ADK).
+You can use the Agent Platform SDK to make API calls directly to Memory Bank. Use the Agent Platform SDK if you don't want an agent framework to orchestrate calls for you, or you want to integrate Memory Bank with agent frameworks other than Agent Development Kit (ADK).
 
 This document shows how to create, upload, retrieve, and remove memories using API calls.
 
@@ -22,11 +22,21 @@ For the quickstart using ADK, see [Memory Bank quickstart with ADK](https://docs
 
 ## Before you begin
 
-To complete the steps demonstrated in this tutorial, you must first follow the steps in [Set up for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup) .
+To complete the steps demonstrated in this tutorial, you must first follow the steps in [Set up for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup) . Before you begin this quickstart, ensure that you have created a Memory Bank instance and a Sessions instance, as shown in the following example:
+
+    import vertexai
+    
+    client = vertexai.Client(
+      project="PROJECT_ID",
+      location="LOCATION"
+    )
+    
+    memory_bank = client.agent_engines.create()
+    sessions = client.agent_engines.create()
 
 ## Generate memories with Agent Platform Sessions
 
-After setting up Agent Platform Sessions and Memory Bank, you can create sessions and append events to them. Memories are generated as facts from the user's conversation with the agent so that they're available for future user interactions. For more information, see [Generate memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) and [Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories) .
+After setting up Agent Platform Sessions, you can create sessions and append events to them. Then, you can use Memory Bank to generate memories from the user's conversation with the agent so that the memories are available for future user interactions. For more information, see [Generate memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) and [Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories) .
 
 > **Note:** You can also provide the conversation history directly in the `GenerateMemories` payload using [direct contents source](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#json-format) .
 
@@ -39,11 +49,9 @@ After setting up Agent Platform Sessions and Memory Bank, you can create session
         location="LOCATION"
         )
         
-        # This assumes that you already have an Agent Platform instance. If you don't,
-        # you can create one using `agent_engine = client.agent_engines.create()`.
         session = client.agent_engines.sessions.create(
-        # The name can be fetched using `agent_engine.api_resource.name`.
-        name="AGENT_ENGINE_NAME",
+        # The name can be fetched using `sessions.api_resource.name`.
+        name="SESSIONS_NAME",
         user_id="USER_ID"
         )
     
@@ -53,7 +61,7 @@ After setting up Agent Platform Sessions and Memory Bank, you can create session
     
       - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
     
-      - AGENT\_ENGINE\_NAME : The name of the Agent Platform instance that you created or an existing Agent Platform instance. The name should be in the following format: `projects/{your project}/locations/{your location}/reasoningEngine/{your reasoning engine}` .
+      - SESSIONS\_NAME : The name of the Sessions instance that you created or an existing Sessions instance. The name should be in the following format: `projects/{your project}/locations/{your location}/reasoningEngine/{your reasoning engine}` .
     
       - USER\_ID : An identifier for your user. Any memories generated from this session are automatically keyed by the scope `{"user_id": " USER_ID "}` unless you explicitly provide a scope when generating memories.
 
@@ -77,13 +85,13 @@ After setting up Agent Platform Sessions and Memory Bank, you can create session
 3.  To generate memories from your conversation history, trigger a memory generation request for the session:
     
         client.agent_engines.memories.generate(
-        name=agent_engine.api_resource.name,
-        vertex_session_source={
-          # `session` should have the format "projects/.../locations/.../reasoningEngines/.../sessions/...".
-        "session": session.response.name
-        },
-        # Optional when using Sessions. Defaults to {"user_id": session.user_id}.
-        scope=SCOPE
+          name=memory_bank.api_resource.name,
+          vertex_session_source={
+            # `session` should have the format "projects/.../locations/.../reasoningEngines/.../sessions/...".
+            "session": session.response.name
+          },
+          # Optional when using Sessions. Defaults to {"user_id": session.user_id}.
+          scope=SCOPE
         )
 
 Replace the following:
@@ -97,7 +105,7 @@ As an alternative to [generating memories using raw dialogue](https://docs.cloud
 To ensure consistency with [generated memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart#generate-memories) , try to write pre-extracted facts in the same perspective that you've [configured for the given scope](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-perspective) . By default, memories are generated in the first-person perspective (for example, `I am a software engineer` ).
 
     client.agent_engines.memories.generate(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         direct_memories_source={"direct_memories": [{"fact": "FACT"}]},
         scope=SCOPE
     )
@@ -115,7 +123,7 @@ Alternatively, you can use `CreateMemory` to upload memories without using Memor
 > **Caution:** Memories uploaded using `CreateMemory` won't be consolidated with existing memories, so you can end up with duplicated memories for the same scope. Created memories are available for similarity search and can be consolidated for future requests when [generating memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) .
 
     memory = client.agent_engines.memories.create(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         fact="This is a fact.",
         scope={"user_id": "123"}
     )
@@ -154,7 +162,7 @@ For more information about retrieving memories using a scope-based method, see [
     # Retrieve all memories for User ID 123.
     retrieved_memories = list(
         client.agent_engines.memories.retrieve(
-            name=agent_engine.api_resource.name,
+            name=memory_bank.api_resource.name,
             scope={"user_id": "123"}
         )
     )
@@ -206,7 +214,7 @@ Replace the following:
 You can use criteria-based deletion to remove one or more memories. Only memories that match the provided filters will be deleted. You must specify at least one of `filter` (applied to system fields) or `filter_groups` (applied to metadata fields).
 
     operation = client.agent_engines.memories.purge(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         # Specify at least one of `filter` or `filter_groups`.
         filter="FILTER_STRING",
         filter_groups=FILTER_GROUPS,
@@ -230,7 +238,7 @@ The operation will return a count of how many memories were purged (if `force=Tr
 For example, you can purge all memories that belong to a scope for `user_id` "123":
 
     operation = client.agent_engines.memories.purge(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         filter="scope.user_id=\"123\""
         force=True
     )
@@ -246,7 +254,7 @@ For example, the following request would delete existing memories that contain i
     from google import genai
     
     client.agent_engines.memories.generate(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         direct_contents_source={
           "events": [{
             "content": genai.types.Content(

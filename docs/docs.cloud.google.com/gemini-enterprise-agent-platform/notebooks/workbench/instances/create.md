@@ -35,7 +35,7 @@ You can create a Vertex AI Workbench instance by using the Google Cloud console,
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance. The name must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#instances) .
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
       - **Labels** : Optional. Provide custom key-value labels for the instance.
       - **Network tags** : Optional. Provide [network tags](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-tags) for the instance.
 
@@ -318,7 +318,7 @@ To view the network tags for a Vertex AI Workbench instance, do the following:
 
 ## Troubleshooting
 
-If you encounter a problem when you create an instance, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) for help with common issues.
+If you encounter a problem when you create an instance, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#instances) for help with common issues.
 
 ## What's next
 

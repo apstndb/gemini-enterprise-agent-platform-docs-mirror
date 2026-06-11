@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-To use the generative AI features on Gemini Enterprise Agent Platform, the principals (for example, users, groups, and [service accounts](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) ) in your project need to be granted the appropriate IAM role. You can also create custom roles to grant a user-defined set of permissions to a principal. This page shows you the applicable IAM roles to grant and the specific permissions needed for each operation so you can create custom roles.
+To use the generative AI features on Gemini Enterprise Agent Platform, the principals (for example, users, groups, and [service accounts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) ) in your project need to be granted the appropriate IAM role. You can also create custom roles to grant a user-defined set of permissions to a principal. This page shows you the applicable IAM roles to grant and the specific permissions needed for each operation so you can create custom roles.
 
 ## Predefined roles
 
@@ -71,7 +71,7 @@ The following table maps generative AI operations to the permissions required fo
 </tbody>
 </table>
 
-To learn more about Gemini Enterprise Agent Platform IAM permissions, see [IAM permissions](https://docs.cloud.google.com/vertex-ai/docs/general/iam-permissions) .
+To learn more about Gemini Enterprise Agent Platform IAM permissions, see [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) .
 
 ## What's next
 

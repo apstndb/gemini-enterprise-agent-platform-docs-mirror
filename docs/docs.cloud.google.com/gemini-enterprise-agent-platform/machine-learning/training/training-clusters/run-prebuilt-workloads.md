@@ -360,7 +360,7 @@ Running a prebuilt workload verifies the cluster's operational status. The next 
   - Run your own custom workload: Package your training code into a container and submit the container as a `CustomJob` to your training cluster. This process includes configuring the job for a distributed environment.
       - [Learn how to run a distributed training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
   - Monitor your training jobs: Effectively track the progress, resource utilization, and logs for the jobs running on your cluster using the the Google Cloud console or Cloud Logging.
-      - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/monitoring-metrics)
+      - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
   - Manage your cluster: After running your tests, check the status of your cluster or delete it to manage costs.
       - [Learn how to manage your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster)
   - Orchestrate jobs with Gemini Enterprise Agent Platform Pipelines: After running jobs manually, automate the process by creating a pipeline to orchestrate your training workflows.

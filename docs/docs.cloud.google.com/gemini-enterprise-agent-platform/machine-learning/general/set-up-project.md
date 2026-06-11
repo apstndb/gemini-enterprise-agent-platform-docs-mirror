@@ -6,7 +6,7 @@ description: Set up access control for a team's project.
 data_source: docs.cloud.google.com
 ---
 
-This page provides examples for how you might set up a project for a team working with Gemini Enterprise Agent Platform. This page assumes that you're already familiar with Identity and Access Management (IAM) concepts such as policies, roles, permissions, and principals as described in [Agent Platform access control with IAM](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) and [Concepts related to access management](https://docs.cloud.google.com/iam/docs/overview#concepts_related_to_access_management) .
+This page provides examples for how you might set up a project for a team working with Gemini Enterprise Agent Platform. This page assumes that you're already familiar with Identity and Access Management (IAM) concepts such as policies, roles, permissions, and principals as described in [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) and [Concepts related to access management](https://docs.cloud.google.com/iam/docs/overview#concepts_related_to_access_management) .
 
 These examples are intended to be used generally. Consider the team's specific needs, and adjust how you set up the project accordingly.
 
@@ -18,7 +18,7 @@ Agent Platform uses IAM to manage access to resources. When you plan access cont
 
   - You grant access by assigning IAM roles to principals. Predefined roles are available to make it easier to set up access, but custom roles are recommended because you create them, so you can limit their access to only the permissions that are required.
 
-To learn more about access control, see [Agent Platform access control with IAM](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
+To learn more about access control, see [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
 ## Single project with shared access to data and Agent Platform resources
 
@@ -122,6 +122,6 @@ Models, prediction containers, and training containers are code. It's important 
 
 ## What's next
 
-  - To learn more about endpoint access control, see [Control access to Agent Platform endpoints](https://docs.cloud.google.com/vertex-ai/docs/general/endpoint-access-control) .
+  - To learn more about endpoint access control, see [Control access to Agent Platform endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control) .
 
   - To learn more about using a custom service account to control access to specific resources, see [Use a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .

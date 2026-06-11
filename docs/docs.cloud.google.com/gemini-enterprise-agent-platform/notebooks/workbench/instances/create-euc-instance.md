@@ -68,7 +68,7 @@ To create a Vertex AI Workbench instance by using the Google Cloud console, do t
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance. The name must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#instances) .
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
 
 5.  In the **IAM and Security** section, select **Single user** .
 

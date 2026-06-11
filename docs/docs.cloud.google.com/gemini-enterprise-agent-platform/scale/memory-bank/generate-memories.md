@@ -326,11 +326,11 @@ There are multiple way to provide source data for memory generation:
 
   - [Provide events directly in the payload](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#direct-contents-source) .
 
-  - [Provide events using Agent Runtime Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#sessions-source) .
+  - [Provide events using Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#sessions-source) .
 
   - [Provide pre-extracted facts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#consolidate-pre-extracted-memories) to consolidate them with existing memories for the same scope.
 
-When you provide events directly in the payload or use Agent Runtime Sessions, information is extracted from the conversation and consolidated with existing memories. If you only want to extract information from these data sources, you can disable consolidation:
+When you provide events directly in the payload or use Sessions, information is extracted from the conversation and consolidated with existing memories. If you only want to extract information from these data sources, you can disable consolidation:
 
     client.agent_engines.memories.generate(
         ...
@@ -359,7 +359,7 @@ The events should include [`Content`](https://docs.cloud.google.com/python/docs/
     ]
     
     client.agent_engines.memories.generate(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         direct_contents_source={
           "events": EVENTS
         },
@@ -393,7 +393,7 @@ The events should include [`Content`](https://docs.cloud.google.com/python/docs/
     ]
     
     client.agent_engines.memories.generate(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         direct_contents_source={
           "events": events
         },
@@ -408,7 +408,7 @@ Replace the following:
 
   - `SCOPE` : A dictionary, representing the scope of the generated memories. For example, `{"session_id": "MY_SESSION"}` . Only memories with the same scope are considered for consolidation.
 
-### Using Agent Runtime Sessions as the data source
+### Using Agent Platform Sessions as the data source
 
 With Sessions, Memory Bank uses session events as the source conversation for memory generation.
 
@@ -417,7 +417,7 @@ To scope the generated memories, Memory Bank extracts and uses the user ID from 
 ### Dictionary
 
     client.agent_engines.memories.generate(
-      name=agent_engine.api_resource.name,
+      name=memory_bank.api_resource.name,
       vertex_session_source={
           # For example, projects/.../locations/.../reasoningEngines/.../sessions/...
           "session": "SESSION_NAME"
@@ -438,7 +438,7 @@ Replace the following:
 ### Class-based
 
     client.agent_engines.memories.generate(
-      name=agent_engine.api_resource.name,
+      name=memory_bank.api_resource.name,
       vertex_session_source=vertexai.types.GenerateMemoriesRequestVertexSessionSource(
           # For example, projects/.../locations/.../reasoningEngines/.../sessions/...
           session="SESSION_NAME"
@@ -457,7 +457,7 @@ Optionally, you can provide a time range indicating which events in the Session 
     import datetime
     
     client.agent_engines.memories.generate(
-      name=agent_engine.api_resource.name,
+      name=memory_bank.api_resource.name,
       vertex_session_source={
           "session": "SESSION_NAME",
           # Extract memories from the last hour of events.
@@ -472,7 +472,7 @@ Optionally, you can provide a time range indicating which events in the Session 
     import datetime
     
     client.agent_engines.memories.generate(
-      name=agent_engine.api_resource.name,
+      name=memory_bank.api_resource.name,
       vertex_session_source=vertexai.types.GenerateMemoriesRequestVertexSessionSource(
           session="SESSION_NAME",
           # Extract memories from the last hour of events.
@@ -487,7 +487,7 @@ Optionally, you can provide a time range indicating which events in the Session 
 As an alternative to using Memory Bank's automatic extraction process, you can directly provide pre-extracted memories. Direct source memories will be consolidated with existing memories for the same scope. This can be useful for when you want your agent or a human-in-the-loop to be responsible for extracting memories, but you still want to take advantage of Memory Bank's consolidation to ensure there are no duplicate or contradictory memories.
 
     client.agent_engines.memories.generate(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         direct_memories_source={"direct_memories": [{"fact": "FACT"}]},
         scope=SCOPE
     )
@@ -566,8 +566,6 @@ For example, you can provide an image and context for the image in the payload:
         )
       )
     ]
-
-When using Agent Runtime Sessions sessions as the data source, the multimodal content is provided directly in the Session's events.
 
 ## What's next
 

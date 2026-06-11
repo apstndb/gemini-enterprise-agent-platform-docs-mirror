@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) as well as the [Generative AI Service Specific Terms](https://cloud.google.com/terms/service-terms) . This feature lets you generate, store, and retrieve memories for AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) .
 
-The `IngestEvents` API decouples event ingestion from memory generation in Memory Bank. You can continuously stream content to Memory Bank, and generation will automatically run when your triggering criteria is satisfied.
+The `IngestEvents` API decouples event ingestion from memory generation in Memory Bank. You can continuously stream content to Memory Bank, and generation will automatically run when your triggering criteria are satisfied.
 
 To complete the steps demonstrated in this guide, you must first follow the steps in [Set up for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup) .
 
@@ -31,7 +31,7 @@ Multiple ingestion calls to the same stream return the same LRO until memory gen
 
 ## Triggering memory generation
 
-If no trigger conditions are met, all pending events in a stream are automatically flushed out 24 hours after the first event is ingested. This limit ensures Memory Bank processes all sessions, including ones that have been abandoned.
+If no trigger conditions are met, all pending events in a stream are automatically flushed out 24 hours after the first event is ingested. This limit ensures Memory Bank processes all events, including ones that have been abandoned.
 
 The `generation_trigger_config` determines when the collected events are flushed and processed for memory generation. You can use one of the following trigger conditions:
 
@@ -55,7 +55,7 @@ This example uses a custom stream and triggers generation when 10 unique events 
 ### Dictionary
 
     client.agent_engines.memories.ingest_events(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -82,7 +82,7 @@ This example uses a custom stream and triggers generation when 10 unique events 
     from vertexai import types
     
     client.agent_engines.memories.ingest_events(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -110,7 +110,7 @@ This example triggers generation when the stream has not received a new event fo
 ### Dictionary
 
     client.agent_engines.memories.ingest_events(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -137,7 +137,7 @@ This example triggers generation when the stream has not received a new event fo
     from vertexai import types
     
     client.agent_engines.memories.ingest_events(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -165,7 +165,7 @@ This example unconditionally bypasses any trigger conditions and immediately for
 ### Dictionary
 
     client.agent_engines.memories.ingest_events(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -189,7 +189,7 @@ This example unconditionally bypasses any trigger conditions and immediately for
     from vertexai import types
     
     client.agent_engines.memories.ingest_events(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[

@@ -219,7 +219,7 @@ In the resulting container, your training code can use ADC to authenticate with 
 
 #### Comparison to training on Agent Platform
 
-When you perform serverless training on Agent Platform, Agent Platform uses the [Gemini Enterprise Agent Platform Custom Code Service Agent for your project](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) by default to run your code. You can also [attach a different service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) for serverless training.
+When you perform serverless training on Agent Platform, Agent Platform uses the [Gemini Enterprise Agent Platform Custom Code Service Agent for your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) by default to run your code. You can also [attach a different service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) for serverless training.
 
 When you use the `local-run` command, you can't authenticate as the Gemini Enterprise Agent Platform Custom Code Service Agent, but you can create a service account with similar permissions and use it locally.
 

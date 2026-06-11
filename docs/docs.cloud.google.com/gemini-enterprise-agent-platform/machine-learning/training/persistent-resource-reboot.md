@@ -134,7 +134,7 @@ You should receive a JSON response similar to the following:
         }
       }
 
-Rebooting a persistent resource is a [long running operation](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) , during which the persistent resource can't be deleted. The operation contains a `progressMessage` field that populates with an error status if one occurs. After the operation indicates `"done: true"` , [check the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get#get_information_about_a_persistent_resource) of the persistent resource. If the persistent resource is in the `RUNNING` state, the reboot is successful and it's ready to run training jobs.
+Rebooting a persistent resource is a [long running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) , during which the persistent resource can't be deleted. The operation contains a `progressMessage` field that populates with an error status if one occurs. After the operation indicates `"done: true"` , [check the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get#get_information_about_a_persistent_resource) of the persistent resource. If the persistent resource is in the `RUNNING` state, the reboot is successful and it's ready to run training jobs.
 
 ## Limitations
 

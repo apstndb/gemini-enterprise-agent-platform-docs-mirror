@@ -10,7 +10,7 @@ Ray clusters on Gemini Enterprise Agent Platform offer two scaling options: auto
 
 Autoscaling can reduce workload costs but adds node launch overhead and can be tricky to configure. If you are new to Ray, start with non-autoscaling clusters, and use the manual scaling feature.
 
-> **Note:** Manual scaling has a limitation due to VPC peering. Google recommends using a [Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster#use-psc-i-egress) when you implement a private VPC network.
+> **Note:** Manual scaling has a limitation due to VPC peering. Google recommends using a [Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#use-psc-i-egress) when you implement a private VPC network.
 
 ## Autoscaling
 
@@ -67,15 +67,15 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
     
     1.  For **Name and region** , specify a **Name** and choose a location for your cluster.
     
-    2.  For **Compute settings** , specify the configuration of the Ray cluster on the head node, including its machine type, accelerator type and count, disk type and size, and replica count. Optionally, add a custom image URI to specify a custom container image to add Python dependencies not provided by the default container image. See [Custom image](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster#custom-image) .
+    2.  For **Compute settings** , specify the configuration of the Ray cluster on the head node, including its machine type, accelerator type and count, disk type and size, and replica count. Optionally, add a custom image URI to specify a custom container image to add Python dependencies not provided by the default container image. See [Custom image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#custom-image) .
         
         Under **Advanced options** , you can:
         
           - Specify your own encryption key.
-          - Specify a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+          - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
           - If you don't need to monitor the resource statistics of your workload during training, disable the metrics collection.
     
-    3.  To create a cluster with an autoscaling worker pool, provide a value for the worker pool's maximum replica count. ![Compute settings for autoscaling](https://docs.cloud.google.com/static/vertex-ai/docs/open-source/images/rov-compute-settings.png)
+    3.  To create a cluster with an autoscaling worker pool, provide a value for the worker pool's maximum replica count. ![Compute settings for autoscaling](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/rov-compute-settings.png)
 
 4.  Click **Create** .
 
@@ -87,13 +87,13 @@ As your workloads surge or decrease on your Ray clusters on Gemini Enterprise Ag
 
 When you scale clusters, you can change only the number of replicas in your existing worker pools. For example, you can't add or remove worker pools from your cluster or change the machine type of your worker pools. Also, the number of replicas for your worker pools can't be lower than one.
 
-If you use a VPC peering connection to connect to your clusters, a limitation exists on the maximum number of nodes. The maximum number of nodes depends on the number of nodes the cluster had when you created the cluster. For more information, see [Max number of nodes calculation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/scale-clusters#calc) . This maximum number includes not just your worker pools but also your head node. If you use the default network configuration, the number of nodes can't exceed the upper limits as described in the [create clusters](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster) documentation.
+If you use a VPC peering connection to connect to your clusters, a limitation exists on the maximum number of nodes. The maximum number of nodes depends on the number of nodes the cluster had when you created the cluster. For more information, see [Max number of nodes calculation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/scale-clusters#calc) . This maximum number includes not just your worker pools but also your head node. If you use the default network configuration, the number of nodes can't exceed the upper limits as described in the [create clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster) documentation.
 
 ### Subnet allocation best practices
 
 When deploying Ray on Gemini Enterprise Agent Platform using private services access (PSA), it's crucial to ensure that your allocated IP address range is sufficiently large and contiguous to accommodate the maximum number of nodes your cluster might scale to. IP exhaustion can occur if the IP range reserved for your PSA connection is too small or fragmented, leading to deployment failures.
 
-As an alternative, we recommend deploying Ray on Agent Platform with a [Private Service Connect Interface](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster#use-psc-i-egress) , which reduces IP consumption to a /28 subnet.
+As an alternative, we recommend deploying Ray on Agent Platform with a [Private Service Connect Interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#use-psc-i-egress) , which reduces IP consumption to a /28 subnet.
 
 #### Private Service Access monitoring
 
@@ -129,7 +129,7 @@ The maximum total number of nodes in the Ray on Agent Platform cluster you can s
 
 The initial total number of nodes in the cluster and the scaling up target number must be in the same color block.
 
-![Diagram showing the relationship between initial and scaled node counts](https://docs.cloud.google.com/static/vertex-ai/docs/open-source/images/number-of-nodes.png)
+![Diagram showing the relationship between initial and scaled node counts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/number-of-nodes.png)
 
 ### Update replica count
 

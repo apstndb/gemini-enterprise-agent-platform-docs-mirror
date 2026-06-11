@@ -55,7 +55,7 @@ The Agent Platform SDK for Python handles creating [ExperimentRun](https://cloud
         )
 
   - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations.](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `staging_bucket` : The name you gave your bucket, for example, `my_bucket` .
   - `display_name` : The user-defined name of the [CustomJob](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob) .
   - `script_path` : The path, relative to the working directory on your local file system, to the script that is the entry point for your training code.
@@ -142,7 +142,7 @@ Learn more, see [Manually log data to an experiment run](https://docs.cloud.goog
         )
 
   - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `staging_bucket` : The name you gave your bucket, for example, `my_bucket` .
   - `display_name` : The user-defined name of the [CustomJob](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob) .
   - `script_path` : The path, relative to the working directory on your local file system, to the script that is the entry point for your training code.

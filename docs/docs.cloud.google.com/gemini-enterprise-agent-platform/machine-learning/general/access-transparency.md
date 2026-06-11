@@ -12,7 +12,7 @@ This page provides an overview of the support [Access Transparency](https://docs
 
 Access Transparency provides you with logs that capture the actions Google personnel take when accessing your content.
 
-[Cloud Audit Logs](https://docs.cloud.google.com/vertex-ai/docs/general/audit-logging) show when members of your organization access content in your Google Cloud projects. Similarly, Access Transparency provides [logs](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/reading-logs) of the actions taken by Google personnel.
+[Cloud Audit Logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/audit-logging) show when members of your organization access content in your Google Cloud projects. Similarly, Access Transparency provides [logs](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/reading-logs) of the actions taken by Google personnel.
 
 You can [enable Access Transparency](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/enable) for a Google Cloud project, if the project resides in an organization.
 

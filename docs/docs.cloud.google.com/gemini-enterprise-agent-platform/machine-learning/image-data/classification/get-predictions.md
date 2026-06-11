@@ -20,7 +20,7 @@ Batch inferences are asynchronous requests. You request batch inferences directl
 
 You must deploy a model to an endpoint before that model can be used to serve online inferences. Deploying a model associates physical resources with the model so it can serve online inferences with low latency.
 
-You can deploy more than one model to an endpoint, and you can deploy a model to more than one endpoint. For more information about options and use cases for deploying models, see [About deploying models](https://docs.cloud.google.com/vertex-ai/docs/general/deployment) .
+You can deploy more than one model to an endpoint, and you can deploy a model to more than one endpoint. For more information about options and use cases for deploying models, see [About deploying models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
 Use one of the following methods to deploy a model:
 
@@ -40,7 +40,7 @@ Use one of the following methods to deploy a model:
 
 6.  To deploy your model to a new endpoint, click radio\_button\_checked **Create new endpoint** and enter a name for the new endpoint. To deploy your model to an existing endpoint, click radio\_button\_checked **Add to existing endpoint** and select the endpoint **Endpoint name** .
     
-    You can add more than one model to an endpoint, and you can add a model to multiple endpoints. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/general/deployment) .
+    You can add more than one model to an endpoint, and you can add a model to multiple endpoints. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
     
     If you deploy to a new endpoint, choose how your endpoint can be accessed:
     
@@ -857,7 +857,7 @@ Learn how to [change the default settings for inference logging](https://docs.cl
 
 ## Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
 
 ### Make an online inference using your deployed model
 

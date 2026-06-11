@@ -22,9 +22,9 @@ You have the following options to fetch generated memories:
 
   - [Get memory](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#get-memory) : Get the full content of a single memory using the Agent Platform SDK.
 
-  - [List memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) : List memories using the Agent Platform SDK or Google Cloud console.
-
   - [Retrieve memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) : Using the Agent Platform SDK, retrieve memories using scope-based memory retrieval. Retrieve memories using similarity search or all memories within the scope.
+
+  - [List memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#list-memories) : List memories using the Agent Platform SDK.
 
 ### Get memory
 
@@ -36,28 +36,6 @@ Use `GetMemories` to get the full content of a single memory:
 Replace the following:
 
   - `MEMORY_NAME` : A fully-qualified memory name in the format "projects/.../locations/.../reasoningEngines/.../memories...".
-
-### List memories
-
-### Console
-
-For deployed agents, you can use the Google Cloud console to list all memories associated with your Agent Platform instance:
-
-1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
-    
-    Agent Platform instances that are part of the selected project appear in the list. You can use the **Filter** field to filter the list by your specified column.
-
-2.  Click the name of your Agent Platform instance.
-
-3.  Click the **Memories** tab. A list of memories displays by ID.
-
-### Agent Platform SDK
-
-Use `ListMemories` to fetch all memories in your Memory Bank.
-
-    pager = client.agent_engines.memories.list(name=agent_engine.api_resource.name)
-    for page in pager:
-      print(page)
 
 ### Fetch memories using scope-based retrieval
 
@@ -77,7 +55,7 @@ For cases where you have many memories for a particular scope, you can use simil
 Returned memories are sorted from most similar (shortest Euclidean distance) to least similar (greatest Euclidean distance):
 
     results = client.agent_engines.memories.retrieve(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         scope=SCOPE,
         similarity_search_params={
             "search_query": "QUERY",
@@ -122,7 +100,7 @@ Replace the following:
 If no similarity search parameters are provided, `RetrieveMemories` returns all memories that have the provided scope, regardless of their similarity with the current conversation.
 
     results = client.agent_engines.memories.retrieve(
-        name=agent_engine.api_resource.name,
+        name=memory_bank.api_resource.name,
         scope=SCOPE
     )
     # RetrieveMemories returns a pager. You can use `list` to retrieve all pages'
@@ -154,6 +132,8 @@ If no similarity search parameters are provided, `RetrieveMemories` returns all 
 Replace the following:
 
   - `SCOPE` : A dictionary representing the scope for retrieval. For example, `{"user_id": "123"}` . Only memories with the same scope as the request are returned.
+
+### List memories
 
 ## Filter memories
 

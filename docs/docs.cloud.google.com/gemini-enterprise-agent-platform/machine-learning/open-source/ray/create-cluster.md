@@ -49,7 +49,7 @@ In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/clu
         Under **Advanced options** , you can:
         
           - Specify your own encryption key.
-          - Specify a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+          - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
           - Disable metrics collection, if you don't need to monitor the resource stats of your workload during training.
     
     3.  (Optional) To deploy a private endpoint for your cluster, the recommended method is to use Private Service Connect. For further details, see [Private Service Connect interface for Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress) .

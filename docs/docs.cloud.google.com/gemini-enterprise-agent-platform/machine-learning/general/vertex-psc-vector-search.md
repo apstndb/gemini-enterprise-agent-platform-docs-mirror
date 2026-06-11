@@ -12,7 +12,7 @@ In this tutorial, you use High-Availability VPN (HA VPN) to access a Vector Sear
 
 This tutorial is intended for enterprise network administrators, data scientists, and researchers who are familiar with Gemini Enterprise Agent Platform, Virtual Private Cloud, the Google Cloud console, and the [Cloud Shell](https://docs.cloud.google.com/shell/docs/how-cloud-shell-works) . Familiarity with [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) is helpful but not required.
 
-> **Note:** The Vector Search index endpoint that you create is a public endpoint. In a production environment, you would [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on the Vector Search index endpoint over the public internet. This tutorial does not cover using VPC Service Controls with Gemini Enterprise Agent Platform.
+> **Note:** The Vector Search index endpoint that you create is a public endpoint. In a production environment, you would [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on the Vector Search index endpoint over the public internet. This tutorial does not cover using VPC Service Controls with Gemini Enterprise Agent Platform.
 
 ![Architectural diagram of using Private Service Connect to access a Vector Search index from on-premises.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-psc-vector-search.png)
 
@@ -900,7 +900,7 @@ You can delete the individual resources in the Google Cloud console as follows:
 
 ## What's next
 
-  - Learn about [enterprise networking options for accessing Gemini Enterprise Agent Platform endpoints and services](https://docs.cloud.google.com/vertex-ai/docs/general/netsec-overview)
+  - Learn about [enterprise networking options for accessing Gemini Enterprise Agent Platform endpoints and services](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview)
   - Learn [how Private Service Connect works](https://docs.cloud.google.com/vpc/docs/private-service-connect-architecture) and why it offers significant performance benefits.
-  - Learn how to [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on the Vector Search index endpoint over the public internet.
+  - Learn how to [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on the Vector Search index endpoint over the public internet.
   - Explore reference architectures, diagrams, and best practices about Google Cloud. Take a look at our [Cloud Architecture Center](https://docs.cloud.google.com/architecture) .

@@ -171,7 +171,7 @@ You should receive a JSON response similar to the following:
         return system_artifact_schema.create(project=project, location=location,)
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `uri` : (Optional) The Uniform Resource Identifier for the artifact file if one exists. May be empty if there is no actual artifact file.
   - `artifact_id` : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata creates a unique identifier for this artifact.
   - `display_name` : (Optional) The user-defined name of the artifact.
@@ -291,7 +291,7 @@ You should see output similar to the following. ARTIFACT\_ID is the ID of the ar
         )
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `display_name_filter` : Filter to be applied to display name while listing the resources with the format "display\_name=\\"my\_filter\\"" .
   - `create_date_filter` : Filter to be applied to create\_date name while listing the resources with the format "create\_time\>\\"2022-06-11T12:30:00-08:00\\"",.
 
@@ -338,7 +338,7 @@ Execute the following command:
         -Headers $headers `
         -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/artifacts/ARTIFACT_ID" | Select-Object -Expand Content
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) of the operation.
+You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/artifacts/ARTIFACT_ID/operations/OPERATION_ID",
@@ -374,7 +374,7 @@ You should see output similar to the following. You can use the OPERATION\_ID in
 
   - `artifact_id` : The ID of the execution record.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Purge artifacts
 
@@ -451,7 +451,7 @@ Then execute the following command to send your REST request:
         -InFile request.json `
         -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/artifacts:purge" | Select-Object -Expand Content
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) of the operation.
+You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/operations/OPERATION_ID",
@@ -629,7 +629,7 @@ You should receive a JSON response similar to the following:
   - `input_artifacts` : A list of one or more instances of aiplatform.Artifact representing an input artifact.
   - `output_artifacts` : A list of one or more instances of aiplatform.Artifact representing an output Artifact.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `execution_id` : The ID of the execution record. If the execution ID is not specified, Vertex ML Metadata creates a unique identifier for this execution.
   - `metadata` : Properties that describe the execution, such as the execution parameters.
   - `schema_version` :The version of the schema that describes the metadata field.
@@ -734,7 +734,7 @@ You should see output similar to the following. EXECUTION\_ID is the ID of the e
 
   - `execution_id` : The ID of the execution record.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Delete an existing execution
 
@@ -779,7 +779,7 @@ Execute the following command:
         -Headers $headers `
         -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/executions/EXECUTION_ID" | Select-Object -Expand Content
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) of the operation.
+You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/executions/EXECUTION_ID/operations/OPERATION_ID",
@@ -815,7 +815,7 @@ You should see output similar to the following. You can use the OPERATION\_ID in
 
   - `execution_id` : The ID of the execution record.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Purge executions
 
@@ -892,7 +892,7 @@ Then execute the following command to send your REST request:
         -InFile request.json `
         -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/executions:purge" | Select-Object -Expand Content
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) of the operation.
+You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/operations/OPERATION_ID",
@@ -1072,7 +1072,7 @@ You should see output similar to the following. CONTEXT\_ID is the ID of the con
 
   - `display_name` : The context's display name. This field may contain up to 128 Unicode characters.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `context_id` : (Optional) The ID of the context record.
   - `metadata` : Properties that describe the context, such as the context parameters.
   - `schema_version` : The version of the schema that describes the metadata field.
@@ -1175,7 +1175,7 @@ You should see output similar to the following. CONTEXT\_ID is the ID of the con
 
   - `context_id:` : The ID of the context record.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Delete an existing context
 
@@ -1220,7 +1220,7 @@ Execute the following command:
         -Headers $headers `
         -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/contexts/CONTEXT_ID" | Select-Object -Expand Content
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) of the operation.
+You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/contexts/CONTEXT_ID/operations/OPERATION_ID",
@@ -1256,7 +1256,7 @@ You should see output similar to the following. You can use the OPERATION\_ID in
 
   - `context_id:` : The ID of the context record.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Purge contexts
 
@@ -1333,7 +1333,7 @@ Then execute the following command to send your REST request:
         -InFile request.json `
         -Uri "https://LOCATION_ID-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/contexts:purge" | Select-Object -Expand Content
 
-You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) of the operation.
+You should see output similar to the following. You can use the OPERATION\_ID in the response to [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) of the operation.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION_ID/metadataStores/METADATA_STORE/operations/OPERATION_ID",

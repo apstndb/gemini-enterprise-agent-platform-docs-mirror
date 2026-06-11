@@ -26,7 +26,7 @@ There are two ways to upgrade a Vertex AI Workbench instance:
 
 ## Requirements and limitations
 
-Backward compatibility with your Vertex AI Workbench isn't guaranteed. [Make a copy of your data](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#copy-user-data) before upgrading a Vertex AI Workbench instance.
+Backward compatibility with your Vertex AI Workbench isn't guaranteed. [Make a copy of your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#copy-user-data) before upgrading a Vertex AI Workbench instance.
 
 To determine whether you can upgrade a specific Vertex AI Workbench instance, see the following requirements and limitations:
 
@@ -84,7 +84,7 @@ Before you upgrade, complete the following steps.
 
 1.  Check the [release notes](https://docs.cloud.google.com/vertex-ai/docs/release-notes) to learn about updates to newer versions.
 
-2.  [Make a copy of your data](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#copy-user-data) as a backup.
+2.  [Make a copy of your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#copy-user-data) as a backup.
 
 ## Automatic upgrade
 
@@ -113,7 +113,7 @@ You can specify auto-upgrade by using the Google Cloud console.
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations#instances) .
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Vertex AI Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances) .
 
 5.  In the **System health** section, select **Environment auto-upgrade** .
 
@@ -167,7 +167,7 @@ You can manually upgrade a Vertex AI Workbench instance in the Google Cloud cons
 
 4.  On the **Instance details** page, click ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/notebooks/workbench/images/upgrade.png) **Upgrade** .
 
-5.  Make sure you have [made a copy of the data on your instance](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#copy-user-data) before continuing.
+5.  Make sure you have [made a copy of the data on your instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#copy-user-data) before continuing.
 
 6.  After your data is backed up, click **Upgrade** . Vertex AI Workbench upgrades and starts your instance.
 

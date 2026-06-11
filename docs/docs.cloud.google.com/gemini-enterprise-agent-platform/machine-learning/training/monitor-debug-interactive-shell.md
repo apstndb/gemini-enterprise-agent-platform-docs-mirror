@@ -24,7 +24,7 @@ You can use an interactive shell when you perform serverless training with a `Cu
     
     All [prebuilt training containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) have `bash` installed. If you [create a custom container for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) , use a base container that includes `bash` or install `bash` in your Dockerfile.
 
-  - Perform serverless training in a [region that supports interactive shells](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - Perform serverless training in a [region that supports interactive shells](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
   - Ensure that anyone who wants to access an interactive shell has the following permissions for the Google Cloud project where serverless training is running:
     
@@ -34,19 +34,19 @@ You can use an interactive shell when you perform serverless training with a `Cu
     
     If you initiate serverless training yourself, then you most likely already have these permissions and can access an interactive shell. However, if you want to use an interactive shell to inspect a serverless training resource created by someone else in your organization, then you might need to obtain these permissions.
     
-    One way to obtain these permissions is to ask an administrator of your organization to grant you the [Agent Platform User role](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#predefined-roles) ( `roles/aiplatform.user` ).
+    One way to obtain these permissions is to ask an administrator of your organization to grant you the [Agent Platform User role](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) ( `roles/aiplatform.user` ).
 
 ### Requirements for advanced cases
 
 If you are using certain advanced features, meet the following additional requirements:
 
-  - If you [attach a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account#attach) to your serverless training resource, then make sure that any user who wants to access an interactive shell has the `iam.serviceAccounts.actAs` permission for the attached service account.
+  - If you [attach a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#attach) to your serverless training resource, then make sure that any user who wants to access an interactive shell has the `iam.serviceAccounts.actAs` permission for the attached service account.
     
     The guide to custom service accounts notes that you must have this permission to attach a service account. You also need this permission to view an interactive shell during serverless training.
     
     For example, to create a `CustomJob` with a service account attached, you must have the `iam.serviceAccounts.actAs` permission for the service account. If one of your colleagues then wants to view an interactive shell for this `CustomJob` , they must also have the same `iam.serviceAccounts.actAs` permission.
 
-  - If you have configured your project to [use VPC Service Controls with Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) , then account for the following additional limitations:
+  - If you have configured your project to [use VPC Service Controls with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) , then account for the following additional limitations:
     
       - You can't use [private IP for serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip) . If you require VPC-SC with VPC Peering, there is extra setup required to use the interactive shell. Follow the instructions covered in [Ray Dashboard and Interactive Shell with VPC-SC + VPC Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/monitor-debug-interactive-shell#workaround) to configure the interactive shell setup with VPC-SC and VPC Peering in your user project.
     

@@ -23,7 +23,7 @@ Replace the following:
   - SERVICE\_ACCOUNT\_ID : The ID for the service account.
   - PROJECT\_ID : The ID of the project.
 
-Learn more about [using a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) and [configuring a service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) for use with Gemini Enterprise Agent Platform Pipelines.
+Learn more about [using a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) and [configuring a service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account) for use with Gemini Enterprise Agent Platform Pipelines.
 
 ## Use VPC Service Controls to prevent data exfiltration
 
@@ -33,7 +33,7 @@ Learn more about [using a custom service account](https://docs.cloud.google.com/
   - Models that you created
   - Results from a batch prediction request
 
-Learn more about [VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) .
+Learn more about [VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) .
 
 ## Set up VPC Network Peering
 
@@ -51,15 +51,15 @@ Replace the following:
   - REGION : The region where you are using Gemini Enterprise Agent Platform.
   - NETWORK : The VPC network, for example, `"projects/12345/global/networks/myVPC"` .
 
-Learn more about [VPC Network Peering in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) .
+Learn more about [VPC Network Peering in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) .
 
 ## Use customer-managed encryption keys (CMEK)
 
-By default, Google Cloud automatically [encrypts data when at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use customer-managed encryption keys (CMEK) for your resources. Before you start to use customer-managed encryption keys, learn about the [benefits of CMEK on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/cmek#benefits) and [current CMEK supported resources](https://docs.cloud.google.com/vertex-ai/docs/general/cmek#resource-list) .
+By default, Google Cloud automatically [encrypts data when at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use customer-managed encryption keys (CMEK) for your resources. Before you start to use customer-managed encryption keys, learn about the [benefits of CMEK on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) and [current CMEK supported resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) .
 
 ### Configuring your component with CMEK
 
-After you create a key ring and key in [Cloud Key Management Service](https://docs.cloud.google.com/vertex-ai/docs/general/cmek#configure-cmek) , and grant Gemini Enterprise Agent Platform encrypter and decrypter permissions for your key, you can create a new CMEK-supported component by specifying your key as one of the create parameters. For example, you can use the following code to specify a key for a `ModelBatchPredict` component:
+After you create a key ring and key in [Cloud Key Management Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek) , and grant Gemini Enterprise Agent Platform encrypter and decrypter permissions for your key, you can create a new CMEK-supported component by specifying your key as one of the create parameters. For example, you can use the following code to specify a key for a `ModelBatchPredict` component:
 
     model_batch_predict_op = ModelBatchPredictOp(project="PROJECT_ID",
         model=model_upload_op.outputs["model"],

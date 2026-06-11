@@ -10,7 +10,7 @@ Using private services access endpoints to serve online inferences with Agent Pl
 
 ## Overview
 
-Before you serve online inference with private endpoints, you must [configure private services access to create peering connections between your network and Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) . If you have already set this up, you can use your existing peering connections.
+Before you serve online inference with private endpoints, you must [configure private services access to create peering connections between your network and Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) . If you have already set this up, you can use your existing peering connections.
 
 This guide covers the following tasks:
 

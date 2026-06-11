@@ -20,7 +20,7 @@ Pricing for Private Service Connect interfaces is described on the [All networki
 
 ## Before you begin
 
-To use a Private Service Connect interface with Agent Platform Pipelines, you must first [Set up a Private Service Connect interface for Gemini Enterprise Agent Platform resources](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) .
+To use a Private Service Connect interface with Agent Platform Pipelines, you must first [Set up a Private Service Connect interface for Gemini Enterprise Agent Platform resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) .
 
 ## Create a pipeline run with Private Service Connect interfaces
 
@@ -104,7 +104,7 @@ Replace the following:
   - DISPLAY\_NAME : The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
   - PIPELINE\_SPEC : The pipeline spec you created in [Create a pipeline spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-spec) .
   - OUTPUT\_DIRECTORY : The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts.
-  - NETWORK\_ATTACHMENT\_NAME : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
+  - NETWORK\_ATTACHMENT\_NAME : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
   - DNS\_DOMAIN : The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
   - TARGET\_PROJECT : The project hosting the VPC network.
   - TARGET\_NETWORK : The VPC network name.
@@ -120,7 +120,7 @@ Before using any of the request data, make the following replacements:
   - DISPLAY\_NAME : The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
   - PIPELINE\_SPEC : The pipeline spec you created in [Create a pipeline spec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#create-spec) .
   - OUTPUT\_DIRECTORY : The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts.
-  - NETWORK\_ATTACHMENT\_NAME : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
+  - NETWORK\_ATTACHMENT\_NAME : The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect#before-you-begin) section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment) .
   - DNS\_DOMAIN : The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
   - TARGET\_PROJECT : The project hosting the VPC network.
   - TARGET\_NETWORK : The VPC network name.

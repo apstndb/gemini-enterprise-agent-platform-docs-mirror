@@ -48,7 +48,7 @@ Your notebook is where you run the code in this tutorial. It's a file with the e
 
 2.  Next to your instance's name, click **Open JupyterLab** .
     
-    Your Agent Platform Workbench instance opens the JupyterLab environment.
+    Your Vertex AI Workbench instance opens the JupyterLab environment.
 
 3.  In JupyterLab, select **File \> New \> Notebook** .
     

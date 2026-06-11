@@ -51,7 +51,7 @@ The Vertex AI SDK provides the [`save_model`](https://cloud.google.com/python/do
         )
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `model` : (Required). A machine learning model. `(Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"])`
   - `artifact_id` : Optional. The resource ID of the artifact. This ID must be globally unique in a metadataStore. It might be up to 63 characters, and valid characters are `[a-z0-9_-]` . The first character can't be a number or a hyphen.
   - `uri` : Optional. A gcs directory in which to save the model file. If a uri isn't provided, `gs://default-bucket/timestamp-uuid-frameworkName-model` is used. If a default staging bucket isn't set, it must be passed in the `staging_bucket` parameter.
@@ -100,7 +100,7 @@ The Vertex AI SDK provides a [`log_model`](https://cloud.google.com/python/docs/
   - `experiment_name` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
   - `run_name` : Specify a run name.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `model` : Required. A machine learning model. `(Union["sklearn.base.BaseEstimator", "xgb.Booster", "tf.Module"])`
   - `uri` : Optional. A gcs directory in which to save the model file. If a uri is not provided, `gs://default-bucket/timestamp-uuid-frameworkName-model` is used. If a default staging bucket is not set, a new bucket is created.
   - `input_example` : Optional. Each model takes input data and then produces a prediction. Each model accepts one particular format of input (for example, a number, a string, 2d array) and is stored as a yaml file in the gcs uri. Accepts list, dict, pd.DataFrame, and np.ndarray The value inside a list must be a scalar or list. The value inside a dict must be a scalar, list, or np.ndarray. `(Union[list, dict, pd.DataFrame, np.ndarray])` .
@@ -128,7 +128,7 @@ To use [`get_experiment_model`](https://cloud.google.com/python/docs/reference/a
         return experiment_model
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `artifact_id` : Required: The resource ID of the existing model.
 
 ### Get experiment models
@@ -157,7 +157,7 @@ The [`get_experiment_models`](https://cloud.google.com/python/docs/reference/aip
   - `run_name` : Specify a run name.
   - `experiment` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Get model information
 
@@ -183,7 +183,7 @@ The `get_model_info` method returns the model's metadata of a given `ExperimentM
 
   - `artifact_id` : Required The resource ID of the existing `ExperimentModel` .
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Load `ExperimentModel`
 
@@ -211,7 +211,7 @@ The `load_experiment_model` method helps you deserialize an `ExperimentModel` in
 
   - `artifact_id` : (Required). The resource ID of the existing `ExperimentModel` . Example: `artifact_id="my-sklearn-model"`
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Register `ExperimentModel`
 
@@ -238,7 +238,7 @@ The `register_experiment_model` API enables registering the model that was deeme
 
   - `artifact_id` : (Required). The resource ID of the existing `ExperimentModel` .
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `display_name` : Optional. The user-defined name of the registered model.
 
 ## View experiment runs list in the Google Cloud console

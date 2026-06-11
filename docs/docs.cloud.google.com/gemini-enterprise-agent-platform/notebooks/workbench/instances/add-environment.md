@@ -89,7 +89,7 @@ The following example installs pip packages from a `requirements.txt` file.
 
 ## Troubleshoot
 
-To diagnose and resolve issues related to adding a conda environment, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#pip-packages-missing-instances) .
+To diagnose and resolve issues related to adding a conda environment, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#pip-packages-missing-instances) .
 
 ## What's next
 

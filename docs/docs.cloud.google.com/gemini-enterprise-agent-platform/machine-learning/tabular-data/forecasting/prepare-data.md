@@ -44,9 +44,9 @@ The source you use depends on how you store your data, and the size and complexi
 
 ### BigQuery
 
-Your BigQuery table or view must conform to the [BigQuery location requirements](https://docs.cloud.google.com/vertex-ai/docs/general/locations#bq-locations) .
+Your BigQuery table or view must conform to the [BigQuery location requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#bq-locations) .
 
-If your BigQuery table or view is in a different project than the project where you are creating your Vertex AI dataset, or your BigQuery table or view is backed by an external data source, add one or more roles to the Vertex AI Service Agent. See [Role addition requirements for BigQuery](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#bq-roles) .
+If your BigQuery table or view is in a different project than the project where you are creating your Vertex AI dataset, or your BigQuery table or view is backed by an external data source, add one or more roles to the Vertex AI Service Agent. See [Role addition requirements for BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#bq-roles) .
 
 You don't need to specify a schema for your BigQuery table. Vertex AI automatically infers the schema for your table when you import your data.
 
@@ -78,14 +78,14 @@ For more information about CSV file format and data types, see [CSV files](https
 
 If you import your data from Cloud Storage, it must be in a bucket that meets the following requirements:
 
-  - It conforms to the [Vertex AI bucket requirements](https://docs.cloud.google.com/vertex-ai/docs/general/locations#buckets) .
-  - If the bucket is not in the same project as Vertex AI, add one or more roles to the Vertex AI Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#storage-roles) .
+  - It conforms to the [Vertex AI bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
+  - If the bucket is not in the same project as Vertex AI, add one or more roles to the Vertex AI Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
 
 If you import your data from your local computer, you must have a Cloud Storage bucket that meets the following requirements:
 
-  - It conforms to the [Vertex AI bucket requirements](https://docs.cloud.google.com/vertex-ai/docs/general/locations#buckets) .
+  - It conforms to the [Vertex AI bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
 
-  - If the bucket is not in the same project as Vertex AI, add one or more roles to the Vertex AI Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#storage-roles) .
+  - If the bucket is not in the same project as Vertex AI, add one or more roles to the Vertex AI Service Agent. See [Role addition requirements for Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#storage-roles) .
     
     Vertex AI uses this bucket as a staging area before importing your data.
 

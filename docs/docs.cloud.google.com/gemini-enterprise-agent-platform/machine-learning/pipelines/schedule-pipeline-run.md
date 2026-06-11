@@ -109,7 +109,7 @@ To create a pipeline run schedule, send a POST request by using the [projects.lo
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
   - PROJECT\_ID : The Google Cloud project where you want to run the pipeline.
 
@@ -358,7 +358,7 @@ To list pipeline run schedules in your project, send a GET request by using the 
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to run the pipeline.
   - FILTER : ( *optional* ) Expression to filter the list of schedules. For more information, see ...
   - PAGE\_SIZE : ( *optional* ) The number of schedules to be listed per page.
@@ -428,7 +428,7 @@ To retrieve a pipeline run schedule, send a GET request by using the [projects.l
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to run the pipeline.
   - SCHEDULE\_ID : Unique schedule ID generated while creating the schedule.
 
@@ -506,7 +506,7 @@ To pause a pipeline run schedule in your project, send a POST request by using t
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the pipeline run schedule is currently active. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run schedule is currently active. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where the pipeline run schedule is currently active.
   - SCHEDULE\_ID : Unique schedule ID generated while creating the schedule.
 
@@ -568,7 +568,7 @@ To update a pipeline run schedule in your project, send a PATCH request by using
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to run the pipeline.
   - DISPLAY\_NAME : The name of the pipeline schedule. You can specify a name having a maximum length of 128 UTF-8 characters.
   - MAX\_CONCURRENT\_RUN\_COUNT : The maximum number of concurrent runs for the schedule.
@@ -654,7 +654,7 @@ To resume a pipeline run schedule in your project, send a POST request by using 
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the pipeline run schedule is currently paused. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run schedule is currently paused. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where the pipeline run schedule is currently paused.
   - SCHEDULE\_ID : Unique schedule ID generated while creating the schedule.
   - CATCH\_UP : ( *Optional* ) Indicate whether the paused schedule should backfill the skipped pipeline runs. To backfill and reschedule the skipped pipeline runs, enter the following:  
@@ -730,7 +730,7 @@ To delete a pipeline run schedule in your project, send a DELETE request by usin
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to delete the pipeline schedule. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to delete the pipeline schedule. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to delete the schedule.
   - SCHEDULE\_ID : The unique schedule ID generated while creating the schedule.
 
@@ -803,7 +803,7 @@ To list all the pipeline runs that have been created by a pipeline schedule, sen
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to run the pipeline. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to run the pipeline.
   - SCHEDULE\_ID : Unique schedule ID generated while creating the schedule.
 

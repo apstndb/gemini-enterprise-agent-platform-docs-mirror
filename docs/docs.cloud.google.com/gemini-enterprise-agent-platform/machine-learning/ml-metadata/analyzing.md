@@ -341,7 +341,7 @@ You should see output similar to the following. ARTIFACT\_ID is the ID of the ar
         )
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `display_name_filter` : Filter to be applied to display name while listing the resources with the format "display\_name=\\"my\_filter\\"" .
   - `create_date_filter` : Filter to be applied to create\_date name while listing the resources with the format "create\_time\>\\"2022-06-11T12:30:00-08:00\\"",.
 
@@ -448,7 +448,7 @@ You should see output similar to the following. EXECUTION\_ID is the ID of the e
         return aiplatform.Execution.list(filter=combined_filters)
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `display_name_filter` : Filter to be applied to display name while listing the resources with the format "display\_name=\\"my\_filter\\"" .
   - `create_date_filter` : Filter to be applied to create\_date name while listing the resources with the format "create\_time\>\\"2022-06-11T12:30:00-08:00\\"",.
 

@@ -16,7 +16,7 @@ The [RayDP](https://github.com/oap-project/raydp) Python library makes it possib
 
 ## Installation
 
-Ray on Agent Platform enables users to run their applications using the open source [Ray framework](https://docs.ray.io/en/latest/ray-overview/index.html) . RayDP provides APIs for running Spark on Ray. The prebuilt container images available to create a Ray cluster on Gemini Enterprise Agent Platform don't come with RayDP pre-installed. This means you must create a [custom Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/create-cluster#custom-image) image for your Ray cluster on Gemini Enterprise Agent Platform to run RayDP applications on Ray cluster on Gemini Enterprise Agent Platform. The following section explains how to build a RayDP custom image.
+Ray on Agent Platform enables users to run their applications using the open source [Ray framework](https://docs.ray.io/en/latest/ray-overview/index.html) . RayDP provides APIs for running Spark on Ray. The prebuilt container images available to create a Ray cluster on Gemini Enterprise Agent Platform don't come with RayDP pre-installed. This means you must create a [custom Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster#custom-image) image for your Ray cluster on Gemini Enterprise Agent Platform to run RayDP applications on Ray cluster on Gemini Enterprise Agent Platform. The following section explains how to build a RayDP custom image.
 
 ### Build a Ray on Gemini Enterprise Agent Platform custom container image
 
@@ -92,7 +92,7 @@ Before you run your Spark application, create a Spark session using the RayDP AP
 
 You can use Ray [Task](https://docs.ray.io/en/latest/ray-core/tasks.html#ray-remote-functions) or [Actor](https://docs.ray.io/en/latest/ray-core/actors.html) to create a Spark cluster and session on the Ray cluster on Gemini Enterprise Agent Platform. Ray Task, or Actor, is required to use a [Ray Client](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/ray-client.html) to create a Spark session on the Ray cluster on Gemini Enterprise Agent Platform. The following code shows how a Ray Actor can create a Spark Session, run a Spark application, and stop a Spark cluster on a Ray cluster on Gemini Enterprise Agent Platform using RayDP.
 
-To interactively connect to the Ray cluster on Gemini Enterprise Agent Platform, see [Connect to a Ray cluster through Ray Client](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/develop-application#sdk)
+To interactively connect to the Ray cluster on Gemini Enterprise Agent Platform, see [Connect to a Ray cluster through Ray Client](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/develop-application#sdk)
 
     @ray.remote
     class SparkExecutor:

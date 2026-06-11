@@ -42,7 +42,7 @@ Create an experiment and, optionally, associate a Vertex AI TensorBoard instance
   - `experiment_description` : Provide a description for your experiment.
   - `experiment_tensorboard` : Optional. The Vertex TensorBoard instance to use as a backing TensorBoard for the provided experiment. If no `experiment_tensorboard` is provided, a default TB instance is created and used by this experiment. Note: If CMEK (encryption keys) need to be associated with the TensorBoard instance, then `experiment_tensorboard` is no longer optional.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.  
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) Be sure to use a region that supports TensorBoard if creating a TensorBoard instance.
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) Be sure to use a region that supports TensorBoard if creating a TensorBoard instance.
 
 ### Google Cloud console
 
@@ -84,7 +84,7 @@ Create an experiment. Add a description for the experiment to document its purpo
   - `experiment_name` : Provide a name for your experiment.
   - `experiment_description` : Provide a description for your experiment.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.  
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) Be sure to use a region that supports TensorBoard if creating a TensorBoard instance.
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) Be sure to use a region that supports TensorBoard if creating a TensorBoard instance.
 
 ## Delete experiment
 
@@ -115,7 +115,7 @@ The following sample uses the [`delete`](https://docs.cloud.google.com/python/do
 
   - `experiment_name` : Provide a name for your experiment.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `delete_backing_tensorboard_runs` : If True will also delete the Vertex AI TensorBoard runs associated with the experiment runs under this experiment that we used to store time series metrics.
 
 ### Console

@@ -251,9 +251,9 @@ To reduce the risk of data exfiltration for your Gemini Enterprise Agent Platfor
 
 ## What's next
 
-  - Learn how to [Set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) for Gemini Enterprise Agent Platform.
+  - Learn how to [Set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) for Gemini Enterprise Agent Platform.
 
-  - Learn how to [Set up connectivity from Gemini Enterprise Agent Platform to Other Networks](https://docs.cloud.google.com/vertex-ai/docs/general/hybrid-connectivity) .
+  - Learn how to [Set up connectivity from Gemini Enterprise Agent Platform to Other Networks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/hybrid-connectivity) .
 
   - For general guidance and best practices for configuring your VPC networks, see [Connecting multiple VPC networks](https://cloud.google.com/architecture/best-practices-vpc-design#connecting_multiple_networks) .
 

@@ -188,7 +188,7 @@ To create a custom constraint, create a YAML file using the following format:
     methodTypes:
       - CREATE
       - UPDATE 
-    condition: "CONDITION"
+    condition: &quot;CONDITION"
     actionType: ACTION
     displayName: DISPLAY_NAME
     description: DESCRIPTION

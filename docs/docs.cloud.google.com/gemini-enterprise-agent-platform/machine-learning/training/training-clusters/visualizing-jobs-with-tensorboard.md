@@ -91,7 +91,7 @@ Once your job is submitted, you can monitor its progress by going to the to the 
 Analyze training metrics, visualize model graphs, and profile performance in Vertex AI TensorBoard to debug issues, optimize your model, and prepare the model for integration into a complete MLOps workflow.
 
   - Deploy your model for inference: Deploy your trained model to a Gemini Enterprise Agent Platform endpoint to serve online inference requests.
-      - [Deploy a model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/deployment)
+      - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
   - Manage your model's lifecycle: Use the Gemini Enterprise Agent Platform Model Registry to version, track, and compare your trained models, which helps maintain model governance and reproducibility.
       - [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction)
   - Set up model monitoring: After deployment, monitor your model for performance drift and data anomalies to help maintain the model's effectiveness in production.

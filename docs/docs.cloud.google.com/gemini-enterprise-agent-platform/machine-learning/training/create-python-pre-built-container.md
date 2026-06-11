@@ -38,7 +38,7 @@ Before preparing your training application to run in the cloud, complete the the
 
 2.  [Create a Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/creating-buckets) in the same Google Cloud project where you plan to use Agent Platform. You will store your training application in this bucket. (While it is possible to use a bucket in a different Google Cloud bucket, this requires additional configuration outside the scope of this guide.)
     
-    For the best performance, ensure that the Cloud Storage bucket is in the [location](https://docs.cloud.google.com/vertex-ai/docs/general/locations) where you plan to use Agent Platform.
+    For the best performance, ensure that the Cloud Storage bucket is in the [location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) where you plan to use Agent Platform.
 
 3.  Know all of the Python libraries that your training application depends on, whether they're custom dependencies or freely available through [PyPI](https://pypi.python.org/pypi) .
 
@@ -156,7 +156,7 @@ Refer to the [Python guide to packages](https://docs.python.org/3/tutorial/modul
 
 ## Upload your source distribution to Cloud Storage
 
-You can use the [gcloud CLI](https://docs.cloud.google.com/cli) to upload your source distribution and any custom dependencies to a Cloud Storage bucket. For example:
+You can use the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) to upload your source distribution and any custom dependencies to a Cloud Storage bucket. For example:
 
     gcloud storage cp dist/trainer-0.1.tar.gz CLOUD_STORAGE_DIRECTORY
 

@@ -50,7 +50,7 @@ The following sample uses the [`init`](https://docs.cloud.google.com/python/docs
   - `experiment_name` : Provide a name for your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `experiment_tensorboard` : (Optional) Provide a name for your Vertex AI TensorBoard instance.
   - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
 
 ### User-specified
 
@@ -92,7 +92,7 @@ The following sample uses the [`init`](https://docs.cloud.google.com/python/docs
   - `experiment_name` : Provide the name of your experiment.
   - `run_name` : Provide a name for your experiment run. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `experiment_tensorboard` : (Optional) Provide a name for your Vertex AI TensorBoard instance.
 
 Vertex AI SDK autologging uses MLFlow's autologging in its implementation. Evaluation metrics and parameters from the following frameworks are logged to your ExperimentRun when autologging is enabled.

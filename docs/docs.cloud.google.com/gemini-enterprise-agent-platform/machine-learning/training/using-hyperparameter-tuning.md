@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of how to use hyperparameter tuning in , run the "Run hyperparameter tuning for a TensorFlow model" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/training/hyperparameter_tuning_tensorflow.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftraining%2Fhyperparameter_tuning_tensorflow.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftraining%2Fhyperparameter_tuning_tensorflow.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/training/hyperparameter_tuning_tensorflow.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/training/hyperparameter_tuning_tensorflow.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftraining%2Fhyperparameter_tuning_tensorflow.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftraining%2Fhyperparameter_tuning_tensorflow.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/training/hyperparameter_tuning_tensorflow.ipynb)
 
 Hyperparameters are variables that govern the process of training a model, such as batch size or the number of hidden layers in a deep neural network. Hyperparameter tuning searches for the best combination of hyperparameter values by optimizing metric values across a series of trials. Metrics are scalar summaries that you add to your trainer, such as model accuracy.
 
@@ -129,11 +129,11 @@ The following instructions describe how to create a `TrainingPipeline` that crea
 
 7.  On the **Compute and pricing** step, specify the following settings:
     
-    1.  In the **Region** drop-down list, select a " [region that supports custom training](https://docs.cloud.google.com/vertex-ai/docs/general/locations) "
+    1.  In the **Region** drop-down list, select a " [region that supports custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) "
     
     2.  In the **Worker pool 0** section, specify [compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) to use for training.
         
-        If you specify accelerators, [make sure the type of accelerator that you choose is available in your selected region](https://docs.cloud.google.com/vertex-ai/docs/general/locations#region_considerations) .
+        If you specify accelerators, [make sure the type of accelerator that you choose is available in your selected region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) .
         
         If you want to perform [distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) , then click **Add more worker pools** and specify an additional set of compute resources for each additional worker pool that you want.
     
@@ -197,7 +197,7 @@ The following steps show how to use the Google Cloud CLI to create a `Hyperparam
     
     Replace the following:
     
-      - `  LOCATION  ` : the region where you want to create the `HyperparameterTuningJob` . Use a [region that supports serverless training](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+      - `  LOCATION  ` : the region where you want to create the `HyperparameterTuningJob` . Use a [region that supports serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
     
       - `  DISPLAY_NAME  ` : a memorable display name of your choice for the `HyperparameterTuningJob` . See [REST resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs) .
     
@@ -211,8 +211,8 @@ Use the following code sample to create a hyperparameter tuning job using the [`
 
 Before using any of the request data, make the following replacements:
 
-  - `  LOCATION  ` : the region where you want to create the `HyperparameterTuningJob` . Use a [region that supports serverless training](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - `  LOCATION  ` : the region where you want to create the `HyperparameterTuningJob` . Use a [region that supports serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - `  DISPLAY_NAME  ` : a memorable display name of your choice for the `HyperparameterTuningJob` . See [REST resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs) .
   - Specify your metrics:
       - `  METRIC_ID  ` : the name of a [hyperparameter metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/hyperparameter-tuning-overview#what_hyperparameter_tuning_optimizes) to optimize. Your training code must [report this metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning#report-metrics) when it runs.
@@ -247,7 +247,7 @@ Before using any of the request data, make the following replacements:
           - PYTHON\_PACKAGE\_URIS : The Cloud Storage location of the Python package files which are the training program and its dependent packages. The maximum number of package URIs is 100.
           - PYTHON\_MODULE : The Python module name to run after installing the packages.
           - PYTHON\_PACKAGE\_ARGS : (Optional.) Command-line arguments to be passed to the Python module.
-      - SERVICE\_ACCOUNT : (Optional.) The service account that Agent Platform will use to run your code. Learn more about [attaching a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+      - SERVICE\_ACCOUNT : (Optional.) The service account that Agent Platform will use to run your code. Learn more about [attaching a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
       - TIMEOUT : (Optional.) The maximum running time for each trial.
   - Specify the LABEL\_NAME and LABEL\_VALUE for any labels that you want to apply to this hyperparameter tuning job.
 
@@ -445,7 +445,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -901,7 +901,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 

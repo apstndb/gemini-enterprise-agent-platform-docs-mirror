@@ -116,7 +116,7 @@ Replace the following:
 
   - PROJECT\_ID : The Google Cloud project that this pipeline runs in.
 
-  - LOCATION : The region that the pipeline runs in. For more information about the regions that Agent Platform Pipelines is available in, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region that the pipeline runs in. For more information about the regions that Agent Platform Pipelines is available in, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
   - PIPELINE\_RUN\_BILLING\_ID : Unique pipeline run billing ID from the query results in [List your ten most expensive pipeline runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/understand-pipeline-cost-labels#retrieve_ten_most_expensive_pipelines) .
 

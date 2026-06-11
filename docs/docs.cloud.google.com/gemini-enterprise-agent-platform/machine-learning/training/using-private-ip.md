@@ -10,11 +10,11 @@ data_source: docs.cloud.google.com
 
 Using private IP to connect to your training jobs provides more network security and lower network latency than using public IP. To use private IP, you use [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with any type of [Gemini Enterprise Agent Platform serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) . This allows your training code to access private IP addresses inside your Google Cloud or on-premises networks.
 
-This guide shows how to run serverless training jobs in your network after you have already [set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) to peer your network with an Agent Platform `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` resource.
+This guide shows how to run serverless training jobs in your network after you have already [set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) to peer your network with an Agent Platform `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` resource.
 
 ## Overview
 
-Before you submit a serverless training job using private IP, you must [configure private services access to create peering connections between your network and Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) . If you have already set this up, you can use your existing peering connections.
+Before you submit a serverless training job using private IP, you must [configure private services access to create peering connections between your network and Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) . If you have already set this up, you can use your existing peering connections.
 
 This guide covers the following tasks:
 

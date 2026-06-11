@@ -24,7 +24,7 @@ Before you can get online inferences, you must first [train](https://docs.cloud.
 
 ## Deploy a model to an endpoint
 
-You can deploy more than one model to an endpoint, and you can deploy a model to more than one endpoint. For more information about options and use cases for deploying models, see [About deploying models](https://docs.cloud.google.com/vertex-ai/docs/general/deployment) .
+You can deploy more than one model to an endpoint, and you can deploy a model to more than one endpoint. For more information about options and use cases for deploying models, see [About deploying models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
 Use one of the following methods to deploy a model:
 
@@ -46,7 +46,7 @@ Use one of the following methods to deploy a model:
         
           - To deploy your model to a new endpoint, select radio\_button\_checked **Create new endpoint** and provide a name for the new endpoint.
           - To deploy your model to an existing endpoint, select radio\_button\_checked **Add to existing endpoint** and select the endpoint from the drop-down list.
-          - You can add more than one model to an endpoint, and you can add a model to more than one endpoint. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/general/deployment) .
+          - You can add more than one model to an endpoint, and you can add a model to more than one endpoint. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
     
     2.  Click **Continue** .
 

@@ -102,8 +102,8 @@ Where:
 
 ## What's next
 
-  - [Deploy a model on Gemini Enterprise Agent Platform and get predictions](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/deploy-predict)
+  - [Deploy a model on Gemini Enterprise Agent Platform and get predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/deploy-predict)
 
-  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/view-logs)
+  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/view-logs)
 
-  - [Delete a Ray cluster](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/delete-cluster)
+  - [Delete a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/delete-cluster)

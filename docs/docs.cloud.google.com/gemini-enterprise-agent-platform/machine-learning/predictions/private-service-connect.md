@@ -359,7 +359,7 @@ Replace the following:
 
 ## Deploy the model
 
-After you create your online inference endpoint with Private Service Connect enabled, deploy your model to it, following the steps outlined in [Deploy a model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/deployment#deploy_a_model_to_an_endpoint) .
+After you create your online inference endpoint with Private Service Connect enabled, deploy your model to it, following the steps outlined in [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#deploy_a_model_to_an_endpoint) .
 
 ## Create PSC Endpoint Manually
 
@@ -725,5 +725,5 @@ Agent Platform endpoints with Private Service Connect are subject to the followi
 
 ## What's next
 
-  - [Deploy a model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/deployment)
+  - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
   - [Get online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions)

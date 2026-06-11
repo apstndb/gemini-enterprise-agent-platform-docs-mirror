@@ -6109,7 +6109,7 @@ The following container images use the optimized TensorFlow runtime. For more in
 
 ## Supported versions of Ray on Vertex AI
 
-[Ray on Vertex AI](https://docs.cloud.google.com/vertex-ai/docs/open-source/ray/overview) container images are available. The following versions of prebuilt containers are supported:
+[Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) container images are available. The following versions of prebuilt containers are supported:
 
 <table>
 <colgroup>

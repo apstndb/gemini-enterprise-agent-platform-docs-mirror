@@ -150,6 +150,7 @@ Versions
 
   - Launch stage: GA
   - Release date: May 7, 2026
+  - Discontinuation date: Not before May 7, 2027
 
 `gemini-3.1-flash-lite-preview`
 

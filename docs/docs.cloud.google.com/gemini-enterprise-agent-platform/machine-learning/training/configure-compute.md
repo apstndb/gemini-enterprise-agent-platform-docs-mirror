@@ -185,7 +185,7 @@ In the Google Cloud console, you can't create a `CustomJob` directly. However, y
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -262,7 +262,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -394,7 +394,7 @@ To learn more about the technical specification for each type of GPU, read the [
 
 In your `WorkerPoolSpec` , specify the type of GPU that you want to use in the [`machineSpec.acceleratorType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) and number of GPUs that you want each VM in the worker pool to use in the [`machineSpec.acceleratorCount` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) . However, your choices for these fields must meet the following restrictions:
 
-  - The type of GPU that you choose must be available in the location where you are performing serverless training. Not all types of GPU are available in all regions. [Learn about regional availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) .
+  - The type of GPU that you choose must be available in the location where you are performing serverless training. Not all types of GPU are available in all regions. [Learn about regional availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
 
   - You can only use certain numbers of GPUs in your configuration. For example, you can use 2 or 4 `NVIDIA_TESLA_T4` GPUs on a VM, but not 3. To see what `acceleratorCount` values are valid for each type of GPU, see the [following compatibility table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#gpu-compatibility-table) .
 
@@ -746,7 +746,7 @@ Then run a command like the following:
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -909,7 +909,7 @@ To use TPU v2 or v3 VMs in your worker pool, you must use one of the following c
       - Set `machineSpec.acceleratorCount` to `8` for single TPU or `32+` for TPU Pods.
       - Set `replicaCount` to `1` .
 
-For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) .
+For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
 
 ### TPU v5e
 
@@ -935,7 +935,7 @@ The following table shows the TPU v5e machine types and topologies that are supp
 
 Custom training jobs running on TPU v5e VMs are optimized for throughput and availability. For more information see [v5e Training accelerator types](https://docs.cloud.google.com/tpu/docs/v5e-training#accelerator-types) .
 
-For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) . For more information about TPU v5e, see [Cloud TPU v5e training](https://docs.cloud.google.com/tpu/docs/v5e-training) .
+For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) . For more information about TPU v5e, see [Cloud TPU v5e training](https://docs.cloud.google.com/tpu/docs/v5e-training) .
 
 Machine type comparison:
 
@@ -969,7 +969,7 @@ The following table shows the TPU v6e machine types and topologies that are supp
 | `ct6e-standard-4t` | 8x16       | 128                   | 32              | Large-scale training           |
 | `ct6e-standard-4t` | 16x16      | 256                   | 64              | Large-scale training           |
 
-For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) . For more information about TPU v6e, see [Cloud TPU v6e training](https://docs.cloud.google.com/tpu/docs/v6e-intro) .
+For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) . For more information about TPU v6e, see [Cloud TPU v6e training](https://docs.cloud.google.com/tpu/docs/v6e-intro) .
 
 Machine type comparison:
 
@@ -1010,7 +1010,7 @@ The following table shows the TPU 7x topologies that are supported for custom tr
 | 8x8x8      | 512                   | 128             | Multi-host  |
 | 8x8x16     | 1024                  | 256             | Multi-host  |
 
-For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) . For more information about TPU7x, see [Cloud TPU7x training](https://docs.cloud.google.com/tpu/docs/tpu7x-training) .
+For information about the regional availability of TPUs, see [Using accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) . For more information about TPU7x, see [Cloud TPU7x training](https://docs.cloud.google.com/tpu/docs/tpu7x-training) .
 
 ### Example `CustomJob` specifying a TPU VM
 
@@ -1050,7 +1050,7 @@ Then run a command like the following:
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 

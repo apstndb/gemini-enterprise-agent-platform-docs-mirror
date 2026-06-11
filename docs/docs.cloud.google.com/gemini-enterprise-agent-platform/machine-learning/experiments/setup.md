@@ -21,7 +21,7 @@ Vertex AI Experiments is supported by the Agent Platform SDK for Python and Goog
 
 ## Supported Locations
 
-The [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#americas_1) table lists the available locations for Vertex AI Experiments. When using Agent Platform Pipelines or Vertex AI TensorBoard, they must be in the same location as your Agent Platform experiment.
+The [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#americas_1) table lists the available locations for Vertex AI Experiments. When using Agent Platform Pipelines or Vertex AI TensorBoard, they must be in the same location as your Agent Platform experiment.
 
 ## What's next
 

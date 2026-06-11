@@ -53,7 +53,7 @@ Online predictions are synchronous requests made to a model endpoint. You must d
 
 Before you can get online predictions from your model, you must deploy your model to an endpoint. When you deploy a model to an endpoint, you associate the physical machine resources with the model so it can serve online predictions.
 
-You can deploy more than one model to one endpoint. You can also deploy one model to more than one endpoint. For more information, see [Considerations for deploying models](https://docs.cloud.google.com/vertex-ai/docs/general/deployment) .
+You can deploy more than one model to one endpoint. You can also deploy one model to more than one endpoint. For more information, see [Considerations for deploying models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
 
 To create an [`Endpoint`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Endpoint) resource, you deploy your model. When you call the [`Model.deploy`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelModel#google_cloud_aiplatform_Model_deploy) method, it creates and returns an [`Endpoint`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Endpoint) .
 
@@ -86,7 +86,7 @@ The following is a sample code snippet that shows how to create a custom trainin
 
 A private endpoint is like an [`Endpoint`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Endpoint) resource, except predictions are sent across a secure network to the Gemini Enterprise Agent Platform online prediction service. Use a private endpoint if your organization wants to keep all traffic private.
 
-To use a private endpoint, you must configure Gemini Enterprise Agent Platform to peer with a Virtual Private Cloud (VPC). A VPC is required for the private prediction endpoint to connect directly with Gemini Enterprise Agent Platform. For more information, see [Set up VPC network peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) and [Use private endpoints for online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints) .
+To use a private endpoint, you must configure Gemini Enterprise Agent Platform to peer with a Virtual Private Cloud (VPC). A VPC is required for the private prediction endpoint to connect directly with Gemini Enterprise Agent Platform. For more information, see [Set up VPC network peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) and [Use private endpoints for online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints) .
 
 ### [`ModelDeploymentMonitoringJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelDeploymentMonitoringJob)
 

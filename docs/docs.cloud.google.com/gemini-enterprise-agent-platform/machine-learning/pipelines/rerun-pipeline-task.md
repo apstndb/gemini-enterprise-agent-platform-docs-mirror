@@ -70,7 +70,7 @@ Replace the following:
 
   - PROJECT\_ID : The Google Cloud project containing the pipeline run.
 
-  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
   - PIPELINE\_RUN\_RESOURCE\_NAME : The fully qualified resource name of the completed, failed, or cancelled pipeline run that you want to rerun. Enter the resource name in the format ` projects/ PROJECT_NUMBER /locations/ LOCATION /pipelineJobs/ PIPELINE_RUN_ID  ` , where:
     

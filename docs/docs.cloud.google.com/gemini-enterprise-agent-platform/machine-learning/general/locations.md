@@ -1199,7 +1199,7 @@ When you use a BigQuery table as a source for a managed tabular dataset or tabul
 
   - BigQuery tables and views must be regional ( `europe-west4` ).
 
-  - Location: The region that your Agent Platform job runs in, such as `us-central1` , `europe-west4` , or `asia-east1` .
+  - Location: The region that your Agent Platform job runs in, for example: `europe-west4` .
 
   - If the table or view is not in the same project that the Agent Platform job is running in, make sure that Agent Platform has [the correct roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#bq-roles) .
 

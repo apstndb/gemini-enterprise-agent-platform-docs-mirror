@@ -45,7 +45,7 @@ The following sample uses the `  create  ` method of the Artifact Class.
 
   - `schema_title` : Required. Identifies the schema title used by the resource.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `uri` : Optional. URI of artifact's location.
   - `resource_id` : Optional. The `resource_id` portion of the Artifact name with the format. This is globally unique in a metadataStore:  
     `projects/123/locations/us-central1/metadataStores/<metadata_store_id>/artifacts/<resource_id>` .
@@ -101,7 +101,7 @@ The following sample uses the `  start_execution  ` method.
 
   - `project` : Your project ID. You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
   - `resource_id` : Optional. The `resource_id` portion of the Artifact name with the format. This is globally unique in a metadataStore: projects/123/locations/us-central1/metadataStores/\<metadata\_store\_id\>/artifacts/\<resource\_id\>.
 

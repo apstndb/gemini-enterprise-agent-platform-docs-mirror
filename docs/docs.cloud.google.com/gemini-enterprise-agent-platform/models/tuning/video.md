@@ -26,7 +26,7 @@ Fine-tuning lets you adapt base Gemini models for specialized tasks. Here are so
       - If there are very few large files, drop those files from including those in the JSONL files.
       - If there are many large files in your dataset and cannot be ignored, reduce visual resolution of the files. This may hurt performance.
       - Chunk the videos to limit the files size to 100MB and use the chunked videos for tuning. Make sure to change any timestamp annotations corresponding to the original video to the new (chunked) video timeline.
-  - **Maximum video length per example** : 5 minutes with `MEDIA_RESOLUTION_HIGH` or `MEDIA_RESOLUTION_MEDIUM` and 20 minutes with `MEDIA_RESOLUTION_LOW` .
+  - **Maximum video length per example** : Limit 1 video per example. It can be 5 minutes with `MEDIA_RESOLUTION_HIGH` or `MEDIA_RESOLUTION_MEDIUM` and 20 minutes with `MEDIA_RESOLUTION_LOW` .
   - **Dropped examples** : If an example contains video that is longer than the supported maximum length, that example is dropped from the dataset. Dropped examples are not billed or used for training. If more than 10% of the dataset is dropped, the job will fail with an error message before the start of training.
   - **Mixing different media resolutions isn't supported** : The value of `mediaResolution` for each example in the entire training dataset must be consistent. All lines in the JSONL files used for training and validation should have the same value of `mediaResolution` .
 

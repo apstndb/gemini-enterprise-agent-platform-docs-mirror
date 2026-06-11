@@ -14,9 +14,9 @@ The following are required to setup Vertex AI TensorBoard:
 
 ### Create a service account with required permissions
 
-The Vertex AI TensorBoard integration with custom training requires [attaching a service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+The Vertex AI TensorBoard integration with custom training requires [attaching a service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
 
-> **Note:** If you already have a service account that you use for custom training, you can skip this step. Make sure the service account has the [Storage Admin role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) ( `roles/storage.admin` ) and [Gemini Enterprise Agent Platform User role](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#predefined-roles) . ( `roles/aiplatform.user` ) associated with it.
+> **Note:** If you already have a service account that you use for custom training, you can skip this step. Make sure the service account has the [Storage Admin role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) ( `roles/storage.admin` ) and [Gemini Enterprise Agent Platform User role](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) . ( `roles/aiplatform.user` ) associated with it.
 
 1.  Create a service account:
     
@@ -102,11 +102,11 @@ experiment\_name: str, experiment\_description: str, project: str, location: str
   - `experiment_name` : The name of your experiment.
   - `experiment_description` : A description of your experiment.
   - `project` : The `PROJECT_ID` of project that you want to create the TensorBoard instance in.
-  - `location` : The location to create your TensorBoard instance in. Vertex AI TensorBoard location is regional. Be sure to [select a region](https://docs.cloud.google.com/vertex-ai/docs/general/locations) that supports Vertex AI TensorBoard.
+  - `location` : The location to create your TensorBoard instance in. Vertex AI TensorBoard location is regional. Be sure to [select a region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) that supports Vertex AI TensorBoard.
 
 #### Manually create a Vertex AI TensorBoard instance
 
-You can manually create a Vertex AI TensorBoard. This is useful for users more comfortable with the Google Cloud console, users that need a CMEK enabled TensorBoard (see [CMEK](https://docs.cloud.google.com/vertex-ai/docs/general/cmek) ), or users who want to use multiple TensorBoards. This instance can then be specified directly when initializing a Vertex AI experiment, starting an Experiment Run, or configuring the training code.
+You can manually create a Vertex AI TensorBoard. This is useful for users more comfortable with the Google Cloud console, users that need a CMEK enabled TensorBoard (see [CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) ), or users who want to use multiple TensorBoards. This instance can then be specified directly when initializing a Vertex AI experiment, starting an Experiment Run, or configuring the training code.
 
 ### Agent Platform SDK for Python
 
@@ -137,7 +137,7 @@ Create a Vertex AI TensorBoard instance using the Agent Platform SDK for Python.
 
   - `project` : The `PROJECT_ID` of the project that you want to create the TensorBoard instance in.
   - `display_name` : A descriptive name for the Vertex AI TensorBoard instance.
-  - `location` : The location to create your TensorBoard instance in. Vertex AI TensorBoard location is regional. Be sure to [select a region](https://docs.cloud.google.com/vertex-ai/docs/general/locations) that supports Vertex AI TensorBoard
+  - `location` : The location to create your TensorBoard instance in. Vertex AI TensorBoard location is regional. Be sure to [select a region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) that supports Vertex AI TensorBoard
 
 ### Google Cloud CLI
 
@@ -178,7 +178,7 @@ Use Google Cloud CLI to create a Vertex AI TensorBoard instance.
 
 ### Google Cloud console
 
-If you want your Vertex AI TensorBoard data encrypted, you must enable the [CMEK key](https://docs.cloud.google.com/vertex-ai/docs/general/cmek) when creating the instance.
+If you want your Vertex AI TensorBoard data encrypted, you must enable the [CMEK key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) when creating the instance.
 
 Follow these steps to create a Vertex AI TensorBoard CMEK enabled instance using the Google Cloud console.
 

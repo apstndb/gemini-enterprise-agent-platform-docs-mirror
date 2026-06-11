@@ -44,7 +44,6 @@ Supported
   - [Prompt caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching)
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#tool_use_function_calling)
   - [Count tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/count-tokens)
-  - [Memory tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/memory)
 
 Not supported
 

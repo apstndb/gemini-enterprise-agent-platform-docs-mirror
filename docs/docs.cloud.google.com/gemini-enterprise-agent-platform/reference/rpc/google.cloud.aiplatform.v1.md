@@ -26610,11 +26610,15 @@ Tool to retrieve public maps data for grounding, powered by Google.
 
 Fields
 
-`enable_widget`
+` enable_widget (deprecated)  `
 
 `bool`
 
-Optional. If true, include the widget context token in the response.
+> This item is deprecated\!
+
+Optional. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed.
+
+If true, include the widget context token in the response.
 
 ## GoogleSearchRetrieval
 
@@ -26912,11 +26916,15 @@ Optional. A web search entry point that can be used to display search results. T
 
 Optional. Output only. Metadata related to the retrieval grounding source.
 
-`google_maps_widget_context_token`
+` google_maps_widget_context_token (deprecated)  `
 
 `string`
 
-Optional. Output only. A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.
+> This item is deprecated\!
+
+Optional. Output only. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and will no longer be populated once removed.
+
+A token that can be used to render a Google Maps widget with the contextual data. This field is populated only when the grounding source is Google Maps.
 
 ## SourceFlaggingUri
 

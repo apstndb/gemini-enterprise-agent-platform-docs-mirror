@@ -6,7 +6,7 @@ description: Learn how to set up your environment, create an instance, and confi
 data_source: docs.cloud.google.com
 ---
 
-To use Agent Platform Memory Bank, you must first create and configure a Gemini Enterprise Agent Platform instance. This instance manages your memories and can be integrated with your agents across various runtimes.
+To use Agent Platform Memory Bank, you must first create and configure a Memory Bank instance. This instance manages your memories and can be integrated with your agents across various runtimes.
 
 This document explains how to set up your Google Cloud project, install the required libraries, and create or update an instance with custom configurations like topics and TTL.
 
@@ -62,26 +62,24 @@ where
   - `  PROJECT_ID  ` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#project) under which you [develop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents,
   - `  LOCATION  ` is one of the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
 
-## Create or update an Agent Platform instance
+## Create or update a Memory Bank instance
 
-To get started with Memory Bank, you first need an Agent Platform instance. If you don't already have an instance, you can create it using the default configuration:
+To get started with Memory Bank, you first need a Memory Bank instance. If you don't already have an instance, you can create it using the default configuration:
 
-    agent_engine = client.agent_engines.create()
+    memory_bank = client.agent_engines.create()
     
-    # Optionally, print out the Agent Platform resource name. You will need the
-    # resource name to interact with your Agent Platform instance later on.
-    print(agent_engine.api_resource.name)
+    # Optionally, print out the Memory Bank resource name. You will need the
+    # resource name to interact with your Memory Bank instance later on.
+    print(memory_bank.api_resource.name)
 
-If you want to customize the configuration of your new or existing Memory Bank instance's behavior, refer to [Configure your Agent Platform instance for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) . For example, you can specify what information Memory Bank considers meaningful to persist.
+If you want to customize the configuration of your new or existing Memory Bank instance's behavior, refer to [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) . For example, you can specify what information Memory Bank considers meaningful to persist.
 
-Your Agent Platform instance supports [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) and Memory Bank out-of-the-box. No agent is deployed when you create the instance. To use Agent Runtime, you must provide the [agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) that should be deployed when creating or updating your Agent Platform instance.
-
-Once you have an Agent Platform instance, you can use the name of the instance to read or write memories. For example:
+Once you have a Memory Bank instance, you can use the name of the instance to read or write memories. For example:
 
     # Generate memories using your Memory Bank instance.
     client.agent_engines.memories.generate(
       # `name` should have the format `projects/.../locations/.../reasoningEngines/...`.
-      name=agent_engine.api_resource.name,
+      name=memory_bank.api_resource.name,
       ...
     )
 
@@ -89,11 +87,13 @@ Once you have an Agent Platform instance, you can use the name of the instance t
 
 Although Memory Bank can be used in any runtime, you can also use Memory Bank with Agent Runtime to read and write memories from your deployed agent.
 
-To deploy an agent with Memory Bank on Agent Platform, first [set up your environment for Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) . Then, [prepare your agent to be deployed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) on Agent Runtime with memory integration. Your deployed agent should make calls to read and write memories as needed.
+To deploy an agent on Agent Runtime with built-in Memory Bank, first [set up your environment for Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) . Then, [prepare your agent to be deployed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) on Agent Runtime with memory integration. Your deployed agent should make calls to read and write memories as needed.
+
+> **Important:** Deleting your Agent Runtime instance will also delete your memories if you're using built-in Memory Bank.
 
 ### AdkApp
 
-If you're using the [Agent Platform Agent Development Kit template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Platform. This means that the ADK Memory tools read memories from Memory Bank.
+If you're using the [Agent Platform Agent Development Kit template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
 
     from google.adk.agents import Agent
     from vertexai.preview.reasoning_engines import AdkApp
@@ -107,7 +107,7 @@ If you're using the [Agent Platform Agent Development Kit template](https://docs
     )
     
     # Deploy the agent to Agent Runtime.
-    agent_engine = client.agent_engines.create(
+    runtime = client.agent_engines.create(
           agent_engine=adk_app,
           config={
                 "staging_bucket": "STAGING_BUCKET",
@@ -118,8 +118,8 @@ If you're using the [Agent Platform Agent Development Kit template](https://docs
     )
     
     # Update an existing Agent Runtime to add or modify the Runtime.
-    agent_engine = client.agent_engines.update(
-          name=agent_engine.api_resource.name,
+    runtime = client.agent_engines.update(
+          name=runtime.api_resource.name,
           agent=adk_app,
           config={
                 "staging_bucket": "STAGING_BUCKET",
@@ -159,17 +159,17 @@ If you're using the [default service agent](https://docs.cloud.google.com/gemini
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb)
 
-If you want to use Memory Bank in a different environment, like Cloud Run or Colab, create an Agent Runtime without providing an [agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) . If you don't provide a [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , Memory Bank is created with the default settings for managing memory generation and retrieval.
+If you want to use Memory Bank in a different environment, like Cloud Run or Colab, create a Memory Bank. If you don't provide a [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , Memory Bank is created with the default settings for managing memory generation and retrieval.
 
-    agent_engine = client.agent_engines.create()
+    memory_bank = client.agent_engines.create()
 
-If you've used Agent Platform before, creating a new Agent Platform instance without a runtime should only take a few seconds. If this is the first time you're using Agent Platform, it may take longer (1-2 minutes).
+If you've used Memory Bank before, creating a new Memory Bank instance should only take a few seconds. If this is the first time you're using Memory Bank, it may take longer (1-2 minutes).
 
 If you want to configure behavior, provide a [Memory Bank configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) :
 
 ### Create
 
-    agent_engine = client.agent_engines.create(
+    memory_bank = client.agent_engines.create(
       config={
         "context_spec": {
           "memory_bank_config": ...
@@ -179,11 +179,11 @@ If you want to configure behavior, provide a [Memory Bank configuration](https:/
 
 ### Update
 
-If you want to change your [Memory Bank configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , you can update your Agent Platform instance.
+If you want to change your [Memory Bank configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , you can update your Memory Bank instance.
 
-    agent_engine = client.agent_engines.update(
-      # You can access the name using `agent_engine.api_resource.name` for an AgentEngine object.
-      name="AGENT_ENGINE_NAME",
+    memory_bank = client.agent_engines.update(
+      # You can access the name using `memory_bank.api_resource.name` for an AgentEngine object.
+      name="MEMORY_BANK_NAME",
       config={
         "context_spec": {
           "memory_bank_config": ...
@@ -193,11 +193,11 @@ If you want to change your [Memory Bank configuration](https://docs.cloud.google
 
 Replace the following:
 
-  - RUNTIME\_NAME : The name of the Agent Runtime. It should be in the format `projects/.../locations/.../reasoningEngines/...` . See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
+  - MEMORY\_BANK\_NAME : The name of the Memory Bank. It should be in the format `projects/.../locations/.../reasoningEngines/...` . See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
 
 You can use Memory Bank in any environment that has permission to read and write memories. For example, to use Memory Bank with Cloud Run, grant permissions to the [Cloud Run service identity](https://docs.cloud.google.com/run/docs/configuring/services/service-identity) to read and write memories. The required permissions depend on what operations your agent should be able to perform. If you only want your agent to retrieve and generate memories, [`aiplatform.memories.generate`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.generate) and [`aiplatform.memories.retrieve`](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memories.retrieve) are sufficient.
 
-## Configure your Agent Platform instance for Memory Bank
+## Configure your Memory Bank instance
 
 You can configure your Memory Bank to customize how memories are generated and managed. If you don't provide the configuration, then Memory Bank uses the default settings for each type of configuration.
 
@@ -316,7 +316,7 @@ The following sample shows the default Memory Bank:
       disable_memory_revisions=False
     )
 
-You can adjust the Memory Bank configuration when you create or update your Agent Platform instance. The following example demonstrates how to create or update an instance with a specific Memory Bank configuration.
+You can adjust the Memory Bank configuration when you create or update your instance. The following example demonstrates how to create or update an instance with a specific Memory Bank configuration.
 
     client.agent_engines.create(
           ...,
@@ -327,9 +327,9 @@ You can adjust the Memory Bank configuration when you create or update your Agen
           }
     )
     
-    # Alternatively, update an existing Agent Platform instance's Memory Bank config.
-    agent_engine = client.agent_engines.update(
-          name=agent_engine.api_resource.name,
+    # Alternatively, update an existing Memory Bank instance's config.
+    memory_bank = client.agent_engines.update(
+          name=memory_bank.api_resource.name,
           config={
               "context_spec": {
                     "memory_bank_config": memory_bank_config

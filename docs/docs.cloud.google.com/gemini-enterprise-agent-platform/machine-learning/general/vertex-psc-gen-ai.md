@@ -698,7 +698,7 @@ You can delete the individual resources in the project by running the following 
 
 ## What's next
 
-  - Learn about [enterprise networking options for accessing Agent Platform endpoints and services](https://docs.cloud.google.com/vertex-ai/docs/general/netsec-overview)
+  - Learn about [enterprise networking options for accessing Agent Platform endpoints and services](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview)
   - Learn how to [Access published services through endpoints](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-services) .
   - Learn [how Private Service Connect works](https://docs.cloud.google.com/vpc/docs/private-service-connect-architecture) and why it offers significant performance benefits.
   - Learn more [About accessing Google APIs through endpoints](https://docs.cloud.google.com/vpc/docs/about-accessing-google-apis-endpoints) .

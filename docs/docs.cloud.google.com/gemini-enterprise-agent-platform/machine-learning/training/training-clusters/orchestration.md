@@ -179,7 +179,7 @@ The official Slurm documentation provides several working examples of different 
 The following focuses on the final steps of the machine learning lifecycle: managing, deploying, and monitoring your trained models.
 
   - Deploy your model for inference: Deploy your trained model to a Vertex AI endpoint to serve online inference requests at scale.
-      - [Deploy a model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/deployment)
+      - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
   - Manage your model's lifecycle: Use Gemini Enterprise Agent Platform Model Registry to version, compare, and manage your models. A pipeline can be configured to automatically register a new model upon successful training.
       - [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/vertex-ai/machine-learning/model-registry/introduction)
   - Monitor your pipeline runs and model performance:

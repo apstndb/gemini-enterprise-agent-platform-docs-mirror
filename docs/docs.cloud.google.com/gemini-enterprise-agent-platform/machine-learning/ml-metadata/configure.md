@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Vertex ML Metadata lets you track and analyze the metadata produced by your machine learning (ML) workflows. The first time you run a PipelineJob or create an experiment in the Vertex SDK, Gemini Enterprise Agent Platform creates your project's MetadataStore .
 
-If you want your metadata encrypted using a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/vertex-ai/docs/general/cmek) , you must create your metadata store using a CMEK *before* you use Vertex ML Metadata to track or analyze metadata.
+If you want your metadata encrypted using a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) , you must create your metadata store using a CMEK *before* you use Vertex ML Metadata to track or analyze metadata.
 
 After the metadata store has been created, the CMEK key that the metadata store uses is independent of the CMEK key used by processes that log metadata, for example, a pipeline run.
 
@@ -16,7 +16,7 @@ After the metadata store has been created, the CMEK key that the metadata store 
 
 Use the following instructions to create a CMEK and set up a Vertex ML Metadata metadata store that uses this CMEK.
 
-1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/vertex-ai/docs/general/cmek#configure-cmek)
+1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
 2.  Use the following REST call to create your project's default metadata store using your CMEK.
     

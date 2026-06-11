@@ -12,7 +12,7 @@ Private Service Connect interface is supported on Agent Platform custom jobs and
 
 ## Overview
 
-Private Service Connect interface is supported on Vertex AI Training custom jobs and persistent resources. To use Private Service Connect interface, you need to set up a VPC network, subnetwork, and network attachment in your user project. See [Set up a Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) . The network attachment name must be included in the request to create a custom job or persistent resource to enable Private Service Connect interface.
+Private Service Connect interface is supported on Vertex AI Training custom jobs and persistent resources. To use Private Service Connect interface, you need to set up a VPC network, subnetwork, and network attachment in your user project. See [Set up a Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) . The network attachment name must be included in the request to create a custom job or persistent resource to enable Private Service Connect interface.
 
 ## Gemini Enterprise Agent Platform Private Service Connect egress connectivity to other networks
 
@@ -44,7 +44,7 @@ Pricing for Private Service Connect interfaces is described in the "Using a Priv
 
 ## Before you begin
 
-[Set up your resources for Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) on your user project.
+[Set up your resources for Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) on your user project.
 
 ## Create a Gemini Enterprise Agent Platform serverless training job with a Private Service Connect interface
 
@@ -104,7 +104,7 @@ To create a serverless training job with PSC-I using the Agent Platform SDK for 
         job.run(psc_interface_config=psc_interface_config)
 
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [list of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [list of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `bucket` : Replace `bucket` with the name of a bucket you have access to.
   - `display_name` : The display name of the persistent resource.
   - `machine_type` : [Specify the compute resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute#specify) .
@@ -123,12 +123,12 @@ To create a serverless training job, send a POST request by using the [customJob
 Before using any of the request data, make the following replacements:
 
   - LOCATION : The region where the container or Python package will be run.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - JOB\_NAME : A display name for the `CustomJob` .
   - REPLICA\_COUNT : The number of worker replicas to use. In most cases, set this to `1` for your [first worker pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#configure_distributed_training) .
   - If your training application runs in a custom container, specify the following:
       - IMAGE\_URI : the URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
-      - NETWORK\_ATTACHMENT : The name or full path of the network attachment you created when you [set up the Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) .
+      - NETWORK\_ATTACHMENT : The name or full path of the network attachment you created when you [set up the Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) .
       - If you need private DNS peering, the `dns_peering_configs` field is required. For this list, each item contains:
           - DOMAIN\_SUFFIX : The dns name of the private Cloud DNS zone that you created when setting up the Private DNS Peering.
           - TARGET\_PROJECT : The project that hosts the VPC network.

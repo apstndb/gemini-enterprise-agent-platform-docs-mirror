@@ -31,7 +31,7 @@ When you use the default data split when training an AutoML classification model
 
 **Solution**
 
-To resolve this issue, add more training data, manually split your data to assign enough classes to every set, or remove the less frequently occurring labels from your dataset. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+To resolve this issue, add more training data, manually split your data to assign enough classes to every set, or remove the less frequently occurring labels from your dataset. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
 
 ## Vertex AI Studio
 
@@ -226,7 +226,7 @@ Your Gemini Enterprise Agent Platform pipeline times out when it attempts to con
 
 Try the following to resolve the problem:
 
-  - Ensure that you have completed all of the steps in [Set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) .
+  - Ensure that you have completed all of the steps in [Set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) .
 
   - Review the configuration of your peered VPC network. Ensure that your network imports routes from the correct service networking range while your job is running.
 
@@ -319,7 +319,7 @@ This is because the workloads run in a Google-managed project. The VPC in this m
 
 **Solution**
 
-  - Ensure that you have [set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) for Gemini Enterprise Agent Platform in your VPC network.
+  - Ensure that you have [set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) for Gemini Enterprise Agent Platform in your VPC network.
 
   - Complete the steps to share your private DNS zone with the Gemini Enterprise Agent Platform producer network. Note that the procedure for this depends on your use case:
     
@@ -516,7 +516,7 @@ You may see this error message if the selected machine type isn't supported for 
 
 **Solution**
 
-Use only [available machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) in the appropriate [regions](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) .
+Use only [available machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) in the appropriate [regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
 
 #### Replica exited with a non-zero status code
 
@@ -564,11 +564,11 @@ If you encounter a permission error when accessing another Google Cloud service 
 
   - **Issue**
     
-    The service agent or service account running your code (either the Gemini Enterprise Agent Platform Custom Code Service Agent for your project or a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) ) doesn't have the required permission.
+    The service agent or service account running your code (either the Gemini Enterprise Agent Platform Custom Code Service Agent for your project or a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) ) doesn't have the required permission.
     
     **Solution**
     
-    Learn how to [give the Gemini Enterprise Agent Platform Custom Code Service Agent permissions](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) or [configure a custom service account with the necessary permissions](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account#configure) .
+    Learn how to [give the Gemini Enterprise Agent Platform Custom Code Service Agent permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) or [configure a custom service account with the necessary permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account#configure) .
 
   - **Issue**
     
@@ -588,7 +588,7 @@ If you encounter a permission error when accessing another Google Cloud service 
     
     Add `storage.buckets.create` permission to your Gemini Enterprise Agent Platform Custom Code Service Agent role for the project.
     
-    Learn how to fix this problem by [adding specific roles to Agent Platform's service agents](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) .
+    Learn how to fix this problem by [adding specific roles to Agent Platform's service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) .
 
 #### Performance issues when using Cloud Storage FUSE
 
@@ -610,7 +610,7 @@ You see the following error:
 
 **Solution**
 
-The VPC Service Controls service perimeter blocks access from Agent Platform to third-party APIs and services on the internet. To install the packages, use [packageUris](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#pythonpackagespec) to install the dependencies from Cloud Storage buckets. For a general discussion of using this technique, see "Use custom containers" in [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls#custom-containers) .
+The VPC Service Controls service perimeter blocks access from Agent Platform to third-party APIs and services on the internet. To install the packages, use [packageUris](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#pythonpackagespec) to install the dependencies from Cloud Storage buckets. For a general discussion of using this technique, see "Use custom containers" in [VPC Service Controls with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#custom-containers) .
 
 #### Internal error
 
@@ -651,7 +651,7 @@ To resolve this, try one of the following:
 
   - Copy the file into the container as part of the container build process.
 
-  - Specify a [custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) .
+  - Specify a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) .
 
 ## Agent Platform Neural Architecture Search
 

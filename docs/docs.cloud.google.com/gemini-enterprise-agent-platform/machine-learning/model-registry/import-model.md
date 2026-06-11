@@ -32,7 +32,7 @@ Otherwise, create a new [custom container](https://docs.cloud.google.com/vertex-
 
 You must store your model artifacts in a Cloud Storage bucket, where the bucket's region matches the locational endpoint you're using.
 
-If your Cloud Storage bucket is in a different Google Cloud project, you need to [grant Agent Platform access](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#different-project) to read your model artifacts.
+If your Cloud Storage bucket is in a different Google Cloud project, you need to [grant Agent Platform access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#different-project) to read your model artifacts.
 
 If you're using a prebuilt container, ensure that your model artifacts have filenames that exactly match the following examples:
 
@@ -59,7 +59,7 @@ To import a model using Google Cloud console:
 
 5.  **Name and region** : Enter a name for your model. Select the region that matches both your bucket's region, and the Agent Platform locational endpoint you're using. Click **Continue** .
 
-6.  If you expand **Advanced options** , you can optionally decide to add a [customer-managed encryption key](https://docs.cloud.google.com/vertex-ai/docs/general/cmek) .
+6.  If you expand **Advanced options** , you can optionally decide to add a [customer-managed encryption key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
 
 Depending on the type of container you are using, select the appropriate tab below.
 

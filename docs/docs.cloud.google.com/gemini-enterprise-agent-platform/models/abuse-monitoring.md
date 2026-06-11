@@ -59,6 +59,10 @@ Use of partner models on Gemini Enterprise Agent Platform is subject to partner-
 
 Use of Anthropic models on Gemini Enterprise Agent Platform is governed by Anthropic's [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) or other applicable agreement with Anthropic, with use of Anthropic Advanced AI governed by Section F of Anthropic's [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms) . The abuse monitoring systems described on this page are used to ensure adherence to these terms.
 
+#### Data retention
+
+For Anthropic Claude Fable 5 and Mythos 5, prompts and responses are retained for up to 30 days. To use Claude Fable 5 and Mythos 5, as required by Anthropic, you must enable sharing this data with Anthropic for abuse monitoring.
+
 ## What's next
 
   - Learn about [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

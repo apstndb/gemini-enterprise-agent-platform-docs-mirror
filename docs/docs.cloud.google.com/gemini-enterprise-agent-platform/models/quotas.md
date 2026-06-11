@@ -29,20 +29,20 @@ Requests for `gemini-embedding-001` using the `predict` API are also subject to 
 | base\_model: gemini-embedding | 100,000 | `aiplatform.googleapis.com/online_prediction_requests_per_base_model` |
 | base\_model: N/A              | 30,000  | `aiplatform.googleapis.com/online_prediction_requests`                |
 
-## Vertex AI Agent Engine quotas
+## Agent Runtime quotas
 
-The following quotas apply to [Vertex AI Agent Engine](https://docs.cloud.google.com/vertex-ai/docs/agent-engine/overview) for a given project in each region:
+The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/vertex-ai/docs/agent-engine/overview) for a given project in each region:
 
 | Description                                                                          | Quota | Metric                                                                         |
 | ------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------ |
-| Create, delete, or update Vertex AI Agent Engine resources per minute                | 10    | `aiplatform.googleapis.com/reasoning_engine_service_write_requests`            |
-| Create, delete, or update Vertex AI Agent Engine sessions per minute                 | 100   | `aiplatform.googleapis.com/session_write_requests`                             |
-| Get, list, or retrieve Vertex AI Agent Engine sessions per minute                    | 10000 | `aiplatform.googleapis.com/session_read_requests`                              |
-| `Query` or `StreamQuery` Vertex AI Agent Engine per minute                           | 90    | `aiplatform.googleapis.com/reasoning_engine_service_query_requests`            |
-| Append event to Vertex AI Agent Engine sessions per minute                           | 300   | `aiplatform.googleapis.com/session_event_append_requests`                      |
-| Maximum number of Vertex AI Agent Engine resources                                   | 100   | `aiplatform.googleapis.com/reasoning_engine_service_entities`                  |
-| Create, delete, or update Vertex AI Agent Engine memory resources per minute         | 100   | `aiplatform.googleapis.com/memory_bank_write_requests`                         |
-| Get, list, or retrieve from Vertex AI Agent Engine Memory Bank per minute            | 300   | `aiplatform.googleapis.com/memory_bank_read_requests`                          |
+| Create, delete, or update Agent Runtime resources per minute                         | 10    | `aiplatform.googleapis.com/reasoning_engine_service_write_requests`            |
+| Create, delete, or update Agent Runtime sessions per minute                          | 100   | `aiplatform.googleapis.com/session_write_requests`                             |
+| Get, list, or retrieve Agent Runtime sessions per minute                             | 10000 | `aiplatform.googleapis.com/session_read_requests`                              |
+| `Query` or `StreamQuery` Agent Runtime per minute                                    | 90    | `aiplatform.googleapis.com/reasoning_engine_service_query_requests`            |
+| Append event to Agent Runtime sessions per minute                                    | 300   | `aiplatform.googleapis.com/session_event_append_requests`                      |
+| Maximum number of Agent Runtime resources                                            | 100   | `aiplatform.googleapis.com/reasoning_engine_service_entities`                  |
+| Create, delete, or update Agent Runtime memory resources per minute                  | 100   | `aiplatform.googleapis.com/memory_bank_write_requests`                         |
+| Get, list, or retrieve from Agent Runtime Memory Bank per minute                     | 300   | `aiplatform.googleapis.com/memory_bank_read_requests`                          |
 | Sandbox environment (Code Execution) execute requests per minute                     | 1000  | `aiplatform.googleapis.com/sandbox_environment_execute_requests`               |
 | Sandbox environment (Code Execution) entities per region                             | 1000  | `aiplatform.googleapis.com/sandbox_environment_entities`                       |
 | Sandbox environment (Code Execution) write requests per minute                       | 500   | `aiplatform.googleapis.com/sandbox_environment_write_requests`                 |
@@ -50,7 +50,7 @@ The following quotas apply to [Vertex AI Agent Engine](https://docs.cloud.google
 | A2A Agent get requests like `getTask` and `getCard` per minute                       | 600   | `aiplatform.googleapis.com/a2a_agent_get_requests`                             |
 | Concurrent live bidirectional connections using the `BidiStreamQuery` API per minute | 10    | `aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests` |
 
-## Batch prediction
+## Batch inference
 
 The quotas and limits for batch inference jobs are the same across all regions.  
 

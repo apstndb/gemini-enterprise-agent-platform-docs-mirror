@@ -206,17 +206,33 @@ The following regions are supported for the Gen AI evaluation service:
 
   - Iowa ( `us-central1` )
 
+  - South Carolina ( `us-east1` )
+
   - Northern Virginia ( `us-east4` )
+
+  - Columbus, Ohio ( `us-east5` )
+
+  - Dallas, Texas ( `us-south1` )
 
   - Oregon ( `us-west1` )
 
   - Las Vegas, Nevada ( `us-west4` )
 
+  - Warsaw, Poland ( `europe-central2` )
+
+  - Finland ( `europe-north1` )
+
+  - Madrid, Spain ( `europe-southwest1` )
+
   - Belgium ( `europe-west1` )
 
   - Netherlands ( `europe-west4` )
 
+  - Milan, Italy ( `europe-west8` )
+
   - Paris, France ( `europe-west9` )
+
+  - Global ( `global` )
 
 ## Available notebooks
 

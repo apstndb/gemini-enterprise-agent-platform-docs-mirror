@@ -32,7 +32,7 @@ To cancel an ongoing or scheduled pipeline run, send a `POST` request by using t
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project containing the pipeline run.
   - PIPELINE\_RUN\_ID : The unique ID of the pipeline run that you want to cancel. The pipeline run ID is displayed in the **Runs** tab on the **Pipelines** page in the Google Cloud console.
 
@@ -82,7 +82,7 @@ Use the following sample to cancel an ongoing or scheduled pipeline run by using
 Replace the following:
 
   - PROJECT\_ID : The Google Cloud project containing the pipeline run.
-  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline run is located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PIPELINE\_RUN\_ID with the unique ID of the pipeline run that you want to cancel. The ID is displayed in the **Runs** tab on the **Pipelines** page in the Google Cloud console.
 
 ## Cancel multiple pipeline runs
@@ -95,7 +95,7 @@ To batch cancel multiple ongoing or scheduled pipeline runs, send a `POST` reque
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where the pipeline runs are located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where the pipeline runs are located. For more information about the regions where Agent Platform Pipelines is available, see the [Gemini Enterprise Agent Platform locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project containing the pipeline runs.
   - PIPELINE\_RUN\_ID\_1 , PIPELINE\_RUN\_ID\_2 : The IDs of the pipeline jobs that you want to cancel. You can find the job ID in the **Runs** tab on the **Pipelines** page in the Google Cloud console.
 

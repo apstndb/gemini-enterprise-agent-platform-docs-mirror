@@ -44,7 +44,7 @@ These samples involve getting run metrics, run parameters, runtime series metric
   - `run_name` : Specify the appropriate run name for this session.
   - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Parameters
 
@@ -70,7 +70,7 @@ These samples involve getting run metrics, run parameters, runtime series metric
   - `run_name` : Specify the appropriate run name for this session.
   - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Time series metrics
 
@@ -96,7 +96,7 @@ These samples involve getting run metrics, run parameters, runtime series metric
   - `run_name` : Specify the appropriate run name for this session.
   - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Artifacts
 
@@ -126,7 +126,7 @@ These samples involve getting run metrics, run parameters, runtime series metric
   - `run_name` : Specify the appropriate run name for this session.
   - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Classification metrics
 
@@ -152,7 +152,7 @@ These samples involve getting run metrics, run parameters, runtime series metric
   - `run_name` : Specify the appropriate run name for this session.
   - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ## Compare runs
 
@@ -180,7 +180,7 @@ The data for the experiment runs is returned in a DataFrame.
 
   - `experiment_name` : Provide a name for the experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ## Google Cloud console
 

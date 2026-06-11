@@ -49,6 +49,7 @@ Supported
   - [Implicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)
   - [Explicit context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)
   - [Chat completions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview)
+  - [Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use) preview Preview feature
 
 Not supported
 
@@ -169,6 +170,7 @@ Versions
 
   - Launch stage: GA
   - Release date: May 19, 2026
+  - Discontinuation date: Not before May 19, 2027
 
 Security controls
 

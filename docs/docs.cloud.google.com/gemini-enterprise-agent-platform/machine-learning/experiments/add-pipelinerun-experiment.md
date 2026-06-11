@@ -102,7 +102,7 @@ This sample shows how to associate a pipeline run with an experiment. When you w
   - `pipeline_root` : The root of the pipeline outputs. Default to be staging bucket.
   - `parameter_values` : The mapping from runtime parameter names to its values that control the pipeline run.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations) .
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
 
 ### Associate pipeline run with experiment run
 
@@ -141,7 +141,7 @@ See [`init`](https://docs.cloud.google.com/python/docs/reference/aiplatform/late
   - `run_name` : Specify a run name.
   - `pipeline_job` : An Agent Platform PipelineJob
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
 
 ## View list of pipeline runs in Google Cloud console
 

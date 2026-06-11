@@ -180,7 +180,7 @@ resource "google_workbench_instance" "default" {
 
 ## Troubleshoot
 
-To diagnose and resolve issues related to creating a Managed Service for Apache Spark Spark-enabled instance, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#dataproc-instances) .
+To diagnose and resolve issues related to creating a Managed Service for Apache Spark Spark-enabled instance, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#dataproc-instances) .
 
 ## What's next
 

@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This guide describes how you can grant access to a specific Vertex AI Workbench instance. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
+This guide describes how you can grant access to a specific Vertex AI Workbench instance. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
 You grant access to a Vertex AI Workbench instance by setting an [Identity and Access Management (IAM) policy](https://docs.cloud.google.com/iam/docs/policies) on the instance. The policy binds one or more principals, such as a user or a service account, to one or more [roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam-roles) . Each role contains a list of permissions that let the principal interact with the instance.
 

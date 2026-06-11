@@ -42,7 +42,7 @@ The subnet of the network attachment supports RFC 1918 and non RFC 1918 addresse
   - `203.0.113.0/24`
   - `240.0.0.0/4`
 
-See [Set up a Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup) for more information.
+See [Set up a Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) for more information.
 
 ### Using Private Service Connect interface with Shared VPC
 
@@ -64,7 +64,7 @@ Complete the following steps:
     
       - **Network attachment in host project** : Complete the following steps:
         
-        1.  Enable the Agent Platform API in the host project. See [Set up a Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup#before-you-begin) for more information.
+        1.  Enable the Agent Platform API in the host project. See [Set up a Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#before-you-begin) for more information.
         
         2.  If the Agent Platform Service Agent doesn't exist in the host project, create it using the following command:
             
@@ -72,7 +72,7 @@ Complete the following steps:
             
             where PROJECT\_ID is your project ID.
         
-        3.  Grant the Compute Network Admin ( `roles/compute.networkAdmin` ) role to the host project's Agent Platform Service Agent. See [Set up a Private Service Connect interface](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup#before-you-begin) for more information. If you don't want to use the Compute Network Admin role, you can instead create a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) with the following permissions and grant that role to the Agent Platform Service Agent of the host project:
+        3.  Grant the Compute Network Admin ( `roles/compute.networkAdmin` ) role to the host project's Agent Platform Service Agent. See [Set up a Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#before-you-begin) for more information. If you don't want to use the Compute Network Admin role, you can instead create a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) with the following permissions and grant that role to the Agent Platform Service Agent of the host project:
             
               - `compute.networkAttachments.get`
               - `compute.networkAttachments.update`
@@ -80,7 +80,7 @@ Complete the following steps:
 
 ### DNS peering
 
-While Private Service Connect interface provides the secure network path, DNS peering provides the service discovery mechanism. With PSC interface, you need to know the specific IP address of the service in the VPC network. And while you can connect to services using their internal IP addresses, this is not recommended for production systems where IPs can change. With DNS peering, the deployed agent can connect to services in the your VPC network using stable, human-readable DNS names instead of IP addresses. DNS peering enables the deployed agents to resolve DNS names using the records from a Cloud DNS private zone in your VPC. See [Set up a private DNS peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-psc-i-setup#set-up-private-dns-peering) for more information.
+While Private Service Connect interface provides the secure network path, DNS peering provides the service discovery mechanism. With PSC interface, you need to know the specific IP address of the service in the VPC network. And while you can connect to services using their internal IP addresses, this is not recommended for production systems where IPs can change. With DNS peering, the deployed agent can connect to services in the your VPC network using stable, human-readable DNS names instead of IP addresses. DNS peering enables the deployed agents to resolve DNS names using the records from a Cloud DNS private zone in your VPC. See [Set up a private DNS peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set-up-private-dns-peering) for more information.
 
 ## Limitations
 

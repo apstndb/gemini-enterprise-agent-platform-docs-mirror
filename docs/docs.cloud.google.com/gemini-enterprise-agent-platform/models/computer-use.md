@@ -45,6 +45,7 @@ The Computer Use model and tool is supported when using the following models:
 
 #### Click to expand supported models
 
+  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 
 ## How the Computer Use model and tool works
@@ -84,7 +85,7 @@ The following diagram illustrates how the Computer Use model and tool works:
 
 ## Enable the Computer Use model and tool
 
-To enable the Computer Use model and tool, use `gemini-3-flash-preview` as your model, and add the Computer Use model and tool to your list of enabled tools:
+To enable the Computer Use model and tool, use `gemini-3-flash-preview` or `gemini-3.5-flash` as your model, and add the Computer Use model and tool to your list of enabled tools:
 
 ### Python
 
@@ -128,7 +129,7 @@ response = client.models.generate_content(
 
 After configuring the Computer Use model and tool, send a prompt to the model that includes the user's goal and an initial screenshot of the GUI.
 
-> **Note:** The Computer Use model and tool is only compatible with `gemini-3-flash-preview` .
+> **Note:** The Computer Use model and tool is only compatible with `gemini-3-flash-preview` or `gemini-3.5-flash` .
 
 You can also optionally add the following:
 
@@ -492,9 +493,121 @@ if __name__ == "__main__":
       
 ```
 
-## Computer Use model and tool for mobile use cases
+## Gemini 3.5 Flash or later and mobile or desktop use cases
 
-The following example demonstrates how to define custom functions (such as `open_app` , `long_press_at` , and `go_home` ), combine them with Gemini's built-in computer use tool, and exclude unnecessary browser-specific functions. By registering these custom functions, the model can intelligently call them alongside standard UI actions to complete tasks in non-browser environments.
+Computer Use model and tool supports setting mobile ( `ENVIRONMENT_MOBILE` ), desktop ( `ENVIRONMENT_DESKTOP` ), or browser ( `ENVIRONMENT_BROWSER` ) environments. The default is `ENVIRONMENT_BROWSER` .
+
+The following examples demonstrate how to configure the execution environment for the Computer Use model and tool with Gemini 3.5 Flash or later.
+
+### REST API
+
+Before using any of the request data, make the following replacements:
+
+  - PROJECT\_ID : Your project ID.
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+
+Request JSON body:
+
+    {
+      "contents": [
+        {
+          "role": "user",
+          "parts": {
+            "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+          }
+        }
+      ],
+      "generation_config": {
+        "candidateCount": 1
+      },
+      "tools": [
+        {
+          "computer_use": {
+            "environment": "ENVIRONMENT_BROWSER"
+          }
+        }
+      ]
+    }
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+
+#### PowerShell (Windows)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+
+You should receive a successful status code (2xx) and an empty response.
+
+### Python
+
+The following example requires [python-genai](https://googleapis.github.io/python-genai/) version 2.7.0 or later.
+
+    from google import genai
+    from google.genai.types import (
+        Part,
+        GenerateContentConfig,
+        Content,
+        Tool,
+        ComputerUse,
+        Environment,
+        ThinkingConfig,
+    )
+    client = genai.Client()
+    
+    response = client.models.generate_content(
+        model="gemini-3.5-flash",
+        contents=[
+            Content(
+                role="user",
+                parts=[
+                    Part(text="find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
+                ],
+            )
+        ],
+        config=GenerateContentConfig(
+            temperature=1,
+            top_p=0.95,
+            top_k=40,
+            max_output_tokens=8192,
+            tools=[
+                Tool(
+                    computer_use=ComputerUse(
+                        environment=Environment.ENVIRONMENT_MOBILE
+                    ),
+                ),
+            ],
+            thinking_config=ThinkingConfig(
+                include_thoughts=True
+            ),
+        )
+    )
+
+## Gemini 3 Flash and mobile use
+
+The following example for Gemini 3 Flash demonstrates how to define custom functions (such as `open_app` , `long_press_at` , and `go_home` ), combine them with Gemini's built-in computer use tool, and exclude unnecessary browser-specific functions. By registering these custom functions, the model can intelligently call them alongside standard UI actions to complete tasks in non-browser environments.
+
+> **Caution:** The following example is deprecated and supported by Gemini 3 Flash only.
 
     from typing import Optional, Dict, Any
     
@@ -608,10 +721,163 @@ The following example demonstrates how to define custom functions (such as `open
 
 ## Supported actions
 
-The Computer Use model and tool enables the model to request the following actions using a `FunctionCall` . Your client-side code must implement the execution logic for these actions. See the reference implementation for examples.
+The Computer Use model and tool enables the model to request the following actions using a `FunctionCall` . Your client-side code must implement the execution logic for these actions. See the reference implementation for examples. The following table are supported actions for the browser environment. Gemini 3 Flash and Gemini 3.5 Flash have different `FunctionCall` name sets.
+
+### Gemini 3.5 Flash
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command name</th>
+<th>Description</th>
+<th>Arguments (in Function Call)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>click</strong></td>
+<td>Left clicks at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>double_click</strong></td>
+<td>Double clicks at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>triple_click</strong></td>
+<td>Triple clicks at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>middle_click</strong></td>
+<td>Middle clicks at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>right_click</strong></td>
+<td>Right clicks at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>mouse_down</strong></td>
+<td>Presses and holds the mouse button at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>mouse_up</strong></td>
+<td>Releases the mouse button at the coordinate.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>move</strong></td>
+<td>Move the cursor to the specified position.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>type</strong></td>
+<td>Types text.</td>
+<td><code dir="ltr" translate="no">text</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">press_enter</code> : bool (Optional, default false)</td>
+</tr>
+<tr class="even">
+<td><strong>drag_and_drop</strong></td>
+<td>Drags item from start_y and start_x to end_y and end_x</td>
+<td><code dir="ltr" translate="no">start_y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">start_x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">end_y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">end_x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>wait</strong></td>
+<td>Wait for the specified number of seconds.</td>
+<td><code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">seconds</code> : int (Optional, default 1)</td>
+</tr>
+<tr class="even">
+<td><strong>press_key</strong></td>
+<td>Presses the specified key and releases it.</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>key_down</strong></td>
+<td>Presses and holds the specified key.</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>key_up</strong></td>
+<td>Releases the specified key.</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>hotkey</strong></td>
+<td>Presses the specified key combination.</td>
+<td><code dir="ltr" translate="no">keys</code> : List[str]<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>take_screenshot</strong></td>
+<td>Returns a screenshot of the current screen.</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>scroll</strong></td>
+<td>Scrolls up, down, left, or right at a coordinate by a pixel distance.</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">direction</code> : str ("up", "down", "left", "right")<br />
+<code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">magnitude_in_pixels</code> : int (0-999, Optional, default 300)</td>
+</tr>
+<tr class="even">
+<td><strong>go_back</strong></td>
+<td>Navigates back to the previous webpage in the browser history.</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="odd">
+<td><strong>navigate</strong></td>
+<td>Navigates directly to a specified URL.</td>
+<td><code dir="ltr" translate="no">url</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+<tr class="even">
+<td><strong>go_forward</strong></td>
+<td>Navigates forward to the next webpage in the browser history.</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
+</tr>
+</tbody>
+</table>
+
+### Gemini 3 Flash
 
 | Command Name           | Description                                                                                                                                                                       | Arguments (in Function Call)                                                                                                                             | Example Function Call                                                                                  |
-| :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | **open\_web\_browser** | Opens the web browser.                                                                                                                                                            | None                                                                                                                                                     | `{"name": "open_web_browser", "args": {}}`                                                             |
 | **wait\_5\_seconds**   | Pauses execution for 5 seconds to allow dynamic content to load or animations to complete.                                                                                        | None                                                                                                                                                     | `{"name": "wait_5_seconds", "args": {}}`                                                               |
 | **go\_back**           | Navigates to the previous page in the browser's history.                                                                                                                          | None                                                                                                                                                     | `{"name": "go_back", "args": {}}`                                                                      |
@@ -619,12 +885,231 @@ The Computer Use model and tool enables the model to request the following actio
 | **search**             | Navigates to the default search engine's homepage (for example, Google). Useful for starting a new search task.                                                                   | None                                                                                                                                                     | `{"name": "search", "args": {}}`                                                                       |
 | **navigate**           | Navigates the browser directly to the specified URL.                                                                                                                              | `url` : str                                                                                                                                              | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}`                                   |
 | **click\_at**          | Clicks at a specific coordinate on the webpage. The x and y values are based on a 1000x1000 grid and are scaled to the screen dimensions.                                         | `y` : int (0-999), `x` : int (0-999)                                                                                                                     | `{"name": "click_at", "args": {"y": 300, "x": 500}}`                                                   |
-| **hover\_at**          | Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid.                                                  | `y` : int (0-999) `x` : int (0-999)                                                                                                                      | `{"name": "hover_at", "args": {"y": 150, "x": 250}}`                                                   |
+| **hover\_at**          | 521963309 Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid.                                        | `y` : int (0-999) `x` : int (0-999)                                                                                                                      | `{"name": "hover_at", "args": {"y": 150, "x": 250}}`                                                   |
 | **type\_text\_at**     | Types text at a specific coordinate, defaults to clearing the field first and pressing ENTER after typing, but these can be disabled. x and y are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `text` : str, `press_enter` : bool (Optional, default True), `clear_before_typing` : bool (Optional, default True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination**   | Press keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations.                 | `keys` : str (for example, 'enter', 'control+c'. See API reference for full list of allowed keys)                                                        | `{"name": "key_combination", "args": {"keys": "Control+A"}}`                                           |
+| **key\_combination**   | Presses keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations.               | `keys` : str (for example, 'enter', 'control+c'. See API reference for full list of allowed keys)                                                        | `{"name": "key_combination", "args": {"keys": "Control+A"}}`                                           |
 | **scroll\_document**   | Scrolls the entire webpage "up", "down", "left", or "right".                                                                                                                      | `direction` : str ("up", "down", "left", or "right")                                                                                                     | `{"name": "scroll_document", "args": {"direction": "down"}}`                                           |
 | **scroll\_at**         | Scrolls a specific element or area at coordinate (x, y) in the specified direction by a certain magnitude. Coordinates and magnitude (default 800) are based on a 1000x1000 grid. | `y` : int (0-999), `x` : int (0-999), `direction` : str ("up", "down", "left", "right"), `magnitude` : int (0-999, Optional, default 800)                | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}`           |
 | **drag\_and\_drop**    | Drags an element from a starting coordinate (x, y) and drops it at a destination coordinate (destination\_x, destination\_y). All coordinates are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `destination_y` : int (0-999), `destination_x` : int (0-999)                                                       | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}`  |
+
+Gemini 3.5 Flash: You have access to different sets of function calls depending on the environment that you select:
+
+### Mobile environment
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command name</th>
+<th>Description</th>
+<th>Arguments (in Function Call)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>open_app</td>
+<td>Opens an application by its name.</td>
+<td>intent: str</td>
+</tr>
+<tr class="even">
+<td>click</td>
+<td>Left clicks at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>list_apps</td>
+<td>Lists available applications on the device, returning their names and package names.</td>
+<td>intent: str</td>
+</tr>
+<tr class="even">
+<td>wait</td>
+<td>Waits for the specified number of seconds.</td>
+<td>intent: str<br />
+seconds: int(Optional, default 1)</td>
+</tr>
+<tr class="odd">
+<td>go_back</td>
+<td>Navigates back to the previous webpage in the browser history.</td>
+<td>intent: str</td>
+</tr>
+<tr class="even">
+<td>type</td>
+<td>Types text.</td>
+<td>text: str<br />
+intent: str<br />
+press_enter: bool(Optional, default false)</td>
+</tr>
+<tr class="odd">
+<td>drag_and_drop</td>
+<td>Drags item from start_y and start_x to end_y and end_x</td>
+<td>start_y: int (0-999)<br />
+start_x: int (0-999)<br />
+end_y: int (0-999)<br />
+end_x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>long_press</td>
+<td>Performs a long press at a specific y (0-999), x (0-999) coordinate on the screen.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str<br />
+seconds: int (Optional, default 2)</td>
+</tr>
+<tr class="odd">
+<td>press_key</td>
+<td>Presses the specified key and release it.</td>
+<td>key: str<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>take_screenshot</td>
+<td>Returns a screenshot of the current screen.</td>
+<td>intent: str</td>
+</tr>
+</tbody>
+</table>
+
+### Desktop environment
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command name</th>
+<th>Description</th>
+<th>Arguments (in Function Call)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>click</td>
+<td>Left clicks at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>double_click</td>
+<td>Double clicks at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>triple_click</td>
+<td>Triple clicks at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>middle_click</td>
+<td>Middle clicks at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>right_click</td>
+<td>Right clicks at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>mouse_down</td>
+<td>Presses and holds the mouse button at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>mouse_up</td>
+<td>Releases the mouse button at the coordinate.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>move</td>
+<td>Move the cursor to the specified position.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>type</td>
+<td>Types text.</td>
+<td>text: str<br />
+intent: str<br />
+press_enter: bool(Optional, default false)</td>
+</tr>
+<tr class="even">
+<td>drag_and_drop</td>
+<td>Drags item from start_y and start_x to end_y and end_x.</td>
+<td>start_y: int (0-999)<br />
+start_x: int (0-999)<br />
+end_y: int (0-999)<br />
+end_x: int (0-999)<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>wait</td>
+<td>Wait for the specified number of seconds.</td>
+<td>intent: str<br />
+seconds: int(Optional, default 1)</td>
+</tr>
+<tr class="even">
+<td>press_key</td>
+<td>Presses the specified key and releases it.</td>
+<td>key: str<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>key_down</td>
+<td>Presses and holds the specified key.</td>
+<td>key: str<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>key_up</td>
+<td>Releases the specified key.</td>
+<td>key: str<br />
+intent: str</td>
+</tr>
+<tr class="odd">
+<td>hotkey</td>
+<td>Presses the specified key combination.</td>
+<td>keys: List[str]<br />
+intent: str</td>
+</tr>
+<tr class="even">
+<td>take_screenshot</td>
+<td>Returns a screenshot of the current screen.</td>
+<td>intent: str</td>
+</tr>
+<tr class="odd">
+<td>scroll</td>
+<td>Scrolls up, down, left, or right at a coordinate by a pixel distance.</td>
+<td>y: int (0-999)<br />
+x: int (0-999)<br />
+direction: str ("up", "down", "left", "right")<br />
+intent: str<br />
+magnitude_in_pixels: int (0-999, Optional, default 300)</td>
+</tr>
+</tbody>
+</table>
 
 ## Safety and security
 
@@ -709,6 +1194,118 @@ If the user confirms, you must include the safety acknowledgement in your `Funct
                ]
              )
            )
+
+### Prompt injection detection
+
+Computer Use model and tool for Gemini 3.5 Flash or later supports an advanced safety mechanism to detect prompt injection attacks. When enabled, this feature checks if an included screenshot has the potential to introduce a prompt injection attack. You can set this feature in the Computer Use model and tool configuration. The default is `false` .
+
+The following examples demonstrate enabling the Computer Use model and tool configuration to enable prompt injection detection:
+
+### REST API
+
+Before using any of the request data, make the following replacements:
+
+  - PROJECT\_ID : Your project ID.
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent
+
+Request JSON body:
+
+    {
+      "contents": [
+        {
+          "role": "user",
+          "parts": {
+            "text": "find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. start by navigating directly to flights.google.com"
+          }
+        }
+      ],
+      "generation_config": {
+        "candidateCount": 1
+      },
+      "tools": [
+        {
+          "computer_use": {
+            "environment": "ENVIRONMENT_BROWSER",
+            "enable_prompt_injection_detection": true
+          }
+        }
+      ]
+    }
+
+To send your request, expand one of these options:
+
+#### curl (Linux, macOS, or Cloud Shell)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
+
+#### PowerShell (Windows)
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
+
+You should receive a successful status code (2xx) and an empty response.
+
+### Python
+
+The following example requires [python-genai](https://googleapis.github.io/python-genai/) version 2.7.0 or later.
+
+    from google import genai
+    from google.genai.types import (
+        Part,
+        GenerateContentConfig,
+        Content,
+        Tool,
+        ComputerUse,
+        Environment,
+        ThinkingConfig,
+    )
+    client = genai.Client()
+    
+    response = client.models.generate_content(
+        model="gemini-3.5-flash",
+        contents=[
+            Content(
+                role="user",
+                parts=[
+                    Part(text="find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th"),
+                ],
+            )
+        ],
+        config=GenerateContentConfig(
+            temperature=1,
+            top_p=0.95,
+            top_k=40,
+            max_output_tokens=8192,
+            tools=[
+                Tool(
+                    computer_use=ComputerUse(
+                        environment=Environment.ENVIRONMENT_MOBILE,
+                        enable_prompt_injection_detection=True
+                    ),
+                ),
+            ],
+            thinking_config=ThinkingConfig(
+                include_thoughts=True
+            ),
+        )
+    )
 
 ### Safety best practices
 

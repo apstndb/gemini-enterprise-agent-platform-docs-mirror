@@ -16,7 +16,7 @@ Before creating an Agent Platform dataset from your tabular data, [prepare your 
 
 To create a machine learning model for forecasting, you must have a representative collection of data to train with. Use the Google Cloud console or the API to associate your prepared data into the dataset.
 
-When you create a dataset, you also associate it with its data source. The training data can be either a CSV file in Cloud Storage or a table in BigQuery. If the data source resides in a different project, make sure you [set up the required permissions](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#foreign-project) .
+When you create a dataset, you also associate it with its data source. The training data can be either a CSV file in Cloud Storage or a table in BigQuery. If the data source resides in a different project, make sure you [set up the required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#foreign-project) .
 
 > Tabular training data in Cloud Storage or BigQuery is not imported into Agent Platform. (When you import from local files, they are imported into Cloud Storage.) When you create a dataset with tabular data, the data is associated with the dataset. Changes you make to your data source in Cloud Storage or BigQuery after dataset creation are incorporated into models subsequently trained with that dataset. A snapshot of the dataset is taken when model training begins.
 
@@ -70,7 +70,7 @@ You use the [datasets.create](https://docs.cloud.google.com/gemini-enterprise-ag
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . For example, `us-central1` .
+  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) . For example, `us-central1` .
 
   - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
@@ -330,7 +330,7 @@ You use the [datasets.create](https://docs.cloud.google.com/gemini-enterprise-ag
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) . For example, `us-central1` .
+  - LOCATION : Region where the dataset will be stored. This must be a [region that supports dataset resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) . For example, `us-central1` .
 
   - PROJECT : .
 
@@ -585,7 +585,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
 
 ## What's next
 

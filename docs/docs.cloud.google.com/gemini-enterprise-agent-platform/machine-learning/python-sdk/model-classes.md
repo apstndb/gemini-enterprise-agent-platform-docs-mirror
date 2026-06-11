@@ -75,7 +75,7 @@ After you register a model, you need to deploy the model to an endpoint before y
 
 ### [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation)
 
-Use the [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation) class to get evaluation metrics for AutoML models, such as precision and recall, to help determine the performance of your models. For more information, see [Model evaluation in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/evaluation/introduction) .
+Use the [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation) class to get evaluation metrics for AutoML models, such as precision and recall, to help determine the performance of your models. For more information, see [Model evaluation in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) .
 
 The following code sample shows how to list all evaluations for a model with model ID `model-id` that's in a project with a project ID of `my-project` and that's in the `us-central1` region:
 

@@ -158,7 +158,7 @@ Managing your Vertex AI training cluster lets you optimize its usage, integrate 
   - Orchestrate your training with Gemini Enterprise Agent Platform Pipelines: Automate the entire lifecycle of your training jobs, from data preparation to model registration, using pipelines that target your managed cluster.
       - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/vertex-ai/machine-learning/training/training-clusters/orchestration)
   - Monitor and debug your training jobs: Track progress and resource usage, and identify issues with your distributed training jobs running on the cluster.
-      - [Monitor training jobs on Vertex AI](https://docs.cloud.google.com/vertex-ai/docs/general/monitoring-metrics)
+      - [Monitor training jobs on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
   - Deploy your model for inference: After your models are trained and registered, deploy them to a Vertex AI endpoint to serve online inference requests at scale.
-      - [Deploy a model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/deployment)
+      - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
   - Optimize costs: Regularly review your cluster utilization and delete the cluster when it's not actively in use to minimize billing for reserved hardware.

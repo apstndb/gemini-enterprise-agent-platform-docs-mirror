@@ -131,7 +131,7 @@ The Gemini CLI adds a new cell below with its response.
 
 ## Troubleshoot
 
-If you encounter a problem using the Gemini CLI with Vertex AI Workbench instances, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#gemini-cli) for help with common issues.
+If you encounter a problem using the Gemini CLI with Vertex AI Workbench instances, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#gemini-cli) for help with common issues.
 
 ## What's next
 

@@ -101,9 +101,9 @@ If the network attachment is created in a project different from the Service Pro
 
 ## Gemini Enterprise Agent Platform service agent required role
 
-In the project where you create the network attachment, grant the `compute.networkAdmin` role to the [Gemini Enterprise Agent Platform service agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) of the same project. Enable the Agent Platform API in this project in advance if it differs from the service project where you use Agent Platform.
+In the project where you create the network attachment, grant the `compute.networkAdmin` role to the [Gemini Enterprise Agent Platform service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) of the same project. Enable the Agent Platform API in this project in advance if it differs from the service project where you use Agent Platform.
 
-If you specify a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) network for Agent Platform to use and you create a network attachment in a service project, then grant the [Agent Platform service agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) in the service project where you use Agent Platform the `compute.networkUser` role to your VPC host project.
+If you specify a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) network for Agent Platform to use and you create a network attachment in a service project, then grant the [Agent Platform service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) in the service project where you use Agent Platform the `compute.networkUser` role to your VPC host project.
 
 ## Configure firewall rules
 
@@ -133,7 +133,7 @@ Configuring firewall rules is optional. However, we recommend that you set commo
 
 To enable Vertex AI Training jobs or Agent Runtime agents configured with PSC-I to resolve private DNS records in customer-managed Cloud DNS zones, the Agent Platform API offers a user-configurable mechanism for specifying which DNS domains to peer with Google internal resources. Make the following additional configurations:
 
-1.  Assign the DNS `Peer(roles/dns.peer)` role to the [AI Platform Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) account of the project where you're using Vertex AI Training or Agent Runtime services. If you specify a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) network for Gemini Enterprise Agent Platform to use and create a network attachment in a service project, then grant the [AI Platform Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) in the service project where you use Agent Platform the DNS `Peer(roles/dns.peer)` role in your VPC host project.
+1.  Assign the DNS `Peer(roles/dns.peer)` role to the [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) account of the project where you're using Vertex AI Training or Agent Runtime services. If you specify a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) network for Gemini Enterprise Agent Platform to use and create a network attachment in a service project, then grant the [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) in the service project where you use Agent Platform the DNS `Peer(roles/dns.peer)` role in your VPC host project.
 
 2.  Create a firewall rule that allows all ICMP, TCP, and UDP traffic (optional):
     

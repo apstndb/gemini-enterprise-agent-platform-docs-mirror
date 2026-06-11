@@ -6,7 +6,7 @@ description: Set up your project and environment for a tutorial that guides you 
 data_source: docs.cloud.google.com
 ---
 
-This tutorial walks you through the required steps to train and get predictions from your tabular data model in the Google Cloud console. If you plan to use the Agent Platform SDK for Python, make sure that the service account initializing the client has the [Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` ) IAM role.
+This tutorial walks you through the required steps to train and get predictions from your tabular data model in the Google Cloud console. If you plan to use the Agent Platform SDK for Python, make sure that the service account initializing the client has the [Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` ) IAM role.
 
 For this part of the tutorial, you set up your Google Cloud project to use Gemini Enterprise Agent Platform and a Cloud Storage bucket that contains the documents for training your AutoML model.
 

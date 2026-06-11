@@ -104,4 +104,4 @@ To access these logs, complete the following steps:
 
 ## What's next
 
-For tips on resolving other issues, see the [troubleshooting section on Vertex AI Workbench instances](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) .
+For tips on resolving other issues, see the [troubleshooting section on Vertex AI Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#instances) .

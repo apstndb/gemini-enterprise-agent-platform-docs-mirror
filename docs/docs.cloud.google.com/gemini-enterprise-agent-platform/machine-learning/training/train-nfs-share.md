@@ -16,7 +16,7 @@ This guide shows how to mount a Network File System share when running a serverl
     
     You can use a first-party managed NFS service like [Filestore](https://docs.cloud.google.com/filestore) or [Google Cloud NetApp Volumes](https://docs.cloud.google.com/netapp/volumes/docs/discover/overview) as your NFS share. If you are using Filestore and plan to use VPC peering for Vertex AI in the next step, select **private service access** as the connect mode when you create an instance. For an example, see [Create instances](https://docs.cloud.google.com/filestore/docs/creating-instances) in the Filestore documentation.
 
-2.  To connect Vertex AI with the VPC that hosts your NFS share, follow the instructions in [Use Private Service Connect interface for Vertex AI](https://docs.cloud.google.com/vertex-ai/machine-learning/training/psc-i-egress) (recommended), or [Set up VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering) .
+2.  To connect Vertex AI with the VPC that hosts your NFS share, follow the instructions in [Use Private Service Connect interface for Vertex AI](https://docs.cloud.google.com/vertex-ai/machine-learning/training/psc-i-egress) (recommended), or [Set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) .
 
 ## Network File System information for serverless training
 

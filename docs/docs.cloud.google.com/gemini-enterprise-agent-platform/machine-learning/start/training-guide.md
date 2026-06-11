@@ -58,7 +58,7 @@ This option is suitable for quick experimentation. You can use this option if al
 
 ### Python Source Distribution
 
-You can create a [Python Source Distribution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container#create_a_source_distribution) that contains your training application. You'll store your source distribution with the training code and dependencies in a Cloud Storage bucket. For an example of packaging your training application as a Python Source Distribution, see the notebook tutorial [Training, tuning and deploying a PyTorch classification model](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/training/pytorch-text-sentiment-classification-custom-train-deploy.ipynb) .
+You can create a [Python Source Distribution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container#create-source-distribution) that contains your training application. You'll store your source distribution with the training code and dependencies in a Cloud Storage bucket. For an example of packaging your training application as a Python Source Distribution, see the notebook tutorial [Training, tuning and deploying a PyTorch classification model](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/training/pytorch-text-sentiment-classification-custom-train-deploy.ipynb) .
 
 ### Custom Container
 

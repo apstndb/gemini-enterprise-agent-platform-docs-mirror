@@ -60,7 +60,7 @@ To get online predictions from the ML model that you trained when following the 
 
 5.  On the **Endpoint details** step, confirm that your endpoint will be deployed to `us-central1 (Iowa)` .
     
-    Do not select the **Use a customer-managed encryption key (CMEK)** checkbox. This tutorial does not use [CMEK](https://docs.cloud.google.com/vertex-ai/docs/general/cmek) .
+    Do not select the **Use a customer-managed encryption key (CMEK)** checkbox. This tutorial does not use [CMEK](https://docs.cloud.google.com/vertex-ai/machine-learning/general/cmek) .
 
 6.  Click **Deploy** to create the endpoint and deploy your model to the endpoint.
 
@@ -68,7 +68,7 @@ After a few minutes, check\_circle appears next to the new endpoint in the **End
 
 ## Deploy a Cloud Run function
 
-You can get predictions from the Vertex AI endpoint that you just created by sending requests to the Vertex AI API's REST interface. However, only principals with the [`aiplatform.endpoints.predict` permission](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) can send online prediction requests. You cannot make the endpoint public for anybody to send requests to, for example via a web app.
+You can get predictions from the Vertex AI endpoint that you just created by sending requests to the Vertex AI API's REST interface. However, only principals with the [`aiplatform.endpoints.predict` permission](https://docs.cloud.google.com/vertex-ai/machine-learning/general/access-control) can send online prediction requests. You cannot make the endpoint public for anybody to send requests to, for example via a web app.
 
 In this section, deploy code to [Cloud Run functions](https://docs.cloud.google.com/functions/docs) to handle unauthenticated requests. The sample code that you downloaded when you read the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) contains code for this Cloud Run function in the `function/` directory. Optionally, run the following command to explore the Cloud Run function code:
 

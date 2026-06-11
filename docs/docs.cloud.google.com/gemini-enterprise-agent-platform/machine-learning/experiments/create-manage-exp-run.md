@@ -36,7 +36,7 @@ The following samples use the methods [`init`](https://docs.cloud.google.com/pyt
   - `run_name` : Specify a run name to associate with your current session. See [`start_run`](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform#google_cloud_aiplatform_start_run) in the Agent Platform SDK reference documentation.
   - `experiment_run_tensorboard` : Optional. A backing TensorBoard resource to enable and store time series metrics logged to this experiment run using [`log_time_series_metrics`](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform#google_cloud_aiplatform_log_time_series_metrics) .
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
 
 ### End run
 
@@ -60,7 +60,7 @@ The following samples use the methods [`init`](https://docs.cloud.google.com/pyt
   - `experiment_name` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
   - `run_name` : Specify a run name.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
 
 ### Resume run
 
@@ -82,7 +82,7 @@ The following samples use the methods [`init`](https://docs.cloud.google.com/pyt
   - `experiment_name` : Provide the name of your experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
   - `run_name` : Specify name of run that you want to resume.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
 
 ### Delete run
 
@@ -109,7 +109,7 @@ The following samples use the methods [`init`](https://docs.cloud.google.com/pyt
   - `experiment` : The name or instance of this experiment. You can find your list of experiments in the Google Cloud console by selecting "Experiments" in the section nav.
   - `run_name` : Specify name of run that you want to delete.
   - `project` : . You can find these in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `delete_backing_tensorboard_run` : Whether to delete the backing Vertex AI TensorBoard run that stores time series metrics for this run.
 
 ### Manage status
@@ -140,7 +140,7 @@ The following samples use the methods [`init`](https://docs.cloud.google.com/pyt
   - `run_name` : run name associated with your experiment
   - `experiment_name` : name of your experiment. You can find your list of experiments in the Google Cloud console by selecting **Experiments** in the section nav.
   - `project` : . You can find these Project IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
-  - `location` : See [List of available locations](https://docs.cloud.google.com/vertex-ai/docs/general/locations)
+  - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations)
   - `state` : Possible values for `state` , which shows up as "status" in the Google Cloud console, are:
       - `aiplatform.gapic.Execution.State.CACHED`
       - `aiplatform.gapic.Execution.State.CANCELLED`

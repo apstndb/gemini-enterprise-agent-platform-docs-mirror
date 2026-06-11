@@ -58,10 +58,10 @@ Every memory resource has one or more associated child memory revision resources
 Memories can either be created directly using `CreateMemory` or dynamically using `GenerateMemories` . With memory generation, a memory is created if there are no existing memories that cover similar information for the same scope:
 
     # Direct creation using CreateMemory
-    client.agent_engines.memories.create(name=agent_engine_name, ...)
+    client.agent_engines.memories.create(name=memory_bank_name, ...)
     
     # Dynamic creation using GenerateMemory
-    client.agent_engines.memories.generate_memories(name=agent_engine_name, ...)
+    client.agent_engines.memories.generate_memories(name=memory_bank_name, ...)
 
 When a memory is created, a single `Memory` resource and a child `MemoryRevision` are created:
 
@@ -93,7 +93,7 @@ Memories can either be updated directly using `UpdateMemory` or dynamically usin
     client.agent_engines.memories.update(name=memory_name, ...)
     
     # Dynamic update using GenerateMemories
-    client.agent_engines.memories.generate_memories(name=agent_engine_name, ...)
+    client.agent_engines.memories.generate_memories(name=memory_bank_name, ...)
 
 When a memory is updated, the existing `Memory` resource is updated, and a new child `MemoryRevision` is created.
 
@@ -130,7 +130,7 @@ Memories can either be directly directly using `DeleteMemory` or dynamically usi
     client.agent_engines.memories.delete(name=memory_name, ...)
     
     # Dynamic delete using GenerateMemories
-    client.agent_engines.memories.generate_memories(name=agent_engine_name, ...)
+    client.agent_engines.memories.generate_memories(name=memory_bank_name, ...)
 
 When a memory is deleted, the existing `Memory` resource is deleted, and a new child `MemoryRevision` is created. The `fact` in the latest memory revision is empty because it reflects a deletion mutation.
 
@@ -248,7 +248,7 @@ Memory revisions are enabled by default. You can disable memory revisions either
 
 You can disable memory revisions for all requests to your Memory Bank instance when you set up the instance:
 
-    client.agent_engines.create(
+    memory_bank = client.agent_engines.create(
       config={
         "context_spec": {
           "memory_bank_config": {

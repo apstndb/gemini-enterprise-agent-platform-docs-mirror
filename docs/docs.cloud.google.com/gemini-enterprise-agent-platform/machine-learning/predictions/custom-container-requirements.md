@@ -127,7 +127,7 @@ In particular, you must push the container image to a repository that meets the 
 
 ### Location
 
-When you use Artifact Registry, the repository must use [a region](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) that matches the [locational endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/locations) where you plan to create a `Model` . For example, if you plan to create a `Model` on the `us-central1-aiplatform.googleapis.com` endpoint, the full name of your container image must start with `us-central1-docker.pkg.dev/` . Don't use a multi-regional repository for your container image.
+When you use Artifact Registry, the repository must use [a region](https://docs.cloud.google.com/artifact-registry/docs/repo-locations) that matches the [locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) where you plan to create a `Model` . For example, if you plan to create a `Model` on the `us-central1-aiplatform.googleapis.com` endpoint, the full name of your container image must start with `us-central1-docker.pkg.dev/` . Don't use a multi-regional repository for your container image.
 
 ### Permissions
 
@@ -139,7 +139,7 @@ If you have pushed your container image to the same Google Cloud project where y
 
 On the other hand, if you have pushed your container image to a different Google Cloud project from the one where you are using Agent Platform, you must [grant the Artifact Registry Reader role for the Artifact Registry repository](https://docs.cloud.google.com/artifact-registry/docs/access-control#grant-repo) to the Vertex AI Service Agent.
 
-> **Note:** Even if you plan to [use a custom service account in your custom container](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) , there is no need to grant your custom service account Artifact Registry permissions; only the service agent needs these permissions. Agent Platform doesn't use your custom service account to pull container images. It only uses the custom service account to run your model serving code.
+> **Note:** Even if you plan to [use a custom service account in your custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) , there is no need to grant your custom service account Artifact Registry permissions; only the service agent needs these permissions. Agent Platform doesn't use your custom service account to pull container images. It only uses the custom service account to run your model serving code.
 
 ## Access model artifacts
 
@@ -151,7 +151,7 @@ Note that the value of the `AIP_STORAGE_URI` environment variable isn't identica
 
 The service account that your container uses by default has permission to read from this URI.
 
-On the other hand, if you [specify a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) when you deploy the `Model` to an `Endpoint` , Agent Platform automatically grants your specified service account the [Storage Object Viewer ( `roles/storage.objectViewer` ) role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) for the URI's Cloud Storage bucket.
+On the other hand, if you [specify a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) when you deploy the `Model` to an `Endpoint` , Agent Platform automatically grants your specified service account the [Storage Object Viewer ( `roles/storage.objectViewer` ) role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) for the URI's Cloud Storage bucket.
 
 Use any library that supports [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication#adc) to load the model artifacts; you don't need to explicitly configure authentication.
 

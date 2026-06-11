@@ -133,15 +133,15 @@ Alternatively, you can create your own custom tool to retrieve memories, which i
         after_agent_callback=generate_memories_callback
     )
 
-## Define an ADK Memory Bank memory service and runtime
+## Define an ADK Memory Bank memory service and Memory Bank instance
 
-After you've created your memory-enabled agent, you need to link it to a memory service. The process of configuring your ADK memory service depends on where your ADK agent [runs](https://google.github.io/adk-docs/runtime/) , which orchestrates the execution of your agents, tools, and callbacks.
+After you've created your memory-enabled agent, you need to link it to a memory service. The process of configuring your ADK memory service depends on where your ADK agent [runs](https://google.github.io/adk-docs/runtime/) . The runtime orchestrates the execution of your agents, tools, and callbacks.
 
-### Create an Agent Runtime instance
+### Create a Memory Bank instance
 
-> **Note:** Skip this section if you already have an existing Agent Runtime instance that you want to use for Memory Bank.
+> **Note:** Skip this section if you already have an existing Memory Bank instance.
 
-You first need to create an Agent Runtime instance to use for Memory Bank. This step is optional if you're using Agent Runtime Runtime to deploy your agent. For more information on customizing your Memory Bank behavior, see the [Configure your Agent Runtime instance for Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) section on the Set up Memory Bank page.
+You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. For more information on customizing your Memory Bank behavior, see the [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) section on the Set up Memory Bank page.
 
     import vertexai
     
@@ -149,15 +149,15 @@ You first need to create an Agent Runtime instance to use for Memory Bank. This 
       project="PROJECT_ID",
       location="LOCATION"
     )
-    # If you don't have an Agent Runtime instance already, create an Agent Platform
+    # If you don't have a Memory Bank instance already, create a
     # Memory Bank instance using the default configuration.
-    agent_engine = client.agent_engines.create()
+    memory_bank = client.agent_engines.create()
     
     # Optionally, print out the resource name. You will need the
-    # resource name if you want to interact with your Runtime instance later on.
-    print(agent_engine.api_resource.name)
+    # resource name if you want to interact with your Memory Bank instance later on.
+    print(memory_bank.api_resource.name)
     
-    agent_engine_id = agent_engine.api_resource.name.split("/")[-1]
+    agent_engine_id = memory_bank.api_resource.name.split("/")[-1]
 
 Replace the following:
 
@@ -166,7 +166,7 @@ Replace the following:
 
 ### Create an ADK runtime
 
-Pass the Agent Runtime ID to the runtime or deployment scripts so that your agent uses Memory Bank as the ADK memory service.
+Pass the Memory Bank instance ID to the runtime or deployment scripts so that your agent uses Memory Bank as the ADK memory service.
 
 ### Local runner
 
@@ -181,14 +181,14 @@ Pass the Agent Runtime ID to the runtime or deployment scripts so that your agen
     memory_service = VertexAiMemoryBankService(
         project="PROJECT_ID",
         location="LOCATION",
-        agent_engine_id="AGENT_ENGINE_ID",
+        agent_engine_id="MEMORY_BANK_ID",
     )
     
     # You can use any ADK session service. This example uses Sessions.
     session_service = VertexAiSessionService(
         project="PROJECT_ID",
         location="LOCATION",
-        agent_engine_id="AGENT_ENGINE_ID",
+        agent_engine_id="SESSIONS_ID",
     )
     
     runner = adk.Runner(
@@ -213,13 +213,14 @@ Replace the following:
   - PROJECT\_ID : Your project ID.
   - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
   - APP\_NAME : ADK app name. The app name will be included in the generated memories' `scope` dictionary so that memories are isolated across both users and apps.
-  - AGENT\_ENGINE\_ID : The Agent Runtime ID to use for Memory Bank and Agent Platform Sessions. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
+  - MEMORY\_BANK\_ID : The Memory Bank instance ID. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
+  - SESSIONS\_ID : The Agent Platform Sessions instance ID. For example, `789` in `projects/my-project/locations/us-central1/reasoningEngines/789` .
 
 ### Agent Runtime
 
-The [Agent Runtime ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) ( `AdkApp` ) can be used both locally and to deploy an ADK agent to Agent Runtime. When deployed on Agent Platform, the [Agent Runtime ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) uses `VertexAiMemoryBankService` as the default memory service, using the same Runtime instance for Memory Bank as the runtime. So, you can create your Memory Bank instance and deploy to a runtime in a single step.
+The [Agent Runtime ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) ( `AdkApp` ) can be used both locally and to deploy an ADK agent to Agent Runtime. When deployed on Agent Platform, the [Memory Bank ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) uses `VertexAiMemoryBankService` as the default memory service. So, you can create your Memory Bank instance and deploy to a runtime in a single step.
 
-See [Configure Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-agent-engine) for more details on setting up your Agent Runtime instance, including how to customize the behavior of your Memory Bank.
+See [Configure Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-agent-engine) for more details on setting up your Memory Bank instance, including how to customize the behavior of your Memory Bank.
 
 Use the following code to deploy your memory-enabled ADK agent to Agent Runtime:
 
@@ -236,7 +237,7 @@ Use the following code to deploy your memory-enabled ADK agent to Agent Runtime:
     adk_app = AdkApp(agent=agent)
     
     # Create a new resource with your agent deployed to Agent Runtime.
-    # The Agent Runtime instance will also include an empty Memory Bank.
+    # The Agent Runtime instance will also include an empty Memory Bank instance.
     agent_engine = client.agent_engines.create(
           agent_engine=adk_app,
           config={
@@ -276,7 +277,7 @@ When run locally, the ADK template uses `InMemoryMemoryService` as the default m
         return VertexAiMemoryBankService(
             project="PROJECT_ID",
             location="LOCATION",
-            agent_engine_id="AGENT_ENGINE_ID"
+            agent_engine_id="MEMORY_BANK_ID"
         )
     
     adk_app = AdkApp(
@@ -300,7 +301,7 @@ Replace the following:
 
   - PROJECT\_ID : Your project ID.
   - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-  - AGENT\_ENGINE\_ID : The Agent Runtime ID to use for Memory Bank. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
+  - MEMORY\_BANK\_ID : The Memory Bank instance ID to use for Memory Bank. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
 
 ### Cloud Run
 
@@ -335,13 +336,13 @@ The [ADK web interface](https://google.github.io/adk-docs/runtime/web-interface/
     export GOOGLE_CLOUD_PROJECT="PROJECT_ID"
     export GOOGLE_CLOUD_LOCATION="LOCATION"
     
-    adk web --memory_service_uri=agentengine://AGENT_ENGINE_ID
+    adk web --memory_service_uri=agentengine://MEMORY_BANK_ID
 
 Replace the following:
 
   - PROJECT\_ID : Your project ID.
   - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
-  - AGENT\_ENGINE\_ID : The Agent Runtime ID to use for Memory Bank. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
+  - MEMORY\_BANK\_ID : The Memory Bank instance ID. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
 
 ## Interact with your agent
 
@@ -463,18 +464,18 @@ The extracted memory will be available for the next session for the same app nam
 
 ## Use a multi-regional Memory Bank with a regional runtime
 
-By default, your agent and Memory Bank are deployed in the same region. However, you can decouple them to use a multi-regional Memory Bank (for example, `us` ) with a regional runtime (for example, `us-central1` ). This configuration lets you maintain a central Memory Bank across different regional deployments.
+When using Runtime with built-in Memory Bank, your agent and Memory Bank are deployed in the same region by default. However, you can decouple them to use a multi-regional Memory Bank (for example, `us` ) with a regional runtime (for example, `us-central1` ). This configuration lets you maintain a central Memory Bank across different regional deployments.
 
-To use a multi-regional Memory Bank, you must override the default ADK memory service builder to point to the multi-region location and the corresponding Runtime ID.
+To use a multi-regional Memory Bank, you must override the default ADK memory service builder to point to the multi-region location and the corresponding Memory Bank ID.
 
     import vertexai
     from google.adk.memory import VertexAiMemoryBankService
     from vertexai.agent_engines import AdkApp
     
-    # Create the Memory Bank store in a multi-region location (for example, 'us')
+    # Create the Memory Bank instance in a multi-region location (for example, 'us')
     client_mb = vertexai.Client(project="PROJECT_ID", location="us")
-    mb_engine = client_mb.agent_engines.create()
-    mb_engine_id = mb_engine.api_resource.name.split(\"/\")[-1]
+    memory_bank = client_mb.agent_engines.create()
+    memory_bank_id = memory_bank.api_resource.name.split(\"/\")[-1]
     
     
     # Point your memory service to the 'us' location, 'us' Memory Bank
@@ -482,7 +483,7 @@ To use a multi-regional Memory Bank, you must override the default ADK memory se
         return VertexAiMemoryBankService(
             project="PROJECT_ID",
             location="us",
-            agent_engine_id=mb_engine_id
+            agent_engine_id=memory_bank_id
         )
     
     # Create the AdkApp with the overridden builder

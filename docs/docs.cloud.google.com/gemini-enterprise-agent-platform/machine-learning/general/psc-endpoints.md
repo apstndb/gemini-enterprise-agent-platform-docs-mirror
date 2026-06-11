@@ -14,7 +14,7 @@ On the service producer's side of the private connection, there is a VPC network
 
 The following diagram shows a Vector Search architecture in which the Vector Search API is enabled and managed in a service project ( `serviceproject` ) as part of a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) deployment. The Vector Search Compute Engine resources are deployed as a Google-managed Infrastructure-as-a-Service (IaaS) in the service producer's VPC network.
 
-Private Service Connect endpoints are deployed in the service consumer's VPC network ( `hostproject` ) for index query, in addition to [Private Service Connect endpoints for Google APIs](https://docs.cloud.google.com/vertex-ai/docs/general/googleapi-access-methods#psc) for private index creation.
+Private Service Connect endpoints are deployed in the service consumer's VPC network ( `hostproject` ) for index query, in addition to [Private Service Connect endpoints for Google APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/googleapi-access-methods#psc) for private index creation.
 
 For more information, see [Private Service Connect endpoints](https://docs.cloud.google.com/vpc/docs/private-service-connect#endpoints) .
 

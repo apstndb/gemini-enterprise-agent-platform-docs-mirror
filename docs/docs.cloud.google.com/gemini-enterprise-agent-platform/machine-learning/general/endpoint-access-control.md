@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page discusses how to control access to a Gemini Enterprise Agent Platform endpoint by setting an IAM policy on it. It assumes that you're already familiar with IAM concepts such as policies, roles, permissions, and principals as described in [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) and [Concepts related to access management](https://docs.cloud.google.com/iam/docs/overview#concepts_related_to_access_management) .
 
-An IAM [policy](https://docs.cloud.google.com/iam/docs/policies#structure) includes one or more role bindings that define which IAM roles are associated with which principals. A role is a collection of permissions that you grant to a [principal](https://docs.cloud.google.com/iam/docs/overview#concepts_related_identity) . Gemini Enterprise Agent Platform provides [predefined roles](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#predefined-roles) that you can use in your policies. Or you can create your own custom roles.
+An IAM [policy](https://docs.cloud.google.com/iam/docs/policies#structure) includes one or more role bindings that define which IAM roles are associated with which principals. A role is a collection of permissions that you grant to a [principal](https://docs.cloud.google.com/iam/docs/overview#concepts_related_identity) . Gemini Enterprise Agent Platform provides [predefined roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) that you can use in your policies. Or you can create your own custom roles.
 
 ## Get an IAM policy
 
@@ -226,4 +226,4 @@ You should receive a JSON response similar to the following. The response includ
 
 ## What's next
 
-To learn more about how to set up projects with more secure access control of endpoints, see [Set up a project for a team](https://docs.cloud.google.com/vertex-ai/docs/general/set-up-project) .
+To learn more about how to set up projects with more secure access control of endpoints, see [Set up a project for a team](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/set-up-project) .

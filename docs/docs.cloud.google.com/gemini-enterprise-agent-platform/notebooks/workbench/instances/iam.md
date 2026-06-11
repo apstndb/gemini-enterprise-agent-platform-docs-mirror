@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) and an access mode to manage access to Vertex AI Workbench resources. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) .
+This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) and an access mode to manage access to Vertex AI Workbench resources. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
 Vertex AI Workbench uses IAM to manage access to instances and an access mode to manage access to each instance's JupyterLab interface.
 

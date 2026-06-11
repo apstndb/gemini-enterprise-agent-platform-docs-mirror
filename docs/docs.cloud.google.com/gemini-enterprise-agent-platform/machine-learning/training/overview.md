@@ -57,10 +57,10 @@ There are several challenges to operationalizing model training. These challenge
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/images/icons/security.svg" class="invert-hue" alt="Enterprise security" /></td>
 <td><p>Gemini Enterprise Agent Platform provides the following enterprise security features:</p>
 <ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering">VPC peering</a> to limit network access.</li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls">VPC Service Controls</a> to mitigate the risks of data exfiltration.</li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/general/cmek">Customer-managed encryption keys</a> to help you meet specific compliance or regulatory requirements related to data protection.</li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/general/access-control">Identity and Access Management</a> for fine-grained control over service account access.</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering">VPC peering</a> to limit network access.</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls">VPC Service Controls</a> to mitigate the risks of data exfiltration.</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek">Customer-managed encryption keys</a> to help you meet specific compliance or regulatory requirements related to data protection.</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control">Identity and Access Management</a> for fine-grained control over service account access.</li>
 <li>Data isolation with single-tenant project boundaries.</li>
 </ul></td>
 </tr>

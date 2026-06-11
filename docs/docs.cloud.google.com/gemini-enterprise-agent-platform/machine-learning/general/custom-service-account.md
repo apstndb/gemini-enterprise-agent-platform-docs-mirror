@@ -16,7 +16,7 @@ This guide describes how to configure Gemini Enterprise Agent Platform to use a 
 
 ## When to use a custom service account
 
-When Agent Platform runs, it generally acts with the permissions of one of several [service accounts](https://docs.cloud.google.com/iam/docs/service-accounts) that Google creates and manages for your Google Cloud project. To grant Agent Platform increased access to other Google Cloud services in certain contexts, you can [add specific roles to Agent Platform's service agents](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) .
+When Agent Platform runs, it generally acts with the permissions of one of several [service accounts](https://docs.cloud.google.com/iam/docs/service-accounts) that Google creates and manages for your Google Cloud project. To grant Agent Platform increased access to other Google Cloud services in certain contexts, you can [add specific roles to Agent Platform's service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#grant_service_agents_access_to_other_resources) .
 
 However, customizing the permissions of service agents might not provide the fine-grained access control that you want. Some common use cases include:
 
@@ -37,11 +37,11 @@ This section describes the default access available to custom training container
 
 When you create a `CustomJob` , `HyperparameterTuningJob` , or a custom `TrainingPipeline` , the [training container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-container-settings) runs using your Google Cloud project's Gemini Enterprise Agent Platform Custom Code Service Agent by default.
 
-Learn more about the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) , including how to give it access to additional Google Cloud resources.
+Learn more about the [Gemini Enterprise Agent Platform Custom Code Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) , including how to give it access to additional Google Cloud resources.
 
 ### Prediction containers
 
-When you deploy a custom-trained `Model` to an `Endpoint` , the prediction container runs using a service account managed by Agent Platform. This service account is different from the [Agent Platform service agents](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) .
+When you deploy a custom-trained `Model` to an `Endpoint` , the prediction container runs using a service account managed by Agent Platform. This service account is different from the [Agent Platform service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) .
 
 The service account that the prediction container uses by default has permission to [read model artifacts](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#artifacts) that Agent Platform makes available at a URI stored in the [`AIP_STORAGE_URI` environment variable](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#aip-variables) . Do not rely on the service account to have any other permissions. You can't customize the permissions of the service account.
 
@@ -203,5 +203,5 @@ Custom service accounts in Gemini Enterprise Agent Platform have the following l
 
 ## What's next
 
-  - Learn more about [Access control](https://docs.cloud.google.com/vertex-ai/docs/general/access-control) for Agent Platform.
-  - Learn about specific [IAM permissions](https://docs.cloud.google.com/vertex-ai/docs/general/iam-permissions) and the operations they support.
+  - Learn more about [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) for Agent Platform.
+  - Learn about specific [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) and the operations they support.

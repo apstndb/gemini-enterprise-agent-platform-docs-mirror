@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page shows you how to evaluate your AutoML image object detection models so that you can iterate on your model.
 
-Gemini Enterprise Agent Platform provides model evaluation metrics to help you determine the performance of your models, such as precision and recall metrics. Agent Platform calculates evaluation metrics by using the [test set](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+Gemini Enterprise Agent Platform provides model evaluation metrics to help you determine the performance of your models, such as precision and recall metrics. Agent Platform calculates evaluation metrics by using the [test set](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
 
 ## How you use model evaluation metrics
 
@@ -27,7 +27,7 @@ You can view and download schema files from the following Cloud Storage location
 
   - **IoU threshold** : An [intersection over union](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/) threshold value that determines which inferences to return. A model returns inferences that are at this value or higher. The higher the threshold, the closer the predicted bounding box values must be to the actual bounding box values.
   - **Mean average precision** : also known as the [average precision](https://developers.google.com/machine-learning/glossary#average-precision) . This value ranges from zero to one, where a higher value indicates a higher-quality model.
-  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Agent Platform returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
+  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Vertex AI returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
   - **Recall** : The fraction of inferences with this class that the model correctly predicted. Also called *true positive rate* .
   - **Precision** : The fraction of classification inferences produced by the model that were correct.
   - **F1 score** : The harmonic mean of precision and recall. F1 is a useful metric if you're looking for a balance between precision and recall and there's an uneven class distribution.
@@ -61,7 +61,7 @@ The aggregate model evaluation metrics provide information about the model as a 
 
 To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations) method.
 
-For the bounding box metric, Agent Platform returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
+For the bounding box metric, Vertex AI returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
 
 Select a tab that corresponds to your language or environment:
 
@@ -345,7 +345,7 @@ The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.goo
 
 You can use model evaluation slices to determine how the model performed on a specific label. The `value` field tells you which label the metrics are for.
 
-For the bounding box metric, Agent Platform returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
+For the bounding box metric, Vertex AI returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
 
 ### REST
 
@@ -897,6 +897,6 @@ The following suggestions can help you improve models that label items, such as 
   - Consider removing classes or labels that don't have a lot of examples. Insufficient examples prevent the model from consistently and confidently making predictions about those classes or labels.
   - Machines can't interpret the name of your classes or labels and don't understand the nuances between them, such as "door" and "door\_with\_knob." You must provide data to help machines recognize such nuances.
   - Augment your data with more examples of true positives and true negatives, especially examples that are close to a decision boundary to mitigate model confusion.
-  - Specify your own data split (training, validation, and test). Agent Platform randomly assigns items to each set. Therefore, near-duplicates can be allocated in the training and validation sets, which could lead to overfitting and then poor performance on the test set. For more information about setting your own data split, see [About data splits for AutoML models](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+  - Specify your own data split (training, validation, and test). Agent Platform randomly assigns items to each set. Therefore, near-duplicates can be allocated in the training and validation sets, which could lead to overfitting and then poor performance on the test set. For more information about setting your own data split, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
   - If your model's evaluation metrics include a confusion matrix, you can see if the model is confusing two labels, where the model is predicting a particular label significantly more than the true label. Review your data and make sure the examples are correctly labeled.
   - If you had a short training time (low maximum number of node hours), you might get a higher-quality model by allowing it to train for a longer period of time (higher maximum number of node hours).

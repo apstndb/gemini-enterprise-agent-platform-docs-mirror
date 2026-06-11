@@ -720,9 +720,13 @@ Tool to retrieve public maps data for grounding, powered by Google.
 
 Fields
 
-`enableWidget` `boolean`
+` enableWidget (deprecated)  ` `boolean`
 
-Optional. If true, include the widget context token in the response.
+> This item is deprecated\!
+
+Optional. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed.
+
+If true, include the widget context token in the response.
 
 <table>
 <colgroup>

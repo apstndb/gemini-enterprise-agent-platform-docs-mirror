@@ -21,7 +21,7 @@ With Agent Platform Neural Architecture Search, you can search for optimal neura
   - Agent Platform Neural Architecture Search is meant for enterprise customers who can spend several thousand dollars on an experiment.
   - Agent Platform Neural Architecture Search isn't limited to vision only use case. Currently, only vision-based prebuilt search spaces and prebuilt trainers are provided, but customers can bring their own non-vision search spaces and trainers as well.
   - Agent Platform Neural Architecture Search doesn't use a [supernet](https://openaccess.thecvf.com/content_CVPR_2020/papers/Bender_Can_Weight_Sharing_Outperform_Random_Architecture_Search_An_Investigation_With_CVPR_2020_paper.pdf) (oneshot-NAS or weight-sharing based NAS) approach where you just bring your own data, and use it as a solution. It is non-trivial (months of effort) to customize a supernet. Unlike a supernet, Agent Platform Neural Architecture Search is highly customizable to define custom search spaces and rewards. The customization can be done in approximately one to two days.
-  - Agent Platform Neural Architecture Search is supported in 8 regions across the world. Check the [availability in your region.](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability)
+  - Agent Platform Neural Architecture Search is supported in 8 regions across the world. Check the [availability in your region.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability)
 
 You should also read the following section on expected cost, result gains, and GPU quota requirements before using Agent Platform Neural Architecture Search.
 

@@ -54,7 +54,7 @@ Some conda packages add default kernels to your environment when the packages ar
 
 ## Troubleshoot
 
-To diagnose and resolve issues related to managing a conda environment in your Agent Platform Workbench instance, see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/vertex-ai/docs/general/troubleshooting-workbench#instances) .
+To diagnose and resolve issues related to managing a conda environment in your Agent Platform Workbench instance, see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#instances) .
 
 ## What's next
 

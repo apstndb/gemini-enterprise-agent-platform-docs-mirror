@@ -1137,7 +1137,7 @@ You can delete the individual resources in the Google Cloud console as follows:
 
 ## What's next
 
-  - Learn about [enterprise networking options for accessing Gemini Enterprise Agent Platform endpoints and services](https://docs.cloud.google.com/vertex-ai/docs/general/netsec-overview)
+  - Learn about [enterprise networking options for accessing Gemini Enterprise Agent Platform endpoints and services](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/netsec-overview)
   - Learn [how Private Service Connect works](https://docs.cloud.google.com/vpc/docs/private-service-connect-architecture) and why it offers significant performance benefits.
-  - Learn how to [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on your online inference endpoint.
+  - Learn how to [use VPC Service Controls to create secure perimeters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls) to allow or deny access to Gemini Enterprise Agent Platform and other Google APIs on your online inference endpoint.
   - Learn how and why to [use a DNS forwarding zone](https://docs.cloud.google.com/dns/docs/zones/zones-overview#forwarding_zones) instead of updating the `/etc/hosts` file in large scale and [production environments](https://codelabs.developers.google.com/codelabs/vertex-psc-googleapis#17) .

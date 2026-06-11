@@ -43,7 +43,7 @@ Uninstall the OpenAI library and install the Google Gen AI SDK.
 
 ### 2\. Authentication & Initialization
 
-While OpenAI uses an API Key, Agent Platform uses [Identity and Access Management (IAM) credentials (Application Default Credentials)](https://docs.cloud.google.com/authentication/application-default-credentials) . You must explicitly define your Project ID and Location.
+While OpenAI uses an API Key, Agent Platform uses [Identity and Access Management (IAM) credentials (Application Default Credentials)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . You must explicitly define your Project ID and Location.
 
 <table>
 <colgroup>
