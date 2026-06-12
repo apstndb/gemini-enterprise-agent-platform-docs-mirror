@@ -137,7 +137,7 @@ Try to select as many feature columns as possible for training, but review each 
 
 #### How Agent Platform uses your dataset
 
-Your dataset will be split into training, validation and testing sets. The default split Agent Platform applies depends on the type of model that you are training. You can also specify the splits (manual splits) if necessary. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#default) . ![training validation test sets](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/training-validation-test-sets.png)
+Your dataset will be split into training, validation and testing sets. The default split Agent Platform applies depends on the type of model that you are training. You can also specify the splits (manual splits) if necessary. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#default) . ![training validation test sets](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/training-validation-test-sets.png)
 
 ##### Training Set
 

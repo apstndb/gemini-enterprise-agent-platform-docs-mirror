@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/using-etags-for-concurrency-control
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/using-etags-for-concurrency-control
 title: Use ETags for Data Object Concurrency Control
-description: Learn how to use ETags for concurrency control of Data Objects in Vector Search 2.0.
+description: Learn how to use ETags for concurrency control of Data Objects in Agent Retrieval (formerly Vector Search 2.0).
 data_source: docs.cloud.google.com
 ---
 
-Vector Search 2.0 supports **Optimistic Concurrency Control (OCC)** using ETags (entity tags), which are opaque identifiers representing specific [Data Object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects) versions.
+Agent Retrieval (formerly Vector Search 2.0) supports **Optimistic Concurrency Control (OCC)** using ETags (entity tags), which are opaque identifiers representing specific [Data Object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects) versions.
 
 When multiple processes operate concurrently on the same dataset, such as real-time API updates and bulk import jobs there is a risk of them overwriting each other's changes (a *last-write-wins* scenario). ETags let you guarantee data integrity and ensure that another process hasn't modified a record since you last read it.
 
@@ -16,14 +16,14 @@ When multiple processes operate concurrently on the same dataset, such as real-t
 
 2.  **Modify** : You make your changes to the Data Object locally.
 
-3.  **Write** : You send the [update](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#updating_a_data_object) or [delete](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#delete_data_objects) request back to Vector Search 2.0, including the ETag you originally received.
+3.  **Write** : You send the [update](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#updating_a_data_object) or [delete](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#delete_data_objects) request back to Agent Retrieval, including the ETag you originally received.
 
 4.  **Verify** : The server checks if the provided ETag matches the current ETag stored in the database.
     
       - If they **match** , the operation succeeds and the server returns a new ETag for the updated Data Object.
       - If they **do not match** , the operation is blocked and the server returns the `ABORTED` error (HTTP **409 Conflict** ).
 
-> **Note:** If your request omits the ETag, Vector Search 2.0 overwrites the existing data without checking for conflicts.
+> **Note:** If your request omits the ETag, Agent Retrieval overwrites the existing data without checking for conflicts.
 
 ## Retrieving ETags
 
@@ -39,7 +39,7 @@ ETags can be retrieved the following ways:
     
     > **Note:** Any errors encountered during the import job are written to files at the URI prefix specified in the required field `error_uri` .
 
-  - **Export API ( `ExportDataObjects` )** - When you export data from Vector Search 2.0 to Cloud Storage, the resulting canonical JSONL data files contain the ETags for all exported Data Objects.
+  - **Export API ( `ExportDataObjects` )** - When you export data from Agent Retrieval to Cloud Storage, the resulting canonical JSONL data files contain the ETags for all exported Data Objects.
 
 ## Creating Data Objects
 
@@ -84,7 +84,7 @@ Include the ETag at the root level of the JSON object in your import file as sho
 
     { "id": "movie-789", "etag": "a3b8c1d9-e4f2-4a1b-9c8d-0e6f7a8b9c0d", "data":{ "genre": ["science-fiction", "thriller"] }, "vectors": { ... } }
 
-> **Important:** ETags are only supported when using the **canonical Vector Search 2.0 JSONL format** . The legacy Vector Search 1.0 input format does not support the `etag` field.
+> **Important:** ETags are only supported when using the **canonical Agent Retrieval JSONL format** . The legacy Vector Search 1.0 input format does not support the `etag` field.
 
 ## Handling Concurrency Errors
 

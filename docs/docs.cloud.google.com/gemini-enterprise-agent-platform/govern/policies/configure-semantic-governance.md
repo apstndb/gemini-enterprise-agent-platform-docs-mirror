@@ -6,39 +6,44 @@ description: Configure and manage Semantic Governance Policies (SGP) for AI agen
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
+> **Private Preview**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) and the [Generative AI Service Specific Terms](https://cloud.google.com/terms/service-terms#20) , as well as the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos?e=48754805) .
 > 
-> This feature applies to AI Agents, so the "Agentic AI Services" Service Specific Terms apply.
+> When you use this feature with AI Agents, the terms applicable to AI Agents in the Agreement apply.
 > 
 > Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage](https://cloud.google.com/products/#product-launch-stages)
-> 
-> For information about access to this release, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
 
 ## Overview
 
-Semantic Governance Policy (SGP) is a protection service for Gemini Enterprise Agent Platform. It provides a smart security and compliance layer to ensure that an AI agent's tool calls align with user intent and organizational business rules.
+**Semantic Governance Policy (SGP)** refers to the natural language behavioral constraints (policies) that you configure to secure AI agents and their tool calls. These policies are evaluated by the **Semantic Governance Policy engine** (or **SGP engine** )—the dedicated, managed infrastructure that acts as the runtime evaluation point for your policies. Together, SGP policies and the SGP engine provide an intelligent security and compliance layer designed to ensure that an AI agent's tool calls align with user intent and organizational business rules.
+
+### SGP policy and SGP engine terminology
+
+SGP consists of two components:
+
+  - **SGP policy:** The individual, natural language rules (constraints) that you write to govern tool calls. You configure these policies at the agent or tool scope.
+  - **SGP engine:** The underlying, managed infrastructure that you provision and enable within your VPC network. The engine hosts the runtime environment that processes and enforces your SGP policies.
 
 ### At a glance
 
-| Benefit                   | Description                                                                 |
-| :------------------------ | :-------------------------------------------------------------------------- |
-| **User intent alignment** | Verifies that an agent's proposed tool calls match the original request.    |
-| **Security & safety**     | Prevents "rogue actions," context poisoning, and data exfiltration.         |
-| **Business compliance**   | Ensures that agent actions comply with organizational business constraints. |
-| **High velocity**         | Author business rules in plain English without redeploying code.            |
-| **Setup effort**          | Approximately 20 minutes for networking and runtime enablement.             |
+| Benefit                   | Description                                                                            |
+| :------------------------ | :------------------------------------------------------------------------------------- |
+| **User intent alignment** | Verifies that an agent's proposed tool calls match the original request.               |
+| **Security & safety**     | Prevents "rogue actions" and protects against context poisoning and data exfiltration. |
+| **Business compliance**   | Ensures that agent actions comply with organizational business constraints.            |
+| **High velocity**         | Author business rules in plain English without redeploying code.                       |
+| **Setup effort**          | Approximately 20 minutes for networking and SGP engine enablement.                     |
 
 SGP functions as a security check that runs before a tool is called. It assesses whether it is safest to allow the action, prompt for confirmation, or deny the action entirely.
 
-Whereas security mechanisms like Identity and Access Management (IAM) are static, SGP handles the unpredictable behavior of Large Language Models (LLMs). Because LLMs are probabilistic, they require specialized safeguards when acting as participants in agent interactions. SGP allows administrators to define security and business rules using **Natural Language Constraints (NLC)** .
+Whereas security mechanisms like Identity and Access Management (IAM) are static, SGP is designed to govern the intersection of unstructured human requests and the probabilistic execution of Large Language Models (LLMs). Since these interactions are inherently dynamic, specialized safeguards are needed for agent interactions. SGP allows administrators to define security and business rules using **Natural Language Constraints (NLC)** —declarative, plain-text rules that describe allowed or prohibited agent behaviors.
 
 ## Background: the agent conversation
 
 In an agent interaction, an agent sends context (including a user prompt) to an LLM, along with a set of available tools. In response, the LLM might direct the agent to invoke one or more tools to accomplish a task or gather information. This is known as [function calling or tool calling](https://ai.google.dev/gemini-api/docs/function-calling) .
 
-The agent invokes the tools and sends the response back to the LLM. This cycle repeats until the LLM decides the request is fulfilled.
+The agent invokes the tools and sends the response back to the LLM. This cycle repeats until the LLM decides it has enough information to fulfill the request.
 
 ### Risks in agent interactions
 
@@ -77,6 +82,7 @@ Semantic governance policies (SGP) help you enforce security and compliance for 
   - **Preventing unauthorized actions:** Blocking unauthorized tool use or parameter values (also called *rogue actions* ) that could lead to financial loss, such as enforcing strict dollar thresholds on autonomous agents.
   - **Managing mutating actions:** Protecting agents that perform updates to a database, issue refunds, or book travel where tool misuse has real-world consequences.
   - **Enforcing dynamic business rules:** Handling policies that change frequently without redeploying agent code.
+  - **Governing the Agent Skills lifecycle:** Controlling which skill packages (composed of sets of tools, prompts, or resources) an agent can dynamically load, helping to mitigate supply-chain code exploits and tainted contexts. For more details, see [SGP and Agent Skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#sgp-agent-skills) .
 
 ## How it works
 
@@ -84,12 +90,12 @@ SGP operates as an intelligent runtime gate that evaluates an agent's proposed a
 
 ### The enforcement flow
 
-SGP relies on the **Agent Gateway** , which acts as a runtime enforcement point, intercepting communication between the agent and its model, and also between the agent and any tools it invokes.
+Verification and enforcement rely on the **Agent Gateway** , which acts as a runtime enforcement point, intercepting communication between the agent and its model, and also between the agent and any tools it invokes.
 
 1.  **Identification:** Requests from the agent to the model and from the agent to any remote tools carry agent authentication information, an Identity token within the Authorization header.
-2.  **Interception:** When the model sends back a suggested function or tool call, the Agent Gateway intercepts that response. It uses the Agent identity to retrieve the NLCs, and sends the tool suggestion, along with the NLCs and the chat history, to the **Semantic Governance Policy engine** . This acts as the policy decision point.
-3.  **Evaluation:** The policy engine evaluates the suggested tool call against user intent and any applicable constraints, and renders its verdict.
-4.  **Enforcement:** The Agent gateway enforces the verdict by optionally manipulating the response before returning it to the calling agent.
+2.  **Interception:** When the model sends back a suggested function or tool call, the Agent Gateway intercepts that response. It uses the Agent identity to retrieve the NLCs (policies), and sends the tool suggestion, NLCs, and chat history, to the **SGP engine** . The SGP engine serves as the policy decision point (PDP).
+3.  **Evaluation:** The SGP engine evaluates the suggested tool call against user intent and any applicable constraints, and renders its verdict.
+4.  **Enforcement:** The Agent gateway enforces the verdict, optionally manipulating the response before returning it to the calling agent.
 
 ### Determining a verdict
 
@@ -103,22 +109,33 @@ At runtime, the system considers the following inputs to reach a verdict:
 | **Chat History**               | Turn-by-turn context from current and past conversation turns.       |
 | **Suggested Tool Invocations** | The actions proposed by the LLM that require evaluation.             |
 
-### Scope governance constraints
-
-Governance can be applied at two levels:
-
-  - **Agent scope:** Constraints apply to all actions taken by a specific agent. For example, *"The agent mustn't perform update transactions outside of business hours (10 AM to 8 PM Pacific Time)."*
-  - **Tool scope:** Constraints apply to exactly one tool within an agent. For example, for a `refund_request` tool: *"Limit refund amounts to $500 or less."*
-
 ### Natural language constraints (NLC)
 
-Natural language constraints (NLC) are the core "Rules of Engagement" for AI agents. Unlike static content filters, NLCs allow administrators to specify rules in plain English. This approach decouples security from code and allows non-technical teams to define complex constraints.
+A **Natural Language Constraint (NLC)** is a security or business rule written in conversational, plain English rather than a traditional programming or policy definition language. NLCs serve as the core "Rules of Engagement" for AI agents.
 
-For every evaluation, the system returns a verdict and a human-readable **rationale** :
+Unlike traditional static rules or content filters, NLCs are evaluated semantically by a Large Language Model (LLM) at runtime. This approach decouples security from code, allowing administrators and compliance teams to define complex constraints without needing to redeploy applications or write code.
+
+For every evaluation, the system returns a verdict:
 
   - **`ALLOW`** : The action proceeds.
-  - **`DENY`** : The action is blocked, and the user is presented with the rationale.
-  - **`ALLOW_IF_CONFIRMED`** : The action pauses for human confirmation.
+
+  - **`DENY`** : The action is blocked. The policy engine also returns a structured denial response containing a human-readable rationale for denial to the calling agent, so the agent can explain the block to the user.
+    
+    > **Note:** The denial response may include citations of constraints or parameters within your business policies. For example, a denial rationale may read, "The requested refund amount exceeds the limit of $100 for refunds that can be granted."
+    
+    > \[\!IMPORTANT\] **Information exposure risk:** Because SGP policies are classified as Customer Security Configuration (CSC), the SGP engine may expose parts of your natural language constraints to end users in the denial rationale. Avoid including sensitive, private, or internal-only information (such as internal security thresholds or proprietary paths) in your constraints.
+    > 
+    > **Workaround:** If you want to prevent raw SGP rationales from being shown to end users, you can write logic in your agent application code to intercept the SGP denial response and replace or redact the rationale before presenting it to the user.
+
+### Applying Constraints
+
+When you configure a constraint you can choose:
+
+  - **All tools for the agent:** Apply the constraint to all tools available to an agent. For example: *"Tool calls associated to order processing and management are permitted only for accounts entitled at the Silver or Gold level."*
+
+  - **A single selected tool:** Apply the constraint to a specific tool available to an agent. The SGP engine only evaluates the constraint when the agent proposes calling that targeted tool, ignoring it for any other tool calls. For example, if you target a `new_shipping_request` tool, the constraint could be: *"Allow shipping requests only for addresses that have been previously validated."*
+    
+    If you want a constraint to apply to a specific parameter that a tool accepts, reference the parameter's name within the constraint statement. For example, if applied to the `request_refund` tool, the constraint could specify the `amount` parameter: *"Accept refund requests only where the amount is $80 or less."*
 
 ## Illustrations of semantic governance
 
@@ -151,14 +168,65 @@ The following examples demonstrate how SGP enforces business rules and ensures p
 | **Constraint** | **"Disallow refund requests for amounts over $500. Disallow refund requests for purchases made more than 30 days ago."** |
 | **Logic**      | SGP validates both the order date and the refund amount collected by the agent before reaching a verdict.                |
 
+## SGP and Agent Skills
+
+An agent can access numerous tools via Model Context Protocol (MCP) servers, enterprise APIs, or custom scripts. Exposing an agent to a very large number of tool descriptions at once can lead to context bloat, which increases token costs, latency, and can degrade the LLM's reasoning performance.
+
+To optimize performance, you can use **[Agent Skills](https://agentskills.io/)** (a standard for packaging tools and procedure descriptions) to implement progressive disclosure of tools. Instead of placing the entire tool catalog in the context, the agent is exposed to a small set of skills initially. The LLM directs the agent to load specific skill packages dynamically when they become relevant.
+
+### Governing the skill lifecycle
+
+Because loading and managing skills uses tool calls, SGP can govern the entire skill lifecycle. If your agent is built using the Google Agent Development Kit (ADK), it employs the following core tools to manage skills:
+
+| ADK Skill Tool        | Description                                                                             |
+| :-------------------- | :-------------------------------------------------------------------------------------- |
+| `list_skills`         | Displays all available skill packages to the model.                                     |
+| `load_skill`          | Imports a specific skill and its associated tools into the current context dynamically. |
+| `load_skill_resource` | Retrieves necessary data or assets for a skill's operation.                             |
+| `run_skill_script`    | Executes the underlying logic defined within the skill.                                 |
+
+SGP intercepts these skill-management tool calls and evaluates them against your Natural Language Constraints (NLC). This allows you to apply constraints to control which skills are loaded under specific conditions.
+
+### Examples: Skill and tool lifecycle policies
+
+The following examples show how SGP can defend against security risks in the skill lifecycle, such as instruction injection or supply-chain compromise.
+
+#### Prevent loading tools in tainted sessions
+
+**Scenario:** An agent is authorized to load and run skills. An administrator wants to prevent the agent from loading tools that perform outbound actions (actions that send a command or information to an external endpoint, for example, sending an email or writing to an external database) if the chat history contains untrusted context (like email bodies or scraped web content) that could contain injected instructions.
+
+  - **Constraint:** *"Do not load any skill that can send messages or write to external systems if the current chat history contains content fetched from inbound email, web pages, or uploaded documents."*
+  - **Logic:** When the LLM proposes calling `load_skill(skill_name='send_email')` , SGP inspects the chat history. If an earlier turn fetched untrusted data (for example, email content), SGP denies the `load_skill` call. As a result, the outbound tools packaged in that skill never become available to the agent during that session.
+
+#### Limit dependency installations (supply chain)
+
+**Scenario:** A development agent uses a skill to install packages. An attacker with access to the skill repository modifies the instructions to always install a malicious package along with the requested dependencies.
+
+  - **Constraint:** *"Only allow the npm\_install tool to run for packages on the approved list: react, express, lodash, or axios."*
+  - **Logic:** When the LLM proposes a tool call like `npm_install(packages=['lodash', 'malicious-agent-helper'])` , SGP inspects the arguments. Because `malicious-agent-helper` is not on the allowlist, SGP issues a `DENY` verdict, blocking the action before execution.
+
 ## Best practices for effective governance
 
 Effective governance relies on accurate, clear, and complete descriptions of tools and their parameters. Agentic systems, including agents themselves and governance layers like SGP, require more detail than a human would to understand the applicability of available tools.
 
 ### Optimize tool descriptions
 
-  - **Insufficient Description:** "Search for items."
-  - **Effective Description:** "Search the content catalog by keyword, cast member, genre, or format. Use this when the user wants to see which movies or TV programs are available. Returns top 10 items sorted by relevance."
+Use clear descriptions of MCP tools, and clear descriptions of parameters required by those tools.
+
+  - **Insufficient Tool Description:** "Search for items."
+  - **Effective Tool Description:** "Search the content catalog by keyword, cast member, genre, or format. Use this when the user wants to see which movies or TV programs are available. Returns top 10 items sorted by relevance."
+
+### Be mindful of limits for descriptions
+
+The Semantic Governance system enforces these length limits for descriptions:
+
+| Description Item | Applies to                                                                           | Length limit    |
+| :--------------- | :----------------------------------------------------------------------------------- | :-------------- |
+| **Tool**         | The MCP Server, or other tool-exposing entity                                        | 1000 characters |
+| **Action**       | An individual tool within the MCP server, or a function call available to your agent | 750 characters  |
+| **Parameter**    | A parameter used within a tool or function call                                      | 300 characters  |
+
+If the Semantic Governance runtime receives a description that exceeds any of these limits, it truncates the description to the stated limit, and logs a message.
 
 ### Examples of effective constraints
 
@@ -206,7 +274,7 @@ When authoring constraints, follow these guidelines:
 
 -----
 
-## Configure SGP
+## Configure SGP policies and the SGP engine
 
 This section covers the transition from infrastructure readiness to policy authoring.
 
@@ -308,7 +376,7 @@ Create a private DNS zone to allow Agent Gateway to resolve the policy engine's 
         --networks=NETWORK_NAME \
         --project=PROJECT_ID
 
-Replace the following:
+    Replace the following:
 
   - `  DNS_ZONE_NAME  ` : the name for your DNS zone (for example, `my-private-zone` ).
   - `  internal.example.com.  ` : the DNS name for your zone, including the trailing dot.
@@ -323,7 +391,7 @@ Create a network attachment to allow Agent Gateway to connect to resources in yo
         --connection-preference=ACCEPT_AUTOMATIC \
         --project=PROJECT_ID
 
-Replace the following:
+    Replace the following:
 
   - `  NETWORK_ATTACHMENT_NAME  ` : the name for your network attachment (for example, `sgp-nw-attachment` ).
   - `  SUBNET_NAME  ` : the subnet you created in step 1.
@@ -381,7 +449,7 @@ For detailed instructions, see [Configure VPC connectivity](https://docs.cloud.g
 
 ### Connect the SGP engine to Agent Gateway
 
-After the network is configured, you must create an authorization extension and an authorization policy so that Agent Gateway can forward traffic to the policy engine for evaluation.
+After the network is configured, you must create an authorization extension and an authorization policy so that Agent Gateway can forward traffic to the SGP engine for evaluation.
 
 1.  **Create the authorization extension** : Create an authorization extension that points to the policy engine's DNS hostname. Use the same `  SGP_DNS_HOSTNAME  ` that you created a DNS record for in [Configuring the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) (step 4). This is the mechanism by which Agent Gateway sends traffic to the SGP engine for evaluation.
     
@@ -419,7 +487,7 @@ After the network is configured, you must create an authorization extension and 
                 "to": {
                   "operations": [{"paths": [{"prefix": "/"}]}]
                 },
-                "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"')"
+                 "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"')"
               }],
               "action": "CUSTOM",
               "policyProfile": "CONTENT_AUTHZ",
@@ -436,8 +504,12 @@ After the network is configured, you must create an authorization extension and 
 
 Once the SGP engine is active, you can define the technical and behavioral guardrails for your agents.
 
+> **Best practice:** SGP uses LLMs as judges, which can make mistakes. We recommend enabling **dry run mode** first. This allows you to observe the policy engine's verdicts in [Log Explorer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/monitoring) and ensure that your natural language constraints behave as expected without blocking real actions. For instructions, see [Enabling dry run mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#enabling-dry-run-mode) .
+
 1.  **Define the scope** : Determine if the policy applies to all actions taken by an agent or targets a specific tool.
 2.  **Author the constraints** : Provide your business rules in plain English.
+
+> Policies are treated as Customer Security Configuration (CSC). Because the policy engine may cite constraints or parameters in the rationale shown to the end user, do not include sensitive, private, or internal-only information in your constraints.
 
 > **Note:** Before creating your first policy, ensure you've completed the network configuration described in [Configure SGP](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configure-sgp) . Otherwise, you can't apply policies to your agent gateway traffic.
 
@@ -537,11 +609,13 @@ After SGP is running, you can delete individual policies or disconnect the engin
 
 To remove an individual policy without affecting the overall SGP integration:
 
+    ```bash
     gcloud beta ai semantic-governance-policies delete POLICY_ID \
         --location=LOCATION \
         --project=PROJECT_ID
-
-Alternatively, use the following `curl` command:
+    ```
+    
+    Alternatively, use the following `curl` command:
 
     curl -X DELETE \
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicies/POLICY_ID" \
@@ -551,8 +625,6 @@ Alternatively, use the following `curl` command:
 #### Disconnect SGP from Agent Gateway
 
 You can disconnect the SGP engine from your Agent Gateway to stop tool calls from being evaluated against your constraints.
-
-> **Note:** In this preview, there's no mechanism to deprovision the SGP engine once it's been enabled. However, you can stop using it by removing the associated authorization components from your agent gateway.
 
 Delete the authorization policy that binds SGP enforcement to your Agent Gateway:
 
@@ -564,11 +636,67 @@ To reconnect SGP later, recreate the authorization policy as described in [Conne
 
 #### (Optional) Delete the authorization extension
 
-If you no longer plan to use the SGP integration, you can also delete the authorization extension created during setup.
+Delete the authorization extension created during setup.
 
     gcloud network-services authz-extensions delete AUTHZ_EXTENSION_NAME \
         --location=LOCATION \
         --project=PROJECT_ID
+
+#### (Optional) Clean up customer-managed resources
+
+Deprovisioning the engine only tears down the Google-managed backing resources. You must manually delete the resources you created in your own project during setup if they are no longer needed.
+
+##### Remove the private DNS zone
+
+    gcloud dns managed-zones delete DNS_ZONE_NAME \
+        --project=PROJECT_ID
+
+##### Remove the subnet and VPC
+
+    gcloud compute networks subnets delete SUBNET_NAME \
+        --region=LOCATION \
+        --project=PROJECT_ID
+    
+    gcloud compute networks delete NETWORK_NAME \
+        --project=PROJECT_ID
+
+##### (Optional) Remove the IAM bindings
+
+If you granted permissions to the Vertex AI service account (P4SA), you can remove them:
+
+    export PROJECT_NUM=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
+    
+    gcloud projects remove-iam-policy-binding PROJECT_ID \
+        --member="serviceAccount:service-${PROJECT_NUM}@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+        --role="roles/compute.networkAdmin"
+    
+    gcloud projects remove-iam-policy-binding PROJECT_ID \
+        --member="serviceAccount:service-${PROJECT_NUM}@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+        --role="roles/dns.admin"
+
+##### (Optional) Disable the AI Platform service
+
+    gcloud services disable aiplatform.googleapis.com --project=PROJECT_ID
+
+## Error catalog
+
+The following table lists errors that you might encounter when managing Semantic Governance Policies, along with steps to resolve them:
+
+| Error name                                                 | Description                                                                  | Suggested action                                                                                                                                                                                                         |
+| :--------------------------------------------------------- | :--------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SEMANTIC_GOVERNANCE_POLICY_ALREADY_EXISTS`                | The policy ID you specified already exists in this project and location.     | Use a unique policy ID, or use a `PATCH` request to update the existing policy.                                                                                                                                          |
+| `SEMANTIC_GOVERNANCE_POLICY_ETAG_MISMATCH`                 | The etag in your request does not match the current version of the resource. | Retrieve the latest version of the policy to get the current etag before attempting your update.                                                                                                                         |
+| `SEMANTIC_GOVERNANCE_POLICY_AGENT_REQUIRED`                | The `agent` field is missing from the request.                               | Specify the resource name of the agent this policy applies to.                                                                                                                                                           |
+| `SEMANTIC_GOVERNANCE_POLICY_CONSTRAINT_REQUIRED`           | The `natural_language_constraint` field is missing.                          | Provide your business rules in plain English in the constraint field.                                                                                                                                                    |
+| `SEMANTIC_GOVERNANCE_POLICY_AGENT_INVALID_NAME`            | The agent resource name is malformed.                                        | Verify the format: `projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID` .                                                                                                                                            |
+| `SEMANTIC_GOVERNANCE_POLICY_AGENT_UNSUPPORTED_REGION`      | The region specified for the agent is not supported by Agent Registry.       | Use a supported region for your agent.                                                                                                                                                                                   |
+| `SEMANTIC_GOVERNANCE_POLICY_AGENT_NOT_FOUND`               | The specified agent could not be found.                                      | Verify that the agent exists in the Agent Registry for the specified project and location.                                                                                                                               |
+| `SEMANTIC_GOVERNANCE_POLICY_AGENT_NOT_CONFIGURED`          | The agent lacks a valid `RuntimeIdentity` .                                  | Configure your agent with a valid runtime identity before applying a policy.                                                                                                                                             |
+| `SEMANTIC_GOVERNANCE_POLICY_MCP_SERVER_NOT_FOUND`          | The specified MCP server could not be found.                                 | Verify that the MCP server is registered in the Agent Registry for the project.                                                                                                                                          |
+| `SEMANTIC_GOVERNANCE_POLICY_MCP_SERVER_INVALID_NAME`       | The MCP server resource name is malformed.                                   | Verify the format: `projects/PROJECT_ID/locations/LOCATION/mcpServers/SERVER_ID` .                                                                                                                                       |
+| `SEMANTIC_GOVERNANCE_POLICY_MCP_SERVER_UNSUPPORTED_REGION` | The region specified for the MCP server is not supported.                    | Use a supported region for your MCP server.                                                                                                                                                                              |
+| `SEMANTIC_GOVERNANCE_POLICY_REGISTRY_DENIED`               | The system cannot query the Agent Registry due to missing permissions.       | Enable the Agent Registry API and ensure your account has the `agentregistry.viewer` role.                                                                                                                               |
+| `SEMANTIC_GOVERNANCE_POLICY_ENGINE_NOT_ENABLED_IN_REGION`  | The SGP engine is not active in the requested region.                        | Follow the steps in [Configuring the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) to enable the engine in your region. |
 
 ## What's next
 

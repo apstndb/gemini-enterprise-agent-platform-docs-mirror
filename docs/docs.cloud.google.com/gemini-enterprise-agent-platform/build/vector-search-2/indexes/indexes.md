@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/indexes/indexes
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/indexes/indexes
 title: Collection Indexes
-description: Learn about Collection Indexes in Vector Search 2.0.
+description: Learn about Collection Indexes in Agent Retrieval (formerly Vector Search 2.0).
 data_source: docs.cloud.google.com
 ---
 

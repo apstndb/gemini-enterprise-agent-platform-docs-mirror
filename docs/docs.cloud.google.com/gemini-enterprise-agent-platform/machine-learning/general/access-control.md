@@ -62,6 +62,10 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p>Grants full access to all resources in Agent Platform.</p></td>
 <td><p><code dir="ltr" translate="no">aiplatform.*</code></p>
 <ul>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></li>
@@ -72,6 +76,9 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  delete</code></li>
 <li><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></li>
@@ -357,6 +364,10 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.delete</code></li>
@@ -519,7 +530,14 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <td><h4 id="aiplatform.editor" class="role-title add-link" data-text="Aiplatform Editor" tabindex="-1">Aiplatform Editor</h4>
 <p>( <code dir="ltr" translate="no">roles/  aiplatform.editor</code> )</p>
 <p>Editor role for aiplatform</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
@@ -534,6 +552,12 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
 <ul>
@@ -946,6 +970,13 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
@@ -1240,7 +1271,14 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <td><h4 id="aiplatform.user" class="role-title add-link" data-text="Agent Platform User" tabindex="-1">Agent Platform User</h4>
 <p>( <code dir="ltr" translate="no">roles/  aiplatform.user</code> )</p>
 <p>Grants access to use all resource in Agent Platform.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
@@ -1255,6 +1293,12 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
 <ul>
@@ -1648,6 +1692,13 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
@@ -1869,10 +1920,18 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <td><h4 id="aiplatform.viewer" class="role-title add-link" data-text="Agent Platform Viewer" tabindex="-1">Agent Platform Viewer</h4>
 <p>( <code dir="ltr" translate="no">roles/  aiplatform.viewer</code> )</p>
 <p>Grants access to view all resource in Agent Platform.</p></td>
-<td><p><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></p>
+<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.agentExamples.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.agents.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.agents.list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.annotationSpecs.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  annotationSpecs.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.annotations.get</code></p>
@@ -1983,6 +2042,8 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  modelMonitors.  searchModelMonitoringStats</code></p>
 <p><code dir="ltr" translate="no">aiplatform.models.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.models.list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.nasTrialDetails.*</code></p>
@@ -2943,7 +3004,14 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
@@ -2958,6 +3026,12 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
 <ul>
@@ -3350,6 +3424,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
@@ -3951,7 +4032,14 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
+<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.agentExamples.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentExamples.  delete</code></li>
@@ -3966,6 +4054,12 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.annotationSpecs.*</code></p>
 <ul>
@@ -4358,6 +4452,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
+<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
@@ -4754,6 +4855,10 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">storage.buckets.delete</code></p>
 <p><code dir="ltr" translate="no">storage.buckets.get</code></p>
 <p><code dir="ltr" translate="no">storage.buckets.list</code></p>
+<p><code dir="ltr" translate="no">storage.folders.create</code></p>
+<p><code dir="ltr" translate="no">storage.folders.delete</code></p>
+<p><code dir="ltr" translate="no">storage.folders.get</code></p>
+<p><code dir="ltr" translate="no">storage.folders.list</code></p>
 <p><code dir="ltr" translate="no">storage.objects.create</code></p>
 <p><code dir="ltr" translate="no">storage.objects.delete</code></p>
 <p><code dir="ltr" translate="no">storage.objects.get</code></p>
@@ -5027,6 +5132,8 @@ Role
 
 Permissions
 
+l
+
 #### Vertex AI Service Agent
 
 ( `roles/ aiplatform.serviceAgent` )
@@ -5034,6 +5141,13 @@ Permissions
 Gives Vertex AI the permissions it needs to function.
 
 > **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents) .
+
+`aiplatform. agentAnomalyDetectionScopes.*`
+
+  - `aiplatform. agentAnomalyDetectionScopes. create`
+  - `aiplatform. agentAnomalyDetectionScopes. delete`
+  - `aiplatform. agentAnomalyDetectionScopes. get`
+  - `aiplatform. agentAnomalyDetectionScopes. list`
 
 `aiplatform.agentExamples.*`
 
@@ -5050,6 +5164,12 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.agents.get`
   - `aiplatform.agents.list`
   - `aiplatform.agents.update`
+
+`aiplatform.analyzedSessions.*`
+
+  - `aiplatform. analyzedSessions. aggregate`
+  - `aiplatform. analyzedSessions. get`
+  - `aiplatform. analyzedSessions. list`
 
 `aiplatform.annotationSpecs.*`
 
@@ -5494,6 +5614,13 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.models.list`
   - `aiplatform.models.update`
   - `aiplatform.models.upload`
+
+`aiplatform.monitoredAgents.*`
+
+  - `aiplatform. monitoredAgents. disable`
+  - `aiplatform. monitoredAgents. enable`
+  - `aiplatform.monitoredAgents.get`
+  - `aiplatform. monitoredAgents. list`
 
 `aiplatform.nasJobs.*`
 
@@ -6047,6 +6174,14 @@ Gives Vertex AI the permissions it needs to function.
 
 `storage.buckets.list`
 
+`storage.folders.create`
+
+`storage.folders.delete`
+
+`storage.folders.get`
+
+`storage.folders.list`
+
 `storage.objects.create`
 
 `storage.objects.delete`
@@ -6193,6 +6328,13 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
 
 > **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents) .
 
+`aiplatform. agentAnomalyDetectionScopes.*`
+
+  - `aiplatform. agentAnomalyDetectionScopes. create`
+  - `aiplatform. agentAnomalyDetectionScopes. delete`
+  - `aiplatform. agentAnomalyDetectionScopes. get`
+  - `aiplatform. agentAnomalyDetectionScopes. list`
+
 `aiplatform.agentExamples.*`
 
   - `aiplatform. agentExamples. create`
@@ -6208,6 +6350,12 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.agents.get`
   - `aiplatform.agents.list`
   - `aiplatform.agents.update`
+
+`aiplatform.analyzedSessions.*`
+
+  - `aiplatform. analyzedSessions. aggregate`
+  - `aiplatform. analyzedSessions. get`
+  - `aiplatform. analyzedSessions. list`
 
 `aiplatform.annotationSpecs.*`
 
@@ -6652,6 +6800,13 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.models.list`
   - `aiplatform.models.update`
   - `aiplatform.models.upload`
+
+`aiplatform.monitoredAgents.*`
+
+  - `aiplatform. monitoredAgents. disable`
+  - `aiplatform. monitoredAgents. enable`
+  - `aiplatform.monitoredAgents.get`
+  - `aiplatform. monitoredAgents. list`
 
 `aiplatform.nasJobs.*`
 

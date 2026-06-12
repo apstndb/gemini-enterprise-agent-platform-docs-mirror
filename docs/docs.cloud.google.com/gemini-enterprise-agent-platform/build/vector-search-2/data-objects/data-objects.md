@@ -2,15 +2,15 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects
 title: Data Objects
-description: Learn about Data Objects in Vector Search 2.0.
+description: Learn about Data Objects in Agent Retrieval (formerly Vector Search 2.0).
 data_source: docs.cloud.google.com
 ---
 
-In Vector Search 2.0, Collections store data as individual JSON objects called Data Objects. This page describes the validation rules a Data Object must satisfy, and how to create, read, update, import, export, and delete Data Objects either individually or in batch.
+In Agent Retrieval (formerly Vector Search 2.0), Collections store data as individual JSON objects called Data Objects. This page describes the validation rules a Data Object must satisfy, and how to create, read, update, import, export, and delete Data Objects either individually or in batch.
 
 ## Data validation
 
-Every Data Object that Vector Search 2.0 ingests is checked against a fixed set of rules. If any rule fails for a record, that record is rejected and emitted to the error sink with `code = INVALID_ARGUMENT` ; later checks do *not* run for that record. To avoid the "fix one error, re-ingest, hit the next error" loop, validate your dataset against **all** of the data validation rules before kicking off an ingestion or index build.
+Every Data Object that Agent Retrieval ingests is checked against a fixed set of rules. If any rule fails for a record, that record is rejected and emitted to the error sink with `code = INVALID_ARGUMENT` ; later checks do *not* run for that record. To avoid the "fix one error, re-ingest, hit the next error" loop, validate your dataset against **all** of the data validation rules before kicking off an ingestion or index build.
 
 The pipeline applies the validations in this order:
 
@@ -1308,10 +1308,10 @@ Execute the following command:
     # Wait for the result (note this may take up to several minutes)
     operation.result()
 
-Folder `gs://your-bucket/path/to/your-data/` can contain one or more files each containing multiple Data Objects. Use this structure for large datasets that are spread across multiple files. The following file formats are supported in Vector Search 2.0:
+Folder `gs://your-bucket/path/to/your-data/` can contain one or more files each containing multiple Data Objects. Use this structure for large datasets that are spread across multiple files. The following file formats are supported in Agent Retrieval:
 
-  - JSONL, where each line is a JSON object having three top level properties: `id` , `data` , and `vectors` . Use this format for new Vector Search 2.0 datasets when you want human-readable input for inspecting and editing by hand.
-  - AVRO: Use this format for new Vector Search 2.0 datasets when you need a compact, schema-validated binary format -- typically for large datasets produced by data-pipeline tools such as Dataflow, Beam, or Spark.
+  - JSONL, where each line is a JSON object having three top level properties: `id` , `data` , and `vectors` . Use this format for new Agent Retrieval datasets when you want human-readable input for inspecting and editing by hand.
+  - AVRO: Use this format for new Agent Retrieval datasets when you need a compact, schema-validated binary format -- typically for large datasets produced by data-pipeline tools such as Dataflow, Beam, or Spark.
   - Vector Search JSON: Use this format only when you are migrating an existing Vector Search (Vector Search 1.0) JSON dataset and want to reuse it as-is.
   - Vector Search AVRO: Use this format only when you are migrating an existing Vector Search (Vector Search 1.0) AVRO dataset and want to reuse it as-is.
 

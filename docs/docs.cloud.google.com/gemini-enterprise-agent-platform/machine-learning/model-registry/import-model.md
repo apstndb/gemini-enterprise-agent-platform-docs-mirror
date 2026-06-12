@@ -16,7 +16,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Prebuilt or custom containers
 
-When you import a model, you associate it with a container for Agent Platform to run inference requests. You can use [prebuilt containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) provided by Agent Platform, or use your own [custom containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) that you build and push to Artifact Registry.
+When you import a model, you associate it with a container for Agent Platform to run inference requests. You can use [prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) provided by Agent Platform, or use your own [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that you build and push to Artifact Registry.
 
 You can use a prebuilt container if your model meets the following requirements:
 
@@ -26,7 +26,7 @@ You can use a prebuilt container if your model meets the following requirements:
 
 If you are importing a tabular AutoML model that you previously [exported](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) , you must use a specific custom container provided by Agent Platform.
 
-Otherwise, create a new [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) , or use an existing custom container that you have in Artifact Registry.
+Otherwise, create a new [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , or use an existing custom container that you have in Artifact Registry.
 
 ## Upload model artifacts to Cloud Storage
 
@@ -71,7 +71,7 @@ Depending on the type of container you are using, select the appropriate tab bel
 
 3.  If you want to use GPUs for serving inferences, set the **Accelerator type** to **GPUs** .
     
-    You select the type of GPU later on, when you [deploy the model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
+    You select the type of GPU later on, when you [deploy the model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
 
 4.  Specify the Cloud Storage path to the directory that contains your model artifacts.
     
@@ -91,13 +91,13 @@ Depending on the type of container you are using, select the appropriate tab bel
 
 2.  Set the container image URI.
 
-3.  If you want to [provide model artifacts in addition to a container image](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#artifacts) , specify the Cloud Storage path to the directory that contains your model artifacts.
+3.  If you want to [provide model artifacts in addition to a container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#artifacts) , specify the Cloud Storage path to the directory that contains your model artifacts.
     
     For example, `gs:// BUCKET_NAME /models/` .
 
 4.  Specify values for any of the other fields.
     
-    Learn more about these [optional fields](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container#create-model) .
+    Learn more about these [optional fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container#create-model) .
 
 5.  To import your model *without* Vertex Explainable AI settings, click **Import** .
     
@@ -145,14 +145,14 @@ Replace the following:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
   - MODEL\_NAME : A display name for the `Model` .
-  - IMAGE\_URI : The URI of the container image to use for serving inferences. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use a [prebuilt container](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) .
-  - PATH\_TO\_MODEL\_ARTIFACT\_DIRECTORY : The Cloud Storage URI (beginning with `gs://` ) of a directory in Cloud Storage that contains your [model artifacts](https://docs.cloud.google.com/vertex-ai/machine-learning/training/exporting-model-artifacts) .
+  - IMAGE\_URI : The URI of the container image to use for serving inferences. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
+  - PATH\_TO\_MODEL\_ARTIFACT\_DIRECTORY : The Cloud Storage URI (beginning with `gs://` ) of a directory in Cloud Storage that contains your [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) .
 
 The preceding example demonstrates all the flags necessary to import most models. If you are not using a prebuilt container for inference, then you likely need to specify some additional [optional flags](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload#OPTIONAL-FLAGS) so that Agent Platform can use your container image. These flags, which begin with `--container-` , correspond to fields of your `Model` 's [`containerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models#modelcontainerspec) .
 
 ### REST
 
-Use the following code sample to upload a model using the [`upload` method of the `model` resource](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models/upload) .
+Use the following code sample to upload a model using the [`upload` method of the `model` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/upload) .
 
 Before using any of the request data, make the following replacements:
 
@@ -160,8 +160,8 @@ Before using any of the request data, make the following replacements:
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - MODEL\_NAME : A display name for the `Model` .
   - MODEL\_DESCRIPTION : Optional. A description for the model.
-  - IMAGE\_URI : The URI of the container image to use for serving inferences. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use a [prebuilt container](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) .
-  - PATH\_TO\_MODEL\_ARTIFACT\_DIRECTORY : The Cloud Storage URI (beginning with `gs://` ) of a directory in Cloud Storage that contains your [model artifacts](https://docs.cloud.google.com/vertex-ai/machine-learning/training/exporting-model-artifacts) . This variable and the `artifactUri` field are optional if you're using a custom container.
+  - IMAGE\_URI : The URI of the container image to use for serving inferences. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
+  - PATH\_TO\_MODEL\_ARTIFACT\_DIRECTORY : The Cloud Storage URI (beginning with `gs://` ) of a directory in Cloud Storage that contains your [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) . This variable and the `artifactUri` field are optional if you're using a custom container.
   - `labels` : Optional. Any set of key-value pairs to organize your models. For example:
       - "env": "prod"
       - "tier": "backend"
@@ -434,7 +434,7 @@ To import a model with Vertex Explainable AI settings enabled, refer to the [Ver
 
 ### Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Vertex AI provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
 
 ## Limitations
 
@@ -442,4 +442,4 @@ Some requests start long-running operations that require time to complete. These
 
 ## What's next
 
-  - Deploy your model to an endpoint, [programmatically](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) or by [using Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
+  - Deploy your model to an endpoint, [programmatically](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) or by [using Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .

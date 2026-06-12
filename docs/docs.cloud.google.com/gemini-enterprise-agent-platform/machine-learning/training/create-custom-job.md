@@ -23,7 +23,7 @@ If you're not sure which of these options to choose, refer to the [training code
 When you create a *custom job* , you specify settings that Agent Platform needs to run your training code, including:
 
   - One worker pool for single-node training ( [`WorkerPoolSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#workerpoolspec) ), or multiple worker pools for distributed training
-  - Optional settings for configuring job scheduling ( [`Scheduling`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#scheduling) ), [setting certain environment variables for your training code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) , [using a custom service account](https://docs.cloud.google.com/vertex-ai/docs/general/custom-service-account) , and [using VPC Network Peering](https://docs.cloud.google.com/vertex-ai/docs/general/vpc-peering)
+  - Optional settings for configuring job scheduling ( [`Scheduling`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#scheduling) ), [setting certain environment variables for your training code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#environment-variables) , [using a custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) , and [using VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering)
 
 Within the worker pool(s), you can specify the following settings:
 
@@ -282,11 +282,11 @@ The following instructions describe how to create a `TrainingPipeline` that crea
 
 7.  On the **Compute and pricing** step, specify the following settings:
     
-    1.  In the **Region** drop-down list, select a " [region that supports custom training](https://docs.cloud.google.com/vertex-ai/docs/general/locations) "
+    1.  In the **Region** drop-down list, select a " [region that supports custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) "
     
     2.  In the **Worker pool 0** section, specify [compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) to use for training.
         
-        If you specify accelerators, [make sure the type of accelerator that you choose is available in your selected region](https://docs.cloud.google.com/vertex-ai/docs/general/locations#region_considerations) .
+        If you specify accelerators, [make sure the type of accelerator that you choose is available in your selected region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#region_considerations) .
         
         If you want to perform [distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) , then click **Add more worker pools** and specify an additional set of compute resources for each additional worker pool that you want.
     

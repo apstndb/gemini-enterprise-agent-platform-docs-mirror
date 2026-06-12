@@ -67,7 +67,7 @@ Run a one-time monitoring job. Set the target and baseline datasets as well as t
           inputs={
               "cnt_ad_reward": ExplanationMetadata.InputMetadata({
                   "input_tensor_name": "cnt_ad_reward",
-                  "encoding": &quot;IDENTITY",
+                  "encoding": "IDENTITY",
                   "modality": "numeric"
               }),
               ...

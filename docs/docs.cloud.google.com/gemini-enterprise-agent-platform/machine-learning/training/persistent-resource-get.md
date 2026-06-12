@@ -36,7 +36,7 @@ To view a list of persistent resources in the Google Cloud console, go to the **
 Before using any of the command data below, make the following replacements:
 
   - PROJECT\_ID : The Project ID of the Google Cloud project that you want to get a list persistent resources for.
-  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
 Execute the following command:
 
@@ -147,7 +147,7 @@ The status of each persistent resource in the list is represented by a numerical
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : The Project ID of the Google Cloud project that you want to get a list persistent resources for.
-  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
 HTTP method and URL:
 

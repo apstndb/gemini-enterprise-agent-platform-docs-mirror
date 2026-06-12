@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page describes how you can connect an Agent Development Kit (ADK) agent with Agent Platform Sessions and use managed sessions in the local and production environment.
 
-> **Note:** If you've already followed the instructions in [Develop an Agent Development Kit agent](https://docs.cloud.google.com/agent-builder/agent-engine/develop/adk) , you don't need to follow this guide, since the `AdkApp` template is already connected to Agent Platform Sessions through `session_service` .
+> **Note:** If you've already followed the instructions in [Develop an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) , you don't need to follow this guide, since the `AdkApp` template is already connected to Agent Platform Sessions through `session_service` .
 
 > **Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async) . If you're running code in a notebook like Colab, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function` .
 
@@ -21,7 +21,7 @@ These instructions use the following basic project file structure for defining a
         runner.py     # code for interacting with the agent
         deploy.py     # code for deploying the agent to Google Cloud
 
-Make sure your environment is set up by following the [Get the required roles](https://docs.cloud.google.com/agent-builder/agent-engine/set-up#get_the_required_roles) and [Authentication](https://docs.cloud.google.com/agent-builder/agent-engine/set-up#authentication) steps in [Set up your environment](https://docs.cloud.google.com/agent-builder/agent-engine/set-up) .
+Make sure your environment is set up by following the [Get the required roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#get_the_required_roles) and [Authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) steps in [Set up your environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup) .
 
 ## Set environment variables
 
@@ -36,7 +36,7 @@ To use the ADK, set your environment variables:
 Replace the following:
 
   - PROJECT\_ID : Your project ID.
-  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/agent-builder/locations#supported-regions-agent-engine) for Memory Bank.
+  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
 
 ## Create a Vertex AI Agent Engine instance
 
@@ -62,7 +62,7 @@ Replace the following:
 
   - PROJECT\_ID : Your project ID.
 
-  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/agent-builder/locations#supported-regions-agent-engine) for Sessions.
+  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Sessions.
 
 ## Develop your ADK agent
 
@@ -334,7 +334,7 @@ After you test your agent locally, you can deploy the agent to production by upd
 
 Replace the following:
 
-  - AGENT : The application that implements the `query / stream_query` method (for example, `AdkApp` for an ADK agent). For more information, see [Deployment considerations](https://docs.cloud.google.com/agent-builder/agent-engine/deploy#deployment-considerations) .
+  - AGENT : The application that implements the `query / stream_query` method (for example, `AdkApp` for an ADK agent).
 
   - DISPLAY\_NAME : A user-friendly name for your agent.
 
@@ -350,4 +350,4 @@ To clean up all resources used in this project, you can delete the Vertex AI Age
 
 ## What's next
 
-  - [Manage sessions using API calls](https://docs.cloud.google.com/agent-builder/agent-engine/sessions/manage-sessions-api) .
+  - [Manage sessions using API calls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api) .

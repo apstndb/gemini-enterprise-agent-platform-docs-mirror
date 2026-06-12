@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/train-model
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/train-model
 title: Train an image classification model
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to train AutoML classification models from image datasets.
 data_source: docs.cloud.google.com
 ---
 
@@ -920,29 +920,29 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Control the data split using REST
 
-You can control how your training data is split between the training, validation, and test sets. When using the Agent Platform API, use the [`Split` object](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.trainingPipelines#InputDataConfig) to determine your data split. The `Split` object can be included in the `InputConfig` object as one of several object types, each of which provides a different way to split the training data. You can select one method only.
+You can control how your training data is split between the training, validation, and test sets. When using the Agent Platform API, use the [`Split` object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#InputDataConfig) to determine your data split. The `Split` object can be included in the `InputConfig` object as one of several object types, each of which provides a different way to split the training data. You can select one method only.
 
-`FractionSplit` :
+  - `FractionSplit` :
+    
+      - TRAINING\_FRACTION : The fraction of the training data to be used for the training set.
+      - VALIDATION\_FRACTION : The fraction of the training data to be used for the validation set. Not used for video data.
+      - TEST\_FRACTION : The fraction of the training data to be used for the test set.
+    
+    If any of the fractions are specified, all must be specified. The fractions must add up to 1.0. The [default values for the fractions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#default) differ depending on your data type. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#percentages) .
+    
+        "fractionSplit": {
+          "trainingFraction": TRAINING_FRACTION,
+          "validationFraction": VALIDATION_FRACTION,
+          "testFraction": TEST_FRACTION
+        },
 
-  - TRAINING\_FRACTION : The fraction of the training data to be used for the training set.
-  - VALIDATION\_FRACTION : The fraction of the training data to be used for the validation set. Not used for video data.
-  - TEST\_FRACTION : The fraction of the training data to be used for the test set.
+  - `FilterSplit` :
+    
+      - TRAINING\_FILTER : Data items that match this filter are used for the training set.
+      - VALIDATION\_FILTER : Data items that match this filter are used for the validation set. Must be "-" for video data.
+      - TEST\_FILTER : Data items that match this filter are used for the test set.
 
-If any of the fractions are specified, all must be specified. The fractions must add up to 1.0. The [default values for the fractions](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#default) differ depending on your data type. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#percentages) .
-
-    "fractionSplit": {
-      "trainingFraction": TRAINING_FRACTION,
-      "validationFraction": VALIDATION_FRACTION,
-      "testFraction": TEST_FRACTION
-    },
-
-`FilterSplit` :
-
-  - TRAINING\_FILTER : Data items that match this filter are used for the training set.
-  - VALIDATION\_FILTER : Data items that match this filter are used for the validation set. Must be "-" for video data.
-  - TEST\_FILTER : Data items that match this filter are used for the test set.
-
-These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/vertex-ai/machine-learning/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/vertex-ai/machine-learning/general/ml-use#filter) to filter your data.
+These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#filter) to filter your data.
 
 The following example shows how to use the `filterSplit` object with the `ml_use` label, with the validation set included:
 

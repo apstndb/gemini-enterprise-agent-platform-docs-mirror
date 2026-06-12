@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/query
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/query
 title: Querying Collections for Data Objects
-description: Learn how to query collections for data objects in Vector Search 2.0.
+description: Learn how to query collections for data objects in Agent Retrieval (formerly Vector Search 2.0).
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ The purpose of the Query API is to retrieve Data Objects from a Collection using
 
 ## Filter expression language
 
-In addition to KNN/ANN search functionality, Vector Search 2.0 provides versatile query capabilities using a custom query language. The query language is explained in the following table.
+In addition to KNN/ANN search functionality, Agent Retrieval provides versatile query capabilities using a custom query language. The query language is explained in the following table.
 
 | Filter   | Description                                                                                     | Supported Types         | Example                                                             |
 | :------- | :---------------------------------------------------------------------------------------------- | :---------------------- | :------------------------------------------------------------------ |

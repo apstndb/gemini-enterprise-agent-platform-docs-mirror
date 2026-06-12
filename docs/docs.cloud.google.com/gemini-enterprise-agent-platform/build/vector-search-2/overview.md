@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview
-title: Vector Search 2.0
-description: Learn about Vector Search 2.0
+title: Agent Retrieval (formerly Vector Search 2.0)
+description: Learn about Agent Retrieval (formerly Vector Search 2.0)
 data_source: docs.cloud.google.com
 ---
 
@@ -10,11 +10,11 @@ data_source: docs.cloud.google.com
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-2-intro.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fvector-search-2-intro.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fembeddings%2Fvector-search-2-intro.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/embeddings/vector-search-2-intro.ipynb)
 
-> **Note:** Vector Search 2.0 supports VPC Service Controls. For more information about VPC Service Controls, see the [VPC Service Controls documentation](https://docs.cloud.google.com/vpc-service-controls/docs/overview) .
+> **Note:** Agent Retrieval supports VPC Service Controls. For more information about VPC Service Controls, see the [VPC Service Controls documentation](https://docs.cloud.google.com/vpc-service-controls/docs/overview) .
 
-Vector Search 2.0 is a Google Cloud product designed from the ground up as a self-tuning, fully managed, AI-native search engine. While Google Cloud's existing Vector Search is a powerful approximate nearest neighbor (ANN) index-as-a-service system, Vector Search 2.0 evolves this concept into a comprehensive storage and retrieval system. Instead of managing indexes as the primary resource, you'll work with *Collections* of *Data Objects* .
+Agent Retrieval (formerly Vector Search 2.0) is a Google Cloud product designed from the ground up as a self-tuning, fully managed, AI-native search engine. While Google Cloud's existing Vector Search is a powerful approximate nearest neighbor (ANN) index-as-a-service system, Agent Retrieval evolves this concept into a comprehensive storage and retrieval system. Instead of managing indexes as the primary resource, you'll work with *Collections* of *Data Objects* .
 
-The search engine architecture provides a replicated, scalable storage engine, making Vector Search 2.0 a single, unified data source for your AI applications and removing the need for auxiliary data storage.
+The search engine architecture provides a replicated, scalable storage engine, making Agent Retrieval a single, unified data source for your AI applications and removing the need for auxiliary data storage.
 
 Key benefits include:
 
@@ -28,11 +28,11 @@ Key benefits include:
 
   - **Simplified Pricing:** Adaptable pricing features two models: usage-based for smaller workloads and resource-based for tuned performance.
 
-Vector Search 2.0 maintains the [high performance and massive scalability](https://cloud.google.com/blog/products/ai-machine-learning/build-fast-and-scalable-ai-applications-with-vertex-ai) available in Vector Search 1.0, making it seamless to get started and scale.
+Agent Retrieval maintains the [high performance and massive scalability](https://cloud.google.com/blog/products/ai-machine-learning/build-fast-and-scalable-ai-applications-with-vertex-ai) available in Vector Search 1.0, making it seamless to get started and scale.
 
 ## Concepts
 
-Before you begin, it's helpful to understand the following Vector Search 2.0 concepts:
+Before you begin, it's helpful to understand the following Agent Retrieval concepts:
 
   - [**Collection:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) A container for a set of related JSON objects. This is similar to a table in a relational database. You can create many Collections within a single database.
 

@@ -148,7 +148,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     # pinecone_index_name = "pinecone-index-name"
     # pinecone_api_key_secret_manager_version = "projects/{PROJECT_ID}/secrets/{SECRET_NAME}/versions/latest"
     # display_name = "test_corpus"
-    # description = "Corpus Description&quot;
+    # description = "Corpus Description"
     
     # Initialize Vertex AI API once per session
     vertexai.init(project=PROJECT_ID, location="us-central1")
@@ -177,14 +177,14 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     print(corpus)
     # Example response:
     # RagCorpus(name='projects/1234567890/locations/us-central1/ragCorpora/1234567890',
-    # display_name=';test_corpus', description='Corpus Description', embedding_model_config=...
+    # display_name='test_corpus', description='Corpus Description', embedding_model_config=...
     # ...
 
 ### REST
 
 ``` 
    # Set your project ID under which you want to create the corpus
-   PROJECT_ID = &quot;YOUR_PROJECT_ID"
+   PROJECT_ID = "YOUR_PROJECT_ID"
 
    # Choose a display name for your corpus
    CORPUS_DISPLAY_NAME=YOUR_CORPUS_DISPLAY_NAME
@@ -207,7 +207,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
          "rag_vector_db_config" : {
             "pinecone": {"index_name": '\""${PINECONE_INDEX_NAME}"\"'},
             "api_auth": {"api_key_config":
-                  {"api_key_secret_version": '\""${SECRET_RESOURCE_NAME}"\"&#39;}
+                  {"api_key_secret_version": '\""${SECRET_RESOURCE_NAME}"\"'}
             }
          }
       }'
@@ -219,7 +219,9 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
    # Poll Operation status until done = true in the response.
    # The response to this call will contain the ID for your created RAG corpus
    curl -X GET \
-   -H "Authorization: Bearer $(gcloud auth print-access-token)" \   -H "Content-Type: application/json" \   https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/operations/${OPERATION_ID}
+   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+   -H "Content-Type: application/json" \
+   https://us-central1-aiplatform.googleapis.com/v1beta1/projects/${PROJECT_ID}/locations/us-central1/operations/${OPERATION_ID}
 ```
 
 ## Create RAG corpus without an index name or an API key

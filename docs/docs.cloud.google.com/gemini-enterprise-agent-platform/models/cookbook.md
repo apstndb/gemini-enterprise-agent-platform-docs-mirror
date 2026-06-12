@@ -8,33 +8,39 @@ data_source: docs.cloud.google.com
 
 A collection of guides and examples for Generative AI on Gemini Enterprise Agent Platform.
 
-Explore more in the [Generative AI Repository on GitHub.](https://github.com/GoogleCloudPlatform/generative-ai)
+Explore more in the [Generative AI Repository](https://github.com/GoogleCloudPlatform/generative-ai) and [Agent Platform Repository](https://github.com/Google-Cloud-AI/agent-platform)
 
 ## Gemini Quickstarts
 
 Function calling Gemini Grounding Multimodal Prompting Thinking
 
-### Intro to Gemini 3 Pro
+### Intro to Gemini 3.1 Pro
 
-Get started with Gemini 3 Pro in Agent Platform with the Gen AI Python SDK.
+Get started with Gemini 3.1 Pro in Agent Platform with the Gen AI Python SDK.
 
 Gemini Image generation Multimodal
 
-### Gemini 2.5 Flash Image Generation in Agent Platform (Nano Banana)
+### Gemini 3 Pro Image Generation in Agent Platform (Nano Banana Pro)
+
+Get started with Gemini Image Generation in Agent Platform.
+
+Gemini Image generation Multimodal
+
+### Gemini 3.1 Flash Image Generation in Agent Platform (Nano Banana 2)
 
 Get started with Gemini Image Generation in Agent Platform.
 
 Function calling Gemini Grounding Multimodal Prompting Thinking
 
-### Intro to Gemini 2.5 Flash
+### Intro to Gemini 3.5 Flash
 
-Get started with Gemini 2.5 Flash in Agent Platform with the Gen AI Python SDK.
+Get started with Gemini 3.5 Flash in Agent Platform with the Gen AI Python SDK.
 
 Function calling Gemini Grounding Multimodal Prompting Thinking
 
-### Intro to Gemini 2.5 Flash-Lite
+### Intro to Gemini 3.1 Flash-Lite
 
-Get started with Gemini 2.5 Flash-Lite in Agent Platform with the Gen AI Python SDK.
+Get started with Gemini 3.1 Flash-Lite in Agent Platform with the Gen AI Python SDK.
 
 Gemini Live api Multimodal
 
@@ -97,24 +103,6 @@ Gemini
 Learn how to call Gemini using Chat Completions.
 
 ## Featured Tutorials
-
-Gemini Grounding Search
-
-### Creating Marketing Assets using Gemini 2.0 Flash
-
-Learn how to combine the multimodal capabilities of Gemini and Grounding with Google Search to create a marketing campaign brief and marketing assets.
-
-Chirp Speech
-
-### Get started with Chirp 3 HD Voices for Text-to-Speech
-
-Learn about how to use Chirp 3 HD Voices, the latest generation of Google Text-to-Speech voices.
-
-Chirp Speech
-
-### Get started with Chirp 3 for Speech-to-Text
-
-Learn about how to use Chirp 3, the latest generation of Google's multilingual Automatic Speech Recognition models.
 
 Embeddings Vector search
 
@@ -214,7 +202,7 @@ In this tutorial, you will learn how to use the Google Gen AI SDK for Python to 
 
 ## All Tutorials
 
-**Filter by:** Agent Engine Agents Batch Prediction Chirp Claude Code Execution Embeddings Evaluation Function Calling Gemini Gemma Grounding Hugging Face Image Generation LangChain LangGraph Live API LlamaIndex Model Garden Multimodal Orchestration Prompting RAG RAG Engine Search Security Speech Thinking Tuning Vector Search Veo Workspace
+**Filter by:** Agent Engine Agents Batch Prediction Claude Code Execution Embeddings Evaluation Function Calling Gemini Gemma Grounding Hugging Face Image Generation LangChain LangGraph Live API LlamaIndex Model Garden Multimodal Orchestration Prompting RAG RAG Engine Search Security Speech Thinking Tuning Vector Search Veo Workspace
 
 <table>
 <colgroup>
@@ -230,27 +218,24 @@ Grounding
 Multimodal
 Prompting
 Thinking</td>
-<td><p><strong>Intro to Gemini 3 Pro</strong></p>
-<p>Get started with Gemini 3 Pro in Agent Platform with the Gen AI Python SDK.</p></td>
+<td><p><strong>Intro to Gemini 3.1 Pro</strong></p>
+<p>Get started with Gemini 3.1 Pro in Agent Platform with the Gen AI Python SDK.</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Gemini
 Image generation
 Multimodal</td>
-<td><p><strong>Gemini 2.5 Flash Image Generation in Agent Platform (Nano Banana)</strong></p>
+<td><p><strong>Gemini 3 Pro Image Generation in Agent Platform (Nano Banana Pro)</strong></p>
 <p>Get started with Gemini Image Generation in Agent Platform.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Function calling
-Gemini
-Grounding
-Multimodal
-Prompting
-Thinking</td>
-<td><p><strong>Intro to Gemini 2.5 Flash</strong></p>
-<p>Get started with Gemini 2.5 Flash in Agent Platform with the Gen AI Python SDK.</p></td>
+<td>Gemini
+Image generation
+Multimodal</td>
+<td><p><strong>Gemini 3.1 Flash Image Generation in Agent Platform (Nano Banana 2)</strong></p>
+<p>Get started with Gemini Image Generation in Agent Platform.</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -260,11 +245,22 @@ Grounding
 Multimodal
 Prompting
 Thinking</td>
-<td><p><strong>Intro to Gemini 2.5 Flash-Lite</strong></p>
-<p>Get started with Gemini 2.5 Flash-Lite in Agent Platform with the Gen AI Python SDK.</p></td>
+<td><p><strong>Intro to Gemini 3.5 Flash</strong></p>
+<p>Get started with Gemini 3.5 Flash in Agent Platform with the Gen AI Python SDK.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
+<td>Function calling
+Gemini
+Grounding
+Multimodal
+Prompting
+Thinking</td>
+<td><p><strong>Intro to Gemini 3.1 Flash-Lite</strong></p>
+<p>Get started with Gemini 3.1 Flash-Lite in Agent Platform with the Gen AI Python SDK.</p></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Gemini
 Live api
 Multimodal</td>
@@ -272,28 +268,28 @@ Multimodal</td>
 <p>Get started with Gemini Live API in Agent Platform using the Gen AI Python SDK</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Search</td>
 <td><p><strong>Intro to Gemini Enterprise</strong></p>
 <p>Unlock your company's data with Gemini Enterprise, the AI platform for intelligent search and shareable, automated agents.</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Prompting</td>
 <td><p><strong>Intro to Prompt Engineering</strong></p>
 <p>Learn the essentials and best practices of prompt engineering.</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Function calling
 Gemini</td>
 <td><p><strong>Function Calling with Gemini</strong></p>
 <p>Connect Gemini to external tools using function calling.</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Grounding
 Rag
@@ -302,57 +298,35 @@ Search</td>
 <p>Connect Gemini to real-world data from Google Search or Agent Platform Search to improve response quality.</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Batch prediction
 Gemini</td>
 <td><p><strong>Batch Prediction with Gemini</strong></p>
 <p>Use Batch Prediction to run inference on a large number of examples.</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini</td>
 <td><p><strong>Long Context Window</strong></p>
 <p>Use the Long Context Window to process large amounts of multimodal data.</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini</td>
 <td><p><strong>Intro to Context Caching</strong></p>
 <p>Use context caching to store frequently used data.</p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini</td>
 <td><p><strong>Intro to Structured Output with the Gemini API</strong></p>
 <p>Learn to control Gemini API output formats for easier data processing.</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini</td>
 <td><p><strong>Call Gemini by using the OpenAI Library</strong></p>
 <p>Learn how to call Gemini using Chat Completions.</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Gemini
-Grounding
-Search</td>
-<td><p><strong>Creating Marketing Assets using Gemini 2.0 Flash</strong></p>
-<p>Learn how to combine the multimodal capabilities of Gemini and Grounding with Google Search to create a marketing campaign brief and marketing assets.</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Chirp
-Speech</td>
-<td><p><strong>Get started with Chirp 3 HD Voices for Text-to-Speech</strong></p>
-<p>Learn about how to use Chirp 3 HD Voices, the latest generation of Google Text-to-Speech voices.</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Chirp
-Speech</td>
-<td><p><strong>Get started with Chirp 3 for Speech-to-Text</strong></p>
-<p>Learn about how to use Chirp 3, the latest generation of Google's multilingual Automatic Speech Recognition models.</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -548,45 +522,15 @@ Hugging face</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Gemma
-Langgraph
-Rag</td>
-<td><p><strong>Running a Gemma 2-based agentic RAG with Ollama on Agent Platform and LangGraph</strong></p>
-<p>This notebook showcases how to run a Gemma 2-based Agent with Ollama on Agent Platform and LangGraph.</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Gemma
-Hugging face</td>
-<td><p><strong>Hugging Face DLCs: Serving PaliGemma using Pytorch Inference on Vertex AI with Custom Handler</strong></p>
-<p>Learn how to deploy Google PaliGemma from the Hugging Face Hub on Agent Platform using the Hugging Face Deep Learning Container (DLC) for Pytorch Inference in combination with a custom handler.</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Gemma
-Hugging face
-Tuning</td>
-<td><p><strong>Hugging Face DLCs: Fine-tuning Gemma with Transformer Reinforcement Learning (TRL) on Agent Platform</strong></p>
-<p>Learn how to fine-tune Gemma with Transformer Reinforcement Learning (TRL) on Agent Platform.</p></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Hugging face</td>
 <td><p><strong>Guess who or what app using Hugging Face Deep Learning container model on Agent Platform</strong></p>
-<p>Create a"Guess who or what" application using Agent Platform, Hugging Face Deep Learning container, an image generation open model, and Gemini to solve and visualize riddles.</p></td>
+<p>Create a "Guess who or what" application using Agent Platform, Hugging Face Deep Learning container, an image generation open model, and Gemini to solve and visualize riddles.</p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Embeddings</td>
 <td><p><strong>Visualizing embedding similarity from text documents using t-SNE plots</strong></p>
 <p>Visualize embedding similarity from text documents using t-SNE plots.</p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Embeddings
-Vector search</td>
-<td><p><strong>Agent Platform Vector Search Quickstart</strong></p>
-<p>Learn how to use Agent Platform Vector Search to find similar text documents.</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -715,21 +659,12 @@ Langchain</td>
 <td>Agent engine
 Agents
 Gemini
-Rag
-Search</td>
-<td><p><strong>Building a Conversational Search Agent with Agent Engine and RAG on Vertex AI Search</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Agent engine
-Agents
-Gemini
 Langgraph
 Rag</td>
 <td><p><strong>Building a Multi-Agent RAG Application with LangGraph and Agent Engine</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent engine
 Gemini
 Langgraph
@@ -737,38 +672,31 @@ Rag</td>
 <td><p><strong>Deploying a RAG Application with Cloud SQL for PostgreSQL to Agent Engine</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent engine
 Agents
 Gemini</td>
 <td><p><strong>Building and Deploying a Google Maps API Agent with Agent Engine</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent engine
 Gemini
 Langgraph</td>
-<td><p><strong>Building and Deploying a LangGraph Application with Agent Engine in Vertex AI</strong></p></td>
+<td><p><strong>Building and Deploying a LangGraph Application with Agent Engine in Agent Platform</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Multimodal</td>
 <td><p><strong>YouTube Video Analysis with Gemini</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Multimodal
 Vector search</td>
 <td><p><strong>Building a Multimodal Chatbot for Warranty Claims using Gemini and Vector Search in Agent Platform</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Gemini
-Multimodal
-Rag</td>
-<td><p><strong>Multimodal Retrieval Augmented Generation (RAG) using Gemini API in Vertex AI</strong></p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -788,26 +716,14 @@ Rag</td>
 </tr>
 <tr class="even">
 <td>Gemini
-Rag</td>
-<td><p><strong>Small-to-big Retrieval-Augmented Generation</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Gemini
 Prompting</td>
 <td><p><strong>ReAct (Reasoning + Acting) + Custom tool for Healthcare NL API + Gemini + LangChain</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>Gemini
-Prompting</td>
-<td><p><strong>Using Gemini in Education</strong></p></td>
-<td></td>
-</tr>
 <tr class="odd">
 <td>Gemini
 Prompting</td>
-<td><p><strong>AI Quick Build Experience</strong></p></td>
+<td><p><strong>Using Gemini in Education</strong></p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -820,38 +736,26 @@ Rag</td>
 <tr class="odd">
 <td>Gemini
 Multimodal</td>
-<td><p><strong>Product listing generation with Gemini</strong></p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Gemini
-Multimodal</td>
 <td><p><strong>Multimodal retail recommendation: using Gemini to recommend items based on images and image reasoning</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Multimodal
 Prompting</td>
 <td><p><strong>Sheet Music Analysis with Gemini</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Multimodal</td>
 <td><p><strong>Analyzing movie posters in BigQuery with Gemini</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Langchain</td>
 <td><p><strong>Getting Started with LangChain 🦜️🔗 + Gemini API in Agent Platform</strong></p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Agents
-Gemini</td>
-<td><p><strong>Building a Weather Agent with AutoGen and Gemini</strong></p></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -921,18 +825,6 @@ Tuning</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Gemini
-Tuning</td>
-<td><p><strong>Supervised Fine-Tuning with Gemini 2.0 Flash for Q &amp; A</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Gemini
-Tuning</td>
-<td><p><strong>Supervised Fine Tuning with Gemini 2.0 Flash for Image Captioning</strong></p></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Evaluation
 Gemini
 Model garden</td>
@@ -972,28 +864,16 @@ Gemini</td>
 </tr>
 <tr class="even">
 <td>Evaluation
-Gemini</td>
-<td><p><strong>Compare and Migrate from PaLM to Gemini Model</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Evaluation
 Gemini
 Multimodal</td>
 <td><p><strong>Evaluating Multimodal Tasks</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Evaluation
 Gemini
 Langchain</td>
 <td><p><strong>Evaluate LangChain</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Evaluation
-Gemini</td>
-<td><p><strong>Compare Generative AI Models</strong></p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1079,44 +959,38 @@ Search</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Chirp
-Speech</td>
-<td><p><strong>Get Started with Chirp 2 - Advanced Features</strong></p></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Claude
 Function calling
 Model garden</td>
 <td><p><strong>Multimodal Function Calling with Claude Models</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agents
 Search</td>
 <td><p><strong>Agent Platform Search and Conversation Data Store Status Checker</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agents
 Gemini</td>
 <td><p><strong>Building a Research Multi Agent System - a Design Pattern Overview with Gemini 2.0</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Code execution
 Gemini</td>
 <td><p><strong>Intro to Generating and Executing Python Code with Gemini 2.0</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agents
 Evaluation
 Gemini</td>
 <td><p><strong>Evaluating Agents - Evaluate a CrewAI agent with Agent Platform Gen AI Evaluation</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agents
 Evaluation
 Gemini
@@ -1124,7 +998,7 @@ Langgraph</td>
 <td><p><strong>Evaluating Agents - Evaluate a LangGraph agent with Agent Platform Gen AI Evaluation</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Live api
 Multimodal
@@ -1132,21 +1006,21 @@ Rag</td>
 <td><p><strong>Interactive Loan Application Assistant (Financial Services)</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Rag
 Rag engine
 Search</td>
 <td><p><strong>Agent Platform RAG Engine with Agent Platform Search</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent engine
 Agents
 Evaluation</td>
 <td><p><strong>Evaluate a CrewAI agent on Agent Platform Agent Engine (Customized template)</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent engine
 Agents
 Evaluation
@@ -1154,7 +1028,7 @@ Langchain</td>
 <td><p><strong>Evaluating a LangChain Agent on Agent Platform Agent Engine (Prebuilt template)</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent engine
 Agents
 Evaluation
@@ -1162,13 +1036,13 @@ Langgraph</td>
 <td><p><strong>Evaluate a LangGraph agent on Agent Platform Agent Engine (Customized template)</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Search</td>
 <td><p><strong>Q&amp;A Chatbot with Agent Platform Search for summarized website results</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini</td>
 <td><p><strong>Getting started with Gemini using Agent Platform in Express Mode</strong></p></td>
 <td></td>

@@ -271,7 +271,7 @@ To create a [`MetadataStore`](https://docs.cloud.google.com/gemini-enterprise-ag
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region where you want to create the metadata store. For more information about the regions where Vertex ML Metadata is available, see the [Vertex ML Metadata locations guide](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to create the metadata store. For more information about the regions where Vertex ML Metadata is available, see the [Vertex ML Metadata locations guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PROJECT\_ID : The Google Cloud project where you want to create the metadata store.
 
 HTTP method and URL:

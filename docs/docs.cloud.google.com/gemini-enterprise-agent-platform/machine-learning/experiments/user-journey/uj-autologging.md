@@ -6,19 +6,19 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-As part of the data science team, you want to try different modeling approaches during experimentation phase.To guarantee reproducibility, each approach has different parameters that you need to manually track. Agent Platform SDK for Python autologging, which is a one-line code SDK capability leveraging MLflow, provides automatic metrics and parameters tracking associated with your Experiments on Agent Platform and experiment runs.
+As part of the data science team, you want to try different modeling approaches during experimentation phase.To guarantee reproducibility, each approach has different parameters that you need to manually track. Agent Platform SDK for Python autologging, which is a one-line code SDK capability leveraging MLflow, provides automatic metrics and parameters tracking associated with your Experiments on Gemini Enterprise Agent Platform and experiment runs.
 
-## Notebook: Experiments on Agent Platform Autologging
+## Notebook: Experiments on Gemini Enterprise Agent Platform Autologging
 
-> To see an example of autologging in Experiments on Agent Platform, run the " Experiments: Autologging" notebook in one of the following environments:
+> To see an example of autologging in Experiments on Gemini Enterprise Agent Platform, run the " Experiments: Autologging" notebook in one of the following environments:
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments_autologging.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments_autologging.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexperiments%2Fget_started_with_vertex_experiments_autologging.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments_autologging.ipynb)
 
-In the "Experiments on Agent Platform: Autologging" notebook, you'll learn how to use Experiments on Agent Platform to:
+In the "Experiments on Gemini Enterprise Agent Platform: Autologging" notebook, you'll learn how to use Experiments on Gemini Enterprise Agent Platform to:
 
   - Enable autologging in the Agent Platform SDK for Python.
-  - Train scikit-learn model and see the resulting experiment run with metrics and parameters autologged to Experiments on Agent Platform without setting an experiment run.
-  - Train TensorFlow model, check autologged metrics and parameters to Experiments on Agent Platform by manually setting an experiment run with `aiplatform.start_run()` and `aiplatform.end_run()` .
+  - Train scikit-learn model and see the resulting experiment run with metrics and parameters autologged to Experiments on Gemini Enterprise Agent Platform without setting an experiment run.
+  - Train TensorFlow model, check autologged metrics and parameters to Experiments on Gemini Enterprise Agent Platform by manually setting an experiment run with `aiplatform.start_run()` and `aiplatform.end_run()` .
   - Disable autologging in the Agent Platform SDK for Python, train a PyTorch model and check that none of the parameters or metrics are logged.
 
 ## Relevant content

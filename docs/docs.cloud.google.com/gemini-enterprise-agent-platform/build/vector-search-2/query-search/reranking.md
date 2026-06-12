@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking
-title: About reranking search results with the VertexRanker
-description: Learn about how to rerank searche results in Vector Search 2.0.
+title: Reranking search results with VertexRanker
+description: Learn about how to rerank searche results in Agent Retrieval (formerly Vector Search 2.0).
 data_source: docs.cloud.google.com
 ---
 
@@ -10,9 +10,9 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-VertexRanker is a semantic reranking layer powered by the [Ranking API](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) .
+Agent Retrieval (formerly Vector Search 2.0) provides *VertexRanker* for semantic reranking, which is powered by the [Ranking API](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) .
 
-After Vector Search 2.0 retrieves and fuses candidate results (using Reciprocal Rank Fusion (RRF)), VertexRanker rescores the merged candidates against your natural-language query using a dedicated semantic model. This improves the relevance of the top-k results, especially for queries where search alone misses nuance. Reranking happens server-side with calls to `BatchSearchDataObjects` . No additional client-side wiring or additional round trips are needed.
+After Agent Retrieval retrieves and fuses candidate results (using Reciprocal Rank Fusion (RRF)), VertexRanker rescores the merged candidates against your natural-language query using a dedicated semantic model. This improves the relevance of the top-k results, especially for queries where search alone misses nuance. Reranking happens server-side with calls to `BatchSearchDataObjects` . No additional client-side wiring or additional round trips are needed.
 
 ## VertexRanker
 

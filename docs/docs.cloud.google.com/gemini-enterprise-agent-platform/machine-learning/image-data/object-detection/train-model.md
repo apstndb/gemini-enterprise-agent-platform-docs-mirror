@@ -43,7 +43,7 @@ Select the tab below for your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where dataset is located and Model is created. For example, `us-central1` .
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TRAININGPIPELINE\_DISPLAYNAME : Required. A display name for the trainingPipeline.
   - DATASET\_ID : The ID number for the dataset to use for training.
   - `fractionSplit` : Optional. One of several possible ML use [split options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#inputdataconfig) for your data. For `fractionSplit` , values must sum to 1. For example:
@@ -160,7 +160,7 @@ The response contains information about specifications as well as the TRAININGPI
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -356,7 +356,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -467,7 +467,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Control the data split using REST
 
-You can control how your training data is split between the training, validation, and test sets. When using the Agent Platform API, use the [`Split` object](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.trainingPipelines#InputDataConfig) to determine your data split. The `Split` object can be included in the `InputConfig` object as one of several object types, each of which provides a different way to split the training data. You can select one method only.
+You can control how your training data is split between the training, validation, and test sets. When using the Agent Platform API, use the [`Split` object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#InputDataConfig) to determine your data split. The `Split` object can be included in the `InputConfig` object as one of several object types, each of which provides a different way to split the training data. You can select one method only.
 
 `FractionSplit` :
 
@@ -475,7 +475,7 @@ You can control how your training data is split between the training, validation
   - VALIDATION\_FRACTION : The fraction of the training data to be used for the validation set. Not used for video data.
   - TEST\_FRACTION : The fraction of the training data to be used for the test set.
 
-If any of the fractions are specified, all must be specified. The fractions must add up to 1.0. The [default values for the fractions](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#default) differ depending on your data type. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use#percentages) .
+If any of the fractions are specified, all must be specified. The fractions must add up to 1.0. The [default values for the fractions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#default) differ depending on your data type. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#percentages) .
 
     "fractionSplit": {
       "trainingFraction": TRAINING_FRACTION,
@@ -489,7 +489,7 @@ If any of the fractions are specified, all must be specified. The fractions must
   - VALIDATION\_FILTER : Data items that match this filter are used for the validation set. Must be "-" for video data.
   - TEST\_FILTER : Data items that match this filter are used for the test set.
 
-These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/vertex-ai/machine-learning/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/vertex-ai/machine-learning/general/ml-use#filter) to filter your data.
+These filters can be used with the `ml_use` label, or with any labels you apply to your data. Learn more about using [the ml-use label](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#ml-use) and [other labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use#filter) to filter your data.
 
 The following example shows how to use the `filterSplit` object with the `ml_use` label, with the validation set included:
 

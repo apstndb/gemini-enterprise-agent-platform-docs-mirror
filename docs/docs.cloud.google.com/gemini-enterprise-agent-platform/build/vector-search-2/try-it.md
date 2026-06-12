@@ -1,16 +1,16 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it
-title: Vector Search 2.0 interactive demo
-description: Experience Vector Search 2.0's state-of-the-art technology with the interactive demo, which uses real-world datasets to learn how Vector Search 2.0 works, explore semantic and hybrid search, and see re-ranking in action by submitting a description of an item.
+title: Agent Retrieval interactive demo
+description: Experience Agent Retrieval (formerly Vector Search 2.0)'s state-of-the-art technology with the interactive demo, which uses real-world datasets to learn how Agent Retrieval (formerly Vector Search 2.0) works, explore semantic and hybrid search, and see re-ranking in action by submitting a description of an item.
 data_source: docs.cloud.google.com
 ---
 
-This interactive demo lets you explore [Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview) , the fully managed vector database for Google Cloud. Use the demo to search across millions of product listings with semantic search (powered with [Gemini auto-embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/embeddings/autogenerating-embeddings) keyword text search or hybrid search that uses [Reciprocal Rank Fusion (RRF)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#rrf) to combine both semantic search and keyword text search. Results can be reranked which uses the [Gemini Enterprise Agent Platform Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking) for reranking.
+This interactive demo lets you explore [Agent Retrieval (formerly Vector Search 2.0)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview) , the fully managed vector database for Google Cloud. Use the demo to search across millions of product listings with semantic search (powered with [Gemini auto-embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/embeddings/autogenerating-embeddings) keyword text search or hybrid search that uses [Reciprocal Rank Fusion (RRF)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/about-hybrid-search#rrf) to combine both semantic search and keyword text search. Results can be reranked which uses the [Gemini Enterprise Agent Platform Ranking API](https://cloud.google.com/generative-ai-app-builder/docs/ranking) for reranking.
 
-## Vector Search 2.0 benefits
+## Agent Retrieval benefits
 
-Vector Search required separate embedding generation, index deployment, and a Vertex AI Feature Store for metadata. Vector Search 2.0 provides unified storage for data and embeddings, automatic embedding generation, and built-in text search without requiring you to manage infrastructure.
+Vector Search required separate embedding generation, index deployment, and a Vertex AI Feature Store for metadata. Agent Retrieval provides unified storage for data and embeddings, automatic embedding generation, and built-in text search without requiring you to manage infrastructure.
 
 ## Try it\!
 
@@ -20,15 +20,15 @@ To run:
 
 2.  Click **Submit** or press Enter .
 
-Experiment with the different options in the demo to get a head start understanding Vector Search 2.0 and the basics of vector search technology. For more information, go to [User Interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it#ui) .
+Experiment with the different options in the demo to get a head start understanding Agent Retrieval and the basics of vector search technology. For more information, go to [User Interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it#ui) .
 
 ## User interface
 
-This section describes settings in the UI you can use to control the results Vector Search 2.0 returns and how they are ranked.
+This section describes settings in the UI you can use to control the results Agent Retrieval (formerly Vector Search 2.0) returns and how they are ranked.
 
 ### Dataset
 
-Use the **Dataset** drop-down to choose which dataset Vector Search 2.0 will run your query against. For information about each dataset, go to [Datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it#datasets) .
+Use the **Dataset** drop-down to choose which dataset Agent Retrieval will run your query against. For information about each dataset, go to [Datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/try-it#datasets) .
 
 ### Query
 
@@ -36,7 +36,7 @@ To run a query:
 
 1.  Click **Dataset** and choose which dataset to run your query against.
 
-2.  In the **Query** field, add a description, ask a question, or enter one or more keywords to specify the items Vector Search 2.0 to return results for. Alternatively, click **Generate Query** to auto-generate a query.
+2.  In the **Query** field, add a description, ask a question, or enter one or more keywords to specify the items Agent Retrieval to return results for. Alternatively, click **Generate Query** to auto-generate a query.
 
 3.  Do one of the following:
     
@@ -50,9 +50,9 @@ To run a query:
 
 #### Modify
 
-There are many options you can use to modify the results Vector Search 2.0 returns from a query.
+There are many options you can use to modify the results Agent Retrieval (formerly Vector Search 2.0) returns from a query.
 
-  - Click **Rows** and choose the maximum number of search results that you want Vector Search 2.0 to return.
+  - Click **Rows** and choose the maximum number of search results that you want Agent Retrieval (formerly Vector Search 2.0) to return.
 
   - Select **Semantic** to return semantically similar results.
 
@@ -88,7 +88,7 @@ This includes:
 
 ## Embeddings
 
-Vector Search 2.0 supports the following embedding types:
+Agent Retrieval supports the following embedding types:
 
   - **Multimodal:** Multimodal semantic search on item images. For details, go to [What is Multimodal Search: "LLMs with vision" change businesses](https://cloud.google.com/blog/products/ai-machine-learning/multimodal-generative-ai-search) .
 
@@ -100,19 +100,19 @@ Vector Search 2.0 supports the following embedding types:
 
 ## Query process
 
-In Vector Search 2.0, the query process depends on the kind of searches being done and the embedding models.
+In Agent Retrieval, the query process depends on the kind of searches being done and the embedding models.
 
 ### Semantic and hybrid search
 
-Embedding generation and search happen in a single API call. Vector Search 2.0 auto-generates the query embedding server-side using the model specified in the `vertex_embedding_config` for the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) , performs the search, and returns results with full metadata without needing a separate Vertex AI Feature Store fetch.
+Embedding generation and search happen in a single API call. Agent Retrieval auto-generates the query embedding server-side using the model specified in the `vertex_embedding_config` for the [Collection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) , performs the search, and returns results with full metadata without needing a separate Vertex AI Feature Store fetch.
 
 ### Word2Vec and multimodal
 
-The client generates the query embedding and sends it to Vector Search 2.0 for vector search. The results still include full metadata from the Collection and a Vertex AI Feature Store fetch isn't needed.
+The client generates the query embedding and sends it to Agent Retrieval for vector search. The results still include full metadata from the Collection and a Vertex AI Feature Store fetch isn't needed.
 
 ### Text
 
-Vector Search 2.0 performs built-in keyword matching directly. Embeddings are not generated.
+Agent Retrieval performs built-in keyword matching directly. Embeddings are not generated.
 
 ## Datasets
 

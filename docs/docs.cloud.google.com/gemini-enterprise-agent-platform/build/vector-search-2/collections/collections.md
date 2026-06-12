@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections
 title: Collections
-description: Learn about Collections in Vector Search 2.0 and how to use them.
+description: Learn about Collections in Agent Retrieval (formerly Vector Search 2.0) and how to use them.
 data_source: docs.cloud.google.com
 ---
 
-In Vector Search 2.0, *Collections* are used to store related Data Objects. They provide a source of truth that you can query to determine the exact state of the Data Objects they contain.
+In Agent Retrieval (formerly Vector Search 2.0), *Collections* are used to store related Data Objects. They provide a source of truth that you can query to determine the exact state of the Data Objects they contain.
 
 ## Collection Schema
 

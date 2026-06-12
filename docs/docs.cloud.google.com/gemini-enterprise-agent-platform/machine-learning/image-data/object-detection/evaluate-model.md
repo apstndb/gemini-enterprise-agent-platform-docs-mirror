@@ -27,7 +27,7 @@ You can view and download schema files from the following Cloud Storage location
 
   - **IoU threshold** : An [intersection over union](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/) threshold value that determines which inferences to return. A model returns inferences that are at this value or higher. The higher the threshold, the closer the predicted bounding box values must be to the actual bounding box values.
   - **Mean average precision** : also known as the [average precision](https://developers.google.com/machine-learning/glossary#average-precision) . This value ranges from zero to one, where a higher value indicates a higher-quality model.
-  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Vertex AI returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
+  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Agent Platform returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
   - **Recall** : The fraction of inferences with this class that the model correctly predicted. Also called *true positive rate* .
   - **Precision** : The fraction of classification inferences produced by the model that were correct.
   - **F1 score** : The harmonic mean of precision and recall. F1 is a useful metric if you're looking for a balance between precision and recall and there's an uneven class distribution.
@@ -59,9 +59,9 @@ API requests for getting evaluation metrics is the same for each data type and o
 
 The aggregate model evaluation metrics provide information about the model as a whole. To see information about a specific slice, list the [model evaluation slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/evaluate-model#list-slices) .
 
-To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations) method.
+To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations) method.
 
-For the bounding box metric, Vertex AI returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
+For the bounding box metric, Agent Platform returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
 
 Select a tab that corresponds to your language or environment:
 
@@ -70,7 +70,7 @@ Select a tab that corresponds to your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where your model is stored.
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - MODEL\_ID : The ID of the model resource .
   - PROJECT\_NUMBER : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - EVALUATION\_ID : ID for the model evaluation (appears in the response).
@@ -153,7 +153,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -215,7 +215,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -341,11 +341,11 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 #### Listing all evaluation slices
 
-The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations.slices/list) method lists all evaluation slices for your model. You must have the model's evaluation ID, which you can get when you [view the aggregated evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/evaluate-model#aggregate) .
+The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/list) method lists all evaluation slices for your model. You must have the model's evaluation ID, which you can get when you [view the aggregated evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/evaluate-model#aggregate) .
 
 You can use model evaluation slices to determine how the model performed on a specific label. The `value` field tells you which label the metrics are for.
 
-For the bounding box metric, Vertex AI returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
+For the bounding box metric, Agent Platform returns an array of metric values at different IoU threshold values (between 0 and 1) and confidence threshold values (between 0 and 1). For example, you can narrow in on evaluation metrics at an IoU threshold of 0.85 and a confidence threshold of 0.8228. By viewing these different threshold values, you can see how they affect other metrics such as precision and recall.
 
 ### REST
 
@@ -502,7 +502,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -568,7 +568,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -656,7 +656,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 #### Getting metrics for a single slice
 
-To view evaluation metrics for a single slice, use the [`projects.locations.models.evaluations.slices.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations.slices/get) method. You must have the slice ID, which is provided when you [list all slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/evaluate-model#list-slices) . The following sample applies to all data types and objectives.
+To view evaluation metrics for a single slice, use the [`projects.locations.models.evaluations.slices.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/get) method. You must have the slice ID, which is provided when you [list all slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/evaluate-model#list-slices) . The following sample applies to all data types and objectives.
 
 ### REST
 
@@ -719,7 +719,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -787,7 +787,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 

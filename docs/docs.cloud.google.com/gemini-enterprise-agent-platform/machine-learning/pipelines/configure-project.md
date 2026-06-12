@@ -158,7 +158,7 @@ Agent Platform Pipelines stores the artifacts of your pipeline runs using Cloud 
 
 Use the following instructions to create a CMEK and set up a Vertex ML Metadata metadata store that uses this CMEK.
 
-1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/vertex-ai/docs/general/cmek#configure-cmek)
+1.  [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
 2.  Use the following REST call to create your project's default metadata store using your CMEK.
     

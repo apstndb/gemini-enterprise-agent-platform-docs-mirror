@@ -27,7 +27,7 @@ There are many valid workflows for working in the Model Registry. To get started
   - Run batch inference, and start your model evaluation pipeline.
   - View your model details and view performance metrics from the model details page.
 
-To learn more about how to integrate your BigQuery ML models with Gemini Enterprise Agent Platform, see the [BigQuery ML documentation.](https://docs.cloud.google.com/bigquery-ml/docs/managing-models-vertex)
+To learn more about how to integrate your BigQuery ML models with Gemini Enterprise Agent Platform, see the [BigQuery ML documentation.](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex)
 
 ## Search and discover models using Knowledge Catalog
 

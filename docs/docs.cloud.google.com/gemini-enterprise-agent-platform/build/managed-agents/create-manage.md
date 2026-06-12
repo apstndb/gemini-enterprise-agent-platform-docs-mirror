@@ -33,9 +33,19 @@ Before configuring your agents, complete the following:
       - `aiplatform.user` : Provides permissions to interact with AI Platform resources.
       - `aiplatform.admin` : Provides full control over AI Platform resources, including administrative tasks.
 
+  - If you plan to use Google Cloud Model Context Protocol (MCP) tools with your agent, grant the `mcp.toolUser` role to both your user account and the associated service account.
+
 ## Create an agent
 
 To create a new custom agent, use the `CreateAgent` method. This is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/create-manage#get-details-of-lro) .
+
+> **Note:** During the Preview period, provisioning the first agent in your project can take between two and three minutes. Subsequent agents typically provision within two to three seconds.
+
+### The base agent
+
+The `base_agent` is the core orchestration harness that provides the agent with reasoning capabilities and access to the execution environment. It can inject skills and libraries into the environment and has access to service-side tools for code execution, file system operations, and search with grounding.
+
+When creating an agent, only one value is supported for `base_agent` : `antigravity-preview-05-2026` .
 
 ### Create a basic agent
 
@@ -57,11 +67,13 @@ Before calling the API, make the following replacements:
       - Must contain only lowercase letters, numbers, and hyphens.
       - Must start with a letter and end with a letter or number.
 
+  - BASE\_AGENT : The name of the base agent to extend. Use `antigravity-preview-05-2026` .
+
   - AGENT\_DESCRIPTION : A short summary of the agent's scope.
 
   - INSTRUCTIONS : System instructions or persona to set on the agent.
 
-  - GCS\_BUCKET : The folder path segment of your mounted Google Cloud Storage bucket (for example, `gs://cymbal-bucket-name` ).
+  - GCS\_BUCKET : The folder path segment of your mounted Google Cloud Storage bucket (for example, `gs://cymbal-bucket-name` ). Note: To mount a bucket from a different project, grant the project's service account `read` and `write` access to the bucket.
 
   - network : For security reasons, network access in the environment is turned off. You must specify an `allowlist` to enable access. Using `*` as a domain in the `allowlist` allows connections to all domains, providing unrestricted network access.
 
@@ -73,7 +85,7 @@ Before calling the API, make the following replacements:
 
     {
       "id": "AGENT_ID",
-      "base_agent": "antigravity-preview-05-2026",
+      "base_agent": "BASE_AGENT",
       "description": "AGENT_DESCRIPTION",
       "system_instruction": "INSTRUCTIONS",
       "tools": [
@@ -294,7 +306,67 @@ Before calling the API, make the following replacements:
 
 ### Create an agent with MCP configs
 
-To create an agent with preconfigured MCP server tools, add details under the tools section:
+You can create an agent with preconfigured MCP server tools using the Managed Agents API on Agent Platform.
+
+#### Before you begin
+
+Before you create an agent with preconfigured MCP server tools, do the following:
+
+  - Grant the **MCP Tool User** ( `roles/mcp.toolUser` ) Identity and Access Management (IAM) role to both your user account and the associated service account.
+
+  - Confirm that the MCP servers in your configuration communicate over standard `HTTP POST` for tool listings and execution. The Managed Agents API on Agent Platform requires remote MCP servers to be **Streamable HTTP servers** . The MCP servers must implement the [MCP Streamable HTTP transport](https://modelcontextprotocol.io/specification/2024-11-05/basic/transports) ), where `tools/list` and `tools/call` are sent as JSON-RPC over `HTTP POST` .
+    
+    The deprecated two-endpoint HTTP+SSE transport (a separate long-lived `GET /sse` stream) is not supported.
+
+#### Authorize Google-hosted MCPs
+
+If you are using a bearer token for authorization of Google-hosted MCP servers (such as BigQuery), complete the following steps:
+
+1.  **Add OAuth Scopes:** Append the required [OAuth 2.0 scopes](https://developers.google.com/identity/protocols/oauth2/scopes) to your authentication token. For example, to use the BigQuery MCP, include the relevant BigQuery scopes in your request.
+2.  **Validate Access:** Verify whether the MCP server is accessible with your newly configured scopes by testing the authorization flow in the [OAuth Playground](https://developers.google.com/oauthplayground/) .
+3.  **Use Headers:** For Google MCPs like BigQuery, you must include the `X-Goog-User-Project` header set to your project name in the `headers` map.
+
+For example, the request JSON body used to create an agent that uses the BigQuery MCP would look similar to the following:
+
+    {
+      "name": "projects/<projectname>/locations/global/agents/data-analyst",
+      "id": "data-analyst",
+      "system_instruction": "You are a data analyst. Use the provided tools and data to perform analysis.",
+      "tools": [
+        { "type": "code_execution" },
+        { "type": "filesystem" },
+        { "type": "google_search" },
+        { "type": "url_context" },
+        {
+          "type": "mcp_server",
+          "name": "bigquery-mcp",
+          "url": "https://mcp-bigquery.googleapis.com/v1",
+          "headers": {
+            "Authorization": "Bearer ya29.a0AQyyyy",
+            "X-Goog-User-Project": "project-nameyyyy"
+          }
+        }
+      ],
+      "base_environment": {
+        "type": "remote",
+        "sources": [
+          {
+            "type": "gcs",
+            "source": "gs://agents-1",
+            "target": "/.agent/agents-1"
+          }
+        ],
+        "network": {
+          "allowlist": [ { "domain": "*" } ]
+        }
+      },
+      "base_agent": "antigravity-preview-05-2026",
+      "object": "agent"
+    }
+
+#### Create the agent
+
+To create an agent with preconfigured MCP server tools, add details under the `tools` section:
 
 ### REST
 
@@ -428,6 +500,13 @@ You can attach skills using either of the following methods:
   - **Google Cloud Storage:** Attach custom skills directly from a Cloud Storage bucket.
     
     As a best practice, we recommend mounting skills under the `/.agent/skills` folder in the environment to make them more discoverable to the agent.
+
+#### CLI Skills
+
+Developers can also install specialized skills in their CLI of choice to programmatically manage agents and interactions:
+
+  - [Agents API Skill](https://github.com/google/skills/blob/main/skills/cloud/gemini-agents-api/SKILL.md)
+  - [Interaction API Skill](https://github.com/google/skills/blob/main/skills/cloud/gemini-interactions-api/SKILL.md)
 
 #### Attach a skill from the Skill Registry
 

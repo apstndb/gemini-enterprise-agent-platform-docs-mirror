@@ -71,13 +71,13 @@ Specify the selected image family or image name using the `--vm-image-family` or
 
     # Using an image family
     gcloud workbench instances create INSTANCE_NAME \
-      --vm-image-project=deeplearning-platform-release \
+      --vm-image-project=cloud-notebooks-managed \
       --vm-image-family=workbench-instances-2603 \
       --location=LOCATION
     
     # Using a specific image name
     gcloud workbench instances create INSTANCE_NAME \
-      --vm-image-project=deeplearning-platform-release \
+      --vm-image-project=cloud-notebooks-managed \
       --vm-image-name=workbench-instances-2603-20240315-1800-rc0 \
       --location=LOCATION
 
@@ -96,7 +96,7 @@ In the Terraform configuration, set the `vm_image` block within the `google_work
       # ... other configurations
       gce_setup {
         vm_image {
-          project      = "deeplearning-platform-release"
+          project      = "cloud-notebooks-managed"
           family       = "workbench-instances-2603" # Or use name = "workbench-instances-2603-20240315-1800-rc0"
         }
       }

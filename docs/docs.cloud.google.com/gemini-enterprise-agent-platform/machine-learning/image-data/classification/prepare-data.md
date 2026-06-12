@@ -148,7 +148,7 @@ CSV format:
 
 **List of columns**
 
-  - `ML_USE` (Optional) - For data split purposes when training a model. Use TRAINING, TEST, or VALIDATION. For more information about manual data splitting, see [About data splits for AutoML models](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+  - `ML_USE` (Optional) - For data split purposes when training a model. Use TRAINING, TEST, or VALIDATION. For more information about manual data splitting, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
   - `GCS_FILE_PATH` - This field contains the Cloud Storage URI for the image. Cloud Storage URIs are case-sensitive.
   - `LABEL` (Optional) - Labels must start with a letter and only contain letters, numbers, and underscores.
 
@@ -310,7 +310,7 @@ CSV format:
 
 **List of columns**
 
-  - `ML_USE` (Optional) - For data split purposes when training a model. Use TRAINING, TEST, or VALIDATION. For more information about manual data splitting, see [About data splits for AutoML models](https://docs.cloud.google.com/vertex-ai/docs/general/ml-use) .
+  - `ML_USE` (Optional) - For data split purposes when training a model. Use TRAINING, TEST, or VALIDATION. For more information about manual data splitting, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
   - `GCS_FILE_PATH` - This field contains the Cloud Storage URI for the image. Cloud Storage URIs are case-sensitive.
   - `LABEL` (Optional) - Labels must start with a letter and only contain letters, numbers, and underscores.
 

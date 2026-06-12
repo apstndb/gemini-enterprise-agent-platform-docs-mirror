@@ -106,7 +106,7 @@ Before using any of the command data below, make the following replacements:
 
   - PROJECT\_ID : The Project ID of the Google Cloud project where you want to create the persistent resource.
 
-  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
   - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource.
 
@@ -255,7 +255,7 @@ A persistent resource can have one or more resource pools ( `machine_spec` ), an
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : The Project ID of the Google Cloud project where you want to create the persistent resource.
-  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) .
+  - LOCATION : The region where you want to create the persistent resource. For a list of supported regions, see [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
   - PERSISTENT\_RESOURCE\_ID : The ID of the persistent resource.
   - DISPLAY\_NAME : (Optional) The display name of the persistent resource.
   - MACHINE\_TYPE : The type of VM to use. For a list of supported VMs, see [Machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) . This field corresponds to the `machineSpec.machineType` field in the `ResourcePool` API message.

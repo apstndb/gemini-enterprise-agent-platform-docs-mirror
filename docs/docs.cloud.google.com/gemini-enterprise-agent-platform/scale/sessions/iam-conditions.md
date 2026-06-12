@@ -53,9 +53,9 @@ To set up conditional Identity and Access Management policies for sessions and s
 
 ## Creating conditional access for sessions
 
-Grant conditional access to sessions by adding a condition to an Identity and Access Management policy binding at the project level. The condition uses the `api.getAttribute('aiplatform.googleapis.com/sessionUserId', "")` function to inspect the user ID of the session resource. You define a user ID when you [create a session](https://docs.cloud.google.com/agent-builder/agent-engine/sessions/manage-sessions-api#create_a_session) .
+Grant conditional access to sessions by adding a condition to an Identity and Access Management policy binding at the project level. The condition uses the `api.getAttribute('aiplatform.googleapis.com/sessionUserId', "")` function to inspect the user ID of the session resource. You define a user ID when you [create a session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api#create-a-session) .
 
-For a detailed guide on creating IAM policies with conditions, see [Conditions in allow policies](https://cloud.google.com/iam/docs/conditions-overview#allow-conditions) .
+For a detailed guide on creating IAM policies with conditions, see [Conditions in allow policies](https://docs.cloud.google.com/iam/docs/conditions-overview#allow-conditions) .
 
 To grant a single role to a principal, do the following:
 
@@ -102,9 +102,9 @@ To grant a single role to a principal, do the following:
           - Predefined roles: ` roles/aiplatform. IDENTIFIER  `
           - Project-level custom roles: ` projects/ PROJECT_ID /roles/ IDENTIFIER  `
         
-        Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Session IAM roles](https://docs.cloud.google.com/agent-builder/agent-engine/sessions/iam-conditions#session-roles) .
+        Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the [specialized Session IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#session-roles) .
     
-      - `  CONDITION  ` : Add a condition to the role, using `aiplatform.googleapis.com/sessionUserId` as the API attribute. See the below [examples](https://docs.cloud.google.com/agent-builder/agent-engine/sessions/iam-conditions#examples) for some possible condition statements.
+      - `  CONDITION  ` : Add a condition to the role, using `aiplatform.googleapis.com/sessionUserId` as the API attribute. See the below [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions#examples) for some possible condition statements.
     
     Execute the following command:
     

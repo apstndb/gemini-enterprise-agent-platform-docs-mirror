@@ -21,7 +21,7 @@ From the Model Registry, you can import a model as a new version of an existing 
 5.  Optionally set this model as the default version. The default version is preselected whenever the model is used for prediction (although you can still select other versions).
 6.  Select your Region.
 7.  Select **Continue** .
-8.  From the Model settings, define what container you want to use. You can select to import model artifacts into a new prebuilt container or import into an existing custom container. To learn more about containers, see [Import models to Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
+8.  From the Model settings, define what container you want to use. You can select to import model artifacts into a new prebuilt container or import into an existing custom container. To learn more about containers, see [Import models to Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
 9.  Select **Continue** .
 10. Optional: Add explainability support to your model.
 11. Select **Import** .
@@ -278,7 +278,7 @@ From the Model Registry, you can view a list of all versions of a model. This ca
 Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : The project ID associated to this model
-  - LOCATION : The region where you are using Vertex AI.
+  - LOCATION : The region where you are using Agent Platform.
   - MODEL\_ID : The ID associated with a specific model.
 
 HTTP method and URL:
@@ -354,7 +354,7 @@ Use the following instructions to view your model details page. To view version 
 2.  From the Gemini Enterprise Agent Platform Model Registry, click a model name to open the model details page.
 3.  A list of all versions and their associated version IDs displays. You see model versions separated by row. Model version details include the version ID, the model alias, status, description, and labels.
 4.  To view the details of one of the model versions, select a version ID. The model details page opens
-5.  From the details page you can evaluate, deploy and test, use batch prediction, and take a closer look at the version details. Additionally, from this page you can use [Vertex AI Model Evaluation](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) to compare your model versions.
+5.  From the details page you can evaluate, deploy and test, use batch prediction, and take a closer look at the version details. Additionally, from this page you can use [Agent Platform Model Evaluation](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/introduction) to compare your model versions.
 
 ### Python
 

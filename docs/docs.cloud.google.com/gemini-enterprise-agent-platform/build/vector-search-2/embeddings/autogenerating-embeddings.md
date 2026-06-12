@@ -1,18 +1,18 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/embeddings/autogenerating-embeddings
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/embeddings/autogenerating-embeddings
-title: Autogenerating embeddings for Vector Search 2.0
-description: Autogenerate embeddings for Vector Search 2.0
+title: Autogenerating embeddings for Agent Retrieval
+description: Autogenerate embeddings for Agent Retrieval (formerly Vector Search 2.0)
 data_source: docs.cloud.google.com
 ---
 
-You can use Vector Search 2.0 to autogenerate embeddings for your [Collections](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) . This lets you build new embeddings and deploy them instantly, which streamlines the path from raw data to a live production-scale search engine.
+You can use Agent Retrieval (formerly Vector Search 2.0) to autogenerate embeddings for your [Collections](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections) . This lets you build new embeddings and deploy them instantly, which streamlines the path from raw data to a live production-scale search engine.
 
 ## Supported Gemini Enterprise embedding models
 
 > **Note:** Support for embedding models is subject to Gemini Enterprise versioning and lifecycle guidelines. For more information, including retirement dates, see [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) .
 
-Vector Search 2.0 supports the following embedding models:
+Agent Retrieval (formerly Vector Search 2.0) supports the following embedding models:
 
   - Gemini — Provides state-of-the-art performance for embedding text (English-only and multilingual).
 

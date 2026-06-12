@@ -111,7 +111,7 @@ When you delete a model version assigned the default alias, the alias is automat
 
 ### Console
 
-1.  In the Google Cloud console, go to the Vertex AI **Model Registry** page.
+1.  In the Google Cloud console, go to the Agent Platform **Model Registry** page.
 
 2.  From the Model Registry, select the name of the model you want to edit. The model details window opens.
 

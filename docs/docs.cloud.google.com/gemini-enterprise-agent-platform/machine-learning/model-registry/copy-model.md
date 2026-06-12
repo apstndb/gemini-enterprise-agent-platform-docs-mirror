@@ -149,8 +149,8 @@ Use the following instructions to copy a models to a different project.
 
 Before using any of the request data, make the following replacements:
 
-  - `  DESTINATION_LOCATION  ` : The region where you are using Vertex AI. For example, `us-central1`
-  - `  SOURCE_LOCATION  ` : The Vertex AI region from which you will copy the model.
+  - `  DESTINATION_LOCATION  ` : The region where you are using Agent Platform. For example, `us-central1`
+  - `  SOURCE_LOCATION  ` : The Agent Platform region from which you will copy the model.
   - `  PROJECT_ID  ` : Your project ID or project number.
   - `  MODEL_ID  ` :ID of the model to copy.
   - `  VERSION_ID  ` : (Optional) ID of the model version to copy (if not provided the default version is copied)

@@ -222,7 +222,7 @@ To specify the environment variables, there are a few different options availabl
 
 To reference a secret in Secret Manager and have it be available as an environment variable (for example, `CLOUD_SQL_CREDENTIALS_SECRET` ), first follow the instructions to [Create a secret](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#create-secret) for `CLOUD_SQL_CREDENTIALS_SECRET` in [your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#project) , before specifying the environment variables as:
 
-    env_vars={# ... (other environment variables and their values)"CLOUD_SQL_CREDENTIALS_SECRET":{"secret":SECRET_ID, "version":SECRET_VERSION_ID},}
+    env_vars={# ... (other environment variables and their values)"CLOUD_SQL_CREDENTIALS_SECRET":{"secret":SECRET_ID,"version":SECRET_VERSION_ID},}
 
 where
 
@@ -453,7 +453,7 @@ To do so, specify the email of your custom service account as the `service_accou
     client.agent_engines.create(
         agent=local_agent,
         config={
-            "service_account": "my-custom-service-accoiam.gserviceaccount.comunt@my-project.",
+            "service_account": "my-custom-service-account@my-project.iam.gserviceaccount.com",
             # ...
         },
     )
@@ -464,7 +464,7 @@ To do so, specify the email of your custom service account as the `service_accou
         name=resource_name,
         agent=local_agent,
         config={
-            "service_account": &qiam.gserviceaccount.comuot;my-new-custom-service-account@my-project.",
+            "service_account": "my-new-custom-service-account@my-project.iam.gserviceaccount.com",
             # ...
         },
     )
@@ -482,8 +482,8 @@ If you have [Private Service Connect interface and private DNS zone](https://doc
                 "network_attachment": "NETWORK_ATTACHMENT",
                 "dns_peering_configs": [
                     {
-                        "domain": "DOMAIN_SUFFIX&quot;,
-                        "target_project": &quot;TARGET_PROJECT",
+                        "domain": "DOMAIN_SUFFIX",
+                        "target_project": "TARGET_PROJECT",
                         "target_network": "TARGET_NETWORK",
                     },
                 ],
@@ -547,7 +547,10 @@ To deploy the agent on Agent Platform, use `client.agent_engines.create` to pass
             "max_instances": max_instances,                 # Optional.
             "resource_limits": resource_limits,             # Optional.
             "container_concurrency": container_concurrency, # Optional
-         "encryption_spec":encryption_spec,# Optional."agent_framework":agent_framework,# Optional.},)
+            "encryption_spec": encryption_spec,             # Optional.
+            "agent_framework": agent_framework,             # Optional.
+        },
+    )
 
 Deployment takes a few minutes, during which the following steps happen in the background:
 
@@ -576,7 +579,12 @@ To deploy from Developer Connect on Agent Platform, use `client.agent_engines.cr
             },
             "entrypoint_module": "agent",                   # Required.
             "entrypoint_object": "root_agent",              # Required.
-            "requirements_file": "requirements.txt";,# Optional.# Other optional configs:# "env_vars": {...},# "service_account": "...",},)
+            "requirements_file": "requirements.txt",        # Optional.
+            # Other optional configs:
+            # "env_vars": {...},
+            # "service_account": "...",
+        },
+    )
 
 The parameters for Developer Connect deployment are:
 
@@ -615,7 +623,11 @@ To deploy from source files on Agent Platform, use `client.agent_engines.create`
             "min_instances": min_instances,                 # Optional.
             "max_instances": max_instances,                 # Optional.
             "resource_limits": resource_limits,             # Optional.
-            "container_concurrency": container_concurrency,# Optional"encryption_spec":encryption_spec,# Optional."agent_framework":agent_framework,# Optional.},)
+            "container_concurrency": container_concurrency, # Optional
+            "encryption_spec": encryption_spec,             # Optional.
+            "agent_framework": agent_framework,             # Optional.
+        },
+    )
 
 The parameters for inline source deployment are:
 
@@ -637,7 +649,14 @@ The parameters for inline source deployment are:
               "parameters": {
                   "type": "object",
                   "properties": {
-                      "param1": {"type": "string", &quot;description":"Description of param1"},"param2":{"type":"integer"}},"required":["param1"]}}]```
+                      "param1": {"type": "string", "description": "Description of param1"},
+                      "param2": {"type": "integer"}
+                  },
+                  "required": ["param1"]
+              }
+          }
+      ]
+      ```
     ````
 
   - `requirements_file` (Optional, `str` ): The path to a pip requirements file within the paths specified in `source_packages` . Defaults to `requirements.txt` at the root directory of the packaged source.
@@ -675,7 +694,16 @@ The following is an example of deploying an agent from source files:
               {"name": "ask", "api_mode": "", "parameters": {
                   "type": "object",
                   "properties": {
-           "question":{"type":"string"}},"required":["question"]}},],# Other optional configs:# "env_vars": {...},# "service_account": "...",})
+                      "question": {"type": "string"}
+                  },
+                  "required": ["question"]
+              }},
+          ],
+          # Other optional configs:
+          # "env_vars": {...},
+          # "service_account": "...",
+      }
+    )
 
 ### Dockerfile
 
@@ -701,7 +729,9 @@ The following is an example of deploying an agent using a Dockerfile:
                 "Dockerfile",
             ],
             "image_spec": {},  # tells Agent Runtime to use the Dockerfile
-            # Other optional configs})
+            # Other optional configs
+        }
+    )
 
 ### Container Image
 
@@ -710,10 +740,11 @@ To deploy from a container image, first follow the setup instructions for [Bring
     remote_agent = client.agent_engines.create(
         config={
             "container_spec": {
-                &quot;image_uri": "CONTAINER_IMAGE_URI",
+                "image_uri": "CONTAINER_IMAGE_URI",
             },
             # Other optional configs
-        },)
+        },
+    )
 
 Where `  CONTAINER_IMAGE_URI  ` corresponds to the URI of the container image in Artifact Registry (such as `us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag` ).
 

@@ -82,7 +82,7 @@ You can register your BigQuery ML models to the Model Registry in order to manag
 
 ![An image of Google Cloud products and where they fit in an MLOps workflow](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/mlops_bq2_new.png)
 
-To learn how to register your BigQuery ML models to the Model Registry, see [Manage BigQuery ML models with Vertex AI](https://docs.cloud.google.com/bigquery-ml/docs/managing-models-vertex) .
+To learn how to register your BigQuery ML models to the Model Registry, see [Manage BigQuery ML models with Vertex AI](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex) .
 
 ## Related notebook tutorials
 

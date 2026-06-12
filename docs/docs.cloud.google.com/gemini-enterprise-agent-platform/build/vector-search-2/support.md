@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/support
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/support
 title: Get support
-description: When seeking support for Vector Search 2.0, include the command/code that triggered the problem, the environment in which it was run, and the observed behavior along with how it differs from expectations.
+description: When seeking support for Agent Retrieval (formerly Vector Search 2.0), include the command/code that triggered the problem, the environment in which it was run, and the observed behavior along with how it differs from expectations.
 data_source: docs.cloud.google.com
 ---
 
-If you encounter a problem using Vector Search 2.0, you can get support either by creating a Cloud Customer Care ticket or by asking the community.
+If you encounter a problem using Agent Retrieval (formerly Vector Search 2.0), you can get support either by creating a Cloud Customer Care ticket or by asking the community.
 
 Regardless of the method you choose, include the following details when asking for support:
 

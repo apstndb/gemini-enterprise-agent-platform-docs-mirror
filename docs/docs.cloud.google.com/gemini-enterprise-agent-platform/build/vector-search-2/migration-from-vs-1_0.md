@@ -201,7 +201,7 @@ Next, use the `ImportDataObjects` API on your newly created collection. Point it
 
 ## Data transformation
 
-During the import process, your Vector Search 1.0 data will be transformed into Vector Search 2.0 Data Objects. The following examples illustrate how the fields are mapped.
+During the import process, your Vector Search 1.0 data will be transformed into Agent Retrieval Data Objects. The following examples illustrate how the fields are mapped.
 
 **Vector Search 1.0 Cloud Storage file format**
 
@@ -224,7 +224,7 @@ During the import process, your Vector Search 1.0 data will be transformed into 
         }
     }
 
-**Transformed Vector Search 2.0 Data Object**
+**Transformed Agent Retrieval Data Object**
 
     DataObject(
         name="/.../movie-789",

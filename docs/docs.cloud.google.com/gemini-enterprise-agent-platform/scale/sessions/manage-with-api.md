@@ -32,7 +32,7 @@ If you don't have an existing Agent Runtime instance, create one using the follo
 Replace the following:
 
   - PROJECT\_ID : Your project ID.
-  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#supported-regions-agent-engine) for Sessions.
+  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Sessions.
 
 ## List sessions
 

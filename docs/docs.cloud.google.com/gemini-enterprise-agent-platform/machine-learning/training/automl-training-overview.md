@@ -28,8 +28,6 @@ The workflow for training and using an AutoML model is the same, regardless of y
 5.  Get inferences from your model.
 6.  Interpret inference results.
 
-<span id="data"></span>
-
 ## Image data
 
 AutoML uses machine learning to analyze the content of image data. You can use AutoML to train an ML model to classify image data or find objects in image data.
@@ -71,7 +69,7 @@ Vertex AI lets you perform machine learning with tabular data using straightforw
 
 To learn more, see [Tabular data overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/overview) .
 
-If your tabular data is stored in BigQuery ML, you can train an AutoML tabular model directly in BigQuery ML. To learn more, see [AutoML Tabular reference documentation](https://docs.cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create) .
+If your tabular data is stored in BigQuery ML, you can train an AutoML tabular model directly in BigQuery ML. To learn more, see [AutoML Tabular reference documentation](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-automl) .
 
 ## What's next
 

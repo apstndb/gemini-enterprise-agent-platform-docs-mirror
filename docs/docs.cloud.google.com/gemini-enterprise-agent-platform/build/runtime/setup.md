@@ -285,7 +285,7 @@ The Agent Runtime [default service agent](https://docs.cloud.google.com/gemini-e
 
 The service agent is automatically generated in your project by default. If it doesn't exist, follow [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) to create and configure it.
 
-### Grant Artifact Registry Reader role {: \#reader-role)
+### Grant Artifact Registry Reader role
 
 Grant the Artifact Registry Reader role ( `roles/artifactregistry.reader` ) to the default service agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` ).
 

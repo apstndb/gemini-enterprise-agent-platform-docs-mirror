@@ -122,12 +122,7 @@ For more information on the `MODEL_NAME` format, see the [Anthropic documentatio
 
 **Supported models for the multi-region endpoint:**
 
-The following models are supported. Use the full Model ID including the version date where applicable.
-
-| Model             | API model ID      |
-| :---------------- | :---------------- |
-| `claude-opus-4-8` | `claude-opus-4-8` |
-| `claude-opus-4-7` | `claude-opus-4-7` |
+Multi-region endpoints support all Claude models with versions 4.7 and later (for example, `claude-opus-4-7` , `claude-opus-4-8` , and `claude-fable-5` ). Use the full Model ID including the version date where applicable.
 
 **Example Request:**
 

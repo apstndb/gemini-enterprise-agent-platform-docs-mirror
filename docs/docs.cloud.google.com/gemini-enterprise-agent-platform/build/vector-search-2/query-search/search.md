@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/search
 title: Searching for Data Objects
-description: Learn about the different ways to search for Data Objects in Vector Search 2.0.
+description: Learn about the different ways to search for Data Objects in Agent Retrieval (formerly Vector Search 2.0).
 data_source: docs.cloud.google.com
 ---
 

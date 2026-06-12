@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Learn how to delete a model you no longer need from the Gemini Enterprise Agent Platform Model Registry.
 
-If you want to delete a BigQuery ML from Gemini Enterprise Agent Platform Model Registry, you must first delete it from BigQuery ML. To learn more, see [BigQuery ML and Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/bigquery-ml/docs/managing-models-vertex) .
+If you want to delete a BigQuery ML from Gemini Enterprise Agent Platform Model Registry, you must first delete it from BigQuery ML. To learn more, see [BigQuery ML and Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex) .
 
 If you want to delete a model that is deployed to an endpoint, you need to undeploy it first. Otherwise, you are unable to delete the model.
 
@@ -91,7 +91,7 @@ Delete a model using the Agent Platform SDK for Python.
 
 ### Console
 
-1.  Go to the **Model Registry** page from the Vertex AI section in the Google Cloud console.
+1.  Go to the **Model Registry** page from the Agent Platform section in the Google Cloud console.
 
 2.  Expand the model to view its model versions. Select the version that you want to delete.
 

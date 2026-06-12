@@ -27,7 +27,7 @@ You can view and download schema files from the following Cloud Storage location
 
   - **AuPRC** : The [area under the precision-recall (PR) curve](https://developers.google.com/machine-learning/glossary#pr-auc-area-under-the-pr-curve) , also referred to as average precision. This value ranges from zero to one, where a higher value indicates a higher-quality model.
   - **Log loss** : The cross-entropy between the model inferences and the target values. This ranges from zero to infinity, where a lower value indicates a higher-quality model.
-  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Vertex AI returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
+  - **Confidence threshold** : A confidence score that determines which inferences to return. A model returns inferences that are at this value or higher. A higher confidence threshold increases precision but lowers recall. Agent Platform returns confidence metrics at different threshold values to show how the threshold affects [precision](https://developers.google.com/machine-learning/glossary#precision) and [recall](https://developers.google.com/machine-learning/glossary#recall) .
   - **Recall** : The fraction of inferences with this class that the model correctly predicted. Also called *true positive rate* .
   - **Precision** : The fraction of classification inferences produced by the model that were correct.
   - **Confusion matrix** : A [confusion matrix](https://developers.google.com/machine-learning/glossary#confusion-matrix) shows how often a model correctly predicted a result. For incorrectly predicted results, the matrix shows what the model predicted instead. The confusion matrix helps you understand where your model is "confusing" two results.
@@ -60,9 +60,9 @@ API requests for getting evaluation metrics is the same for each data type and o
 
 The aggregate model evaluation metrics provide information about the model as a whole. To see information about a specific slice, list the [model evaluation slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#list-slices) .
 
-To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations) method.
+To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations) method.
 
-Vertex AI returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
+Agent Platform returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
 
 Select a tab that corresponds to your language or environment:
 
@@ -396,11 +396,11 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 #### Listing all evaluation slices
 
-The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations.slices/list) method lists all evaluation slices for your model. You must have the model's evaluation ID, which you can get when you [view the aggregated evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#aggregate) .
+The [`projects.locations.models.evaluations.slices.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/list) method lists all evaluation slices for your model. You must have the model's evaluation ID, which you can get when you [view the aggregated evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#aggregate) .
 
 You can use model evaluation slices to determine how the model performed on a specific label. The `value` field tells you which label the metrics are for.
 
-Vertex AI returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
+Agent Platform returns an array of confidence metrics. Each element shows evaluation metrics at a different `confidenceThreshold` value (starting from 0 and going up to 1). By viewing different threshold values, you can see how the threshold affects other metrics such as precision and recall.
 
 ### REST
 
@@ -666,7 +666,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 #### Getting metrics for a single slice
 
-To view evaluation metrics for a single slice, use the [`projects.locations.models.evaluations.slices.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations.slices/get) method. You must have the slice ID, which is provided when you [list all slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#list-slices) . The following sample applies to all data types and objectives.
+To view evaluation metrics for a single slice, use the [`projects.locations.models.evaluations.slices.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations.slices/get) method. You must have the slice ID, which is provided when you [list all slices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/evaluate-model#list-slices) . The following sample applies to all data types and objectives.
 
 ### REST
 
