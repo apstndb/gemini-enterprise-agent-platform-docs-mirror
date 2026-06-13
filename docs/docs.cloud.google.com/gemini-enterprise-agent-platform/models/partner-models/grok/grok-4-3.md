@@ -49,7 +49,7 @@ Supported
 
 Not supported
 
-  - [Dynamic shared quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/dynamic-shared-quota) preview Preview feature
+  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) preview Preview feature
   - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) preview Preview feature
 
 Versions

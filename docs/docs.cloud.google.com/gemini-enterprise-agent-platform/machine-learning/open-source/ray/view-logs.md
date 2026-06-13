@@ -107,7 +107,7 @@ To use the direct view under **Metrics Explorer** , follow these steps:
         1.  In the Google Cloud console, go to the **Ray** page.
         
         2.  Be sure you're in the project you want to create the experiment in.  
-            ![Vertex AI select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/project-select.png)
+            ![Agent Platform select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/project-select.png)
         
         3.  Under **Name** a list of cluster IDs appears.
         ![select metric](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/ray-cluster-id.png)
@@ -116,7 +116,7 @@ To use the direct view under **Metrics Explorer** , follow these steps:
 
 ### **GCM** dashboard
 
-To import a Grafana dashboard for Ray on Vertex AI follow the guidelines on the cloud monitoring dashboard, [Import your own grafana dashboard](https://cloud.google.com/monitoring/dashboards/import-grafana-dashboards) .
+To import a Grafana dashboard for Ray on Agent Platform follow the guidelines on the cloud monitoring dashboard, [Import your own grafana dashboard](https://cloud.google.com/monitoring/dashboards/import-grafana-dashboards) .
 
 ![monitoring dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/ray-cloud-monitoring-dashboard.png)
 
@@ -126,13 +126,13 @@ All you need is a Grafana dashboard JSON file. OSS Ray supports this [manual set
 
 from user-owned Grafana
 
-If you already have a Grafana server running, then there's also a way to export all the Ray cluster on Vertex AI Prometheus metrics to your existing Grafana server. To do so, follow the GMP [Query using Grafana](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query#begin) guidance. This lets you add a new Grafana data source to your existing Grafana server and use the data source syncer to sync the new Grafana Prometheus data source to Ray on Vertex AI metrics.
+If you already have a Grafana server running, then there's also a way to export all the Ray cluster on Gemini Enterprise Agent Platform Prometheus metrics to your existing Grafana server. To do so, follow the GMP [Query using Grafana](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query#begin) guidance. This lets you add a new Grafana data source to your existing Grafana server and use the data source syncer to sync the new Grafana Prometheus data source to Ray on Agent Platform metrics.
 
 It's important that you configure and authenticate the newly added Grafana data source using the data source syncer. Follow the steps provided in [Configure and authenticate the Grafana data source](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query#grafana-oauth) .
 
-Once synced, you can create and add any dashboard you need based on the Ray on Vertex AI metrics.
+Once synced, you can create and add any dashboard you need based on the Ray on Agent Platform metrics.
 
-By default, the Ray on Vertex AI metrics collections are enabled. Here's how to disable them using Agent Platform SDK for Python:
+By default, the Ray on Agent Platform metrics collections are enabled. Here's how to disable them using Agent Platform SDK for Python:
 
     vertex_ray.create_ray_cluster(..., enable_metrics_collection=False, ...)
 
@@ -146,12 +146,12 @@ To debug Ray clusters, use the **Head node interactive shell** :
 
 To access the **Head node interactive shell** , do the following:
 
-1.  In the Google Cloud console, go to the **Ray on Vertex AI** page.  
+1.  In the Google Cloud console, go to the **Ray on Agent Platform** page.  
 2.  Be sure you're in the correct project.  
-    ![Vertex AI select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/project-select.png)
+    ![Agent Platform select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/open-source/images/project-select.png)
 3.  Select the cluster you want to examine. **Basic info** section appears.
 4.  In the **Access links** section, click the link for **Head node interactive shell** . The head node interactive shell appears.
-5.  Follow the instructions outlined in [Monitor and debug training with an interactive shell](https://docs.cloud.google.com/vertex-ai/machine-learning/training/monitor-debug-interactive-shell) .
+5.  Follow the instructions outlined in [Monitor and debug training with an interactive shell](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/monitor-debug-interactive-shell) .
 
 ## What's next
 

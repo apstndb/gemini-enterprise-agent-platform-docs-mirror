@@ -50,7 +50,7 @@ Use these instructions to create an experiment.
 
 1.  In the Google Cloud console, go to the **Experiments** page.  
 2.  Be sure you're in the project you want to create the experiment in.  
-    ![Vertex AI select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/project-select.png)
+    ![Agent Platform select project](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/project-select.png)
 3.  Click **add\_box Create** to open the **Experiment** pane. The **Create experiment** pane appears.
 4.  In the **Experiment name** field, provide a name to uniquely identify your experiment.
 5.  Optional. In the **TensorBoard instance** field, select an instance from the drop-down or provide a name for your new TensorBoard instance.
@@ -129,14 +129,14 @@ Use the following instructions to delete an experiment.
 
 ## View list of experiments in Google Cloud console
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Experiments** page.
+1.  In the Google Cloud console, in the Gemini Enterprise Agent Platform section, go to the **Experiments** page.
 
 2.  Check to be sure you are in the correct project.
 
 3.  A list of experiments for your project appears in the **Experiment tracking** view.  
     If you associated a Vertex AI TensorBoard instance with your experiment it shows up in the list as " *your-experiment* Backing TensorBoard Experiment".
 
-![Vertex AI List of experiments](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiments-list-console.png)
+![Agent Platform List of experiments](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiments-list-console.png)
 
 ## What's next
 

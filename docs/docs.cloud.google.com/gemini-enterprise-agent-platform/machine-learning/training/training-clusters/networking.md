@@ -109,8 +109,8 @@ Further requirements:
 After preparing the VPC network with the correct MTU settings and firewall rules, the next steps are to create and secure the training cluster.
 
   - Verify your network configuration: Before creating your cluster, run a [Connectivity Test](https://docs.cloud.google.com/network-intelligence-center/docs/connectivity-tests/how-to/running-connectivity-tests) to verify your VPC network and MTU settings, especially if you modified an existing VPC.
-  - Secure your cluster with a service perimeter: For enhanced data security, use VPC Service Controls to create a service perimeter around your Vertex AI resources. This helps prevent data exfiltration.
-      - [Learn about VPC Service Controls with Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
+  - Secure your cluster with a service perimeter: For enhanced data security, use VPC Service Controls to create a service perimeter around your Gemini Enterprise Agent Platform resources. This helps prevent data exfiltration.
+      - [Learn about VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
   - Connect from a hybrid or multi-cloud environment: To access your training cluster from an on-premises data center or a public cloud, use Google Cloud's options for hybrid connectivity.
       - [Learn about Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview)
       - [Learn about Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview)

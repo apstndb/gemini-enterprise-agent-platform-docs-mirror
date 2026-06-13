@@ -249,7 +249,7 @@ The `register_experiment_model` API enables registering the model that was deeme
 2.  Select the experiment that you want to check.  
     A list of runs appears.
 
-![Vertex AI experiment list page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiment-runs-list.png)
+![Agent Platform experiment list page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiment-runs-list.png)
 
 ## What's next
 

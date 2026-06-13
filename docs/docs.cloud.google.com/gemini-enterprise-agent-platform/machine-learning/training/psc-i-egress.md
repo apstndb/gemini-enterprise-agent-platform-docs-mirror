@@ -110,8 +110,8 @@ To create a serverless training job with PSC-I using the Agent Platform SDK for 
   - `machine_type` : [Specify the compute resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute#specify) .
   - `replica_count` : The number of worker replicas to use for each trial.
   - `service_attachment` : The name of the service attachment resource. Populated if Private Service Connect is enabled.
-  - `image_uri` : The URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/vertex-ai/machine-learning/training/create-custom-container) .
-  - `network_attachment` : The name or full path of the network attachment you created when setting up your resources for [Private Service Connect](https://docs.cloud.google.com/vertex-ai/machine-learning/training/psc-i-egress) .
+  - `image_uri` : The URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+  - `network_attachment` : The name or full path of the network attachment you created when setting up your resources for [Private Service Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress) .
   - `domain` : The DNS name of the private Cloud DNS zone you created when setting up the Private DNS Peering.
   - `target_project` : The project that hosts the VPC network.
   - `target_network` : The VPC network name.

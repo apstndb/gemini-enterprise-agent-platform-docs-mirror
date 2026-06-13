@@ -44,9 +44,9 @@ Visit the [Google Cloud console](https://console.cloud.google.com/vertex-ai/) to
 
 When prompted, make sure to select the project that you used for your Cloud Storage bucket.
 
-1.  From the Get started with Vertex AI page, click **Create dataset** .
+1.  From the Get started with Gemini Enterprise Agent Platform page, click **Create dataset** .
     
-    ![Vertex AI dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/create-dataset.png)
+    ![Agent Platform dashboard](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/create-dataset.png)
 
 2.  Specify a name for this dataset (optional).
 

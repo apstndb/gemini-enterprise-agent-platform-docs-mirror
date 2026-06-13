@@ -16,7 +16,7 @@ In this tutorial, you learn how to enable Profiler for custom training jobs.
 
 This tutorial uses the following Google Cloud ML services and resources:
 
-  - Vertex AI training
+  - Gemini Enterprise Agent Platform training
   - Vertex AI TensorBoard
 
 The steps performed include:
@@ -28,4 +28,4 @@ The steps performed include:
 
 ## Relevant content
 
-  - [Profile model training performance using Profiler](https://docs.cloud.google.com/vertex-ai/machine-learning/training/tensorboard-profiler)
+  - [Profile model training performance using Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler)

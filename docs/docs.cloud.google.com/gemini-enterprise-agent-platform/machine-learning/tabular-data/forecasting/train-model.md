@@ -2,24 +2,24 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model
 title: Train a forecast model
-description: Train a forecast model from a tabular dataset in Vertex AI.
+description: Train a forecast model from a tabular dataset in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-This page shows you how to train a forecast model from a tabular dataset using either the Google Cloud console or the Vertex AI API.
+This page shows you how to train a forecast model from a tabular dataset using either the Google Cloud console or the Agent Platform API.
 
 ## Before you begin
 
 Before you train a forecast model, complete the following:
 
   - [Prepare your training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data)
-  - [Create an Vertex AI dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset)
+  - [Create an Agent Platform dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset)
 
 ## Train a model
 
 ### Google Cloud console
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Datasets** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Datasets** page.
 
 2.  Click the name of the dataset you want to use to train your model to open its details page.
 
@@ -47,7 +47,7 @@ Before you train a forecast model, complete the following:
     
     4.  Select your **Data granularity** . Select `Daily` if you would like to use holiday effect modeling. [Learn how to choose the data granularity](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular#granularity) .
     
-    5.  **Optional** : In the **Holiday regions** dropdown, choose one or more geographical regions to enable holiday effect modeling. During training, Vertex AI creates holiday categorical features within the model based on the date from the **Timestamp** column and the specified geographical regions. You can select this option only when **Data granularity** is set to `Daily` . By default, holiday effect modeling is disabled. To learn about the geographical regions used for holiday effect modeling, see [Holiday regions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#holiday-regions) .
+    5.  **Optional** : In the **Holiday regions** dropdown, choose one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from the **Timestamp** column and the specified geographical regions. You can select this option only when **Data granularity** is set to `Daily` . By default, holiday effect modeling is disabled. To learn about the geographical regions used for holiday effect modeling, see [Holiday regions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#holiday-regions) .
     
     6.  Enter your **Context window** and **Forecast horizon** .
         
@@ -132,17 +132,17 @@ Before you train a forecast model, complete the following:
         
         Model training can take many hours, depending on the size and complexity of your data and your training budget, if you specified one. You can close this tab and return to it later. You will receive an email when your model has completed training.
         
-        > Tabular training data in Cloud Storage or BigQuery is not imported into Vertex AI. (When you import from local files, they are imported into Cloud Storage.) When you create a dataset with tabular data, the data is associated with the dataset. Changes you make to your data source in Cloud Storage or BigQuery after dataset creation are incorporated into models subsequently trained with that dataset. A snapshot of the dataset is taken when model training begins.
+        > Tabular training data in Cloud Storage or BigQuery is not imported into Agent Platform. (When you import from local files, they are imported into Cloud Storage.) When you create a dataset with tabular data, the data is associated with the dataset. Changes you make to your data source in Cloud Storage or BigQuery after dataset creation are incorporated into models subsequently trained with that dataset. A snapshot of the dataset is taken when model training begins.
 
 ### API
 
-> Tabular training data in Cloud Storage or BigQuery is not imported into Vertex AI. (When you import from local files, they are imported into Cloud Storage.) When you create a dataset with tabular data, the data is associated with the dataset. Changes you make to your data source in Cloud Storage or BigQuery after dataset creation are incorporated into models subsequently trained with that dataset. A snapshot of the dataset is taken when model training begins.
+> Tabular training data in Cloud Storage or BigQuery is not imported into Agent Platform. (When you import from local files, they are imported into Cloud Storage.) When you create a dataset with tabular data, the data is associated with the dataset. Changes you make to your data source in Cloud Storage or BigQuery after dataset creation are incorporated into models subsequently trained with that dataset. A snapshot of the dataset is taken when model training begins.
 
 Select a tab for your language or environment:
 
 ### REST
 
-You use the [trainingPipelines.create](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.trainingPipelines/create) command to train a model.
+You use the [trainingPipelines.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines/create) command to train a model.
 
 Before using any of the request data, make the following replacements:
 
@@ -170,11 +170,11 @@ Before using any of the request data, make the following replacements:
   - GROUP\_TOTAL\_WEIGHT : Weight of the group aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. If the group column is not set, all time series will be treated as part of the same group and is aggregated over all time series. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
   - TEMPORAL\_TOTAL\_WEIGHT : Weight of the time aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
   - GROUP\_TEMPORAL\_TOTAL\_WEIGHT : Weight of the total (group x time) aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. If the group column is not set, all time series will be treated as part of the same group and is aggregated over all time series. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
-  - HOLIDAY\_REGIONS : (Optional) You can select one or more geographical regions to enable holiday effect modeling. During training, Vertex AI creates holiday categorical features within the model based on the date from TIME\_COLUMN and the specified geographical regions. To enable it, set GRANULARITY\_UNIT to `day` and specify one or more regions in the HOLIDAY\_REGIONS field. By default, holiday effect modeling is disabled. To learn more, see [Holiday regions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#holiday-regions) .
+  - HOLIDAY\_REGIONS : (Optional) You can select one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from TIME\_COLUMN and the specified geographical regions. To enable it, set GRANULARITY\_UNIT to `day` and specify one or more regions in the HOLIDAY\_REGIONS field. By default, holiday effect modeling is disabled. To learn more, see [Holiday regions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#holiday-regions) .
   - FORECAST\_HORIZON : The forecast horizon determines how far into the future the model forecasts the target value for each row of inference data. The forecast horizon is specified in units of data granularity ( GRANULARITY\_UNIT ). [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) .
   - CONTEXT\_WINDOW : The context window sets how far back the model looks during training (and for forecasts). In other words, for each training datapoint, the context window determines how far back the model looks for predictive patterns. The context window is specified in units of data granularity ( GRANULARITY\_UNIT ). [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) .
-  - OPTIMIZATION\_OBJECTIVE : By default, Vertex AI minimizes the root-mean-squared error (RMSE). If you want a different optimization objective for your forecast model, choose one of the options in [Optimization objectives for forecast models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) . If you choose to minimize the quantile loss, you must also specify a value for QUANTILES .
-  - PROBABILISTIC\_INFERENCE : (Optional) If set to `true` , Vertex AI models the probability distribution of the forecast. Probabilistic inference can improve model quality by handling noisy data and quantifying uncertainty. If QUANTILES are specified, then Vertex AI also returns the quantiles of the probability distribution. Probabilistic inference is compatible only with the `Time series Dense Encoder (TiDE)` and the `AutoML (L2L)` training methods. It is incompatible with hierarchical forecasting and the `minimize-quantile-loss` optimization objective.
+  - OPTIMIZATION\_OBJECTIVE : By default, Agent Platform minimizes the root-mean-squared error (RMSE). If you want a different optimization objective for your forecast model, choose one of the options in [Optimization objectives for forecast models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) . If you choose to minimize the quantile loss, you must also specify a value for QUANTILES .
+  - PROBABILISTIC\_INFERENCE : (Optional) If set to `true` , Agent Platform models the probability distribution of the forecast. Probabilistic inference can improve model quality by handling noisy data and quantifying uncertainty. If QUANTILES are specified, then Agent Platform also returns the quantiles of the probability distribution. Probabilistic inference is compatible only with the `Time series Dense Encoder (TiDE)` and the `AutoML (L2L)` training methods. It is incompatible with hierarchical forecasting and the `minimize-quantile-loss` optimization objective.
   - QUANTILES : Quantiles to use for the `minimize-quantile-loss` optimization objective and probabilistic inference. Provide a list of up to five unique numbers between `0` and `1` , exclusive.
   - TIME\_SERIES\_ATTRIBUTE\_COL : The name or names of the columns that are time series attributes. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
   - AVAILABLE\_AT\_FORECAST\_COL : The name or names of the covariate columns whose value is known at forecast time. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
@@ -353,7 +353,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Control the data split using REST
 
-You control how your training data is split between the training, validation, and test sets. Use a split column to manually specify the data split for each row and provide it as part of a `PredefinedSplit` [`Split` object](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.trainingPipelines#InputDataConfig) in the `inputDataConfig` of the JSON request.
+You control how your training data is split between the training, validation, and test sets. Use a split column to manually specify the data split for each row and provide it as part of a `PredefinedSplit` [`Split` object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#InputDataConfig) in the `inputDataConfig` of the JSON request.
 
 DATA\_SPLIT\_COLUMN is the column containing the data split values ( `TRAIN` , `VALIDATION` , `TEST` ).
 

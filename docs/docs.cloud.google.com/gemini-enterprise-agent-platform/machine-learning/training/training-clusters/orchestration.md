@@ -178,15 +178,15 @@ The official Slurm documentation provides several working examples of different 
 
 The following focuses on the final steps of the machine learning lifecycle: managing, deploying, and monitoring your trained models.
 
-  - Deploy your model for inference: Deploy your trained model to a Vertex AI endpoint to serve online inference requests at scale.
+  - Deploy your model for inference: Deploy your trained model to a Gemini Enterprise Agent Platform endpoint to serve online inference requests at scale.
       - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
   - Manage your model's lifecycle: Use Gemini Enterprise Agent Platform Model Registry to version, compare, and manage your models. A pipeline can be configured to automatically register a new model upon successful training.
-      - [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/vertex-ai/machine-learning/model-registry/introduction)
+      - [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction)
   - Monitor your pipeline runs and model performance:
       - Pipeline Monitoring: Track the execution graph, artifacts, and performance of your pipeline runs to debug issues and optimize your orchestration.
           - [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline)
       - Model Monitoring: After deployment, set up monitoring to detect drift and anomalies in your model's prediction performance, which helps maintain the model's accuracy over time.
-          - [Introduction to Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/vertex-ai/machine-learning/model-monitoring/overview)
+          - [Introduction to Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview)
   - Optimize costs and manage the cluster lifecycle: When using automated pipelines, manage the cluster's lifecycle by considering run frequency.
-      - For infrequent runs, add a final pipeline step to [delete the cluster](https://docs.cloud.google.com/vertex-ai/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster:) to save costs. This typically involves creating a [custom pipeline component](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-own-components) that calls the delete function.
+      - For infrequent runs, add a final pipeline step to [delete the cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster:) to save costs. This typically involves creating a [custom pipeline component](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-own-components) that calls the delete function.
       - For frequent runs, leave the cluster active to reduce job startup time.

@@ -14,7 +14,7 @@ Learn how to create a Colab Enterprise notebook and run its code on a default ru
 
 ### Required roles
 
-To get the permissions that you need to create a Colab Enterprise notebook and run the notebook's code on a runtime, ask your administrator to grant you the Colab Enterprise User ( [`roles/aiplatform.colabEnterpriseUser`](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#aiplatform.colabEnterpriseUser) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to create a Colab Enterprise notebook and run the notebook's code on a runtime, ask your administrator to grant you the Colab Enterprise User ( [`roles/aiplatform.colabEnterpriseUser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.colabEnterpriseUser) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -137,6 +137,6 @@ To delete a Colab Enterprise notebook:
 
   - Read the [Introduction to Colab Enterprise](https://docs.cloud.google.com/colab/docs/introduction) .
 
-  - To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/vertex-ai/colab/notebook-gallery) .
+  - To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/agent-platform/colab/notebook-gallery) .
 
   - [Connect to a runtime](https://docs.cloud.google.com/colab/docs/connect-to-runtime) .

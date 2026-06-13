@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-In this tutorial, you learn how to enable Profiler in Vertex AI for custom training jobs with a prebuilt container.
+In this tutorial, you learn how to enable Profiler in Gemini Enterprise Agent Platform for custom training jobs with a prebuilt container.
 
 ## Notebook: Profile model training performance using Cloud Profiler in prebuilt container
 
@@ -16,7 +16,7 @@ In this tutorial, you learn how to enable Profiler in Vertex AI for custom train
 
 This tutorial uses the following Google Cloud ML services and resources:
 
-  - Vertex AI training
+  - Gemini Enterprise Agent Platform training
   - Vertex AI TensorBoard
 
 The steps performed include:
@@ -27,4 +27,4 @@ The steps performed include:
 
 ## Relevant content
 
-  - [Profile model training performance using Profiler](https://docs.cloud.google.com/vertex-ai/machine-learning/training/tensorboard-profiler)
+  - [Profile model training performance using Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler)

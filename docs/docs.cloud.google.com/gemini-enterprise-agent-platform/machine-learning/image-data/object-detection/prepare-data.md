@@ -55,7 +55,7 @@ To use images from a Cloud Storage bucket, you must grant the [Agent Platform Se
 <tr class="odd">
 <td>Image size (pixels)</td>
 <td><p>1024 pixels by 1024 pixels suggested maximum.</p>
-<p>For images much larger than 1024 pixels by 1024 pixels some image quality may be lost during Vertex AI's image normalization process.</p></td>
+<p>For images much larger than 1024 pixels by 1024 pixels some image quality may be lost during Gemini Enterprise Agent Platform's image normalization process.</p></td>
 </tr>
 </tbody>
 </table>
@@ -108,11 +108,11 @@ The training data should be as close as possible to the data on which prediction
 
 For example, if your use case involves blurry and low-resolution images (such as from a security camera), your training data should be composed of blurry, low-resolution images. In general, you should also consider providing multiple angles, resolutions, and backgrounds for your training images.
 
-Vertex AI models can't generally predict labels that humans can't assign. So, if a human can't be trained to assign labels by looking at the image for 1-2 seconds, the model likely can't be trained to do it either.
+Gemini Enterprise Agent Platform models can't generally predict labels that humans can't assign. So, if a human can't be trained to assign labels by looking at the image for 1-2 seconds, the model likely can't be trained to do it either.
 
 Internal image preprocessing
 
-After images are imported, Vertex AI performs preprocessing on the data. The preprocessed images are the actual data used to train the model.
+After images are imported, Gemini Enterprise Agent Platform performs preprocessing on the data. The preprocessed images are the actual data used to train the model.
 
 Image preprocessing (resizing) occurs when the image's smallest edge is *greater* than 1024 pixels. In the case where the image's smaller side is greater than 1024 pixels, that smaller side is scaled down to 1024 pixels. The larger side *and* specified bounding boxes are both scaled down by the same amount as the smaller side. Consequently, any scaled down annotations (bounding boxes and labels) are removed if they are less than 8 pixels by 8 pixels.
 
@@ -286,7 +286,7 @@ CSV format:
         `  X_MIN , Y_MIN ,,, X_MAX , Y_MAX ,, `
     2.  All four vertices specified as shown in:  
         `  X_MIN , Y_MIN , X_MAX , Y_MIN , X_MAX , Y_MAX , X_MIN , Y_MAX , `  
-        If the four specified vertices don't form a rectangle parallel to image edges, Vertex AI specifies vertices that do form such a rectangle.
+        If the four specified vertices don't form a rectangle parallel to image edges, Agent Platform specifies vertices that do form such a rectangle.
 
 #### Example CSV - `object_detection.csv` :
 

@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions
-title: Get inferences from a image object detection model
+title: Get inferences from an image object detection model
 description: Learn how to get inferences from an image object detection model.
 data_source: docs.cloud.google.com
 ---
@@ -1418,7 +1418,7 @@ When a batch inference task is complete, the output of the inference is stored i
 
 ### Example batch inference results
 
-The following an example batch inference results from a image object detection model.
+The following are example batch inference results from an image object detection model.
 
 **Important:** Bounding boxes are specified as:
 

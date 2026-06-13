@@ -14,10 +14,10 @@ In this notebook, you train a model and perform hyperparameter tuning using Tens
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tensorboard/tensorboard_hyperparameter_tuning_with_hparams.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftensorboard%2Ftensorboard_hyperparameter_tuning_with_hparams.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ftensorboard%2Ftensorboard_hyperparameter_tuning_with_hparams.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/tensorboard/tensorboard_hyperparameter_tuning_with_hparams.ipynb)
 
-This tutorial uses the following Vertex AI services and resources:
+This tutorial uses the following Gemini Enterprise Agent Platform services and resources:
 
   - Vertex AI TensorBoard
-  - Vertex AI Experiments
+  - Gemini Enterprise Agent Platform Experiments
 
 The steps performed include:
 
@@ -27,4 +27,4 @@ The steps performed include:
 
 ## Relevant content
 
-  - [Vertex AI TensorBoard](https://docs.cloud.google.com/vertex-ai/machine-learning/experiments/tensorboard-introduction)
+  - [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction)

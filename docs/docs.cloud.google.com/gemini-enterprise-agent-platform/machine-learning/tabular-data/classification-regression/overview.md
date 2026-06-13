@@ -2,9 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview
 title: Classification and regression overview
-description: Learn about the workflow for creating a classification or regression model and making inferences in Vertex AI.
+description: Learn about the workflow for creating a classification or regression model and making inferences in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
+
+> **Preview**
+> 
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 **Binary classification** models predict a binary outcome (one of two classes). Use this model type for yes or no questions. For example, you might want to build a binary classification model to predict whether a customer would buy a subscription. Generally, a binary classification problem requires less data than other model types.
 
@@ -14,7 +18,7 @@ data_source: docs.cloud.google.com
 
 ## Workflow for creating a classification or regression model and making inferences
 
-The process for creating a classification or regression model in Vertex AI is as follows:
+The process for creating a classification or regression model in Agent Platform is as follows:
 
 <table>
 <colgroup>
@@ -38,7 +42,7 @@ The process for creating a classification or regression model in Vertex AI is as
 </tr>
 <tr class="odd">
 <td>3. <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/train-model">Train a model</a></td>
-<td>Train a classification or regression model in Vertex AI using your dataset.</td>
+<td>Train a classification or regression model in Gemini Enterprise Agent Platform using your dataset.</td>
 </tr>
 <tr class="even">
 <td>4. <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/evaluate-model">Evaluate your model</a></td>

@@ -16,7 +16,7 @@ Use the console or the API to check the status of your training job.
 
 ### Google Cloud console
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Training** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Training** page.
 
 2.  If the status of your training job is "Training", continue to wait for the training job to finish. If the status of your training job is "Finished", you are ready to begin model evaluation.
 
@@ -100,7 +100,7 @@ You can get an aggregate set of [evaluation metrics](https://docs.cloud.google.c
 
 ### Google Cloud console
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Models** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
 2.  In the **Region** drop-down, select the region where your model is located.
 
@@ -112,7 +112,7 @@ You can get an aggregate set of [evaluation metrics](https://docs.cloud.google.c
 
 ### API
 
-To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.models.evaluations) method.
+To view aggregate model evaluation metrics, use the [`projects.locations.models.evaluations.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models.evaluations) method.
 
 Select a tab that corresponds to your language or environment:
 
@@ -194,7 +194,7 @@ You should receive a JSON response similar to the following:
 
 ## Model evaluation metrics
 
-A schema file determines which evaluation metrics Vertex AI provides for each objective.
+A schema file determines which evaluation metrics Agent Platform provides for each objective.
 
 You can view and download schema files from the following Cloud Storage location:  
 [gs://google-cloud-aiplatform/schema/modelevaluation/](https://console.cloud.google.com/storage/browser/google-cloud-aiplatform/schema/modelevaluation)
@@ -210,7 +210,7 @@ The evaluation metrics for forecasting models are:
   - **Quantile** : The percent quantile, which indicates the probability that an observed value will be below the predicted value. For example, at the 0.2 quantile, the observed values are expected to be lower than the predicted values 20% of the time. Agent Platform provides this metric if you specify `minimize-quantile-loss` for the optimization objective.
   - **Observed quantile** : Shows the percentage of true values that were less than the predicted value for a given quantile. Agent Platform provides this metric if you specify `minimize-quantile-loss` for the optimization objective.
   - **Scaled pinball loss** : The scaled pinball loss at a particular quantile. A lower value indicates a higher quality model at the given quantile. Agent Platform provides this metric if you specify `minimize-quantile-loss` for the optimization objective.
-  - **Model feature attributions** : Vertex AI shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
 
 ## What's next
 

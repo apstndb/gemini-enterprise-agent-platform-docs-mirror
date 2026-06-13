@@ -219,9 +219,9 @@ By leveraging both automated health checks and the manual controls detailed on t
 Configuring your training cluster for fault tolerance is a key step in building a complete, production-ready MLOps workflow.
 
   - Monitor and debug your training jobs: Track the progress, resource utilization, and health of your training jobs, including how to identify when a node has been recovered or a job has been restarted due to a failure.
-      - [Monitor training jobs on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
+      - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
   - Orchestrate your resilient jobs with Gemini Enterprise Agent Platform Pipelines: For production environments, use Gemini Enterprise Agent Platform Pipelines to create an automated, repeatable workflow that submits your resilient training jobs to your cluster.
-      - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/vertex-ai/machine-learning/training/training-clusters/orchestration)
+      - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)
   - Manage and deploy your model: Once your resilient training job is complete, use Gemini Enterprise Agent Platform Model Registry to version your model artifact before deploying the model to an endpoint to serve online inference requests.
-      - [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/vertex-ai/machine-learning/model-registry/introduction)
+      - [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction)
       - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)

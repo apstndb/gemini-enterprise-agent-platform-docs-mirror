@@ -193,26 +193,26 @@ Use the Google Cloud console to view details of your experiment runs and compare
     A list of experiments associated with a project appears.
 2.  Select the experiment containing the run that you want to check.  
     A list of runs, timeseries data charts, and a metrics and parameters data table appear. Notice, in this case, three runs are selected, but only two lines appear in the timeseries data charts. There is no third line because the third experiment run does not have any timeseries data to display.  
-    ![Vertex AI list of runs, timeseries data, and metrics & parameters table](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/runs-timeseries-charts-metrics-params.png)  
+    ![Agent Platform list of runs, timeseries data, and metrics & parameters table](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/runs-timeseries-charts-metrics-params.png)  
 3.  Click the name of the run to navigate to its details page.  
-    ![Vertex AI experiment run navigation](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-specific-run-details.png)  
+    ![Agent Platform experiment run navigation](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-specific-run-details.png)  
     The navigation bar and timeseries data charts appear.  
-    ![Vertex AI navigation bar with timeseries data charts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-run-details.png)
+    ![Agent Platform navigation bar with timeseries data charts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-run-details.png)
 4.  To view metrics, parameters, artifacts, and details for your selected run, click the respective buttons in the navigation bar.
       - Metrics  
-        ![Vertex AI experiment run metrics](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-metrics.png)
+        ![Agent Platform experiment run metrics](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-metrics.png)
       - Parameters  
-        ![Vertex AI experiment run parameters](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-parameters.png)
+        ![Agent Platform experiment run parameters](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-parameters.png)
       - Artifacts  
-        ![Vertex AI experiment run artifacts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-artifacts.png)  
+        ![Agent Platform experiment run artifacts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-artifacts.png)  
         To view artifact lineage, click the **Open artifact in Metadata Store** link. The lineage graph associated with the run appears.  
-        ![Vertex AI artifact lineage graph](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/artifact-lineage-graph.png)
+        ![Agent Platform artifact lineage graph](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/artifact-lineage-graph.png)
       - Details  
-        ![Vertex AI experiment run details](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-details.png)
+        ![Agent Platform experiment run details](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-runs-single-details.png)
 
 To share the data with others, use the URLs associated with the views. For example, share the list of experiment runs associated with an experiment:
 
-![Vertex AI share list of runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/share-list-of-runs.png)
+![Agent Platform share list of runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/share-list-of-runs.png)
 
 ### Compare experiment runs
 
@@ -221,15 +221,15 @@ You can select runs to compare both within an experiment and across experiments.
 1.  In the Google Cloud console, go to the **Experiments** page.  
     .  
     A list of experiments appears.
-2.  Select the experiment containing the runs that you want to compare. A list of runs appears. ![Vertex AI list of runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/list-of-runs.png)
+2.  Select the experiment containing the runs that you want to compare. A list of runs appears. ![Agent Platform list of runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/list-of-runs.png)
 3.  Select the experiment runs that you want to compare. Click **Compare** .  
-    ![Vertex AI select runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/select-runs.png)  
-    By default, charts appear comparing timeseries metrics of the selected experiment runs. ![Vertex AI run charts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/run-charts.png)
-4.  To add additional runs from any experiment in your project, click **Add run** . ![Vertex AI add runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/add-runs.png)
+    ![Agent Platform select runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/select-runs.png)  
+    By default, charts appear comparing timeseries metrics of the selected experiment runs. ![Agent Platform run charts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/run-charts.png)
+4.  To add additional runs from any experiment in your project, click **Add run** . ![Agent Platform add runs](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/add-runs.png)
 
 To share the data with others, use the URLs associated with the views. For example, share the comparison view of timeseries metrics data:
 
-![Vertex AI share data](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-share-data.png)
+![Agent Platform share data](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/compare-share-data.png)
 
 See [Create and manage experiment runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/create-manage-exp-run) for how to update the status of a run.
 

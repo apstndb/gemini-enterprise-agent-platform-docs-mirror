@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This page walks through setting up your Google Cloud project to use Vertex AI and downloading some TensorFlow code for training. You will also download code for a web app that gets predictions.
+This page walks through setting up your Google Cloud project to use Gemini Enterprise Agent Platform and downloading some TensorFlow code for training. You will also download code for a web app that gets predictions.
 
 This tutorial has several pages:
 
@@ -36,9 +36,9 @@ Throughout this tutorial, use Google Cloud console and [Cloud Shell](https://doc
 
 Create a regional [Cloud Storage](https://docs.cloud.google.com/storage/docs) bucket in the `us-central1` region to use for the rest of this tutorial. As you follow the tutorial, use the bucket for several purposes:
 
-  - Store training code for Vertex AI to use in a custom training job.
+  - Store training code for Agent Platform to use in a custom training job.
   - Store the model artifacts that your custom training job outputs.
-  - Host the web app that gets predictions from your Vertex AI endpoint.
+  - Host the web app that gets predictions from your Agent Platform endpoint.
 
 To create the Cloud Storage bucket, run the following command in your Cloud Shell session:
 
@@ -63,12 +63,12 @@ The `hello-custom-sample` directory has four items:
 
   - `trainer/` : A directory of TensorFlow Keras code for training the flower classification model.
 
-  - `setup.py` : A configuration file for packaging the `trainer/` directory into a Python source distribution that Vertex AI can use.
+  - `setup.py` : A configuration file for packaging the `trainer/` directory into a Python source distribution that Agent Platform can use.
 
-  - `function/` : A directory of Python code for a [Cloud Run function](https://docs.cloud.google.com/functions/docs) that can receive and preprocess prediction requests from a web browser, send them to Vertex AI, process the prediction responses, and send them back to the browser.
+  - `function/` : A directory of Python code for a [Cloud Run function](https://docs.cloud.google.com/functions/docs) that can receive and preprocess prediction requests from a web browser, send them to Agent Platform, process the prediction responses, and send them back to the browser.
 
-  - `webapp/` : A directory with code and markup for a web app that gets flower classification predictions from Vertex AI.
+  - `webapp/` : A directory with code and markup for a web app that gets flower classification predictions from Agent Platform.
 
 ## What's next
 
-Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training) to run a custom training job on Vertex AI.
+Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training) to run a custom training job on Agent Platform.

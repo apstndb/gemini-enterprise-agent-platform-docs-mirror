@@ -18,7 +18,7 @@ To use images from a Cloud Storage bucket, you must grant the [Agent Platform Se
 
 ### Data requirements
 
-**Training data** : The following image formats are supported when training your model. After Vertex AI API preprocesses these imported images they serve as the data used to train a model. Maximum file size per image is 30MB.
+**Training data** : The following image formats are supported when training your model. After Agent Platform API preprocesses these imported images they serve as the data used to train a model. Maximum file size per image is 30MB.
 
   - JPEG
   - GIF
@@ -36,7 +36,7 @@ To use images from a Cloud Storage bucket, you must grant the [Agent Platform Se
   - TIFF
   - ICO
 
-> **Note** : The Vertex AI API currently only supports sending base64-encoded image content to the predict method.
+> **Note** : The Agent Platform API currently only supports sending base64-encoded image content to the predict method.
 
 ## Best practices for image data used to train AutoML models
 
@@ -46,7 +46,7 @@ AutoML models are optimized for photographs of objects in the real world.
 
 The training data should be as close as possible to the data on which predictions are to be made. For example, if your use case involves blurry and low-resolution images (such as from a security camera), your training data should be composed of blurry, low-resolution images. In general, you should also consider providing multiple angles, resolutions, and backgrounds for your training images.
 
-Vertex AI models can't generally predict labels that humans can't assign. So, if a human can't be trained to assign labels by looking at the image for 1-2 seconds, the model likely can't be trained to do it either.
+Gemini Enterprise Agent Platform models can't generally predict labels that humans can't assign. So, if a human can't be trained to assign labels by looking at the image for 1-2 seconds, the model likely can't be trained to do it either.
 
 We recommend about 1000 training images per label. The minimum per label is 10. In general it takes more examples per label to train models with multiple labels per image, and resulting scores are harder to interpret.
 
@@ -168,7 +168,7 @@ validation,gs://bucket/filename5.tiff,tulips
 
 ### Data requirements
 
-**Training data** : The following image formats are supported when training your model. After Vertex AI API preprocesses these imported images they serve as the data used to train a model. Maximum file size per image is 30MB.
+**Training data** : The following image formats are supported when training your model. After Agent Platform API preprocesses these imported images they serve as the data used to train a model. Maximum file size per image is 30MB.
 
   - JPEG
   - GIF
@@ -186,7 +186,7 @@ validation,gs://bucket/filename5.tiff,tulips
   - TIFF
   - ICO
 
-> **Note** : The Vertex AI API currently only supports sending base64-encoded image content to the predict method.
+> **Note** : The Agent Platform API currently only supports sending base64-encoded image content to the predict method.
 
 ## Best practices for image data used to train AutoML models
 
@@ -196,7 +196,7 @@ AutoML models are optimized for photographs of objects in the real world.
 
 The training data should be as close as possible to the data on which predictions are to be made. For example, if your use case involves blurry and low-resolution images (such as from a security camera), your training data should be composed of blurry, low-resolution images. In general, you should also consider providing multiple angles, resolutions, and backgrounds for your training images.
 
-Vertex AI models can't generally predict labels that humans can't assign. So, if a human can't be trained to assign labels by looking at the image for 1-2 seconds, the model likely can't be trained to do it either.
+Gemini Enterprise Agent Platform models can't generally predict labels that humans can't assign. So, if a human can't be trained to assign labels by looking at the image for 1-2 seconds, the model likely can't be trained to do it either.
 
 We recommend about 1000 training images per label. The minimum per label is 10. In general it takes more examples per label to train models with multiple labels per image, and resulting scores are harder to interpret.
 

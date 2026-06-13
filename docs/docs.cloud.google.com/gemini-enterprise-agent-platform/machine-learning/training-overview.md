@@ -9,8 +9,8 @@ data_source: docs.cloud.google.com
 This page provides an overview of the workflow for training and using your own machine learning (ML) models on Agent Platform. Agent Platform offers a spectrum of training methods designed to meet your needs, from fully automated to fully custom.
 
   - **AutoML** : Build high-quality models with minimal technical effort by leveraging Google's automated ML capabilities.
-  - **Vertex AI serverless training** : Run your custom training code in a fully managed, on-demand environment without worrying about infrastructure.
-  - **Vertex AI training clusters** : Run large-scale, high-performance training jobs on a dedicated cluster of accelerators reserved for your exclusive use.
+  - **Gemini Enterprise Agent Platform serverless training** : Run your custom training code in a fully managed, on-demand environment without worrying about infrastructure.
+  - **Gemini Enterprise Agent Platform training clusters** : Run large-scale, high-performance training jobs on a dedicated cluster of accelerators reserved for your exclusive use.
   - **Ray on Agent Platform** : Scale Python applications and ML workloads using the open-source Ray framework on a managed service.
 
 For help on deciding which of these methods to use, see [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
@@ -36,7 +36,7 @@ If AutoML doesn't address your needs, you can provide your own training code and
 
 Agent Platform provides two primary modes for running your custom training code: a serverless, on-demand environment, or a dedicated, reserved cluster.
 
-### Vertex AI serverless training
+### Gemini Enterprise Agent Platform serverless training
 
 Serverless training is a fully managed service that lets you run your custom training application without provisioning or managing any infrastructure. You package your code in a container, define your machine specifications (including CPUs and GPUs), and submit it as a `CustomJob` .
 
@@ -50,7 +50,7 @@ This pay-per-use, on-demand model is ideal for experimentation, rapid prototypin
 
 To learn more, see [Create a serverless training custom job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job)
 
-### Vertex AI training clusters
+### Gemini Enterprise Agent Platform training clusters
 
 For large-scale, high-performance, and mission-critical training, you can reserve a dedicated cluster of accelerators. This provides assured capacity and eliminates queues, ensuring your jobs start immediately.
 

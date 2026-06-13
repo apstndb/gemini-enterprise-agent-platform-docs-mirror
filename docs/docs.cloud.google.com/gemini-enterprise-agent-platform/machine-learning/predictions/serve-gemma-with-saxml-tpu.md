@@ -57,7 +57,7 @@ This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google
 
 ## Get access to the model
 
-Note that Cloud Shell might not have sufficient resources to download model weights. If so, you can create a [Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) instance for performing that task.
+Note that Cloud Shell might not have sufficient resources to download model weights. If so, you can create a [Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) instance for performing that task.
 
 To get access to the Gemma models for deployment to Gemini Enterprise Agent Platform, you must sign in to the [Kaggle platform](https://www.kaggle.com/) , sign the license consent agreement, and get a Kaggle API token. In this tutorial, you use a Kubernetes Secret for the Kaggle credentials.
 

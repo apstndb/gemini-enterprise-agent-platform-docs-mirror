@@ -30,7 +30,7 @@ To help you decide whether you want to purchase Provisioned Throughput, consider
     
     After you've chosen your project, region, model, model version, and auto-renewal behavior, and your order is approved and activated, Provisioned Throughput is enabled, subject to available capacity. You can change your auto-renewal behavior, model, model version, or region by [modifying your existing Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) by using the Google Cloud console.
     
-    All changes are processed on a commercially reasonable basis and are typically fulfilled within 10 business days of the initial request.
+    All changes are processed based on commercially reasonable efforts and are typically fulfilled within 10 business days of the initial request.
     
     Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Google Gemini 2.0 Pro to Google Gemini 2.0 Flash, but you can't switch from Google Gemini 2.0 Flash to Anthropic's Claude 3.5 Sonnet v2.
 
@@ -173,6 +173,7 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
             
               - **Estimated queries per second requiring assurance**
               - **Input tokens per query**
+              - **Input image tokens per query** (for open models that support image input)
               - **Output response text tokens per query**
     
     3.  In the **Estimated GSUs and monthly prices** section, review the estimated number of GSUs that you need and the prices.
@@ -192,7 +193,7 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
 
 11. Optional: Select the **Start date and time** for your term (Preview).
     
-    You can provide a start date and time within two weeks into the future from when you place the order. If you don't specify a start date and time, then the order is processed as soon as the capacity is available. Requested start dates and times are processed on a commercially reasonable basis, and orders aren't guaranteed to be fulfilled by these dates until the order status is set to **Approved** .
+    You can provide a start date and time within two weeks into the future from when you place the order. If you don't specify a start date and time, then the order is processed as soon as the capacity is available. Requested start dates and times are processed based on commercially reasonable efforts, and orders aren't guaranteed to be fulfilled by these dates until the order status is set to **Approved** .
     
     If your requested start date is too close to the current date, your order might be approved and activated after your requested start date. In this case, the end date is adjusted, based on the duration of the selected term, starting from the activation date. For information about cancelling a pending order, see [Change Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
     

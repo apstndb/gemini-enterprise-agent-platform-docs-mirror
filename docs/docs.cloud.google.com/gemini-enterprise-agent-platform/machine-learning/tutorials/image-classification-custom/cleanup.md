@@ -28,9 +28,9 @@ The rest of this document assumes that you are using the same Cloud Shell enviro
     
         cd hello-custom-sample
 
-## Delete Vertex AI resources
+## Delete Agent Platform resources
 
-This section describes how to delete all of the Vertex AI resources that you created for this tutorial.
+This section describes how to delete all of the Agent Platform resources that you created for this tutorial.
 
 ### Undeploy your model from your endpoint
 
@@ -38,7 +38,7 @@ This section describes how to undeploy your model from your endpoint. You can th
 
 You must follow this section before you can [delete your endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup#delete-endpoint) or [delete your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup#delete-model) .
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Endpoints** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Endpoints** page.
 
 2.  Click `hello_custom` to go to the endpoint details page.
 
@@ -52,7 +52,7 @@ Before you delete an endpoint, you must [undeploy your model from your endpoint]
 
 After you've undeployed your model from the endpoint, do the following to delete your endpoint:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Endpoints** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Endpoints** page.
 
 2.  Find your the row of your endpoint, `hello_custom` , again. On that row, click **View more more\_vert** . Then click **Remove endpoint** .
 
@@ -62,7 +62,7 @@ After you've undeployed your model from the endpoint, do the following to delete
 
 Before you follow this section, you must [undeploy your model from your endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup#undeploy-model) . Afterward, do the following to delete your model:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Models** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
 2.  Find your the row of your model, `hello_custom` . On that row, click **View more more\_vert** . Then click **Delete model** .
 
@@ -72,7 +72,7 @@ Before you follow this section, you must [undeploy your model from your endpoint
 
 Your training pipeline and custom job are just records of the training that happened earlier. If you want to delete your custom job, do the following:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Training pipelines** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Training pipelines** page.
 
 2.  Find your the row of your training pipeline, `hello_custom` . On that row, click **View more more\_vert** . Then click **Delete training pipeline** .
 
@@ -109,6 +109,6 @@ In your Cloud Shell session, run the following command:
 
 ## What's next
 
-  - To learn about additional ways to train ML models on Vertex AI, try one of the other [Vertex AI tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials) .
+  - To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials) .
 
-  - Read an [overview of how Vertex AI works](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) .
+  - Read an [overview of how Agent Platform works](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) .

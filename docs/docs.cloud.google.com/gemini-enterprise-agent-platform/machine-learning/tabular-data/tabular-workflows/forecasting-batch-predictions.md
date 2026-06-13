@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions
 title: Get batch inferences for a forecast model
-description: Project future values for a forecast model by using batch inferences in Vertex AI.
+description: Project future values for a forecast model by using batch inferences in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-Vertex AI provides two options for projecting future values using your trained forecast model: online inferences and batch inference.
+Gemini Enterprise Agent Platform provides two options for projecting future values using your trained forecast model: online inferences and batch inference.
 
 An online inference is a synchronous request. Use online inferences when you make requests in response to application input or in other situations where you require timely inference.
 
@@ -31,7 +31,7 @@ The input data for batch inference requests is the data that your model uses to 
   - CSV objects in Cloud Storage
   - BigQuery tables
 
-We recommend that you use the same format for your input data as you used for training the model. For example, if you trained your model using data in BigQuery, it is best to use a BigQuery table as the input for your batch inference. Because Vertex AI treats all CSV input fields as strings, mixing training and input data formats may cause errors.
+We recommend that you use the same format for your input data as you used for training the model. For example, if you trained your model using data in BigQuery, it is best to use a BigQuery table as the input for your batch inference. Because Gemini Enterprise Agent Platform treats all CSV input fields as strings, mixing training and input data formats may cause errors.
 
 Your data source must contain tabular data that includes all of the columns, in any order, that were used to train the model. You can include columns that were not in the training data, or that were in the training data but excluded from use for training. These extra columns are included in the output but don't affect forecast results.
 
@@ -40,18 +40,18 @@ Your data source must contain tabular data that includes all of the columns, in 
 Input for forecast models must adhere to the following requirements:
 
   - All values in the time column must be present and valid.
-  - All columns that are used in your inference request must be present in the input data. When columns are empty or don't exist, Vertex AI pads the data automatically.
+  - All columns that are used in your inference request must be present in the input data. When columns are empty or don't exist, Agent Platform pads the data automatically.
   - The data frequency for the input data and the training data must match. If there are missing rows in the time series, you must manually insert them according to the proper domain knowledge.
   - Time series with duplicate timestamps are removed from inferences. To include them, remove any duplicate timestamps.
-  - Provide historical data for each time series to forecast. For the most accurate forecasts, the amount of data should equal the context window, which is set during model training. For example, if the context window is 14 days, provide at least 14 days of historical data. If you provide less data, Vertex AI pads the data with empty values.
-  - The forecast starts on the first row of a time series (ordered by time) with a null value in the target column. The null value must be continuous within the time series. For example, if the target column is ordered by time, you cannot have something like `1` , `2` , `null` , `3` , `4` , `null` , `null` for a single time series. For CSV files, Vertex AI treats an empty string as null, and for BigQuery, null values are natively supported.
+  - Provide historical data for each time series to forecast. For the most accurate forecasts, the amount of data should equal the context window, which is set during model training. For example, if the context window is 14 days, provide at least 14 days of historical data. If you provide less data, Agent Platform pads the data with empty values.
+  - The forecast starts on the first row of a time series (ordered by time) with a null value in the target column. The null value must be continuous within the time series. For example, if the target column is ordered by time, you cannot have something like `1` , `2` , `null` , `3` , `4` , `null` , `null` for a single time series. For CSV files, Gemini Enterprise Agent Platform treats an empty string as null, and for BigQuery, null values are natively supported.
 
 ### BigQuery table
 
 If you choose a BigQuery table as the input, you must ensure the following:
 
   - BigQuery data source tables must be no larger than 100 GB.
-  - If the table is in a different project, you must grant the `BigQuery Data Editor` role to the Vertex AI service account in that project.
+  - If the table is in a different project, you must grant the `BigQuery Data Editor` role to the Agent Platform service account in that project.
 
 ### CSV file
 
@@ -59,7 +59,7 @@ If you choose a CSV object in Cloud Storage as the input, you must ensure the fo
 
   - The data source must begin with a header row with the column names.
   - Each data source object must not be larger than 10 GB. You can include multiple files, up to a maximum amount of 100 GB.
-  - If the Cloud Storage bucket is in a different project, you must grant the `Storage Object Creator` role to the Vertex AI service account in that project.
+  - If the Cloud Storage bucket is in a different project, you must grant the `Storage Object Creator` role to the Agent Platform service account in that project.
   - You must enclose all strings in double quotation marks (").
 
 ## Output format
@@ -68,13 +68,13 @@ The output format of your batch inference request doesn't need to be the same as
 
 ## Make a batch inference request to your model
 
-To make batch inference requests, you can use the Google Cloud console or the Vertex AI API. The input data source can be CSV objects stored in a Cloud Storage bucket or BigQuery tables. Depending on the amount of data that you submit as input, a batch inference task can take some time to complete.
+To make batch inference requests, you can use the Google Cloud console or the Agent Platform API. The input data source can be CSV objects stored in a Cloud Storage bucket or BigQuery tables. Depending on the amount of data that you submit as input, a batch inference task can take some time to complete.
 
 ### Google Cloud console
 
 Use the Google Cloud console to request a batch inference.
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Batch inferences** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Batch inferences** page.
 2.  Click **Create** to open the **New batch inference** window.
 3.  For **Define your batch inference** , complete the following steps:
     1.  Enter a name for the batch inference.
@@ -84,9 +84,9 @@ Use the Google Cloud console to request a batch inference.
           - For CSV files, specify the Cloud Storage location where your CSV input file is located.
           - For BigQuery tables, specify the project ID where the table is located, the BigQuery dataset ID, and the BigQuery table or view ID.
     5.  For **Batch inference output** , select **CSV** or **BigQuery** .
-          - For CSV, specify the Cloud Storage bucket where Vertex AI stores your output.
+          - For CSV, specify the Cloud Storage bucket where Gemini Enterprise Agent Platform stores your output.
           - For BigQuery, you can specify a project ID or an existing dataset:
-              - To specify the project ID, enter the project ID in the **Google Cloud project ID** field. Vertex AI creates a new output dataset for you.
+              - To specify the project ID, enter the project ID in the **Google Cloud project ID** field. Gemini Enterprise Agent Platform creates a new output dataset for you.
               - To specify an existing dataset, enter its BigQuery path in the **Google Cloud project ID** field, such as `bq://projectid.datasetid` .
           - **Optional.** If your output destination is BigQuery or JSONL on Cloud Storage, you can enable feature attributions in addition to inferences. To do this, select **Enable feature attributions for this model** . Feature attributions are not supported for CSV on Cloud Storage. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
 4.  Optional: [**Model Monitoring**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) analysis for batch inferences is available in [Preview](https://cloud.google.com/products/#product-launch-stages) . See the [Prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/model-monitoring-batch-predictions#prerequisites) for adding skew detection configuration to your batch inference job.
@@ -101,13 +101,13 @@ Use the Google Cloud console to request a batch inference.
 
 ### REST
 
-You use the [batchPredictionJobs.create](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch inference.
+You use the [batchPredictionJobs.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch inference.
 
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Region where Model is stored and batch inference job is executed. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers).
 
   - BATCH\_JOB\_NAME : Display name for the batch job
 
@@ -121,7 +121,7 @@ Before using any of the request data, make the following replacements:
     
         bq://bqprojectId.bqDatasetId
     
-    If you specify just the project ID, Vertex AI creates a new output dataset for you. Use the following form:
+    If you specify just the project ID, Agent Platform creates a new output dataset for you. Use the following form:
     
         bq://bqprojectId
 
@@ -221,9 +221,9 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Vertex AI quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Vertex AI Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
-To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
 In the following sample, replace INSTANCES\_FORMAT and PREDICTIONS\_FORMAT with \`bigquery\`. To learn how to replace the other placeholders, see the \`REST & CMD LINE\` tab of this section.
 
@@ -349,7 +349,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### REST
 
-You use the [batchPredictionJobs.create](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch inference.
+You use the [batchPredictionJobs.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch inference.
 
 Before using any of the request data, make the following replacements:
 
@@ -365,7 +365,7 @@ Before using any of the request data, make the following replacements:
     
         gs://bucketName/pathToFileName
 
-  - OUTPUT\_URI\_PREFIX : Path to a Cloud Storage destination where the inferences will be written. Vertex AI writes batch inferences to a timestamped subdirectory of this path. Set this value to a string with the following format:
+  - OUTPUT\_URI\_PREFIX : Path to a Cloud Storage destination where the inferences will be written. Agent Platform writes batch inferences to a timestamped subdirectory of this path. Set this value to a string with the following format:
     
         gs://bucketName/pathToOutputDirectory
 
@@ -497,7 +497,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Retrieve batch inference results
 
-Vertex AI sends the output of batch inferences to the destination that you specified, which can be either BigQuery or Cloud Storage.
+Gemini Enterprise Agent Platform sends the output of batch inferences to the destination that you specified, which can be either BigQuery or Cloud Storage.
 
 Cloud Storage output for feature attributions isn't supported.
 
@@ -505,9 +505,9 @@ Cloud Storage output for feature attributions isn't supported.
 
 ### Output dataset
 
-If you are using BigQuery, the output of batch inference is stored in an output dataset. If you had provided a dataset to Vertex AI, the name of the dataset ( BQ\_DATASET\_NAME ) is the name you had provided earlier. If you did not provide an output dataset, Vertex AI created one for you. You can find its name ( BQ\_DATASET\_NAME ) with the following steps:
+If you are using BigQuery, the output of batch inference is stored in an output dataset. If you had provided a dataset to Gemini Enterprise Agent Platform, the name of the dataset ( BQ\_DATASET\_NAME ) is the name you had provided earlier. If you did not provide an output dataset, Gemini Enterprise Agent Platform created one for you. You can find its name ( BQ\_DATASET\_NAME ) with the following steps:
 
-1.  In the Google Cloud console, go to the Vertex AI **Batch inferences** page.
+1.  In the Google Cloud console, go to the Gemini Enterprise Agent Platform **Batch inferences** page.
 2.  Select the inference you created.
 3.  The output dataset is given in **Export location** . The dataset name is formatted as follows: ` prediction_ MODEL_NAME _ TIMESTAMP  `
 
@@ -517,15 +517,15 @@ The output dataset contains one or more of the following three output tables:
 
   - Inference table  
     
-    This table contains a row for every row in your input data where an inference was requested (that is, where TARGET\_COLUMN\_NAME = null). For example, if your input included 14 null entries for the target column (such as sales for the next 14 days), your inference request returns 14 rows, the sales number for each day. If your inference request exceeds the model's forecast horizon, Vertex AI returns only inferences up to the forecast horizon.
+    This table contains a row for every row in your input data where an inference was requested (that is, where TARGET\_COLUMN\_NAME = null). For example, if your input included 14 null entries for the target column (such as sales for the next 14 days), your inference request returns 14 rows, the sales number for each day. If your inference request exceeds the model's forecast horizon, Gemini Enterprise Agent Platform returns only inferences up to the forecast horizon.
 
   - Errors validation table  
     
-    This table contains a row for each non-critical error encountered during the aggregation phase that takes place prior to batch inference. Each non-critical error corresponds with a row in the input data that Vertex AI could not return a forecast for.
+    This table contains a row for each non-critical error encountered during the aggregation phase that takes place prior to batch inference. Each non-critical error corresponds with a row in the input data that Agent Platform could not return a forecast for.
 
   - Errors table  
     
-    This table contains a row for each non-critical error encountered during batch inference. Each non-critical error corresponds with a row in the input data that Vertex AI could not return a forecast for.
+    This table contains a row for each non-critical error encountered during batch inference. Each non-critical error corresponds with a row in the input data that Agent Platform could not return a forecast for.
 
 ### Predictions table
 
@@ -542,7 +542,7 @@ To retrieve the inferences table:
           
     ```
 
-Vertex AI stores inferences in the `predicted_ TARGET_COLUMN_NAME .value` column.
+Gemini Enterprise Agent Platform stores inferences in the `predicted_ TARGET_COLUMN_NAME .value` column.
 
 If you [trained a model with Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) , you can find TFT interpretability output in the `predicted_ TARGET_COLUMN_NAME .tft_feature_importance` column.
 
@@ -557,14 +557,14 @@ This column is further divided into the following:
 
 If your model is [optimized for quantile loss](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) and your set of quantiles includes the median, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the median. Otherwise, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the lowest quantile in the set. For example, if your set of quantiles is `[0.1, 0.5, 0.9]` , `value` is the inference for quantile `0.5` . If your set of quantiles is `[0.1, 0.9]` , `value` is the inference for quantile `0.1` .
 
-Additionally, Vertex AI stores quantile values and inferences in the following columns:
+Additionally, Gemini Enterprise Agent Platform stores quantile values and inferences in the following columns:
 
   - `predicted_ TARGET_COLUMN_NAME .quantile_values` : The values of the quantiles, which are set during model training. For example, these can be `0.1` , `0.5` , and `0.9` .
   - `predicted_ TARGET_COLUMN_NAME .quantile_predictions` : The inference values associated with the quantile values.
 
 If your model uses probabilistic inference, `predicted_ TARGET_COLUMN_NAME .value` contains the minimizer of the optimization objective. For example, if your optimization objective is `minimize-rmse` , `predicted_ TARGET_COLUMN_NAME .value` contains the mean value. If it is `minimize-mae` , `predicted_ TARGET_COLUMN_NAME .value` contains the median value.
 
-If your model uses probabilistic inference with quantiles, Vertex AI stores quantile values and inferences in the following columns:
+If your model uses probabilistic inference with quantiles, Gemini Enterprise Agent Platform stores quantile values and inferences in the following columns:
 
   - `predicted_ TARGET_COLUMN_NAME .quantile_values` : The values of the quantiles, which are set during model training. For example, these can be `0.1` , `0.5` , and `0.9` .
   - `predicted_ TARGET_COLUMN_NAME .quantile_predictions` : The inference values associated with the quantile values.
@@ -625,13 +625,13 @@ The Cloud Storage folder contains two kinds of objects:
 
   - **Inference objects**
     
-    The inference objects are named \`predictions\_1.csv\`, \`predictions\_2.csv\`, and so on. They contain a header row with the column names, and a row for every forecast returned. The number of inference values depends on your inference input and forecast horizon. For example, if your input included 14 null entries for the target column (such as sales for the next 14 days), your inference request returns 14 rows, the sales number for each day. If your inference request exceeds the model's forecast horizon, Vertex AI returns only inferences up to the forecast horizon.
+    The inference objects are named \`predictions\_1.csv\`, \`predictions\_2.csv\`, and so on. They contain a header row with the column names, and a row for every forecast returned. The number of inference values depends on your inference input and forecast horizon. For example, if your input included 14 null entries for the target column (such as sales for the next 14 days), your inference request returns 14 rows, the sales number for each day. If your inference request exceeds the model's forecast horizon, Gemini Enterprise Agent Platform returns only inferences up to the forecast horizon.
     
     The forecast values are returned in a column named \`predicted\_ TARGET\_COLUMN\_NAME \`. For quantile forecasts, the output column contains the quantile inferences and quantile values in the JSON format.
 
   - **Error objects**
     
-    The error objects are named \`errors\_1.csv\`, \`errors\_2.csv\`, and so on. They contain a header row, and a row for every row in your input data that Vertex AI could not return a forecast (for example, if a non-nullable feature was null) for.
+    The error objects are named \`errors\_1.csv\`, \`errors\_2.csv\`, and so on. They contain a header row, and a row for every row in your input data that Agent Platform could not return a forecast (for example, if a non-nullable feature was null) for.
 
 Note: If the results are large, it is split into multiple objects.
 

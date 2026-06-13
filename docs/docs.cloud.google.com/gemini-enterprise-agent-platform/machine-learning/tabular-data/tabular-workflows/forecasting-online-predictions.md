@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-online-predictions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-online-predictions
 title: Get online inferences for a forecast model
-description: Project future values for a forecast model by using online inferences in Vertex AI
+description: Project future values for a forecast model by using online inferences in Gemini Enterprise Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-Vertex AI provides two options for projecting future values using your trained forecast model: online inferences and batch inferences.
+Gemini Enterprise Agent Platform provides two options for projecting future values using your trained forecast model: online inferences and batch inferences.
 
 An online inference is a synchronous request. Use online inferences when you make requests in response to application input or in other situations where you require timely inference.
 
@@ -44,7 +44,7 @@ The following code provides an example:
 Replace the following:
 
   - PROJECT\_ID : Your project ID.
-  - REGION : The region where you use Vertex AI.
+  - REGION : The region where you use Gemini Enterprise Agent Platform.
   - ENDPOINT\_NAME : Display name for the endpoint.
 
 ## Select a trained model
@@ -87,7 +87,7 @@ To get inferences, use the function [`predict()`](https://docs.cloud.google.com/
 
     predictions = endpoint.predict(instances=[{...}, {...}])
 
-Each input instance is a Python dictionary with the same schema that the model was trained on. It must contain an *available at forecast* key-value pair that corresponds to the time column and an *unavailable at forecast* key-value pair that contains the historical values of the targeted inference column. Vertex AI expects each input instance to belong to a single time series. The order of the key-value pairs in the instance is not important.
+Each input instance is a Python dictionary with the same schema that the model was trained on. It must contain an *available at forecast* key-value pair that corresponds to the time column and an *unavailable at forecast* key-value pair that contains the historical values of the targeted inference column. Gemini Enterprise Agent Platform expects each input instance to belong to a single time series. The order of the key-value pairs in the instance is not important.
 
 The input instance is subject to the following constraints:
 
@@ -118,9 +118,9 @@ The following code demonstrates a set of two input instances. The `Category` col
       }
     ])
 
-For each instance, Vertex AI responds with two inferences for `Sales` , corresponding with the two *horizon* timestamps ("2023-08-06" and "2023-08-07").
+For each instance, Gemini Enterprise Agent Platform responds with two inferences for `Sales` , corresponding with the two *horizon* timestamps ("2023-08-06" and "2023-08-07").
 
-For optimal performance, the number of *context* data points and the number of *horizon* data points in each input instance must match the context and horizon lengths that the model was trained with. If there is a mismatch, Vertex AI pads or truncates the instance to match the model's size.
+For optimal performance, the number of *context* data points and the number of *horizon* data points in each input instance must match the context and horizon lengths that the model was trained with. If there is a mismatch, Gemini Enterprise Agent Platform pads or truncates the instance to match the model's size.
 
 If the number of *context* data points in your input instance is less than or greater than the number of *context* data points used for model training, ensure that this number of points is consistent across all of the *available at forecasting* key-value pairs and all of the *unavailable at forecasting* key-value pairs.
 
@@ -128,7 +128,7 @@ For example, consider a model that was trained with four days of *context* data 
 
 ## Output of online inference
 
-Vertex AI provides online inference output in the `value` field:
+Gemini Enterprise Agent Platform provides online inference output in the `value` field:
 
     {
       'value': [...]
@@ -143,7 +143,7 @@ Consider the following examples:
 
 ### Online inferences output for TFT models
 
-For models trained with [Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) , Vertex AI provides TFT interpretability `tft_feature_importance` in addition to inferences in the `value` field:
+For models trained with [Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) , Gemini Enterprise Agent Platform provides TFT interpretability `tft_feature_importance` in addition to inferences in the `value` field:
 
     {
       "tft_feature_importance": {
@@ -166,7 +166,7 @@ For models trained with [Temporal Fusion Transformer (TFT)](https://docs.cloud.g
 
 ### Online inference output for models optimized for quantile loss
 
-For models optimized for [quantile loss](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) , Vertex AI provides the following online inference output:
+For models optimized for [quantile loss](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) , Gemini Enterprise Agent Platform provides the following online inference output:
 
     {
       "value": [...],
@@ -178,7 +178,7 @@ For models optimized for [quantile loss](https://docs.cloud.google.com/vertex-ai
   - `quantile_values` : The values of the quantiles, which are set during model training.
   - `quantile_predictions` : The inference values associated with quantile\_values.
 
-Consider, for example, a model in which the target column is the sales value. Quantile values are defined as `[0.1, 0.5, 0.9]` . Vertex AI returns the following quantile inferences: `[4484, 5615, 6853]` . Here, the set of quantiles includes the median, so `value` is the inference for quantile `0.5` ( `5615` ). You can interpret the quantile inferences as follows:
+Consider, for example, a model in which the target column is the sales value. Quantile values are defined as `[0.1, 0.5, 0.9]` . Gemini Enterprise Agent Platform returns the following quantile inferences: `[4484, 5615, 6853]` . Here, the set of quantiles includes the median, so `value` is the inference for quantile `0.5` ( `5615` ). You can interpret the quantile inferences as follows:
 
   - `P(sales value < 4484)` = 10%
   - `P(sales value < 5615)` = 50%
@@ -188,7 +188,7 @@ Consider, for example, a model in which the target column is the sales value. Qu
 
 If your model uses probabilistic inference, the `value` field contains the minimizer of the optimization objective. For example, if your optimization objective is `minimize-rmse` , the `value` field contains the mean value. If it is `minimize-mae` , the `value` field contains the median value.
 
-If your model uses probabilistic inference with quantiles, Vertex AI provides quantile values and inferences in addition to the minimizer of the optimization objective. Quantile values are set during model training. Quantile inferences are the inference values associated with the quantile values.
+If your model uses probabilistic inference with quantiles, Gemini Enterprise Agent Platform provides quantile values and inferences in addition to the minimizer of the optimization objective. Quantile values are set during model training. Quantile inferences are the inference values associated with the quantile values.
 
 ## Get online explanations
 
@@ -254,7 +254,7 @@ The explanation results have the following format:
 
 The number of `attributions` elements depends on the horizon used in model training and on the horizon of the input instance. The number of elements is the smallest of these two values.
 
-The `featureAttributions` field in an `attributions` element contains one value for each of the columns in the input dataset. Vertex AI generates explanations for all types of features: *attribute* , *available at forecast* , and *unavailable at forecast* . To learn more about the fields of an `attributions` element, see [Attribution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelExplanation#attribution) .
+The `featureAttributions` field in an `attributions` element contains one value for each of the columns in the input dataset. Gemini Enterprise Agent Platform generates explanations for all types of features: *attribute* , *available at forecast* , and *unavailable at forecast* . To learn more about the fields of an `attributions` element, see [Attribution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelExplanation#attribution) .
 
 ## Delete the endpoint
 

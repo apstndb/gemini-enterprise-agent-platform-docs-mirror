@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Some of the models that are available in [Model Garden](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/available-models) can be self-deployed in your own Google Cloud project and used to provide batch predictions. Batch predictions let you efficiently use a model to process multiple text-only prompts that aren't latency sensitive.
+Some of the models that are available in [Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) can be self-deployed in your own Google Cloud project and used to provide batch predictions. Batch predictions let you efficiently use a model to process multiple text-only prompts that aren't latency sensitive.
 
 ## Prepare input
 
@@ -44,6 +44,8 @@ For Cloud Storage, the input file must be a JSONL file that is located in a Clou
 Choose a model and query its resource requirements. The required resources appear in the response, in the `dedicatedResources` field, which you specify in the configuration of your batch prediction job.
 
 ### REST
+
+After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -93,6 +95,8 @@ Make a batch prediction against a self-deployed Model Garden model by using inpu
 Specify your BigQuery input table, model, and output location. The batch prediction job and your table must be in the same region.
 
 ### REST
+
+After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -205,6 +209,8 @@ You should receive a JSON response similar to the following.
 Specify your JSONL file's Cloud Storage location, model, and output location.
 
 ### REST
+
+After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -319,6 +325,8 @@ You should receive a JSON response similar to the following.
 Get the state of your batch prediction job to check whether it has completed successfully. The job length depends on the number of input items that you submitted.
 
 ### REST
+
+After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 

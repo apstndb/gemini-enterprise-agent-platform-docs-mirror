@@ -26,7 +26,7 @@ This page shows you how to perform a model-based evaluation with Gen AI evaluati
         from google.colab import auth
         auth.authenticate_user()
     
-    For other environments, refer to [Authenticate to Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/authentication#client-libraries) .
+    For other environments, refer to [Authenticate to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/authentication#client-libraries) .
 
 ## Import libraries
 

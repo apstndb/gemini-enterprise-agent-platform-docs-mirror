@@ -6,7 +6,7 @@ description: Learn how to deploy a model to an endpoint.
 data_source: docs.cloud.google.com
 ---
 
-Before you can [get online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) from a trained model, you must deploy the model to an [endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type) . This can be done by using the Google Cloud console, the Google Cloud CLI, or the Gemini Enterprise API.
+Before you can [get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) from a trained model, you must deploy the model to an [endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) . This can be done by using the Google Cloud console, the Google Cloud CLI, or the Gemini Enterprise API.
 
 This document describes the process for deploying models to endpoints.
 
@@ -20,15 +20,15 @@ You can deploy multiple models to an endpoint, or you can deploy the same model 
 
 During model deployment, you make the following important decisions about how to run online inference:
 
-| Resource created | Setting specified at resource creation                                                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Endpoint         | Location in which to run inferences                                                                                                              |
-| Model            | Container to use ( [`ModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec) ) |
-| DeployedModel    | [Compute resources to use for online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute)                      |
+| Resource created | Setting specified at resource creation                                                                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Endpoint         | Location in which to run inferences                                                                                                                            |
+| Model            | Container to use ( [`ModelContainerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec) )               |
+| DeployedModel    | [Compute resources to use for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) |
 
 After the model is deployed to the endpoint, these deployment settings can't be changed. To change them, you must redeploy your model.
 
-The first step in the deployment process is to decide which type of endpoint to use. For more information, see [Choose an endpoint type](https://docs.cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type) .
+The first step in the deployment process is to decide which type of endpoint to use. For more information, see [Choose an endpoint type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) .
 
 Next, make sure that the model is visible in Gemini Enterprise Agent Platform Model Registry. This is required for the model to be deployable. For information about Model Registry, including how to import model artifacts or create them directly in Model Registry, see [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) .
 
@@ -46,26 +46,26 @@ You can deploy a model to an endpoint by [using the Google Cloud console](https:
 
 ### Deploy a model to a public endpoint by using the Google Cloud console
 
-In the Google Cloud console, you can deploy a model to an existing dedicated or shared public endpoint, or you can create a new endpoint during the deployment process. For details, see [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
+In the Google Cloud console, you can deploy a model to an existing dedicated or shared public endpoint, or you can create a new endpoint during the deployment process. For details, see [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
 
 ### Deploy a model to a public endpoint by using the gcloud CLI or Gemini Enterprise API
 
 When you deploy a model by using the gcloud CLI or Gemini Enterprise API, you must first create a dedicated or shared endpoint and then deploy the model to it. For details, see:
 
-1.  [Create a dedicated or shared public endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/create-public-endpoint)
-2.  [Deploy a model by using the gcloud CLI or Gemini Enterprise API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api)
+1.  [Create a dedicated or shared public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/create-public-endpoint)
+2.  [Deploy a model by using the gcloud CLI or Gemini Enterprise API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
 
 ### Deploy a model to a Private Service Connect endpoint
 
-For details, see [Use Private Service Connect endpoints for online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/private-service-connect) .
+For details, see [Use Private Service Connect endpoints for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect) .
 
 ### Use a rolling deployment to update a deployed model
 
-You can use a *rolling deployment* to replace a deployed model with a new version of the same model. The new model reuses the compute resources from the previous one. For details, see [Use a rolling deployment to replace a deployed model](https://docs.cloud.google.com/vertex-ai/docs/predictions/rolling-deployment) .
+You can use a *rolling deployment* to replace a deployed model with a new version of the same model. The new model reuses the compute resources from the previous one. For details, see [Use a rolling deployment to replace a deployed model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/rolling-deployment) .
 
 ### Undeploy a model and delete the endpoint
 
-You can undeploy a model and delete the endpoint. For details, see [Undeploy a model and delete the endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/undeploy-model) .
+You can undeploy a model and delete the endpoint. For details, see [Undeploy a model and delete the endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/undeploy-model) .
 
 ## Reasons to deploy more than one model to the same endpoint
 
@@ -79,12 +79,12 @@ You might want to deploy your models with different resources for different appl
 
 ## Scaling behavior
 
-Vertex AI Inference autoscaling scales the number of inference nodes based on the number of concurrent requests. This lets you dynamically adjust to changing request loads while managing costs. For more information, see [Scale inference nodes for Vertex AI Inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/autoscaling) .
+Vertex AI Inference autoscaling scales the number of inference nodes based on the number of concurrent requests. This lets you dynamically adjust to changing request loads while managing costs. For more information, see [Scale inference nodes for Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/autoscaling) .
 
 ## What's next
 
-  - [Choose an endpoint type](https://docs.cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type) .
-  - [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
-  - Learn about [Inference request-response logging for dedicated endpoints and Private Service Connect endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#dedicated-and-psc) .
-  - Learn how to [get an online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) .
+  - [Choose an endpoint type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) .
+  - [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
+  - Learn about [Inference request-response logging for dedicated endpoints and Private Service Connect endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#dedicated-and-psc) .
+  - Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
   - Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .

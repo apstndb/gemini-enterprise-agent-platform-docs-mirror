@@ -545,10 +545,10 @@ These fields are defined within the `runtime_spec` block of the JSON file.
 Use your active persistent training cluster to run your machine learning workloads.
 
   - Run a job on your cluster: Submit a `CustomJob` to run a training job on your persistent cluster.
-      - [Learn how to run a distributed training job](https://docs.cloud.google.com/vertex-ai/machine-learning/training/distributed-training)
+      - [Learn how to run a distributed training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
   - Orchestrate your training with Gemini Enterprise Agent Platform Pipelines: For repeatable, production-grade workflows, automate the job submission process using Agent Platform Pipelines.
-      - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/vertex-ai/machine-learning/training/training-clusters/orchestration)
+      - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)
   - View and manage your cluster: List existing clusters, check their status, and view configuration details using the Google Cloud CLI or the Google Cloud console.
-      - [Learn how to manage your training cluster](https://docs.cloud.google.com/vertex-ai/machine-learning/training/training-clusters/manage-cluster)
+      - [Learn how to manage your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster)
   - Delete your cluster to stop incurring costs: Training clusters are persistent and incur costs while active.
-      - [Learn how to delete your training cluster](https://docs.cloud.google.com/vertex-ai/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster:)
+      - [Learn how to delete your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster:)

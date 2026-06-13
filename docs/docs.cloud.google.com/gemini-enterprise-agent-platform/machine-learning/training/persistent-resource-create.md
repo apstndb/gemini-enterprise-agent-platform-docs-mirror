@@ -398,17 +398,17 @@ There could be stockout for scarce resources like A100 GPUs, which can lead to p
 
 ## Shared Responsibility
 
-Securing your workloads on Vertex AI is a shared responsibility. While Vertex AI regularly upgrades infrastructure configurations to address security vulnerabilities, Vertex AI doesn't automatically upgrade your existing Ray on Vertex AI clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following:
+Securing your workloads on Gemini Enterprise Agent Platform is a shared responsibility. While Gemini Enterprise Agent Platform regularly upgrades infrastructure configurations to address security vulnerabilities, Gemini Enterprise Agent Platform doesn't automatically upgrade your existing Ray on Vertex AI clusters and persistent resources to avoid preempting running workloads. Therefore, you're responsible for tasks such as the following:
 
-1.  Periodically delete and recreate your Ray on Vertex AI clusters and persistent resources to use the latest infrastructure versions. Vertex AI recommends recreating your clusters and persistent resources at least once every 30 days.
+1.  Periodically delete and recreate your Ray on Vertex AI clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
 2.  Properly configure any custom images you use.
 
 For more information, see [Shared responsibility](https://docs.cloud.google.com/vertex-ai/docs/shared-responsibility) .
 
 ## What's next
 
-  - [Run training jobs on a persistent resource](https://docs.cloud.google.com/vertex-ai/machine-learning/training/persistent-resource-train) .
-  - [Learn about persistent resource](https://docs.cloud.google.com/vertex-ai/machine-learning/training/persistent-resource-overview) .
-  - [Get information about a persistent resource](https://docs.cloud.google.com/vertex-ai/machine-learning/training/persistent-resource-get) .
-  - [Reboot a persistent resource](https://docs.cloud.google.com/vertex-ai/machine-learning/training/persistent-resource-reboot) .
-  - [Delete a persistent resource](https://docs.cloud.google.com/vertex-ai/machine-learning/training/persistent-resource-delete) .
+  - [Run training jobs on a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train) .
+  - [Learn about persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-overview) .
+  - [Get information about a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-get) .
+  - [Reboot a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-reboot) .
+  - [Delete a persistent resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-delete) .

@@ -106,7 +106,7 @@ experiment\_name: str, experiment\_description: str, project: str, location: str
 
 #### Manually create a Vertex AI TensorBoard instance
 
-You can manually create a Vertex AI TensorBoard. This is useful for users more comfortable with the Google Cloud console, users that need a CMEK enabled TensorBoard (see [CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) ), or users who want to use multiple TensorBoards. This instance can then be specified directly when initializing a Vertex AI experiment, starting an Experiment Run, or configuring the training code.
+You can manually create a Vertex AI TensorBoard. This is useful for users more comfortable with the Google Cloud console, users that need a CMEK enabled TensorBoard (see [CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) ), or users who want to use multiple TensorBoards. This instance can then be specified directly when initializing a Gemini Enterprise Agent Platform experiment, starting an Experiment Run, or configuring the training code.
 
 ### Agent Platform SDK for Python
 
@@ -182,8 +182,8 @@ If you want your Vertex AI TensorBoard data encrypted, you must enable the [CMEK
 
 Follow these steps to create a Vertex AI TensorBoard CMEK enabled instance using the Google Cloud console.
 
-1.  If you're new to Vertex AI or starting a new project, [set up your project and development environment](https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment) .
-2.  In the Vertex AI section of the Google Cloud console, go to the **Experiments** page.  
+1.  If you're new to Gemini Enterprise Agent Platform or starting a new project, [set up your project and development environment](https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment) .
+2.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Experiments** page.  
       
 3.  Navigate to the **TensorBoard Instances** tab.
 4.  Click **Create** at the top of the page.
@@ -240,7 +240,7 @@ Delete a Vertex AI TensorBoard instance using the Agent Platform SDK for Python.
 
 Follow these steps to delete a Vertex AI TensorBoard instance using the Google Cloud console.
 
-1.  In the Vertex AI section of the Google Cloud console, go to the **Experiments** page.  
+1.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Experiments** page.  
       
 2.  Select the **TensorBoard Instances** tab. A list TensorBoard instances appears.
 3.  Select and click **Delete**
@@ -287,6 +287,6 @@ The TensorBoard resource name can be retrieved from an Vertex AI Experiments usi
 
 #### TensorBoard instance ID
 
-The TensorBoard instance ID is a generated ID value associated with a TensorBoard instance. To find the `TENSORBOARD_INSTANCE_ID` , go to the Experiments page Vertex AI section of the Google Cloud console, and select the **TensorBoard Instances** tab.
+The TensorBoard instance ID is a generated ID value associated with a TensorBoard instance. To find the `TENSORBOARD_INSTANCE_ID` , go to the Experiments page Gemini Enterprise Agent Platform section of the Google Cloud console, and select the **TensorBoard Instances** tab.
 
 You can also retrieve the instance ID from the [TensorBoard resource name](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-setup#tensorboard_resource_name) . ![TensorBoard ID](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/tensorboard-id.png)

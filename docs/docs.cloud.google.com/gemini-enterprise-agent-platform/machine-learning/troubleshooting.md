@@ -685,9 +685,9 @@ To resolve this, try one of the following:
 
   - *Service account does not have permission to access Artifact Registry or bucket.* If you get an error such as `Agent Platform Service Agent service-123456789@gcp-sa-aiplatform-cc.iam.gserviceaccount.com does not have permission to access Artifact Registry repository projects/my-project/locations/my-region/repositories/nas` or a similar error for bucket access, give this service account a storage editor role in your project.
 
-## Vertex AI Feature Store
+## Agent Platform Neural Architecture Search Feature Store
 
-This section describes troubleshooting steps that you might find helpful if you run into problems with Vertex AI Feature Store.
+This section describes troubleshooting steps that you might find helpful if you run into problems with Agent Platform Neural Architecture Search Feature Store.
 
 ### `Resource not found` error when sending a streaming ingestion or online serving request
 
@@ -717,7 +717,7 @@ Your CPU utilization for an online serving node is high.
 
 **Solution**
 
-To mitigate this issue, you can either increase the number of online serving nodes by manually increasing the node count or by enabling autoscaling. Note that even if auto scaling is enabled, Vertex AI Feature Store needs time to rebalance the data when nodes are added or removed. For information about how to view feature value distribution metrics over time, see [View feature value metrics](https://docs.cloud.google.com/vertex-ai/docs/featurestore/monitoring#view_feature_value_distributions) .
+To mitigate this issue, you can either increase the number of online serving nodes by manually increasing the node count or by enabling autoscaling. Note that even if auto scaling is enabled, Vertex AI Feature Store needs time to rebalance the data when nodes are added or removed. For information about how to view feature value distribution metrics over time, see [View feature value metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/monitoring#view_feature_value_distributions) .
 
 ### CPU utilization is high for the hottest online serving node
 
@@ -757,11 +757,11 @@ Exporting a high volume of data can fail with a resource exceeded error if the e
 
 **Solution**
 
-To avoid this error, you can configure the time range parameters, `start_time` and `end_time` , to process smaller amounts of data at a time. For information about full export, see [Full export](https://docs.cloud.google.com/vertex-ai/docs/featurestore/export-features#full_export_2) .
+To avoid this error, you can configure the time range parameters, `start_time` and `end_time` , to process smaller amounts of data at a time. For information about full export, see [Full export](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/export-features#full_export_2) .
 
-## Vertex AI Vizier
+## Agent Platform Neural Architecture Search Vizier
 
-When using Vertex AI Vizier, you might get the following issues.
+When using Agent Platform Neural Architecture Search Vizier, you might get the following issues.
 
 #### Internal error
 
@@ -771,13 +771,13 @@ The internal error occurs when there is a system error.
 
 **Solution**
 
-It might be transient. Try to resend the request, and if the error persists, [contact support](https://docs.cloud.google.com/vertex-ai/docs/support/getting-support) .
+It might be transient. Try to resend the request, and if the error persists, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/support/getting-support) .
 
-### Permissions errors when using service account roles with Vertex AI
+### Permissions errors when using service account roles with Agent Platform Neural Architecture Search
 
 **Issue**
 
-You get general permissions errors when you use service account roles with Vertex AI.
+You get general permissions errors when you use service account roles with Agent Platform Neural Architecture Search.
 
 These errors can appear in Cloud Logging in either the product component logs or audit logs. They may also appear in any combination of the affected projects.
 
@@ -791,7 +791,7 @@ These issues can be caused by one or both of the following:
 
 To resolve the issue, try one or more of the following:
 
-  - Determine whether the `Service Account Token Creator` or `Service Account User` role is needed. To learn more, read the IAM documentation for the Vertex AI services you are using, as well as any other product integrations that you are using.
+  - Determine whether the `Service Account Token Creator` or `Service Account User` role is needed. To learn more, read the IAM documentation for the Agent Platform Neural Architecture Search services you are using, as well as any other product integrations that you are using.
 
   - If you have granted a service account permissions across multiple projects, enable service accounts to be attached across projects by ensuring that [`iam.disableCrossProjectServiceAccountUsage`](https://docs.cloud.google.com/iam/docs/attach-service-accounts#enabling-cross-project) . isn't enforced. To ensure that `iam.disableCrossProjectServiceAccountUsage` isn't enforced, run the following command:
     

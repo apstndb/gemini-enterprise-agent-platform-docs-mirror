@@ -708,6 +708,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 <td>1</td>
 <td>1</td>
 <td>1 input text token = 1 token<br />
+1 input image token = 1 token<br />
 1 output text token = 4 tokens</td>
 </tr>
 <tr class="even">

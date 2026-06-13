@@ -60,7 +60,7 @@ A successful Filestore integration with training clusters requires the following
 
 ### Configure Filestore storage
 
-Create a zonal or regional Filestore instance in the zone where you want to create the cluster. Vertex AI API requires a Filestore to be attached to the cluster to serve as the `/home` directory. This Filestore has to be in the same zone or region and in the same network as all the compute nodes and login nodes. In the example below, 172.16.10.0/24 is used for the Filestore deployment.
+Create a zonal or regional Filestore instance in the zone where you want to create the cluster. Agent Platform API requires a Filestore to be attached to the cluster to serve as the `/home` directory. This Filestore has to be in the same zone or region and in the same network as all the compute nodes and login nodes. In the example below, 172.16.10.0/24 is used for the Filestore deployment.
 
 ``` 
     SERVICE_TIER=ZONAL # Can use BASIC_SSD
@@ -141,7 +141,7 @@ As a prerequisite, make sure that the VM service account has the Storage Object 
 
 ### Default mount
 
-Vertex AI training clusters uses Cloud Storage FUSE to dynamically mount your Cloud Storage buckets on all login and compute nodes, making them accessible under the `/gcs` directory. Dynamically mounted buckets can't be listed from the root mount point `/gcs` . You can access the dynamically mounted buckets as subdirectories:
+Gemini Enterprise Agent Platform training clusters uses Cloud Storage FUSE to dynamically mount your Cloud Storage buckets on all login and compute nodes, making them accessible under the `/gcs` directory. Dynamically mounted buckets can't be listed from the root mount point `/gcs` . You can access the dynamically mounted buckets as subdirectories:
 
 > **Note:** Dynamically mounted buckets can't be listed from the root mount point `/gcs` . The bucket name must be specified as part of the operation.
 
@@ -171,8 +171,8 @@ For additional configuration recommendations tailored to AI/ML workloads, see th
 The next steps focus on using your cluster effectively for large-scale training.
 
   - Adapt your code for distributed training: To take full advantage of a multi-node cluster and high-performance storage, adapt your training code for a distributed environment.
-      - [Learn about distributed training on Vertex AI](https://docs.cloud.google.com/vertex-ai/machine-learning/training/distributed-training)
+      - [Learn about distributed training on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
   - Orchestrate your jobs with Gemini Enterprise Agent Platform Pipelines: For production workflows, automate the process of data preparation, job submission, and model registration using Agent Platform Pipelines.
       - [Run a custom training job in a pipeline](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/run-pipeline#run_a_custom_training_job_in_a_pipeline)
   - Monitor and debug your training jobs: Track the progress and resource utilization of your distributed training jobs to identify and resolve issues.
-      - [Monitor training jobs on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
+      - [Monitor training jobs on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)

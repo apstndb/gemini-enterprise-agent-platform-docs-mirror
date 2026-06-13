@@ -501,7 +501,7 @@ curl -H "Content-Type: application/json" -H "Authorization: Bearer `gcloud auth 
 
 Use these instructions to delete a data point from streaming index.
 
-1.  In the Vertex AI section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
+1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  Select the streaming index you want to update. The **Index info** page opens.
 3.  Select **Edit Index** . An edit index pane opens.
 4.  From the pane, select the **Remove data points** tab.
@@ -698,7 +698,7 @@ You should receive a JSON response similar to the following:
 
 Use these instructions to update index metadata (the console is limited to updating `display_name` and `description` ).
 
-1.  In the Vertex AI section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
+1.  In the Agent Platform section of the Google Cloud console, go to the **Deploy and Use** section. Select **Vector Search**
 2.  Select the index you want to update. The **Index info** page opens.
 3.  Select **Edit Index** . An edit index pane opens.
 4.  Update the desired metadata fields.

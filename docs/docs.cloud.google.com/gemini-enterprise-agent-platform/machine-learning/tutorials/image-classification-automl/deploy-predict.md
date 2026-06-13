@@ -28,7 +28,7 @@ Each page assumes that you have already performed the instructions from the prev
 
 Access your trained model to deploy it to a new or existing endpoint from the Models page:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Training** page.
+1.  In the Google Cloud console, in the Gemini Enterprise Agent Platform section, go to the **Training** page.
 
 2.  Select your trained AutoML model. This takes you to the **Evaluate** tab where you can view model performance metrics.
 

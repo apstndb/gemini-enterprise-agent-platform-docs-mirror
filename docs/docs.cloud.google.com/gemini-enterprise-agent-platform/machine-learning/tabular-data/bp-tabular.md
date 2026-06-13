@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular
 title: Best practices for creating tabular training data
-description: Review best practices for creating tabular data in Vertex AI.
+description: Review best practices for creating tabular data in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -39,7 +39,7 @@ In general, review any difference between how you generate your training data an
 
 Training-serving skew can also occur based on your data distribution in your training, validation, and testing data splits. There is frequently a difference between the data distribution that a model sees when it's deployed in production versus the data distribution of the dataset that a model is trained on. For example, in production, a model may be applied on an entirely different population of users than those seen during training, or the model may be used to make inferences 30 days after the final training data was recorded.
 
-For best results, make sure that the distribution of the data splits used to create your model accurately reflects the difference between the training data, and the data that you make inferences on in your production environment. Vertex AI can produce non-monotonic inferences, and if the production data is sampled from a very different distribution than the training data, non-monotonic inferences are not very reliable.
+For best results, make sure that the distribution of the data splits used to create your model accurately reflects the difference between the training data, and the data that you make inferences on in your production environment. Agent Platform can produce non-monotonic inferences, and if the production data is sampled from a very different distribution than the training data, non-monotonic inferences are not very reliable.
 
 Furthermore, the difference between production data and training data must be reflected in the difference between the validation data split and the training data split, and between the testing data split and the validation data split.
 
@@ -49,7 +49,7 @@ Similarly, if you want your model to be tuned to make generalized inferences abo
 
 ### Provide a time signal
 
-For classification and regression models, if the underlying pattern in your data is likely to shift over time (it is not randomly distributed in time), provide that information to Vertex AI. You can provide a time signal in several ways:
+For classification and regression models, if the underlying pattern in your data is likely to shift over time (it is not randomly distributed in time), provide that information to Agent Platform. You can provide a time signal in several ways:
 
   - If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data#time) .
 
@@ -74,7 +74,7 @@ Some data types that might require feature engineering:
 
 ### Include calculated or aggregated data in a row
 
-Vertex AI uses only the input data in a single row to predict the target value for that row. If you have calculated or aggregated data from other rows or sources that would be valuable in determining the predicted value for a row, include that data with the source row. Be careful that your new column does not cause [data leakage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#data-leakage) or [training-serving skew](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#training-serving-skew) .
+Agent Platform uses only the input data in a single row to predict the target value for that row. If you have calculated or aggregated data from other rows or sources that would be valuable in determining the predicted value for a row, include that data with the source row. Be careful that your new column does not cause [data leakage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#data-leakage) or [training-serving skew](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#training-serving-skew) .
 
 For example, if you want to predict next week's demand for a product, improve the quality of the inference by including columns with the following values:
 
@@ -107,13 +107,13 @@ Check your data for missing values, and correct them if possible. Otherwise, you
 
 ### Use spaces to separate text
 
-Vertex AI tokenizes text strings and can derive training signal from individual words. It uses spaces to separate words; words separated by other characters are treated as a single entity.
+Agent Platform tokenizes text strings and can derive training signal from individual words. It uses spaces to separate words; words separated by other characters are treated as a single entity.
 
 For example, if you provide the text "red/green/blue", it is not tokenized into "red", "green", and "blue". If those individual words might be important for training the model, transform the text to "red green blue" before including it in your training data.
 
 ### Make sure your categorical features are accurate and clean
 
-Data inconsistencies can cause categories to be incorrectly split. For example, if your data includes "Brown" and "brown", Vertex AI uses those values as separate categories, when you might have intended them to be the same. Misspellings can have a similar effect. Make sure you remove these kinds of inconsistencies from your categorical data before creating your training data.
+Data inconsistencies can cause categories to be incorrectly split. For example, if your data includes "Brown" and "brown", Agent Platform uses those values as separate categories, when you might have intended them to be the same. Misspellings can have a similar effect. Make sure you remove these kinds of inconsistencies from your categorical data before creating your training data.
 
 ### Use extra care with imbalanced classes for classification models
 
@@ -125,7 +125,7 @@ Having too few rows of data for one class degrades model quality. If possible, p
 
 #### Consider using a manual split
 
-Vertex AI selects the rows for the test dataset randomly (but deterministically). For imbalanced classes, you could end up with a small number of the minority class in your test dataset, or even none, which causes training to fail.
+Agent Platform selects the rows for the test dataset randomly (but deterministically). For imbalanced classes, you could end up with a small number of the minority class in your test dataset, or even none, which causes training to fail.
 
 If you have imbalanced classes, you might want to assign a [manual split](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits) to make sure enough rows with the minority outcomes are included in every split.
 
@@ -153,9 +153,9 @@ Regression
 
 At least 50 times as many rows as the number of columns.
 
-### Leave all other preprocessing and transformations to Vertex AI
+### Leave all other preprocessing and transformations to Agent Platform
 
-Unless otherwise noted, let Vertex AI do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Vertex AI transformations](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#transformations) .
+Unless otherwise noted, let Agent Platform do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Agent Platform transformations](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#transformations) .
 
 ## Best practices for tabular forecasting models
 
@@ -167,7 +167,7 @@ Training data for forecasting models has some special considerations.
 
 When you train a forecasting model, you specify the data *granularity* , or the time interval between the training data rows. It can be hourly, daily, weekly, monthly, or yearly. In addition, it can be every 1, 5, 10, 15, or 30 minutes.
 
-The data granularity must be consistent throughout the training data, and all batch inference data. If you specify a daily granularity, and there are 2 days between two training data rows, Vertex AI treats the interim day as [missing data](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#null-values) , which can degrade model performance. Multiple rows in the same time series with the same timestamp (as determined by the granularity) are considered a validation error at training time.
+The data granularity must be consistent throughout the training data, and all batch inference data. If you specify a daily granularity, and there are 2 days between two training data rows, Agent Platform treats the interim day as [missing data](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#null-values) , which can degrade model performance. Multiple rows in the same time series with the same timestamp (as determined by the granularity) are considered a validation error at training time.
 
 Generally, your data collection practices determine your data granularity.
 

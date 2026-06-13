@@ -492,7 +492,7 @@ Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk
 
 ### REST
 
-You use the [endpoints.predict](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
+You use the [endpoints.predict](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
 
 Deploy the model.
 
@@ -785,7 +785,7 @@ Learn how to [change the default settings for inference logging](https://docs.cl
 
 ### Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Vertex AI provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/vertex-ai/docs/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
 
 ## Get an online inference using your deployed model
 
@@ -822,13 +822,13 @@ To make an online inference, submit one or more test items to a model for analys
     
     Replace the following:
     
-      - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with a number, an array of strings, and a category, the row of data might look like the following example request:
+      - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with three features - a number, an array of strings, and a category - the row of data might look like the following example request:
         
             "length":3.6,
             "material":"cotton",
             "tag_array": ["abc","def"]
         
-        A value must be provided for every feature included in training. The format of the data used for prediction must match the format used for training. Refer to [Data format for predictions](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -843,23 +843,23 @@ To make an online inference, submit one or more test items to a model for analys
 
 ### REST
 
-You use the [endpoints.predict](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
+You use the [endpoints.predict](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
 
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Region where Endpoint is located. For example, `us-central1` .
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : .
 
   - ENDPOINT\_ID : The ID for the endpoint.
 
-  - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with a number, an array of strings, and a category, the row of data might look like the following example request:
+  - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with three features - a number, an array of strings, and a category - the row of data might look like the following example request:
     
         "length":3.6,
         "material":"cotton",
         "tag_array": ["abc","def"]
     
-    A value must be provided for every feature included in training. The format of the data used for prediction must match the format used for training. Refer to [Data format for predictions](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID : Output by the `predict` method, and accepted as input by the `explain` method. The ID of the model used to generate the inference. If you need to request explanations for a previously requested inference, and you have more than one model deployed, you can use this ID to ensure that the explanations are returned for the same model that provided the previous inference.
 
@@ -1103,13 +1103,13 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     
     Replace the following:
     
-      - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with a number, an array of numbers, and a category, the row of data might look like the following example request:
+      - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with three features - a number, an array of numbers, and a category - the row of data might look like the following example request:
         
             "age":3.6,
             "sq_ft":5392,
             "code": "90331"
         
-        A value must be provided for every feature included in training. The format of the data used for prediction must match the format used for training. Refer to [Data format for predictions](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -1124,7 +1124,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ### REST
 
-You use the [endpoints.predict](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
+You use the [endpoints.predict](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) method to request an online inference.
 
 Before using any of the request data, make the following replacements:
 
@@ -1134,13 +1134,13 @@ Before using any of the request data, make the following replacements:
 
   - ENDPOINT\_ID : The ID for the endpoint.
 
-  - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with a number, an array of numbers, and a category, the row of data might look like the following example request:
+  - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with three features - a number, an array of numbers, and a category - the row of data might look like the following example request:
     
         "age":3.6,
         "sq_ft":5392,
         "code": "90331"
     
-    A value must be provided for every feature included in training. The format of the data used for prediction must match the format used for training. Refer to [Data format for predictions](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID : Output by the `predict` method, and accepted as input by the `explain` method. The ID of the model used to generate the inference. If you need to request explanations for a previously requested inference, and you have more than one model deployed, you can use this ID to ensure that the explanations are returned for the same model that provided the previous inference.
 
@@ -1407,13 +1407,13 @@ If you used the pre-filled prediction values, the local feature importance value
     
     Replace the following:
     
-      - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with a number, an array of strings, and a category, the row of data might look like the following example request:
+      - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with three features - a number, an array of strings, and a category - the row of data might look like the following example request:
         
             "length":3.6,
             "material":"cotton",
             "tag_array": ["abc","def"]
         
-        A value must be provided for every feature included in training. The format of the data used for prediction must match the format used for training. Refer to [Data format for predictions](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -1449,13 +1449,13 @@ Before using any of the request data, make the following replacements:
 
   - ENDPOINT\_ID : The ID for the endpoint.
 
-  - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with a number, an array of strings, and a category, the row of data might look like the following example request:
+  - PREDICTION\_DATA\_ROW : A JSON object with keys as the feature names and values as the corresponding feature values. For example, for a dataset with three features - a number, an array of strings, and a category - the row of data might look like the following example request:
     
         "length":3.6,
         "material":"cotton",
         "tag_array": ["abc","def"]
     
-    A value must be provided for every feature included in training. The format of the data used for prediction must match the format used for training. Refer to [Data format for predictions](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID (optional): The ID of the deployed model for which you want to get explanations. The ID is included in the `predict` method's response. If you need to request explanations for a particular model and you have more than one model deployed to the same endpoint, you can use this ID to ensure that the explanations are returned for that particular model.
 

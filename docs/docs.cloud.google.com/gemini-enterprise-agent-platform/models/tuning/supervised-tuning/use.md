@@ -357,7 +357,7 @@ You can create a model tuning job in Agent Platform by using the side panel in C
     
     Colab Enterprise adds code cells to your notebook for tuning a Gemini model.
 
-6.  In your notebook, find the code cell that stores parameter values. You'll use these parameters to interact with Vertex AI.
+6.  In your notebook, find the code cell that stores parameter values. You'll use these parameters to interact with Agent Platform.
 
 7.  Update the values for the following parameters:
     
@@ -384,7 +384,7 @@ You can create a model tuning job in Agent Platform by using the side panel in C
 
 12. After the tuning job has completed, you can go directly from the **Tuning details** tab to a page where you can test your model. Click **Test** .
     
-    The Google Cloud console opens to the Vertex AI **Text chat** page, where you can test your model.
+    The Google Cloud console opens to the Agent Platform **Text chat** page, where you can test your model.
 
 ### Tuning hyperparameters
 

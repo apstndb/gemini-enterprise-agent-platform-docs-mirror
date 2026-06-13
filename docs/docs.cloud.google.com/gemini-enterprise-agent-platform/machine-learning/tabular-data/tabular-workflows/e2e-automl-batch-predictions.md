@@ -91,7 +91,7 @@ Use the Google Cloud console to request a batch inference.
 
 ### REST
 
-You use the [batchPredictionJobs.create](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch prediction.
+You use the [batchPredictionJobs.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch prediction.
 
 Before using any of the request data, make the following replacements:
 
@@ -375,7 +375,7 @@ In the following sample, set the \`instances\_format\` and \`predictions\_format
 
 ### REST
 
-You use the [batchPredictionJobs.create](https://docs.cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch inference.
+You use the [batchPredictionJobs.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/create) method to request a batch inference.
 
 Before using any of the request data, make the following replacements:
 

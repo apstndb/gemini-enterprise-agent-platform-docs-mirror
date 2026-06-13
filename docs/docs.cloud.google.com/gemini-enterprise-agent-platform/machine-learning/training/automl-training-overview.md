@@ -2,15 +2,15 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-training-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-training-overview
 title: AutoML training overview
-description: AutoML on Vertex AI enables training high-quality machine learning models with minimal effort and expertise, and this page provides an overview of the workflow for training and using your own models on Vertex AI.
+description: AutoML on Gemini Enterprise Agent Platform enables training high-quality machine learning models with minimal effort and expertise, and this page provides an overview of the workflow for training and using your own models on Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-AutoML (Automated Machine Learning) on Vertex AI provides a way to train high-quality machine learning models with minimal effort and machine learning expertise. This page provides an overview of the workflow for training and using your own models on Vertex AI.
+AutoML (Automated Machine Learning) on Gemini Enterprise Agent Platform provides a way to train high-quality machine learning models with minimal effort and machine learning expertise. This page provides an overview of the workflow for training and using your own models on Gemini Enterprise Agent Platform.
 
 ## Types of models you can build using AutoML
 
-The types of models you can build depend on the type of data that you have. Vertex AI offers AutoML solutions for the following data types and model objectives:
+The types of models you can build depend on the type of data that you have. Gemini Enterprise Agent Platform offers AutoML solutions for the following data types and model objectives:
 
 | Data type    | Supported objectives                    |
 | ------------ | --------------------------------------- |
@@ -32,7 +32,7 @@ The workflow for training and using an AutoML model is the same, regardless of y
 
 AutoML uses machine learning to analyze the content of image data. You can use AutoML to train an ML model to classify image data or find objects in image data.
 
-Vertex AI lets you get online inferences and batch inferences from your image-based models. Online inferences are synchronous requests made to a model endpoint. Use online inferences when you are making requests in response to application input or in situations that require timely inferences. Batch inferences are asynchronous requests. You request batch inferences directly from the model resource without needing to deploy the model to an endpoint. For image data, use batch inferences when you don't require an immediate response and want to process accumulated data by using a single request.
+Gemini Enterprise Agent Platform lets you get online inferences and batch inferences from your image-based models. Online inferences are synchronous requests made to a model endpoint. Use online inferences when you are making requests in response to application input or in situations that require timely inferences. Batch inferences are asynchronous requests. You request batch inferences directly from the model resource without needing to deploy the model to an endpoint. For image data, use batch inferences when you don't require an immediate response and want to process accumulated data by using a single request.
 
 ### Classification for images
 
@@ -60,7 +60,7 @@ Documentation: [Prepare data](https://docs.cloud.google.com/vertex-ai/docs/image
 
 ## Tabular data
 
-Vertex AI lets you perform machine learning with tabular data using straightforward processes and interfaces. You can create the following model types for your tabular data problems:
+Agent Platform lets you perform machine learning with tabular data using straightforward processes and interfaces. You can create the following model types for your tabular data problems:
 
   - **Binary classification** models predict a binary outcome (one of two classes). Use this model type for yes or no questions. For example, you might want to build a binary classification model to predict whether a customer would buy a subscription. Generally, a binary classification problem requires less data than other model types.
   - **Multi-class classification** models predict one class from three or more discrete classes. Use this model type for categorization. For example, as a retailer, you might want to build a multi-class classification model to segment customers into different personas.

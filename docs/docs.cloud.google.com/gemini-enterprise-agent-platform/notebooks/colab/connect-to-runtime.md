@@ -26,7 +26,7 @@ This section describes how to connect to the default runtime.
 
 ### Required roles
 
-To get the permissions that you need to connect to the default runtime in a Colab Enterprise notebook, ask your administrator to grant you the Colab Enterprise User ( [`roles/aiplatform.colabEnterpriseUser`](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#aiplatform.colabEnterpriseUser) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to connect to the default runtime in a Colab Enterprise notebook, ask your administrator to grant you the Colab Enterprise User ( [`roles/aiplatform.colabEnterpriseUser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.colabEnterpriseUser) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -69,7 +69,7 @@ This section describes how to connect to an existing runtime by using the **Conn
 
 ### Required roles
 
-To get the permissions that you need to connect to an existing runtime in a Colab Enterprise notebook, ask your administrator to grant you the Colab Enterprise User ( [`roles/aiplatform.colabEnterpriseUser`](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#aiplatform.colabEnterpriseUser) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to connect to an existing runtime in a Colab Enterprise notebook, ask your administrator to grant you the Colab Enterprise User ( [`roles/aiplatform.colabEnterpriseUser`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.colabEnterpriseUser) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -88,7 +88,7 @@ To connect to an existing runtime:
 4.  In your notebook, click the **Additional connection options** expander arrow, and then select **Connect to a runtime** .  
     ![](https://docs.cloud.google.com/static/colab/images/additional-connection-options.png)
     
-    The **Connect to Vertex AI runtime** dialog opens.
+    The **Connect to Agent Platform runtime** dialog opens.
 
 5.  For **Select a runtime** , select **Connect to an existing runtime** .
 
@@ -118,7 +118,7 @@ This section describes how to create a runtime and connect to it by using the **
 
 ### Required roles
 
-To get the permissions that you need to create a runtime in Colab Enterprise, ask your administrator to grant you the Colab Enterprise Admin ( [`roles/aiplatform.colabEnterpriseAdmin`](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#aiplatform.colabEnterpriseAdmin) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to create a runtime in Colab Enterprise, ask your administrator to grant you the Colab Enterprise Admin ( [`roles/aiplatform.colabEnterpriseAdmin`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.colabEnterpriseAdmin) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -126,7 +126,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ### Create a runtime and connect to it
 
-To create a runtime and connect to it by using the **Connect to Vertex AI runtime** dialog:
+To create a runtime and connect to it by using the **Connect to Agent Platform runtime** dialog:
 
 1.  In the Google Cloud console, go to the Colab Enterprise **My notebooks** page.
 
@@ -137,7 +137,7 @@ To create a runtime and connect to it by using the **Connect to Vertex AI runtim
 4.  In your notebook, click the **Additional connection options** expander arrow, and then select **Connect to a runtime** .  
     ![](https://docs.cloud.google.com/static/colab/images/additional-connection-options.png)
     
-    The **Connect to Vertex AI runtime** dialog opens.
+    The **Connect to Agent Platform runtime** dialog opens.
 
 5.  For **Select a runtime** , select **Create new runtime** .
 
@@ -193,4 +193,4 @@ To resolve this issue, configure your network's firewall rules to allow outbound
 
   - Learn more about [runtimes and runtime templates](https://docs.cloud.google.com/colab/docs/runtimes) .
   - [Create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .
-  - To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/vertex-ai/colab/notebook-gallery) .
+  - To find a notebook that can help you get your project started quickly, see the [notebook gallery](https://console.cloud.google.com/agent-platform/colab/notebook-gallery) .

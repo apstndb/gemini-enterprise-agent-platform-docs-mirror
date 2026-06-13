@@ -35,7 +35,7 @@ The following Gemini models support supervised fine-tuning:
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 
-For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , set the thinking budget (for Gemini 2.5 models and lower) or the thinking level (for Gemini 3 and higher) to the minimal allowed value for the setting. This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. Therefore, the resulting tuned model can perform tuned tasks effectively without a thinking budget.
+> **Important:** For models that support [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , set the thinking budget to `0` (for Gemini 2.5 models and lower) or the thinking level to `MINIMAL` (for Gemini 3 and higher). This can improve performance and reduce costs for tuned tasks. During supervised fine-tuning, the model learns from the training data and omits the thinking process. As a result, the tuned model can perform tuned tasks effectively with little to no thinking budget.
 
 ## Limitations
 

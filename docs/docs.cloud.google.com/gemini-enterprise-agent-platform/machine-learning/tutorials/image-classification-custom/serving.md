@@ -30,9 +30,9 @@ The rest of this document assumes that you are using the same Cloud Shell enviro
 
 ## Create an endpoint
 
-To get online predictions from the ML model that you trained when following the previous page of this tutorial, create an Vertex AI *endpoint* . Endpoints serve online predictions from one or more models.
+To get online predictions from the ML model that you trained when following the previous page of this tutorial, create an Agent Platform *endpoint* . Endpoints serve online predictions from one or more models.
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Models** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
 2.  Find the row of the model that you trained in the [previous step of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training) , `hello_custom` , and click the model's name to open the model detail page.
 
@@ -46,7 +46,7 @@ To get online predictions from the ML model that you trained when following the 
     
     3.  In the **Model settings** section, ensure that you see the name of your model, which is also called `hello_custom` . Specify the following model settings:
         
-        1.  In the **Traffic split** field, enter `100` . Vertex AI supports splitting traffic for an endpoint to multiple models, but this tutorial doesn't use that feature.
+        1.  In the **Traffic split** field, enter `100` . Agent Platform supports splitting traffic for an endpoint to multiple models, but this tutorial doesn't use that feature.
         
         2.  In the **Minimum number of compute nodes** field, enter `1` .
         
@@ -60,7 +60,7 @@ To get online predictions from the ML model that you trained when following the 
 
 5.  On the **Endpoint details** step, confirm that your endpoint will be deployed to `us-central1 (Iowa)` .
     
-    Do not select the **Use a customer-managed encryption key (CMEK)** checkbox. This tutorial does not use [CMEK](https://docs.cloud.google.com/vertex-ai/machine-learning/general/cmek) .
+    Do not select the **Use a customer-managed encryption key (CMEK)** checkbox. This tutorial does not use [CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
 
 6.  Click **Deploy** to create the endpoint and deploy your model to the endpoint.
 
@@ -68,7 +68,7 @@ After a few minutes, check\_circle appears next to the new endpoint in the **End
 
 ## Deploy a Cloud Run function
 
-You can get predictions from the Vertex AI endpoint that you just created by sending requests to the Vertex AI API's REST interface. However, only principals with the [`aiplatform.endpoints.predict` permission](https://docs.cloud.google.com/vertex-ai/machine-learning/general/access-control) can send online prediction requests. You cannot make the endpoint public for anybody to send requests to, for example via a web app.
+You can get predictions from the Agent Platform endpoint that you just created by sending requests to the Agent Platform API's REST interface. However, only principals with the [`aiplatform.endpoints.predict` permission](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) can send online prediction requests. You cannot make the endpoint public for anybody to send requests to, for example via a web app.
 
 In this section, deploy code to [Cloud Run functions](https://docs.cloud.google.com/functions/docs) to handle unauthenticated requests. The sample code that you downloaded when you read the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) contains code for this Cloud Run function in the `function/` directory. Optionally, run the following command to explore the Cloud Run function code:
 
@@ -76,13 +76,13 @@ In this section, deploy code to [Cloud Run functions](https://docs.cloud.google.
 
 Deploying the function serves the following purposes:
 
-  - You *can* configure a Cloud Run function to receive unauthenticated requests. Additionally, functions run using [a service account with the Editor role by default](https://docs.cloud.google.com/functions/docs/securing/function-identity) , which includes the `aiplatform.endpoints.predict` permission necessary to get predictions from your Vertex AI endpoint.
+  - You *can* configure a Cloud Run function to receive unauthenticated requests. Additionally, functions run using [a service account with the Editor role by default](https://docs.cloud.google.com/functions/docs/securing/function-identity) , which includes the `aiplatform.endpoints.predict` permission necessary to get predictions from your Agent Platform endpoint.
 
-  - This function also performs useful preprocessing on requests. The Vertex AI endpoint expects prediction requests in the format of the trained TensorFlow Keras graph's first layer: a tensor of normalized floats with fixed dimensions. The function takes the URL of an image as input and preprocesses the image into this format before requesting a prediction from the Vertex AI endpoint.
+  - This function also performs useful preprocessing on requests. The Agent Platform endpoint expects prediction requests in the format of the trained TensorFlow Keras graph's first layer: a tensor of normalized floats with fixed dimensions. The function takes the URL of an image as input and preprocesses the image into this format before requesting a prediction from the Agent Platform endpoint.
 
 To deploy the Cloud Run function, do the following:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Endpoints** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Endpoints** page.
 
 2.  Find the row of the endpoint that you created in the previous section, named `hello_custom` . In this row, click **Sample request** to open the **Sample request** pane.
 
@@ -107,7 +107,7 @@ To deploy the Cloud Run function, do the following:
 
 ## Deploy a web app to send prediction requests
 
-Finally, host a static web app on Cloud Storage to get predictions from your trained ML model. The web app sends requests to your Cloud Run function, which preprocesses them and gets predictions from the Vertex AI endpoint.
+Finally, host a static web app on Cloud Storage to get predictions from your trained ML model. The web app sends requests to your Cloud Run function, which preprocesses them and gets predictions from the Agent Platform endpoint.
 
 The `webapp` directory of the sample code that you downloaded contains a sample web app. In your Cloud Shell session, run the following commands to prepare and deploy the web app:
 

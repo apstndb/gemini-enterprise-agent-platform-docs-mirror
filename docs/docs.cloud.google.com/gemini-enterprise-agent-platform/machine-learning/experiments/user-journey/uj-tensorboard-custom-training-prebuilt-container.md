@@ -14,7 +14,7 @@ In this tutorial, you learn how to create a custom training job using prebuilt c
 
 This tutorial uses the following Google Cloud ML services and resources:
 
-  - Vertex AI training
+  - Gemini Enterprise Agent Platform training
   - Vertex AI TensorBoard
 
 The steps performed include:
@@ -26,5 +26,5 @@ The steps performed include:
 
 ## Relevant content
 
-  - [Vertex AI TensorBoard](https://docs.cloud.google.com/vertex-ai/machine-learning/experiments/tensorboard-introduction)
-  - [Custom training](https://docs.cloud.google.com/vertex-ai/machine-learning/training/overview)
+  - [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction)
+  - [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview)

@@ -18,9 +18,9 @@ Before you train a model, complete the following:
 
   - [Prepare your training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data)
 
-  - [Create an Vertex AI dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
+  - [Create an Agent Platform dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
 
-  - Enable the following APIs: Vertex AI, Dataflow, Compute Engine, Cloud Storage.
+  - Enable the following APIs: Agent Platform, Dataflow, Compute Engine, Cloud Storage.
 
   - Ensure that your project's service accounts have the [necessary roles](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/service-accounts) assigned to them. To view the service accounts and their associated roles, go to the **IAM** page and check the "Include Google-provided role grants" checkbox.
 
@@ -34,7 +34,7 @@ If you previously completed an End-to-End AutoML workflow run, use the hyperpara
 
 To find the hyperparameter tuning result URI by using the Google Cloud console, perform the following steps:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Pipelines** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Pipelines** page.
 
 2.  Select the **Runs** tab.
 
@@ -82,7 +82,7 @@ The following sample code demonstrates how you load the hyperparameter tuning re
 
 To train a model by using the Google Cloud console, perform the following steps:
 
-1.  In the Google Cloud console, in the Vertex AI section, go to the **Pipelines** page.
+1.  In the Google Cloud console, in the Agent Platform section, go to the **Pipelines** page.
 
 2.  Select the **Template Gallery** tab.
 
@@ -108,10 +108,10 @@ To train a model by using the Google Cloud console, perform the following steps:
     2.  Select your target column. The target column is the value that the model will predict. Learn more about [target column requirements](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data#data-structure) .
     3.  Enter the display name for your new model.
     4.  **Optional** : To choose how to split the data between training, test, and validation sets, open the **Advanced options** . You can choose between the following data split options:
-          - **Random** (Default): Vertex AI randomly selects the rows associated with each of the data sets. By default, Vertex AI selects 80% of your data rows for the training set, 10% for the validation set, and 10% for the test set. Set the percentage of data rows that you want to be associated with each of the data sets.
-          - **Manual** : Vertex AI selects data rows for each of the data sets based on the values in a data split column. Provide the name of the data split column.
-          - **Chronological** : Vertex AI splits data based on the timestamp in a time column. Provide the name of the time column. You can also set the percentage of data rows that you want to be associated with the training set, the validation set, and the test set.
-          - **Stratified** : Vertex AI randomly selects the rows associated with each of the data sets, but preserves the distribution of target column values. Provide the name of the target column. You can also set the percentage of data rows that you want to be associated with the training set, the validation set, and the test set.
+          - **Random** (Default): Agent Platform randomly selects the rows associated with each of the data sets. By default, Agent Platform selects 80% of your data rows for the training set, 10% for the validation set, and 10% for the test set. Set the percentage of data rows that you want to be associated with each of the data sets.
+          - **Manual** : Agent Platform selects data rows for each of the data sets based on the values in a data split column. Provide the name of the data split column.
+          - **Chronological** : Agent Platform splits data based on the timestamp in a time column. Provide the name of the time column. You can also set the percentage of data rows that you want to be associated with the training set, the validation set, and the test set.
+          - **Stratified** : Agent Platform randomly selects the rows associated with each of the data sets, but preserves the distribution of target column values. Provide the name of the target column. You can also set the percentage of data rows that you want to be associated with the training set, the validation set, and the test set.
         Learn more about [data splits](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data#split) .
     5.  **Optional:** You can run the pipeline without the architecture search. If you choose **Skip architecture search** , you will be prompted to provide a set of hyperparameters from a previous pipeline run in the **Training options** page.
     6.  Click **Continue** .
@@ -132,7 +132,7 @@ To train a model by using the Google Cloud console, perform the following steps:
     
     7.  **Optional:** If you choose to perform the architecture search in the **Training method** page, you can specify the number of parallel trials. Open the **Advanced options** and enter your value.
     
-    8.  **Optional:** You can provide fixed values for a subset of the hyperparameters. Vertex AI searches for the optimal values of the remaining unfixed hyperparameters. This option is a good choice if you have a strong preference for the model type. You can choose between neural networks and boosted trees for your model type. Open the **Advanced options** and provide a study spec override in JSON format.
+    8.  **Optional:** You can provide fixed values for a subset of the hyperparameters. Agent Platform searches for the optimal values of the remaining unfixed hyperparameters. This option is a good choice if you have a strong preference for the model type. You can choose between neural networks and boosted trees for your model type. Open the **Advanced options** and provide a study spec override in JSON format.
         
         For example, if you want to set the model type to Neural Networks (NN), enter the following:  
         
@@ -181,7 +181,7 @@ The following is a subset of `get_automl_tabular_pipeline_and_parameters` parame
 | `dataflow_service_account`        | String        | (Optional) Custom service account to run Dataflow jobs. The Dataflow job can be configured to use private IPs and a specific VPC subnet. This parameter acts as an override for the default Dataflow worker service account.                                                                                                                                                                                                                                                         |
 | `prediction_type`                 | String        | Choose `classification` to train a classification model or `regression` to train a regression model.                                                                                                                                                                                                                                                                                                                                                                                 |
 | `optimization_objective`          | String        | If you are training a binary classification model, the default objective is AUC ROC. If you are training a regression model, the default objective is RMSE. If you want a different optimization objective for your model, choose one of the options in [Optimization objectives for classification or regression models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train#optimization-objectives) . |
-| `enable_probabilistic_inference`  | Boolean       | If you are training a regression model and you set this value to `true` , Vertex AI models the probability distribution of the inference. Probabilistic inference can improve model quality by handling noisy data and quantifying uncertainty. If `quantiles` are specified, then Vertex AI also returns the quantiles of the distribution.                                                                                                                                         |
+| `enable_probabilistic_inference`  | Boolean       | If you are training a regression model and you set this value to `true` , Agent Platform models the probability distribution of the inference. Probabilistic inference can improve model quality by handling noisy data and quantifying uncertainty. If `quantiles` are specified, then Agent Platform also returns the quantiles of the distribution.                                                                                                                               |
 | `quantiles`                       | List\[float\] | Quantiles to use for probabilistic inference. A quantile indicates the likelihood that a target is less than a given value. Provide a list of up to five unique numbers between `0` and `1` , exclusive.                                                                                                                                                                                                                                                                             |
 
 **Workflow customization options**
@@ -195,7 +195,7 @@ You can customize the End-to-End AutoML workflow by defining argument values tha
 
 **Override search space**
 
-The following `get_automl_tabular_pipeline_and_parameters` parameter lets you provide fixed values for a subset of the hyperparameters. Vertex AI searches for the optimal values of the remaining unfixed hyperparameters. Use this parameter if you want to choose between neural networks and boosted trees for your model type.
+The following `get_automl_tabular_pipeline_and_parameters` parameter lets you provide fixed values for a subset of the hyperparameters. Agent Platform searches for the optimal values of the remaining unfixed hyperparameters. Use this parameter if you want to choose between neural networks and boosted trees for your model type.
 
 | Parameter name                   | Type                        | Definition                                                                                                                           |
 | -------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -252,7 +252,7 @@ The following `get_automl_tabular_pipeline_and_parameters` parameter lets you ru
 
 ## Optimization objectives for classification or regression models
 
-When you train a model, Vertex AI selects a default optimization objective based on your model type and the data type used for your target column.
+When you train a model, Agent Platform selects a default optimization objective based on your model type and the data type used for your target column.
 
 Classification models are best for:
 

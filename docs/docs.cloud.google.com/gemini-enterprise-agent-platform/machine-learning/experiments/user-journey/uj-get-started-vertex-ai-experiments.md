@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-get-started-vertex-ai-experiments
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-get-started-vertex-ai-experiments
-title: 'Get started with Vertex AI Experiments: Notebook'
+title: 'Get started with Gemini Enterprise Agent Platform Experiments: Notebook'
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This tutorial demonstrates how to use Vertex AI in production and covers getting started with Vertex AI Experiments.
+This tutorial demonstrates how to use Gemini Enterprise Agent Platform in production and covers getting started with Vertex AI Experiments.
 
 ## Notebook: Get started with Vertex AI Experiments
 
@@ -18,7 +18,7 @@ This tutorial uses the following Google Cloud ML services:
 
   - Vertex AI Experiments
   - Vertex ML Metadata
-  - Vertex AI training
+  - Gemini Enterprise Agent Platform training
 
 The steps performed include:
 
@@ -30,15 +30,15 @@ The steps performed include:
       - Visualize the experiment results.
       - Execute a second run.
       - Compare the two runs in the experiment.
-  - Cloud (Vertex AI) training
+  - Cloud (Agent Platform) training
       - Within the training script:
           - Create an experiment.
           - Log parameters and metrics.
           - Create artifact lineage.
-      - Create a Vertex AI training custom job.
+      - Create a Gemini Enterprise Agent Platform training custom job.
       - Execute the custom job.
       - Visualize the experiment results.
 
 ## Relevant content
 
-  - [Introduction to Vertex AI Experiments](https://docs.cloud.google.com/vertex-ai/machine-learning/experiments/intro-vertex-ai-experiments)
+  - [Introduction to Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments)

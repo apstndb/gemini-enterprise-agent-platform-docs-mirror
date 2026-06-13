@@ -70,7 +70,7 @@ Before using any of the request data, make the following replacements:
   - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
   - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
   - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
-  - MODE : Optional: Mode to be used for the request either `one-shot` or `fast` . The default is `one-shot` . Consider `fast` mode if you want to optimize for latency.
+  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
   - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
 
 HTTP method and URL:

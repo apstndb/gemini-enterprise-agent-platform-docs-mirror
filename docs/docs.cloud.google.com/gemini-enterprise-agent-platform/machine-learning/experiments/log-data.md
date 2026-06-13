@@ -214,7 +214,7 @@ In addition to summary metrics and time series metrics, confusion matrices and R
 2.  Select the experiment that you want to check.  
     A list of runs appears.
 
-![Vertex AI experiment list page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiment-runs-list.png)  
+![Agent Platform experiment list page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/experiments/images/experiment-runs-list.png)  
 For more details, see [Compare and analyze runs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/compare-analyze-runs#console-compare-analyze-runs) .
 
 ## What's next

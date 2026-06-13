@@ -6,9 +6,9 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-If you plan to use the Agent Platform SDK for Python, make sure that the service account initializing the client has the [Vertex AI Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` ) IAM role.
+If you plan to use the Agent Platform SDK for Python, make sure that the service account initializing the client has the [Gemini Enterprise Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.serviceAgent) ( `roles/aiplatform.serviceAgent` ) IAM role.
 
-You'll set up your Google Cloud project to use Vertex AI. Then create a Cloud Storage bucket and copy image files to use for training an AutoML image classification model.
+You'll set up your Google Cloud project to use Gemini Enterprise Agent Platform. Then create a Cloud Storage bucket and copy image files to use for training an AutoML image classification model.
 
 This tutorial has several pages:
 
@@ -28,7 +28,7 @@ Each page assumes that you have already performed the instructions from the prev
 
 ## Before you begin
 
-Complete the following steps before using Vertex AI functionality.
+Complete the following steps before using Gemini Enterprise Agent Platform functionality.
 
 1.  In the Google Cloud console, go to the project selector page.
 
@@ -55,7 +55,7 @@ Complete the following steps before using Vertex AI functionality.
     
     Replace PROJECT\_ID with your project ID. You can locate your project ID in the Google Cloud console. For more information, see [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
 
-6.  Enable the IAM, Compute Engine, Notebooks, Cloud Storage, and Vertex AI APIs:
+6.  Enable the IAM, Compute Engine, Notebooks, Cloud Storage, and Agent Platform APIs:
     
     **Roles required to enable APIs**
     
