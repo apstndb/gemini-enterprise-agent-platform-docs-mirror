@@ -16,7 +16,7 @@ To learn more about runtimes, see [Runtimes and runtime templates](https://docs.
 
 ### Required roles
 
-To get the permissions that you need to create a runtime in Colab Enterprise, ask your administrator to grant you the Colab Enterprise Admin ( [`roles/aiplatform.colabEnterpriseAdmin`](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#aiplatform.colabEnterpriseAdmin) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to create a runtime in Colab Enterprise, ask your administrator to grant you the Colab Enterprise Admin ( [`roles/aiplatform.colabEnterpriseAdmin`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.colabEnterpriseAdmin) ) IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
@@ -36,7 +36,7 @@ To create a runtime:
 
 3.  Click add\_box **Create** .
     
-    The **Create Vertex AI runtime** dialog appears.
+    The **Create Agent Platform runtime** dialog appears.
 
 4.  In the **Runtime template** menu, select a runtime template. If there aren't any runtime templates listed, [create a runtime template](https://docs.cloud.google.com/colab/docs/create-runtime-template) .
 
