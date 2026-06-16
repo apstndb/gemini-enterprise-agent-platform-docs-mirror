@@ -277,7 +277,7 @@ Use the Google Cloud console to request a batch inference.
     
     5.  Optionally, you can check **Enable feature attributions for this model** to get [feature attributions](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) as part of the batch inference response. Then click **Edit** to [configure explanation settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations) . (Editing the explanation settings is optional if you previously configured explanation settings for the model, and required otherwise.)
     
-    6.  Specify compute options for the batch inference job: **Number of compute nodes** , [**Machine type**](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) , and (optionally) [**Accelerator type**](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute#gpus) and **Accelerator count** .
+    6.  Specify compute options for the batch inference job: **Number of compute nodes** , [**Machine type**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) , and (optionally) [**Accelerator type**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus) and **Accelerator count** .
 
 3.  Optional: [**Model Monitoring**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) analysis for batch inferences is available in [Preview](https://cloud.google.com/products/#product-launch-stages) . See the [Prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/model-monitoring-batch-predictions#prerequisites) for adding skew detection configuration to your batch inference job.
     
@@ -315,9 +315,9 @@ Before using any of the request data, make the following replacements:
 
   - OUTPUT\_DIRECTORY : Cloud Storage URI of a directory where you want Agent Platform to save output.
 
-  - MACHINE\_TYPE : The [machine resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) to be used for this batch prediction job.
+  - MACHINE\_TYPE : The [machine resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) to be used for this batch prediction job.
     
-    You can optionally [configure the `machineSpec` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) to [use accelerators](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute#gpus) , but the following example does not demonstrate this.
+    You can optionally [configure the `machineSpec` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) to [use accelerators](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus) , but the following example does not demonstrate this.
 
   - BATCH\_SIZE : The number of instances to send in each prediction request; the default is 64. Increasing the batch size can lead to higher throughput, but it can also cause request timeouts.
 
@@ -718,4 +718,4 @@ Batch inference does not support [example-based explanations](https://docs.cloud
 ## What's next
 
   - Learn about [Compute resources for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .
-  - Learn how to [use reservations with Agent Platform batch inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-reservations-batch) .
+  - Learn how to [use reservations with Agent Platform batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations-batch) .

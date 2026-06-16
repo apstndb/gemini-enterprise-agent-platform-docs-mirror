@@ -143,9 +143,57 @@ You define Agent Gateways declaratively using YAML.
     
     Note that for Gemini Enterprise, you must deploy Agent Gateway in a region that corresponds to your multi-region setup. For the supported location mappings, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#route-traffic) .
 
-3.  To enforce centralized access control and governance policies on traffic passing through the Agent Gateway, configure an authorization policy.
+3.  Create an authorization policy to enforce centralized access control and governance policies on traffic passing through the Agent Gateway. The following steps show you how to configure an authorization policy that uses IAP.
     
-    This step is required. Each Agent Gateway must have an associated authorization policy that targets the gateway. For details, see [Delegate authorization with Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) .
+    1.  Configure an authorization extension that points to IAP. Define the extension in a YAML file, such as `iap-request-authz-extension.yaml` .
+        
+        To validate the policy configuration and routing without disrupting traffic, we recommend that you first deploy the extension in dry-run (audit-only) mode. To do this, you specify `DRY_RUN` in the `iamEnforcementMode` field as shown in the example.
+        
+            cat >iap-request-authz-extension.yaml <<EOF
+            name: AUTHORIZATION_EXTENSION_NAME
+            service: iap.googleapis.com
+            failOpen: true
+            timeout: 1s
+            metadata:
+              iamEnforcementMode: "DRY_RUN"
+              iapPolicyVersion: "V1"
+            EOF
+    
+    2.  Import the YAML configuration file to an authorization extension.
+        
+            gcloud beta service-extensions authz-extensions import AUTHORIZATION_EXTENSION_NAME \
+              --source=iap-request-authz-extension.yaml \
+              --location=LOCATION
+        
+        Replace `  AUTHORIZATION_EXTENSION_NAME  ` with the name of the authorization extension—for example, `my-iap-request-authz-ext` .
+    
+    3.  Define an authorization policy in a YAML file, such as `iap-request-authz-policy.yaml` , to associate the extension with your gateway:
+        
+            cat >iap-request-authz-policy.yaml <<EOF
+            name: AUTHORIZATION_POLICY_NAME
+            target:
+              resources:
+                - "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
+            policyProfile: REQUEST_AUTHZ
+            action: CUSTOM
+            customProvider:
+              authzExtension:
+                resources:
+                  - "projects/PROJECT_ID/locations/LOCATION/authzExtensions/AUTHORIZATION_EXTENSION_NAME"
+            EOF
+        
+        Replace the following:
+        
+          - `  AUTHORIZATION_POLICY_NAME  ` : the name of the authorization policy—for example, `my-iap-request-authz-policy`
+          - `  PROJECT_ID  ` : the [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+    
+    4.  Import the YAML configuration file to an authorization policy.
+        
+            gcloud beta network-security authz-policies import AUTHORIZATION_POLICY_NAME \
+              --source=iap-request-authz-policy.yaml \
+              --location=LOCATION
+
+4.  Optional: If you want to configure Model Armor guardrails to help protect your deployment against prompt injection attacks and sensitive data leaks, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#model_armor) .
 
 After an Agent Gateway has been created, it serves as the primary connection point for routing agent traffic within your project and chosen region. You can now use this endpoint to establish secure, encrypted, and authenticated communication channels between agents and their destinations (tools, other agents, or other endpoints).
 

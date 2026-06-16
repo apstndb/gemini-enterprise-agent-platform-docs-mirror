@@ -43,7 +43,7 @@ Within your training pipeline, you can configure your serverless training job or
 
 To use a managed dataset in your training pipeline:
 
-1.  [Create your dataset](https://docs.cloud.google.com/vertex-ai/docs/datasets/overview) .
+1.  [Create your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) .
 
 2.  Update your training application to use a managed dataset. For more information, see [how Agent Platform passes your dataset to your training application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-managed-datasets) .
 
@@ -70,7 +70,7 @@ This training pipeline encapsulates a custom job with an added convenience step 
 
 1.  The training pipeline creates a `CustomJob` resource. The custom job runs the training application using the computing resources that you specify.
 
-2.  After the custom job completes, the training pipeline finds the model artifacts that your training application creates in the output directory you specified for your Cloud Storage bucket. It uses these artifacts to create a *model* resource, which sets you up for [model deployment](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+2.  After the custom job completes, the training pipeline finds the model artifacts that your training application creates in the output directory you specified for your Cloud Storage bucket. It uses these artifacts to create a *model* resource, which sets you up for [model deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
 There are two different ways to set the location for your model artifacts:
 
@@ -160,15 +160,15 @@ To create this type of training pipeline:
     
     2.  Depending on your choice, do one of the following:
         
-          - If you want to use a prebuilt container to serve predictions, then use the **Model framework** , **Model framework version** , and **Accelerator type** fields to choose [which prebuilt prediction container](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) to use for prediction.
+          - If you want to use a prebuilt container to serve predictions, then use the **Model framework** , **Model framework version** , and **Accelerator type** fields to choose [which prebuilt prediction container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) to use for prediction.
             
-            Match **Model framework** and **Model framework version** to the machine learning framework you used for training. Only specify an **Accelerator type** if you want to later [use GPUs for online or batch predictions](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) .
+            Match **Model framework** and **Model framework version** to the machine learning framework you used for training. Only specify an **Accelerator type** if you want to later [use GPUs for online or batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .
         
           - If you want to use a custom container to serve predictions, then do the following:
             
-            1.  In the **Container image** field, specify the [Artifact Registry URI of your container image](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#publishing) .
+            1.  In the **Container image** field, specify the [Artifact Registry URI of your container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#publishing) .
             
-            2.  Optionally, you may specify a **Command** to [override the container's `ENTRYPOINT` instruction](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container#create-model) .
+            2.  Optionally, you may specify a **Command** to [override the container's `ENTRYPOINT` instruction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container#create-model) .
     
     3.  The **Model directory** field contains the value that you previously set in the **Model output directory** field of the **Training container** step. Changing either of these fields has the same effect. See the [previous instruction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline#model-output-directory-False) for more information about this field.
     
@@ -227,7 +227,7 @@ Before using any of the request data, make the following replacements:
       - TIMEOUT : (Optional.) The maximum running time for the job.
   - MODEL\_NAME : A display name for the model uploaded (created) by the TrainingPipeline.
   - MODEL\_DESCRIPTION : A description for the model.
-  - IMAGE\_URI : The URI of the container image to use for running predictions. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use [prebuilt containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) or [custom containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) .
+  - IMAGE\_URI : The URI of the container image to use for running predictions. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use [prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
   - modelToUpload.labels : Any set of key-value pairs to organize your models. For example:
       - "env": "prod"
       - "tier": "backend"
@@ -717,7 +717,7 @@ This training pipeline encapsulates a hyperparameter tuning job with an added co
 
 1.  The training pipeline creates a *hyperparameter tuning job* resource. The hyperparameter tuning job creates multiple trials. For each trial, a custom job runs your training application using the computing resources and hyperparameters that you specify.
 
-2.  After the hyperparameter tuning job completes, the training pipeline finds the model artifacts from the best trial, within the output directory ( [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) ) you specified for your Cloud Storage bucket. The training pipeline uses these artifacts to create a *model* resource, which sets you up for [model deployment](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+2.  After the hyperparameter tuning job completes, the training pipeline finds the model artifacts from the best trial, within the output directory ( [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) ) you specified for your Cloud Storage bucket. The training pipeline uses these artifacts to create a *model* resource, which sets you up for [model deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
 For this training pipeline, you must specify a [`baseOutputDirectory`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/CustomJobSpec#FIELDS.base_output_directory) where Agent Platform searches for the model artifacts from the best trial.
 
@@ -788,8 +788,8 @@ Before using any of the request data, make the following replacements:
   - MODEL\_NAME : A display name for the model uploaded (created) by the TrainingPipeline.
   - MODEL\_DESCRIPTION : Optional. A description for the model.
   - PREDICTION\_IMAGE\_URI : Required. Specify one of the two following options:
-      - The image URI of the [prebuilt container to use for prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) , such as "tf2-cpu.2-1:latest".
-      - The image URI of your own [custom container to use for prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) .
+      - The image URI of the [prebuilt container to use for prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) , such as "tf2-cpu.2-1:latest".
+      - The image URI of your own [custom container to use for prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
   - modelToUpload.labels : Optional. Any set of key-value pairs to organize your models. For example:
       - "env": "prod"
       - "tier": "backend"
@@ -1048,6 +1048,6 @@ When the serverless training pipeline completes, you can find the trained model 
 ## What's next
 
   - Learn how to pinpoint training performance bottlenecks to train models faster and cheaper using [Cloud Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) .
-  - [Deploy your model to an endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+  - [Deploy your model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
   - Create a [hyperparameter tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) .
   - Learn how to [schedule serverless training jobs based on resource availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws) .

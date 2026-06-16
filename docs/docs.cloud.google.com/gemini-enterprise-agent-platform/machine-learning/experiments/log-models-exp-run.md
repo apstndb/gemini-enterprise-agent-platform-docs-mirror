@@ -217,7 +217,7 @@ The `load_experiment_model` method helps you deserialize an `ExperimentModel` in
 
 ### Register saved model
 
-The `register_experiment_model` API enables registering the model that was deemed the best, in Gemini Enterprise Agent Platform Model Registry with a minimum amount of configuration. The API automatically chooses a [prebuilt prediction container](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) based on the model's framework and version.
+The `register_experiment_model` API enables registering the model that was deemed the best, in Gemini Enterprise Agent Platform Model Registry with a minimum amount of configuration. The API automatically chooses a [prebuilt prediction container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) based on the model's framework and version.
 
 ### Python
 

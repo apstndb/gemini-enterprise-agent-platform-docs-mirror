@@ -6,7 +6,7 @@ description: Learn about each inference class in the Vertex AI SDK.
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes the following prediction classes. One class is for batch predictions. The others are related to online predictions or Vector Search predictions. For more information, see [Overview of getting predictions on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/predictions/overview) .
+The Vertex AI SDK includes the following prediction classes. One class is for batch predictions. The others are related to online predictions or Vector Search predictions. For more information, see [Overview of getting predictions on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview) .
 
 ## Batch prediction class
 
@@ -86,7 +86,7 @@ The following is a sample code snippet that shows how to create a custom trainin
 
 A private endpoint is like an [`Endpoint`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Endpoint) resource, except predictions are sent across a secure network to the Gemini Enterprise Agent Platform online prediction service. Use a private endpoint if your organization wants to keep all traffic private.
 
-To use a private endpoint, you must configure Gemini Enterprise Agent Platform to peer with a Virtual Private Cloud (VPC). A VPC is required for the private prediction endpoint to connect directly with Gemini Enterprise Agent Platform. For more information, see [Set up VPC network peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) and [Use private endpoints for online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints) .
+To use a private endpoint, you must configure Gemini Enterprise Agent Platform to peer with a Virtual Private Cloud (VPC). A VPC is required for the private prediction endpoint to connect directly with Gemini Enterprise Agent Platform. For more information, see [Set up VPC network peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) and [Use private endpoints for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) .
 
 ### [`ModelDeploymentMonitoringJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelDeploymentMonitoringJob)
 

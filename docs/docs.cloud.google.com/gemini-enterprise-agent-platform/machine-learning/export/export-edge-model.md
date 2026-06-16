@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page describes how to use Gemini Enterprise Agent Platform to export your image AutoML Edge models to Cloud Storage.
 
-For information about exporting tabular models, see [Exporting an AutoML tabular model](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) .
+For information about exporting tabular models, see [Exporting an AutoML tabular model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .
 
 ## Introduction
 

@@ -10,7 +10,7 @@ You can configure Gemini Enterprise Agent Platform to peer with [Virtual Private
 
   - [Custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip)
   - [NFS shares for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share)
-  - [Private inference endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints)
+  - [Private inference endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints)
   - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster#use-psc-i-egress)
   - [Vector matching online queries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/setup/vpc#vpc-network-peering-setup)
   - [Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-components#set_up)
@@ -69,7 +69,7 @@ If you already have a VPC with [private services access](https://docs.cloud.goog
 
 4.  Establish a peering connection between your VPC host project and Google's Service Networking, using [`gcloud services vpc-peerings connect`](https://docs.cloud.google.com/sdk/gcloud/reference/services/vpc-peerings/connect) .
     
-    For [private inference endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints) , we recommended reserving at least a `/21` block for the subnet for model hosting. Reserving a smaller block can result in deployment errors due to insufficient IP addresses.
+    For [private inference endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) , we recommended reserving at least a `/21` block for the subnet for model hosting. Reserving a smaller block can result in deployment errors due to insufficient IP addresses.
     
     The `172.16.0.0/16` subnet is reserved for Vertex AI Training. You must specify a subnet that doesn't overlap with this CIDR range.
     
@@ -208,6 +208,6 @@ For additional troubleshooting information, refer to [VPC Network Peering troubl
 ## What's next
 
   - Learn [how to use private IP for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip) .
-  - Learn [how to use private endpoints for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints) .
+  - Learn [how to use private endpoints for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) .
   - Learn more about [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) .
   - See [reference architectures and best practices](https://docs.cloud.google.com/solutions/best-practices-vpc-design#shared-service) for VPC design.

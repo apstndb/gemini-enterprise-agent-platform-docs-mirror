@@ -280,10 +280,10 @@ To create the training job, you can use the Google Cloud console, Google Cloud C
 
 Your training application likely outputs one or more model artifacts to a specified location, usually a Cloud Storage bucket. Before you can get inferences in Gemini Enterprise Agent Platform from your model artifacts, first [import the model artifacts into Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) .
 
-Like container images for training, Gemini Enterprise Agent Platform gives you the choice of using [prebuilt](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) or [custom](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) container images for inferences. If a prebuilt container image for inferences is available for your ML framework and framework version, we recommend using a prebuilt container image.
+Like container images for training, Gemini Enterprise Agent Platform gives you the choice of using [prebuilt](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or [custom](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) container images for inferences. If a prebuilt container image for inferences is available for your ML framework and framework version, we recommend using a prebuilt container image.
 
 ## What's next
 
-  - [Get inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-predictions) from your model.
+  - [Get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions) from your model.
   - [Evaluate your model](https://docs.cloud.google.com/vertex-ai/docs/evaluation/introduction) .
   - Try the [Hello serverless training](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) tutorial for step-by-step instructions on training a TensorFlow Keras image classification model on Gemini Enterprise Agent Platform.

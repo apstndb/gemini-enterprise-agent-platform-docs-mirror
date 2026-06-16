@@ -24,7 +24,7 @@ You can use a prebuilt container if your model meets the following requirements:
   - Trained using TensorFlow, PyTorch, scikit-learn, or XGBoost
   - Exported to meet [framework-specific requirements for one of the prebuilt inference containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts#framework-specific_requirements)
 
-If you are importing a tabular AutoML model that you previously [exported](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) , you must use a specific custom container provided by Agent Platform.
+If you are importing a tabular AutoML model that you previously [exported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) , you must use a specific custom container provided by Agent Platform.
 
 Otherwise, create a new [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , or use an existing custom container that you have in Artifact Registry.
 

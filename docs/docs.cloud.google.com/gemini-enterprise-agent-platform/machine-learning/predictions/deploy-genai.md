@@ -16,7 +16,7 @@ Otherwise, you can do one of the following:
 
   - If your model is similar to one in the Model Garden, you might be able to directly reuse one of the [model garden containers](https://us-docker.pkg.dev/vertex-ai/vertex-vision-model-garden-dockers) .
 
-  - Build your own custom container that adheres to [Custom container requirements for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) before [importing your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) into the [Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) . After it's imported, it becomes a [`model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models) resource that you can [deploy to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
+  - Build your own custom container that adheres to [Custom container requirements for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) before [importing your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) into the [Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) . After it's imported, it becomes a [`model`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models) resource that you can [deploy to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) .
     
     You can use the [Dockerfiles and scripts](https://github.com/GoogleCloudPlatform/vertex-ai-samples/tree/main/community-content/vertex_model_garden) that we use to build our Model Garden containers as a reference or starting point to build your own custom containers.
 
@@ -34,7 +34,7 @@ NVIDIA NIM can be used together with [Artifact Registry](https://docs.cloud.goog
 
 This section describes fields in your model's [`containerSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec) that you may need to specify when importing generative AI models.
 
-You can specify these fields by using the Agent Platform REST API or the [`gcloud ai models upload` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload) . For more information, see [Container-related API fields](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container#fields) .
+You can specify these fields by using the Agent Platform REST API or the [`gcloud ai models upload` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload) . For more information, see [Container-related API fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container#fields) .
 
   - `sharedMemorySizeMb`  
     Some generative AI models require more **shared memory** . Shared memory is an Inter-process communication (IPC) mechanism that allows multiple processes to access and manipulate a common block of memory. The default shared memory size is 64MB.
@@ -43,12 +43,12 @@ You can specify these fields by using the Agent Platform REST API or the [`gclou
     
     Also, because shared memory can be used for cross GPU communication, using more shared memory can improve performance for accelerators without NVLink capabilities (for example, L4), if the model container requires communication across GPUs.
     
-    For information on how to specify a custom value for shared memory, see [Container-related API fields](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container#fields) .
+    For information on how to specify a custom value for shared memory, see [Container-related API fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container#fields) .
 
   - `startupProbe`  
-    A **startup probe** is an optional probe that is used to detect when the container has started. This probe is used to delay the health probe and [liveness checks](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#liveness_checks) until the container has started, which helps prevent slow starting containers from getting shut down prematurely.
+    A **startup probe** is an optional probe that is used to detect when the container has started. This probe is used to delay the health probe and [liveness checks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#liveness_checks) until the container has started, which helps prevent slow starting containers from getting shut down prematurely.
     
-    For more information, see [Health checks](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#health) .
+    For more information, see [Health checks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#health) .
 
   - `healthProbe`  
     The **health probe** checks whether a container is ready to accept traffic. If health probe is not provided, Agent Platform will use the default health checks which issues a HTTP request to the container's port and looks for a `200 OK` response from the model server.
@@ -57,7 +57,7 @@ You can specify these fields by using the Agent Platform REST API or the [`gclou
     
     In these cases, specify a custom health probe that succeeds only after the model is fully loaded and ready to accept traffic.
     
-    For more information, see [Health checks](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#health) .
+    For more information, see [Health checks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#health) .
 
 ## Limitations
 

@@ -38,7 +38,7 @@ You should see that the state of your peering connections is `ACTIVE` . Learn mo
 
 ## Create a private endpoint
 
-To create a private endpoint, add the `--network` flag when you [create an endpoint using the Google Cloud CLI](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api#create-endpoint) :
+To create a private endpoint, add the `--network` flag when you [create an endpoint using the Google Cloud CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#create-endpoint) :
 
     gcloud beta ai endpoints create \
       --display-name=ENDPOINT_DISPLAY_NAME \
@@ -86,7 +86,7 @@ Learn [how to select, query, and display these metrics in Metrics Explorer](http
 
 You can import a new model, or deploy an existing model that you have already uploaded. To upload a new model, use [`gcloud ai models upload`](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload) . For more information, see [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
 
-1.  To deploy a model to a private endpoint, see the guide to [deploy models](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api#deploying_the_model) . Besides traffic splitting and manually enabling access logging, you can use any of the other options available for deploying custom-trained models. Refer to the [limitations of private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints#limitations) to learn more about how they are different from public endpoints.
+1.  To deploy a model to a private endpoint, see the guide to [deploy models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#deploying_the_model) . Besides traffic splitting and manually enabling access logging, you can use any of the other options available for deploying custom-trained models. Refer to the [limitations of private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints#limitations) to learn more about how they are different from public endpoints.
 
 2.  After you deploy the endpoint, you can get the inference URI from the metadata of your private endpoint.
     

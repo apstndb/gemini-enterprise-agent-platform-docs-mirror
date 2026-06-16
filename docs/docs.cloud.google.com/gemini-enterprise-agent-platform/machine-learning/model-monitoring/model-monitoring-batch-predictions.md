@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > This feature is covered by the [Pre-GA Offerings Terms](https://cloud.google.com/terms/service-terms#1) of the Google Cloud Terms of Service. For this feature, you can process personal data as outlined in the [Data Processing Security Terms](https://cloud.google.com/terms/data-processing-terms) , subject to the restrictions described in the [Google Cloud Terms of Service](https://cloud.google.com/terms/) . Pre-GA products and features might have limited support, and changes to pre-GA products and features might not be compatible with other pre-GA versions. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-This page describes how to configure [batch inference job requests](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-batch-predictions) to include one-time Model Monitoring analysis. For batch inferences, Model Monitoring supports feature skew detection for categorical and numerical input features.
+This page describes how to configure [batch inference job requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) to include one-time Model Monitoring analysis. For batch inferences, Model Monitoring supports feature skew detection for categorical and numerical input features.
 
 To create a batch inference job with Model Monitoring skew analysis, you must include both your batch inference input data and original training data for your model in the request. You can only add Model Monitoring analysis when creating new batch inference jobs.
 

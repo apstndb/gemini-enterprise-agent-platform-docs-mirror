@@ -24,7 +24,7 @@ Model cohosting support introduces the concept of a [`DeploymentResourcePool`](h
 
 In the following example, you have four models and two endpoints:
 
-![Cohosting models from multiple endpoints](https://docs.cloud.google.com/static/vertex-ai/docs/predictions/images/cohosting-webdoc-image.png)
+![Cohosting models from multiple endpoints](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/predictions/images/cohosting-webdoc-image.png)
 
 `Model_A` , `Model_B` , and `Model_C` are deployed to `Endpoint_1` with traffic routed to all of them. `Model_D` is deployed to `Endpoint_2` , which receives 100% of the traffic for that endpoint. Instead of having each model assigned to a separate VM, you can group the models in one of the following ways:
 
@@ -290,4 +290,4 @@ Repeat the preceding request with different models that have the same shared res
 
 ### Get inferences
 
-You can [send inference requests](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) to a model in a `DeploymentResourcePool` as you would to any other model deployed on Gemini Enterprise Agent Platform.
+You can [send inference requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) to a model in a `DeploymentResourcePool` as you would to any other model deployed on Gemini Enterprise Agent Platform.

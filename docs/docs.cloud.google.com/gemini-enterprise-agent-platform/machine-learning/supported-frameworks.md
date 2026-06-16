@@ -5189,7 +5189,7 @@ python-opencv<br />
 
 ## Supported frameworks for predictions and explanations
 
-Gemini Enterprise Agent Platform uses container images to configure cloud resources to service your prediction requests. The following versions are supported for [prebuilt containers for predictions and explanations](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) :
+Gemini Enterprise Agent Platform uses container images to configure cloud resources to service your prediction requests. The following versions are supported for [prebuilt containers for predictions and explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) :
 
 ### TensorFlow
 
@@ -5458,7 +5458,7 @@ Gemini Enterprise Agent Platform uses container images to configure cloud resour
 
 ### Optimized TensorFlow runtime
 
-The following container images use the optimized TensorFlow runtime. For more information, see [Use the optimized TensorFlow runtime](https://docs.cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime) .
+The following container images use the optimized TensorFlow runtime. For more information, see [Use the optimized TensorFlow runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime) .
 
 #### Available optimized TensorFlow runtime container images (Click to expand)
 
@@ -6109,7 +6109,7 @@ The following container images use the optimized TensorFlow runtime. For more in
 
 ## Supported versions of Ray on Vertex AI
 
-[Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) container images are available. The following versions of prebuilt containers are supported:
+[Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) container images are available. The following versions of prebuilt containers are supported:
 
 <table>
 <colgroup>

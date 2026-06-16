@@ -10,7 +10,7 @@ This guide describes how to configure Gemini Enterprise Agent Platform to use a 
 
   - When you perform [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) , you can configure Agent Platform to use a custom service account in the training container, whether it is a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview) .
 
-  - When you [deploy a custom-trained `Model` resource to an `Endpoint` resource](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) to serve online predictions, you can configure Agent Platform to use a custom service account in the container that serves predictions, whether it is a [prebuilt container](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) .
+  - When you [deploy a custom-trained `Model` resource to an `Endpoint` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) to serve online predictions, you can configure Agent Platform to use a custom service account in the container that serves predictions, whether it is a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) .
 
   - When you [copy a `Model` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.models/copy) between projects, you can configure Agent Platform to use a custom service account to access the models in the source project.
 
@@ -43,7 +43,7 @@ Learn more about the [Gemini Enterprise Agent Platform Custom Code Service Agent
 
 When you deploy a custom-trained `Model` to an `Endpoint` , the prediction container runs using a service account managed by Agent Platform. This service account is different from the [Agent Platform service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) .
 
-The service account that the prediction container uses by default has permission to [read model artifacts](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#artifacts) that Agent Platform makes available at a URI stored in the [`AIP_STORAGE_URI` environment variable](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#aip-variables) . Do not rely on the service account to have any other permissions. You can't customize the permissions of the service account.
+The service account that the prediction container uses by default has permission to [read model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#artifacts) that Agent Platform makes available at a URI stored in the [`AIP_STORAGE_URI` environment variable](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#aip-variables) . Do not rely on the service account to have any other permissions. You can't customize the permissions of the service account.
 
 ## Configure a custom service account
 
@@ -111,11 +111,11 @@ To configure a custom-trained `Model` 's prediction container to use your [new s
 
 ### Console
 
-Follow [Deploying a model using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) . When you specify model settings, select the service account in the **Service account** drop-down list.
+Follow [Deploying a model using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) . When you specify model settings, select the service account in the **Service account** drop-down list.
 
 ### gcloud
 
-Follow [Deploying a model using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) . When you run the `gcloud ai endpoints deploy-model` command, use the `--service-account` flag to specify your service account's email address.
+Follow [Deploying a model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) . When you run the `gcloud ai endpoints deploy-model` command, use the `--service-account` flag to specify your service account's email address.
 
 Before using any of the command data below, make the following replacements:
 
@@ -174,7 +174,7 @@ Execute the [gcloud ai endpoints deploy-model](https://docs.cloud.google.com/sdk
 
 ### API
 
-Follow [Deploying a model using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) . When you send the [`projects.locations.endpoints.deployModel` request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/deployModel) , set the [`deployedModel.serviceAccount` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel.FIELDS.service_account) to the service account's email address.
+Follow [Deploying a model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) . When you send the [`projects.locations.endpoints.deployModel` request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/deployModel) , set the [`deployedModel.serviceAccount` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints#DeployedModel.FIELDS.service_account) to the service account's email address.
 
 #### Attach a service account to a CopyModel request
 
@@ -192,7 +192,7 @@ When you send the [`projects.locations.models.copy` request](https://docs.cloud.
 
 If you configure Agent Platform to use a custom service account by following the instructions in preceding sections, then your training container or your prediction container can access any Google Cloud services and resources that the service account has access to.
 
-To access Google Cloud services, write your [training code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements) or your [prediction-serving code](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) to use [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication#adc) and explicitly specify the project ID or project number of the resource you want to access. Learn more about [writing your code to access other Google Cloud services](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#other-services) .
+To access Google Cloud services, write your [training code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements) or your [prediction-serving code](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) to use [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication#adc) and explicitly specify the project ID or project number of the resource you want to access. Learn more about [writing your code to access other Google Cloud services](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements#other-services) .
 
 ## Limitations
 

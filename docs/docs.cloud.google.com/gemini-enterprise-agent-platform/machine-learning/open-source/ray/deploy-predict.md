@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 After training a model on a Ray cluster on Gemini Enterprise Agent Platform, deploy the model for online inference requests using the following process:
 
-> **Note:** To get batch inferences from the trained models, use the following process: upload the model to Model Registry and then follow the [Get batch inferences from a custom trained model](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-batch-predictions) instructions.
+> **Note:** To get batch inferences from the trained models, use the following process: upload the model to Model Registry and then follow the [Get batch inferences from a custom trained model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) instructions.
 
   - Export the model from the [Ray checkpoint](https://docs.ray.io/en/latest/tune/tutorials/tune-trial-checkpoints.html) .
 
@@ -22,7 +22,7 @@ After training a model on a Ray cluster on Gemini Enterprise Agent Platform, dep
 
   - Make inference requests.
 
-Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
+Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
 
 The steps in this section assume that you use the Ray on Agent Platform SDK in an interactive Python environment.
 
@@ -216,11 +216,11 @@ Where:
 
   - (Optional) TRAFFIC\_SPLIT : A map from a deployed model's ID to the percentage of this endpoint's traffic that should be forwarded to that deployed model. If a deployed model's ID isn't listed in this map, then it receives no traffic. The traffic percentage values must add up to 100, or the map must be empty if the endpoint doesn't accept any traffic at the moment. The key for the model being deployed is `"0"` . For example, `{"0": 100}` .
 
-  - (Optional) MACHINE\_TYPE : [Specify the compute resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute#specify) .
+  - (Optional) MACHINE\_TYPE : [Specify the compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#specify) .
 
 ## Make an inference request
 
-Send an inference request to the endpoint. For more information, see [Get online inferences from a custom trained model](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) .
+Send an inference request to the endpoint. For more information, see [Get online inferences from a custom trained model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
 
     pred_request = [
         [ 1.7076793 , 0.23412449, 0.95170785, -0.10901471],

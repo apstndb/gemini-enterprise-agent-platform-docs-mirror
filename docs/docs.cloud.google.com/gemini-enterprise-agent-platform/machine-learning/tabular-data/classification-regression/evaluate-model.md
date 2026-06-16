@@ -1260,4 +1260,4 @@ Once you're ready to make predictions with your classification or regression mod
 Additionally, you can:
 
   - [View the architecture of your model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/logging) .
-  - Learn how to [export your model](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) .
+  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .

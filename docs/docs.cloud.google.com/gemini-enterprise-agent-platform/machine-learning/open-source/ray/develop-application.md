@@ -16,7 +16,7 @@ Connect to a Ray cluster on Gemini Enterprise Agent Platform and develop an appl
 
   - Write a Python script and submit the script to the Ray cluster on Gemini Enterprise Agent Platform using the [Ray Jobs API](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/index.html) . If you prefer to submit jobs programmatically, use this option.
 
-Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
+Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
 
 ## Connect to a Ray cluster through Ray Client
 

@@ -43,7 +43,7 @@ When in **Browse** mode, and the dataset with the unlabeled images is selected, 
     The list of labels appears.
 4.  Select the label you want to associate with the image.
 5.  Click **Save** .
-6.  You can view the labels applied to each image in the **Browse** tab. ![multi-labeled images](https://docs.cloud.google.com/static/vertex-ai/docs/datasets/images/multi-labeled-images.png)
+6.  You can view the labels applied to each image in the **Browse** tab. ![multi-labeled images](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/datasets/images/multi-labeled-images.png)
 
 ### Object detection
 
@@ -55,11 +55,11 @@ When in **Browse** mode, and the dataset with the unlabeled images is selected, 
 3.  Select the image you want to label.
 4.  The list of labels objects appears, if there are any.
 5.  In the add annotation window, select the Add bounding box button to add an object bounding box to the image.  
-    ![add bounding box to image](https://docs.cloud.google.com/static/vertex-ai/docs/datasets/images/add-bounding-box-image.png)
+    ![add bounding box to image](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/datasets/images/add-bounding-box-image.png)
 6.  After drawing a bounding box, a list of labels to apply to the object will appear. Choose the appropriate label.  
-    ![add label bounding boxed image](https://docs.cloud.google.com/static/vertex-ai/docs/datasets/images/image-bounding-box-label.png)
+    ![add label bounding boxed image](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/datasets/images/image-bounding-box-label.png)
 7.  After you have added all labels and bounding boxes, click **Save** to update the image's annotations.  
-    ![save added labels for bounding boxed image](https://docs.cloud.google.com/static/vertex-ai/docs/datasets/images/image-save-bounding-box-labels.png)
+    ![save added labels for bounding boxed image](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/datasets/images/image-save-bounding-box-labels.png)
 
 ## What's next
 

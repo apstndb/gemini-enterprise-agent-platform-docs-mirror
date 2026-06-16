@@ -6,7 +6,7 @@ description: Learn about the different compute resources that you can use for Ag
 data_source: docs.cloud.google.com
 ---
 
-Agent Platform allocates *nodes* to handle online and batch inferences. When you [deploy a custom-trained model or AutoML model to an `Endpoint` resource to serve online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) or when you [request batch inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/batch-predictions) , you can customize the type of virtual machine that the inference service uses for these nodes. You can optionally configure inference nodes to use GPUs.
+Agent Platform allocates *nodes* to handle online and batch inferences. When you [deploy a custom-trained model or AutoML model to an `Endpoint` resource to serve online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or when you [request batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions) , you can customize the type of virtual machine that the inference service uses for these nodes. You can optionally configure inference nodes to use GPUs.
 
 *Machine types* differ in a few ways:
 
@@ -20,11 +20,11 @@ By selecting a machine type with more computing resources, you can serve inferen
 
 To help manage costs or ensure availability of VM resources, Agent Platform provides the following:
 
-  - To help ensure that you pay only for the computing resources that you need, you can use Vertex AI Inference autoscaling. For more information, see [Scale inference nodes for Vertex AI Inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/autoscaling) .
+  - To help ensure that you pay only for the computing resources that you need, you can use Vertex AI Inference autoscaling. For more information, see [Scale inference nodes for Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/autoscaling) .
 
-  - To make sure that VM resources are available when your inference jobs need them, you can use Compute Engine reservations. Reservations provide a high level of assurance in obtaining capacity for Compute Engine resources. For more information, see [Use reservations with inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-reservations) .
+  - To make sure that VM resources are available when your inference jobs need them, you can use Compute Engine reservations. Reservations provide a high level of assurance in obtaining capacity for Compute Engine resources. For more information, see [Use reservations with inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations) .
 
-  - To reduce the cost of running your inference jobs, you can use Spot VMs. Spot VMs are virtual machine (VM) instances that are excess Compute Engine capacity. Spot VMs have significant discounts, but Compute Engine might preemptively stop or delete Spot VMs to reclaim the capacity at any time. For more information, see [Use Spot VMs with inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-spot-vms) .
+  - To reduce the cost of running your inference jobs, you can use Spot VMs. Spot VMs are virtual machine (VM) instances that are excess Compute Engine capacity. Spot VMs have significant discounts, but Compute Engine might preemptively stop or delete Spot VMs to reclaim the capacity at any time. For more information, see [Use Spot VMs with inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) .
 
 ## Where to specify compute resources
 
@@ -36,13 +36,13 @@ Specify the machine type (and, optionally, GPU configuration) in the [`dedicated
 
 Learn how to deploy each model type:
 
-  - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console)
+  - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
   - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving#1_create_an_endpoint)
-  - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api)
+  - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
 
 ### Batch inference
 
-If you want to get batch inferences from a custom-trained model or an AutoML tabular model, you must specify a machine type when you [create a `BatchPredictionJob` resource](https://docs.cloud.google.com/vertex-ai/docs/predictions/batch-predictions) . Specify the machine type (and, optionally, GPU configuration) in the [`dedicatedResources.machineSpec` field of your `BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs) .
+If you want to get batch inferences from a custom-trained model or an AutoML tabular model, you must specify a machine type when you [create a `BatchPredictionJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions) . Specify the machine type (and, optionally, GPU configuration) in the [`dedicatedResources.machineSpec` field of your `BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs) .
 
 <span id="machine_type_comparison"></span>
 
@@ -286,7 +286,7 @@ When considering inference costs, remember that although larger machines cost mo
 
 #### Batch inference
 
-For more information, see [Choose machine type and replica count](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-batch-predictions#choose_machine_type_and_replica_count) .
+For more information, see [Choose machine type and replica count](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions#choose_machine_type_and_replica_count) .
 
 ## Optional GPU accelerators
 
@@ -302,7 +302,7 @@ Other configurations, such as the N1 series, let you optionally add GPUs to acce
 
 To add optional GPU accelerators, you must account for several requirements:
 
-  - You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
+  - You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
   - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) .
   - You can only use one type of GPU for your `DeployedModel` resource or `BatchPredictionJob` , and there are limitations on the number of GPUs you can add depending on which machine type you are using. The following table describes these limitations.
 
@@ -684,7 +684,7 @@ Because more than one replica is being coscheduled on the same VM, Vertex AI Inf
 
 ## What's next
 
-  - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console)
+  - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
   - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-recognition-custom/serving#1_create_an_endpoint)
-  - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api)
-  - [Get batch inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/batch-predictions)
+  - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
+  - [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions)

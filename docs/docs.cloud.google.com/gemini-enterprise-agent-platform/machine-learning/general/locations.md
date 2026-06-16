@@ -1175,9 +1175,9 @@ Asia Pacific Europe North America South America A100 40GB A100 80GB B200 GB200 R
 | `us-west3`                | Salt Lake City, Utah, North America          | A100 40GB, B200 <sup>\*</sup>                                                                                                                                                                                                                             |
 | `us-west4`                | Las Vegas, Nevada, North America             | A100 40GB <sup>\*</sup> , H100, H100 Mega, L4 <sup>†</sup> , T4, TPU v5e                                                                                                                                                                                  |
 
-<sup>\*</sup> The specified accelerator isn't available for [serving batch or online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) .
+<sup>\*</sup> The specified accelerator isn't available for [serving batch or online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .
 
-<sup>+</sup> The specified accelerator is available on an allowlist-only basis for [serving batch or online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) .
+<sup>+</sup> The specified accelerator is available on an allowlist-only basis for [serving batch or online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .
 
 <sup>†</sup> The specified accelerator isn't available for [training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) .
 

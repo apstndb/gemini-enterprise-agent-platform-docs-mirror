@@ -48,7 +48,7 @@ You must update the firewall rules for the VPC network that connects your on-pre
 
 ### ServiceAttachment reuse
 
-> **Note:** This section describes network resource reuse and is different from [model co-hosting](https://docs.cloud.google.com/vertex-ai/docs/predictions/model-co-hosting) , which describes compute resource reuse with `DeploymentResourcePool` .
+> **Note:** This section describes network resource reuse and is different from [model co-hosting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting) , which describes compute resource reuse with `DeploymentResourcePool` .
 
 When multiple Gemini Enterprise Agent Platform prediction endpoints are configured to use Private Service Connect with identical project allowlists, they might share the same `ServiceAttachment` resource. This allows consumer projects in the allowlist to connect to these prediction endpoints through the same `ServiceAttachment` . This reuse isn't guaranteed.
 

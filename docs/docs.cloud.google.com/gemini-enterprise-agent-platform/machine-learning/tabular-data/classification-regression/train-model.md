@@ -1189,4 +1189,4 @@ Regression models are best for:
 ## What's next
 
   - [Evaluate your model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/evaluate-model) .
-  - Learn how to [export your model](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) .
+  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .

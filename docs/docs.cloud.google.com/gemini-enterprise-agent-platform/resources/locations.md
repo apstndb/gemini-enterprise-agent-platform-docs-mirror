@@ -1207,6 +1207,16 @@ Codestral 2
 
 Codestral (24.05)
 
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
+
 ### Multi-region
 
 United States multi-region  
@@ -1258,6 +1268,16 @@ Mistral Large (24.07)
 Codestral 2
 
 Codestral (24.05)
+
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
 
 ### United States
 
@@ -1326,6 +1346,16 @@ Codestral 2
 
 Codestral (24.05)
 
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
+
 ### Americas
 
 Montréal  
@@ -1377,6 +1407,16 @@ Mistral Large (24.07)
 Codestral 2
 
 Codestral (24.05)
+
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
 
 ### Europe
 
@@ -1454,6 +1494,16 @@ Codestral 2
 
 Codestral (24.05)
 
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
+
 ### Asia Pacific
 
 Mumbai  
@@ -1521,6 +1571,16 @@ Codestral 2
 
 Codestral (24.05)
 
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
+
 ### Middle East
 
 Tel Aviv  
@@ -1575,6 +1635,16 @@ Mistral Large (24.07)
 Codestral 2
 
 Codestral (24.05)
+
+Grok models
+
+Grok 4.20 (Reasoning)
+
+Grok 4.20 (Non-reasoning)
+
+Grok 4.1 Fast (Reasoning)
+
+Grok 4.1 Fast (Non-reasoning)
 
 > **Note:** Support for Taiwan ( `asia-east1` ) is scheduled for deprecation on February 27, 2025.
 

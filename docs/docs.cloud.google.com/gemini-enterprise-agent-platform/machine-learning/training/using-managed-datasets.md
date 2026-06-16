@@ -18,7 +18,7 @@ This page shows you how to use Agent Platform managed datasets to train your cus
 
 ## Before you begin
 
-Before you can use a managed dataset in your training application, you must [create your dataset](https://docs.cloud.google.com/vertex-ai/docs/datasets/overview) . You must create the dataset and the training pipeline that you use for training in the same region. You must use a [region where `Dataset` resources are available](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
+Before you can use a managed dataset in your training application, you must [create your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) . You must create the dataset and the training pipeline that you use for training in the same region. You must use a [region where `Dataset` resources are available](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
 
 ## Access a dataset from your training application
 
@@ -185,7 +185,7 @@ Each data item in your exported dataset uses the following format. This example 
 
 ### Tabular datasets
 
-Agent Platform passes tabular data to your training application in CSV format or as a URI to a BigQuery table or view. For more information about the data source format and requirements, see [Preparing your import source](https://docs.cloud.google.com/vertex-ai/docs/datasets/overview#tabular_data) . Refer to the dataset in Google Cloud console for more information about the dataset schema.
+Agent Platform passes tabular data to your training application in CSV format or as a URI to a BigQuery table or view. For more information about the data source format and requirements, see [Preparing your import source](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview#tabular_data) . Refer to the dataset in Google Cloud console for more information about the dataset schema.
 
 ### Text datasets
 

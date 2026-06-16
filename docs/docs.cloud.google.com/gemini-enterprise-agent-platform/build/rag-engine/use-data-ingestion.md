@@ -323,7 +323,7 @@ To import files from your SharePoint site into your corpus, do the following:
                 client_secret=API_KEY_SECRET_VERSION,
                 tenant_id=TENANT_ID,
                 sharepoint_site_name=SITE_NAME,
-                folder_path=FOLDER_PATH,
+                sharepoint_folder_path=FOLDER_PATH,
                 drive_id=DRIVE_ID,
             )
         ]

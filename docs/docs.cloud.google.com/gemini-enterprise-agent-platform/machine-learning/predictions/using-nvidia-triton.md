@@ -41,7 +41,7 @@ The following table shows the [Triton Docker images available on NVIDIA NGC Cata
 
 The following figure shows the high-level architecture of Triton on Vertex AI Inference:
 
-![triton-on-vertex-ai-prediction](https://docs.cloud.google.com/static/vertex-ai/docs/predictions/images/using-triton-on-vertex-ai-predictions-architecture.png)
+![triton-on-vertex-ai-prediction](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/predictions/images/using-triton-on-vertex-ai-predictions-architecture.png)
 
   - An ML model to be served by Triton is registered with Gemini Enterprise Agent Platform Model Registry. The model's metadata references a location of the model artifacts in Cloud Storage, the custom serving container, and its configuration.
   - The model from Gemini Enterprise Agent Platform Model Registry is deployed to a Vertex AI Inference endpoint that is running Triton inference server as a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) on compute nodes with CPU and GPU.
@@ -348,7 +348,7 @@ The Google Cloud CLI might take a few seconds to deploy the model to the endpoin
 
 To invoke the model through the Vertex AI Inference endpoint, format the inference request by using a [standard Inference Request JSON Object](https://github.com/kserve/kserve/blob/master/docs/predict-api/v2/required_api.md#inference) or an [Inference Request JSON Object with a binary extension](https://github.com/triton-inference-server/server/blob/main/docs/protocol/extension_binary_data.md) and submit a request to Gemini Enterprise Agent Platform [REST `rawPredict` endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/rawPredict) .
 
-> **Note:** Instead of [`predict`](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions#predict-request) API, you must use the [`rawPredict`](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions#raw-predict-request) API because the inference request formats used by Triton aren't compatible with the Gemini Enterprise Agent Platform [standard input format](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions#formatting-prediction-input) .
+> **Note:** Instead of [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#predict-request) API, you must use the [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#raw-predict-request) API because the inference request formats used by Triton aren't compatible with the Gemini Enterprise Agent Platform [standard input format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#formatting-prediction-input) .
 
 The following example uses the [`gcloud ai endpoints raw-predict` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/raw-predict) :
 

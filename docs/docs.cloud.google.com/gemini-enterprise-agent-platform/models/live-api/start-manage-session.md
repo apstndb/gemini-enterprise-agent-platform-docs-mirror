@@ -126,7 +126,7 @@ if __name__ == "__main__":
 
 > **Note:** Session extension is only available when using the Google Gen AI SDK, not Vertex AI Studio.
 
-The default maximum length of a conversation session is 10 minutes. A `goAway` notification ( [`BidiGenerateContentServerMessage.goAway`](https://ai.google.dev/api/live#bidigeneratecontentservermessage) ) is sent to the client 60 seconds before the session ends.
+The default maximum length of a conversation session is 10 minutes. A `goAway` notification ( [`BidiGenerateContentServerMessage.goAway`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#server-messages) ) is sent to the client 60 seconds before the session ends.
 
 To extend a session past the 10-minute connection limit, you must reconnect using session resumption. When you receive a `goAway` notification, or when the connection is terminated for other reasons, you can start a new connection using a session handle obtained during the session. This resumes your session with its context intact on the new connection. There's no limit to the number of times you can do this. For an example of resuming a session, see [Resume a previous session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-resumption) .
 
@@ -148,7 +148,7 @@ async for response in session.receive():
 
 The Gemini Live API supports session resumption to prevent the user from losing conversation context during a brief disconnect (for example, switching from Wifi to 5G). You can resume a previous session within 24 hours. Session resumption is achieved by storing cached data, including text, video, audio prompts, and model outputs. Project-level privacy is enforced for this cached data.
 
-By default, session resumption is disabled. To enable session resumption, set the `sessionResumption` field of the [`BidiGenerateContentSetup`](https://ai.google.dev/api/live#bidigeneratecontentsetup) message. If enabled, the server periodically sends `SessionResumptionUpdate` messages containing a `session_id` and a resumption token. If the WebSocket disconnects, the client can reconnect and include these credentials in the new setup message. The server then restores the previous context, allowing the conversation to continue seamlessly.
+By default, session resumption is disabled. To enable session resumption, set the `sessionResumption` field of the [`BidiGenerateContentSetup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#bidigeneratecontentsetup) message. If enabled, the server periodically sends `SessionResumptionUpdate` messages containing a `session_id` and a resumption token. If the WebSocket disconnects, the client can reconnect and include these credentials in the new setup message. The server then restores the previous context, allowing the conversation to continue seamlessly.
 
 The resumption window is finite (typically around 10 minutes). If the client does not reconnect within this timeframe, the session state is discarded to free up server resources.
 

@@ -102,7 +102,7 @@ As you build out more complicated workflows, it's likely that you'll use the [Ag
     
     ![training compute](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/start/images/custom_training/training_compute.png)
 
-Configuring the inference container is optional. If you only want to train a model on Gemini Enterprise Agent Platform and access the resulting saved model artifacts, you can skip this step. If you want to host and deploy the resulting model on the Gemini Enterprise Agent Platform managed inference service, you'll need to configure an inference container. To learn more, see [Get inferences from a custom trained model](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-predictions) .
+Configuring the inference container is optional. If you only want to train a model on Gemini Enterprise Agent Platform and access the resulting saved model artifacts, you can skip this step. If you want to host and deploy the resulting model on the Gemini Enterprise Agent Platform managed inference service, you'll need to configure an inference container. To learn more, see [Get inferences from a custom trained model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions) .
 
 ## Monitoring Training jobs
 

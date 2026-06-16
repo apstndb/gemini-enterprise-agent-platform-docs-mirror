@@ -853,7 +853,7 @@ Some requests start long-running operations that require time to complete. These
 
 ### Make an online inference using your deployed model
 
-To make an online inference, submit one or more test items to a model for analysis, and the model returns results that are based on your model's objective. For more information about inference results, see the [Interpret results](https://docs.cloud.google.com/vertex-ai/docs/predictions/interpreting-results-automl) page.
+To make an online inference, submit one or more test items to a model for analysis, and the model returns results that are based on your model's objective. For more information about inference results, see the [Interpret results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/interpreting-results-automl) page.
 
 ### Console
 

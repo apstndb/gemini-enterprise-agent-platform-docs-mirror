@@ -32,7 +32,7 @@ If you run `client.evals.generate_rubrics()` , the resulting `EvaluationDataset`
 
 An interactive table displays with each prompt and the associated rubrics generated for it, nested within the `rubric_groups` column:
 
-![Visualizing generated rubrics in your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/eval-dataset.png)
+![Visualizing generated rubrics in your dataset](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/eval-dataset.png)
 
 ### Visualizing inference results
 
@@ -49,7 +49,7 @@ After generating responses with `run_inference()` , you can call `.show()` on th
 
 A table displays with each prompt, its corresponding reference (if provided), and the newly generated response:
 
-![Visualizing inference results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/inference-results.png)
+![Visualizing inference results](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/inference-results.png)
 
 For agent inference, the session inputs (if provided) and intermediate events (if generated) are also displayed.
 
@@ -80,7 +80,7 @@ For a single model evaluation, the report details the scores for each metric:
     # Visualize the detailed evaluation report
     eval_result.show()
 
-![Evaluation report](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/eval-report.png)
+![Evaluation report](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/eval-report.png)
 
 For all reports, you can expand a **View Raw JSON** section to inspect the data for any structured format such as Gemini, or OpenAI Chat Completion API format.
 
@@ -97,7 +97,7 @@ When using adaptive rubric-based metrics, the results include the pass or fail v
 
 The visualization shows each rubric, its verdict (Pass or Fail), and the reasoning, nested within the metric results for each case. For each specific rubric verdict, you can expand a card to show the raw JSON payload. This JSON payload includes additional details such as the full rubric description, the rubric type, importance, and the detailed reasoning behind the verdict.
 
-![Adaptive rubric-based evaluation report with verdicts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/verdict-report.png)
+![Adaptive rubric-based evaluation report with verdicts](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/verdict-report.png)
 
 ## Multi-candidate comparison report
 
@@ -120,4 +120,4 @@ The report's format adapts depending on whether you are evaluating a single cand
     
     comparison_result.show()
 
-![Multi-candidate comparison report](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/eval-comparison.png)
+![Multi-candidate comparison report](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/eval-comparison.png)

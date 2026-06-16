@@ -120,8 +120,8 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>All model files used for the model deployment under the endpoint. This does <em>not</em> include any in-memory data, but the model will be auto-undeployed if the key is disabled.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console">Deploying a model using the Google Cloud console</a></li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api">Deploying a model using the Agent Platform API</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console">Deploying a model using the Google Cloud console</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api">Deploying a model using the Agent Platform API</a></li>
 </ul></td>
 </tr>
 <tr class="even">

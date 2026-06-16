@@ -26,7 +26,7 @@ We recommend that you use an [M2 memory-optimized VM](https://docs.cloud.google.
 
 2.  Follow the Artifact Registry documentation to [Install Docker.](https://docs.cloud.google.com/artifact-registry/docs/docker/quickstart#before-you-begin)
 
-3.  Make sure that you have sufficient quotas for 16 TPU v5e chips for [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-tpu#ensure-quota) .
+3.  Make sure that you have sufficient quotas for 16 TPU v5e chips for [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-tpu#ensure-quota) .
 
 This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google.com/shell/docs) to interact with Google Cloud. If you want to use a different shell instead of Cloud Shell, then perform the following additional configuration:
 

@@ -10,7 +10,7 @@ Google Cloud provides access to custom-designed machine learning accelerators ca
 
 This page describes how to deploy your models to a [single host](https://docs.cloud.google.com/tpu/docs/tpus-in-gke#single-host) Cloud TPU v5e, v6e, or TPU7x for online inference in Gemini Enterprise Agent Platform.
 
-> **Note:** Multi-host deployment is now available in Public preview. For more information, see [Serve Llama 3 open models using multi-host Cloud TPUs on Gemini Enterprise Agent Platform with Saxml](https://docs.cloud.google.com/vertex-ai/docs/predictions/serve-llama3-with-saxml-tpu) .
+> **Note:** Multi-host deployment is now available in Public preview. For more information, see [Serve Llama 3 open models using multi-host Cloud TPUs on Gemini Enterprise Agent Platform with Saxml](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/serve-llama3-with-saxml-tpu) .
 
 Only [Cloud TPU version v5e, v6e,](https://docs.cloud.google.com/tpu/docs/tpu-inference) and [TPU7x](https://docs.cloud.google.com/tpu/docs/tpu7x) ( `tpu7x-standard-4t` machine type) are supported. Other Cloud TPU generations are not supported.
 
@@ -20,8 +20,8 @@ To learn which locations Cloud TPU version v5e, v6e, and TPU7x are available in,
 
 For deployment on Cloud TPUs, you must [import your model to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) and configure it to use one of the following containers:
 
-  - [prebuilt optimized TensorFlow runtime container](https://docs.cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime) either the `nightly` version, or version `2.15` or later
-  - [prebuilt PyTorch TPU container](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers#pytorch) version `2.1` or later
+  - [prebuilt optimized TensorFlow runtime container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime) either the `nightly` version, or version `2.15` or later
+  - [prebuilt PyTorch TPU container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#pytorch) version `2.1` or later
   - your own custom container that supports TPUs
 
 ### Prebuilt optimized TensorFlow runtime container
@@ -78,7 +78,7 @@ For custom containers, your model does not need to be a TensorFlow model, but it
 
 For information on serving models trained with JAX, TensorFlow, or PyTorch on Cloud TPU v5e, see [Cloud TPU v5e Inference](https://docs.cloud.google.com/tpu/docs/v5e-inference#inference-on-lite-pods) .
 
-Make sure your custom container meets the [custom container requirements](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) .
+Make sure your custom container meets the [custom container requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements) .
 
 You must [raise the locked memory limit](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/tpus#privileged-mode) so the driver can communicate with the TPU chips over direct memory access (DMA). For example:
 
@@ -98,7 +98,7 @@ You must [raise the locked memory limit](https://docs.cloud.google.com/kubernete
         ),
       )
 
-Then, see [Use a custom container for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) for information on importing a model with a custom container. If you have want to implement pre or post processing logic, consider using [Custom inference routines](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-prediction-routines) .
+Then, see [Use a custom container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) for information on importing a model with a custom container. If you have want to implement pre or post processing logic, consider using [Custom inference routines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-prediction-routines) .
 
 ## Create an endpoint
 
@@ -147,13 +147,13 @@ For more information, see [deploy a model to an endpoint](https://docs.cloud.goo
 
 ## Get online inferences
 
-The instruction for getting online inferences from a Cloud TPU is the same as the instruction for [getting online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) .
+The instruction for getting online inferences from a Cloud TPU is the same as the instruction for [getting online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
 
 For example, the following command sends an online inference request by calling [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) :
 
     deployed_model.predict(...)
 
-For custom containers, see the [inference request and response requirements](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#inference) for custom containers.
+For custom containers, see the [inference request and response requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#inference) for custom containers.
 
 ## Securing capacity
 
@@ -167,4 +167,4 @@ TPU machine types are billed per hour, just like all other machine type in Verte
 
 ## What's next
 
-  - Learn how to [get an online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions)
+  - Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions)

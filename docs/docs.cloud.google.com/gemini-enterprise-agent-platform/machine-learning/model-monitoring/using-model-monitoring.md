@@ -339,7 +339,7 @@ For information about the full end-to-end Model Monitoring API workflow, see the
           ...
         }
 
-After the monitoring job is created, Model Monitoring logs incoming prediction requests in a generated BigQuery table named `  PROJECT_ID .model_deployment_monitoring_ ENDPOINT_ID .serving_predict ` . If [request-response logging](https://docs.cloud.google.com/vertex-ai/docs/predictions/online-prediction-logging#model-monitoring) is enabled, Model Monitoring logs incoming requests in the same BigQuery table that is used for request-response logging.
+After the monitoring job is created, Model Monitoring logs incoming prediction requests in a generated BigQuery table named `  PROJECT_ID .model_deployment_monitoring_ ENDPOINT_ID .serving_predict ` . If [request-response logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#model-monitoring) is enabled, Model Monitoring logs incoming requests in the same BigQuery table that is used for request-response logging.
 
 ### (Optional) Configure alerts for the Model Monitoring job
 

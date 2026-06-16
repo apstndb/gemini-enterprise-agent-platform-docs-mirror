@@ -1014,4 +1014,4 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 ## What's next
 
   - [Evaluating AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/evaluating-automl-models) .
-  - [Exporting AutoML Edge models](https://docs.cloud.google.com/vertex-ai/docs/export/export-edge-model) .
+  - [Exporting AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-edge-model) .

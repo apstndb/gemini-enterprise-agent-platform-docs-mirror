@@ -259,7 +259,7 @@ Depending on the type of reservation that you want to consume, do one of the fol
 ## What's next
 
   - Learn more about [reservations of Compute Engine zonal resources](https://docs.cloud.google.com/compute/docs/instances/reservations-overview) .
-  - Learn how to [use reservations with Agent Platform batch inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-reservations-batch) .
+  - Learn how to [use reservations with Agent Platform batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations-batch) .
   - Learn how to [use reservations with Agent Platform training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) .
   - Learn how to [view reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-view) .
   - Learn how to [monitor reservations consumption](https://docs.cloud.google.com/compute/docs/instances/reservations-monitor) .

@@ -282,14 +282,14 @@ Errors of the form `RANGES_EXHAUSTED` and `RANGES_NOT_RESERVED` and `RANGES_DELE
 
 When faced with a `RANGES_EXHAUSTED` error, you should first consider whether this complaint is valid.
 
-  - Refer to the [Subnet recommendations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/private-services-access#subnet-recommendations) table to ensure that the IP reservation for Private Services Access is wide enough accommodate your workload.
+  - Refer to the [Subnet recommendations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/private-services-access#subnet-recommendations) table to ensure that the IP reservation for Private Services Access is wide enough accommodate your workload.
 
   - Visit [Network Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insight-groups-types) in cloud console and look for insights of the form "Summary of IP address allocation" in the VPC network. If these indicate that the allocation is at or near 100%, you can can take one of the following steps:
     
       - [Add a new range](https://docs.cloud.google.com/vpc/docs/configure-private-services-access#modify-ip-range) to the reservation or extend the existing one. Recall that all ranges must be contiguous.
       - If you have non-contiguous IP ranges that are allocated but *not* being consumed, launch new Gemini Enterprise Agent Platform workloads in a different region.
 
-  - Also consider the [maximum number of parallel jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/using-private-ip#reserving-ip-ranges) that can be run with an reservation of a given size.
+  - Also consider the [maximum number of parallel jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip#reserving-ip-ranges) that can be run with an reservation of a given size.
 
 For more information, see [Service Infrastructure Validation Errors](https://docs.cloud.google.com/service-infrastructure/docs/service-networking/reference/rest/v1/services/validate#validationerror)
 
@@ -647,7 +647,7 @@ By default, the custom container that deploys your model uses a service account 
 
 To resolve this, try one of the following:
 
-  - Copy the file that you are trying to access from the container into [model artifacts](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#artifacts) when uploading the model. Gemini Enterprise Agent Platform will copy it to a location the default service account has access to, similar to all the other model artifacts.
+  - Copy the file that you are trying to access from the container into [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#artifacts) when uploading the model. Gemini Enterprise Agent Platform will copy it to a location the default service account has access to, similar to all the other model artifacts.
 
   - Copy the file into the container as part of the container build process.
 

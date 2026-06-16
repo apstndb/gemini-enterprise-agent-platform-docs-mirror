@@ -489,7 +489,7 @@ Here are some error handling details.
 
 ## Get online inferences
 
-Getting online inferences from an endpoint with Private Service Connect is similar to [getting online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) from public endpoints, except for the following considerations:
+Getting online inferences from an endpoint with Private Service Connect is similar to [getting online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) from public endpoints, except for the following considerations:
 
   - The request must be sent from a project that was specified in the `projectAllowlist` when the online inference endpoint was created.
 
@@ -726,4 +726,4 @@ Agent Platform endpoints with Private Service Connect are subject to the followi
 ## What's next
 
   - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment)
-  - [Get online inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions)
+  - [Get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions)

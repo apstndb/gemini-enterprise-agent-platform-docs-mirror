@@ -50,7 +50,7 @@ Use the REST API to update the settings for container logs.
 
 Use the REST API to enable request-response logging. The Google Cloud console and gcloud CLI don't support request-response logging configuration.
 
-To see more context about how to deploy models, read [Deploy a model using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
+To see more context about how to deploy models, read [Deploy a model using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
 
 ### gcloud
 
@@ -86,7 +86,7 @@ Use the REST API to update the settings for container logs.
 
 Use the REST API to enable request-response logging. The Google Cloud console and gcloud CLI don't support request-response logging configuration.
 
-To see more context about how to deploy models, read [Deploy a model using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+To see more context about how to deploy models, read [Deploy a model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
 ### REST
 
@@ -104,7 +104,7 @@ To enable **container logging** , set the `enableContainerLogging` field to `Tru
 
 To enable **access logging** , set `enableAccessLogging` to `True` when deploying your model with [`projects.locations.endpoints.deployModel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/deployModel) .
 
-To see more context about how to deploy models, read [Deploy a model using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+To see more context about how to deploy models, read [Deploy a model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
 **Request-response logging**
 
@@ -215,5 +215,5 @@ Request-response logging and [Model Monitoring v1](https://docs.cloud.google.com
 ## What's next
 
   - [Estimate pricing](https://docs.cloud.google.com/stackdriver/estimating-bills) for online inference logging.
-  - Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+  - Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
   - Learn [how to create a BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables) .

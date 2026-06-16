@@ -53,7 +53,7 @@ The optimized TensorFlow runtime optimizes serving the following tabular model t
 
 #### Automatic model optimization for Cloud TPU
 
-The prebuilt optimized TensorFlow runtime containers that support Cloud TPUs can automatically partition and optimize your models to be run on TPUs. For more information, see [Deploy to Cloud TPU](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-tpu#prebuilt-tf) .
+The prebuilt optimized TensorFlow runtime containers that support Cloud TPUs can automatically partition and optimize your models to be run on TPUs. For more information, see [Deploy to Cloud TPU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-tpu#prebuilt-tf) .
 
 ### Use of the TensorFlow runtime (TFRT)
 
@@ -314,7 +314,7 @@ The following nightly and stable optimized TensorFlow runtime Docker container i
 
 ## Use the optimized TensorFlow runtime with a private endpoint
 
-Using private endpoints to serve online inferences with Gemini Enterprise Agent Platform provides a low-latency, secure connection to the Gemini Enterprise Agent Platform online inference service that is faster than using public endpoints. The optimized TensorFlow runtime likely serves latency sensitive models, so you might consider using it with private endpoints. For more information, see [Use private endpoints for online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-private-endpoints) .
+Using private endpoints to serve online inferences with Gemini Enterprise Agent Platform provides a low-latency, secure connection to the Gemini Enterprise Agent Platform online inference service that is faster than using public endpoints. The optimized TensorFlow runtime likely serves latency sensitive models, so you might consider using it with private endpoints. For more information, see [Use private endpoints for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) .
 
 ## Deploy a model using the optimized TensorFlow runtime
 
@@ -322,7 +322,7 @@ The process to deploy a model for inference using the optimized TensorFlow runti
 
 The following code sample shows you how to create a model with the `us-docker.pkg.dev/vertex-ai-restricted/prediction/tf_opt-cpu.nightly:latest` optimized TensorFlow runtime container. To deploy this model, you use the same process that you use to deploy a model with other [prebuilt TensorFlow Serving containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#tensorflow "prebuilt TensorFlow Serving containers") .
 
-For more information about the `ModelServiceClient` used in this sample, see [Class ModelServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient) . For more information about how to deploy models using Gemini Enterprise Agent Platform, see [Deploy a model using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) . For more information about the `allow_precompilation` and `allow_compression` settings, see [Model optimizations](https://docs.cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime#model_optimizations) described earlier in this document.
+For more information about the `ModelServiceClient` used in this sample, see [Class ModelServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient) . For more information about how to deploy models using Gemini Enterprise Agent Platform, see [Deploy a model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) . For more information about the `allow_precompilation` and `allow_compression` settings, see [Model optimizations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime#model_optimizations) described earlier in this document.
 
 ``` 
     from google.cloud.aiplatform import gapic as aip

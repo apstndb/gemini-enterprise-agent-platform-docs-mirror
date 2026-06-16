@@ -27,7 +27,7 @@ Access Transparency supports the following Gemini Enterprise Agent Platform serv
   - [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore)
   - [Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview)
   - [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines)
-  - [Vertex AI Inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/overview)
+  - [Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview)
   - [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
   - [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction)
   - [Vertex AI Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction)
@@ -42,8 +42,8 @@ Access Transparency supports the following Gemini Enterprise Agent Platform serv
 All access to your data in Gemini Enterprise Agent Platform by Google personnel is logged, except for the following scenarios:
 
   - [Scenarios where Access Transparency logs are excluded in all supported Google Cloud services](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/exclusions)
-  - Using [custom containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) to serve [online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) or [batch inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-batch-predictions) requests from custom-trained models
-  - Using [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) with [custom containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container)
+  - Using [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) to serve [online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) or [batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) requests from custom-trained models
+  - Using [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) with [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container)
   - Using AutoML forecasting-related resources such as forecasting datasets and forecasting models.
   - Using the following components:
       - [Generative AI on Gemini Enterprise Agent Platform: Online inference (Vision)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/image/generate-images)

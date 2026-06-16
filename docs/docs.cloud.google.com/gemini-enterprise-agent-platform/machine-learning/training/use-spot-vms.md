@@ -198,4 +198,4 @@ customJob.run(
   - Learn more about [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) .
   - To learn more about Compute Engine VMs in general, read the [Virtual machine instances](https://docs.cloud.google.com/compute/docs/instances) documentation.
   - To learn how to create Spot VMs, read [Create and use Spot VMs](https://docs.cloud.google.com/compute/docs/instances/create-use-spot) .
-  - [Use Spot VMs with Vertex AI Inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-spot-vms) .
+  - [Use Spot VMs with Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-spot-vms) .

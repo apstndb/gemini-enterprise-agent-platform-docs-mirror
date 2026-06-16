@@ -6,7 +6,7 @@ description: Export model artifacts for inference and explanation using a prebui
 data_source: docs.cloud.google.com
 ---
 
-Gemini Enterprise Agent Platform offers [prebuilt containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) to serve inferences and explanations from models trained using the following machine learning (ML) frameworks:
+Gemini Enterprise Agent Platform offers [prebuilt containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) to serve inferences and explanations from models trained using the following machine learning (ML) frameworks:
 
   - TensorFlow
   - PyTorch
@@ -15,11 +15,11 @@ Gemini Enterprise Agent Platform offers [prebuilt containers](https://docs.cloud
 
 To use one of these prebuilt containers, you must save your model as one or more *model artifacts* that comply with the requirements of the prebuilt container. These requirements apply whether or not your model artifacts are created on Agent Platform.
 
-If you use a [custom container to serve inferences](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) , you don't need to comply with the requirements in this page, but you can still use them as guidelines.
+If you use a [custom container to serve inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , you don't need to comply with the requirements in this page, but you can still use them as guidelines.
 
 ## Framework-specific requirements for exporting to prebuilt containers
 
-Depending on [which ML framework you plan to use for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) , you must export model artifacts in different formats. The following sections describe the acceptable model formats for each ML framework.
+Depending on [which ML framework you plan to use for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) , you must export model artifacts in different formats. The following sections describe the acceptable model formats for each ML framework.
 
 ### TensorFlow
 
@@ -35,7 +35,7 @@ There are several ways to export SavedModels from TensorFlow training code. The 
     
     If you aren't using Keras or an Estimator, make sure to [use the `serve` tag and `serving_default` signature when you export your SavedModel](https://www.tensorflow.org/tfx/serving/serving_basic#train_and_export_tensorflow_model) in order to make sure Agent Platform can use your model artifacts to serve inferences. Keras and Estimator handle this automatically. Learn more about [specifying signatures during export](https://www.tensorflow.org/guide/saved_model#specifying_signatures_during_export) .
 
-To serve inferences using these artifacts, create a `Model` with the [prebuilt container for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers#tensorflow) matching the version of TensorFlow that you used for training.
+To serve inferences using these artifacts, create a `Model` with the [prebuilt container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#tensorflow) matching the version of TensorFlow that you used for training.
 
 #### TensorFlow for Vertex Explainable AI
 
@@ -115,7 +115,7 @@ The following examples show how to train and export a model:
     blob = storage.blob.Blob.from_string(storage_path, client=storage.Client())
     blob.upload_from_filename(local_path)
 
-To serve inferences using this artifact, create a `Model` with the [prebuilt container for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers#xgboost) matching the version of XGBoost that you used for training.
+To serve inferences using this artifact, create a `Model` with the [prebuilt container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#xgboost) matching the version of XGBoost that you used for training.
 
 ### scikit-learn
 
@@ -152,7 +152,7 @@ The following example shows how to train and export a model:
     blob = storage.blob.Blob.from_string(storage_path, client=storage.Client())
     blob.upload_from_filename(local_path)
 
-To serve inferences using this artifact, create a `Model` with the [prebuilt container for inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers#scikit-learn) matching the version of scikit-learn that you used for training.
+To serve inferences using this artifact, create a `Model` with the [prebuilt container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#scikit-learn) matching the version of scikit-learn that you used for training.
 
 ## What's next
 

@@ -703,7 +703,7 @@ To prevent sharing request and response logs with MaaS partners, the project adm
 
   - [Estimate pricing](https://docs.cloud.google.com/stackdriver/estimating-bills) for online prediction logging.
 
-  - Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+  - Deploy a model [using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or [using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
   - Learn [how to create a BigQuery table](https://docs.cloud.google.com/bigquery/docs/tables) .
 

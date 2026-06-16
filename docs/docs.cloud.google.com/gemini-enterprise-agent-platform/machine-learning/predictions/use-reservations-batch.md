@@ -101,7 +101,7 @@ Before using any of the request data, make the following replacements:
 
   - OUTPUT\_DIRECTORY : The Cloud Storage URI of a directory where you want Agent Platform to save output.
 
-  - MACHINE\_TYPE : The [machine resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) to be used for this batch prediction job.
+  - MACHINE\_TYPE : The [machine resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) to be used for this batch prediction job.
 
   - ACCELERATOR\_TYPE : The type of accelerator to attach to the machine. For more information about the type of GPU that each machine type supports, see [GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpus_for_compute_workloads) .
 
@@ -237,7 +237,7 @@ Before using any of the request data, make the following replacements:
 
   - OUTPUT\_TABLE\_NAME : The name of the BigQuery destination table where you want to save the output.
 
-  - MACHINE\_TYPE : The [machine resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute) to be used for this batch prediction job.
+  - MACHINE\_TYPE : The [machine resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) to be used for this batch prediction job.
 
   - ACCELERATOR\_TYPE : The type of accelerator to attach to the machine. For more information about the type of GPU that each machine type supports, see [GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpus_for_compute_workloads) .
 
@@ -356,7 +356,7 @@ When a batch inference task is complete, the output of the inference is stored i
 ## What's next
 
   - Learn more about [reservations of Compute Engine zonal resources](https://docs.cloud.google.com/compute/docs/instances/reservations-overview) .
-  - Learn how to [use reservations with Agent Platform online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-reservations) .
+  - Learn how to [use reservations with Agent Platform online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations) .
   - Learn how to [use reservations with Agent Platform training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) .
   - Learn how to [view reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-view) .
   - Learn how to [monitor reservations consumption](https://docs.cloud.google.com/compute/docs/instances/reservations-monitor) .

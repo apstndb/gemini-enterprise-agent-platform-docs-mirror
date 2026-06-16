@@ -51,7 +51,7 @@ This tutorial assumes that you are using [Cloud Shell](https://docs.cloud.google
     
         gcloud init
 
-4.  Make sure that you have sufficient quota for TPU v5e chips for [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-tpu#ensure-quota) . By default, this quota is 0. For a `1x1` topology, it must be 1. For `2x2` , it must be 4. To run both topologies, it must be 5.
+4.  Make sure that you have sufficient quota for TPU v5e chips for [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-tpu#ensure-quota) . By default, this quota is 0. For a `1x1` topology, it must be 1. For `2x2` , it must be 4. To run both topologies, it must be 5.
 
 5.  Create a [Kaggle account](https://www.kaggle.com/) , if you don't already have one.
 

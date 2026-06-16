@@ -60,7 +60,7 @@ If you use the following services, you should be aware of new version releases t
 
   - [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers)
 
-  - [Prebuilt containers for predictions and explanations](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers)
+  - [Prebuilt containers for predictions and explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers)
 
   - [Prebuilt containers for Ray on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list#ray)
 

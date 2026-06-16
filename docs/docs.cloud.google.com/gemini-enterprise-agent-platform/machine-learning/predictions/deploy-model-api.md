@@ -511,5 +511,5 @@ Some requests start long-running operations that require time to complete. These
 
 ## What's next
 
-  - Learn how to [get an online inference](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions) .
+  - Learn how to [get an online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
   - Learn about [private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints) .

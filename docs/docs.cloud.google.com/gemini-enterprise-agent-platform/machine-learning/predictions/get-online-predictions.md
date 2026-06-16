@@ -16,7 +16,7 @@ This section shows how to format and encode your inference input instances as JS
 
 If you're using the Agent Platform SDK for Python to send inference requests, specify the list of instances without the `instances` field. For example, specify `[ ["the","quick","brown"], ... ]` instead of `{ "instances": [ ["the","quick","brown"], ... ] }` .
 
-If your model uses a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) , your input must be formatted as JSON, and there is an additional `parameters` field that can be used for your container. Learn more about [format inference input with custom containers](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#inference) .
+If your model uses a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , your input must be formatted as JSON, and there is an additional `parameters` field that can be used for your container. Learn more about [format inference input with custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#inference) .
 
 ### Format instances as JSON strings
 
@@ -381,13 +381,13 @@ There are four ways to send a request:
 
   - [Raw inference request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#raw-inference-request) : sends a request to [`rawPredict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/rawPredict) , which lets you use an arbitrary HTTP payload rather than following the guidelines described in the [Format your input](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#formatting-inference-input) sections of this page. You might want to get raw inferences if:
     
-      - You are [using a custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) which receives requests and sends responses that differ from the guidelines.
+      - You are [using a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) which receives requests and sends responses that differ from the guidelines.
       - You require lower latency. `rawPredict` skips the serialization steps and directly forwards the request to the inference container.
       - You are serving inferences with [NVIDIA Triton](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-nvidia-triton) .
 
   - [Explanation request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#explain-request) : sends a request to [`explain`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/explain) . If you have [configured your `Model` for Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations-feature-based) , then you can [get online explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/getting-explanations) . Online explanation requests have the same format as online inference requests, and they return similar responses; the only difference is that online explanation responses include feature attributions as well as inferences.
 
-  - [Invoke request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#invoke-request) : forwards an arbitrary request to the model server. For example, "/invoke/foo/bar" would be forwarded as "/foo/bar" to the model server. This feature is in public preview and only supports HTTP calls on dedicated endpoints. To create an invoke enabled model, follow directions to [use arbitrary custom routes](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-arbitrary-custom-routes) .
+  - [Invoke request](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#invoke-request) : forwards an arbitrary request to the model server. For example, "/invoke/foo/bar" would be forwarded as "/foo/bar" to the model server. This feature is in public preview and only supports HTTP calls on dedicated endpoints. To create an invoke enabled model, follow directions to [use arbitrary custom routes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-arbitrary-custom-routes) .
 
 ### Send an online inference request to a dedicated public endpoint
 

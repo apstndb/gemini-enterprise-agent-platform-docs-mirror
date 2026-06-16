@@ -12,7 +12,7 @@ This page covers how to view the tracking logs associated with your Ray clusters
 
 When you perform tasks with your Ray cluster on Gemini Enterprise Agent Platform, tracking logs are automatically generated and stored in both Cloud Logging and [open source Ray dashboard](https://docs.ray.io/en/latest/ray-observability/getting-started.html#logs-view) . This section describes how to access the generated logs through the Google Cloud console.
 
-Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
+Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
 
 ### Ray OSS dashboard
 

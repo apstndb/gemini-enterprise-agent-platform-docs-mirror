@@ -62,4 +62,4 @@ Ray on Gemini Enterprise Agent Platform is a service that lets you use the open-
 
 Ray on Gemini Enterprise Agent Platform provides a managed environment for running distributed applications using the Ray framework, offering scalability and integration with Google Cloud services.
 
-To learn more about Ray on Gemini Enterprise Agent Platform see [Ray on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/overview) .
+To learn more about Ray on Gemini Enterprise Agent Platform see [Ray on Gemini Enterprise Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) .

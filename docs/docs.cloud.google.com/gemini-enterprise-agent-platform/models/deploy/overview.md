@@ -46,8 +46,8 @@ Each model card displays one or more of the following deployment options:
 
 Once deployment is complete and the endpoint is *active* , it is ready to accept prompt requests at its URI. The format of the API is [`predict`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) and the format of each [`instance`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict#body.request_body.FIELDS.instances) in the request body depends on the model. For more information, see the following resources:
 
-  - [Request body for online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions#request-body-details)
-  - [Format your input for online prediction](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions#formatting-prediction-input)
+  - [Request body for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#request-body-details)
+  - [Format your input for online prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#formatting-prediction-input)
 
 Make sure you have enough machine quota to deploy your model. To view your current quota or request more quota, in the Google Cloud console, go to the **Quotas** page.
 

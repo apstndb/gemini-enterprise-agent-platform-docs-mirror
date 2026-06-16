@@ -18,16 +18,16 @@ For these reasons, dedicated public endpoints are recommended as a best practice
 
 > **Note:** Tuned Gemini models can only be deployed to shared public endpoints.
 
-To learn more, see [Choose an endpoint type](https://docs.cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type) .
+To learn more, see [Choose an endpoint type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) .
 
 ## Create a dedicated public endpoint and deploy a model to it
 
-You can create a dedicated endpoint and deploy a model to it by using the Google Cloud console. For details, see [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) .
+You can create a dedicated endpoint and deploy a model to it by using the Google Cloud console. For details, see [Deploy a model by using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) .
 
 You can also create a dedicated public endpoint and deploy a model to it by using the Gemini Enterprise API as follows:
 
-1.  [Create a dedicated public endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/create-public-endpoint) . Configuration of the inference timeout and request-response logging settings is supported at the time of endpoint creation.
-2.  [Deploy the model by using the Gemini Enterprise API](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-api) .
+1.  [Create a dedicated public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/create-public-endpoint) . Configuration of the inference timeout and request-response logging settings is supported at the time of endpoint creation.
+2.  [Deploy the model by using the Gemini Enterprise API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
 ## Get online inferences from a dedicated public endpoint
 
@@ -38,7 +38,7 @@ Dedicated endpoints support both HTTP and gRPC communication protocols. For gRPC
   - StreamRawPredict
   - Chat Completion (Model Garden only)
 
-You can send online inference requests to a dedicated public endpoint by using the Agent Platform SDK for Python. For details, see [Send an online inference request to a dedicated public endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/get-online-predictions#inference-request-dedicated) .
+You can send online inference requests to a dedicated public endpoint by using the Agent Platform SDK for Python. For details, see [Send an online inference request to a dedicated public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#inference-request-dedicated) .
 
 ## Tutorial
 
@@ -53,4 +53,4 @@ You can send online inference requests to a dedicated public endpoint by using t
 
 ## What's next
 
-  - Learn about Gemini Enterprise Agent Platform online inference [endpoint types](https://docs.cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type) .
+  - Learn about Gemini Enterprise Agent Platform online inference [endpoint types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) .

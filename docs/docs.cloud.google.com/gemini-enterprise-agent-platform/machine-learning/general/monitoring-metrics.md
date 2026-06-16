@@ -44,7 +44,7 @@ Note that [AI Platform Training](https://docs.cloud.google.com/ai-platform/train
 
 ## Endpoint monitoring metrics
 
-After you deploy a model to an [endpoint](https://docs.cloud.google.com/vertex-ai/docs/predictions/deploy-model-console) , you can monitor the endpoint to understand your model's performance and resource usage. You can track metrics such as traffic patterns, error rates, latency, and resource utilization to ensure that your model consistently and predictably responds to requests. For example, you might redeploy your model with a different machine type to optimize for cost. After you make the change, you can monitor the model to check whether your changes adversely affected its performance.
+After you deploy a model to an [endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) , you can monitor the endpoint to understand your model's performance and resource usage. You can track metrics such as traffic patterns, error rates, latency, and resource utilization to ensure that your model consistently and predictably responds to requests. For example, you might redeploy your model with a different machine type to optimize for cost. After you make the change, you can monitor the model to check whether your changes adversely affected its performance.
 
 In Cloud Monitoring, the monitored resource type for deployed models is [`aiplatform.googleapis.com/Endpoint`](https://docs.cloud.google.com/monitoring/api/resources#tag_aiplatform.googleapis.com/Endpoint) .
 

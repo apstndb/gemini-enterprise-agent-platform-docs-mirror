@@ -14,7 +14,7 @@ data_source: docs.cloud.google.com
 
 To use a custom container to serve inferences from a custom-trained model, you must provide Gemini Enterprise Agent Platform with a Docker container image that runs an HTTP server. This document describes the requirements that a container image must meet to be compatible with Gemini Enterprise Agent Platform. The document also describes how Agent Platform interacts with your custom container once it starts running. In other words, this document describes what you need to consider when designing a container image to use with Agent Platform.
 
-To walk through using a custom container image to serve inferences, read [Using a custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) .
+To walk through using a custom container image to serve inferences, read [Using a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
 
 ## Container image requirements
 
@@ -117,7 +117,7 @@ After your HTTP server sends this response, Agent Platform adds a [`deployedMode
 
 #### Custom inference routes
 
-If the model server implements multiple inference routes, using invoke API to access multiple inference routes is recommended. Invoke API can be enabled during model upload by setting [`Model.containerSpec.invokeRoutePrefix` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec#FIELDS.invoke_route_prefix) to "/\*". Once deployed, a HTTP request to `/invoke/foo/bar` route will be forwarded as to the model server's `/foo/bar` path. To learn the details about it, read [using arbitrary custom routes](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-arbitrary-custom-routes) .
+If the model server implements multiple inference routes, using invoke API to access multiple inference routes is recommended. Invoke API can be enabled during model upload by setting [`Model.containerSpec.invokeRoutePrefix` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/ModelContainerSpec#FIELDS.invoke_route_prefix) to "/\*". Once deployed, a HTTP request to `/invoke/foo/bar` route will be forwarded as to the model server's `/foo/bar` path. To learn the details about it, read [using arbitrary custom routes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-arbitrary-custom-routes) .
 
 ## Container image publishing requirements
 
@@ -295,4 +295,4 @@ The container's `ENTRYPOINT` instruction can access these variables. To learn wh
 
 ## What's next
 
-  - [Learn more about serving inferences using a custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/use-custom-container) , including how to specify container-related API fields when you import a model.
+  - [Learn more about serving inferences using a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) , including how to specify container-related API fields when you import a model.

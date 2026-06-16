@@ -107,7 +107,7 @@ To create a serverless training job with PSC-I using the Agent Platform SDK for 
   - `location` : See [list of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `bucket` : Replace `bucket` with the name of a bucket you have access to.
   - `display_name` : The display name of the persistent resource.
-  - `machine_type` : [Specify the compute resources](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute#specify) .
+  - `machine_type` : [Specify the compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#specify) .
   - `replica_count` : The number of worker replicas to use for each trial.
   - `service_attachment` : The name of the service attachment resource. Populated if Private Service Connect is enabled.
   - `image_uri` : The URI of a Docker container image with your training code. Learn how to [create a custom container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
