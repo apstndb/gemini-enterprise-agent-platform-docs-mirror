@@ -140,6 +140,10 @@ Tuning Spec for Distillation.
 
 Tuning Spec for open sourced and third party Partner models.
 
+`reinforcementTuningSpec` ` object ( ReinforcementTuningSpec  ` )
+
+Tuning Spec for Reinforcement Tuning.
+
 `veoTuningSpec` ` object ( VeoTuningSpec  ` )
 
 Tuning Spec for Veo Tuning.
@@ -159,7 +163,7 @@ Tuning Spec for Veo LoRA Tuning.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;tunedModelDisplayName&quot;: string,&quot;description&quot;: string,&quot;customBaseModel&quot;: string,&quot;state&quot;: enum (JobState),&quot;createTime&quot;: string,&quot;startTime&quot;: string,&quot;endTime&quot;: string,&quot;updateTime&quot;: string,&quot;error&quot;: {object (Status)},&quot;labels&quot;: {string: string,...},&quot;experiment&quot;: string,&quot;tunedModel&quot;: {object (TunedModel)},&quot;tuningDataStats&quot;: {object (TuningDataStats)},&quot;pipelineJob&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;serviceAccount&quot;: string,&quot;outputUri&quot;: string,&quot;evaluateDatasetRuns&quot;: [{object (EvaluateDatasetRun)}],&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,// source_model&quot;baseModel&quot;: string,&quot;preTunedModel&quot;: {object (PreTunedModel)}// Union type// tuning_spec&quot;supervisedTuningSpec&quot;: {object (SupervisedTuningSpec)},&quot;distillationSpec&quot;: {object (DistillationSpec)},&quot;partnerModelTuningSpec&quot;: {object (PartnerModelTuningSpec)},&quot;veoTuningSpec&quot;: {object (VeoTuningSpec)},&quot;veoLoraTuningSpec&quot;: {object (VeoLoraTuningSpec)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;tunedModelDisplayName&quot;: string,&quot;description&quot;: string,&quot;customBaseModel&quot;: string,&quot;state&quot;: enum (JobState),&quot;createTime&quot;: string,&quot;startTime&quot;: string,&quot;endTime&quot;: string,&quot;updateTime&quot;: string,&quot;error&quot;: {object (Status)},&quot;labels&quot;: {string: string,...},&quot;experiment&quot;: string,&quot;tunedModel&quot;: {object (TunedModel)},&quot;tuningDataStats&quot;: {object (TuningDataStats)},&quot;pipelineJob&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;serviceAccount&quot;: string,&quot;outputUri&quot;: string,&quot;evaluateDatasetRuns&quot;: [{object (EvaluateDatasetRun)}],&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,// source_model&quot;baseModel&quot;: string,&quot;preTunedModel&quot;: {object (PreTunedModel)}// Union type// tuning_spec&quot;supervisedTuningSpec&quot;: {object (SupervisedTuningSpec)},&quot;distillationSpec&quot;: {object (DistillationSpec)},&quot;partnerModelTuningSpec&quot;: {object (PartnerModelTuningSpec)},&quot;reinforcementTuningSpec&quot;: {object (ReinforcementTuningSpec)},&quot;veoTuningSpec&quot;: {object (VeoTuningSpec)},&quot;veoLoraTuningSpec&quot;: {object (VeoLoraTuningSpec)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -568,6 +572,774 @@ Hyperparameters for tuning. The accepted hyperParameters and their valid range o
 </tr>
 </tbody>
 </table>
+
+## ReinforcementTuningSpec
+
+Tuning spec for Reinforcement Tuning.
+
+Fields
+
+`hyperParameters` ` object ( ReinforcementTuningHyperParameters  ` )
+
+Optional. Hyper-parameters for reinforcement tuning.
+
+`training_dataset` `Union type`
+
+The dataset to use for training. `training_dataset` can be only one of the following:
+
+`trainingDatasetUri` `string`
+
+Cloud Storage path to the file containing training dataset for tuning. The dataset must be formatted as a JSONL file.
+
+`validation_dataset` `Union type`
+
+The dataset to use for validation. `validation_dataset` can be only one of the following:
+
+`validationDatasetUri` `string`
+
+Cloud Storage path to the file containing validation dataset for tuning. The dataset must be formatted as a JSONL file.
+
+`reward_config` `Union type`
+
+Reward function configuration for reinforcement tuning. `reward_config` can be only one of the following:
+
+`singleRewardConfig` ` object ( SingleReinforcementTuningRewardConfig  ` )
+
+Single Reward function configuration for reinforcement tuning.
+
+`compositeRewardConfig` ` object ( CompositeReinforcementTuningRewardConfig  ` )
+
+Composite reward function configuration for reinforcement tuning.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;hyperParameters&quot;: {object (ReinforcementTuningHyperParameters)},// training_dataset&quot;trainingDatasetUri&quot;: string// Union type// validation_dataset&quot;validationDatasetUri&quot;: string// Union type// reward_config&quot;singleRewardConfig&quot;: {object (SingleReinforcementTuningRewardConfig)},&quot;compositeRewardConfig&quot;: {object (CompositeReinforcementTuningRewardConfig)}// Union type}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## SingleReinforcementTuningRewardConfig
+
+`  SingleReinforcementTuningRewardConfig  ` defines a single reward function configuration for RL tuning. Each reward calculation/evaluation consists of two stages:
+
+1.  Stage 1: Parses the part of information important from sample response via regex extract, or simply takes the sample response unmodified.
+2.  Stage 2: Calls the configured reward scorer to compute the reward.
+
+Fields
+
+`rewardName` `string`
+
+A unique reward name for identifying each single reinforcement tuning reward.
+
+`parseResponseConfig` ` object ( ReinforcementTuningParseResponseConfig  ` )
+
+Defines how to parse sample response.
+
+For example, given a sample response for evaluating the reward, users might want to extract the text only between `<ans>` and `</ans>` in the sample response, and keeps only the last one in case there are multiple such tags. To achieve such a purpose, they can define a regex `".*<ans>(.*?)</ans>"` using the `  ReinforcementTuningParseResponseConfig.ResponseParseType.REGEX_EXTRACT  ` parse type.
+
+`reward_scorer` `Union type`
+
+After parsing the sample response, the RL Tuning passes the original training/validation data `example` and the parsed response to the configured reward scorer for evaluating a reward. `reward_scorer` can be only one of the following:
+
+`codeExecutionRewardScorer` ` object ( ReinforcementTuningCodeExecutionRewardScorer  ` )
+
+`  ReinforcementTuningCodeExecutionRewardScorer  ` is used to score parsed responses for code execution use cases.
+
+`stringMatchRewardScorer` ` object ( ReinforcementTuningStringMatchRewardScorer  ` )
+
+`  ReinforcementTuningStringMatchRewardScorer  ` is used to score parsed responses for simple string matching use cases against reference answers.
+
+`autoraterScorer` ` object ( ReinforcementTuningAutoraterScorer  ` )
+
+`  ReinforcementTuningAutoraterScorer  ` is used to score parsed responses based on score computed by an autorater.
+
+`cloudRunRewardScorer` ` object ( ReinforcementTuningCloudRunRewardScorer  ` )
+
+`  ReinforcementTuningCloudRunRewardScorer  ` is used to score parsed responses by calling a Cloud Run service.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rewardName&quot;: string,&quot;parseResponseConfig&quot;: {object (ReinforcementTuningParseResponseConfig)},// reward_scorer&quot;codeExecutionRewardScorer&quot;: {object (ReinforcementTuningCodeExecutionRewardScorer)},&quot;stringMatchRewardScorer&quot;: {object (ReinforcementTuningStringMatchRewardScorer)},&quot;autoraterScorer&quot;: {object (ReinforcementTuningAutoraterScorer)},&quot;cloudRunRewardScorer&quot;: {object (ReinforcementTuningCloudRunRewardScorer)}// Union type}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningCodeExecutionRewardScorer
+
+`  ReinforcementTuningCodeExecutionRewardScorer  ` allows users to implement a function to evaluate rewards for the sample response. The function signature is as follows:
+
+    def evaluate(example: dict[str, Any], response: dict[str, Any]) -> float:
+      ...
+
+`example` is a `  ReinforcementTuningExample  ` in ProtoJSON format, (i.e., the format is the same as as one line in the training/validation dataset except that the keys must be in camel case). System instructions (i.e., `example.get("systemInstruction")` ) and references (i.e., `example.get("references")` ) are also included in the `example` provided that they are set in the training/validation dataset.
+
+`response` is a `  Content  ` in ProtoJSON format (i.e., keys must be in camel case), which is the same as the Online Prediction response for Gemini models.
+
+Note: Reward output by the `evaluate` function is clipped to be within `[-1, 1]` , i.e., `reward = max(min(reward, 1.0), -1.0)` .
+
+Fields
+
+`pythonCodeSnippet` `string`
+
+The python code snippet as a string for evaluating rewards.
+
+The following is an example python code snippet that returns a reward `1.0` for a parsed response matching the user-provided reference answer in per prompt references map.
+
+    def evaluate(example, response) -> float:
+      response_str = response.get("parts", [])[0]["text"]
+      references = example.get("references", {})
+    
+      if response_str == references.get("concise_answer"):
+        return 1.0
+      return -1.0
+
+Note: Reward output by the evaluate function is clipped to be within `[-1, 1]` , i.e., `reward = max(min(reward, 1.0), -1.0)` .
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;pythonCodeSnippet&quot;: string
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningStringMatchRewardScorer
+
+`  ReinforcementTuningStringMatchRewardScorer  ` is used to score parsed responses for string matching use cases. For example, for math problems, users can use string match scorer to check if the correct exact answer is generated.
+
+Note: Reward returned by the string match reward function is clipped to be within `[-1, 1]` if `  wrongAnswerReward  ` or `  correctAnswerReward  ` are beyond the range, i.e., `reward = max(min(reward, 1.0), -1.0)` .
+
+Fields
+
+`expression` `Union type`
+
+Evaluates parsed response using either string match expression or json match expression. `expression` can be only one of the following:
+
+`stringMatchExpression` ` object ( StringMatchExpression  ` )
+
+uses string match expression to evaluate parsed response.
+
+`jsonMatchExpression` ` object ( JsonMatchExpression  ` )
+
+uses json match expression to evaluate parsed response.
+
+`wrongAnswerReward` `number`
+
+Wrong answer reward is returned if the parsed response is evaluated as `false` . All wrong answers get the same reward.
+
+`correctAnswerReward` `number`
+
+Correct answer rewawrd is returned if the parsed response is evaluated as `true` . All correct answers get the same reward.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// expression&quot;stringMatchExpression&quot;: {object (StringMatchExpression)},&quot;jsonMatchExpression&quot;: {object (JsonMatchExpression)}// Union type&quot;wrongAnswerReward&quot;: number,&quot;correctAnswerReward&quot;: number}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## StringMatchExpression
+
+Evaluates parsed response using match type against the expression. Returns `true` if `MatchOperation(target, expression)` evaluates to `true` , and `false` otherwise.
+
+Fields
+
+`matchOperation` ` enum ( MatchOperation  ` )
+
+Match operation to use for evaluating rewards.
+
+`expression` `string`
+
+A string or a regular expression to match against for evaluating rewards.
+
+Users can also provide a references map of `{key: value}` whose `value` will be used to replace the placeholder {{references.key}} in the `  expression  ` .
+
+For example, if the following `references` are defined in the training / validation dataset:
+
+    {
+      "systemInstruction": ...,
+      "contents": ...,
+      "references": {
+        "concise_answer": "Yes",
+        "verbose_answer": "The answer is <ans>Yes</ans>"
+      }
+    }
+
+and if users define the following `  StringMatchExpression  ` :
+
+    {
+      "matchOperation": "REGEX_CONTAINS",
+      "expression":
+        ".*{{references.concise_answer}}.*"
+    }
+
+On evaluating the reward for each sample response, this `  StringMatchExpression  ` will be substituted as:
+
+    {
+      "matchOperation": "REGEX_CONTAINS",
+      "expression": ".*Yes.*"
+    }
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;matchOperation&quot;: enum (MatchOperation),&quot;expression&quot;: string}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## MatchOperation
+
+Match operation to use for evaluating rewards.
+
+Enums
+
+`MATCH_OPERATION_UNSPECIFIED`
+
+Default value. A user error will be returned if not set.
+
+`REGEX_CONTAINS`
+
+Equivalent to [GoogleSQL](https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_contains) `REGEX_CONTAINS(target, expression)` .
+
+`PARTIAL_MATCH`
+
+The match operation returns `true` if `  expression  ` is a substring of the target.
+
+`EXACT_MATCH`
+
+The match operation returns `true` `  expression  ` is an exact match of the target.
+
+## JsonMatchExpression
+
+`  JsonMatchExpression  ` supports converting the parsed responses to JSON format, finding the value in the JSON response that matches the `  keyName  ` in the first level, and performing `  StringMatchExpression  ` operation on the matched JSON value.
+
+Fields
+
+`valueStringMatchExpression` ` object ( StringMatchExpression  ` )
+
+String match expression to match against the extracted value from the JSON representation of the parsed response.
+
+`keyName` `string`
+
+The key name to find the value in the parsed response that's in JSON format. Only first-level key matching is supported.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;valueStringMatchExpression&quot;: {object (StringMatchExpression)},&quot;keyName&quot;: string}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningAutoraterScorer
+
+`  ReinforcementTuningAutoraterScorer  ` is used to score parsed responses for classification based autorater use cases. For example, for math problems, users can use classification based autorater to calculate rewards based on the autorater parsed response against a reference answer.
+
+Fields
+
+`autoraterPrompt` `string`
+
+The prompt for an autorater to scorer the parsed sample response. This field supports the following placeholders that will be replaced before scoring:
+
+  - `{{prompt}}`
+
+  - `{{response}}`
+
+  - `{{system_instruction}}`
+
+  - `{{references.key}}`
+
+`autoraterConfig` ` object ( AutoraterConfig  ` )
+
+Autorater config for classification based autorater
+
+`autoraterResponseParseConfig` ` object ( ReinforcementTuningParseResponseConfig  ` )
+
+Parses autorater returned response for scoring. For example, if the autorater response has reward stored in the `<ans>2.0</ans>` block, defining a parsing response config using regex `".*<ans>(.*?)</ans>"` will return a score `"2.0"` .
+
+`autorater_scorer` `Union type`
+
+Scorer to be used for scoring autorater responses. `autorater_scorer` can be only one of the following:
+
+`parsedResponseConversionScorer` ` object ( ParsedResponseConversionScorer  ` )
+
+Scores autorater responses by directly converting parsed autorater response to a float reward.
+
+Note: Reward is clipped to be within `[-1, 1]` , i.e., `reward = max(min(reward, 1.0), -1.0)` .
+
+`exactMatchScorer` ` object ( ExactMatchScorer  ` )
+
+Scores autorater responses by using string match reward scorer.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;autoraterPrompt&quot;: string,&quot;autoraterConfig&quot;: {object (AutoraterConfig)},&quot;autoraterResponseParseConfig&quot;: {object (ReinforcementTuningParseResponseConfig)},// autorater_scorer&quot;parsedResponseConversionScorer&quot;: {object (ParsedResponseConversionScorer)},&quot;exactMatchScorer&quot;: {object (ExactMatchScorer)}// Union type}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ParsedResponseConversionScorer
+
+This type has no fields.
+
+Scores responses by directly converting the parsed autorater response to a float reward.
+
+Note: Reward is clipped to be within `[-1, 1]` , i.e., `reward = max(min(reward, 1.0), -1.0)` .
+
+## ExactMatchScorer
+
+Scores autorater responses by using exact string match reward scorer.
+
+Fields
+
+`correctAnswerReward` `number`
+
+Assigns this reward score if the parsed response string equals the expression.
+
+`wrongAnswerReward` `number`
+
+Assigns this reward score if the parsed reward value does not equal the expression.
+
+`expression` `string`
+
+The string expression to match against for scoring. This field supports placeholders in the format of {{references.key}} that will be replaced before matching. Regex is not supported for this `  expression  ` .
+
+For example, users can define an `  ExactMatchScorer  ` as follows:
+
+    {
+      "correctAnswerReward": 1.0,
+      "wrongAnswerReward": -1.0,
+      "expression":
+        "{{references.concise_answer}}"
+    }
+
+When evaluating the reward for each parsed autorater response, if the prompt references in the training/validation dataset has the following fields:
+
+    {
+      "example": ...,
+      "references": {
+        "concise_ansser": "Yes",
+        "verbose_answer": "The answer is <ans>Yes</ans>"
+      }
+    }
+
+The above `  ExactMatchScorer  ` will be replaced as follows for scoring:
+
+    {
+      "correctAnswerReward": 1.0,
+      "wrongAnswerReward": -1.0,
+      "expression": "Yes"
+    }
+
+If the *parsed* autorater response is equal to the string `"Yes"` , then the reward is `1.0` , otherwise the reward is `-1.0` .
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;correctAnswerReward&quot;: number,
+  &quot;wrongAnswerReward&quot;: number,
+  &quot;expression&quot;: string
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningParseResponseConfig
+
+Defines how to parse sample response config for reinforcement tuning. The parsed response (i.e., substring) will be passed to the reward functions.
+
+For example, the input prompt might be:
+
+> "Perform step-by-step thoughts first to problem A, finally output answer in the \<ans\> \</ans\> block."
+
+The sample response from the model under tuning might look like:
+
+> "\<ans\>Yes\</ans\>"
+
+Here, users can define the following parse config:
+
+    {
+      "parseType": "REGEX_EXTRACT",
+      "regexExtractExpression": ".*<ans>(.*?)</ans>"
+    }
+
+The resulting parsed response would be `"Yes"` and will be passed to the reward functions for evaluating rewards.
+
+Fields
+
+`parseType` ` enum ( ResponseParseType  ` )
+
+Defines the type for parsing sample response.
+
+`regexExtractExpression` `string`
+
+Defines the regex for extracting the important part of sample response. This field is only used when `  parseType  ` is `  ResponseParseType.REGEX_EXTRACT  ` .
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parseType&quot;: enum (ResponseParseType),&quot;regexExtractExpression&quot;: string}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ResponseParseType
+
+Defines the type for parsing sample response.
+
+Enums
+
+`RESPONSE_PARSE_TYPE_UNSPECIFIED`
+
+Default value. Fallback to `  IDENTITY  `
+
+`IDENTITY`
+
+Returns the sample response as is.
+
+`REGEX_EXTRACT`
+
+uses regex to extract the important part of sample response. Similar to [GoogleSQL](https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract) `REGEX_EXTRACT(response, regexExtractExpression)` , but different in that if there are multiple matches, the last match will be returned.
+
+## ReinforcementTuningCloudRunRewardScorer
+
+`  ReinforcementTuningCloudRunRewardScorer  ` allows users to implement a reward function through GCP Cloud Run. Comparing with `  ReinforcementTuningCodeExecutionRewardScorer  ` that runs in a Sandbox and has no internet access, Cloud Run reward scorer is fully controlled by users.
+
+The Cloud Run service should implement the following HTTP API:
+
+HTTP method: `POST`
+
+HTTP request body:
+
+    {
+      "example": ReinforcementTuningExample,
+      "response": Content,
+      "metadata": {
+        "step": int
+        "tuning_job_id": int64
+      }
+    }
+
+  - `example` is a `  ReinforcementTuningExample  ` in ProtoJSON format, (i.e., the format is the same as as one line in the training/validation dataset except that the keys must be in camel case). System instructions (i.e., `example.get("systemInstruction")` ) and references (i.e., `example.get("references")` ) are also included in the `example` provided that they are set in the training/validation dataset.
+  - `response` is a `  Content  ` in ProtoJSON format (i.e., keys must be in camel case), which is the same as the Online Prediction response for Gemini models.
+
+HTTP response body:
+
+    {
+      "reward": float,
+      "user_requested_aux_info": str // Optional
+    }
+
+`  `
+
+`  ` where the field "user\_requested\_aux\_info" is any (optional) string provided by users for assisting debugging. It's in snake case. This field is mostly useful when calling the `  GenAiTuningService.ValidateReinforcementTuningReward  ` API, where the proto field (not Cloud Run HTTP response body) `  userRequestedAuxInfo  ` will be populated if the Cloud Run reward function sets this field in the HTTP response.
+
+The following are examples for the HTTP request and response body.
+
+Example HTTP request body:
+
+    {
+      "example": {
+        "contents": [
+          {
+            "role": "user",
+            "parts": [
+              {
+                "text": "What is the capital of France?"
+              }
+            ]
+          }
+        ],
+        "references": {
+          "answer": "Paris"
+        }
+      },
+      "response": {
+        "parts": [
+          {
+            "text": "London"
+          }
+        ]
+      },
+      "metadata": {
+        "step": 1,
+        "tuning_job_id": 123456789
+      }
+    }
+
+Example HTTP response body:
+
+    {
+      "reward": -1.0
+    }
+
+Note: Reward output by Cloud Run reward function is clipped to be within `[-1, 1]` , i.e., `reward = max(min(reward, 1.0), -1.0)` .
+
+Fields
+
+`cloudRunUri` `string`
+
+URI of the Cloud Run service that will be used to compute the reward. The [Agent Platform Secure Fine Tuning service Agent](https://docs.cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-agent) ( `service-<PROJECT_NUMBER>@gcp-sa-vertex-tune.iam.gserviceaccount.com` ) must be granted the permission (e.g. by granting `roles/run.invoker` in IAM) to invoke the Cloud Run service.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;cloudRunUri&quot;: string
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## CompositeReinforcementTuningRewardConfig
+
+Composite reward function configuration for reinforcement tuning.
+
+Fields
+
+`weightedRewardConfigs[]` ` object ( WeightedRewardConfig  ` )
+
+List of reward function configurations with weights.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;weightedRewardConfigs&quot;: [{object (WeightedRewardConfig)}]}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## WeightedRewardConfig
+
+Reward function configuration with a weight. The weight is used to combine the reward with other rewards.
+
+Fields
+
+`rewardConfig` ` object ( SingleReinforcementTuningRewardConfig  ` )
+
+Single reward configuration.
+
+`weight` `number`
+
+How much this single reward contributes to the total overall reward.
+
+Total reward is a linear combination of single rewards with their corresponding weights, i.e.,
+
+    total_reward = (
+        weight_a * reward_a + weight_b * reward_b + ...
+    ) / (weight_a + weight_b + ...)
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rewardConfig&quot;: {object (SingleReinforcementTuningRewardConfig)},&quot;weight&quot;: number}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningHyperParameters
+
+Hyperparameters for Reinforcement Tuning.
+
+Fields
+
+`adapterSize` ` enum ( AdapterSize  ` )
+
+Optional. Adapter size for Reinforcement Tuning.
+
+`checkpoint_config` `Union type`
+
+Configurations of checkpointing during training. `checkpoint_config` can be only one of the following:
+
+`checkpointInterval` `integer`
+
+Optional. How often at steps to save checkpoints during training. If not set, one checkpoint per epoch will be set.
+
+`total_steps = epochCount * samplesPerPrompt / total_prompts_in_dataset`
+
+`epochCount` `string ( int64 format)`
+
+Optional. Number of training epoches for the tuning job.
+
+`learningRateMultiplier` `number`
+
+Optional. Learning rate multiplier for Reinforcement Tuning.
+
+`samplesPerPrompt` `integer`
+
+Optional. Number of different responses to generate per prompt during tuning.
+
+`thinkingBudget` `integer`
+
+Optional. The thinking budget for the tuning job to optimize for (Gemini 2.5 only).
+
+  - \-1 means dynamic thinking
+  - 0 means no thinking
+  - \> 0 means thinking budget in tokens
+
+If not set, default to -1 (dynamic thinking).
+
+`batchSize` `integer`
+
+Optional. Batch size for the tuning job. How many prompts to process at a train step. If not set, the batch size will be determined automatically.
+
+`evaluateInterval` `integer`
+
+Optional. How often at steps to evaluate the tuning job during training. If not set, evel will be run per epoch. `total_steps = epochCount * samplesPerPrompt / total_prompts_in_dataset`
+
+`maxOutputTokens` `integer`
+
+Optional. The maximum number of tokens to generate per prompt. Default to 32768.
+
+`thinkingLevel` ` enum ( ReinforcementTuningThinkingLevel  ` )
+
+Indicates the maximum thinking depth during tuning. Starting from Gemini 3.5 models, the old `  thinkingBudget  ` will no longer be supported and will result in a user error if set. Instead, users should use the `  thinkingLevel  ` parameter to control the maximum thinking depth.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;adapterSize&quot;: enum (AdapterSize),// checkpoint_config&quot;checkpointInterval&quot;: integer// Union type&quot;epochCount&quot;: string,&quot;learningRateMultiplier&quot;: number,&quot;samplesPerPrompt&quot;: integer,&quot;thinkingBudget&quot;: integer,&quot;batchSize&quot;: integer,&quot;evaluateInterval&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;thinkingLevel&quot;: enum (ReinforcementTuningThinkingLevel)}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningThinkingLevel
+
+Represents how much to think for the tuning job.
+
+Enums
+
+`REINFORCEMENT_TUNING_THINKING_LEVEL_UNSPECIFIED`
+
+Unspecified thinking level.
+
+`MINIMAL`
+
+Little to no thinking.
+
+`LOW`
+
+Low thinking level.
+
+`MEDIUM`
+
+Medium thinking level.
+
+`HIGH`
+
+High thinking level.
 
 ## VeoTuningSpec
 
@@ -1104,6 +1876,14 @@ Output only. A partial sample of the indices (starting from 1) of the dropped ex
 
 Output only. For each index in `droppedExampleIndices` , the user-facing reason why the example was dropped.
 
+`dataset_examples` `Union type`
+
+Sample user dataset examples in the training dataset uri. This will replace the old `user_dataset_examples` field. `dataset_examples` can be only one of the following:
+
+`reinforcementTuningUserDatasetExamples` ` object ( ReinforcementTuningUserDatasetExamples  ` )
+
+Output only. Sample user dataset examples in the training dataset uri for Reinforcement Tuning.
+
 `userOutputTokenDistribution` ` object ( DatasetDistribution  ` )
 
 Output only. Dataset distributions for the user output tokens.
@@ -1119,7 +1899,84 @@ Output only. Dataset distributions for the user output tokens.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tuningDatasetExampleCount&quot;: string,&quot;totalBillableTokenCount&quot;: string,&quot;totalTuningCharacterCount&quot;: string,&quot;totalBillableCharacterCount&quot;: string,&quot;tuningStepCount&quot;: string,&quot;userInputTokenDistribution&quot;: {object (DatasetDistribution)},&quot;userMessagePerExampleDistribution&quot;: {object (DatasetDistribution)},&quot;userDatasetExamples&quot;: [{object (Content)}],&quot;droppedExampleIndices&quot;: [string],&quot;droppedExampleReasons&quot;: [string],&quot;userOutputTokenDistribution&quot;: {object (DatasetDistribution)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;tuningDatasetExampleCount&quot;: string,&quot;totalBillableTokenCount&quot;: string,&quot;totalTuningCharacterCount&quot;: string,&quot;totalBillableCharacterCount&quot;: string,&quot;tuningStepCount&quot;: string,&quot;userInputTokenDistribution&quot;: {object (DatasetDistribution)},&quot;userMessagePerExampleDistribution&quot;: {object (DatasetDistribution)},&quot;userDatasetExamples&quot;: [{object (Content)}],&quot;droppedExampleIndices&quot;: [string],&quot;droppedExampleReasons&quot;: [string],// dataset_examples&quot;reinforcementTuningUserDatasetExamples&quot;: {object (ReinforcementTuningUserDatasetExamples)}// Union type&quot;userOutputTokenDistribution&quot;: {object (DatasetDistribution)}}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningUserDatasetExamples
+
+Sample reinforcement tuning user data in the training dataset. The contents are truncated for better UI showing.
+
+Fields
+
+`userDatasetExamples[]` ` object ( ReinforcementTuningExample  ` )
+
+List of user datasset examples showing to user.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;userDatasetExamples&quot;: [{object (ReinforcementTuningExample)}]}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ReinforcementTuningExample
+
+user-facing format for Gemini Reinforcement Tuning examples on Vertex.
+
+Fields
+
+`contents[]` ` object ( Content  ` )
+
+Multi-turn contents that represents the Prompt.
+
+`references` `map (key: string, value: string)`
+
+References for the given prompt. The key is the name of the reference, and the value is the reference itself. Users can use this field together with the reward configurations to calculate rewards for reinforcement tuning. For example, users can set the following references:
+
+    {
+      "concise_answer": "Yes",
+      "verbose_answer": "The answer is <ans>Yes</ans>"
+    }
+
+Then in a `  ReinforcementTuningCodeExecutionRewardScorer  ` reward function config, for example, they can define a python code snippet as follows:
+
+    def evaluate(example, response) -> float:
+      response_str = response.get("parts", [])[0]["text"]
+      references = example.get("references", {})
+    
+      if response_str == references.get("concise_answer"):
+        return 1.0
+      return -1.0
+
+In this case, `  references  ` can serve the purpose of holding the ground truth of this example in the training/validation dataset.
+
+`systemInstruction` ` object ( Content  ` )
+
+Corresponds to `  systemInstruction  ` in user-facing `GenerateContentRequest` .
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;contents&quot;: [{object (Content)}],&quot;references&quot;: {string: string,...},&quot;systemInstruction&quot;: {object (Content)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1726,3 +2583,7 @@ Lists tuning jobs in a location.
 ### `            rebaseTunedModel           `
 
 Rebase a tuned model.
+
+### `            validateReinforcementTuningReward           `
+
+Validates a reward on a given example.

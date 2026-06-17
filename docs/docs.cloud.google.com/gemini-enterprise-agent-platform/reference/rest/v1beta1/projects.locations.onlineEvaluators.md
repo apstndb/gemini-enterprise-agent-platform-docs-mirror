@@ -70,7 +70,7 @@ This field is immutable. Once set, it cannot be changed. `data_source` can be on
 
 `cloudObservability` ` object ( CloudObservability  ` )
 
-data source for the OnlineEvaluator, based on GCP Observability stack (Cloud Trace & Cloud Logging).
+data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).
 
 <table>
 <colgroup>
@@ -90,7 +90,7 @@ data source for the OnlineEvaluator, based on GCP Observability stack (Cloud Tra
 
 ## CloudObservability
 
-data source for the OnlineEvaluator, based on GCP Observability stack (Cloud Trace & Cloud Logging).
+data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).
 
 Fields
 

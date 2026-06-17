@@ -73,7 +73,7 @@ Pricing varies between each Gemini model. Our [pricing page](https://cloud.googl
 
 ### Purchase or change Provisioned Throughput orders
 
-If needed, [purchase more Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/purchase-provisioned-throughput#place-an-order) or [change existing Provisioned Throughput orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/purchase-provisioned-throughput#change-order) .
+If needed, [purchase more Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order) or [change existing Provisioned Throughput orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
 
 ### Supervised fine-tuning
 
@@ -195,7 +195,7 @@ These feedback methods often require running the latest Gemini version alongside
 
 If online evaluation results differ greatly from offline evaluation results, your offline evaluation isn't capturing key aspects of the live environment or user experience. Apply the online evaluation findings to create a new offline evaluation that covers the gap, then return to step 3.
 
-If you use Provisioned Throughput, you may need to [purchase additional short-term Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/purchase-provisioned-throughput#pt-weekly-term) to continue to meet your throughput requirements for users in online evaluation.
+If you use Provisioned Throughput, you may need to [purchase additional short-term Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#pt-weekly-term) to continue to meet your throughput requirements for users in online evaluation.
 
 ### 7\. Deploy to production
 

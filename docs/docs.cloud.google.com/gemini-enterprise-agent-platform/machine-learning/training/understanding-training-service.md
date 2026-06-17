@@ -88,7 +88,7 @@ Agent Platform shuts down all workers if it encounters any of the following issu
 <td>Resources are insufficient in region: REGION_NAME . Try a different region or use a different accelerator.</td>
 <td>A <em>stockout</em> happens when Compute Engine is at capacity for your selected CPU or GPU in your region. It is unrelated to your project quota. When this happens, Agent Platform attempts to restart the job up to three times.<br />
 <br />
-For jobs running on A2 and A3 VMs, Dynamic Workload Scheduler lets you schedule jobs that run when the requested GPU resources become available, rather than failing with a stockout error. For more information, see <a href="https://docs.cloud.google.com/vertex-ai/docs/training/schedule-jobs-dws">Schedule training jobs based on resource availability</a> .</td>
+For jobs running on A2 and A3 VMs, Dynamic Workload Scheduler lets you schedule jobs that run when the requested GPU resources become available, rather than failing with a stockout error. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/schedule-jobs-dws">Schedule training jobs based on resource availability</a> .</td>
 </tr>
 </tbody>
 </table>

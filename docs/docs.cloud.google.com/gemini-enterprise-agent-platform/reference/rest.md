@@ -4892,6 +4892,11 @@ Lists tuning jobs in a location.
 `POST /v1beta1/{parent}/tuningJobs:rebaseTunedModel`  
 Rebase a tuned model.
 
+`  validateReinforcementTuningReward  `
+
+`POST /v1beta1/{parent}/tuningJobs:validateReinforcementTuningReward`  
+Validates a reward on a given example.
+
 ## REST Resource: [v1beta1.projects.modelGardenEula](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.modelGardenEula)
 
 Methods

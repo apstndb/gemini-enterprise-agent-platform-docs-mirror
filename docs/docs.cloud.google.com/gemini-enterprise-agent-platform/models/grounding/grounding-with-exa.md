@@ -38,7 +38,14 @@ Grounding with Exa improves accuracy and reduces hallucinations by giving models
 
 ## Supported models
 
-This section lists the models that support Grounding with Exa web search.
+Grounding with Exa is supported by the following models:
+
+  - Gemini 2.5 Flash ( `gemini-2.5-flash` )
+  - Gemini 2.5 Flash-Lite ( `gemini-2.5-flash-lite` )
+  - Gemini 2.5 Pro ( `gemini-2.5-pro` )
+  - Gemini 3.1 Pro ( `gemini-3.1-pro-preview` )
+  - Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` )
+  - Gemini 3.5 Flash ( `gemini-3.5-flash` )
 
 ## Before you begin
 

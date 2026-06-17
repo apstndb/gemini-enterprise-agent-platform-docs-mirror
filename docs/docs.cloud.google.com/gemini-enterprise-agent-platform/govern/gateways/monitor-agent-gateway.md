@@ -93,11 +93,27 @@ Required
 
 The log entry payload that is expressed as a JSON object. The JSON object contains the following Agent Gateway fields:
 
-`agentGatewayInfo` : Includes information about Agent Gateway requests.
+  - `agentGatewayInfo` : Includes information about Agent Gateway requests.
+    
+      - `mcpInfo` : Includes information about the MCP method of the request (for example, "tools/list" or "tools/call") and the primary parameter associated with the method, if any. For example, in the case of the "tools/call" method the parameter is the tool name.
+      - `agentRegistryResource` : The Agent Registry resource name of the MCP server, agent, or endpoint that was matched to the request.
 
-  - `mcpInfo` : Includes information about the MCP method of the request (for example, "tools/list" or "tools/call") and the primary parameter associated with the method, if any. For example, in the case of the "tools/call" method the parameter is the tool name.
-  - `agentRegistryResource` : The Agent Registry resource name of the MCP server, agent, or endpoint that was matched to the request.
+  - You can also inspect the details of the [`serviceEntensionsInfo`](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#what-is-logged-for-callouts) field for information about the authorization extension (IAP, Model Armor, or other) that handled the request.
 
 ## Monitoring
 
 Agent Gateway exports some Service Extensions metrics to Cloud Monitoring. If you're delegating authorization to Service Extensions, you can use these metrics to monitor traffic to and from your extension. For details, see [Logging and monitoring for Cloud Load Balancing callouts](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#monitoring_metrics_for_callouts) .
+
+## What's next
+
+Codelab
+
+### [Codelab: Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway)
+
+Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Agent Platform.
+
+Troubleshooting
+
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+
+Learn how to troubleshoot Agent Gateway connectivity.

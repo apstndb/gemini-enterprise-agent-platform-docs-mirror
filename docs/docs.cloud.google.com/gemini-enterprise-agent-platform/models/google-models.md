@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models
 title: Google models
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Explore the Google models available in Gemini Enterprise Agent Platform, including featured, generally available, and preview Gemini, Gemma, Veo, and embedding models.
 data_source: docs.cloud.google.com
 ---
 

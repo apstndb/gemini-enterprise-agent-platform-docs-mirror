@@ -65,25 +65,23 @@ To configure an end-to-end deployment that uses Agent Gateway, you need the reso
 
 ### Agent runtimes
 
-Agent Gateway is regional in scope. Each gateway governs agentic interactions within the scope of the project it is deployed in. Agent Gateway lets you govern traffic for agents and tools running on the following runtime platforms:
+Agent Gateway lets you govern traffic for agents and tools running on the following runtime platforms:
 
   - **Agent Runtime** : Agent Gateway supports both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) modes.
-    
-    Your agents must be deployed in the same project and region as the gateway. They must also be [registered](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#agent-registry) in the same region.
 
   - **Gemini Enterprise** : Agent Gateway supports only Agent-to-Anywhere (egress) mode.
-    
-    The gateway must be deployed in a specific region corresponding to your Gemini Enterprise multi-region setup. You must strictly adhere to the registration and mapping requirements documented at [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#route-traffic) .
 
-### Agent registration
+Agent Gateway is regional in scope. Each gateway governs agentic interactions within the scope of the project it is deployed in. For more details on planning a deployment with these runtimes, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
-Your agents must be registered with Agent Registry.
+### Agent Registry entries
 
-  - For Agent Runtime, you must register agents with the Agent Registry instance in the same region where your agent and gateway are created.
+Your agents, and any endpoints or servers you want to connect to, must all be registered with Agent Registry.
 
-  - For Gemini Enterprise, you must register agents with the project's global instance of Agent Registry.
+  - For Agent Runtime, you must register with the Agent Registry instance in the same project and region where your agent and gateway are created.
 
-For more information, see [Register an agent](https://docs.cloud.google.com/agent-registry/quickstart-register-agent) .
+  - For Gemini Enterprise, you must register with the project's global instance of Agent Registry.
+
+For more details on Agent Registry requirements, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
 ### Access control policies
 
@@ -145,6 +143,7 @@ Implemented on Agent Gateway by using authorization policies and Service Extensi
 
 To learn more, see the following pages:
 
+  - [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
   - [Authorization policies overview](https://docs.cloud.google.com/load-balancing/docs/auth-policy/auth-policy-overview)
   - [Delegate authorization with Service Extensions for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)
 
@@ -158,6 +157,7 @@ For MCP traffic only, Agent Gateway can parse request data to extract attributes
 
   - For Gemini Enterprise, Client-to-Agent mode is not supported by Agent Gateway.
   - Agent Gateway doesn't support VPC Service Controls. To ensure that agents are only using the Agent Gateway resources you approve of, you can use custom organization policy constraints to restrict agent and gateway bindings. For details, see [Restrict Agent Runtime to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#restrict-ae) and [Restrict Gemini Enterprise to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#restrict-ge) .
+  - Agent Gateway doesn't support connections to destinations with self-signed certificate chains. Use publicly trusted CA certificates.
 
 ## What's next
 
@@ -172,3 +172,9 @@ Guide
 ### [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)
 
 Learn how to set up an Agent Gateway.
+
+Troubleshooting
+
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+
+Learn how to troubleshoot Agent Gateway connectivity.

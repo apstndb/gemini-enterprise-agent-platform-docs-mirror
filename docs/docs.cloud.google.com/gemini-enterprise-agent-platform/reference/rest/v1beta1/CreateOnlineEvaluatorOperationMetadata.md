@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-metadata for the onlineEvaluators.create operation.
+metadata for the CreateOnlineEvaluator operation.
 
 Fields
 

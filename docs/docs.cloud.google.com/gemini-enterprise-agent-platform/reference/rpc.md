@@ -2112,6 +2112,10 @@ Lists tuning jobs in a location.
 
 Rebase a tuned model.
 
+`  ValidateReinforcementTuningReward  `
+
+Validates a reward on a given example.
+
 ## `        google.cloud.aiplatform.v1beta1.IndexEndpointService       `
 
 Methods

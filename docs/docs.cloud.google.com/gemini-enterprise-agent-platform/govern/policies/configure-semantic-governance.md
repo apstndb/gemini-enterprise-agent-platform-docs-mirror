@@ -601,6 +601,27 @@ To switch back to normal enforcement mode, remove `sgpEnforcementMode` from the 
           "metadata": {}
         }'
 
+### Enable request tracing
+
+SGP exports a trace for each request it evaluates to Cloud Trace in your project, so you can inspect per-request latency and policy enforcement. To receive these traces, enable the Cloud Trace API and grant the Vertex AI service account (P4SA) permission to write traces.
+
+1.  Enable the Cloud Trace API:
+    
+        gcloud services enable cloudtrace.googleapis.com \
+            --project=PROJECT_ID
+
+2.  Grant the Cloud Trace Agent role ( `roles/cloudtrace.agent` ) to the Vertex AI service account. This role grants only the trace-write permission ( `cloudtrace.traces.patch` ):
+    
+        export PROJECT_NUM=$(gcloud projects describe PROJECT_ID --format="value(projectNumber)")
+        
+        gcloud projects add-iam-policy-binding PROJECT_ID \
+            --member="serviceAccount:service-${PROJECT_NUM}@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+            --role="roles/cloudtrace.agent"
+
+After both are configured, send a request through your agent and view the traces in [Trace explorer](https://docs.cloud.google.com/trace/docs/finding-traces) for your project.
+
+> If the Cloud Trace API is disabled or the role is missing, requests are still governed, but their traces aren't exported.
+
 ### Manage SGP configuration
 
 After SGP is running, you can delete individual policies or disconnect the engine from your Agent Gateway.
@@ -673,6 +694,14 @@ If you granted permissions to the Vertex AI service account (P4SA), you can remo
     gcloud projects remove-iam-policy-binding PROJECT_ID \
         --member="serviceAccount:service-${PROJECT_NUM}@gcp-sa-aiplatform.iam.gserviceaccount.com" \
         --role="roles/dns.admin"
+    
+    gcloud projects remove-iam-policy-binding PROJECT_ID \
+        --member="serviceAccount:service-${PROJECT_NUM}@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+        --role="roles/cloudtrace.agent"
+
+##### (Optional) Disable the Cloud Trace API
+
+    gcloud services disable cloudtrace.googleapis.com --project=PROJECT_ID
 
 ##### (Optional) Disable the AI Platform service
 

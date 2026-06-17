@@ -80,7 +80,6 @@ Technical specifications
   - Maximum images per prompt: 3,000
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB
   - Maximum file size per file from Google Cloud Storage: 30 MB
-  - Maximum number of output images per prompt: 10
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 

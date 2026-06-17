@@ -69,6 +69,8 @@ Use the following steps to grant permissions to the Discovery Engine Service Age
 
 ## Route Gemini Enterprise traffic through Agent Gateway
 
+> **Important:** Enabling Agent Gateway routes all Gemini Enterprise traffic, including LLM calls, through the gateway. You can then secure this traffic using authorization policies.
+
 To route Gemini Enterprise traffic through Agent Gateway, perform the following steps:
 
 1.  Register your agent with your Gemini Enterprise project's global instance of Agent Registry. Only traffic to and from registered agents, tools, and MCP servers is permitted through a gateway. For more information, see [Register an agent](https://docs.cloud.google.com/agent-registry/quickstart-register-agent) .

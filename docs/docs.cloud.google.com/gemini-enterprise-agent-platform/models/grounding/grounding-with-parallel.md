@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel
-title: Grounding with Parallel web search
+title: Grounding with Parallel Web Search
 description: Implement Gemini model grounding with Parallel's web search API. Access real-time public web data for factual, current generative AI.
 data_source: docs.cloud.google.com
 ---
@@ -13,8 +13,6 @@ data_source: docs.cloud.google.com
 [Parallel Web Systems](https://Parallel.ai) offers a search API that provides access to publicly available web data that's optimized for use by large language models for grounding. This page explains how to ground Gemini responses by using Parallel.
 
 Grounding with Parallel on Gemini Enterprise Agent Platform is a Separate Offering (as defined in your Google Cloud Agreement) that connects Gemini models to public web data provided by [Parallel Web Systems' search API](https://Parallel.ai) . This service gives Gemini access to live information from billions of web pages to ensure more up-to-date and factual responses.
-
-**Please note the following** : Your use of [Parallel](https://Parallel.ai) requires Google Cloud to send certain Customer Data to the [Parallel](https://Parallel.ai) Separate Offering for processing. Your use of the Parallel service is governed by [Parallel's separate terms of use](https://parallel.ai/customer-terms) and [Parallel's acceptable use policy](https://parallel.ai/acceptable-use-policy) .
 
 > **Note:** For web publishers, grounding with Parallel on Gemini Enterprise Agent Platform does not use web pages for grounding that have disallowed ShapBot. Web publishers can [manage their opt outs with a robots.txt file.](https://docs.parallel.ai/resources/crawler)
 
@@ -46,15 +44,38 @@ Grounding with Parallel web search is supported by the following models:
   - Gemini 2.5 Flash-Lite ( `gemini-2.5-flash-lite` )
   - Gemini 2.5 Pro ( `gemini-2.5-pro` )
   - Gemini 3.1 Pro ( `gemini-3.1-pro-preview` )
-  - Gemini 3 Flash Lite ( `gemini-3-flash-lite-preview` )
+  - Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` )
+  - Gemini 3.5 Flash ( `gemini-3.5-flash` )
 
 ## Before you begin
 
-To use Grounding with Parallel, you need to get an API key from [Parallel's web site](https://parallel.ai/products/search) . This API key is used in your request to Gemini.
+To use Grounding with Parallel Web Search, you must set up your access. You have two options:
+
+  - Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) for a streamlined integration within your existing cloud environment.
+
+  - Use an existing Parallel API key.
+
+### Subscribe on Google Cloud Marketplace (recommended)
+
+> **Preview**
+> 
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+Integrating through Google Cloud Marketplace lets you manage your Grounding with Parallel Web Search service directly within Google Cloud. To get started, subscribe to the Grounding with Parallel Web Search service on Google Cloud Marketplace, accept the terms of service, and review the pricing.
+
+> **Note:** When you subscribe to Grounding with Parallel Web Search on Google Cloud Marketplace, Google Cloud is required to send certain data, such as queries derived and rewritten from the original user prompt, to Parallel Web Search for processing. Your use of the Parallel Web Search service is governed by the Google Cloud Marketplace terms of use for Parallel Web Search.
+
+### Bring your own API key
+
+If you prefer to manage your Parallel billing and API access separately, you can provide your own API key. To use this method, you need to get an API key from the [Parallel developer platform](https://platform.parallel.ai) . This API key is used directly in your REST API requests to Gemini.
+
+> **Note:** When you bring your own API key, Google Cloud is required to send certain data, such as queries derived and rewritten from the original user prompt, to Parallel Web Search for processing. Your use of the Parallel Web Search service is governed by the Parallel [terms of use](https://parallel.ai/customer-terms) and [acceptable use policy](https://parallel.ai/acceptable-use-policy) .
 
 ## Ground Gemini responses with Parallel
 
 Request grounded responses from Gemini by using the REST API as follows. For best performance, we recommend using default settings for optional parameters unless you strictly require non-default values.
+
+If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), verify that the billing account used for your subscription is active in your Google Cloud project.
 
 ### REST
 
@@ -64,7 +85,7 @@ Before using any of the request data, make the following replacements:
   - PROJECT\_ID : Your Google Cloud project ID.
   - MODEL\_ID : The ID of the model to use.
   - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel AI Search.
+  - API\_KEY : Your API key for Parallel Web Search. If you specify an API key and are also subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), the API key takes precedence.
   - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 10 domains.
   - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 10 domains.
   - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
@@ -234,13 +255,28 @@ You should receive a JSON response similar to the following.
 
 ## Quota
 
-The default quota is 200 prompts per minute. If you need to increase your rate limits, contact <support@parallel.ai> and your Google account team with your use case and requirements.
+The default quota is 200 prompts per minute. To request an increase to your rate limits, provide your use case and requirements to the appropriate contact:
+
+  - **If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ):** Contact your Google account team.
+
+  - **If you provide your own API key:** Contact <support@parallel.ai> and your Google account team.
 
 ## Billing
 
-The use of Grounding with Parallel incurs the following charges:
+The use of Grounding with Parallel Web Search incurs the following charges:
 
-  - **Gemini token consumption** : Prompt tokens, thinking tokens, output tokens. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing) .
-  - **Gemini's Grounding with your data** : For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing) .
-      - Input tokens provided by Parallel are not charged extra.
-  - **Pricing for the use of Parallel's search API** : For more information, see [Parallel's pricing page](https://parallel.ai/pricing) .
+  - **Gemini token consumption:** You can be billed for:
+    
+      - Prompt tokens
+      - Thinking tokens
+      - Output tokens
+    
+    For more information, see [Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) .
+
+  - **Gemini's Grounding with your data:** For more information, see [Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) .
+
+  - **Pricing for the use of the Parallel Web Search API:**
+    
+      - If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), see the [Parallel pricing](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) section on Google Cloud Marketplace for more information.
+    
+      - If you provide your own API key, see the [Parallel website](https://parallel.ai/pricing) for more information.

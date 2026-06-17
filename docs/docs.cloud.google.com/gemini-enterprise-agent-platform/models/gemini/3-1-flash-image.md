@@ -123,6 +123,7 @@ Versions
 
   - Launch stage: GA
   - Release date: May 28, 2026
+  - Discontinuation date: Not before May 28, 2027
 
 Security controls
 

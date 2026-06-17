@@ -117,9 +117,9 @@ Learn how to use Identity Access Management (IAM) agent identity to provide secu
 
 Guide
 
-### [Route agent traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+### [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
 
-Learn how to route Agent Platform Runtime traffic through Agent Gateway for secure and governed connectivity.
+Learn how to route Agent Runtime traffic through Agent Gateway for secure and governed connectivity.
 
 Guide
 

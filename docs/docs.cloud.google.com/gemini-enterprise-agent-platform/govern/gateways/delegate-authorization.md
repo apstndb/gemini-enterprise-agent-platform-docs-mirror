@@ -491,8 +491,20 @@ Additionally, see the following sections for more information about the limitati
 
 ## What's next
 
+Codelab
+
+### [Codelab: Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway)
+
+Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Agent Platform.
+
 Guide
 
 ### [Monitor Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway)
 
 Learn how to monitor Agent Gateway.
+
+Troubleshooting
+
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+
+Learn how to troubleshoot Agent Gateway connectivity.

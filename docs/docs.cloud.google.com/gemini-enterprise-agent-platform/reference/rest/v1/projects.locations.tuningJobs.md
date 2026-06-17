@@ -577,9 +577,11 @@ Fields
 
 Optional. A list of character sequences that will stop the model from generating further tokens. If a stop sequence is generated, the output will end at that point. This is useful for controlling the length and structure of the output. For example, you can use \["\\n", "\#\#\#"\] to stop generation at a new line or a specific marker.
 
-`responseMimeType` `string`
+` responseMimeType (deprecated)  ` `string`
 
-Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined.
+> This item is deprecated\!
+
+Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. Deprecated: Use `responseFormat` instead.
 
 `responseModalities[]` ` enum ( Modality  ` )
 
@@ -639,15 +641,19 @@ Optional. A seed for the random number generator.
 
 By setting a seed, you can make the model's output mostly deterministic. For a given prompt and parameters (like temperature, topP, etc.), the model will produce the same response every time. However, it's not a guaranteed absolute deterministic behavior. This is different from parameters like `temperature` , which control the *level* of randomness. `seed` ensures that the "random" choices the model makes are the same on every run, making it essential for testing and ensuring reproducible results.
 
-`responseSchema` ` object ( Schema  ` )
+` responseSchema (deprecated)  ` ` object ( Schema  ` )
+
+> This item is deprecated\!
 
 Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object.
 
-When this field is set, you must also set the `responseMimeType` to `application/json` .
+When this field is set, you must also set the `responseMimeType` to `application/json` . Deprecated: Use `responseFormat` instead.
 
-`responseJsonSchema` ` value ( Value  ` format)
+` responseJsonSchema (deprecated)  ` ` value ( Value  ` format)
 
-Optional. When this field is set, `responseSchema` must be omitted and `responseMimeType` must be set to `application/json` .
+> This item is deprecated\!
+
+Optional. When this field is set, `responseSchema` must be omitted and `responseMimeType` must be set to `application/json` . Deprecated: Use `responseFormat` instead.
 
 `routingConfig` ` object ( RoutingConfig  ` )
 
@@ -669,9 +675,11 @@ Optional. The speech generation config.
 
 Optional. If enabled, the model will detect emotions and adapt its responses accordingly. For example, if the model detects that the user is frustrated, it may provide a more empathetic response.
 
-`imageConfig` ` object ( ImageConfig  ` )
+` imageConfig (deprecated)  ` ` object ( ImageConfig  ` )
 
-Optional. Config for image generation features.
+> This item is deprecated\!
+
+Optional. Config for image generation features. Deprecated: Use `responseFormat.image` instead.
 
 <table>
 <colgroup>

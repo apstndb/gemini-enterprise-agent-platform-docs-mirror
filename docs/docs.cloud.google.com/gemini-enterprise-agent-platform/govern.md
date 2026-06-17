@@ -61,6 +61,12 @@ Learn how to test policies.
 
 ## Agent Gateway
 
+Guide
+
+### [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+
+Learn how to route Agent Runtime traffic through Agent Gateway for secure and governed connectivity.
+
 Codelab
 
 ### [Codelab: Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway)
@@ -90,6 +96,12 @@ Guide
 ### [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)
 
 Learn how to set up an Agent Gateway.
+
+Troubleshooting
+
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+
+Learn how to troubleshoot Agent Gateway connectivity.
 
 Guide
 
