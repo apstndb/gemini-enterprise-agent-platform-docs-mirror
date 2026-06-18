@@ -30,7 +30,7 @@ Access Transparency supports the following Gemini Enterprise Agent Platform serv
   - [Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview)
   - [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
   - [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction)
-  - [Vertex AI Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction)
+  - [Gemini Enterprise Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction)
   - [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai)
   - [Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction)
   - [Agent Platform Vizier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vizier)

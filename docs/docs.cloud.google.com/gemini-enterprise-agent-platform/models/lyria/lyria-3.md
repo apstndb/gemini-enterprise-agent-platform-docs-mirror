@@ -62,7 +62,7 @@ Technical specifications
 
 Versions
 
-`lyria-3-clip-preview`
+`lyria-3-pro-preview`
 
   - Launch stage: Preview
   - Release date: 2026-03-25

@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/gemini-cli
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/gemini-cli
-title: Use the Gemini CLI with a Vertex AI Workbench instance
-description: Use the Gemini CLI in a Vertex AI Workbench instance.
+title: Use the Gemini CLI with a Gemini Enterprise Agent Platform Workbench instance
+description: Use the Gemini CLI in a Agent Platform Workbench instance.
 data_source: docs.cloud.google.com
 ---
 
@@ -12,27 +12,27 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-This page describes how to use the Gemini command line interface (CLI) with a Vertex AI Workbench instance.
+This page describes how to use the Gemini command line interface (CLI) with a Gemini Enterprise Agent Platform Workbench instance.
 
-This document is intended for data analysts, data scientists, and data developers who work with Vertex AI Workbench. This document assumes you have knowledge of how to write code in a notebook environment.
+This document is intended for data analysts, data scientists, and data developers who work with Agent Platform Workbench. This document assumes you have knowledge of how to write code in a notebook environment.
 
 ## Overview
 
 The Gemini CLI is an open source AI agent that provides access to Gemini directly in a terminal. For more information, see [geminicli.com](https://geminicli.com/) .
 
-The Gemini CLI is available in Vertex AI Workbench instances. You can use the Gemini CLI to do the following:
+The Gemini CLI is available in Agent Platform Workbench instances. You can use the Gemini CLI to do the following:
 
   - Create a new notebook.
   - Run notebook cells.
   - Write and edit a notebook's code and text cells.
   - Explain code and technical concepts.
-  - Interact with a Vertex AI Workbench instance's local file system, including performing complex file operations that span multiple files based on a single, high-level instruction.
+  - Interact with a Agent Platform Workbench instance's local file system, including performing complex file operations that span multiple files based on a single, high-level instruction.
   - Run basic shell commands.
   - Run commands to interact with other Google Cloud services, such as Gemini Enterprise Agent Platform and BigQuery.
 
 ## Limitations
 
-Consider the following limitations when you use the Gemini CLI with Vertex AI Workbench:
+Consider the following limitations when you use the Gemini CLI with Agent Platform Workbench:
 
   - The Gemini CLI is a CLI only. A graphical chat interface and advanced in-editor tools aren't included.
 
@@ -44,35 +44,35 @@ Consider the following limitations when you use the Gemini CLI with Vertex AI Wo
 
 ### Required roles
 
-To use the Gemini CLI in Vertex AI Workbench, you must grant permissions to the user of the Vertex AI Workbench instance and the instance's service account.
+To use the Gemini CLI in Agent Platform Workbench, you must grant permissions to the user of the Agent Platform Workbench instance and the instance's service account.
 
-> **Note:** The Gemini CLI operates strictly within the permissions of your Vertex AI Workbench instance's environment. If you (or the service account your instance uses) don't have permission to access a specific resource, Gemini CLI won't be able to access it either. If a command fails due to permissions, ask your administrator to grant the necessary permissions.
+> **Note:** The Gemini CLI operates strictly within the permissions of your Agent Platform Workbench instance's environment. If you (or the service account your instance uses) don't have permission to access a specific resource, Gemini CLI won't be able to access it either. If a command fails due to permissions, ask your administrator to grant the necessary permissions.
 
 #### Grant permissions to the user of the instance
 
-To get the permissions that you need to use the Gemini CLI in a Vertex AI Workbench instance, ask your administrator to grant you the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user)` IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+To get the permissions that you need to use the Gemini CLI in a Agent Platform Workbench instance, ask your administrator to grant you the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user)` IAM role on the project. For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
 #### Grant a permission to your instance's service account
 
-To ensure that your Vertex AI Workbench instance's service account has the necessary permission to enable the Gemini CLI to run in a Vertex AI Workbench instance, ask your administrator to grant the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user)` IAM role to your Vertex AI Workbench instance's service account on the project.
+To ensure that your Agent Platform Workbench instance's service account has the necessary permission to enable the Gemini CLI to run in a Agent Platform Workbench instance, ask your administrator to grant the [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user)` IAM role to your Agent Platform Workbench instance's service account on the project.
 
-> **Important:** You must grant this role to your Vertex AI Workbench instance's service account, *not* to your user account. Failure to grant the role to the correct principal might result in permission errors.
+> **Important:** You must grant this role to your Agent Platform Workbench instance's service account, *not* to your user account. Failure to grant the role to the correct principal might result in permission errors.
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
-This predefined role contains the `aiplatform.endpoints.predict` permission, which is required to enable the Gemini CLI to run in a Vertex AI Workbench instance.
+This predefined role contains the `aiplatform.endpoints.predict` permission, which is required to enable the Gemini CLI to run in a Agent Platform Workbench instance.
 
-Your administrator might also be able to give your Vertex AI Workbench instance's service account this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+Your administrator might also be able to give your Agent Platform Workbench instance's service account this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
 ## Use the Gemini CLI
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Next to a Vertex AI Workbench instance's name, click **Open JupyterLab** .
+2.  Next to a Agent Platform Workbench instance's name, click **Open JupyterLab** .
     
-    Your Vertex AI Workbench instance opens JupyterLab.
+    Your Agent Platform Workbench instance opens JupyterLab.
 
 3.  In JupyterLab, click **File** \> **New launcher** .
 
@@ -80,7 +80,7 @@ Your administrator might also be able to give your Vertex AI Workbench instance'
 
 5.  If it's the first time you've opened a Gemini CLI terminal, enter `Y` to agree to the terms and conditions.
     
-    Your Vertex AI Workbench instance installs the Gemini CLI.
+    Your Agent Platform Workbench instance installs the Gemini CLI.
 
 6.  In the Gemini CLI terminal, enter a prompt.
     
@@ -98,7 +98,7 @@ To help you get ideas for how to use the Gemini CLI, see the following sample pr
 
   - "Create a script using the contents of the 'test-file' notebook."
 
-  - "Show me how to access data from BigQuery tables from within Vertex AI Workbench."
+  - "Show me how to access data from BigQuery tables from within Agent Platform Workbench."
 
   - "Query the bigquery-public-data.ml\_datasets.census\_adult\_income table to find the number of people with an income bracket of \> 50K."
 
@@ -112,7 +112,7 @@ To help you get ideas for how to use the Gemini CLI, see the following sample pr
 
 ## Control access to the Gemini CLI
 
-You can control access to the Gemini CLI in Vertex AI Workbench by using the following methods:
+You can control access to the Gemini CLI in Agent Platform Workbench by using the following methods:
 
   - An administrator can set up an organization policy to restrict usage of specific Gemini models at an organization, folder, or project level. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/control-model-access) . The Gemini CLI continues to appear in JupyterLab, but the CLI doesn't respond to prompts.
 
@@ -131,10 +131,10 @@ The Gemini CLI adds a new cell below with its response.
 
 ## Troubleshoot
 
-If you encounter a problem using the Gemini CLI with Vertex AI Workbench instances, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#gemini-cli) for help with common issues.
+If you encounter a problem using the Gemini CLI with Agent Platform Workbench instances, see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#gemini-cli) for help with common issues.
 
 ## What's next
 
   - Learn more about [Gemini](https://docs.cloud.google.com/gemini/docs/overview) .
 
-  - To learn about methods for querying BigQuery data in Vertex AI Workbench notebooks, see [Query data in BigQuery from within JupyterLab](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) .
+  - To learn about methods for querying BigQuery data in Agent Platform Workbench notebooks, see [Query data in BigQuery from within JupyterLab](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) .

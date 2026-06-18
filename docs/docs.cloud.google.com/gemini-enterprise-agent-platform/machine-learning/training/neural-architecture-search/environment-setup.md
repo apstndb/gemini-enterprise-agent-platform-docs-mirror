@@ -115,7 +115,7 @@ You also need to set up authentication to push dockers to this repository. The [
 
 ## Set up your local environment
 
-You can run these steps using the Bash shell in your local environment, or run them from a notebook in a Vertex AI Workbench instance.
+You can run these steps using the Bash shell in your local environment, or run them from a notebook in a Gemini Enterprise Agent Platform Workbench instance.
 
 1.  Set up basic environment variables:
     
@@ -142,7 +142,7 @@ You can run these steps using the Bash shell in your local environment, or run t
 
 ## Set up a service account
 
-You must set up a [service account](https://docs.cloud.google.com/iam/docs/service-accounts) before running NAS jobs. You can run these steps using the Bash shell in your local environment, or run them from a notebook in a Vertex AI Workbench instance.
+You must set up a [service account](https://docs.cloud.google.com/iam/docs/service-accounts) before running NAS jobs. You can run these steps using the Bash shell in your local environment, or run them from a notebook in a Gemini Enterprise Agent Platform Workbench instance.
 
 1.  Create a service account:
     

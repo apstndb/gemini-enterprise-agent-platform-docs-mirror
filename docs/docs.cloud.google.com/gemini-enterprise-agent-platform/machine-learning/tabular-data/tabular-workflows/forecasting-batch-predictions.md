@@ -12,17 +12,17 @@ An online inference is a synchronous request. Use online inferences when you mak
 
 A batch inference request is an asynchronous request. Use batch inference when you don't require an immediate response and want to process accumulated data by using a single request.
 
-This page shows you how to project future values using batch inferences. To learn how to project values using online inferences, see [Get online inferences for a forecast model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-online-predictions) .
+This page shows you how to project future values using batch inferences. To learn how to project values using online inferences, see [Get online inferences for a forecast model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-online-predictions) .
 
 You can request batch inferences directly from the model resource.
 
-You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
-To learn about pricing for batch inferences, see [Pricing for Tabular Workflows](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+To learn about pricing for batch inferences, see [Pricing for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
 
 ## Before you begin
 
-Before you make a batch inference request, first [train](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-train) a model.
+Before you make a batch inference request, first [train](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train) a model.
 
 ## Input data
 
@@ -544,18 +544,18 @@ To retrieve the inferences table:
 
 Gemini Enterprise Agent Platform stores inferences in the `predicted_ TARGET_COLUMN_NAME .value` column.
 
-If you [trained a model with Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) , you can find TFT interpretability output in the `predicted_ TARGET_COLUMN_NAME .tft_feature_importance` column.
+If you [trained a model with Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) , you can find TFT interpretability output in the `predicted_ TARGET_COLUMN_NAME .tft_feature_importance` column.
 
 This column is further divided into the following:
 
-  - `context_columns` : Forecasting features whose [context window](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Encoder.
+  - `context_columns` : Forecasting features whose [context window](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Encoder.
   - `context_weights` : The feature importance weights associated with each of the `context_columns` for the predicted instance.
-  - `horizon_columns` : Forecasting features whose [forecast horizon](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Decoder.
+  - `horizon_columns` : Forecasting features whose [forecast horizon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Decoder.
   - `horizon_weights` : The feature importance weights associated with each of the `horizon_columns` for the predicted instance.
-  - `attribute_columns` : Forecasting features which are [time-invariant](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
+  - `attribute_columns` : Forecasting features which are [time-invariant](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
   - `attribute_weights` : The weights associated with each of the `attribute_columns` .
 
-If your model is [optimized for quantile loss](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) and your set of quantiles includes the median, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the median. Otherwise, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the lowest quantile in the set. For example, if your set of quantiles is `[0.1, 0.5, 0.9]` , `value` is the inference for quantile `0.5` . If your set of quantiles is `[0.1, 0.9]` , `value` is the inference for quantile `0.1` .
+If your model is [optimized for quantile loss](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) and your set of quantiles includes the median, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the median. Otherwise, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the lowest quantile in the set. For example, if your set of quantiles is `[0.1, 0.5, 0.9]` , `value` is the inference for quantile `0.5` . If your set of quantiles is `[0.1, 0.9]` , `value` is the inference for quantile `0.1` .
 
 Additionally, Gemini Enterprise Agent Platform stores quantile values and inferences in the following columns:
 
@@ -742,4 +742,4 @@ The inference values are given in the `predicted_Sales.quantile_predictions` col
 
 ## What's next
 
-  - Learn about [pricing for batch inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

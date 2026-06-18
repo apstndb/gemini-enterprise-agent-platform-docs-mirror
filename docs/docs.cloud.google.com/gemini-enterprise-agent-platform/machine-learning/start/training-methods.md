@@ -6,8 +6,6 @@ description: Learn about the key differences between training a model in Gemini 
 data_source: docs.cloud.google.com
 ---
 
-[Video](https://www.youtube.com/watch?v=aNWCzyCK4Us)
-
 This document explains the key differences between the training methods available on Google Cloud. Your choice depends on your team's expertise, the level of control you need, and your infrastructure preference..
 
   - With [AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide) , you create and train a model with minimal technical effort. You can use AutoML to quickly prototype models and explore new datasets before investing in development. For example, you can use it to learn which features are best for a given dataset.

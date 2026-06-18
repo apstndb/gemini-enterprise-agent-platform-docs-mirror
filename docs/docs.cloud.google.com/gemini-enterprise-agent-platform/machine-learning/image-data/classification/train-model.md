@@ -6,8 +6,6 @@ description: Learn how to train AutoML classification models from image datasets
 data_source: docs.cloud.google.com
 ---
 
-[Video](https://www.youtube.com/watch?v=d8FtBAxDZ9A)
-
 This page shows you how to train an AutoML classification model from an image dataset using either the Google Cloud console or the Agent Platform API.
 
 ## Train an AutoML model

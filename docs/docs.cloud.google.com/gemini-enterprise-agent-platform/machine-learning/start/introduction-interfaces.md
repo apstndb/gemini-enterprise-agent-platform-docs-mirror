@@ -36,7 +36,7 @@ You can define the Gemini Enterprise Agent Platform resources and permissions fo
 
 Use Terraform if you want to standardize the infrastructure for Gemini Enterprise Agent Platform resources in your Google Cloud project and update the existing Google Cloud project infrastructure while fulfilling resource dependencies.
 
-To get started, see [Terraform support for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/start/use-terraform-vertex-ai) .
+To get started, see [Terraform support for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/use-terraform-vertex-ai) .
 
 ### Python
 
@@ -44,7 +44,7 @@ Use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-ent
 
 The Agent Platform SDK for Python is similar to the Gemini Enterprise Agent Platform Python client library, except the SDK is higher-level and less granular. For more information, see the [Understand the SDK and client library differences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk#sdk-vs-client-library) .
 
-To get started, see [Install the Agent Platform SDK](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk) .
+To get started, see [Install the Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
 ### Client libraries
 
@@ -62,7 +62,7 @@ The following languages are supported for Gemini Enterprise Agent Platform:
 
   - Go
 
-For more information, see [Install the Gemini Enterprise Agent Platform client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) .
+For more information, see [Install the Gemini Enterprise Agent Platform client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
 ### REST
 
@@ -74,7 +74,7 @@ To get started, see the [Agent Platform API REST reference](https://docs.cloud.g
 
 ## What's next
 
-  - [Set up a project and a development environment](https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment) .
-  - [Choose a training method](https://docs.cloud.google.com/vertex-ai/docs/start/training-methods) .
+  - [Set up a project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) .
+  - [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
   - Tutorials for [Image](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/overview) , [Tabular](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-automl/overview) , and [Custom training](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/overview) .
   - Learn [best practices for implementing custom-trained ML models on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/architecture/ml-on-gcp-best-practices) .

@@ -12,17 +12,17 @@ An online inference is a synchronous request. Use online inferences when you mak
 
 A batch inference request is an asynchronous request. Use batch inferences when you don't require an immediate response and want to process accumulated data by using a single request.
 
-This page shows you how to project future values using online inferences. To learn how to project values using batch inferences, see [Get batch inferences for a forecast model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-batch-predictions) .
+This page shows you how to project future values using online inferences. To learn how to project values using batch inferences, see [Get batch inferences for a forecast model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions) .
 
 You must deploy your model to an endpoint before you can use it for inferences. An endpoint is a set of physical resources.
 
-You can request an explanation instead of an inference. The explanation's local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+You can request an explanation instead of an inference. The explanation's local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
-To learn about pricing for online inferences, see [Pricing for Tabular Workflows](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+To learn about pricing for online inferences, see [Pricing for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
 
 ## Before you begin
 
-Before you can make an online inference request, first [train](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-train) a model.
+Before you can make an online inference request, first [train](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train) a model.
 
 ## Create or select an endpoint
 
@@ -95,9 +95,9 @@ The input instance is subject to the following constraints:
   - The *unavailable at forecast* key-value pairs must all have the same number of data points.
   - The *available at forecast* key-value pairs must have at least as many data points as the *unavailable at forecast* key-value pairs.
 
-To learn more about the types of columns used in forecasting, see [Feature type and availability at forecast](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
+To learn more about the types of columns used in forecasting, see [Feature type and availability at forecast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
 
-The following code demonstrates a set of two input instances. The `Category` column contains attribute data. The `Timestamp` column contains data that is available at forecast. Three points are *context* data and two points are *horizon* data. The `Sales` column contains data that is unavailable at forecast. All three points are *context* data. To learn how context and horizon are used in forecasting, see [Forecast horizon, context window, and forecast window](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) .
+The following code demonstrates a set of two input instances. The `Category` column contains attribute data. The `Timestamp` column contains data that is available at forecast. Three points are *context* data and two points are *horizon* data. The `Sales` column contains data that is unavailable at forecast. All three points are *context* data. To learn how context and horizon are used in forecasting, see [Forecast horizon, context window, and forecast window](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) .
 
     instances=[
       {
@@ -143,7 +143,7 @@ Consider the following examples:
 
 ### Online inferences output for TFT models
 
-For models trained with [Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) , Gemini Enterprise Agent Platform provides TFT interpretability `tft_feature_importance` in addition to inferences in the `value` field:
+For models trained with [Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) , Gemini Enterprise Agent Platform provides TFT interpretability `tft_feature_importance` in addition to inferences in the `value` field:
 
     {
       "tft_feature_importance": {
@@ -157,16 +157,16 @@ For models trained with [Temporal Fusion Transformer (TFT)](https://docs.cloud.g
       "value": [...]
     }
 
-  - `attribute_columns` : Forecasting features which are [time-invariant](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
+  - `attribute_columns` : Forecasting features which are [time-invariant](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
   - `attribute_weights` : The weights associated with each of the `attribute_columns` .
-  - `context_columns` : Forecasting features whose [context window](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Encoder.
+  - `context_columns` : Forecasting features whose [context window](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Encoder.
   - `context_weights` : The feature importance weights associated with each of the `context_columns` for the predicted instance.
-  - `horizon_columns` : Forecasting features whose [forecast horizon](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Decoder.
+  - `horizon_columns` : Forecasting features whose [forecast horizon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Decoder.
   - `horizon_weights` : The feature importance weights associated with each of the `horizon_columns` for the predicted instance.
 
 ### Online inference output for models optimized for quantile loss
 
-For models optimized for [quantile loss](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) , Gemini Enterprise Agent Platform provides the following online inference output:
+For models optimized for [quantile loss](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) , Gemini Enterprise Agent Platform provides the following online inference output:
 
     {
       "value": [...],
@@ -198,7 +198,7 @@ To get explanations, use the function [`explain()`](https://docs.cloud.google.co
 
 The format of the input instances is the same for online inferences and online explanations. To learn more, see [Get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-online-predictions#get-inferences) .
 
-For a conceptual overview of feature attributions, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+For a conceptual overview of feature attributions, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
 ## Output of online explanation
 
@@ -265,4 +265,4 @@ Use the functions [`undeploy_all()`](https://docs.cloud.google.com/python/docs/r
 
 ## What's next
 
-  - Learn about [pricing for online inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

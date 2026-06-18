@@ -80,4 +80,4 @@ Cloud Shell incurs no charges, and it [automatically deletes your home disk afte
 
   - To learn about additional ways to train ML models on Gemini Enterprise Agent Platform, try one of the other [Gemini Enterprise Agent Platform tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials) .
 
-  - Read an [overview of how Gemini Enterprise Agent Platform works](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) .
+  - Read an [overview of how Gemini Enterprise Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-unified-platform) .

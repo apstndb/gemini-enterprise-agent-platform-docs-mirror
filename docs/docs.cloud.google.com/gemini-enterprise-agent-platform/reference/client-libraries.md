@@ -78,7 +78,7 @@ For more information, view the [Agent Platform client library for Node.js docume
 
 The Gemini Enterprise Agent Platform Python client library is installed when you install the Vertex AI SDK for Python.
 
-For more information, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk) .
+For more information, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
 ### Go
 

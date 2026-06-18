@@ -330,7 +330,7 @@ While Gemini is listening to a conversation, input audio tokens will be charged.
 
 For output audio tokens, you're only charged when Gemini responds. If Gemini does not respond or stays silent, there will be no charge to your output audio tokens.
 
-For more information, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+For more information, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## What's next
 

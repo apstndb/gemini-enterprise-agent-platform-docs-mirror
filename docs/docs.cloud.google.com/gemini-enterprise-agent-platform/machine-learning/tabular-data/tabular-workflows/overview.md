@@ -21,7 +21,7 @@ Each workflow is a managed instance of Gemini Enterprise Agent Platform Pipeline
 
 [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/vertex-ai/docs/pipelines/introduction) is a serverless service that runs Kubeflow pipelines. You can use pipelines to automate and monitor your machine learning and data preparation tasks. Each step in a pipeline performs part of the pipeline's workflow. For example, a pipeline can include steps to split data, transform data types, and train a model. Since steps are instances of pipeline components, steps have inputs, outputs, and a container image. Step inputs can be set from the pipeline's inputs or they can depend on the output of other steps within this pipeline. These dependencies define the pipeline's workflow as a directed acyclic graph.
 
-<https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/tabular-workflows.png>
+<https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/images/tabular-workflows.png>
 
 ## Get started
 
@@ -55,11 +55,11 @@ Each workflow is releases and updated as part of the [Google Cloud Pipeline Comp
 
 Agent Platform provides the following Tabular Workflows:
 
-| **Name**                                                                                                                                  | **Type**                    | **Availability**    |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------- |
-| [Feature Transform Engine](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview#feature-transform-engine) | Feature Engineering         | Public Preview      |
-| [End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview#cr-e2e-automl)                   | Classification & Regression | Generally Available |
-| [Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview#forecasting)                           | Forecasting                 | Public Preview      |
+| **Name**                                                                                                                                                                     | **Type**                    | **Availability**    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------- |
+| [Feature Transform Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#feature-transform-engine) | Feature Engineering         | Public Preview      |
+| [End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#cr-e2e-automl)                   | Classification & Regression | Generally Available |
+| [Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#forecasting)                           | Forecasting                 | Public Preview      |
 
 For additional information and sample notebooks, contact your sales representative or fill out a [request form](https://forms.gle/PGFzdf5gtZHfWTtw9) .
 
@@ -71,13 +71,13 @@ For additional information and sample notebooks, contact your sales representati
 
 Feature Transform Engine performs feature selection and feature transformations. If feature selection is enabled, Feature Transform Engine creates a ranked set of important features. If feature transformations are enabled, Feature Transform Engine processes the features to ensure that the input for model training and model serving is consistent. Feature Transform Engine can be used on its own or together with any of the [tabular training workflows](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview) . It supports both TensorFlow and non-TensorFlow frameworks.
 
-For more information, see [Feature engineering](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/feature-engineering) .
+For more information, see [Feature engineering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/feature-engineering) .
 
 ## Tabular Workflows for classification and regression
 
 ### Tabular Workflow for End-to-End AutoML
 
-Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classification and regression tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/overview) , but allows you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
+Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classification and regression tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview) , but allows you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
 
   - Data splitting
   - Feature engineering
@@ -101,7 +101,7 @@ Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classif
   - Produces an Agent Platform model as output.
   - Intermediate outputs include dataset statistics and dataset splits.
 
-For more information, see [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl) .
+For more information, see [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl) .
 
 ## Tabular Workflows for forecasting
 
@@ -111,7 +111,7 @@ For more information, see [Tabular Workflow for End-to-End AutoML](https://docs.
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) , but lets you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
+Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) , but lets you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
 
   - Data splitting
   - Feature engineering
@@ -134,10 +134,10 @@ Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks.
   - Produces an Agent Platform model as output.
   - Intermediate outputs include dataset statistics and dataset splits.
 
-For more information, see [Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting) .
+For more information, see [Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting) .
 
 ## What's next
 
-  - Learn about [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl) .
-  - Learn about [Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting) .
-  - Learn about [Pricing for Tabular Workflows](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+  - Learn about [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl) .
+  - Learn about [Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting) .
+  - Learn about [Pricing for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

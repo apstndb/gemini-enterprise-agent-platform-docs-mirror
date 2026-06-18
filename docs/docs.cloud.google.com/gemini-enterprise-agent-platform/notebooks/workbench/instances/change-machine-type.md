@@ -20,7 +20,7 @@ Consider the following before you make any changes to your Agent Platform Workbe
 
 ### Billing implications
 
-Each machine type and GPU configuration is billed at a different rate. Make sure you understand the [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing#notebooks) implications of making a change. For example, an `e2-highmem-2` machine type costs more than an `e2-standard-2` machine type.
+Each machine type and GPU configuration is billed at a different rate. Make sure you understand the [pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#notebooks) implications of making a change. For example, an `e2-highmem-2` machine type costs more than an `e2-standard-2` machine type.
 
 ### Changing between G2 and non-G2 machine types not supported
 

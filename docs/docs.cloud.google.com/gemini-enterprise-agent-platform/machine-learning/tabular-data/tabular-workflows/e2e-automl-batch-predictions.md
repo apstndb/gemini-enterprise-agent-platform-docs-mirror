@@ -641,4 +641,4 @@ For examples of feature attribution queries and to learn more, see [Feature Attr
 ## What's next
 
   - Learn how to [export your model](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) .
-  - Learn about [pricing for batch inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

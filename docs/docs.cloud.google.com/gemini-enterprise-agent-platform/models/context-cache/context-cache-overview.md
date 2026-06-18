@@ -116,8 +116,8 @@ Context caching limits
 
 Minimum cache token count for implicit and explicit caching
 
-  - **Gemini 3 and Gemini 3.1 models:** 4,096 tokens
-  - **Gemini 2.0 and 2.5 models:** 2,048 tokens
+  - **Gemini 3 family models:** 4,096 tokens
+  - **Gemini 2 family models:** 2,048 tokens
 
 Maximum size of content you can cache using a blob or text
 

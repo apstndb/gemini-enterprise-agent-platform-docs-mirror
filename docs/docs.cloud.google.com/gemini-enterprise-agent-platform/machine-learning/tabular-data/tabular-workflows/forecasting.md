@@ -10,9 +10,9 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-This document provides an overview of Tabular Workflow for Forecasting [pipeline and components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting#components) . To learn how to train a model, see [Train a model with Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-train) .
+This document provides an overview of Tabular Workflow for Forecasting [pipeline and components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting#components) . To learn how to train a model, see [Train a model with Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train) .
 
-Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) , but lets you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
+Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) , but lets you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
 
   - Data splitting
   - Feature engineering
@@ -41,7 +41,7 @@ Tabular Workflow for Forecasting is a managed instance of Gemini Enterprise Agen
 
 The following diagram shows the modeling pipeline for Tabular Workflow for Forecasting:
 
-![Pipeline for Forecasting](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/forecasting.svg)  
+![Pipeline for Forecasting](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/images/forecasting.svg)  
 
 The pipeline components are:
 
@@ -86,7 +86,7 @@ The pipeline components are:
     
       - `tuning_result_output` : Tuning output.
 
-6.  **get-prediction-image-uri-2** : Produces the correct inference image URI based on the [model type](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/train-model#training-methods) .
+6.  **get-prediction-image-uri-2** : Produces the correct inference image URI based on the [model type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model#training-methods) .
 
 7.  **automl-forecasting-ensemble-2** : Ensembles the best architectures to produce a final model.
     
@@ -112,4 +112,4 @@ The pipeline components are:
 
 ## What's next
 
-  - [Train a model using Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-train) .
+  - [Train a model using Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train) .

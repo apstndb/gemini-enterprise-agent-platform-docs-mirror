@@ -2,11 +2,9 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/create-dataset
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/create-dataset
 title: Create a dataset for training image object detection models
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to create a Agent Platform dataset from your image data for training object detection models.
 data_source: docs.cloud.google.com
 ---
-
-[Video](https://www.youtube.com/watch?v=CN2X6oIlnmI)
 
 This page shows you how to create an Agent Platform dataset from your image data so you can start training object detection models. You can create a dataset using either the Google Cloud console or the Agent Platform API.
 

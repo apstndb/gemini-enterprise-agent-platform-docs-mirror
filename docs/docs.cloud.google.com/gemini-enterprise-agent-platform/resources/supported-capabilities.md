@@ -66,6 +66,8 @@ Restricted
 
 Restricted
 
+[Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use)
+
 > **Note:** Standard PayGo with Usage Tiers, Priority PayGo, and Flex PayGo support only the `global` endpoint.
 
 For instructions on disabling unsupported capabilities in Gemini Enterprise Agent Platform, see [organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) .

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 ## Introduction
 
-This beginner's guide introduces AutoML. To understand key differences between AutoML and custom training, see [Choosing a training method](https://docs.cloud.google.com/vertex-ai/docs/start/training-methods) .
+This beginner's guide introduces AutoML. To understand key differences between AutoML and custom training, see [Choosing a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
 
 Imagine:
 

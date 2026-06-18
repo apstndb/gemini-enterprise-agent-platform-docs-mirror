@@ -26,7 +26,7 @@ The following diagram shows the overall reinforcement learning fine-tuning workf
 
   - **Customizable reward functions:** Define your own reward functions to precisely optimize for a wide range of custom use cases and align the model's behavior with specific objectives. For details on the supported reward types, see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
 
-  - **Adapters for efficient tuning:** Reinforcement learning fine-tuning uses [LoRA](https://en.wikipedia.org/wiki/Fine-tuning_\(deep_learning\)#Low-rank_adaptation) adapters, which enable effective adaptation while reusing the existing serving infrastructure.
+  - **Adapters for efficient tuning:** Reinforcement learning fine-tuning uses adapters, which enable effective adaptation while reusing the existing serving infrastructure.
 
   - **Multiple thinking levels:** The service supports tuning at two thinking levels, `MINIMAL` and `HIGH` (dynamic thinking), so you can choose the approach that best suits your model's learning objectives and desired response generation patterns. For details, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
 

@@ -12,8 +12,8 @@ This page shows you how to train a forecast model from a tabular dataset using e
 
 Before you train a forecast model, complete the following:
 
-  - [Prepare your training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data)
-  - [Create an Agent Platform dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset)
+  - [Prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data)
+  - [Create an Agent Platform dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset)
 
 ## Train a model
 
@@ -31,7 +31,7 @@ Before you train a forecast model, complete the following:
 
 6.  In the **Training method** page, configure the following:
     
-    1.  Select the model training method. To learn more, see [Model training methods](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) .
+    1.  Select the model training method. To learn more, see [Model training methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) .
     
     2.  Click **Continue** .
 
@@ -47,7 +47,7 @@ Before you train a forecast model, complete the following:
     
     4.  Select your **Data granularity** . Select `Daily` if you would like to use holiday effect modeling. [Learn how to choose the data granularity](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular#granularity) .
     
-    5.  **Optional** : In the **Holiday regions** dropdown, choose one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from the **Timestamp** column and the specified geographical regions. You can select this option only when **Data granularity** is set to `Daily` . By default, holiday effect modeling is disabled. To learn about the geographical regions used for holiday effect modeling, see [Holiday regions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#holiday-regions) .
+    5.  **Optional** : In the **Holiday regions** dropdown, choose one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from the **Timestamp** column and the specified geographical regions. You can select this option only when **Data granularity** is set to `Daily` . By default, holiday effect modeling is disabled. To learn about the geographical regions used for holiday effect modeling, see [Holiday regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#holiday-regions) .
     
     6.  Enter your **Context window** and **Forecast horizon** .
         
@@ -55,7 +55,7 @@ Before you train a forecast model, complete the following:
         
         The context window sets how far back the model looks during training (and for forecasts). In other words, for each training datapoint, the context window determines how far back the model looks for predictive patterns. The **Context window** is specified in units of **Data granularity** .
         
-        [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) .
+        [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) .
     
     7.  If you would like to export your test dataset to BigQuery, check **Export test dataset to BigQuery** and provide the name of the table.
     
@@ -71,7 +71,7 @@ Before you train a forecast model, complete the following:
           - **Stride** : Set the value of the stride length in the textbox provided.
           - **Column** : Select the appropriate column name from the dropdown provided.
         
-        To learn more, see [Rolling window strategies](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#rolling_window_strategies) .
+        To learn more, see [Rolling window strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#rolling_window_strategies) .
     
     11. Click **Continue** .
 
@@ -89,13 +89,13 @@ Before you train a forecast model, complete the following:
         
         Rows containing data that is invalid for the selected transformation are excluded from training. Learn more about [transformations](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#transformations) .
     
-    4.  For each column you included for training, specify the **Feature type** for how that feature relates to its time series, and whether it is available at forecast time. Learn more about [feature type and availability](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
+    4.  For each column you included for training, specify the **Feature type** for how that feature relates to its time series, and whether it is available at forecast time. Learn more about [feature type and availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
     
     5.  If you want to specify a weight column, change your optimization objective from the default, or enable hierarchical forecasting, open **Advanced options** .
     
     6.  **Optional** . If you want to specify a weight column, select it from the dropdown list. Learn more about [weight columns](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data#weight) .
     
-    7.  **Optional** . If you want to select the optimization objective, select it from the list. Learn more [optimization objectives](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) .
+    7.  **Optional** . If you want to select the optimization objective, select it from the list. Learn more [optimization objectives](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) .
     
     8.  **Optional** . If you want to use hierarchical forecasting, select **Enable hierarchical forecasting** . You can choose between three grouping options:
         
@@ -158,7 +158,7 @@ Before using any of the request data, make the following replacements:
         `gs://google-cloud-aiplatform/schema/trainingjob/definition/automl_forecasting_1.0.0.yaml`
       - Seq2Seq+  
         `gs://google-cloud-aiplatform/schema/trainingjob/definition/seq2seq_plus_time_series_forecasting_1.0.0.yaml`
-    To learn more, see [Model training methods](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) .
+    To learn more, see [Model training methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) .
   - TARGET\_COLUMN : The column (value) you want this model to predict.
   - TIME\_COLUMN : The time column. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data#data-structure) .
   - TIME\_SERIES\_IDENTIFIER\_COLUMN : The time series identifier column. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data#data-structure) .
@@ -170,15 +170,15 @@ Before using any of the request data, make the following replacements:
   - GROUP\_TOTAL\_WEIGHT : Weight of the group aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. If the group column is not set, all time series will be treated as part of the same group and is aggregated over all time series. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
   - TEMPORAL\_TOTAL\_WEIGHT : Weight of the time aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
   - GROUP\_TEMPORAL\_TOTAL\_WEIGHT : Weight of the total (group x time) aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. If the group column is not set, all time series will be treated as part of the same group and is aggregated over all time series. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
-  - HOLIDAY\_REGIONS : (Optional) You can select one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from TIME\_COLUMN and the specified geographical regions. To enable it, set GRANULARITY\_UNIT to `day` and specify one or more regions in the HOLIDAY\_REGIONS field. By default, holiday effect modeling is disabled. To learn more, see [Holiday regions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#holiday-regions) .
-  - FORECAST\_HORIZON : The forecast horizon determines how far into the future the model forecasts the target value for each row of inference data. The forecast horizon is specified in units of data granularity ( GRANULARITY\_UNIT ). [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) .
-  - CONTEXT\_WINDOW : The context window sets how far back the model looks during training (and for forecasts). In other words, for each training datapoint, the context window determines how far back the model looks for predictive patterns. The context window is specified in units of data granularity ( GRANULARITY\_UNIT ). [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) .
-  - OPTIMIZATION\_OBJECTIVE : By default, Agent Platform minimizes the root-mean-squared error (RMSE). If you want a different optimization objective for your forecast model, choose one of the options in [Optimization objectives for forecast models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) . If you choose to minimize the quantile loss, you must also specify a value for QUANTILES .
+  - HOLIDAY\_REGIONS : (Optional) You can select one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from TIME\_COLUMN and the specified geographical regions. To enable it, set GRANULARITY\_UNIT to `day` and specify one or more regions in the HOLIDAY\_REGIONS field. By default, holiday effect modeling is disabled. To learn more, see [Holiday regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#holiday-regions) .
+  - FORECAST\_HORIZON : The forecast horizon determines how far into the future the model forecasts the target value for each row of inference data. The forecast horizon is specified in units of data granularity ( GRANULARITY\_UNIT ). [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) .
+  - CONTEXT\_WINDOW : The context window sets how far back the model looks during training (and for forecasts). In other words, for each training datapoint, the context window determines how far back the model looks for predictive patterns. The context window is specified in units of data granularity ( GRANULARITY\_UNIT ). [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) .
+  - OPTIMIZATION\_OBJECTIVE : By default, Agent Platform minimizes the root-mean-squared error (RMSE). If you want a different optimization objective for your forecast model, choose one of the options in [Optimization objectives for forecast models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) . If you choose to minimize the quantile loss, you must also specify a value for QUANTILES .
   - PROBABILISTIC\_INFERENCE : (Optional) If set to `true` , Agent Platform models the probability distribution of the forecast. Probabilistic inference can improve model quality by handling noisy data and quantifying uncertainty. If QUANTILES are specified, then Agent Platform also returns the quantiles of the probability distribution. Probabilistic inference is compatible only with the `Time series Dense Encoder (TiDE)` and the `AutoML (L2L)` training methods. It is incompatible with hierarchical forecasting and the `minimize-quantile-loss` optimization objective.
   - QUANTILES : Quantiles to use for the `minimize-quantile-loss` optimization objective and probabilistic inference. Provide a list of up to five unique numbers between `0` and `1` , exclusive.
-  - TIME\_SERIES\_ATTRIBUTE\_COL : The name or names of the columns that are time series attributes. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
-  - AVAILABLE\_AT\_FORECAST\_COL : The name or names of the covariate columns whose value is known at forecast time. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
-  - UNAVAILABLE\_AT\_FORECAST\_COL : The name or names of the covariate columns whose value is unknown at forecast time. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
+  - TIME\_SERIES\_ATTRIBUTE\_COL : The name or names of the columns that are time series attributes. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
+  - AVAILABLE\_AT\_FORECAST\_COL : The name or names of the covariate columns whose value is known at forecast time. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
+  - UNAVAILABLE\_AT\_FORECAST\_COL : The name or names of the covariate columns whose value is unknown at forecast time. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
   - TRANSFORMATION\_TYPE : The transformation type is provided for each column used to train the model. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#transformations) .
   - COLUMN\_NAME : The name of the column with the specified transformation type. Every column used to train the model must be specified.
   - MODEL\_DISPLAY\_NAME : Display name for the newly trained model.
@@ -394,8 +394,8 @@ Provide a `windowConfig` object to configure a rolling window strategy for forec
       ```
     ````
 
-To learn more, see [Rolling window strategies](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#rolling-window-strategies) .
+To learn more, see [Rolling window strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#rolling-window-strategies) .
 
 ## What's next
 
-  - [Evaluate your model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/evaluate-model) .
+  - [Evaluate your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/evaluate-model) .

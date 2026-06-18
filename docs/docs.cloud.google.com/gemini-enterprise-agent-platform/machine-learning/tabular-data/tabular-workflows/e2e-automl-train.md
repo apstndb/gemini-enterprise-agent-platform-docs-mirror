@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of how to train a model with End-to-End AutoML, run the "AutoML Tabular Workflow pipelines" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_tabular_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_tabular_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_tabular_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_tabular_on_vertex_pipelines.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_tabular_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_tabular_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml_tabular_on_vertex_pipelines.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl_tabular_on_vertex_pipelines.ipynb)
 
 This page shows you how to train a classification or regression model from a tabular dataset with Tabular Workflow for End-to-End AutoML.
 
@@ -22,7 +22,7 @@ Before you train a model, complete the following:
 
   - Enable the following APIs: Agent Platform, Dataflow, Compute Engine, Cloud Storage.
 
-  - Ensure that your project's service accounts have the [necessary roles](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/service-accounts) assigned to them. To view the service accounts and their associated roles, go to the **IAM** page and check the "Include Google-provided role grants" checkbox.
+  - Ensure that your project's service accounts have the [necessary roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts) assigned to them. To view the service accounts and their associated roles, go to the **IAM** page and check the "Include Google-provided role grants" checkbox.
 
 If you receive an error related to quotas while running Tabular Workflow for End-to-End AutoML, you might need to request a higher quota. To learn more, see [Manage quotas for Tabular Workflows](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/quotas) .
 
@@ -54,7 +54,7 @@ To find the hyperparameter tuning result URI by using the Google Cloud console, 
 
 10. Copy the URI for use in the [Train a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train#train-model) step.
 
-![Architecture search result](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/architecture-search-result.png)
+![Architecture search result](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/images/architecture-search-result.png)
 
 ### API: Python
 
@@ -274,6 +274,6 @@ Regression models are best for:
 
 ## What's next
 
-  - Learn about [online inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-online-predictions) for classification and regression models.
-  - Learn about [batch inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions) for classification and regression models.
-  - Learn about [pricing for model training](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+  - Learn about [online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) for classification and regression models.
+  - Learn about [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) for classification and regression models.
+  - Learn about [pricing for model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

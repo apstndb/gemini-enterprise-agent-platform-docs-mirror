@@ -1,16 +1,16 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container
-title: Create a Vertex AI Workbench instance using a custom container
+title: Create a Agent Platform Workbench instance using a custom container
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to create a Vertex AI Workbench instance based on a custom container.
+This page describes how to create a Gemini Enterprise Agent Platform Workbench instance based on a custom container.
 
 ## Overview
 
-Vertex AI Workbench instances support using a custom container derived from one of the Google-provided base containers. You can modify these base containers to make a custom container image and use these custom containers to create a Vertex AI Workbench instance.
+Agent Platform Workbench instances support using a custom container derived from one of the Google-provided base containers. You can modify these base containers to make a custom container image and use these custom containers to create a Agent Platform Workbench instance.
 
 The base containers are configured with a [Container-Optimized OS](https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits) in the host virtual machine (VM). The host image is built from the `cos-stable` [image family](https://docs.cloud.google.com/container-optimized-os/docs/concepts/versioning#choosing_the_right_version) .
 
@@ -18,21 +18,21 @@ The base containers are configured with a [Container-Optimized OS](https://docs.
 
 Consider the following limitations when planning your project:
 
-  - <span id="derivative"></span> The custom container must be derived from a [Google-provided base container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container#base-containers) . Using a container that isn't derived from a base container increases the risk of compatibility issues and limits our ability to support your usage of Vertex AI Workbench instances.
+  - <span id="derivative"></span> The custom container must be derived from a [Google-provided base container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container#base-containers) . Using a container that isn't derived from a base container increases the risk of compatibility issues and limits our ability to support your usage of Agent Platform Workbench instances.
 
-  - Use of more than one container with a Vertex AI Workbench instance isn't supported.
+  - Use of more than one container with a Agent Platform Workbench instance isn't supported.
 
   - The VM hosting the custom container is running off of a [Container-Optimized OS](https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits) , which restricts how you can interact with the host machine. For example, Container-Optimized OS doesn't include a package manager. This means that packages acting on the host must be performed on a container with mounts.
 
-  - Vertex AI Workbench instances uses `nerdctl` (a containerd CLI) for running the custom container. This is required for compatibility with the Image streaming service. Any container parameters that are added using a metadata value need to adhere to what is supported by `nerdctl` .
+  - Agent Platform Workbench instances uses `nerdctl` (a containerd CLI) for running the custom container. This is required for compatibility with the Image streaming service. Any container parameters that are added using a metadata value need to adhere to what is supported by `nerdctl` .
 
-  - Vertex AI Workbench instances are configured to pull either from Artifact Registry or a public container repository. To configure an instance to pull from a private repository, you must manually configure the credentials used by the containerd.
+  - Agent Platform Workbench instances are configured to pull either from Artifact Registry or a public container repository. To configure an instance to pull from a private repository, you must manually configure the credentials used by the containerd.
 
 ## Base containers
 
 ### Standard base container
 
-The standard base container supports all Vertex AI Workbench features and includes the following:
+The standard base container supports all Agent Platform Workbench features and includes the following:
 
   - Pre-installed [data science packages](https://docs.cloud.google.com/deep-learning-vm/docs/introduction#pre-installed_packages) .
   - [Cuda libraries](https://hub.docker.com/r/nvidia/cuda) similar to [Deep Learning Containers](https://docs.cloud.google.com/deep-learning-containers/docs/overview) .
@@ -51,7 +51,7 @@ The standard base container has the following specifications:
 
 ### Slim base container
 
-The slim base container provides a minimal set of configurations that permit a proxy connection to the instance. Standard Vertex AI Workbench features and packages aren't included, except for the following:
+The slim base container provides a minimal set of configurations that permit a proxy connection to the instance. Standard Agent Platform Workbench features and packages aren't included, except for the following:
 
   - JupyterLab
   - Metadata-based JupyterLab configuration
@@ -71,7 +71,7 @@ The slim base container has the following specifications:
 
 ### Required roles
 
-To get the permissions that you need to create a Vertex AI Workbench instance with a custom container, ask your administrator to grant you the following IAM roles:
+To get the permissions that you need to create a Agent Platform Workbench instance with a custom container, ask your administrator to grant you the following IAM roles:
 
   - [Notebooks Runner](https://docs.cloud.google.com/iam/docs/roles-permissions/notebooks#notebooks.runner) ( `roles/notebooks.runner` ) on the user account
   - To pull images from the Artifact Registry repository: [Artifact Registry Reader](https://docs.cloud.google.com/iam/docs/roles-permissions/artifactregistry#artifactregistry.reader) ( `roles/artifactregistry.reader` ) on the service account
@@ -82,19 +82,19 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Create a custom container
 
-To create a custom container for use with Vertex AI Workbench instances:
+To create a custom container for use with Agent Platform Workbench instances:
 
 1.  Create a derivative container derived from a [Google-provided base container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container#base-containers) .
 
-2.  Build and push the container to Artifact Registry. You'll use the container's URI when you create your Vertex AI Workbench instance. For example, the URI might look like this: ` gcr.io/ PROJECT_ID / IMAGE_NAME  ` .
+2.  Build and push the container to Artifact Registry. You'll use the container's URI when you create your Agent Platform Workbench instance. For example, the URI might look like this: ` gcr.io/ PROJECT_ID / IMAGE_NAME  ` .
 
 ## Create the instance
 
-You can create a Vertex AI Workbench instance based on a custom container by using the Google Cloud console or the Google Cloud CLI.
+You can create a Agent Platform Workbench instance based on a custom container by using the Google Cloud console or the Google Cloud CLI.
 
 ### Console
 
-To create a Vertex AI Workbench instance based on a custom container, do the following:
+To create a Agent Platform Workbench instance based on a custom container, do the following:
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
@@ -116,13 +116,13 @@ To create a Vertex AI Workbench instance based on a custom container, do the fol
 
 10. Complete the rest of the instance creation dialog, and then click **Create** .
     
-    Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link.
+    Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
 
 ### gcloud
 
 Before using any of the command data below, make the following replacements:
 
-  - `  INSTANCE_NAME  ` : the name of your Vertex AI Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
+  - `  INSTANCE_NAME  ` : the name of your Agent Platform Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
   - `  PROJECT_ID  ` : your project ID
   - `  LOCATION  ` : the zone where you want your instance to be located
   - `  CUSTOM_CONTAINER_PATH  ` : the path to the container image repository, for example: ` gcr.io/ PROJECT_ID / IMAGE_NAME  `
@@ -165,11 +165,11 @@ Execute the following command:
 
 For more information about the command for creating an instance from the command line, see the [gcloud CLI documentation](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/create) .
 
-Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link in the Google Cloud console.
+Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link in the Google Cloud console.
 
 ## Network configuration options
 
-In addition to the [general network options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-options) , a Vertex AI Workbench instance with a custom container must have access to the Artifact Registry service.
+In addition to the [general network options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-options) , a Agent Platform Workbench instance with a custom container must have access to the Artifact Registry service.
 
 If you have turned off public IP access for your VPC, ensure that you have enabled Private Google Access.
 
@@ -177,11 +177,11 @@ If you have turned off public IP access for your VPC, ensure that you have enabl
 
 The custom container host is provisioned to interact with Image streaming in Google Kubernetes Engine (GKE), which pulls containers faster and reduces initialization time for large containers once they are cached in the GKE remote file system.
 
-To view the requirements for enabling Image streaming, see [Requirements](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/image-streaming#requirements) . Often, Image streaming can be used with Vertex AI Workbench instances by enabling the Container File System API.
+To view the requirements for enabling Image streaming, see [Requirements](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/image-streaming#requirements) . Often, Image streaming can be used with Agent Platform Workbench instances by enabling the Container File System API.
 
 ### How the host VM runs the custom container
 
-Instead of using Docker to run the custom container, the host VM uses `nerdctl` under the Kubernetes namespace to load and run the container. This lets Vertex AI Workbench use Image streaming for custom containers.
+Instead of using Docker to run the custom container, the host VM uses `nerdctl` under the Kubernetes namespace to load and run the container. This lets Agent Platform Workbench use Image streaming for custom containers.
 
     # Runs the custom container.
     sudo /var/lib/google/nerdctl/nerdctl --snapshotter=gcfs -n k8s.io run --name payload-container
@@ -224,7 +224,7 @@ The following example shows how to create a new kernel with a pip package pre-in
 
 ## Persistent kernels for custom containers
 
-Vertex AI Workbench custom containers only mount a data disk to the ` /home/ USER  ` directory within each container, where `jupyter` is the default user. This means that any change outside of ` /home/ USER  ` is ephemeral and won't persist after a restart. If you need installed packages to persist for a specific kernel, you can create a kernel in the ` /home/ USER  ` directory.
+Agent Platform Workbench custom containers only mount a data disk to the ` /home/ USER  ` directory within each container, where `jupyter` is the default user. This means that any change outside of ` /home/ USER  ` is ephemeral and won't persist after a restart. If you need installed packages to persist for a specific kernel, you can create a kernel in the ` /home/ USER  ` directory.
 
 > **Note:** Base containers are configured with a mount point on ` /home/ USER  ` . To create a persistent kernel when building a custom image, you must enable Docker BuildKit. See [Notes about specifying volumes](https://docs.docker.com/reference/dockerfile/#notes-about-specifying-volumes) . To learn more about BuildKit, see the [BuildKit documentation](https://docs.docker.com/build/buildkit/) .
 
@@ -248,7 +248,7 @@ To create a kernel in the ` /home/ USER  ` directory:
 
 ## Updating the startup of the base container
 
-The base container for a Vertex AI Workbench instance ( `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container:latest` ) starts JupyterLab by running `/run_jupyter.sh` .
+The base container for a Agent Platform Workbench instance ( `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container:latest` ) starts JupyterLab by running `/run_jupyter.sh` .
 
 If you modify the container's startup in a derivative container, you must append `/run_jupyter.sh` to run the default configuration of JupyterLab.
 
@@ -287,7 +287,7 @@ If you need to modify the JupyterLab configuration on the base container you mus
 
 ## Custom Container Metadata
 
-In addition to the standard list of [metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata) that can be applied to a Vertex AI Workbench instance, instances with custom containers include the following metadata for managing the instantiation of the payload container:
+In addition to the standard list of [metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata) that can be applied to a Gemini Enterprise Agent Platform Workbench instance, instances with custom containers include the following metadata for managing the instantiation of the payload container:
 
 <table>
 <colgroup>
@@ -337,7 +337,7 @@ To update your instance's custom container image, you can use the following meth
 
 ### gcloud
 
-You can update the custom container image metadata on a Vertex AI Workbench instance by using the following command:
+You can update the custom container image metadata on a Agent Platform Workbench instance by using the following command:
 
     gcloud workbench instances update INSTANCE_NAME \
         --container-repository=CONTAINER_URI \
@@ -368,13 +368,13 @@ Use the [`instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agen
 
 ## Run the diagnostic tool
 
-The diagnostic tool checks and verifies the status of various Vertex AI Workbench services. To learn more, see [Tasks performed by the diagnostic tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#tasks_performed_by_the_diagnostic_tool) .
+The diagnostic tool checks and verifies the status of various Agent Platform Workbench services. To learn more, see [Tasks performed by the diagnostic tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health#tasks_performed_by_the_diagnostic_tool) .
 
-When you create a Vertex AI Workbench instance using a custom container, the diagnostic tool isn't available as a script in the host environment that users can run. Instead, it is compiled into a binary and loaded onto a Google runtime container that is built to run diagnostic services in a Container-Optimized OS environment. See [Container-Optimized OS Overview](https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits) .
+When you create a Agent Platform Workbench instance using a custom container, the diagnostic tool isn't available as a script in the host environment that users can run. Instead, it is compiled into a binary and loaded onto a Google runtime container that is built to run diagnostic services in a Container-Optimized OS environment. See [Container-Optimized OS Overview](https://docs.cloud.google.com/container-optimized-os/docs/concepts/features-and-benefits) .
 
 To run the diagnostic tool, complete the following steps:
 
-1.  [Use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access) .
+1.  [Use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access) .
 
 2.  In the SSH terminal, run the following command:
     
@@ -396,7 +396,7 @@ After your instance has been created and is active, you can get the proxy URL by
 
 Before using any of the command data below, make the following replacements:
 
-  - `  INSTANCE_NAME  ` : the name of your Vertex AI Workbench instance
+  - `  INSTANCE_NAME  ` : the name of your Agent Platform Workbench instance
   - `  PROJECT_ID  ` : your project ID
   - `  LOCATION  ` : the zone where your instance is located
 

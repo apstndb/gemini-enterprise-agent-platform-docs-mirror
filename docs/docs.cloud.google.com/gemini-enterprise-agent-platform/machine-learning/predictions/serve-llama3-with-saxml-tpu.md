@@ -44,7 +44,7 @@ If you're deploying your model using the Vertex AI SDK, make sure that you have 
 
 ## Get access to the model and download the model weights
 
-The following steps are for a Vertex AI Workbench instance that has an [M2 memory-optimized VM](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m2_series) . For information on changing the machine type of a Vertex AI Workbench instance, see [Change machine type of a Vertex AI Workbench instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/change-machine-type) .
+The following steps are for a Agent Platform Workbench instance that has an [M2 memory-optimized VM](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m2_series) . For information on changing the machine type of a Agent Platform Workbench instance, see [Change machine type of a Agent Platform Workbench instance](https://docs.cloud.google.com/vertex-ai/docs/workbench/instances/change-machine-type) .
 
 1.  Go to the [Llama model consent page](https://llama.com/llama-downloads/) .
 

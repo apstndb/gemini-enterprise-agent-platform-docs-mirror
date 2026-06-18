@@ -24,7 +24,7 @@ This workflow uses the following service accounts:
 | [Service account for Dataflow worker](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#e2e-automl-dataflow)                             | The service account that runs the Dataflow workers     | `PROJECT_NUMBER-compute@developer.gserviceaccount.com`             | `Compute Engine default service account` | Yes               |
 | [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#e2e-automl-aip)                                            | The service account that runs the training containers. | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | `AI Platform Service Agent`              | No                |
 
-You can change some of the service accounts to an account of your choice. See [Train a model with End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl-train) for instructions specific to Google Cloud console or the API.
+You can change some of the service accounts to an account of your choice. See [Train a model with End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train) for instructions specific to Google Cloud console or the API.
 
 ### Service account for Gemini Enterprise Agent Platform Pipelines
 
@@ -171,7 +171,7 @@ This workflow uses the following service accounts:
 | [Service account for Dataflow worker](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#forecasting-dataflow)                             | The service account that runs the Dataflow workers     | `PROJECT_NUMBER-compute@developer.gserviceaccount.com`             | `Compute Engine default service account` | Yes               |
 | [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#forecasting-aip)                                            | The service account that runs the training containers. | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | `AI Platform Service Agent`              | No                |
 
-You can change some of the service accounts to an account of your choice. To learn more, see [Train a model with Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-train) .
+You can change some of the service accounts to an account of your choice. To learn more, see [Train a model with Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train) .
 
 ### Service account for Gemini Enterprise Agent Platform Pipelines
 
@@ -384,7 +384,7 @@ These workflows use the following service accounts:
 | [Service account for Dataflow worker](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#fte-workflow-dataflow)                             | The service account that runs the Dataflow workers     | `PROJECT_NUMBER-compute@developer.gserviceaccount.com`             | `Compute Engine default service account` | Yes               |
 | [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#fte-workflow-aip)                                            | The service account that runs the training containers. | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | `AI Platform Service Agent`              | No                |
 
-You can change some of the service accounts to an account of your choice. For For Tabular Workflow for Wide & Deep instructions, see [Train a model with Wide & Deep](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/wide-and-deep-train) . For Prophet instructions, see [Forecasting with Prophet](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-prophet) .
+You can change some of the service accounts to an account of your choice. For For Tabular Workflow for Wide & Deep instructions, see [Train a model with Wide & Deep](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/wide-and-deep-train) . For Prophet instructions, see [Forecasting with Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet) .
 
 ### Service account for Gemini Enterprise Agent Platform Pipelines
 
@@ -582,7 +582,7 @@ This workflow uses the following service accounts:
 | [Service account for Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#arima-pipelines) | The service account that runs the pipeline             | `PROJECT_NUMBER-compute@developer.gserviceaccount.com`             | `Compute Engine default service account` | Yes               |
 | [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#arima-aip)                                            | The service account that runs the training containers. | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | `AI Platform Service Agent`              | No                |
 
-You can change the Gemini Enterprise Agent Platform Pipelines service account to an account of your choice. See [Forecasting with ARIMA+](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-arima/overview) for more information.
+You can change the Gemini Enterprise Agent Platform Pipelines service account to an account of your choice. See [Forecasting with ARIMA+](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-arima/overview) for more information.
 
 ### Service account for Gemini Enterprise Agent Platform Pipelines
 

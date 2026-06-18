@@ -11,7 +11,7 @@ Vertex AI Experiments is supported by the Agent Platform SDK for Python and Goog
 ## Set up
 
 1.  Create a Service account. See [Create a service account with required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-training#create_a_service_account_with_required_permissions) .
-2.  Install the [Agent Platform SDK for Python.](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk)
+2.  Install the [Agent Platform SDK for Python.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk)
 3.  Check for existence of the `default` Metadata Store in your project. (required)
       - To see if your project has the `default` Metadata Store, go to the `Metadata` page in the Google Cloud console.
       - If the `default` Metadata Store doesn't exist, it's created when

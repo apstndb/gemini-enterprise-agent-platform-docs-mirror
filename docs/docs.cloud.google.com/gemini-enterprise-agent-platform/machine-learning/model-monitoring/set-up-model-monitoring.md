@@ -91,15 +91,15 @@ The following example shows the general structure of the expected schema:
           )
       ],
         prediction_fields = [
-          model_monitor.spec.FieldSchema(
+          ml_monitoring.spec.FieldSchema(
               name="PREDICTION_NAME",
               data_type="DATA_TYPE",
               repeated=BOOLEAN
           )
       ],
       ground_truth_fields = [
-          model_monitor.spec.FieldSchema(
-              feature="GROUND_TRUTH_NAME",
+          ml_monitoring.spec.FieldSchema(
+              name="GROUND_TRUTH_NAME",
               data_type="DATA_TYPE",
               repeated=BOOLEAN
           )

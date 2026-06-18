@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 This page shows you how to evaluate your AutoML classification and regression models.
 
-Gemini Enterprise Agent Platform provides model evaluation metrics to help you determine the performance of your models, such as precision and recall metrics. Agent Platform calculates evaluation metrics by using the [test set](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits) .
+Gemini Enterprise Agent Platform provides model evaluation metrics to help you determine the performance of your models, such as precision and recall metrics. Agent Platform calculates evaluation metrics by using the [test set](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
 
 ## Before you begin
 
-Before you evaluate your model, [train the model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/train-model) .
+Before you evaluate your model, [train the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model) .
 
 ## How you use model evaluation metrics
 
@@ -207,7 +207,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -268,7 +268,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -484,7 +484,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -545,7 +545,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -825,7 +825,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -891,7 +891,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -1042,7 +1042,7 @@ You should receive a JSON response similar to the following:
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -1110,7 +1110,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -1238,7 +1238,7 @@ The evaluation metrics are:
   - **False positive rate** : The fraction of incorrectly predicted results out of all predicted results.
   - **False positive rate at 1** : The false positive rate when only considering the label that has the highest inference score and not below the confidence threshold for each example.
   - **Confusion matrix** : A [confusion matrix](https://developers.google.com/machine-learning/glossary#confusion-matrix) shows how often a model correctly predicted a result. For incorrectly predicted results, the matrix shows what the model predicted instead. The confusion matrix helps you understand where your model is "confusing" two results.
-  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for classification and regression](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-explanations) .
+  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for classification and regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ### Regression
 
@@ -1248,16 +1248,16 @@ The evaluation metrics are:
   - **r^2** : r squared (r^2) is the square of the Pearson correlation coefficient between the labels and predicted values. This metric ranges between zero and one. A higher value indicates a closer fit to the regression line.
   - **MAPE** : Mean absolute percentage error (MAPE) is the average absolute percentage difference between the labels and the predicted values. This metric ranges between zero and infinity; a lower value indicates a higher quality model.  
     MAPE is not shown if the target column contains any 0 values. In this case, MAPE is undefined.
-  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for classification and regression](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-explanations) .
+  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for classification and regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ## What's next
 
 Once you're ready to make predictions with your classification or regression model, you have two options:
 
-  - [Make online (real-time) predictions using your model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-online-predictions) .
-  - [Get batch predictions directly from your model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions) .
+  - [Make online (real-time) predictions using your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) .
+  - [Get batch predictions directly from your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) .
 
 Additionally, you can:
 
-  - [View the architecture of your model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/logging) .
+  - [View the architecture of your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/logging) .
   - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .

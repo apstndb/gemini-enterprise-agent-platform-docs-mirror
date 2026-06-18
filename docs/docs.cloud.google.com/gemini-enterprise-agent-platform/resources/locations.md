@@ -88,7 +88,7 @@ client = vertexai.Client(
 
 # The agent will use this configuration
 agent = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-3.5-flash",
     name='my_agent'
 )
 ```
@@ -110,7 +110,7 @@ client = genai.Client(
 
 ```sh
 GOOGLE_CLOUD_PROJECT="GOOGLE_CLOUD_PROJECT"
-MODEL_ID="MODEL_ID"
+MODEL_ID="gemini-3.5-flash"
 GOOGLE_CLOUD_LOCATION="GOOGLE_CLOUD_LOCATION" # Must be 'us' or 'eu'
 # Explicitly use the .rep. hostname for multi-region endpoints
 API_ENDPOINT="https://aiplatform.${GOOGLE_CLOUD_LOCATION}.rep.googleapis.com"

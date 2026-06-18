@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-standalone
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-standalone
-title: Create a secure Vertex AI Workbench instance in a VPC network
-description: This tutorial shows you how to secure a Vertex AI Workbench instance by creating it in a standalone VPC network.
+title: Create a secure Gemini Enterprise Agent Platform Workbench instance in a VPC network
+description: This tutorial shows you how to secure a Gemini Enterprise Agent Platform Workbench instance by creating it in a standalone VPC network.
 data_source: docs.cloud.google.com
 ---
 
-This tutorial is intended for enterprise data scientists, researchers, and network administrators. It shows how to secure a Vertex AI Workbench instance by creating it in a Virtual Private Cloud (VPC) network.
+This tutorial is intended for enterprise data scientists, researchers, and network administrators. It shows how to secure a Agent Platform Workbench instance by creating it in a Virtual Private Cloud (VPC) network.
 
 A [*VPC network*](https://docs.cloud.google.com/vpc/docs/overview) is a virtual version of a physical network that is implemented inside of Google's production network. It is a private network, with its own private IP addresses, subnets, and network gateways. In the enterprise, VPC networks are used to protect data and instances by controlling access to them from other networks and from the internet.
 
@@ -14,23 +14,23 @@ The VPC network in this tutorial is a standalone network. However, you can share
 
 Following network security best practices, the VPC network in this tutorial uses a combination of [Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router/concepts/overview) , [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) , and [Private Google Access](https://docs.cloud.google.com/vpc/docs/private-google-access) to secure the instance in the following ways:
 
-  - The Vertex AI Workbench instance doesn't have an external IP address.
+  - The Agent Platform Workbench instance doesn't have an external IP address.
   - The instance has outbound internet access through a regional Cloud Router and Cloud NAT gateway so that you can install software packages or other dependencies. Cloud NAT allows outbound connections and the inbound responses to those connections. It does *not* permit unsolicited inbound requests from the internet.
   - The instance uses Private Google Access to reach the external IP addresses of Google APIs and services.
 
 The tutorial also shows how to do the following:
 
-  - Create a post-startup script to automatically clone a GitHub repo into the newly created Vertex AI Workbench instance.
-  - Use [Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics) to monitor the Vertex AI Workbench instance.
+  - Create a post-startup script to automatically clone a GitHub repo into the newly created Agent Platform Workbench instance.
+  - Use [Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics) to monitor the Agent Platform Workbench instance.
   - Use the [Compute Engine](https://docs.cloud.google.com/compute/docs/instances/schedule-instance-start-stop) API to start and stop the instance automatically to optimize costs.
 
-![Architectural diagram of a Vertex AI Workbench instance in a VPC network.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-netsec-codelab1.png)
+![Architectural diagram of a Agent Platform Workbench instance in a VPC network.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/images/vertex-netsec-codelab1.png)
 
 ## Objectives
 
   - Create a VPC network and add a subnet that has Private Google Access enabled.
   - Create a Cloud Router and Cloud NAT for the VPC network.
-  - Create a Vertex AI Workbench instance in the subnet, using a post-startup script that clones the [Google Cloud Generative AI](https://github.com/GoogleCloudPlatform/generative-ai/) GitHub repository.
+  - Create a Agent Platform Workbench instance in the subnet, using a post-startup script that clones the [Google Cloud Generative AI](https://github.com/GoogleCloudPlatform/generative-ai/) GitHub repository.
   - Enable Cloud Monitoring for the instance.
   - Create a VM instance schedule and attach it to the instance.
 
@@ -116,7 +116,7 @@ When you finish the tasks that are described in this document, you can avoid con
 
 ## Create a Cloud Storage bucket
 
-In this section, you create a Cloud Storage bucket to hold a post-startup script that you can run when you create a new Vertex AI Workbench instance.
+In this section, you create a Cloud Storage bucket to hold a post-startup script that you can run when you create a new Agent Platform Workbench instance.
 
 1.  Create the Cloud Storage bucket:
     
@@ -131,7 +131,7 @@ In this section, you create a Cloud Storage bucket to hold a post-startup script
 
 ## Create and upload a post-startup script
 
-In this section, you create a post-startup script to clone a GitHub repository into a new Vertex AI Workbench instance.
+In this section, you create a post-startup script to clone a GitHub repository into a new Agent Platform Workbench instance.
 
 1.  To create the script, use a text editor such as [`vim`](https://www.cs.cmu.edu/%7E15131/f17/topics/vim/vim-cheatsheet.pdf) or [`nano`](https://www.nano-editor.org/dist/latest/cheatsheet.html) to create a `poststartup.sh` file. You need to prepend `sudo` in order to have permission to write to the file, for example:
     
@@ -165,7 +165,7 @@ In this section, you create a post-startup script to clone a GitHub repository i
 
 ## Create a custom service account
 
-When you create a Vertex AI Workbench instance, we strongly recommend that you clear the **Use Compute Engine default service account** checkbox and specify a custom service account. If your organization doesn't enforce the `iam.automaticIamGrantsForDefaultServiceAccounts` organization policy constraint, the Compute Engine default service account (and thus anyone you specify as an instance user) is granted the Editor role ( `roles/editor` ) on your project. To turn off this behavior, see [Disable automatic role grants to default service accounts](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-service-accounts#disable_service_account_default_grants) .
+When you create a Agent Platform Workbench instance, we strongly recommend that you clear the **Use Compute Engine default service account** checkbox and specify a custom service account. If your organization doesn't enforce the `iam.automaticIamGrantsForDefaultServiceAccounts` organization policy constraint, the Compute Engine default service account (and thus anyone you specify as an instance user) is granted the Editor role ( `roles/editor` ) on your project. To turn off this behavior, see [Disable automatic role grants to default service accounts](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-service-accounts#disable_service_account_default_grants) .
 
 1.  Create a custom service account named `workbench-sa` :
     
@@ -190,9 +190,9 @@ When you create a Vertex AI Workbench instance, we strongly recommend that you c
             --member="serviceAccount:workbench-sa@$projectid.iam.gserviceaccount.com" \
             --role="roles/aiplatform.user"
 
-## Create a Vertex AI Workbench instance
+## Create a Agent Platform Workbench instance
 
-In this section, you create the Vertex AI Workbench instance. When the instance is created, the post-startup script you created is run automatically.
+In this section, you create the Agent Platform Workbench instance. When the instance is created, the post-startup script you created is run automatically.
 
 1.  In the Google Cloud console, go to the **Instances** tab in the **Agent Platform Workbench** page.
 
@@ -251,7 +251,7 @@ In this section, you create the Vertex AI Workbench instance. When the instance 
             
             (This is the custom service account email address that you created earlier.) This service account has limited permissions.
             
-            To learn more about granting access, see [Manage access to a Vertex AI Workbench instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
+            To learn more about granting access, see [Manage access to a Agent Platform Workbench instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
     
       - **Security options** : Clear the following checkbox:
         
@@ -278,11 +278,11 @@ In this section, you create the Vertex AI Workbench instance. When the instance 
           - **Install Cloud Monitoring**
           - **Report DNS status for required Google domains**
 
-10. Click **Create** and wait a few minutes for the Vertex AI Workbench instance to be created.
+10. Click **Create** and wait a few minutes for the Agent Platform Workbench instance to be created.
 
 ## Optional: Grant the Service Account User role to the instance user
 
-If you're creating the Vertex AI Workbench instance for another user, you must grant them the [Service Account User role](https://docs.cloud.google.com/iam/docs/service-accounts#user-role) ( `roles/iam.serviceAccountUser` ) on the `workbench-sa` custom service account as follows:
+If you're creating the Agent Platform Workbench instance for another user, you must grant them the [Service Account User role](https://docs.cloud.google.com/iam/docs/service-accounts#user-role) ( `roles/iam.serviceAccountUser` ) on the `workbench-sa` custom service account as follows:
 
     gcloud iam service-accounts add-iam-policy-binding \
         workbench-sa@PROJECT_ID.iam.gserviceaccount.com \
@@ -294,39 +294,39 @@ Replace the following values:
   - PROJECT\_ID : the project ID
   - USER\_EMAIL : the email address for the user
 
-## Verify that the Vertex AI Workbench instance was created
+## Verify that the Agent Platform Workbench instance was created
 
-Vertex AI Workbench creates a Vertex AI Workbench instance based on your specified properties and automatically starts the instance.
+Agent Platform Workbench creates a Agent Platform Workbench instance based on your specified properties and automatically starts the instance.
 
-When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link. This link is accessible only to the single user that you specified at instance creation time.
+When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link. This link is accessible only to the single user that you specified at instance creation time.
 
 Open the instance in JupyterLab and verify that the cloned [Google Cloud Generative AI](https://github.com/GoogleCloudPlatform/generative-ai/) GitHub repository is present.
 
 1.  In the Google Cloud console, go to the **Vertex AI Workbench** page.
 
-2.  In the list of Vertex AI Workbench instances, click the **Open JupyterLab** link for the instance you created.
+2.  In the list of Agent Platform Workbench instances, click the **Open JupyterLab** link for the instance you created.
     
     In the folder list, you'll see a `generative-ai` folder. This folder contains the cloned GitHub repository.
 
 ## Monitor health status through Monitoring
 
-You can monitor the system and application metrics for your Vertex AI Workbench instances by using the Google Cloud console. To learn more about instance monitoring and about creating custom metrics, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .
+You can monitor the system and application metrics for your Agent Platform Workbench instances by using the Google Cloud console. To learn more about instance monitoring and about creating custom metrics, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .
 
 1.  In the Google Cloud console, go to the **Vertex AI Workbench** page.
 
-2.  Click the name of the Vertex AI Workbench instance that you want to view the metrics for.
+2.  Click the name of the Agent Platform Workbench instance that you want to view the metrics for.
 
 3.  On the **Instance details** page, click the **Monitoring** tab. Review the **CPU Utilization** and **Network Bytes** for your notebook instance. To learn how to interpret these metrics, see [Review resource metrics](https://docs.cloud.google.com/compute/docs/instances/observe-monitor-vms#review_resource_metrics) .
     
     If you just created the instance, you won't see any data right away. Wait a few minutes and refresh the console tab.
 
-## Create a VM instance schedule for your Vertex AI Workbench instance
+## Create a VM instance schedule for your Agent Platform Workbench instance
 
-Because a Vertex AI Workbench instance is a Compute Engine VM instance, you can use Compute Engine APIs to create a VM instance schedule for it.
+Because a Agent Platform Workbench instance is a Compute Engine VM instance, you can use Compute Engine APIs to create a VM instance schedule for it.
 
-Use a VM instance schedule to start and stop your Vertex AI Workbench instance. During the hours when the instance is stopped, you pay only for Cloud Storage costs.
+Use a VM instance schedule to start and stop your Agent Platform Workbench instance. During the hours when the instance is stopped, you pay only for Cloud Storage costs.
 
-You can attach an instance schedule to any VM instance that's in the same region, so you can use the same instance schedule to control all your Vertex AI Workbench instances in the region.
+You can attach an instance schedule to any VM instance that's in the same region, so you can use the same instance schedule to control all your Agent Platform Workbench instances in the region.
 
 To learn more about VM instance schedules, see [Scheduling a VM instance to start and stop](https://docs.cloud.google.com/compute/docs/instances/schedule-instance-start-stop) .
 
@@ -353,7 +353,7 @@ As a security best practice, we recommend creating a custom IAM role that has on
 
 ### Assign the role to the Compute Engine default service account
 
-To give the Compute Engine default service account permission to start and stop your Vertex AI Workbench instances, you need to assign the `Vm_Scheduler` custom role to it.
+To give the Compute Engine default service account permission to start and stop your Agent Platform Workbench instances, you need to assign the `Vm_Scheduler` custom role to it.
 
 The Compute Engine default service account for your project has the following email address: `PROJECT_NUMBER-compute@developer.gserviceaccount.com` , where `PROJECT_NUMBER` is your project number.
 
@@ -370,7 +370,7 @@ The Compute Engine default service account for your project has the following em
 
 ### Create and attach the schedule
 
-To create an instance schedule that starts your Vertex AI Workbench instance at 7 AM and stops it at 6 PM:
+To create an instance schedule that starts your Agent Platform Workbench instance at 7 AM and stops it at 6 PM:
 
 1.  Create a start and stop schedule named `optimize-notebooks` :
     
@@ -382,7 +382,7 @@ To create an instance schedule that starts your Vertex AI Workbench instance at 
     
     Replace TIME\_ZONE with the location-based IANA time zone for this instance schedule, for example, `America/Chicago` . If omitted, the default value `UTC` is used. For more information, see [time zone](https://docs.cloud.google.com/compute/docs/instances/schedule-instance-start-stop#time_zone) .
 
-2.  Identify the name of your Vertex AI Workbench instance by running the following command and noting the `NAME` value that it returns:
+2.  Identify the name of your Agent Platform Workbench instance by running the following command and noting the `NAME` value that it returns:
     
         gcloud compute instances list
 
@@ -391,9 +391,9 @@ To create an instance schedule that starts your Vertex AI Workbench instance at 
         notebook_vm=NOTEBOOK_VM_NAME
         echo $notebook_vm
     
-    Replace NOTEBOOK\_VM\_NAME with your Vertex AI Workbench instance name.
+    Replace NOTEBOOK\_VM\_NAME with your Agent Platform Workbench instance name.
 
-4.  Attach the instance schedule to your Vertex AI Workbench instance:
+4.  Attach the instance schedule to your Agent Platform Workbench instance:
     
         gcloud compute instances add-resource-policies $notebook_vm \
             --resource-policies=optimize-notebooks \
@@ -426,7 +426,7 @@ You can delete the individual resources in the project as follows by executing t
     
         gcloud iam roles delete Vm_Scheduler --project=$projectid
 
-4.  Delete the Vertex AI Workbench instance:
+4.  Delete the Agent Platform Workbench instance:
     
         gcloud workbench instances delete $notebook_vm \
             --location=us-central1-a \
@@ -465,4 +465,4 @@ You can delete the individual resources in the project as follows by executing t
 
 ## What's next
 
-\- Learn about [Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) . - Learn how to [manage access to an instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access) . - Learn how to [use an instance within a service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/service-perimeter) .
+\- Learn about [Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) . - Learn how to [manage access to an instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access) . - Learn how to [use an instance within a service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/service-perimeter) .

@@ -6,7 +6,7 @@ description: Learn about the parameters used in forecast model training in Gemin
 data_source: docs.cloud.google.com
 ---
 
-This page provides detailed information about the parameters used in forecast model training. To learn how to train a forecast model, see [Train a forecast model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/train-model) and [Train a model with Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting-train) .
+This page provides detailed information about the parameters used in forecast model training. To learn how to train a forecast model, see [Train a forecast model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model) and [Train a model with Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-train) .
 
 ## Model training methods
 
@@ -222,4 +222,4 @@ To view the full list of holiday dates for each geographic region, refer to the 
 
 The following is an excerpt from the `holidays_and_events_for_forecasting` table:
 
-![sample of holidays for forecasting](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/holidays.png)
+![sample of holidays for forecasting](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/images/holidays.png)

@@ -51,7 +51,7 @@ Similarly, if you want your model to be tuned to make generalized inferences abo
 
 For classification and regression models, if the underlying pattern in your data is likely to shift over time (it is not randomly distributed in time), provide that information to Agent Platform. You can provide a time signal in several ways:
 
-  - If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data#time) .
+  - If each row of data has a timestamp, make sure that column is included, has a transformation type of `Timestamp` , and is set as the **Time** column when you train your model. This ordering is used to split the data, with the most recent data as the test data, and the earliest data as the training data. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#time) .
 
   - If your time column doesn't have many distinct values, use a manual split instead of using the Time column to split your data. Otherwise, you might not get enough rows in each dataset, which can cause training to fail.
 
@@ -158,8 +158,6 @@ At least 50 times as many rows as the number of columns.
 Unless otherwise noted, let Agent Platform do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Agent Platform transformations](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#transformations) .
 
 ## Best practices for tabular forecasting models
-
-[Video](https://www.youtube.com/watch?v=5-qjRpjdE5s)
 
 Training data for forecasting models has some special considerations.
 

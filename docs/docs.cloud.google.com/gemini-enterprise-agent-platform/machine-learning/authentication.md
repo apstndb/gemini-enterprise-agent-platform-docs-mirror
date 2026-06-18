@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This document describes how to authenticate to Gemini Enterprise Agent Platform programmatically. How you authenticate to Gemini Enterprise Agent Platform depends on the interface you use to access the API and the environment where your code is running.
 
-For information about using the Agent Platform API, see [API usage overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference) . If you're trying to authenticate to Vertex AI Workbench, see [Authenticate to Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/workbench/reference/authentication) .
+For information about using the Agent Platform API, see [API usage overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference) . If you're trying to authenticate to Gemini Enterprise Agent Platform Workbench, see [Authenticate to Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/authentication) .
 
 For more information about Google Cloud authentication, see the [Authentication methods](https://docs.cloud.google.com/docs/authentication) .
 
@@ -196,6 +196,6 @@ For more information about the roles for Agent Platform, see [Gemini Enterprise 
 
 ## What's next
 
-  - Learn how to [authenticate to Vertex AI Workbench.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/workbench/reference/authentication)
+  - Learn how to [authenticate to Gemini Enterprise Agent Platform Workbench.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/authentication)
   - Learn about [Google Cloud authentication methods](https://docs.cloud.google.com/docs/authentication#auth-decision-tree) .
   - See a list of [authentication use cases](https://docs.cloud.google.com/docs/authentication/use-cases) .

@@ -20,7 +20,7 @@ To install the Gen AI Evaluation module from the Agent Platform SDK for Python, 
 
     !pip install -q google-cloud-aiplatform[evaluation]
 
-For more information, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk) .
+For more information, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
 ### Authenticate the Vertex AI SDK
 

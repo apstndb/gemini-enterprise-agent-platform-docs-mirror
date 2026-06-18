@@ -408,9 +408,9 @@ Once you've configured the interfaces and BGP peers between your routers, they w
 
 5.  In the **Destination IP range** column, verify that the `workbench-subnet` subnet's IP range ( `172.16.20.0/28` ) and the `psc-forwarding-rule-subnet` subnet's IP range ( `172.16.30.0/28` ) each appear twice.
 
-## Create a Vertex AI Workbench instance
+## Create a Agent Platform Workbench instance
 
-In this section you create a user-managed service account, and then you create a Vertex AI Workbench instance that uses your service account for accessing Google Cloud services and APIs.
+In this section you create a user-managed service account, and then you create a Agent Platform Workbench instance that uses your service account for accessing Google Cloud services and APIs.
 
 ### Create a service account
 
@@ -439,9 +439,9 @@ In this tutorial, you create a user-managed service account following Compute En
           --member="serviceAccount:workbench-sa@$projectid.iam.gserviceaccount.com" \
           --role="roles/serviceusage.serviceUsageAdmin"
 
-### Create the Vertex AI Workbench instance
+### Create the Agent Platform Workbench instance
 
-Create a Vertex AI Workbench instance, specifying the `workbench-sa` service account:
+Create a Agent Platform Workbench instance, specifying the `workbench-sa` service account:
 
     gcloud workbench instances create workbench-tutorial \
       --vm-image-project=deeplearning-platform-release \
@@ -460,9 +460,9 @@ Create a Vertex AI Workbench instance, specifying the `workbench-sa` service acc
 
 1.  In the Google Cloud console, go to the **Instances** tab in the **Agent Platform Workbench** page.
 
-2.  Next to your Vertex AI Workbench instance's name ( `workbench-tutorial` ), click **Open JupyterLab** .
+2.  Next to your Agent Platform Workbench instance's name ( `workbench-tutorial` ), click **Open JupyterLab** .
     
-    Your Vertex AI Workbench instance opens JupyterLab.
+    Your Agent Platform Workbench instance opens JupyterLab.
 
 3.  Select **File \> New \> Notebook** .
 
@@ -717,9 +717,9 @@ After you create the firewall, you install the gRPC client. In a later step, you
 
 1.  In the Google Cloud console, go to the **Instances** tab in the **Agent Platform Workbench** page.
 
-2.  Next to your Vertex AI Workbench instance's name, click **Open JupyterLab** .
+2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
     
-    Your Vertex AI Workbench instance opens JupyterLab.
+    Your Agent Platform Workbench instance opens JupyterLab.
 
 3.  Select **File \> New \> Terminal** .
 
@@ -822,11 +822,11 @@ You can delete the individual resources in the Google Cloud console as follows:
     
     2.  Next to your endpoint's name in the index endpoint list, click more\_vert **Actions** , and then click **Delete** to delete the index endpoint.
 
-3.  Delete the Vertex AI Workbench instance as follows:
+3.  Delete the Agent Platform Workbench instance as follows:
     
     1.  In the Google Cloud console, in the **Gemini Enterprise Agent Platform** section, go to the **Instances** tab in the **Workbench** page.
     
-    2.  Select the `workbench-tutorial` Vertex AI Workbench instance and click delete **Delete** .
+    2.  Select the `workbench-tutorial` Agent Platform Workbench instance and click delete **Delete** .
 
 4.  Delete the Compute Engine VM instance as follows:
     

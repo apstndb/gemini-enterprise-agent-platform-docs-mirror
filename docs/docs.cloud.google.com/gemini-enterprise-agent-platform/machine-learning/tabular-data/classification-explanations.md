@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 This page provides a brief conceptual overview of the feature attribution methods available with Agent Platform.
 
-Global feature importance (model feature attributions) shows how each feature impacts a model. The values are a percentage for each feature: the higher the percentage, the more impact the feature had on model training. To view the global feature importance for your model, examine the [evaluation metrics](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/evaluate-model) .
+Global feature importance (model feature attributions) shows how each feature impacts a model. The values are a percentage for each feature: the higher the percentage, the more impact the feature had on model training. To view the global feature importance for your model, examine the [evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) .
 
 Local feature attributions for time series models indicate how much each feature in the data contributed to the predicted result. Use this information to verify that the model behaves as expected, recognize bias in your models, and get ideas for ways to improve your model and your training data. When you request inferences, you get predicted values as appropriate for your model. When you request *explanations* , you get the inferences along with feature attribution information.
 
@@ -20,7 +20,7 @@ You can plot the feature attribution scores to see which features contributed mo
 
 ![A feature attribution chart for one predicted bike ride duration](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/explainable-ai/images/expl_bike.png)
 
-Generate and query local feature attributions when performing an [online inference](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-online-predictions) job or a [batch inference](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions) job.
+Generate and query local feature attributions when performing an [online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) job or a [batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) job.
 
 ## Advantages
 

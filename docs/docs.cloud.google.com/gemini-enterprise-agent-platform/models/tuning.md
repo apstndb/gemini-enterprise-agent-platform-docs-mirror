@@ -142,4 +142,4 @@ For more information on continuous tuning, see [About continuous tuning for Gemi
   - Learn about [preference tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-preference-tuning) .
   - To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
   - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .
-  - To learn about tuning costs, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing#model-tuning) .
+  - To learn about tuning costs, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) .

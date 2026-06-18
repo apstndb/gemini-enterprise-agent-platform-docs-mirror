@@ -10,7 +10,7 @@ This page lists the supported locations for Google agents and agent infrastructu
 
 To see supported locations for generative AI models on Agent Platform, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
-Runtime, Sessions, Memory Bank, and Agent Gateway are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
+Runtime, Sessions, Agent Platform Memory Bank, and Agent Gateway are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
 
 | Region                                       | Location          | Supported versions                                                              |
 | -------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
@@ -48,11 +48,9 @@ For [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 ## Multi-regional and global endpoints
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Memory Bank and Sessions support multi-regional and global endpoints. For global requests, set your location to `global` . For multi-regional requests, set your location to `us` or `eu` .
+
+> **Note:** You can't use CMEK if your Memory Bank or Sessions is configured to use the global endpoint. Cloud Key Management Service requires encryption keys to reside within a fixed geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
 
 ### Supported agents
 

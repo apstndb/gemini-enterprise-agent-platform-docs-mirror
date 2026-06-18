@@ -6,11 +6,11 @@ description: Evaluate your AutoML forecast models using model evaluation metrics
 data_source: docs.cloud.google.com
 ---
 
-This page shows you how to evaluate your AutoML forecast models using model evaluation metrics. These metrics provide quantitative measurements of how your model performed on the [test set](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits) . How you interpret and use these metrics depends on your business need and the problem your model is trained to solve. For example, you might have a lower tolerance for false positives than for false negatives or the other way around. These kinds of questions affect which metrics you focus on.
+This page shows you how to evaluate your AutoML forecast models using model evaluation metrics. These metrics provide quantitative measurements of how your model performed on the [test set](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) . How you interpret and use these metrics depends on your business need and the problem your model is trained to solve. For example, you might have a lower tolerance for false positives than for false negatives or the other way around. These kinds of questions affect which metrics you focus on.
 
 ## Before you begin
 
-Before you can evaluate a model, you must [train it](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/train-model) and wait for the training to complete.
+Before you can evaluate a model, you must [train it](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model) and wait for the training to complete.
 
 Use the console or the API to check the status of your training job.
 
@@ -210,8 +210,8 @@ The evaluation metrics for forecasting models are:
   - **Quantile** : The percent quantile, which indicates the probability that an observed value will be below the predicted value. For example, at the 0.2 quantile, the observed values are expected to be lower than the predicted values 20% of the time. Agent Platform provides this metric if you specify `minimize-quantile-loss` for the optimization objective.
   - **Observed quantile** : Shows the percentage of true values that were less than the predicted value for a given quantile. Agent Platform provides this metric if you specify `minimize-quantile-loss` for the optimization objective.
   - **Scaled pinball loss** : The scaled pinball loss at a particular quantile. A lower value indicates a higher quality model at the given quantile. Agent Platform provides this metric if you specify `minimize-quantile-loss` for the optimization objective.
-  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+  - **Model feature attributions** : Agent Platform shows you how much each feature impacts a model. The values are provided as a percentage for each feature: the higher the percentage, the more impact the feature had on model training. Review this information to ensure that all of the most important features make sense for your data and business problem. To learn more, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
 ## What's next
 
-  - [Get inferences from your forecast model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/get-predictions) .
+  - [Get inferences from your forecast model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions) .

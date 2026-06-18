@@ -14,7 +14,7 @@ After you set up your resources with CMEKs, the experience of accessing your Age
 
 This guide describes some benefits of using CMEK for Gemini Enterprise Agent Platform resources and walks through how to configure a training job to use CMEK.
 
-For more information about how to use CMEK for Colab Enterprise, see the [Colab Enterprise CMEK page](https://docs.cloud.google.com/colab/docs/cmek) . For more information about how to use CMEK for Vertex AI Workbench instances, see the [Vertex AI Workbench instances CMEK page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .
+For more information about how to use CMEK for Colab Enterprise, see the [Colab Enterprise CMEK page](https://docs.cloud.google.com/colab/docs/cmek) . For more information about how to use CMEK for Gemini Enterprise Agent Platform Workbench instances, see the [Agent Platform Workbench instances CMEK page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek) .
 
 ## CMEK for Gemini Enterprise Agent Platform resources
 
@@ -95,8 +95,8 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>User created content such as <code dir="ltr" translate="no">AnnotationSpecs</code> , <code dir="ltr" translate="no">ColumnSpecs</code> .</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset">Create a dataset for training classification and regression models</a></li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset">Create a dataset for training forecast models</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset">Create a dataset for training classification and regression models</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset">Create a dataset for training forecast models</a></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -106,8 +106,8 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>Evaluation results of the trained model.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/train-model">Train a classification or regression model</a></li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/train-model">Train a forecast model</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model">Train a classification or regression model</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model">Train a forecast model</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-console">Train an AutoML Edge model using the Google Cloud console</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api">Train an AutoML Edge model using the Agent Platform API</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline">Creating training pipelines</a></li>
@@ -156,8 +156,8 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>AutoML-trained models.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/train-model">Train a classification or regression model</a></li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/train-model">Train a forecast model</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model">Train a classification or regression model</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model">Train a forecast model</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-console">Train an AutoML Edge model using the Google Cloud console</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api">Train an AutoML Edge model using the Agent Platform API</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline">Creating training pipelines</a></li>
@@ -170,8 +170,8 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>If the written results of the BatchPrediction are stored in the user provided destination, it will respect the encryption config of its default value. Otherwise, it will also be encrypted with CMEK.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions">Get batch predictions and explanations for a classification or regression model</a></li>
-<li><a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/get-predictions">Get predictions for a forecast model</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions">Get batch predictions and explanations for a classification or regression model</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions">Get predictions for a forecast model</a></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -287,6 +287,7 @@ CMEK support isn't provided in the following:
 
   - AutoML image model batch prediction ( `BatchPredictionJob` )
   - TPU tuning
+  - Agent Platform Memory Bank or Agent Platform Sessions configured to use the global endpoint. Cloud KMS requires encryption keys to reside within a fixed geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
 
 ## Configure CMEK for your resources
 

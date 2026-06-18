@@ -393,7 +393,7 @@ There are four ways to send a request:
 
 > To learn more, run the " Model Garden - Gemma (Deployment)" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_deployment_on_vertex.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Vertex AI Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_deployment_on_vertex.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_deployment_on_vertex.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_gemma_deployment_on_vertex.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_gemma_deployment_on_vertex.ipynb)
 
 Dedicated endpoints facilitate communication using both HTTP and gRPC protocols. For gRPC requests, the inclusion of the `x-vertex-ai-endpoint-id` header is mandatory to ensure accurate endpoint identification. The following APIs are supported through these dedicated endpoints:
 
@@ -499,7 +499,7 @@ If successful, you receive a JSON response similar to the following. In the resp
 
 ### Java
 
-Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
+Before trying this sample, follow the Java setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
@@ -525,35 +525,29 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictCustomTrainedModel(String project, String endpointId, String instance)
           throws IOException {
-        PredictionServiceSettings predictionServiceSettings =
-            PredictionServiceSettings.newBuilder()
-                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServicPredictionServiceSettingsceSettings =
+            PredictionServicPredictionServiceSettings          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServiceClient predictionServiceClient =
-            PredictionServiceClient.create(predictionServiceSettings)) {
+        try (PredictionServicPredictionServiceClientceClient =
+            PredictionServicPredictionServiceClientonServiceSettings)) {
           String location = "us-central1";
-          EndpointName endpointName = EndpointName.of(project, location, endpointId);
+          EndpointName endEndpointNameEndpointName.of(EndpointNameation, endpointId);
     
-          ListValue.Builder listValue = ListValue.newBuilder();
-          JsonFormat.parser().merge(instance, listValue);
-          List<Value> instanceList = listValue.getValuesList();
+          ListValue.BuildeListValueue = ListValue.newBuiListValue     JsonFormat.parseJsonFormatinstance, listValue);
+          List<Value> instanListValuelistValue.getValuesList();
     
-          PredictRequest predictRequest =
-              PredictRequest.newBuilder()
-                  .setEndpoint(endpointName.toString())
-                  .addAllInstances(instanceList)
+          PredictRequest pPredictRequest=
+              PredictRequest.nPredictRequest            .setEndpoint(endpointName.toSendpointName.toString().addAllInstances(instanceList)
                   .build();
-          PredictResponse predictResponse = predictionServiceClient.predict(predictRequest);
+          PredictResponse PredictResponse = predictionServiceClient.predict(predictRequest);
     
           System.out.println("Predict Custom Trained model Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.getDeployedModelId());
-          System.out.println("Predictions");
-          for (Value prediction : predictResponse.getPredictionsList()) {
-            System.out.format("\tPrediction: %s\n", prediction);
+          System.out.format("\tDeployed Model Id: %s\n", predictResponse.predictResponse.getDeployedModelId()out.println("Predictions");
+          for (Value predictionValueedictResponse.predictResponse.getPredictionsList()em.out.format("\tPrediction: %s\n", prediction);
           }
         }
       }
@@ -561,7 +555,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest) .
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 

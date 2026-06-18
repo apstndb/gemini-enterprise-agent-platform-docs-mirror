@@ -15,9 +15,9 @@ This tutorial shows you how to use Gemini Enterprise Agent Platform Pipelines to
 
 ## Before you begin
 
-1.  Ensure that you've completed steps 1-3 in [Set up a project](https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment#set_up_a_project) .
+1.  Ensure that you've completed steps 1-3 in [Set up a project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment#set_up_a_project) .
 
-2.  Create an isolated Python environment and install the [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk) .
+2.  Create an isolated Python environment and install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
 3.  Install the Kubeflow Pipelines SDK:
     

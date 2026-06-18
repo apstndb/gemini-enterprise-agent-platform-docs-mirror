@@ -182,7 +182,7 @@ If you want your Vertex AI TensorBoard data encrypted, you must enable the [CMEK
 
 Follow these steps to create a Vertex AI TensorBoard CMEK enabled instance using the Google Cloud console.
 
-1.  If you're new to Gemini Enterprise Agent Platform or starting a new project, [set up your project and development environment](https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment) .
+1.  If you're new to Gemini Enterprise Agent Platform or starting a new project, [set up your project and development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) .
 2.  In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Experiments** page.  
       
 3.  Navigate to the **TensorBoard Instances** tab.

@@ -864,7 +864,7 @@ In this section, you create a Vertex AI Workbench instance and use it to create 
             
             (This is the custom service account email address that you created earlier.) This service account has limited permissions.
             
-            To learn more about granting access, see [Manage access to a Vertex AI Workbench instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
+            To learn more about granting access, see [Manage access to a Agent Platform Workbench instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
     
       - **Security options** : Clear the following checkbox:
         
@@ -891,15 +891,15 @@ In this section, you create a Vertex AI Workbench instance and use it to create 
           - **Install Cloud Monitoring**
           - **Report DNS status for required Google domains**
 
-10. Click **Create** and wait a few minutes for the Vertex AI Workbench instance to be created.
+10. Click **Create** and wait a few minutes for the Agent Platform Workbench instance to be created.
 
-### Run the training application in the Vertex AI Workbench instance
+### Run the training application in the Agent Platform Workbench instance
 
 1.  In the Google Cloud console, go to the **Instances** tab on the **Gemini Enterprise Agent Platform Workbench** page.
 
-2.  Next to your Vertex AI Workbench instance's name ( ` pipeline-tutorial- PROJECT_ID  ` ), where PROJECT\_ID is the project ID, click **Open JupyterLab** .
+2.  Next to your Agent Platform Workbench instance's name ( ` pipeline-tutorial- PROJECT_ID  ` ), where PROJECT\_ID is the project ID, click **Open JupyterLab** .
     
-    Your Vertex AI Workbench instance opens in JupyterLab.
+    Your Agent Platform Workbench instance opens in JupyterLab.
 
 3.  Select **File \> New \> Terminal** .
 
@@ -1455,11 +1455,11 @@ You can delete the individual resources in the project as follows:
     
     2.  Select ` pipelines-staging-bucket- PROJECT_ID  ` , where PROJECT\_ID is the project ID, and click delete **Delete** .
 
-8.  Delete the Vertex AI Workbench instance as follows:
+8.  Delete the Agent Platform Workbench instance as follows:
     
     1.  In the **Gemini Enterprise Agent Platform** section, go to the **Instances** tab in the **Workbench** page.
     
-    2.  Select the ` pipeline-tutorial- PROJECT_ID  ` Vertex AI Workbench instance, where PROJECT\_ID is the project ID, and click delete **Delete** .
+    2.  Select the ` pipeline-tutorial- PROJECT_ID  ` Agent Platform Workbench instance, where PROJECT\_ID is the project ID, and click delete **Delete** .
 
 9.  Delete the Compute Engine VM instance as follows:
     

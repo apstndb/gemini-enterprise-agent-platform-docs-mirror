@@ -1,34 +1,34 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access
-title: Manage access to a Vertex AI Workbench instance
+title: Manage access to a Agent Platform Workbench instance
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This guide describes how you can grant access to a specific Vertex AI Workbench instance. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
+This guide describes how you can grant access to a specific Gemini Enterprise Agent Platform Workbench instance. To manage access to Gemini Enterprise Agent Platform resources, see the [Agent Platform page on access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) .
 
-You grant access to a Vertex AI Workbench instance by setting an [Identity and Access Management (IAM) policy](https://docs.cloud.google.com/iam/docs/policies) on the instance. The policy binds one or more principals, such as a user or a service account, to one or more [roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam-roles) . Each role contains a list of permissions that let the principal interact with the instance.
+You grant access to a Agent Platform Workbench instance by setting an [Identity and Access Management (IAM) policy](https://docs.cloud.google.com/iam/docs/policies) on the instance. The policy binds one or more principals, such as a user or a service account, to one or more [roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam-roles) . Each role contains a list of permissions that let the principal interact with the instance.
 
 You can grant access to an instance, instead of to a parent resource such as a project, folder, or organization, to exercise the principle of [least privilege](https://docs.cloud.google.com/iam/docs/using-iam-securely#least_privilege) .
 
 If you grant access to a [parent resource](https://docs.cloud.google.com/iam/docs/resource-hierarchy-access-control) (for example, to a project), you implicitly grant access to all its child resources (for example, to all instances in that project). To limit access to resources, set IAM policies on lower-level resources when possible, instead of at the project level or above.
 
-For general information about how to grant, change, and revoke access to resources unrelated to Vertex AI Workbench, for example, to grant access to a Google Cloud project, see the IAM documentation for [managing access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+For general information about how to grant, change, and revoke access to resources unrelated to Agent Platform Workbench, for example, to grant access to a Google Cloud project, see the IAM documentation for [managing access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 ### Access limitations
 
-Access to an instance can include a broad range of abilities, depending on the role you assign to the principal. For example, you might grant a principal the ability to start, stop, upgrade, and monitor the health status of an instance. For the complete list of IAM permissions available, see [Predefined Vertex AI Workbench IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam_roles) .
+Access to an instance can include a broad range of abilities, depending on the role you assign to the principal. For example, you might grant a principal the ability to start, stop, upgrade, and monitor the health status of an instance. For the complete list of IAM permissions available, see [Predefined Agent Platform Workbench IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam#iam_roles) .
 
-However, even granting a principal full access to a Vertex AI Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. To grant access to the JupyterLab interface, see [Manage access to an instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
+However, even granting a principal full access to a Agent Platform Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. To grant access to the JupyterLab interface, see [Manage access to an instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
 
-## Grant access to Vertex AI Workbench instances
+## Grant access to Agent Platform Workbench instances
 
-To grant users permission to access a specific Vertex AI Workbench instance, set an [IAM policy](https://docs.cloud.google.com/iam/docs/policies) on the instance.
+To grant users permission to access a specific Agent Platform Workbench instance, set an [IAM policy](https://docs.cloud.google.com/iam/docs/policies) on the instance.
 
 ### gcloud
 
-To grant a role to a principal on a Vertex AI Workbench instance, use the [`get-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/get-iam-policy) command to retrieve the current policy, edit the current policy's access, and then use the [`set-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/set-iam-policy) command to update the policy on the instance.
+To grant a role to a principal on a Agent Platform Workbench instance, use the [`get-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/get-iam-policy) command to retrieve the current policy, edit the current policy's access, and then use the [`set-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/set-iam-policy) command to update the policy on the instance.
 
 ### Retrieve the current policy
 
@@ -177,11 +177,11 @@ Execute the following command:
 
 ### Grant access to the JupyterLab interface
 
-Granting a principal access to a Vertex AI Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. To grant access to the JupyterLab interface, see [Manage access to a Vertex AI Workbench instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
+Granting a principal access to a Agent Platform Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. To grant access to the JupyterLab interface, see [Manage access to a Agent Platform Workbench instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
 
 ### API
 
-To grant a role to a principal on a Vertex AI Workbench instance, use the [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/getIamPolicy) method to retrieve the current policy, edit the current policy's access, and then use the [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/setIamPolicy) method to update the policy on the instance.
+To grant a role to a principal on a Agent Platform Workbench instance, use the [`getIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/getIamPolicy) method to retrieve the current policy, edit the current policy's access, and then use the [`setIamPolicy`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/setIamPolicy) method to update the policy on the instance.
 
 ### Retrieve the current policy
 
@@ -339,7 +339,7 @@ You should receive a successful status code (2xx) and an empty response.
 
 ### Grant access to the JupyterLab interface
 
-Granting a principal access to a Vertex AI Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. To grant access to the JupyterLab interface, see [Manage access to an instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
+Granting a principal access to a Agent Platform Workbench instance doesn't grant the ability to use the instance's JupyterLab interface. To grant access to the JupyterLab interface, see [Manage access to an instance's JupyterLab interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab) .
 
 ## What's next
 
@@ -347,7 +347,7 @@ Granting a principal access to a Vertex AI Workbench instance doesn't grant the 
 
   - To learn about Identity and Access Management (IAM) and how IAM roles can help grant and restrict access, see the [IAM documentation](https://docs.cloud.google.com/iam/docs) .
 
-  - Learn about the [IAM roles available to Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam) .
+  - Learn about the [IAM roles available to Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam) .
 
   - Learn how to create and manage [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) .
 

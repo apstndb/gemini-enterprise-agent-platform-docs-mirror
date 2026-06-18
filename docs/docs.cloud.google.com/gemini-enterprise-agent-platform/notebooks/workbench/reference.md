@@ -115,4 +115,4 @@ In addition, when calling the REST API, the [default value](https://developers.g
 
 The following API versions are available:
 
-  - **v2** ( [generally available](https://cloud.google.com/products#product-launch-stages) ) is for managing Vertex AI Workbench instances.
+  - **v2** ( [generally available](https://cloud.google.com/products#product-launch-stages) ) is for managing Gemini Enterprise Agent Platform Workbench instances.

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 The Agent Platform SDK for Python helps you automate data ingestion, train models, and get predictions on Gemini Enterprise Agent Platform. The Vertex AI SDK uses Python code to access the Agent Platform API so that you can programmatically accomplish most of what you can do in the Google Cloud console.
 
-To learn how to install or update the Agent Platform SDK for Python, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/install-sdk) . For more information, see the [Agent Platform SDK for Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+To learn how to install or update the Agent Platform SDK for Python, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) . For more information, see the [Agent Platform SDK for Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
 ## Why use the Vertex AI SDK
 
@@ -60,7 +60,7 @@ Code samples in the Agent Platform SDK for Python GitHub repository show you how
 
 When you install the Agent Platform SDK for Python, the Gemini Enterprise Agent Platform Python client library is also installed. The Vertex AI SDK and the Gemini Enterprise Agent Platform Python client library provide similar functionality with different levels of granularity. The Vertex AI SDK operates at a higher level of abstraction than the client library and is suitable for most common data science workflows. If you need lower-level functionality, then use the Gemini Enterprise Agent Platform Python client library.
 
-The Vertex AI SDK is available for Python and a Gemini Enterprise Agent Platform client library is available for Python, Java, and Node.js. To learn how to install the Java or Node.js client library, see [Install the Gemini Enterprise Agent Platform client libraries](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries) . If a client library isn't available in your preferred programming language, you can use the Gemini Enterprise Agent Platform REST API. For more information, see the [Gemini Enterprise Agent Platform REST reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) .
+The Vertex AI SDK is available for Python and a Gemini Enterprise Agent Platform client library is available for Python, Java, and Node.js. To learn how to install the Java or Node.js client library, see [Install the Gemini Enterprise Agent Platform client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . If a client library isn't available in your preferred programming language, you can use the Gemini Enterprise Agent Platform REST API. For more information, see the [Gemini Enterprise Agent Platform REST reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) .
 
 ### Use Gemini Enterprise Agent Platform Python client library and SDK together
 
@@ -76,4 +76,4 @@ The Gemini Enterprise Agent Platform Python client library namespace is `google.
 
 ## What's next
 
-  - Learn how to [choose a training method](https://docs.cloud.google.com/vertex-ai/docs/start/training-methods) .
+  - Learn how to [choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .

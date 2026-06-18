@@ -22,7 +22,7 @@ For instructions on how to set up Model Monitoring for online (real-time) infere
 
 To use Model Monitoring with batch inferences, complete the following:
 
-1.  Have an available model in Gemini Enterprise Agent Platform Model Registry that is either a [tabular AutoML](https://docs.cloud.google.com/vertex-ai/docs/start/automl-model-types#tabular) or tabular [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) type.
+1.  Have an available model in Gemini Enterprise Agent Platform Model Registry that is either a [tabular AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/automl-model-types#tabular) or tabular [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) type.
 
 2.  Upload your training data to [Cloud Storage](https://docs.cloud.google.com/storage/docs/uploading-objects) or [BigQuery](https://docs.cloud.google.com/bigquery/docs/loading-data) and obtain the URI link to the data.
     

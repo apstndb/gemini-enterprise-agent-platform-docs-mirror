@@ -157,7 +157,7 @@ When consuming a Compute Engine reservation, you're billed for the following:
 
   - The Compute Engine resources, including any applicable committed use discounts (CUDs), at Compute Engine pricing. These charges have the label `goog-vertex-ai-product: workbench-instances` on the SKU. See [Compute Engine pricing](https://cloud.google.com/compute/all-pricing) .
 
-  - Agent Platform Workbench management fees in addition to your infrastructure usage. See [Agent Platform Workbench pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing#notebooks) .
+  - Agent Platform Workbench management fees in addition to your infrastructure usage. See [Agent Platform Workbench pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#notebooks) .
 
 ## Troubleshoot
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Use this page to understand the differences between BigQuery and [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) and learn how you can integrate BigQuery with your existing BigQuery workflows. BigQuery and BigQuery work together to meet your machine learning and MLOps use cases.
 
-To learn more about model training differences between BigQuery and BigQuery, see [Choose a training method](https://docs.cloud.google.com/vertex-ai/docs/start/training-methods) .
+To learn more about model training differences between BigQuery and BigQuery, see [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
 
 ## Differences between BigQuery and BigQuery
 
@@ -99,5 +99,5 @@ To learn how to register your BigQuery ML models to the Model Registry, see [Man
 ## What's next
 
   - To get started with BigQuery see:
-      - [Choose a training method](https://docs.cloud.google.com/vertex-ai/docs/start/training-methods)
+      - [Choose a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods)
       - [Integrate a BigQuery ML model with Model Registry](https://docs.cloud.google.com/bigquery/machine-learning/model-registry/model-registry-bqml)

@@ -6,7 +6,11 @@ description: Learn how to control access to a Gemini Enterprise Agent Platform e
 data_source: docs.cloud.google.com
 ---
 
-This page discusses how to control access to a Gemini Enterprise Agent Platform endpoint by setting an IAM policy on it. It assumes that you're already familiar with IAM concepts such as policies, roles, permissions, and principals as described in [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) and [Concepts related to access management](https://docs.cloud.google.com/iam/docs/overview#concepts_related_to_access_management) .
+This page discusses how to control access to a Gemini Enterprise Agent Platform endpoint by setting an IAM policy on it.
+
+> **Important:** Endpoint-level IAM is not supported for Gemini Enterprise Agent Platform endpoints. Users attempting to use this feature may receive PERMISSION\_DENIED errors (status code 403) despite having correct endpoint-level IAM bindings.
+
+It assumes that you're already familiar with IAM concepts such as policies, roles, permissions, and principals as described in [Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) and [Concepts related to access management](https://docs.cloud.google.com/iam/docs/overview#concepts_related_to_access_management) .
 
 An IAM [policy](https://docs.cloud.google.com/iam/docs/policies#structure) includes one or more role bindings that define which IAM roles are associated with which principals. A role is a collection of permissions that you grant to a [principal](https://docs.cloud.google.com/iam/docs/overview#concepts_related_identity) . Gemini Enterprise Agent Platform provides [predefined roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) that you can use in your policies. Or you can create your own custom roles.
 
@@ -160,11 +164,11 @@ You should receive a JSON response with the current IAM policy:
 
 ## Verify a user's IAM permissions for an endpoint
 
-You can verify whether the currently authenticated user has specific IAM permissions for an endpoint.
+You can verify whether the authenticated user has specific IAM permissions for an endpoint.
 
 ### REST
 
-To verify whether a user has specific IAM permissions for a resource, send a `POST` request that uses the [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/testIamPermissions) method. The following example lets you test whether the currently authenticated user has a set of IAM permissions for an endpoint.
+To verify whether a user has specific IAM permissions for a resource, send a `POST` request that uses the [`testIamPermissions`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints/testIamPermissions) method. The following example lets you test whether the authenticated user has a set of IAM permissions for an endpoint.
 
 Before using any of the request data, make the following replacements:
 

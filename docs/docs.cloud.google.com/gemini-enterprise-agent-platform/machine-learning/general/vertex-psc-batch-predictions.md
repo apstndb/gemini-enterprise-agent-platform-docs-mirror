@@ -629,9 +629,9 @@ In this section, to [control access to your Vertex AI Workbench instance](https:
           --member="serviceAccount:workbench-sa@$projectid." \
           --role="roles/logging.viewer"
 
-### Create the Vertex AI Workbench instance
+### Create the Agent Platform Workbench instance
 
-1.  In Cloud Shell, create a Vertex AI Workbench instance, specifying the `workbench-sa` service account:
+1.  In Cloud Shell, create a Agent Platform Workbench instance, specifying the `workbench-sa` service account:
     
         gcloud workbench instances create workbench-tutorial \
           --vm-image-project=deeplearning-platform-release \
@@ -646,9 +646,9 @@ In this section, to [control access to your Vertex AI Workbench instance](https:
 
 2.  In the Google Cloud console, go to the **Instances** tab on the **Gemini Enterprise Agent Platform Workbench** page.
 
-3.  Next to your Vertex AI Workbench instance's name ( `workbench-tutorial` ), click **Open JupyterLab** .
+3.  Next to your Agent Platform Workbench instance's name ( `workbench-tutorial` ), click **Open JupyterLab** .
     
-    Your Vertex AI Workbench instance opens JupyterLab.
+    Your Agent Platform Workbench instance opens JupyterLab.
 
 4.  Select **File \> New \> Notebook** .
 
@@ -1059,11 +1059,11 @@ You can delete the individual resources in the Google Cloud console as follows:
     
     2.  Next to the name of your model ( `income-classifier-model` ), click the more\_vert **Actions** menu, and choose **Delete model** .
 
-3.  Delete the Vertex AI Workbench instance as follows:
+3.  Delete the Agent Platform Workbench instance as follows:
     
     1.  In the Google Cloud console, in the **Gemini Enterprise Agent Platform** section, go to the **Instances** tab in the **Workbench** page.
     
-    2.  Select the `workbench-tutorial` Vertex AI Workbench instance and click delete **Delete** .
+    2.  Select the `workbench-tutorial` Agent Platform Workbench instance and click delete **Delete** .
 
 4.  Delete the Compute Engine VM instance as follows:
     

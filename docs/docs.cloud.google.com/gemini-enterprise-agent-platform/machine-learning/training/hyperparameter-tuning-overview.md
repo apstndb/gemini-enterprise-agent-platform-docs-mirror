@@ -6,8 +6,6 @@ description: Overview of hyperparameter tuning.
 data_source: docs.cloud.google.com
 ---
 
-[Video](https://www.youtube.com/watch?v=8hZ_cBwNOss)
-
 Hyperparameter tuning takes advantage of the processing infrastructure of Google Cloud to test different hyperparameter configurations when training your model. It can give you optimized values for hyperparameters, which maximizes your model's predictive accuracy.
 
 ## What's a hyperparameter?

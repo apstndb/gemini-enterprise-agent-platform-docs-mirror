@@ -1,18 +1,18 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled
-title: Create a Managed Service for Apache Spark Spark-enabled Vertex AI Workbench instance
+title: Create a Managed Service for Apache Spark Spark-enabled Agent Platform Workbench instance
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
 > **Dataproc Serverless** is now **Managed Service for Apache Spark** . Until updated, the Google Cloud console and JupyterLab pages will refer to the previous name.
 
-This page describes how to create a Managed Service for Apache Spark Spark-enabled Vertex AI Workbench instance. This page also describes the benefits of the Managed Service for Apache Spark JupyterLab extension and provides an overview on how to use the extension with Managed Service for Apache Spark and Managed Service for Apache Spark on Compute Engine.
+This page describes how to create a Managed Service for Apache Spark Spark-enabled Gemini Enterprise Agent Platform Workbench instance. This page also describes the benefits of the Managed Service for Apache Spark JupyterLab extension and provides an overview on how to use the extension with Managed Service for Apache Spark and Managed Service for Apache Spark on Compute Engine.
 
 ## Overview of the Managed Service for Apache Spark JupyterLab extension
 
-Vertex AI Workbench instances have the Managed Service for Apache Spark JupyterLab extension preinstalled, as of version `M113` and later.
+Agent Platform Workbench instances have the Managed Service for Apache Spark JupyterLab extension preinstalled, as of version `M113` and later.
 
 > **Note:** You can also [install and use the Managed Service for Apache Spark JupyterLab extension on your local machine or a Compute Engine VM instance](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions) .
 
@@ -64,7 +64,7 @@ Your administrator might also be able to give the service account these permissi
 
 ## Create an instance with Managed Service for Apache Spark enabled
 
-To create a Vertex AI Workbench instance with Managed Service for Apache Spark enabled, do the following:
+To create a Agent Platform Workbench instance with Managed Service for Apache Spark enabled, do the following:
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
@@ -80,7 +80,7 @@ To create a Vertex AI Workbench instance with Managed Service for Apache Spark e
 
 7.  Click **Create** .
     
-    Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link.
+    Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
 
 > **Note:** Specific network configurations could affect your ability to use the Managed Service for Apache Spark extension. For more information on how to ensure that your network configuration is compatible, see [Network configuration options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create#network-options) .
 
@@ -92,7 +92,7 @@ The JupyterLab **Launcher** tab opens in your browser. By default it contains se
 
 ## Use the extension with Managed Service for Apache Spark
 
-Managed Service for Apache Spark runtime templates that are in the same region and project as your Vertex AI Workbench instance appear in the **Managed Service for Apache Spark Notebooks** section of the JupyterLab **Launcher** tab.
+Managed Service for Apache Spark runtime templates that are in the same region and project as your Agent Platform Workbench instance appear in the **Managed Service for Apache Spark Notebooks** section of the JupyterLab **Launcher** tab.
 
 To create a runtime template, see [Create a Managed Service for Apache Spark runtime template](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions#create_a_serverless_runtime_template) .
 
@@ -112,23 +112,23 @@ To change the region and project, do the following:
     
     These changes don't take effect until you restart JupyterLab.
 
-3.  To restart JupyterLab, select **File \> Shut Down** , and then click **Open JupyterLab** on the **Vertex AI Workbench instances** page.
+3.  To restart JupyterLab, select **File \> Shut Down** , and then click **Open JupyterLab** on the **Agent Platform Workbench instances** page.
 
 To create a new notebook, click a card. After the remote kernel on the Managed Service for Apache Spark cluster starts, you can start writing your code and then run it on your cluster.
 
 ## Manage Managed Service for Apache Spark on an instance using the gcloud CLI and the API
 
-This section describes ways to manage Managed Service for Apache Spark on a Vertex AI Workbench instance.
+This section describes ways to manage Managed Service for Apache Spark on a Agent Platform Workbench instance.
 
 ### Change the region of your Managed Service for Apache Spark cluster
 
-Your Vertex AI Workbench instance's default kernels, such as Python and TensorFlow, are local kernels that run in the instance's VM. On a Managed Service for Apache Spark Spark-enabled Vertex AI Workbench instance, your notebook runs on a Managed Service for Apache Spark cluster through a remote kernel. The remote kernel runs on a service outside of your instance's VM, which lets you access any Managed Service for Apache Spark cluster within the same project.
+Your Agent Platform Workbench instance's default kernels, such as Python and TensorFlow, are local kernels that run in the instance's VM. On a Managed Service for Apache Spark Spark-enabled Agent Platform Workbench instance, your notebook runs on a Managed Service for Apache Spark cluster through a remote kernel. The remote kernel runs on a service outside of your instance's VM, which lets you access any Managed Service for Apache Spark cluster within the same project.
 
-By default Vertex AI Workbench uses Managed Service for Apache Spark clusters within the same region as your instance, but you can [change the Managed Service for Apache Spark region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled#dataproc-compute) as long as the [Component Gateway](https://docs.cloud.google.com/dataproc/docs/concepts/accessing/dataproc-gateways) and the [optional Jupyter component](https://docs.cloud.google.com/dataproc/docs/concepts/components/jupyter) are enabled on the Managed Service for Apache Spark cluster.
+By default Agent Platform Workbench uses Managed Service for Apache Spark clusters within the same region as your instance, but you can [change the Managed Service for Apache Spark region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled#dataproc-compute) as long as the [Component Gateway](https://docs.cloud.google.com/dataproc/docs/concepts/accessing/dataproc-gateways) and the [optional Jupyter component](https://docs.cloud.google.com/dataproc/docs/concepts/components/jupyter) are enabled on the Managed Service for Apache Spark cluster.
 
 ### Test Access
 
-The Managed Service for Apache Spark JupyterLab extension is enabled by default for Vertex AI Workbench instances. To test access to Managed Service for Apache Spark, you can check access to your instance's remote kernels by sending the following curl request to the `kernels.googleusercontent.com` domain:
+The Managed Service for Apache Spark JupyterLab extension is enabled by default for Agent Platform Workbench instances. To test access to Managed Service for Apache Spark, you can check access to your instance's remote kernels by sending the following curl request to the `kernels.googleusercontent.com` domain:
 
 ```sh
 curl --verbose -H "Authorization: Bearer $(gcloud auth print-access-token)" https://PROJECT_ID-dot-REGION.kernels.googleusercontent.com/api/kernelspecs | jq .
@@ -144,19 +144,19 @@ If the curl command fails, check to make sure that:
 
 ### Turn off Managed Service for Apache Spark
 
-Vertex AI Workbench instances are created with Managed Service for Apache Spark enabled by default. You can create a Vertex AI Workbench instance with Managed Service for Apache Spark turned off by setting the `disable-mixer` `metadata` key to `true` .
+Agent Platform Workbench instances are created with Managed Service for Apache Spark enabled by default. You can create a Agent Platform Workbench instance with Managed Service for Apache Spark turned off by setting the `disable-mixer` `metadata` key to `true` .
 
     gcloud workbench instances create INSTANCE_NAME --metadata=disable-mixer=true
 
 ### Enable Managed Service for Apache Spark
 
-You can enable Managed Service for Apache Spark on a stopped Vertex AI Workbench instance by updating the metadata value.
+You can enable Managed Service for Apache Spark on a stopped Agent Platform Workbench instance by updating the metadata value.
 
     gcloud workbench instances update INSTANCE_NAME --metadata=disable-mixer=false
 
 ## Manage Managed Service for Apache Spark using Terraform
 
-Managed Service for Apache Spark for Vertex AI Workbench instances on Terraform is managed using the `disable-mixer` key in the metadata field. Turn on Managed Service for Apache Spark by setting the `disable-mixer` `metadata` key to `false` . Turn off Managed Service for Apache Spark by setting the `disable-mixer` metadata key to `true` .
+Managed Service for Apache Spark for Agent Platform Workbench instances on Terraform is managed using the `disable-mixer` key in the metadata field. Turn on Managed Service for Apache Spark by setting the `disable-mixer` `metadata` key to `false` . Turn off Managed Service for Apache Spark by setting the `disable-mixer` metadata key to `true` .
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands) .
 
@@ -180,7 +180,7 @@ resource "google_workbench_instance" "default" {
 
 ## Troubleshoot
 
-To diagnose and resolve issues related to creating a Managed Service for Apache Spark Spark-enabled instance, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#dataproc-instances) .
+To diagnose and resolve issues related to creating a Managed Service for Apache Spark Spark-enabled instance, see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#dataproc-instances) .
 
 ## What's next
 

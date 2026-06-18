@@ -10,13 +10,13 @@ This page shows how to create a forecast using your trained forecast model.
 
 To create a forecast, make a batch inference request directly to your forecast model. Specify an input source and an output location to store the forecast results.
 
-Forecasting with AutoML is not compatible with endpoint deployment or online inferences. To request online inferences from your forecast model, use [Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting) .
+Forecasting with AutoML is not compatible with endpoint deployment or online inferences. To request online inferences from your forecast model, use [Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting) .
 
-You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
 ## Before you begin
 
-Before you can create a forecast, train a forecast model. For more information, see [Train a forecast model](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/train-model) .
+Before you can create a forecast, train a forecast model. For more information, see [Train a forecast model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model) .
 
 ## Input data
 
@@ -538,18 +538,18 @@ To retrieve the inferences table:
 
 Gemini Enterprise Agent Platform stores inferences in the `predicted_ TARGET_COLUMN_NAME .value` column.
 
-If you [trained a model with Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#training-methods) , you can find TFT interpretability output in the `predicted_ TARGET_COLUMN_NAME .tft_feature_importance` column.
+If you [trained a model with Temporal Fusion Transformer (TFT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) , you can find TFT interpretability output in the `predicted_ TARGET_COLUMN_NAME .tft_feature_importance` column.
 
 This column is further divided into the following:
 
-  - `context_columns` : Forecasting features whose [context window](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Encoder.
+  - `context_columns` : Forecasting features whose [context window](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Encoder.
   - `context_weights` : The feature importance weights associated with each of the `context_columns` for the predicted instance.
-  - `horizon_columns` : Forecasting features whose [forecast horizon](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Decoder.
+  - `horizon_columns` : Forecasting features whose [forecast horizon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#forecast-window) values serve as inputs to the TFT Long Short-Term Memory (LSTM) Decoder.
   - `horizon_weights` : The feature importance weights associated with each of the `horizon_columns` for the predicted instance.
-  - `attribute_columns` : Forecasting features which are [time-invariant](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#feature-type) .
+  - `attribute_columns` : Forecasting features which are [time-invariant](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
   - `attribute_weights` : The weights associated with each of the `attribute_columns` .
 
-If your model is [optimized for quantile loss](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-parameters#optimization-objectives) and your set of quantiles includes the median, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the median. Otherwise, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the lowest quantile in the set. For example, if your set of quantiles is `[0.1, 0.5, 0.9]` , `value` is the inference for quantile `0.5` . If your set of quantiles is `[0.1, 0.9]` , `value` is the inference for quantile `0.1` .
+If your model is [optimized for quantile loss](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) and your set of quantiles includes the median, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the median. Otherwise, `predicted_ TARGET_COLUMN_NAME .value` is the inference value at the lowest quantile in the set. For example, if your set of quantiles is `[0.1, 0.5, 0.9]` , `value` is the inference for quantile `0.5` . If your set of quantiles is `[0.1, 0.9]` , `value` is the inference for quantile `0.1` .
 
 Additionally, Gemini Enterprise Agent Platform stores quantile values and inferences in the following columns:
 

@@ -6,8 +6,6 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-[Video](https://www.youtube.com/watch?v=1ykDWsnL2LE)
-
 This section describes Gemini Enterprise Agent Platform services that help you implement *Machine learning operations (MLOps)* with your machine learning (ML) workflow.
 
 After your models are deployed, they must keep up with changing data from the environment to perform optimally and stay relevant. MLOps is a set of practices that improves the stability and reliability of your ML systems.

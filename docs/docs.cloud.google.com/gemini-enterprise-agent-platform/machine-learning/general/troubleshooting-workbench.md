@@ -1,20 +1,20 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench
-title: Troubleshooting Vertex AI Workbench
-description: Troubleshoot and resolve common issues when using Vertex AI Workbench.
+title: Troubleshooting Agent Platform Workbench
+description: Troubleshoot and resolve common issues when using Agent Platform Workbench.
 data_source: docs.cloud.google.com
 ---
 
-This page describes troubleshooting steps that you might find helpful if you run into problems when you use Vertex AI Workbench.
+This page describes troubleshooting steps that you might find helpful if you run into problems when you use Gemini Enterprise Agent Platform Workbench.
 
 See also [Troubleshooting Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting) for help using other components of Gemini Enterprise Agent Platform.
 
 To filter this page's content, click a topic:
 
-## Vertex AI Workbench instances
+## Agent Platform Workbench instances
 
-This section describes troubleshooting steps for Vertex AI Workbench instances.
+This section describes troubleshooting steps for Agent Platform Workbench instances.
 
 ### Troubleshooting with AI Tools
 
@@ -60,21 +60,21 @@ When you click **Open JupyterLab** , nothing happens.
 
 Verify that your browser doesn't block new tabs from opening automatically. JupyterLab opens in a new browser tab.
 
-#### Can't access the terminal in a Vertex AI Workbench instance
+#### Can't access the terminal in a Agent Platform Workbench instance
 
 **Issue**
 
-If you're unable to access the terminal or can't find the terminal window in the launcher, it could be because your Vertex AI Workbench instance doesn't have terminal access enabled.
+If you're unable to access the terminal or can't find the terminal window in the launcher, it could be because your Agent Platform Workbench instance doesn't have terminal access enabled.
 
 **Solution**
 
-You must create a new Vertex AI Workbench instance with the **Terminal access** option enabled. This option can't be changed after instance creation.
+You must create a new Agent Platform Workbench instance with the **Terminal access** option enabled. This option can't be changed after instance creation.
 
 #### 502 error when opening JupyterLab
 
 **Issue**
 
-A 502 error might mean that your Vertex AI Workbench instance isn't ready yet.
+A 502 error might mean that your Agent Platform Workbench instance isn't ready yet.
 
 **Solution**
 
@@ -84,7 +84,7 @@ Wait a few minutes, refresh the Google Cloud console browser tab, and try again.
 
 **Issue**
 
-Your Vertex AI Workbench instance isn't running cells or appears to be frozen.
+Your Agent Platform Workbench instance isn't running cells or appears to be frozen.
 
 **Solution**
 
@@ -93,17 +93,17 @@ First try restarting the kernel by clicking **Kernel** from the top menu and the
   - Refresh the JupyterLab browser page. Unsaved cell output doesn't persist, so you must run those cells again to regenerate the output.
   - [Reset your instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-console-quickstart#reset_your_instance) .
 
-### Unable to connect with Vertex AI Workbench instance using SSH
+### Unable to connect with Agent Platform Workbench instance using SSH
 
 **Issue**
 
 You're unable to connect to your instance by using SSH through a terminal window.
 
-Vertex AI Workbench instances use [OS Login](https://docs.cloud.google.com/compute/docs/oslogin) to enable SSH access. When you create an instance, Vertex AI Workbench enables OS Login by default by setting the metadata key `enable-oslogin` to `TRUE` . If you're unable to use SSH to connect to your instance, this metadata key might need to be set to `TRUE` .
+Agent Platform Workbench instances use [OS Login](https://docs.cloud.google.com/compute/docs/oslogin) to enable SSH access. When you create an instance, Agent Platform Workbench enables OS Login by default by setting the metadata key `enable-oslogin` to `TRUE` . If you're unable to use SSH to connect to your instance, this metadata key might need to be set to `TRUE` .
 
 **Solution**
 
-Connecting to a Vertex AI Workbench instance by using the Google Cloud console isn't supported. If you're unable to connect to your instance by using SSH through a terminal window, see the following:
+Connecting to a Agent Platform Workbench instance by using the Google Cloud console isn't supported. If you're unable to connect to your instance by using SSH through a terminal window, see the following:
 
 To set the metadata key `enable-oslogin` to `TRUE` , use the [`projects.locations.instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/patch) method in the Notebooks API or the [`gcloud workbench instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/update) command in the Agent Platform SDK.
 
@@ -111,21 +111,21 @@ To set the metadata key `enable-oslogin` to `TRUE` , use the [`projects.location
 
 **Issue**
 
-You're unable to create a Vertex AI Workbench instance with GPUs.
+You're unable to create a Agent Platform Workbench instance with GPUs.
 
 **Solution**
 
 Determine the number of GPUs available in your project by [checking the quotas page](https://console.cloud.google.com/quotas) . If GPUs aren't listed on the quotas page, or you require additional GPU quota, you can request a quota increase for Compute Engine GPUs. See [Request a higher quota limit](https://docs.cloud.google.com/docs/quota_detail/view_manage#requesting_higher_quota) .
 
-### Creating Vertex AI Workbench instances
+### Creating Agent Platform Workbench instances
 
-This section describes how to troubleshoot issues related to creating Vertex AI Workbench instances.
+This section describes how to troubleshoot issues related to creating Agent Platform Workbench instances.
 
 #### Instance stays in pending state indefinitely or is stuck in provisioning status
 
 **Issue**
 
-After creating a Vertex AI Workbench instance, it stays in the pending state indefinitely. An error like the following might appear in the serial logs:
+After creating a Agent Platform Workbench instance, it stays in the pending state indefinitely. An error like the following might appear in the serial logs:
 
     Could not resolve host: notebooks.googleapis.com
 
@@ -150,35 +150,35 @@ Attempting to create an instance within a Shared VPC network results in an error
 
 The issue is that the [Notebooks Service Account](https://docs.cloud.google.com/iam/docs/service-agents#cloud-ai-platform-notebooks-service-account) is attempting to create the instance without the correct permissions.
 
-To ensure that the Notebooks Service Account has the necessary permissions to ensure that the Notebooks Service Account can create a Vertex AI Workbench instance within a Shared VPC network, ask your administrator to grant the Compute Network User role ( `  roles/compute.networkUser  ` ) IAM role to the Notebooks Service Account on the host project.
+To ensure that the Notebooks Service Account has the necessary permissions to ensure that the Notebooks Service Account can create a Agent Platform Workbench instance within a Shared VPC network, ask your administrator to grant the Compute Network User role ( `  roles/compute.networkUser  ` ) IAM role to the Notebooks Service Account on the host project.
 
 > **Important:** You must grant this role to the Notebooks Service Account, *not* to your user account. Failure to grant the role to the correct principal might result in permission errors.
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
-This predefined role contains the permissions required to ensure that the Notebooks Service Account can create a Vertex AI Workbench instance within a Shared VPC network. To see the exact permissions that are required, expand the **Required permissions** section:
+This predefined role contains the permissions required to ensure that the Notebooks Service Account can create a Agent Platform Workbench instance within a Shared VPC network. To see the exact permissions that are required, expand the **Required permissions** section:
 
 #### Required permissions
 
-The following permissions are required to ensure that the Notebooks Service Account can create a Vertex AI Workbench instance within a Shared VPC network:
+The following permissions are required to ensure that the Notebooks Service Account can create a Agent Platform Workbench instance within a Shared VPC network:
 
   - To use subnetworks: `compute.subnetworks.use`
 
 Your administrator might also be able to give the Notebooks Service Account these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
-#### Can't create a Vertex AI Workbench instance with a custom container
+#### Can't create a Agent Platform Workbench instance with a custom container
 
 **Issue**
 
-There isn't an option to use a custom container when creating a Vertex AI Workbench instance in the Google Cloud console.
+There isn't an option to use a custom container when creating a Agent Platform Workbench instance in the Google Cloud console.
 
 **Solution**
 
-Adding a custom container to a Vertex AI Workbench instance isn't supported, and you can't add a custom container by using the Google Cloud console.
+Adding a custom container to a Agent Platform Workbench instance isn't supported, and you can't add a custom container by using the Google Cloud console.
 
 [Adding a conda environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/add-environment) is recommended instead of using a custom container.
 
-You can add a custom container to a Vertex AI Workbench instance by using the [Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/create) , but this capability isn't supported.
+You can add a custom container to a Agent Platform Workbench instance by using the [Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/create) , but this capability isn't supported.
 
 ### Unable to use the Gemini CLI
 
@@ -198,7 +198,7 @@ The **Mount shared storage** button isn't in the **File Browser** tab of the Jup
 
 **Solution**
 
-The `storage.buckets.list` permission is required for the **Mount shared storage** button to appear in the JupyterLab interface of your Vertex AI Workbench instance. Ask your administrator to grant your Vertex AI Workbench instance's service account the `storage.buckets.list` permission on the project.
+The `storage.buckets.list` permission is required for the **Mount shared storage** button to appear in the JupyterLab interface of your Agent Platform Workbench instance. Ask your administrator to grant your Agent Platform Workbench instance's service account the `storage.buckets.list` permission on the project.
 
 ### 599 error when using Managed Service for Apache Spark
 
@@ -222,13 +222,13 @@ Attempting to install a third-party JupyterLab extension results in an `Error: 5
 
 **Solution**
 
-Third-party JupyterLab extensions aren't supported in Vertex AI Workbench instances.
+Third-party JupyterLab extensions aren't supported in Agent Platform Workbench instances.
 
 ### Unable to edit underlying virtual machine
 
 **Issue**
 
-When you try to edit the underlying virtual machine (VM) of a Vertex AI Workbench instance, you might get an error message similar to the following:
+When you try to edit the underlying virtual machine (VM) of a Agent Platform Workbench instance, you might get an error message similar to the following:
 
     Current principal doesn't have permission to mutate this resource.
 
@@ -236,7 +236,7 @@ When you try to edit the underlying virtual machine (VM) of a Vertex AI Workbenc
 
 This error occurs because you can't edit the underlying VM of an instance by using the Google Cloud console or the Compute Engine API.
 
-To edit a Vertex AI Workbench instance's underlying VM, use the [`projects.locations.instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/patch) method in the Notebooks API or the [`gcloud workbench instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/update) command in the Agent Platform SDK
+To edit a Agent Platform Workbench instance's underlying VM, use the [`projects.locations.instances.patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest/v2/projects.locations.instances/patch) method in the Notebooks API or the [`gcloud workbench instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/update) command in the Agent Platform SDK
 
 ### `pip` packages aren't available after adding conda environment
 
@@ -258,7 +258,7 @@ To resolve the issue, see [Add a conda environment](https://docs.cloud.google.co
 
 The data on an instance with single user access is inaccessible.
 
-For Vertex AI Workbench instances that are set up with single user access, only the specified single user (the owner) can access the data on the instance.
+For Agent Platform Workbench instances that are set up with single user access, only the specified single user (the owner) can access the data on the instance.
 
 **Solution**
 
@@ -268,7 +268,7 @@ To access or copy the data when you aren't the owner of the instance, open a sup
 
 **Issue**
 
-Your Vertex AI Workbench instance shuts down unexpectedly.
+Your Agent Platform Workbench instance shuts down unexpectedly.
 
 **Solution**
 
@@ -280,7 +280,7 @@ If you enabled idle shutdown, your instance shuts down when there is no kernel a
 
 **Issue**
 
-Your Vertex AI Workbench instance's logs show connection or timeout errors.
+Your Agent Platform Workbench instance's logs show connection or timeout errors.
 
 **Solution**
 
@@ -296,7 +296,7 @@ If you have turned off `External IP` and you are using a private VPC network mak
 
 **Issue**
 
-Your Vertex AI Workbench instance logs show an error such as:
+Your Agent Platform Workbench instance logs show an error such as:
 
     notebooks_collection_agent. Unable to contact Jupyter API:
     HTTPConnectionPool(host=\'127.0.0.1\', port=8080):
@@ -367,14 +367,14 @@ The operation to create the instance results in a `Specified reservations do not
 
 Some Compute Engine machine types require additional parameters at creation such as local SSDs or a minimum CPU platform. The instance specification must include these additional fields.
 
-  - Vertex AI Workbench instances use automatic minimum CPU platform by default. If your reservation sets a specific platform, you need to set the `min_cpu_platform` accordingly when creating Vertex AI Workbench instances.
-  - Vertex AI Workbench instances always set the number of local SSDs to the [default values according to the machine type](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds) . For example, `a2-ultragpu-1g` always has 1 local SSD, while `a2-highgpu-1g` always has 0 local SSD. When creating reservations to be used for Vertex AI Workbench instances, you need to leave the local SSD to its default value.
+  - Agent Platform Workbench instances use automatic minimum CPU platform by default. If your reservation sets a specific platform, you need to set the `min_cpu_platform` accordingly when creating Agent Platform Workbench instances.
+  - Agent Platform Workbench instances always set the number of local SSDs to the [default values according to the machine type](https://docs.cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds) . For example, `a2-ultragpu-1g` always has 1 local SSD, while `a2-highgpu-1g` always has 0 local SSD. When creating reservations to be used for Agent Platform Workbench instances, you need to leave the local SSD to its default value.
 
 ## Helpful procedures
 
 This section describes procedures that you might find helpful.
 
-### Use SSH to connect to your Vertex AI Workbench instance
+### Use SSH to connect to your Agent Platform Workbench instance
 
 Use ssh to connect to your instance by typing the following command in either [Cloud Shell](https://console.cloud.google.com/?cloudshell=true) or any environment where the [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) is installed.
 
@@ -394,20 +394,20 @@ You can also connect to your instance by opening your instance's Compute Engine 
 
 ### Re-register with the Inverting Proxy server
 
-To re-register the Vertex AI Workbench instance with the internal Inverting Proxy server, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To re-register the Agent Platform Workbench instance with the internal Inverting Proxy server, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     cd /opt/deeplearning/bin
     sudo ./attempt-register-vm-on-proxy.sh
 
 ### Verify the Docker service status
 
-To verify the Docker service status you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To verify the Docker service status you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo service docker status
 
 ### Verify that the Inverting Proxy agent is running
 
-To verify if the notebook Inverting Proxy agent is running, [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To verify if the notebook Inverting Proxy agent is running, [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     # Confirm Inverting Proxy agent Docker container is running (proxy-agent)
     sudo docker ps
@@ -420,7 +420,7 @@ To verify if the notebook Inverting Proxy agent is running, [use ssh to connect 
 
 ### Verify the Jupyter service status and collect logs
 
-To verify the Jupyter service status you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To verify the Jupyter service status you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo service jupyter status
 
@@ -435,7 +435,7 @@ The Jupyter API should always run on port 8080. You can verify this by inspectin
     Jupyter Server ... running at:
     http://localhost:8080
 
-To verify that the Jupyter internal API is active you can also [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To verify that the Jupyter internal API is active you can also [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     curl http://127.0.0.1:8080/api/kernelspecs
 
@@ -445,31 +445,31 @@ You can also measure the time it takes for the API to respond in case the reques
     time curl -V http://127.0.0.1:8080/api/kernels
     time curl -V http://127.0.0.1:8080/api/connections
 
-To run these commands in your Vertex AI Workbench instance, open JupyterLab, and create a new terminal.
+To run these commands in your Agent Platform Workbench instance, open JupyterLab, and create a new terminal.
 
 ### Restart the Docker service
 
-To restart the Docker service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Docker service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo service docker restart
 
 ### Restart the Inverting Proxy agent
 
-To restart the Inverting Proxy agent, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Inverting Proxy agent, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo docker restart proxy-agent
 
 ### Restart the Jupyter service
 
-To restart the Jupyter service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Jupyter service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo service jupyter restart
 
 ### Restart the Notebooks Collection Agent
 
-The Notebooks Collection Agent service runs a Python process in the background that verifies the status of the Vertex AI Workbench instance's core services.
+The Notebooks Collection Agent service runs a Python process in the background that verifies the status of the Agent Platform Workbench instance's core services.
 
-To restart the Notebooks Collection Agent service, you can stop and start the VM from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances) or you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Notebooks Collection Agent service, you can stop and start the VM from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo systemctl stop notebooks-collection-agent.service
 
@@ -477,13 +477,13 @@ followed by:
 
     sudo systemctl start notebooks-collection-agent.service
 
-To run these commands in your Vertex AI Workbench instance, open JupyterLab, and create a new terminal.
+To run these commands in your Agent Platform Workbench instance, open JupyterLab, and create a new terminal.
 
 ### Modify the Notebooks Collection Agent script
 
 > **Note:** Don't modify the Notebooks Collection Agent script unless it is necessary to troubleshoot or resolve an issue with the instance.
 
-To access and edit the script open a terminal in our instance or [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) , and enter:
+To access and edit the script open a terminal in our instance or [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) , and enter:
 
     nano /opt/deeplearning/bin/notebooks_collection_agent.py
 
@@ -493,7 +493,7 @@ Then, you must [restart the Notebooks Collection Agent service](https://docs.clo
 
 ### Verify the instance can resolve the required DNS domains
 
-To verify that the instance can resolve the required DNS domains, you can [use ssh to connect to your Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To verify that the instance can resolve the required DNS domains, you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     host notebooks.googleapis.com
     host *.notebooks.cloud.google.com
@@ -508,7 +508,7 @@ If the instance has Managed Service for Apache Spark enabled, you can verify tha
 
     curl --verbose -H "Authorization: Bearer $(gcloud auth print-access-token)" https://${PROJECT_NUMBER}-dot-${REGION}.kernels.googleusercontent.com/api/kernelspecs | jq .
 
-To run these commands in your Vertex AI Workbench instance, open JupyterLab, and create a new terminal.
+To run these commands in your Agent Platform Workbench instance, open JupyterLab, and create a new terminal.
 
 ### Make a copy of the user data on an instance
 
@@ -528,7 +528,7 @@ In the same project where your instance is located, create a Cloud Storage bucke
 
 #### Copy your user data
 
-1.  In your instance's JupyterLab interface, select **File \> New \> Terminal** to open a terminal window. For Vertex AI Workbench instances, you can instead connect to your instance's terminal by [using SSH](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access) .
+1.  In your instance's JupyterLab interface, select **File \> New \> Terminal** to open a terminal window. For Agent Platform Workbench instances, you can instead connect to your instance's terminal by [using SSH](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/ssh-access) .
 
 2.  Use the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) to copy your user data to a Cloud Storage bucket. The following example command copies all of the files from your instance's `/home/jupyter/` directory to a directory in a Cloud Storage bucket.
     
@@ -547,7 +547,7 @@ In the same project where your instance is located, create a Cloud Storage bucke
 
 [`gcpdiag`](https://gcpdiag.dev) is an open source tool. It is not an officially supported Google Cloud product. You can use the `gcpdiag` tool to help you identify and fix Google Cloud project issues. For more information, see the [gcpdiag project on GitHub](https://github.com/GoogleCloudPlatform/gcpdiag/#gcpdiag---diagnostics-for-google-cloud-platform) .
 
-This `gcpdiag` runbook investigates potential causes for a Vertex AI Workbench instance to get stuck in provisioning status, including the following areas:
+This `gcpdiag` runbook investigates potential causes for a Agent Platform Workbench instance to get stuck in provisioning status, including the following areas:
 
   - **Status** : Checks the instance's current status to ensure that it is stuck in provisioning and not stopped or active.
   - **Instance's Compute Engine VM boot disk image** : Checks whether the instance was created with a custom container, an official `workbench-instances` image, Deep Learning VM Images, or unsupported images that might cause the instance to get stuck in provisioning status.
@@ -580,8 +580,8 @@ View [available parameters](https://gcpdiag.dev/runbook/diagnostic-trees/vertex/
 Replace the following:
 
   - PROJECT\_ID : The ID of the project containing the resource.
-  - INSTANCE\_NAME : The name of the target Vertex AI Workbench instance within your project.
-  - ZONE : The zone in which your target Vertex AI Workbench instance is located.
+  - INSTANCE\_NAME : The name of the target Agent Platform Workbench instance within your project.
+  - ZONE : The zone in which your target Agent Platform Workbench instance is located.
 
 Useful flags:
 

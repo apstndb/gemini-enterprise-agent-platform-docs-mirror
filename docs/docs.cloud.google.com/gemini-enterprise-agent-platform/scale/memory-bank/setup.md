@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup
-title: Set up Agent Platform Memory Bank
+title: Set up Memory Bank
 description: Learn how to set up your environment, create an instance, and configure options for Agent Platform Memory Bank.
 data_source: docs.cloud.google.com
 ---
@@ -30,11 +30,11 @@ For more information about granting roles, see [Manage access to projects, folde
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
-If you're making requests to Memory Bank from an agent deployed on Google Kubernetes Engine or Cloud Run, make sure that your service account has the necessary permissions. The [Reasoning Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) already has the necessary permissions to read and write memories, so outbound requests from Agent Runtime should already have permission to access Memory Bank.
+If you're making requests to Memory Bank from an agent deployed on Google Kubernetes Engine (GKE) or Cloud Run, make sure that your service account has the necessary permissions. The [Reasoning Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) already has the necessary permissions to read and write memories, so outbound requests from Agent Runtime should already have permission to access Memory Bank.
 
 ### Install libraries
 
-This section assumes that you have [set up a Python development environment](https://docs.cloud.google.com/python/docs/setup) , or are using a runtime with a Python development environment (such as Colab).
+This section assumes that you have [set up a Python development environment](https://docs.cloud.google.com/python/docs/setup) , or are using a runtime with a Python development environment (such as Colaboratory).
 
 Install the Agent Platform SDK:
 
@@ -61,6 +61,15 @@ where
 
   - `  PROJECT_ID  ` is the Google Cloud [project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#project) under which you [develop](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-agent) and [deploy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) agents,
   - `  LOCATION  ` is one of the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
+
+### Multi-regional and global endpoints
+
+Memory Bank supports multi-regional and global endpoints:
+
+  - For global instances, set your location to `global` .
+  - For multi-regional instances, set your location to `us` or `eu` .
+
+> **Note:** CMEK cannot be used if your Memory Bank is configured to use the global endpoint. Google Cloud KMS requires encryption keys to reside within a geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
 
 ## Create or update a Memory Bank instance
 
@@ -93,7 +102,7 @@ To deploy an agent on Agent Runtime with built-in Memory Bank, first [set up you
 
 ### AdkApp
 
-If you're using the [Agent Platform Agent Development Kit template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
+If you're using the [Agent Platform Agent Development Kit (ADK) template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
 
     from google.adk.agents import Agent
     from vertexai.preview.reasoning_engines import AdkApp
@@ -133,7 +142,7 @@ Replace the following:
 
   - STAGING\_BUCKET : Your Cloud Storage bucket to use for staging your Agent Runtime.
 
-For more information about using Memory Bank with ADK, refer to the [Quickstart with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) .
+For more information about using Memory Bank with ADK, refer to the [Quickstart with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) .
 
 ### Custom agent
 

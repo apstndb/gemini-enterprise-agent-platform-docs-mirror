@@ -562,10 +562,6 @@ To configure IAP-based authentication for MCP servers that you deploy on Cloud R
 
 5.  Test that you can connect to the MCP server.
 
-## Configure ingress controls
-
-This section describes how to configure ingress controls on the agent.
-
 ## What's next
 
 Overview

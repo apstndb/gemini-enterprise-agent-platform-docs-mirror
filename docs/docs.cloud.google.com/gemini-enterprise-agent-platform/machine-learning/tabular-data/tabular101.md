@@ -6,7 +6,7 @@ description: Learn about the workflow for using tabular data with AutoML.
 data_source: docs.cloud.google.com
 ---
 
-This page introduces tabular data journeys with AutoML. To understand key differences between AutoML and custom training, see [Choosing a training method](https://docs.cloud.google.com/vertex-ai/docs/start/training-methods) .
+This page introduces tabular data journeys with AutoML. To understand key differences between AutoML and custom training, see [Choosing a training method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) .
 
 ## Tabular data use cases
 

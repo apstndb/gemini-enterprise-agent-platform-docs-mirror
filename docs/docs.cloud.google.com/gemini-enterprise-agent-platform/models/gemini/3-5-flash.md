@@ -126,15 +126,32 @@ Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterp
   - us
   - eu
 
+Europe
+
+  - europe-west2
+
+Asia Pacific
+
+  - asia-northeast1
+  - asia-south1
+  - asia-southeast1
+
 ML processing
 
-United States
+Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
 
-  - Multi-region
+  - us
+  - eu
 
 Europe
 
-  - Multi-region
+  - europe-west2
+
+Asia Pacific
+
+  - asia-northeast1
+  - asia-south1
+  - asia-southeast1
 
 Provisioned throughput
 
@@ -146,6 +163,16 @@ Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterp
 
   - us
   - eu
+
+Europe
+
+  - europe-west2
+
+Asia Pacific
+
+  - asia-northeast1
+  - asia-south1
+  - asia-southeast1
 
 Standard pay-as-you-go
 
@@ -211,3 +238,5 @@ See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-
 Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+
+> **Note:** In `asia-northeast1` , `asia-south1` , `asia-southeast1` , and `europe-west2` , only Single Zone Provisioned Throughput is supported.

@@ -10,6 +10,14 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 17, 2026
+
+Feature
+
+**Memory Bank and Sessions global and multi-regional endpoints GA**
+
+Memory Bank and Sessions support for multi-regional and global endpoints is now in General Availability (GA). For more information, see [Supported locations for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#multi-regional-and-global-endpoints) . Note that Customer-Managed Encryption Keys (CMEK) cannot be used if your Memory Bank or Sessions instance is configured to use the global endpoint.
+
 ## June 09, 2026
 
 Feature

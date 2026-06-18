@@ -1,32 +1,32 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version
-title: Create a specific version of a Vertex AI Workbench instance
+title: Create a specific version of a Agent Platform Workbench instance
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to create a specific version of a Vertex AI Workbench instance.
+This page describes how to create a specific version of a Gemini Enterprise Agent Platform Workbench instance.
 
 ## Why you might want to create a specific version
 
-To ensure that your Vertex AI Workbench instance has software that is compatible with your code or application, you might want to create a specific version.
+To ensure that your Agent Platform Workbench instance has software that is compatible with your code or application, you might want to create a specific version.
 
-Vertex AI Workbench instance images are updated frequently, and specific versions of preinstalled software and packages vary from version to version.
+Agent Platform Workbench instance images are updated frequently, and specific versions of preinstalled software and packages vary from version to version.
 
-To learn more about specific Vertex AI Workbench versions, see the [Agent Platform release notes](https://docs.cloud.google.com/vertex-ai/docs/release-notes) .
+To learn more about specific Agent Platform Workbench versions, see the [Agent Platform release notes](https://docs.cloud.google.com/vertex-ai/docs/release-notes) .
 
-After you create a specific version of a Vertex AI Workbench instance, you can upgrade it. Upgrading the instance updates the preinstalled software and packages. For more information, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) .
+After you create a specific version of a Agent Platform Workbench instance, you can upgrade it. Upgrading the instance updates the preinstalled software and packages. For more information, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) .
 
 ## Before you begin
 
 ## Create a specific version
 
-You can create a specific version of a Vertex AI Workbench instance by using the Google Cloud console or the Google Cloud CLI.
+You can create a specific version of a Agent Platform Workbench instance by using the Google Cloud console or the Google Cloud CLI.
 
 ### Console
 
-To create a specific version of a Vertex AI Workbench instance, do the following:
+To create a specific version of a Agent Platform Workbench instance, do the following:
 
 1.  When you [create an instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) , in the **Environment** section, select **Use a previous version** .
 
@@ -34,13 +34,13 @@ To create a specific version of a Vertex AI Workbench instance, do the following
 
 3.  Complete the rest of the instance-creation dialog, and then click **Create** .
     
-    Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link.
+    Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link.
 
 ### gcloud
 
 Before using any of the command data below, make the following replacements:
 
-  - `  INSTANCE_NAME  ` : the name of your Vertex AI Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
+  - `  INSTANCE_NAME  ` : the name of your Agent Platform Workbench instance; must start with a letter followed by up to 62 lowercase letters, numbers, or hyphens (-), and cannot end with a hyphen
 
   - `  PROJECT_ID  ` : your project ID
 
@@ -94,10 +94,10 @@ Execute the following command:
 
 For more information about the command for creating an instance from the command line, see the [gcloud CLI documentation](https://docs.cloud.google.com/sdk/gcloud/reference/workbench/instances/create) .
 
-Vertex AI Workbench creates an instance and automatically starts it. When the instance is ready to use, Vertex AI Workbench activates an **Open JupyterLab** link in the Google Cloud console.
+Agent Platform Workbench creates an instance and automatically starts it. When the instance is ready to use, Agent Platform Workbench activates an **Open JupyterLab** link in the Google Cloud console.
 
 ## What's next
 
-  - Learn more about [upgrading Vertex AI Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) to ensure that your instance upgrades only when you are ready.
+  - Learn more about [upgrading Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) to ensure that your instance upgrades only when you are ready.
 
-  - Learn about [monitoring the health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) of your Vertex AI Workbench instance.
+  - Learn about [monitoring the health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) of your Agent Platform Workbench instance.

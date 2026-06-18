@@ -270,7 +270,7 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 | `g4-standard-192` | 192   | 720         | 4                                                                                             |
 | `g4-standard-384` | 384   | 1440        | 8                                                                                             |
 
-Learn about [pricing for each machine type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) . Read more about the detailed specifications of these machine types in the [Compute Engine documentation about machine types](https://docs.cloud.google.com/compute/docs/machine-resource) .
+Learn about [pricing for each machine type](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) . Read more about the detailed specifications of these machine types in the [Compute Engine documentation about machine types](https://docs.cloud.google.com/compute/docs/machine-resource) .
 
 ### Find the ideal machine type
 

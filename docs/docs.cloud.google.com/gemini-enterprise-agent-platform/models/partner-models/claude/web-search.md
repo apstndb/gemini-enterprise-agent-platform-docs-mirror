@@ -199,4 +199,4 @@ This feature is exclusively available for Claude 4.0 and subsequent models; it i
 
 Web search is priced as an add-on to standard messages API usage, based on web request volume. Due to the additional sampling calls, users will also be charged for the additional input tokens.
 
-For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#claude-models) .

@@ -13,7 +13,7 @@ Agent Platform lets you perform machine learning with tabular data using low-com
   - **Regression** models predict a continuous value. For example, as a retailer, you might want to build a regression model to predict how much a customer will spend next month.
   - **Forecasting** models predict a sequence of values. For example, as a retailer, you might want to forecast daily demand of your products for the next 3 months so that you can appropriately stock product inventories in advance.
 
-For an introduction to machine learning with tabular data, see [Introduction to Tabular Data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular101) . For further information about Agent Platform solutions, see [Agent Platform solutions for classification and regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview#classification-regression) and [Agent Platform solutions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview#forecasting) .
+For an introduction to machine learning with tabular data, see [Introduction to Tabular Data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular101) . For further information about Agent Platform solutions, see [Agent Platform solutions for classification and regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview#classification-regression) and [Agent Platform solutions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview#forecasting) .
 
 ## A note about fairness
 
@@ -28,7 +28,7 @@ Agent Platform offers the following solutions for classification and regression:
 
 ### Tabular Workflow for End-to-End AutoML
 
-Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classification and regression tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/overview) , but allows you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
+Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classification and regression tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview) , but allows you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
 
   - Data splitting
   - Feature engineering
@@ -46,7 +46,7 @@ Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classif
   - Each AutoML component can be inspected in a powerful pipelines graph interface that lets you see the transformed data tables, evaluated model architectures, and many more details.
   - Each AutoML component gets extended flexibility and transparency, such as being able to customize parameters, hardware, view process status, logs, and more.
 
-To learn more about Tabular Workflows, see [Tabular Workflows on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview) . To learn more about Tabular Workflow for End-to-End AutoML, see [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl) .
+To learn more about Tabular Workflows, see [Tabular Workflows on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview) . To learn more about Tabular Workflow for End-to-End AutoML, see [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl) .
 
 ### Classification and regression with AutoML
 
@@ -56,7 +56,7 @@ Agent Platform offers integrated, fully managed pipelines for end-to-end classif
 
   - Agent Platform chooses the model type, model parameters, and hardware for you.
 
-For further information, see [Classification and Regression Overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/overview) .
+For further information, see [Classification and Regression Overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview) .
 
 ## Agent Platform solutions for forecasting
 
@@ -73,7 +73,7 @@ Agent Platform offers the following solutions for forecasting:
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) , but lets you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
+Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) , but lets you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
 
   - Data splitting
   - Feature engineering
@@ -90,7 +90,7 @@ Tabular Workflow for Forecasting is the complete pipeline for forecasting tasks.
   - Each component can be inspected in a powerful pipelines graph interface that lets you see the transformed data tables, evaluated model architectures and many more details.
   - Each component gets extended flexibility and transparency, such as being able to customize parameters, hardware, view process status, logs and more.
 
-To learn more about Tabular Workflows, see [Tabular Workflows on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview) . To learn more about Tabular Workflow for Forecasting, see [Tabular Workflow for Forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/forecasting) .
+To learn more about Tabular Workflows, see [Tabular Workflows on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview) . To learn more about Tabular Workflow for Forecasting, see [Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting) .
 
 ### Forecasting with AutoML
 
@@ -100,11 +100,11 @@ Agent Platform offers an integrated, fully managed pipeline for end-to-end forec
 
   - Agent Platform chooses model parameters and hardware for you.
 
-For further information, see [Forecasting Overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) .
+For further information, see [Forecasting Overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) .
 
 ### Forecasting with BigQuery ML ARIMA\_PLUS
 
-[BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-time-series) is a univariate forecasting model. As a statistical model, it is faster to train than a [model based on neural networks](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) . We recommend training a BigQuery ML ARIMA\_PLUS model if you need to perform many quick iterations of model training or if you need an inexpensive baseline to measure other models against.
+[BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-time-series) is a univariate forecasting model. As a statistical model, it is faster to train than a [model based on neural networks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) . We recommend training a BigQuery ML ARIMA\_PLUS model if you need to perform many quick iterations of model training or if you need an inexpensive baseline to measure other models against.
 
 Like [Prophet](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-prophet) , BigQuery ML ARIMA\_PLUS attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. One of the many differences, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
 
@@ -115,7 +115,7 @@ Google Cloud offers a pipeline for training a BigQuery ML ARIMA\_PLUS model and 
   - BigQuery chooses model parameters and hardware for you.
   - Model training provides a low-cost baseline to compare other models against.
 
-For further information, see [Forecasting with ARIMA+](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-arima/overview) .
+For further information, see [Forecasting with ARIMA+](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-arima/overview) .
 
 ### Forecasting with Prophet
 
@@ -136,13 +136,13 @@ Although Prophet is a multivariate model, Agent Platform supports only a univari
 
   - You can improve training speed by selecting the hardware used for training.
 
-For further information, see [Forecasting with Prophet](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-prophet) .
+For further information, see [Forecasting with Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet) .
 
 ## What's next
 
-  - Learn about [machine learning with tabular data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular101) .
-  - Learn about [classification and regression with AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/overview) .
-  - Learn about [forecasting with AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) .
-  - Learn about [forecasting with Prophet](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-prophet) .
-  - Learn about [forecasting with BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-arima/overview) .
-  - Learn about [Tabular Workflows](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/overview) .
+  - Learn about [machine learning with tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular101) .
+  - Learn about [classification and regression with AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview) .
+  - Learn about [forecasting with AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) .
+  - Learn about [forecasting with Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet) .
+  - Learn about [forecasting with BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-arima/overview) .
+  - Learn about [Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview) .

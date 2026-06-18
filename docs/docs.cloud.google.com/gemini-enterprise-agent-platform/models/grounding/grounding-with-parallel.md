@@ -271,9 +271,9 @@ The use of Grounding with Parallel Web Search incurs the following charges:
       - Thinking tokens
       - Output tokens
     
-    For more information, see [Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) .
+    For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-  - **Gemini's Grounding with your data:** For more information, see [Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) .
+  - **Gemini's Grounding with your data:** For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
   - **Pricing for the use of the Parallel Web Search API:**
     

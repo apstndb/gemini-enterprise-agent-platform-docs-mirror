@@ -1633,4 +1633,4 @@ The `instanceOutputValue` of `1795.1246466281819` is the predicted value. The `b
 ## What's next
 
   - Learn how to [export your model](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) .
-  - Learn about [pricing for online inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

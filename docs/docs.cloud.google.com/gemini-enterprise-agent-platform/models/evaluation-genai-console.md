@@ -69,7 +69,7 @@ Partner models are supported through Gemini Enterprise Agent Platform Model Gard
 
 ### Pricing
 
-Pricing for evaluating third-party models is based on any charges incurred for model inference in Gemini Enterprise Agent Platform Model Garden. See the [Pricing page for Generative AI on Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+Pricing for evaluating third-party models is based on any charges incurred for model inference in Gemini Enterprise Agent Platform Model Garden. See the [Pricing page for Generative AI on Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## What's next
 

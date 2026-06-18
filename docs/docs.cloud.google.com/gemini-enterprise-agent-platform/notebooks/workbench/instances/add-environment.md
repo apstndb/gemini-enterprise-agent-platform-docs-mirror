@@ -1,30 +1,30 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/add-environment
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/add-environment
-title: Add a conda environment to a Vertex AI Workbench instance
+title: Add a conda environment to a Agent Platform Workbench instance
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to add a conda environment to your Vertex AI Workbench instance.
+This page describes how to add a conda environment to your Gemini Enterprise Agent Platform Workbench instance.
 
 ## Overview
 
-When you add a conda environment to your Vertex AI Workbench instance, it appears as a [kernel](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) in your instance's JupyterLab interface.
+When you add a conda environment to your Agent Platform Workbench instance, it appears as a [kernel](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html) in your instance's JupyterLab interface.
 
-You might add a conda environment to your Vertex AI Workbench instance to use kernels that aren't available in Vertex AI Workbench instances. For example, you can add conda environments for R and Apache Beam. Or you can add conda environments for specific earlier versions of the available frameworks, such as TensorFlow, PyTorch, or Python.
+You might add a conda environment to your Agent Platform Workbench instance to use kernels that aren't available in Agent Platform Workbench instances. For example, you can add conda environments for R and Apache Beam. Or you can add conda environments for specific earlier versions of the available frameworks, such as TensorFlow, PyTorch, or Python.
 
 ## Before you begin
 
-If you haven't already, [create a Vertex AI Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-console-quickstart) .
+If you haven't already, [create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-console-quickstart) .
 
 ## Open JupyterLab
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
-2.  Next to your Vertex AI Workbench instance's name, click **Open JupyterLab** .
+2.  Next to your Agent Platform Workbench instance's name, click **Open JupyterLab** .
     
-    Your Vertex AI Workbench instance opens JupyterLab.
+    Your Agent Platform Workbench instance opens JupyterLab.
 
 ## Add a conda environment
 
@@ -89,7 +89,7 @@ The following example installs pip packages from a `requirements.txt` file.
 
 ## Troubleshoot
 
-To diagnose and resolve issues related to adding a conda environment, see [Troubleshooting Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#pip-packages-missing-instances) .
+To diagnose and resolve issues related to adding a conda environment, see [Troubleshooting Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#pip-packages-missing-instances) .
 
 ## What's next
 

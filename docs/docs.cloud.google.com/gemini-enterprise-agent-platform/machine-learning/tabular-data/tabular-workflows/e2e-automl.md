@@ -6,9 +6,9 @@ description: Learn about the pipeline and components of Tabular Workflow for End
 data_source: docs.cloud.google.com
 ---
 
-This document provides an overview of the End-to-End AutoML [pipeline and components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl#components) . To learn how to train a model with End-to-End AutoML, see [Train a model with End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl-train) .
+This document provides an overview of the End-to-End AutoML [pipeline and components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl#components) . To learn how to train a model with End-to-End AutoML, see [Train a model with End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train) .
 
-Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classification and regression tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/overview) , but allows you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
+Tabular Workflow for End-to-End AutoML is a complete AutoML pipeline for classification and regression tasks. It is similar to the [AutoML API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview) , but allows you to choose what to control and what to automate. Instead of having controls for the *whole* pipeline, you have controls for *every step* in the pipeline. These pipeline controls include:
 
   - Data splitting
   - Feature engineering
@@ -38,7 +38,7 @@ Tabular Workflow for End-to-End AutoML is a managed instance of Gemini Enterpris
 
 The following diagram shows the modeling pipeline for Tabular Workflow for End-to-End AutoML:
 
-![Pipeline for End-to-End AutoML Tables](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/e2e-automl-pipeline.svg)  
+![Pipeline for End-to-End AutoML Tables](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/images/e2e-automl-pipeline.svg)  
 
 The pipeline components are:
 
@@ -72,7 +72,7 @@ The pipeline components are:
     
       - The following diagram illustrates K-fold cross-validation with bagging:
     
-    ![bagging ensemble](https://docs.cloud.google.com/static/vertex-ai/docs/tabular-data/images/e2e-automl-bagging-ensemble.png)  
+    ![bagging ensemble](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tabular-data/images/e2e-automl-bagging-ensemble.png)  
 
 6.  **condition-is-distill** - **Optional** . Creates a smaller version of the ensemble model.
     
@@ -86,4 +86,4 @@ The pipeline components are:
 
 ## What's next
 
-  - [Train a model using End-to-End AutoML](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/tabular-workflows/e2e-automl-train) .
+  - [Train a model using End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train) .

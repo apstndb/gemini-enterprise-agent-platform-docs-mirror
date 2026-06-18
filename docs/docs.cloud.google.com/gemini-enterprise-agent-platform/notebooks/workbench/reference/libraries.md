@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries
-title: Vertex AI Workbench client libraries
-description: Start writing code for Vertex AI Workbench in C++, C#, Go, Java, Node.js, PHP, Python, Ruby.
+title: Agent Platform Workbench client libraries
+description: Start writing code for Agent Platform Workbench in C++, C#, Go, Java, Node.js, PHP, Python, Ruby.
 data_source: docs.cloud.google.com
 ---
 

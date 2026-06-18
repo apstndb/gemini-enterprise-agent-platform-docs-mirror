@@ -10,8 +10,8 @@ data_source: docs.cloud.google.com
 
 Gemini Enterprise Agent Platform provides a managed training service that helps you operationalize large scale model training. You can use Gemini Enterprise Agent Platform to run training applications based on any machine learning (ML) framework on Google Cloud infrastructure. For the following popular ML frameworks, Gemini Enterprise Agent Platform also has integrated support that simplifies the preparation process for model training and serving:
 
-  - [PyTorch](https://docs.cloud.google.com/vertex-ai/docs/start/pytorch)
-  - [TensorFlow](https://docs.cloud.google.com/vertex-ai/docs/start/tensorflow)
+  - [PyTorch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/pytorch)
+  - [TensorFlow](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/tensorflow)
   - [scikit-learn](https://scikit-learn.org/stable/)
   - [XGBoost](https://xgboost.readthedocs.io/en/stable/)
 
@@ -77,7 +77,7 @@ There are several challenges to operationalizing model training. These challenge
 <tbody>
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/images/icons/mlops.svg" class="invert-hue" alt="MLOps" /></td>
-<td><p>Gemini Enterprise Agent Platform provides a suite of <a href="https://docs.cloud.google.com/vertex-ai/docs/start/introduction-mlops">integrated MLOps tools</a> and features that you can use for the following purposes:</p>
+<td><p>Gemini Enterprise Agent Platform provides a suite of <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops">integrated MLOps tools</a> and features that you can use for the following purposes:</p>
 <ul>
 <li>Orchestrate end-to-end ML workflows.</li>
 <li>Perform feature engineering.</li>
