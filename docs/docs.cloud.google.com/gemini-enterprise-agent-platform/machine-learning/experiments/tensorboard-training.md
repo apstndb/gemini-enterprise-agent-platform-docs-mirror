@@ -52,7 +52,7 @@ Learn more about [how Agent Platform](https://docs.cloud.google.com/gemini-enter
 
 The following example shows how to create your own custom training job.
 
-For a detailed example of how to create a custom training job, see [Hello custom training](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/overview) . For steps to build custom training containers, see [Create a custom container image for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
+For a detailed example of how to create a custom training job, see [Hello custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/overview) . For steps to build custom training containers, see [Create a custom container image for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) .
 
 To create a custom training job use either Vertex AI SDK for Python or REST.
 

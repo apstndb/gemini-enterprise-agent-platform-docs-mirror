@@ -20,17 +20,17 @@ This page shows you how to run a TensorFlow Keras training application on Agent 
 
 This tutorial has several pages:
 
-1.  [Setting up your project and environment.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom)
+1.  [Setting up your project and environment.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom)
 
 2.  Training a custom image classification model.
 
-3.  [Serving predictions from a custom image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving)
+3.  [Serving predictions from a custom image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving)
 
-4.  [Cleaning up your project.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/cleanup)
+4.  [Cleaning up your project.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup)
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
-The rest of this document assumes that you are using the same Cloud Shell environment that you created when following the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) . If your original Cloud Shell session is no longer open, you can return to the environment by doing the following:
+The rest of this document assumes that you are using the same Cloud Shell environment that you created when following the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) . If your original Cloud Shell session is no longer open, you can return to the environment by doing the following:
 
 1.  In the Google Cloud console, activate Cloud Shell.
 
@@ -142,4 +142,4 @@ The model has the name `hello_custom` .
 
 ## What's next
 
-Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving) to serve predictions from your trained ML model.
+Follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving) to serve predictions from your trained ML model.

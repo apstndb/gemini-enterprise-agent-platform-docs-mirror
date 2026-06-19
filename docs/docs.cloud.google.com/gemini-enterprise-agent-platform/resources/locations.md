@@ -247,9 +247,6 @@ Gemini models
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
 
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
-
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -375,9 +372,6 @@ Gemini models
 
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
-
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
 
 Embeddings models
 
@@ -520,9 +514,6 @@ Gemini models
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
 
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
-
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -648,9 +639,6 @@ Gemini models
 
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
-
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
 
 Embeddings models
 
@@ -802,9 +790,6 @@ Gemini models
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
 
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
-
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -946,9 +931,6 @@ Gemini models
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
 
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
-
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -1077,9 +1059,6 @@ Gemini models
 
 [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)  
 `(gemini-live-2.5-flash-native-audio)`
-
-[Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview  
-`(gemini-2.0-flash-live-preview-04-09)`
 
 Embeddings models
 

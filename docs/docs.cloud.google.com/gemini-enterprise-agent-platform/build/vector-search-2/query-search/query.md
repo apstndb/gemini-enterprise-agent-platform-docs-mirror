@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 The purpose of the Query API is to retrieve Data Objects from a Collection using a filter. This is similar to querying a database table and using a SQL `WHERE` clause. You can also use aggregation to get a count of Data Objects matching a filter.
 
+> **Note:** KNN queries can be sent to Collections containing a maximum of 100,000 Data Objects.
+
 ## Filter expression language
 
 In addition to KNN/ANN search functionality, Agent Retrieval provides versatile query capabilities using a custom query language. The query language is explained in the following table.

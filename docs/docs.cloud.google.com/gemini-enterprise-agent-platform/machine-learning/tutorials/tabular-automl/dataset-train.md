@@ -72,7 +72,7 @@ When the model finishes training, it's displayed in the model tab as a live link
 
 ## What's next
 
-Your model is now being trained, which can take an hour or more to complete. You'll receive an email when training is complete. When your model has finished training, follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-automl/deploy-predict) to deploy your model and request a prediction.
+Your model is now being trained, which can take an hour or more to complete. You'll receive an email when training is complete. When your model has finished training, follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/deploy-predict) to deploy your model and request a prediction.
 
 This tutorial uses a dataset that's been cleaned and formatted for AutoML training, but most data will require some work before it's ready to be used. The quality of your training data impacts the effectiveness of the models you create. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data) about preparing data.
 

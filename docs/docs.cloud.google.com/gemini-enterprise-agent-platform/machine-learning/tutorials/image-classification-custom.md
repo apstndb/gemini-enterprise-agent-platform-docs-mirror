@@ -12,11 +12,11 @@ This tutorial has several pages:
 
 1.  Setting up your project and environment.
 
-2.  [Training a custom image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training)
+2.  [Training a custom image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/training)
 
-3.  [Serving predictions from a custom image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving)
+3.  [Serving predictions from a custom image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving)
 
-4.  [Cleaning up your project.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/cleanup)
+4.  [Cleaning up your project.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup)
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
@@ -71,4 +71,4 @@ The `hello-custom-sample` directory has four items:
 
 ## What's next
 
-Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training) to run a custom training job on Agent Platform.
+Follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/training) to run a custom training job on Agent Platform.

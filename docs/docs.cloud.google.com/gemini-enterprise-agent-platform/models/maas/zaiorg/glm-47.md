@@ -31,6 +31,7 @@ Supported
 
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling)
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output)
+  - [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/context-caching)
 
 Not supported
 

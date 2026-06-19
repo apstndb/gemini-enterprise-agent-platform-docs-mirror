@@ -66,11 +66,58 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
           },
         )
     
-    Replace `  AGENT_GATEWAY_TO_ANYWHERE_NAME  ` with the full path of the Agent Gateway you created in Agent-to-Anywhere (egress) mode. For example, ` projects/ PROJECT /locations/ REGION /agentGateways/ AGENT_GATEWAY_ID  ` .
+    Replace `  AGENT_GATEWAY_TO_ANYWHERE_NAME  ` with the full path of the Agent Gateway you created in Agent-to-Anywhere (egress) mode. For example, ` projects/ PROJECT_ID /locations/ REGION /agentGateways/ AGENT_GATEWAY_ID  ` .
     
     If you created a gateway in Client-to-Agent (ingress) mode, use the `client_to_agent_config` field instead and replace `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` with the full path of the Agent Gateway you created for ingress.
 
-3.  Register your agent with the Agent Registry instance in the same project and region as the agent and the gateway. For more information, see [Register an agent](https://docs.cloud.google.com/agent-registry/quickstart-register-agent) .
+3.  Register with the Agent Registry instance in the same project and region as the agent and the gateway.
+    
+        gcloud alpha agent-registry services create SERVICE_NAME \
+          --project=PROJECT_ID \
+          --location=REGION \
+          --display-name="DISPLAY_NAME" \
+          --endpoint-spec-type=no-spec \
+          --interfaces='[{url="https://REGION-aiplatform.mtls.googleapis.com",protocolBinding="jsonrpc"}]' \
+          --format="value(registryResource)"
+    
+    Replace the following:
+    
+      - `  SERVICE_NAME  ` : The name you want to give to your resource, for example, `allow-aiplatform-region-eu3` .
+      - `  PROJECT_ID  ` : The project ID.
+      - `  REGION  ` : The registry region.
+      - `  DISPLAY_NAME  ` : The human-readable name of the endpoint.
+    
+    For more information, see [Register an agent](https://docs.cloud.google.com/agent-registry/register-endpoints) .
+
+4.  Create an agent-to-registry IAM policy binding for the agent.
+    
+        gcloud alpha iap web add-iam-policy-binding \
+          --resource-type=agent-registry \
+          --endpoint=ENDPOINT_ID \
+          --region=REGION \
+          --project=PROJECT_ID \
+          --member=MEMBER \
+          --role=roles/iap.egressor
+    
+    Replace the following:
+    
+      - `  ENDPOINT_ID  ` : The service endpoint ID of the registered agent. You get this from the output of the previous step.
+    
+      - `  MEMBER  ` : The agent identity principal to grant the role to. The format is typically: ` principal:// TRUST_DOMAIN /resources/aiplatform/projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ ENGINE_ID  ` .
+        
+        > **Note:** If you want to bind all the agents in a project to a registry (including all Runtime agents, Gemini Enterprise agents, and any other agents created in the future), you can bind the IAM policy to ` principal:// TRUST_DOMAIN /attribute.container/projects/ PROJECT_ID  ` .
+
+5.  At this point your agent traffic will now be directed through the Agent Gateway. However, Agent Gateway adopts a *default deny* policy. To enable certain Agent Platform functions, you must ensure that the agent can communicate with the following endpoints:
+    
+      - If Cloud Trace is enabled, Agent Gateway must allow traffic to endpoint `https://telemetry.googleapis.com/` .
+        
+        If the `GOOGLE_API_USE_CLIENT_CERTIFICATE` and `GOOGLE_API_USE_MTLS_ENDPOINT` environment variables are set, then ensure that traffic to `https://telemetry.mtls.googleapis.com/` is also allowed.
+    
+      - If Cloud Logging is enabled, Agent Gateway must allow traffic to endpoint `https://logging.googleapis.com/` .
+        
+        If the `GOOGLE_API_USE_CLIENT_CERTIFICATE` and `GOOGLE_API_USE_MTLS_ENDPOINT` environment variables are set, then ensure that traffic to `https://logging.mtls.googleapis.com/` is also allowed.
+    
+    To learn how to register endpoints, see [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) . You must also ensure that the agent has the IAP Egressor role for these endpoints. For instructions, see [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-endpoint) .
 
 ## Restrict Agent Runtime to approved Agent Gateways
 

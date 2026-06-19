@@ -14,10 +14,10 @@ This tutorial is part of the "Hello custom training" tutorial, which walks you t
 
 This tutorial has several pages:
 
-1.  [Setting up your project and environment](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) .
-2.  [Training a custom image classification model](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training) .
-3.  [Serving predictions from a custom image classification mode](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving) .
-4.  [Cleaning up your project](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/cleanup) .
+1.  [Setting up your project and environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
+2.  [Training a custom image classification model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/training) .
+3.  [Serving predictions from a custom image classification mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving) .
+4.  [Cleaning up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup) .
 
 To complete this tutorial, you can either follow the instructions in the following pages or use the in-console walkthrough tutorial, which is a similar tutorial in the Google Cloud console.
 

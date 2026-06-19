@@ -105,34 +105,6 @@ The following table lists the models that support audio understanding:
 <li><code dir="ltr" translate="no">audio/webm</code></li>
 </ul></td>
 </tr>
-<tr class="even">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api">Gemini 2.0 Flash with Gemini Live API</a> preview</li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li>Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens</li>
-<li>Maximum number of audio files per prompt: 1</li>
-<li>Speech understanding for: Audio summarization, transcription, and translation</li>
-<li>Maximum tokens per minute (TPM):
-<ul>
-<li>US/Asia: 1.7 M</li>
-<li>EU: 0.4 M</li>
-</ul></li>
-</ul></td>
-<td><ul>
-<li><code dir="ltr" translate="no">audio/x-aac</code></li>
-<li><code dir="ltr" translate="no">audio/flac</code></li>
-<li><code dir="ltr" translate="no">audio/mp3</code></li>
-<li><code dir="ltr" translate="no">audio/m4a</code></li>
-<li><code dir="ltr" translate="no">audio/mpeg</code></li>
-<li><code dir="ltr" translate="no">audio/mpga</code></li>
-<li><code dir="ltr" translate="no">audio/mp4</code></li>
-<li><code dir="ltr" translate="no">audio/ogg</code></li>
-<li><code dir="ltr" translate="no">audio/pcm</code></li>
-<li><code dir="ltr" translate="no">audio/wav</code></li>
-<li><code dir="ltr" translate="no">audio/webm</code></li>
-</ul></td>
-</tr>
 </tbody>
 </table>
 

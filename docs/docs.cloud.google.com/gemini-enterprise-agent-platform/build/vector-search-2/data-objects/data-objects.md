@@ -402,7 +402,7 @@ You should receive a response similar to the following:
 
 Embedding fields that have an auto-embedding specified in the Collection Schema are automatically populated. You can also bring your own embeddings (BYOE) to set vector field values that are not automatically populated.
 
-> **Note:** Creating a Data Object is an atomic operation. The Data Object is created or, if there is an error, the entire request fails.
+> **Note:** Creating Data Objects is an atomic operation. All Data Objects are created or, if there is an error, the entire request fails.
 
 ## Batch create Data Objects
 

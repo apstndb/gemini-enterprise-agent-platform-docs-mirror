@@ -36,7 +36,6 @@ For web and mobile apps, we recommend using the integration from our partners at
 #### Click to expand supported models
 
   - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
-  - [Gemini 2.0 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash#live-api) preview
 
 ## Get started
 

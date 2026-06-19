@@ -6,8 +6,6 @@ description: Generate Veo on Gemini Enterprise Agent Platform videos with a firs
 data_source: docs.cloud.google.com
 ---
 
-[Video](https://www.youtube.com/watch?v=5_zahcDOohY)
-
 You can generate Veo on Gemini Enterprise Agent Platform videos by specifying the first and last frames of the video. Supported interfaces include the Google Cloud console and the Agent Platform API.
 
 The following models support generating videos from first and last video frames:

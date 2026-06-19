@@ -36,6 +36,17 @@ For more information, see [Authenticate for using the gcloud CLI](https://docs.c
 
 You can authenticate to [the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) by using your gcloud CLI credentials or by using [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . For more information about authentication for REST requests, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) . For information about the types of credentials, see [gcloud CLI credentials and ADC credentials](https://docs.cloud.google.com/docs/authentication/gcloud#gcloud-credentials) .
 
+## API keys
+
+API keys provide a way to associate an API call with a project, which is used for billing and quota purposes, without determining the identity of the caller. API keys can be used only with API methods that support API keys.
+
+Agent Platform supports API keys for the following API methods:
+
+  - `generateContent`
+  - `streamGenerateContent`
+
+For more information about using API keys with Agent Platform, see [Authenticate using an API key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys) . For general information about using API keys, see [Authenticate using API keys](https://docs.cloud.google.com/docs/authentication/api-keys) .
+
 ## Set up authentication for Agent Platform
 
 How you set up authentication depends on the environment where your code is running.

@@ -28,7 +28,7 @@ This workflow is great for experimentation, but when you want to use the model t
 
 Or what if you wanted to use this model in an application where users could upload images of plants and have them identified immediately? You'll need some place to host the model that exists outside of a notebook that your application can call to for an inference. Additionally, it's unlikely you'll have consistent traffic to your model, so you'll want a service that can autoscale when necessary.
 
-In all of these cases, a managed inference service will reduce the friction of hosting and using your ML models. This guide provides an introduction to getting inferences from ML models on Gemini Enterprise Agent Platform. Note that there are additional customizations, features, and ways to interface with the service that are not covered here. This guide is intended to provide an overview. For more information, refer to the [Gemini Enterprise Agent Platform inferences documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview) .
+In all of these cases, a managed inference service will reduce the friction of hosting and using your ML models. This guide provides an introduction to getting inferences from ML models on Gemini Enterprise Agent Platform. Note that there are additional customizations, features, and ways to interface with the service that are not covered here. This guide is intended to provide an overview. For more information, refer to the [Gemini Enterprise Agent Platform inferences documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) .
 
 ## Overview of the managed inference service
 

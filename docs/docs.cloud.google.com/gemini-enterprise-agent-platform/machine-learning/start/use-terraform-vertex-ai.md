@@ -46,7 +46,7 @@ Terraform configuration samples
 
 [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/dataset/main.tf)
 
-[Online inferences (AutoML and custom training)](https://docs.cloud.google.com/vertex-ai/docs/predictions/overview)
+[Online inferences (AutoML and custom training)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions)
 
 [`google_vertex_ai_endpoint`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_endpoint)
 

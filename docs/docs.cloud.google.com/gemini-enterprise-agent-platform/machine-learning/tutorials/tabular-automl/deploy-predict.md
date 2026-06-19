@@ -82,7 +82,7 @@ Now that your model is deployed to an endpoint, you can send prediction requests
 
 ## What's next
 
-  - To avoid incurring unexpected charges, follow the instructions in [Clean up your project](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-automl/cleanup)
+  - To avoid incurring unexpected charges, follow the instructions in [Clean up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/cleanup)
 
   - [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) about model evaluation.
 

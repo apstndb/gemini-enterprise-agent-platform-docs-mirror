@@ -57,4 +57,4 @@ For this part of the tutorial, you set up your Google Cloud project to use Gemin
 
 ## What's next
 
-Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-automl/dataset-train) to create a tabular dataset and train a classification model.
+Follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/dataset-train) to create a tabular dataset and train a classification model.

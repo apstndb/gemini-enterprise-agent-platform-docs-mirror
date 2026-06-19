@@ -10,17 +10,17 @@ This page guides you through cleaning up the Google Cloud resources that you cre
 
 This tutorial has several pages:
 
-1.  [Setting up your project and environment.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom)
+1.  [Setting up your project and environment.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom)
 
-2.  [Training a custom image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training)
+2.  [Training a custom image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/training)
 
-3.  [Serving predictions from a custom image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving)
+3.  [Serving predictions from a custom image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving)
 
 4.  Cleaning up your project.
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
-The rest of this document assumes that you are using the same Cloud Shell environment that you created when following the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) . If your original Cloud Shell session is no longer open, you can return to the environment by doing the following:
+The rest of this document assumes that you are using the same Cloud Shell environment that you created when following the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) . If your original Cloud Shell session is no longer open, you can return to the environment by doing the following:
 
 1.  In the Google Cloud console, activate Cloud Shell.
 
@@ -99,7 +99,7 @@ In your Cloud Shell session, run the following command:
 
     gcloud storage rm gs://BUCKET_NAME --recursive --continue-on-error
 
-Replace BUCKET\_NAME with the name of the Cloud Storage bucket that you created when reading the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) .
+Replace BUCKET\_NAME with the name of the Cloud Storage bucket that you created when reading the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
 
 ## Delete your Cloud Run function
 

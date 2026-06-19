@@ -6,7 +6,7 @@ description: Learn about each inference class in the Vertex AI SDK.
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes the following prediction classes. One class is for batch predictions. The others are related to online predictions or Vector Search predictions. For more information, see [Overview of getting predictions on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/overview) .
+The Vertex AI SDK includes the following prediction classes. One class is for batch predictions. The others are related to online predictions or Vector Search predictions. For more information, see [Overview of getting predictions on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) .
 
 ## Batch prediction class
 

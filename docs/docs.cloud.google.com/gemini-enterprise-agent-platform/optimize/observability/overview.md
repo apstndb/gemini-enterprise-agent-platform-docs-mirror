@@ -6,10 +6,6 @@ description: Overview of observability features in Gemini Enterprise Agent Platf
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Agent observability in Gemini Enterprise Agent Platform provides comprehensive visibility into the performance, behavior, and health of your deployed agents and Model Context Protocol (MCP) servers. By monitoring key metrics, tracing execution paths, and observing your multi-agent system as a whole, you can diagnose issues, optimize resource consumption, and improve the reliability of your agents.
 
 This document provides an overview of the observability tools available within Gemini Enterprise Agent Platform, including system-wide topology, individual agent monitoring, and MCP server metrics.

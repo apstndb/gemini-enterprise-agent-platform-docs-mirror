@@ -6,10 +6,6 @@ description: Use distributed tracing to view agent behavior in Gemini Enterprise
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 ## Before you begin
 
 Before you can view agent traces, you must meet the following requirements:
@@ -54,7 +50,7 @@ Alternatively, if you select a specific trace from the **Trace view** or a disti
 To maintain security and compliance, Gemini Enterprise Agent Platform separates operational metadata from the actual conversational content:
 
   - **Execution Metrics & Attributes:** Standard telemetry (like latency, status codes, and structural metadata) is stored directly within the trace spans.
-  - **Prompts & Responses:** Potentially sensitive data, such as user prompts and model responses, are not stored in the spans. Instead, they are routed to either Cloud Logging or Cloud Storage, depending on your organization's configuration. This allows administrators to implement granular Identity and Access Management (IAM) controls over sensitive conversational data.
+  - **Prompts & Responses:** Potentially sensitive data, such as user prompts and model responses, are not stored in the spans. Instead, they are routed to either Cloud Storage (recommended) or Cloud Logging, depending on your organization's configuration. Cloud Storage is recommended because it supports large and multimodal payloads without truncation and provides fine-grained lifecycle management. Cloud Logging supports basic text payloads but has size limits. This separation allows administrators to implement granular Identity and Access Management (IAM) controls over sensitive conversational data.
 
 The Gemini Enterprise Agent Platform UI automatically understands the underlying correlation between your trace spans and these securely stored prompt-and-response logs. When you open a trace detail view, the platform seamlessly pieces this data back together, presenting a unified view of the agent's behavior without compromising your data governance rules.
 

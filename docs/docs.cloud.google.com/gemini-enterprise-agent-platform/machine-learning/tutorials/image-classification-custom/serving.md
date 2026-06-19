@@ -10,17 +10,17 @@ This page walks through serving predictions from your image classification model
 
 This tutorial has several pages:
 
-1.  [Setting up your project and environment.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom)
+1.  [Setting up your project and environment.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom)
 
-2.  [Training a custom image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training)
+2.  [Training a custom image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/training)
 
 3.  Serving predictions from a custom image classification model.
 
-4.  [Cleaning up your project.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/cleanup)
+4.  [Cleaning up your project.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup)
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
-The rest of this document assumes that you are using the same Cloud Shell environment that you created when following the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) . If your original Cloud Shell session is no longer open, you can return to the environment by doing the following:
+The rest of this document assumes that you are using the same Cloud Shell environment that you created when following the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) . If your original Cloud Shell session is no longer open, you can return to the environment by doing the following:
 
 1.  In the Google Cloud console, activate Cloud Shell.
 
@@ -34,7 +34,7 @@ To get online predictions from the ML model that you trained when following the 
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Models** page.
 
-2.  Find the row of the model that you trained in the [previous step of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/training) , `hello_custom` , and click the model's name to open the model detail page.
+2.  Find the row of the model that you trained in the [previous step of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/training) , `hello_custom` , and click the model's name to open the model detail page.
 
 3.  On the **Deploy & test** tab, click **Deploy to endpoint** to open the **Deploy to endpoint** pane.
 
@@ -70,7 +70,7 @@ After a few minutes, check\_circle appears next to the new endpoint in the **End
 
 You can get predictions from the Agent Platform endpoint that you just created by sending requests to the Agent Platform API's REST interface. However, only principals with the [`aiplatform.endpoints.predict` permission](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control) can send online prediction requests. You cannot make the endpoint public for anybody to send requests to, for example via a web app.
 
-In this section, deploy code to [Cloud Run functions](https://docs.cloud.google.com/functions/docs) to handle unauthenticated requests. The sample code that you downloaded when you read the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) contains code for this Cloud Run function in the `function/` directory. Optionally, run the following command to explore the Cloud Run function code:
+In this section, deploy code to [Cloud Run functions](https://docs.cloud.google.com/functions/docs) to handle unauthenticated requests. The sample code that you downloaded when you read the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) contains code for this Cloud Run function in the `function/` directory. Optionally, run the following command to explore the Cloud Run function code:
 
     less function/main.py
 
@@ -119,7 +119,7 @@ The `webapp` directory of the sample code that you downloaded contains a sample 
     Replace the following:
     
       - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
-      - BUCKET\_NAME : The name of the Cloud Storage bucket that you created when following the [first page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) .
+      - BUCKET\_NAME : The name of the Cloud Storage bucket that you created when following the [first page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) .
 
 2.  Edit the app to provide it with the trigger URL of your Cloud Run function:
     
@@ -144,8 +144,8 @@ The `webapp` directory of the sample code that you downloaded contains a sample 
     
     > **Note:** This web app gets predictions for images that were also included in the training dataset for the model. Therefore the model might appear more accurate than it actually is due to [overfitting](https://developers.google.com/machine-learning/glossary#overfitting) .
 
-![In the following screenshot, the web app has already gotten one prediction and is in the process of sending another prediction request.](https://docs.cloud.google.com/static/vertex-ai/docs/tutorials/image-classification-custom/webapp-screenshot.png)
+![In the following screenshot, the web app has already gotten one prediction and is in the process of sending another prediction request.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/webapp-screenshot.png)
 
 ## What's next
 
-Follow the [last page of the tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/cleanup) to clean up resources that you have created.
+Follow the [last page of the tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/cleanup) to clean up resources that you have created.

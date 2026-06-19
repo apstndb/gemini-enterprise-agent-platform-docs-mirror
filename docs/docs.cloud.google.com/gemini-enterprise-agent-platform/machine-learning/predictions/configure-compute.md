@@ -37,7 +37,7 @@ Specify the machine type (and, optionally, GPU configuration) in the [`dedicated
 Learn how to deploy each model type:
 
   - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
-  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom/serving#1_create_an_endpoint)
+  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#1_create_an_endpoint)
   - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
 
 ### Batch inference

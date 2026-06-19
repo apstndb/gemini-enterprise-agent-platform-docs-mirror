@@ -286,4 +286,4 @@ Like container images for training, Gemini Enterprise Agent Platform gives you t
 
   - [Get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions) from your model.
   - [Evaluate your model](https://docs.cloud.google.com/vertex-ai/docs/evaluation/introduction) .
-  - Try the [Hello serverless training](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-custom) tutorial for step-by-step instructions on training a TensorFlow Keras image classification model on Gemini Enterprise Agent Platform.
+  - Try the [Hello serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom) tutorial for step-by-step instructions on training a TensorFlow Keras image classification model on Gemini Enterprise Agent Platform.

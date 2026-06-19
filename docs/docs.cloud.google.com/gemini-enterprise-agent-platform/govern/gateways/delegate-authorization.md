@@ -54,16 +54,7 @@ The following steps show you how to configure an authorization extension with an
 
 3.  Configure an authorization extension to point to IAP.
     
-    1.  Define the extension in a YAML file. Use the sample values provided.
-        
-            cat >iap-request-authz-extension.yaml <<EOF
-            name: my-iap-request-authz-ext
-            service: iap.googleapis.com
-            failOpen: true
-            timeout: 1s
-            EOF
-        
-        If you want to deploy the extension in a dry run *audit-only* mode, to test the authorization policy without enforcing it, you can specify the `DRY_RUN` field. This lets you verify your policy and minimize the risk of disrupting traffic due to configuration errors:
+    1.  Define the extension in a YAML file. Use the sample values provided. If you want to deploy the extension in a dry run *audit-only* mode, to test the authorization policy without enforcing it, you can specify the `iamEnforcementMode` field inside the `metadata` block.
         
             cat >iap-request-authz-extension.yaml <<EOF
             name: my-iap-request-authz-ext
@@ -71,10 +62,22 @@ The following steps show you how to configure an authorization extension with an
             failOpen: true
             timeout: 1s
             metadata:
+              iapPolicyVersion: "V1"
+            EOF
+        
+        If you want to deploy the extension in a dry run *audit-only* mode, to test the authorization policy without enforcing it, you can specify the `iamEnforcementMode` field inside the `metadata` block. This lets you verify your policy and minimize the risk of disrupting traffic due to configuration errors:
+        
+            cat >iap-request-authz-extension.yaml <<EOF
+            name: my-iap-request-authz-ext
+            service: iap.googleapis.com
+            failOpen: true
+            timeout: 1s
+            metadata:
+              iapPolicyVersion: "V1"
               iamEnforcementMode: "DRY_RUN"
             EOF
         
-        Remove the `DRY_RUN` metadata field when you're ready to start enforcing policies.
+        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
     
     2.  Import the authorization extension. Use the [`gcloud beta service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-extensions/authz-extensions/import) with the following sample values.
         
@@ -310,13 +313,15 @@ The following example uses IAP as a centralized request authorization system and
 
 1.  Configure a `REQUEST_AUTHZ` authorization extension that delegates to IAP and an authorization policy that points to the extension.
     
-    1.  Define the authorization extension.
+    1.  Define the authorization extension. The `iapPolicyVersion` field under `metadata` is mandatory and must be set to `"V1"` .
         
             cat >iap-extension.yaml <<EOF
             name: iap-extension
             service: iap.googleapis.com
             failOpen: true
             timeout: 1s
+            metadata:
+              iapPolicyVersion: "V1"
             EOF
     
     2.  Create the authorization extension.

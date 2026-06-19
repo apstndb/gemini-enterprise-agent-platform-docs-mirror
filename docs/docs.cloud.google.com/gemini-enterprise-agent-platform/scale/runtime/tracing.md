@@ -6,10 +6,6 @@ description: Learn how to enable Cloud Trace for agents on Gemini Enterprise Age
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Cloud Trace lets you analyze the performance of your agents by tracing the timeline of operations for each query. You can use traces to identify bottlenecks and understand interactions with large language models (LLMs) or tools.
 
 This document explains how to enable Trace for your agents and how to view and analyze traces in the Google Cloud console.
