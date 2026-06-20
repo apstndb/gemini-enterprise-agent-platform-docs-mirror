@@ -186,7 +186,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-sear
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/using-metadata	2026-06-18T20:24:48Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/vpc	2026-06-18T20:24:38Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern	2026-06-18T20:24:48Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-06-18T20:24:28Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-06-19T05:46:04Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry	2026-06-18T20:24:38Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor	2026-06-18T20:24:43Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy	2026-06-18T20:24:38Z
@@ -198,7 +198,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/s
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security	2026-06-18T20:24:28Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam	2026-06-18T20:24:28Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance	2026-06-18T20:24:38Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview	2026-06-18T20:24:38Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview	2026-06-19T05:46:04Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/test-policies	2026-06-18T20:24:38Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/safety	2026-06-18T20:24:33Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent	2026-06-18T20:24:33Z

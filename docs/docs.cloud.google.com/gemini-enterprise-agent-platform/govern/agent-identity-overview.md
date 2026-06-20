@@ -106,11 +106,13 @@ Agent credentials provide cryptographic proof of an agent's identity. The system
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-Agent Identity auth manager is a credential vault designed to help protect credentials. It lets agents authenticate using an API key or OAuth client ID and secret, or on behalf of a user through OAuth delegation using end-user access tokens. Within the auth manager, you configure auth providers that define the authentication type and credentials for specific third-party applications.
+Agent Identity auth manager is a centralized credentials vault and authentication broker that simplifies outbound tool authentication for your agents. It lets agents authenticate using an API key or OAuth client ID and secret, or on behalf of a user through OAuth delegation using end-user access tokens. Within the auth manager, you configure auth providers that define the authentication type and credentials for specific third-party applications.
 
 Access to Agent Identity auth manager is governed by IAM, and the agent uses its own Agent SPIFFE ID to authenticate to the auth manager. All end-user access events are also attributable to the agent's SPIFFE ID, enabling easy governance.
 
 Agent Identity auth manager automates OAuth credential acquisition, such as opening a dialog for user sign-in and consent. It also provides visibility into end-user access and allows for access revocation, ensuring better governance over user-delegated permissions.
+
+For more information, see the [Agent Identity auth manager overview](https://docs.cloud.google.com/iam/docs/auth-manager-overview) .
 
 ### Security and governance
 
@@ -127,7 +129,7 @@ Agent Identity authenticates and authorizes agent actions through a workflow des
 
 1.  **Identity assignment** : When you deploy an agent, Google Cloud assigns it a unique SPIFFE identity and an X.509 certificate. Each X.509 certificate is valid for 24 hours, and Google Cloud automatically keeps it current to maintain security.
 2.  **Credential acquisition** : The method that agents use to acquire credentials depends on what they are trying to access. The following are some examples:
-      - **Access Google Cloud services** : The agent requests a bound access token. This token is cryptographically bound to the agent's unique X.509 certificate to prevent token theft. For more information, see [Security and governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) .
+      - **Access Google Cloud services** : The agent requests a bound access token. This token is cryptographically bound to the agent's unique X.509 certificate to help prevent token theft. For more information, see [Security and governance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#security-governance) .
       - **Access external tools** : The agent uses Agent Identity auth manager to retrieve the required credentials (such as API keys or OAuth tokens) from an auth provider. Auth manager supports both **user-delegated authority** and the **agent's own authority** .
 
 ## Benefits of Agent Identity
