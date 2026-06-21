@@ -48,7 +48,10 @@ You have the following options when creating an agent identity:
           http_options=dict(api_version="v1beta1")
         )
         remote_app = client.agent_engines.create(
-          config={"identity_type": types.IdentityType.AGENT_IDENTITY}
+          config={
+            "display_name": "identity-for-agent",
+            "identity_type": types.IdentityType.AGENT_IDENTITY,
+          },
         )
     
     Once you create the Agent Runtime instance with the agent identity, you can add agent code using [`agent_engine.update(...)`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .

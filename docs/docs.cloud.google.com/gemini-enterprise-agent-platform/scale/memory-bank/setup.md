@@ -73,9 +73,16 @@ Memory Bank supports multi-regional and global endpoints:
 
 ## Create or update a Memory Bank instance
 
-To get started with Memory Bank, you first need a Memory Bank instance. If you don't already have an instance, you can create it using the default configuration:
+To get started with Memory Bank, you first need a Memory Bank instance. If you don't already have an instance, you can create one using the default configuration, and a display name of your choosing.
 
-    memory_bank = client.agent_engines.create()
+> **Tip:** Always set a display name, so you can distinguish between difference resource instances in the project.
+
+    # create the resource
+    memory_bank = client.agent_engines.create(
+        config={
+            "display_name": "My Memory Bank",
+        }
+    )
     
     # Optionally, print out the Memory Bank resource name. You will need the
     # resource name to interact with your Memory Bank instance later on.

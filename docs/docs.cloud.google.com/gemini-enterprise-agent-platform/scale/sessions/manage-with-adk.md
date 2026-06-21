@@ -52,7 +52,11 @@ To access Agent Platform Sessions, you first need use an Vertex AI Agent Engine 
     )
     
     # If you don't have an Agent Engine instance already, create an instance.
-    agent_engine = client.agent_engines.create()
+    agent_engine = client.agent_engines.create(
+        config={
+          "display_name": "My Session Store",
+        }
+    )
     
     # Print the agent engine ID, you will need it in the later steps to initialize
     # the ADK `VertexAiSessionService`.
@@ -63,6 +67,8 @@ Replace the following:
   - PROJECT\_ID : Your project ID.
 
   - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Sessions.
+
+> **Tip:** Always set a display name, so you can distinguish between difference resource instances in the project.
 
 ## Develop your ADK agent
 

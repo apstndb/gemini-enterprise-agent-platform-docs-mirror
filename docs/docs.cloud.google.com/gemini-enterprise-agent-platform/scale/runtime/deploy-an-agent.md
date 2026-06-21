@@ -730,6 +730,7 @@ The following is an example of deploying an agent using a Dockerfile:
             ],
             "image_spec": {},  # tells Agent Runtime to use the Dockerfile
             # Other optional configs
+            "display_name": "Dockerfile agent",
         }
     )
 
@@ -743,6 +744,7 @@ To deploy from a container image, first follow the setup instructions for [Bring
                 "image_uri": "CONTAINER_IMAGE_URI",
             },
             # Other optional configs
+            "display_name": "Container image agent",
         },
     )
 

@@ -235,6 +235,7 @@ Deploy the agent by creating a [`reasoningEngine`](https://docs.cloud.google.com
     remote_agent = client.agent_engines.create(
         agent,
         config={
+            "display_name": "LangGraph currency exchange agent",
             "requirements": ["google-cloud-aiplatform[agent_engines,langchain]"],
             "identity_type": types.IdentityType.AGENT_IDENTITY,
         },
@@ -245,6 +246,7 @@ Deploy the agent by creating a [`reasoningEngine`](https://docs.cloud.google.com
     remote_agent = client.agent_engines.create(
         agent,
         config={
+            "display_name": "LangChain currency exchange agent",
             "requirements": ["google-cloud-aiplatform[agent_engines,langchain]"],
             "identity_type": types.IdentityType.AGENT_IDENTITY,
         },
@@ -255,6 +257,7 @@ Deploy the agent by creating a [`reasoningEngine`](https://docs.cloud.google.com
     remote_agent = client.agent_engines.create(
         agent,
         config={
+            "display_name": "AG2 currency exchange agent",
             "requirements": ["google-cloud-aiplatform[agent_engines,ag2]"],
             "identity_type": types.IdentityType.AGENT_IDENTITY,
         },
@@ -269,6 +272,7 @@ Deploy the agent by creating a [`reasoningEngine`](https://docs.cloud.google.com
     remote_agent = client.agent_engines.create(
         agent,
         config={
+            "display_name": "LlamaIndex currency exchange agent",
             "requirements": ["google-cloud-aiplatform[agent_engines,llama_index]"],
             "identity_type": types.IdentityType.AGENT_IDENTITY,
         },
