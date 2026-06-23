@@ -34,3 +34,19 @@ After running the update command, verify that you're using version `1.0.2` or la
     pip show langchain-google-vertexai
 
 If you're in a notebook instance (for example, Jupyter or Colab or Workbench), you might need to restart your runtime to use the updated packages.
+
+## Bring your own container (BYOC) first-time creation error
+
+**Issue** :
+
+You deploy agents through [BYOC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-container-image) in your Google Cloud project for the first time in the region you are in, and you receive an error message similar to the following:
+
+    Reasoning Engine resource <reasoning-engine-id> failed to start and cannot serve traffic.
+
+**Possible cause** :
+
+The failure was likely due to Agent Runtime on Gemini Enterprise Agent Platform internal IAM provisioning. The changes take time to complete and propagate.
+
+**Recommended solution** :
+
+Retry the same agent deployment request, and it will succeed.

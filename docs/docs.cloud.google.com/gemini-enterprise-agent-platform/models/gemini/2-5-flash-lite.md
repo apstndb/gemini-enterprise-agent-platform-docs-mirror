@@ -21,7 +21,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video
+    Text , Image , Audio , Video
   - Outputs:
     Text
 
@@ -230,7 +230,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video
+    Text , Image , Audio , Video
   - Outputs:
     Text
 

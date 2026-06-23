@@ -10,6 +10,14 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 22, 2026
+
+Feature
+
+**Provisioned Throughput support for supervised fine-tuned Gemini 3 model inference.**
+
+Provisioned Throughput can be used to assure supervised fine-tuned inference using the same quota. Supervised fine-tuned inference for Gemini 3 models incurs a higher burndown rate compared to base model inference. Learn more [here](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#supervised-fine-tuned-model-support) .
+
 ## June 18, 2026
 
 Feature

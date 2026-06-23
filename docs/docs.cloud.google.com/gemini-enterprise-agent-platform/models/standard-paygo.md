@@ -27,8 +27,6 @@ The following tiers are available in Standard PayGo:
 
 Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 2.5 Flash and a separate baseline of 10,000,000 TPM for Gemini 2.0 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. However, the [system limit of 30,000 RPM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) per model per region applies. Gemini requests with multimodal inputs are subject to the corresponding system rate limits, including [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding) , [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding) .
 
-If you require higher throughput for an enterprise use case, contact your account team for more information regarding a custom tier.
-
 > **Note:** For mission-critical workloads that require a strict Service Level Agreement (SLA) and can't tolerate performance variation or throttling, we recommend using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . Provisioned Throughput provides dedicated and assured capacity with improved performance and reliability.
 
 ## How usage tiers work

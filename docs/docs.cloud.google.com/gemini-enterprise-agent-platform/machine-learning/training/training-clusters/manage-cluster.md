@@ -123,10 +123,18 @@ For example, to update the node count of a pool of a [CPU-only cluster](https://
       - `orchestrator_spec.slurm_spec.prolog_bash_scripts`
       - `orchestrator_spec.slurm_spec.epilog_bash_scripts`
 
+  - `updateMode` (enum, optional): Specifies the update mode. Possible values are:
+    
+      - `UPDATE_MODE_UNSPECIFIED` : The default value, treated as `USER_AND_SERVICE` .
+      - `USER_ONLY` : Apply only user-specified field changes from the request. The service won't refresh service-managed fields, like startup, prolog, or epilog scripts.
+      - `USER_AND_SERVICE` : Apply user-specified field changes and let the service refresh service-managed fields.
+    
+    We recommend using `USER_AND_SERVICE` to ensure your cluster is up-to-date.
+
 The command below updates both the node pool configuration and the Slurm partitions.
 
     gcurl -X PATCH -d @update-payload.json
-    'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.partitions,node_pools'
+    'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.partitions,node_pools&updateMode=USER_AND_SERVICE'
 
 **Important note on repeated fields**
 

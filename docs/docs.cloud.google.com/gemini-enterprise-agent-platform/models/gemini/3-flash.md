@@ -33,7 +33,7 @@ Gemini 3 Flash uses several new features to improve performance, control, and mu
 
 For more information on using these features, see [Get started with Gemini 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3) .
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/gemini-3-flash-preview) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-flash-preview)
+[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-flash-preview) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-flash-preview)
 
 Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -44,7 +44,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video , PDF
+    Text , Image , Audio , Video
   - Outputs:
     Text
 

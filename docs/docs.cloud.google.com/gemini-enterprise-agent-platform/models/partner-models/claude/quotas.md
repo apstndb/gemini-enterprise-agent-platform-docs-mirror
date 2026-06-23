@@ -212,14 +212,6 @@ Claude Fable 5
 
 1,000,000
 
-`asia-southeast1`
-
-  - QPM: 1,000
-  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
-  - Output TPM: 1,000,000
-
-1,000,000
-
 `global endpoint`
 
   - QPM: 2,000

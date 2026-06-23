@@ -26,7 +26,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video , PDF
+    Text , Image , Audio , Video
   - Outputs:
     Text
 

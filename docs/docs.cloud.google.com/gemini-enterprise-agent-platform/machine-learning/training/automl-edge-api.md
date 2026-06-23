@@ -12,6 +12,8 @@ This model is created using a prepared dataset provided by you using the [consol
 
 Model training can take several hours to complete. The Agent Platform API lets you get the status of the training job.
 
+> **Note:** AutoML Edge object detection is in maintenance mode. Only severe failures will be addressed. We recommend migrating to alternative solutions such as open source (OSS) models.
+
 ## Create an AutoML Edge training pipeline
 
 When you have a dataset with a representative set of training items, you are ready to create an AutoML Edge training pipeline.

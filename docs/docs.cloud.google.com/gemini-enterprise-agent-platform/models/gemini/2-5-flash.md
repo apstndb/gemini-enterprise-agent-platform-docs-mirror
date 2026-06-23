@@ -6,13 +6,13 @@ description: Learn about Gemini 2.5 Flash, Google's balanced model in terms of p
 data_source: docs.cloud.google.com
 ---
 
-Gemini 2.5 Flash is our best model in terms of price and performance, and offers well-rounded capabilities. Gemini 2.5 Flash is our first Flash model that features [thinking capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , which lets you see the thinking process that the model goes through when generating its response.
+Gemini 2.5 Flash is our best model in terms of price and performance, and offers well-rounded capabilities. Gemini 2.5 Flash is our first Flash model that features [thinking capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models//thinking) , which lets you see the thinking process that the model goes through when generating its response.
 
 For even more detailed technical information on Gemini 2.5 Flash (such as performance benchmarks, information on our training datasets, efforts on sustainability, intended usage and limitations, and our approach to ethics and safety), see our [technical report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) on our Gemini 2.5 models.
 
 ## 2.5 Flash
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-flash) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/gemini-2.5-flash)
+[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-flash) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-2.5-flash)
 
 Model ID
 
@@ -21,7 +21,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video
+    Text , Image , Audio , Video
   - Outputs:
     Text
 
@@ -281,7 +281,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video
+    Text , Image , Audio , Video
   - Outputs:
     Text
 

@@ -10,6 +10,8 @@ You create an AutoML Edge (exportable) model directly in the UI for certain data
 
 Training jobs can take several hours to complete. The Agent Platform page of the Google Cloud console shows the status of training.
 
+> **Note:** AutoML Edge object detection is in maintenance mode. Only severe failures will be addressed. We recommend migrating to alternative solutions such as open source (OSS) models.
+
 ## Training an AutoML Edge model
 
 1.  In the Google Cloud console, in the Agent Platform section, go to the **Datasets** page.

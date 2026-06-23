@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 This page shows you how to train an AutoML object detection model from an image dataset using either the Google Cloud console or the Agent Platform API.
 
+> **Note:** AutoML Edge object detection is in maintenance mode. Only severe failures will be addressed. We recommend migrating to alternative solutions such as open source (OSS) models.
+
 ## Train an AutoML model
 
 ### Google Cloud console

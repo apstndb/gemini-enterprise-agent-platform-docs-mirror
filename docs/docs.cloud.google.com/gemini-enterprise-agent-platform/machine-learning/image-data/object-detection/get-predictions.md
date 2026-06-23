@@ -881,6 +881,8 @@ Image data type objectives include classification and object detection.
 
 **Edge model inference:** When you use AutoML image Edge models for inference, you must convert any non-JPEG inference file to a JPEG file before you send the inference request.
 
+> **Note:** AutoML Edge object detection is in maintenance mode. Only severe failures will be addressed. We recommend migrating to alternative solutions such as open source (OSS) models.
+
 ### gcloud
 
 1.  Create a file named `request.json` with the following contents:

@@ -19,7 +19,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Images , Video (Preview)
+    Text , Image , Video (Preview)
   - Outputs:
     Text and image
 

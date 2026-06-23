@@ -908,13 +908,17 @@ The following table lists the open models for which Provisioned Throughput suppo
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-The following is supported for Google models that support [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) :
+The following is supported for Google [models that support supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#expandable-1) :
 
   - Provisioned Throughput can be applied to both base models and supervised fine-tuned versions of those base models.
 
   - Supervised fine-tuned model endpoints and their corresponding base model count towards the same Provisioned Throughput quota.
     
-    For example, Provisioned Throughput purchased for `gemini-2.0-flash-lite-001` for a specific project prioritizes requests that are made from supervised fine-tuned versions of `gemini-2.0-flash-lite-001` created within that project. [Use the appropriate header](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#use-rest-api) to control traffic behavior.
+    For example, Provisioned Throughput purchased for `gemini-3.1-flash-lite` for a specific project prioritizes requests that are made from supervised fine-tuned versions of `gemini-3.1-flash-lite` created within that project. [Use the appropriate header](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#use-rest-api) to control traffic behavior.
+
+Starting with Gemini 3, burndown rates for fine tuned model inference are higher compared to base model inference. This premium is proportional to the fine tuned inference [premium](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning) for the model. For example, if fine tuned inference charges 50% more than base model inference, then the burndown rate for fine tuned inference would be 50% higher. In this case, if the base model inference of 1 input text token was 1 token, then the fine tuned model inference of 1 input text token would be 1.5 tokens.
+
+Prior to Gemini 3, supervised fine-tuned model endpoints and their corresponding base model count towards the same Provisioned Throughput quota with the same burndown rates.
 
 ## What's next
 

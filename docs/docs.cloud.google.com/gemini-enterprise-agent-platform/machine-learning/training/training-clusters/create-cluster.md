@@ -62,7 +62,8 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
       "boot_disk": {
         "boot_disk_type": "pd-standard",
         "boot_disk_size_gb": 200
-      }
+      },
+      "labels": { "example-key": "example-value" }
     },
     {
       "id": "a4",
@@ -88,7 +89,8 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
       "boot_disk": {
         "boot_disk_type": "hyperdisk-balanced",
         "boot_disk_size_gb": 200
-      }
+      },
+      "labels": { "example-key": "example-value" }
     }
   ],
   "orchestrator_spec": {
@@ -497,6 +499,7 @@ The following parameters are used to define the node pools for both login and wo
   - ENABLE\_PUBLIC\_IPS : A boolean ( `true` or `false` ) to determine if the login node has a public IP address.
   - BOOT\_DISK\_TYPE : The boot disk type for the login node (for example, `pd-standard` , `pd-ssd` ).
   - BOOT\_DISK\_SIZE\_GB : The boot disk size in GB for the login node.
+  - LABELS : A set of key/value pairs to label the node pool.
 
 #### Additional storage settings
 

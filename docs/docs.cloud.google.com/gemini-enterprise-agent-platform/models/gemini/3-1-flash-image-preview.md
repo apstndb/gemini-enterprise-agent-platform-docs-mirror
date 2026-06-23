@@ -35,7 +35,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Images
+    Text , Image
   - Outputs:
     Text and image
 

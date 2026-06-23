@@ -87,10 +87,6 @@ Europe
 
   - `Multi-region`
 
-Asia Pacific
-
-  - `asia-southeast1`
-
 Global
 
   - `global endpoint`
@@ -119,13 +115,6 @@ Multi-region:
   - Context length: 1,000,000
 
 Multi-region:
-
-  - QPM: 1,000
-  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
-  - Output TPM: 1,000,000
-  - Context length: 1,000,000
-
-asia-southeast1:
 
   - QPM: 1,000
   - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)

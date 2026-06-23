@@ -5132,8 +5132,6 @@ Role
 
 Permissions
 
-l
-
 #### Vertex AI Service Agent
 
 ( `roles/ aiplatform.serviceAgent` )

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3 Pro Image (Nano Banana Pro), is designed to tackle the most challenging image generation by incorporating state-of-the-art reasoning capabilities. It's the best model for complex and multi-turn image generation and editing, having improved accuracy and enhanced image quality.
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-pro-image) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/gemini-3-pro-image) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-pro-image-preview)
+[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-pro-image) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-pro-image) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-pro-image-preview)
 
 Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -19,7 +19,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Images
+    Text , Image
   - Outputs:
     Text and image
 

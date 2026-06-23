@@ -47,6 +47,7 @@ Distillation provides smaller gains on tasks where the student model already per
   - Qwen 3 8B ( `qwen/qwen3@qwen3-8b` )
   - Qwen 3 14B ( `qwen/qwen3@qwen3-14b` )
   - Qwen 3 32B ( `qwen/qwen3@qwen3-32b` )
+  - Qwen 3.5 9B ( `qwen/qwen3-5@qwen3.5-9b` )
   - Llama 4 Scout 17B 16E Instruct ( `meta/llama4@llama-4-scout-17b-16e-instruct` )
 
 #### Distillation tuning supported models
@@ -288,6 +289,21 @@ Modalities
 Text
 
 Qwen 3 32B
+
+Tuning modes
+
+Parameter-efficient fine-tuning  
+Full fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Qwen 3.5 9B
 
 Tuning modes
 

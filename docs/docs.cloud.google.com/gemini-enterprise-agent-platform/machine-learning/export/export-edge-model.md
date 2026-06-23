@@ -20,6 +20,8 @@ You cannot use an Edge model in Agent Platform to serve predictions; you must de
 
 Use the following code samples to identify an AutoML Edge model, specify an output file storage location, and then send the export model request.
 
+> **Note:** The `tflite-runtime` PyPI package is no longer maintained for Windows and macOS. For these platforms, you can use the [full TensorFlow package](https://www.tensorflow.org/install/) , or [build the `tflite-runtime` package from source](https://developers.google.com/edge/litert/build/cmake_pip) .
+
 ### Image
 
 Select the tab below for your objective:
@@ -407,6 +409,8 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
         print("export_model_response:", export_model_response)
 
 ### Object detection
+
+> **Note:** AutoML Edge object detection is in maintenance mode. Only severe failures will be addressed. We recommend migrating to alternative solutions such as open source (OSS) models.
 
 Trained AutoML Edge image object detection models can be exported in the following formats:
 

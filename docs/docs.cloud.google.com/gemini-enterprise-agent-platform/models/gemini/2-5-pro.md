@@ -10,7 +10,7 @@ Gemini 2.5 Pro is our most advanced reasoning Gemini model, capable of solving c
 
 For even more detailed technical information on Gemini 2.5 Pro (such as performance benchmarks, information on our training datasets, efforts on sustainability, intended usage and limitations, and our approach to ethics and safety), see our [technical report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) on our Gemini 2.5 models.
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-pro) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/gemini-2.5-pro) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-2.5-pro)
+[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-pro) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-2.5-pro) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-2.5-pro)
 
 Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -21,7 +21,7 @@ Model ID
 Supported inputs & outputs
 
   - Inputs:
-    Text , Code , Images , Audio , Video
+    Text , Image , Audio , Video
   - Outputs:
     Text
 
