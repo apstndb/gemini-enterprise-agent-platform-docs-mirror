@@ -189,7 +189,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     from google.genai.types import HttpOptions, Part
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-2.5-flash"
+    model_id = "gemini-3.5-flash"
     
     prompt = """
     You are a highly skilled document summarization specialist.
@@ -482,7 +482,7 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - `  FILE_URI  ` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
     

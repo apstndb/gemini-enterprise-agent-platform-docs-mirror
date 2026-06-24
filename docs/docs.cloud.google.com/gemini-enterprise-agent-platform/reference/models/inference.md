@@ -907,7 +907,7 @@ Generate a text response from a text input.
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="How does AI work?",
     )
     print(response.text)
@@ -1000,7 +1000,7 @@ Generate a text response from a multimodal input, such as text and an image.
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=[
             "What is shown in this image?",
             Part.from_uri(
@@ -1115,7 +1115,7 @@ Generate a streaming model response from a text input.
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
     for chunk in client.models.generate_content_stream(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="Why is the sky blue?",
     ):
         print(chunk.text, end="")

@@ -188,7 +188,7 @@ You can start sending requests from your application to Agent Platform APIs in t
         client = genai.Client(vertexai=True, api_key=API_KEY)
         
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash",
             contents="Explain bubble sort to me.",
         )
         

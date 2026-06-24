@@ -431,7 +431,7 @@ Save the request body in a file named `request.json` , and execute the following
         return weather_map.get(location, "unknown")
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-2.5-flash"
+    model_id = "gemini-3.5-flash"
     
     response = client.models.generate_content(
         model=model_id,
@@ -921,7 +921,7 @@ The `functionCallingConfig` ensures that the model output is always a specific f
     )
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-2.5-flash"
+    model_id = "gemini-3.5-flash"
     
     get_album_sales = FunctionDeclaration(
         name="get_album_sales",

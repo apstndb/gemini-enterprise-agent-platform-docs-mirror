@@ -98,7 +98,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         )
     )
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="How does AI work?",
     )
     print(response.text)

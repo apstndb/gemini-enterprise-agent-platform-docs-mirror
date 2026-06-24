@@ -212,7 +212,7 @@ Use the following code sample to create a hyperparameter tuning job using the [`
 Before using any of the request data, make the following replacements:
 
   - `  LOCATION  ` : the region where you want to create the `HyperparameterTuningJob` . Use a [region that supports serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) .
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - `  DISPLAY_NAME  ` : a memorable display name of your choice for the `HyperparameterTuningJob` . See [REST resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.hyperparameterTuningJobs) .
   - Specify your metrics:
       - `  METRIC_ID  ` : the name of a [hyperparameter metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/hyperparameter-tuning-overview#what_hyperparameter_tuning_optimizes) to optimize. Your training code must [report this metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning#report-metrics) when it runs.

@@ -247,7 +247,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     Provide a concise summary of the main points in the audio file.
     """
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=[
             prompt,
             Part.from_uri(
@@ -452,7 +452,7 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - `  FILE_URI  ` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
     
@@ -758,7 +758,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     Use speaker A, speaker B, etc. to identify speakers.
     """
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=[
             prompt,
             Part.from_uri(

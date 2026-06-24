@@ -63,7 +63,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     # Use content cache to generate text response
     # E.g cache_name = 'projects/.../locations/.../cachedContents/1111111111111111111'
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="Summarize the pdfs",
         config=GenerateContentConfig(
             cached_content=cache_name,

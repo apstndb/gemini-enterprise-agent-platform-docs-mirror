@@ -143,7 +143,7 @@ To create a custom training job use either Vertex AI SDK for Python or REST.
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The location to run the `CustomJob` in, for example, us-central1. This should be the same location as the provided TensorBoard instance.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - TENSORBOARD\_INSTANCE\_NAME : (Obligatory) The full name of the existing Vertex AI TensorBoard instance storing your Vertex AI TensorBoard logs:  
     `projects/ PROJECT_ID` /locations/ `LOCATION_ID` /tensorboards/TENSORBOARD\_INSTANCE\_ID  
     Note: If the tensorboard instance is not an existing one, the customJobs creation throws a 404.

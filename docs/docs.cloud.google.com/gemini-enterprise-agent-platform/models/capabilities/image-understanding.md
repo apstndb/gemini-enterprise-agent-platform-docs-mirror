@@ -309,7 +309,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=[
             "What is shown in this image?",
             Part.from_uri(
@@ -497,7 +497,7 @@ You can include images that are stored in Cloud Storage or use base64-encoded im
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - `  FILE_URI  ` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
     
@@ -676,7 +676,7 @@ Before using any of the request data, make the following replacements:
       - `asia-southeast1`
       - `asia-northeast1`
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - ``` 
     B64_BASE_IMAGE
@@ -969,7 +969,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         local_file_img_bytes = f.read()
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=[
             "Generate a list of all the objects contained in both images.",
             Part.from_uri(file_uri=gcs_file_img_path, mime_type="image/jpeg"),

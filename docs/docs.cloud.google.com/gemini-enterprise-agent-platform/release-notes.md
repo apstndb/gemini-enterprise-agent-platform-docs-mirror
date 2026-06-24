@@ -10,7 +10,32 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 24, 2026
+
+Feature
+
+**AI security findings in Agent Platform**
+
+Viewing AI security findings and posture management summaries in Gemini Enterprise Agent Platform is [generally available](https://cloud.google.com/products#product-launch-stages) .
+
+With this release, the **Security** dashboard introduces the **Top security findings** widget.
+
+Also, specific features within the AI security widgets are available in [Preview](https://cloud.google.com/products#product-launch-stages) , including the following:
+
+  - Vulnerability findings and threat monitoring for agent runtimes (such as Cloud Run)
+  - Historical content violation trends ( **Violations over time** )
+
+For more information, see [View security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings) .
+
 ## June 22, 2026
+
+Change
+
+**Supervised fine-tuning available for Gemini 3.1 Flash Lite and Gemini 3.5 Flash in Public Preview**
+
+Supervised fine-tuning is now available for the `gemini-3.1-flash-lite` and `gemini-3.5-flash` models in [Preview](https://cloud.google.com/products#product-launch-stages) . Model tuning for Gemini 3.1 Flash Lite and Gemini 3.5 Flash is restricted to `us-central1` and `europe-west4` and tuned model serving is restricted to the `us` and `eu` multi-region endpoints.
+
+See [About supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning) for more information.
 
 Feature
 
@@ -45,6 +70,31 @@ For more information, see the following:
   - [Observability overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)
   - [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces)
   - [Set up tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing)
+
+Feature
+
+**Agent Registry is generally available (GA)**
+
+Agent Registry is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) . Agent Registry is a centralized catalog for discovering and registering agents and Model Context Protocol (MCP) servers.
+
+The following features are available in Agent Registry for the GA launch stage:
+
+  - **API v1 and client libraries:** The `v1` version of the Agent Registry API is available. Cloud client libraries are available in C\#, Go, Java, Node.js, PHP, Python, and Ruby.
+  - **A2A v1 support:** Agent Registry supports Agent-to-Agent (A2A) protocol version `1.0` , letting you explicitly declare transport endpoints and bindings inside the `supportedInterfaces` array, in addition to the existing `0.3` schema support.
+  - **Terraform support:** Terraform scripts for Application Default Credentials (ADC) have graduated to General Availability. You can use Terraform to configure and manage your agents, MCP servers, endpoints, and bindings.
+
+**Known limitations:**
+
+  - **Access Transparency and Access Approval:** [Access Transparency](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview) logs, which provide visibility into when Google personnel access your content, and [Access Approval](https://docs.cloud.google.com/assured-workloads/access-approval/docs/overview) controls aren't available for Agent Registry configurations.
+  - **Data Residency:** If you configure the [resource location constraint](https://docs.cloud.google.com/organization-policy/restrict-locations) in your organization policy, Agent Registry enforces the constraint when you register a resource. However, detective controls for data residency compliance reporting are limited.
+
+For more information, see the [Agent Registry overview](https://docs.cloud.google.com/agent-registry/overview) .
+
+Feature
+
+The Agent Identity API ( `agentidentity.googleapis.com` ) is available in [Preview](https://cloud.google.com/products#product-launch-stages) . This new API replaces the legacy IAM Connectors API ( `iamconnectors.googleapis.com` ) for managing auth providers and agent identities.
+
+During the preview migration period, both APIs operate side-by-side. Existing auth providers are automatically mirrored to the new V2 resource hierarchy ( `authProviders/` ), allowing you to migrate your IAM policies, agent code, and client applications without downtime.
 
 ## June 17, 2026
 

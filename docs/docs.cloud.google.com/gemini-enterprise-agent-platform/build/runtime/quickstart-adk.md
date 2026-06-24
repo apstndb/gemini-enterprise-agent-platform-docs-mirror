@@ -105,7 +105,7 @@ You might also be able to get the required permissions through [custom roles](ht
         from vertexai import agent_engines
         
         agent = Agent(
-            model="gemini-2.0-flash",
+            model="gemini-3.5-flash",
             name='currency_exchange_agent',
             tools=[get_exchange_rate],
         )

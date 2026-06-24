@@ -80,14 +80,14 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
     from google import genai
     from google.genai.types import (
+        GenerateContentConfig,
         HttpOptions,
         Tool,
         ToolCodeExecution,
-        GenerateContentConfig,
     )
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-2.5-flash"
+    model_id = "gemini-3.5-flash"
     
     code_execution_tool = Tool(code_execution=ToolCodeExecution())
     response = client.models.generate_content(
@@ -377,7 +377,7 @@ Before using any of the request data, make the following replacements:
       - `asia-southeast1`
       - `asia-northeast1`
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - `  MODEL_ID  ` : The model ID of the model that you want to use.
 

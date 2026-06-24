@@ -160,7 +160,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="When is the next total solar eclipse in the United States?",
         config=GenerateContentConfig(
             tools=[
@@ -374,7 +374,7 @@ WARNING: For the time being, this "grounding" interface does not support Agent S
     # datastore = "projects/111111111111/locations/global/collections/default_collection/dataStores/data-store-id"
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="How do I make an appointment to renew my driver's license?",
         config=GenerateContentConfig(
             tools=[

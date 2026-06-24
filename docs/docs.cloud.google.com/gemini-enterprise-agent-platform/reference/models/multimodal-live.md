@@ -62,11 +62,16 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     export GOOGLE_GENAI_USE_ENTERPRISE=True
 
     from google import genai
-    from google.genai.types import (Content, HttpOptions, LiveConnectConfig,
-                                    Modality, Part)
+    from google.genai.types import (
+        Content,
+        HttpOptions,
+        LiveConnectConfig,
+        Modality,
+        Part,
+    )
     
     client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
-    model_id = "gemini-2.0-flash-live-preview-04-09"
+    model_id = "gemini-live-2.5-flash-native-audio"
     
     async with client.aio.live.connect(
         model=model_id,

@@ -56,7 +56,7 @@ Use the following steps to design and test an agent in Agent Studio:
             
             5.  **Tools:** Click **Add tools** (+) to add tools that let the agent complete tasks. For more information, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
     
-      - **Preview:** Test the agent's capabilities and response as you build your agent. Chat with your agent to test its capabilities.
+      - **Preview:** Test the agent's capabilities and response as you build your agent. Chat with your agent to test its capabilities. To preview a saved agent, Agent Studio verifies the agent's identity permissions. If any required permissions are missing, a permissions dialog is displayed. Unsaved agents don't have an identity yet, so the **Preview** and **Deploy** options are disabled until you save the agent. For more information, see [Grant permissions to agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#grant-permissions) .
 
 4.  Click **Get code** to see your agent code. If you want to continue developing your agent elsewhere, you can copy the code and paste it to a code editor of your choice. See [ADK tutorials](https://google.github.io/adk-docs/get-started/python/) for more options to continue developing your agent.
 
@@ -99,6 +99,50 @@ You can configure the following tools for your agent:
     3.  **Authentication:** Autofilled as **None** . Agent Studio only supports MCP servers that don't require authentication.
     
     Your agent can use all tools in your connected MCP server.
+
+## Grant permissions to agent identity
+
+> **Preview**
+> 
+> The permissions dialog and automatic role-granting features are in **Preview** and subject to change.
+
+Each agent in Agent Studio has a unique SPIFFE identity, which acts as an IAM principal for accessing other Google Cloud resources.
+
+The principal format is:
+
+    principal://agents-nonprod.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/REASONING_ENGINE_ID
+
+Replace the following:
+
+  - `  ORGANIZATION_ID  ` : the numeric ID of your organization.
+  - `  PROJECT_NUMBER  ` : the project number of your Google Cloud project.
+  - `  LOCATION  ` : the region where your agent is deployed.
+  - `  REASONING_ENGINE_ID  ` : the resource ID of your reasoning engine.
+
+For more context on agent identities, see [Create an agent with agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) and [Agent identity overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) .
+
+### Permissions dialog behavior
+
+When you click **Deploy** or open the **Preview** tab for a saved agent, Agent Studio automatically checks if the agent's identity has the required IAM roles based on the tools you have configured.
+
+  - **Missing roles:** If required roles are missing, a dialog appears listing the detailed roles. Click **Grant All** in the dialog to automatically grant all necessary roles to the agent's identity in a single action.
+  - **All roles granted:** If all required roles are already granted, the permissions dialog does not appear.
+  - **Unsaved agents:** Unsaved agents do not have an identity yet. The permissions dialog does not appear, and the **Preview** tab and **Deploy** options are disabled until you save the agent.
+
+### Required roles
+
+The specific roles requested in the dialog depend on the agent's configuration:
+
+  - `roles/storage.objectViewer` : Required if the agent uses uploaded or draft files. This role is granted on the specific Cloud Storage bucket for agent files (for example, `{projectNumber}_{location}_agent_studio_files` ).
+  - `roles/mcp.toolUser` : Required if the agent utilizes a Model Context Protocol (MCP) tool, including tools from the Agent Registry.
+  - `roles/agentregistry.viewer` : Potentially required for agents using an Agent Registry MCP tool. (Note: This role might be removed in the future.)
+  - `roles/iamconnectors.user` : Required if an Agent Registry MCP tool specifies an `authProviderName` .
+
+### Roles not automatically handled
+
+The following role isn't automatically handled by this dialog:
+
+  - `roles/discoveryengine.viewer` : The Vertex AI Search tool has been deprecated in favor of Agent Registry. To grant access to Vertex AI Search data stores, you must manually grant the **Discovery Engine User** role to the agent's service account. For details, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
 
 ## Deploy an Agent from Agent Studio
 

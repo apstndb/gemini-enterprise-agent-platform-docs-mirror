@@ -70,7 +70,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : Your region.
 
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - MODEL\_ID : the ID of the model you want to export.
 

@@ -20,12 +20,12 @@ When deploying Gemini models, it's crucial to identify and mitigate various pote
 Our deployed models offer various features to address these potential issues:
 
   - The default model and non-configurable filters provide a general safety net.
-  - [System instructions](https://docs.cloud.google.com/vertex-ai/docs/multimodal/safety-system-instructions) provide direct guidance to the model on preferred behavior and topics to avoid.
-  - [Content filters](https://docs.cloud.google.com/vertex-ai/docs/multimodal/configure-safety-filters) allow you to set specific thresholds for common harm types.
-  - [Gemini as a filter](https://docs.cloud.google.com/vertex-ai/docs/multimodal/gemini-for-filtering-and-moderation) offers an advanced, customizable checkpoint for complex or nuanced safety concerns that might be missed by the preceding layers or require more context-aware evaluation.
-  - [Model Armor](https://docs.cloud.google.com/vertex-ai/docs/model-armor/overview) provides enterprise-grade protection against prompt injection and jailbreaks, content harms, sensitive data protection, and malware detection and safe browsing.
+  - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/safety-system-instructions) provide direct guidance to the model on preferred behavior and topics to avoid.
+  - [Content filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters) allow you to set specific thresholds for common harm types.
+  - [Gemini as a filter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-for-filtering-and-moderation) offers an advanced, customizable checkpoint for complex or nuanced safety concerns that might be missed by the preceding layers or require more context-aware evaluation.
+  - [Model Armor](https://docs.cloud.google.com/model-armor/overview) provides enterprise-grade protection against prompt injection and jailbreaks, content harms, sensitive data protection, and malware detection and safe browsing.
   - [DLP](https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview#api) specifically addresses the critical risk of sensitive data leakage, in case the model has access to sensitive data. It also enables the ability to create custom block lists.
-  - [Content Credentials](https://docs.cloud.google.com/vertex-ai/docs/content-credentials) add cryptographically signed C2PA metadata to images generated using the Gemini 3 Pro Image model, indicating that they are AI-generated and providing a verifiable history of their origin.
+  - [Content Credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials) add cryptographically signed C2PA metadata to images generated using the Gemini 3 Pro Image model, indicating that they are AI-generated and providing a verifiable history of their origin.
 
 ### Available safety tools in Gemini Enterprise Agent Platform for Gemini
 

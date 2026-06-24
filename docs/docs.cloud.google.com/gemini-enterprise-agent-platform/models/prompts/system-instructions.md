@@ -236,7 +236,7 @@ Before using any of the request data, make the following replacements:
       - `asia-southeast1`
       - `asia-northeast1`
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - `  MODEL_ID  ` : The model ID of the multimodal model that you want to use.
 

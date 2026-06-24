@@ -80,7 +80,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.count_tokens(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="What's the highest mountain in Africa?",
     )
     print(response)
@@ -353,7 +353,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     ]
     
     response = client.models.count_tokens(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=contents,
     )
     print(response)

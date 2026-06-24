@@ -78,7 +78,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client()
     response = client.models.generate_content(
-        model="gemini-2.5-pro",
+        model="gemini-3.1-pro-preview",
         contents="solve x^2 + 4x + 4 = 0",
     )
     print(response.text)
@@ -328,7 +328,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     client = genai.Client()
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="solve x^2 + 4x + 4 = 0",
         config=GenerateContentConfig(
             thinking_config=ThinkingConfig(
@@ -611,7 +611,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client()
     response = client.models.generate_content(
-        model="gemini-2.5-pro",
+        model="gemini-3.1-pro-preview",
         contents="solve x^2 + 4x + 4 = 0",
         config=GenerateContentConfig(
             thinking_config=ThinkingConfig(include_thoughts=True)

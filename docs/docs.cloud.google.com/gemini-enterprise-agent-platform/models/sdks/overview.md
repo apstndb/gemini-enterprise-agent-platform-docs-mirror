@@ -48,7 +48,7 @@ Choose one of the following options, depending on whether you're using Agent Pla
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="How does AI work?",
     )
     print(response.text)
@@ -70,7 +70,7 @@ Choose one of the following options, depending on whether you're using Agent Pla
     client = genai.Client(vertexai=True, api_key=API_KEY)
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="Explain bubble sort to me.",
     )
     

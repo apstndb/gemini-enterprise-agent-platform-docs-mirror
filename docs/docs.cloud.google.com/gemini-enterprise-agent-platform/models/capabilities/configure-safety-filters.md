@@ -242,8 +242,8 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     from google import genai
     from google.genai.types import (
         GenerateContentConfig,
-        HarmCategory,
         HarmBlockThreshold,
+        HarmCategory,
         HttpOptions,
         SafetySetting,
     )
@@ -276,7 +276,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     ]
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=prompt,
         config=GenerateContentConfig(
             system_instruction=system_instruction,
@@ -462,7 +462,7 @@ Before using any of the request data, make the following replacements:
       - `asia-southeast1`
       - `asia-northeast1`
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - MODEL\_ID : The model ID of the multimodal model that you want to use, like `gemini-2.5-flash` .
 

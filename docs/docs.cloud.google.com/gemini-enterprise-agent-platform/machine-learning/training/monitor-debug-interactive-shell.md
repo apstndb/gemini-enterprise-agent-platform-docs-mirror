@@ -220,7 +220,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : The region where you created the job.
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - JOB\_ID : The numerical ID of your job. This ID is the last last part of the job's `name` field. You might have seen the ID when you created the job.
 
@@ -291,7 +291,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : The region where you created the job.
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - JOB\_ID : The numerical ID of your job. This ID is the last last part of the job's `name` field. You might have seen the ID when you created the job.
 

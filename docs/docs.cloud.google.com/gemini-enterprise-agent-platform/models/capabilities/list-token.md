@@ -66,7 +66,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.compute_tokens(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="What's the longest word in the English language?",
     )
     
@@ -307,7 +307,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     # Send text to Gemini
     response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=prompt
+        model="gemini-3.5-flash", contents=prompt
     )
     
     # Prompt and response tokens count
@@ -505,7 +505,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
     from google.genai.local_tokenizer import LocalTokenizer
     
-    tokenizer = LocalTokenizer(model_name="gemini-2.5-flash")
+    tokenizer = LocalTokenizer(model_name="gemini-3.5-flash")
     response = tokenizer.count_tokens("What's the highest mountain in Africa?")
     print(response)
     # Example output:
@@ -531,7 +531,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
     from google.genai.local_tokenizer import LocalTokenizer
     
-    tokenizer = LocalTokenizer(model_name="gemini-2.5-flash")
+    tokenizer = LocalTokenizer(model_name="gemini-3.5-flash")
     response = tokenizer.compute_tokens("What's the longest word in the English language?")
     print(response)
     # Example output:

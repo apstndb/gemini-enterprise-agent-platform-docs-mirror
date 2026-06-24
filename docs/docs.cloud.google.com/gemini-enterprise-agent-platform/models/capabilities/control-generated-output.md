@@ -187,7 +187,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=prompt,
         config={
             "response_mime_type": "application/json",
@@ -484,7 +484,7 @@ Before using any of the request data, make the following replacements:
       - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
       - `generateContent` : The response is returned after it's fully generated.
   - LOCATION : The region to process the request.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - MODEL\_ID : The model ID of the multimodal model that you want to use.
   - ROLE : The role in a conversation associated with the content. Specifying a role is required even in singleturn use cases. Acceptable values include the following:
       - `USER` : Specifies content that's sent by you.
@@ -701,7 +701,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=prompt,
         config=GenerateContentConfig(
             response_mime_type="application/json",
@@ -1042,7 +1042,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="What type of instrument is an oboe?",
         config=GenerateContentConfig(
             response_mime_type="text/x.enum",

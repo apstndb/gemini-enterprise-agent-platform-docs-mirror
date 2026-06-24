@@ -52,7 +52,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : The location where the `Dataset` is stored. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - DATASET\_DISPLAY\_NAME : The display name of the `Dataset` .
 
@@ -106,7 +106,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : The location where the `Dataset` is stored. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - DATASET\_ID : The numerical ID of the `Dataset` .
 

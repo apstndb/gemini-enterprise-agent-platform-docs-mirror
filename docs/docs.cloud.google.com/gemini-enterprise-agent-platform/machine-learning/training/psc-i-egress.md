@@ -123,7 +123,7 @@ To create a serverless training job, send a POST request by using the [customJob
 Before using any of the request data, make the following replacements:
 
   - LOCATION : The region where the container or Python package will be run.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - JOB\_NAME : A display name for the `CustomJob` .
   - REPLICA\_COUNT : The number of worker replicas to use. In most cases, set this to `1` for your [first worker pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job#configure_distributed_training) .
   - If your training application runs in a custom container, specify the following:

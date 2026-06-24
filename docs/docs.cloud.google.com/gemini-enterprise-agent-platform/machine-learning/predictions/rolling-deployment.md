@@ -35,7 +35,7 @@ To start a rolling deployment, include the `rolloutOptions` field in the model d
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - ENDPOINT\_ID : The ID for the endpoint.
   - MODEL\_ID : The ID for the model to be deployed.
   - PREVIOUS\_DEPLOYED\_MODEL : The `DeployedModel` ID of a model on the same endpoint. This specifies the `DeployedModel` whose backing resources are to be reused. You can call `GetEndpoint` to get a list of deployed models on an endpoint along with their numeric IDs.
@@ -148,7 +148,7 @@ To get the `DeployedModel` ID for an ongoing deployment, set the parameter `allD
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - ENDPOINT\_ID : The ID for the endpoint.
 
 HTTP method and URL:

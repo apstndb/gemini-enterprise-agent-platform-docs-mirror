@@ -303,7 +303,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Region where Model is stored and batch prediction job is executed. For example, `us-central1` .
 
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
   - BATCH\_JOB\_NAME : Display name for the batch prediction job.
 

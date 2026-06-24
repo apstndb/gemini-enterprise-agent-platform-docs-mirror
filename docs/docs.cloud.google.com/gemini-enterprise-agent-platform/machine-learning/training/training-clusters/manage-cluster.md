@@ -117,6 +117,7 @@ For example, to update the node count of a pool of a [CPU-only cluster](https://
     
     The following fields within the `ModelDevelopmentCluster` resource can be specified in the `updateMask` :
     
+      - `labels`
       - `node_pools`
       - `orchestrator_spec.slurm_spec.partitions`
       - `orchestrator_spec.slurm_spec.login_node_pool_id`

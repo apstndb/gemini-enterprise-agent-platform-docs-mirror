@@ -53,7 +53,7 @@ You can configure your serverless training job to use Spot VMs by specifying a `
 Before using any of the request data, make the following replacements:
 
   - LOCATION : The region where the container or Python package will be run.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - JOB\_NAME : Required. A display name for the `CustomJob` .
   - Define the custom training job:
       - MACHINE\_TYPE : The type of the machine. Refer to [available machine types for training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) .

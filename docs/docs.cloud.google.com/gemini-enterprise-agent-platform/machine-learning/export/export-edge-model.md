@@ -52,7 +52,7 @@ Select the tab below for your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Your project's location.
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - MODEL\_ID : The ID number of the trained AutoML Edge model you are exporting.
   - EXPORT\_FORMAT : The type of Edge model you are exporting. For this objective the options are:
       - `tflite` (TF Lite) - Export your model as a TF Lite package to run your model on edge or mobile devices.
@@ -243,7 +243,7 @@ Select the tab below for your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Your project's location.
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - MODEL\_ID : The ID number of the trained AutoML Edge model you are exporting.
   - EXPORT\_FORMAT : The type of Edge model you are exporting. For this objective the options are:
       - `tflite` (TF Lite) - Export your model as a TF Lite package to run your model on edge or mobile devices.

@@ -85,7 +85,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     ]
     
     content_cache = client.caches.create(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         config=CreateCachedContentConfig(
             contents=contents,
             system_instruction=system_instruction,

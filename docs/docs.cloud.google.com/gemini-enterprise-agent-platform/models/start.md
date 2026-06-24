@@ -172,7 +172,7 @@ The following examples show how to make a request using one of the SDKs or REST.
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="How does AI work?",
     )
     print(response.text)
@@ -604,7 +604,7 @@ Gemini can understand images as well. The following code uses the image generate
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents=[
             "What is shown in this image?",
             Part.from_uri(
@@ -752,14 +752,14 @@ The Gemini API in Gemini Enterprise Agent Platform code execution feature enable
 
     from google import genai
     from google.genai.types import (
+        GenerateContentConfig,
         HttpOptions,
         Tool,
         ToolCodeExecution,
-        GenerateContentConfig,
     )
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-2.5-flash"
+    model_id = "gemini-3.5-flash"
     
     code_execution_tool = Tool(code_execution=ToolCodeExecution())
     response = client.models.generate_content(

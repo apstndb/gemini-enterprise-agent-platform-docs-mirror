@@ -441,7 +441,7 @@ The following example uses the [`gcloud ai endpoints predict` command](https://d
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers).
   - ENDPOINT\_ID : The ID for the endpoint.
   - INSTANCES : A JSON array of instances that you want to get inferences for. The format of each instance depends on which inputs your trained ML model expects. For more information, see [Formatting your input for online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions#formatting-inference-input) .
 

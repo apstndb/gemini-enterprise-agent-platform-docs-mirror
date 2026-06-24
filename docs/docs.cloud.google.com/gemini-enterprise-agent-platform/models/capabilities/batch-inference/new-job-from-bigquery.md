@@ -199,7 +199,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     import time
     
     from google import genai
-    from google.genai.types import CreateBatchJobConfig, JobState, HttpOptions
+    from google.genai.types import CreateBatchJobConfig, HttpOptions, JobState
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
@@ -209,7 +209,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     job = client.batches.create(
         # To use a tuned model, set the model param to your tuned model using the following format:
         # model="projects/{PROJECT_ID}/locations/{LOCATION}/models/{MODEL_ID}
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         src="bq://storage-samples.generative_ai.batch_requests_for_multimodal_input",
         config=CreateBatchJobConfig(dest=output_uri),
     )

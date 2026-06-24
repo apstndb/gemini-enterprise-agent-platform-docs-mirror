@@ -29,7 +29,7 @@ Select a tab that corresponds to your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where your model is stored.
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - TRAINING\_PIPELINE\_ID : ID of the training pipeline.
 
 HTTP method and URL:
@@ -121,7 +121,7 @@ Select a tab that corresponds to your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where your model is stored.
-  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - MODEL\_ID : The ID of the model resource . The MODEL\_ID appears in the training pipeline after model training is successfully completed. Refer to the [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/evaluate-model#before-you-begin) section to get the MODEL\_ID .
 
 HTTP method and URL:

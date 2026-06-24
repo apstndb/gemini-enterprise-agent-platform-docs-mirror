@@ -179,6 +179,19 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
         
         If the `GOOGLE_API_USE_CLIENT_CERTIFICATE` and `GOOGLE_API_USE_MTLS_ENDPOINT` environment variables are set, then ensure that traffic to `https://logging.mtls.googleapis.com/` is also allowed.
     
+    Additionally, if your agents are calling LLMs, or use features such as [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) and [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , you must ensure that the agents can communicate with the endpoints used by these services. For example:
+    
+      - For Sessions: `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /sessions`
+      - For Memory Bank: `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /memories`
+    
+    For security reasons, we recommend that you register and allowlist only the specific URIs that the agent accesses. Because the gateway matches hostnames directly, you must ensure that you register all the variants that the agent SDK uses. For example, depending on the SDK version, regional client configuration, or mTLS usage, a Google API can resolve through the following endpoint hostnames:
+    
+      - `https:// REGION -aiplatform.googleapis.com`
+      - `https:// REGION -aiplatform.mtls.googleapis.com`
+      - `https://aiplatform. REGION .rep.googleapis.com`
+    
+    > **Caution:** While you can register a base URI (such as `https:// REGION -aiplatform.googleapis.com/` ) for convenience, doing so provides a broad access policy that lets the agent access any service under that domain. Note that even if you register a base URI, you are still required to register all its regional and mTLS variants.
+    
     To learn how to register endpoints, see [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) . You must also ensure that the agent has the IAP Egressor role for these endpoints. For instructions, see [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-endpoint) .
 
 6.  Verify your agent configuration.

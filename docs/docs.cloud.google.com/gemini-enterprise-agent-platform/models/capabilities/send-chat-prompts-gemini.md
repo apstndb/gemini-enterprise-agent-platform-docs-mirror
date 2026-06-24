@@ -119,7 +119,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         contents="How does AI work?",
     )
     print(response.text)
@@ -511,7 +511,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     from google.genai.types import HttpOptions
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    chat_session = client.chats.create(model="gemini-2.5-flash")
+    chat_session = client.chats.create(model="gemini-3.5-flash")
     
     for chunk in chat_session.send_message_stream("Why is the sky blue?"):
         print(chunk.text, end="")

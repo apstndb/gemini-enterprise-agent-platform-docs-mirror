@@ -78,7 +78,7 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Priority PayGo. For a list of models that support Priority PayGo, see [Model versions](https://docs.cloud.google.com/vertex-ai/docs/priority-paygo#supported-models) .
   - `  PROMPT_TEXT  ` : The text instructions to include in the prompt. JSON.
 
@@ -163,7 +163,7 @@ Initialize your GenAI client to use Priority PayGo. After performing this step, 
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Priority PayGo. For a list of models that support Priority PayGo, see [Model versions](https://docs.cloud.google.com/vertex-ai/docs/priority-paygo#supported-models) .
   - `  PROMPT_TEXT  ` : The text instructions to include in the prompt. JSON.
 

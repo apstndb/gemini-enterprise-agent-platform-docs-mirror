@@ -23,7 +23,7 @@ To view a list of all your existing registered schemas using the following comma
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : Your region.
-  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
+  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
 HTTP method and URL:
 
