@@ -10,7 +10,7 @@ Llama 4 Scout 17B-16E is a multimodal model that uses the Mixture-of-Experts (Mo
 
 ## Managed API (MaaS) specifications
 
-[Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=llama-4-scout-17b-16e-instruct-maas) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=llama-4-scout-17b-16e-instruct-maas) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
 
 Model ID
 

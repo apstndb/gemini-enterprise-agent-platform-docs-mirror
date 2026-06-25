@@ -6,12 +6,6 @@ description: Monitor traffic through Agent Gateway.
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI Agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
-> To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
-
 Use this page to learn how to view logs and monitor requests and access control decisions for traffic routed through your Agent Gateway deployment.
 
 ## Logging
@@ -104,6 +98,26 @@ The log entry payload that is expressed as a JSON object. The JSON object contai
 
 Agent Gateway exports some Service Extensions metrics to Cloud Monitoring. If you're delegating authorization to Service Extensions, you can use these metrics to monitor traffic to and from your extension. For details, see [Logging and monitoring for Cloud Load Balancing callouts](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#monitoring_metrics_for_callouts) .
 
+### Observability dashboard
+
+Agent Gateway provides an observability dashboard that lets you monitor, audit, and debug traffic routed through your gateways:
+
+  - **Scorecards** : Track the total number of attempted authorizations, authorization failures, and requests per second.
+  - **Charts** : Visualize authorization failure rates (%) and requests per second over time.
+  - **Egress traffic logs** : Review detailed logs for egress queries, including `403` denials, traffic to unregistered endpoints, and overall traffic trends.
+
+Use the following steps to access the observability dashboard for a gateway in the Google Cloud console:
+
+1.  In the Google Cloud console, go to the **Agent Gateway** page.
+
+2.  Click the name of the gateway that you want to monitor.
+
+3.  Click the **Observability** tab.
+
+**Dashboard data requirements**
+
+The Agent Gateway observability dashboard uses Observability Analytics to display data. If the dashboard isn't loading data, ensure that you [upgrade the `_Default` log bucket to use Observability Analytics](https://docs.cloud.google.com/logging/docs/buckets#upgrade-bucket) . The dashboard retrieves data from the `_Default` bucket's [`_AllLogs` view](https://docs.cloud.google.com/logging/docs/logs-views#auto-create-views) .
+
 ## What's next
 
 Codelab
@@ -114,6 +128,6 @@ Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Ag
 
 Troubleshooting
 
-### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
 
 Learn how to troubleshoot Agent Gateway connectivity.

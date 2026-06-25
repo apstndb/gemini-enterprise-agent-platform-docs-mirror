@@ -12,7 +12,7 @@ Claude Fable 5 is optimized for autonomous knowledge work and coding, handling l
 
 **Retirement Date:** Not sooner than June 8, 2027.
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
 
 Model ID
 

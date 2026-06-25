@@ -6,12 +6,6 @@ description: Secure and govern AI agent connectivity with Agent Gateway. Central
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI Agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
-> To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
-
 Agent Gateway is the networking component of the Gemini Enterprise Agent Platform ecosystem. It secures and governs connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
 
 ## Integration with the Agent Platform ecosystem
@@ -158,6 +152,8 @@ For MCP traffic only, Agent Gateway can parse request data to extract attributes
   - For Gemini Enterprise, Client-to-Agent mode is not supported by Agent Gateway.
   - Agent Gateway doesn't support VPC Service Controls. To ensure that agents are only using the Agent Gateway resources you approve of, you can use custom organization policy constraints to restrict agent and gateway bindings. For details, see [Restrict Agent Runtime to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#restrict-ae) and [Restrict Gemini Enterprise to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#restrict-ge) .
   - Agent Gateway doesn't support connections to destinations with self-signed certificate chains. Use publicly trusted CA certificates.
+  - Each Agent Gateway instance can govern up to 5,000 resources registered in Agent Registry.
+  - Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations) associated with authorization policies.
 
 ## What's next
 
@@ -175,6 +171,6 @@ Learn how to set up an Agent Gateway.
 
 Troubleshooting
 
-### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
 
 Learn how to troubleshoot Agent Gateway connectivity.

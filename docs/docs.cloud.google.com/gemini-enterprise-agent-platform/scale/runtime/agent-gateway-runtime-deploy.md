@@ -6,12 +6,6 @@ description: Deploy an agent on Agent Platform Runtime and route traffic through
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI Agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
-> To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
-
 This page describes how to route Agent Runtime traffic through Agent Gateway. Agent Gateway is a central networking and security component of the Gemini Enterprise Agent Platform ecosystem. It provides secure and governed connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
 
 ## Before you begin
@@ -22,9 +16,9 @@ This page describes how to route Agent Runtime traffic through Agent Gateway. Ag
     
     A single Runtime instance can bind to both an Agent-to-Anywhere (egress) gateway and a Client-to-Agent (ingress) gateway simultaneously.
 
-  - [Create a dedicated test project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects) to try this workflow. Avoid using projects that are also intended for other critical workloads.
-
 ### Limitations
+
+  - An Agent Gateway can't be bound to Runtime Reasoning Engines created before April 29, 2026.
 
   - While a single project and region can host multiple Agent-to-Anywhere (egress) and Client-to-Agent (ingress) Agent Gateway instances, all Agent Runtime agents deployed within that same project and region must bind to the same specific egress and ingress Agent Gateway instances.
     
@@ -33,8 +27,6 @@ This page describes how to route Agent Runtime traffic through Agent Gateway. Ag
     This same binding rule applies to ingress gateways within a project and region as well.
 
   - The [Security Command Center Agent Engine Threat Detection service](https://docs.cloud.google.com/security-command-center/docs/agent-platform-threat-detection-overview) isn't available when Agent Gateway is enabled for an agent.
-
-  - You can't unbind a Runtime agent from an Agent Gateway resource. For this reason, ensure that you use a dedicated test project.
 
   - In Client-to-Agent (ingress) mode, Agent Gateway can only govern Agent Runtime's `query` and `streamQuery` methods. To protect other unsupported methods (such as `asyncQuery` ), you can apply Model Armor templates directly from your application or agent. See [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses) or this codelab on [Building a secure agent system with Model Armor](https://codelabs.developers.google.com/secure-agent-modelarmor) .
 
@@ -134,7 +126,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
 3.  Register with the Agent Registry instance in the same project and region as the agent and the gateway.
     
-        gcloud alpha agent-registry services create SERVICE_NAME \
+        gcloud agent-registry services create SERVICE_NAME \
           --project=PROJECT_ID \
           --location=REGION \
           --display-name="DISPLAY_NAME" \
@@ -153,7 +145,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
 4.  Create an agent-to-registry IAM policy binding for the agent.
     
-        gcloud alpha iap web add-iam-policy-binding \
+        gcloud iap web add-iam-policy-binding \
           --resource-type=agent-registry \
           --endpoint=ENDPOINT_ID \
           --region=REGION \
@@ -264,7 +256,7 @@ This example creates custom constraints that only allow traffic to and from a pr
 
 2.  Apply the custom constraint.
     
-        gcloud alpha org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
+        gcloud org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
     
     Replace EGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
 
@@ -279,7 +271,7 @@ This example creates custom constraints that only allow traffic to and from a pr
 
 4.  Enforce the organization policy.
     
-        gcloud alpha org-policies set-policy EGRESS_POLICY_PATH
+        gcloud org-policies set-policy EGRESS_POLICY_PATH
     
     Replace EGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
 
@@ -316,7 +308,7 @@ This example creates custom constraints that only allow traffic to and from a pr
 
 2.  Apply the custom constraint.
     
-        gcloud alpha org-policies set-custom-constraint INGRESS_CONSTRAINT_PATH
+        gcloud org-policies set-custom-constraint INGRESS_CONSTRAINT_PATH
     
     Replace INGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
 
@@ -331,7 +323,7 @@ This example creates custom constraints that only allow traffic to and from a pr
 
 4.  Enforce the organization policy.
     
-        gcloud alpha org-policies set-policy INGRESS_POLICY_PATH
+        gcloud org-policies set-policy INGRESS_POLICY_PATH
     
     Replace INGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
 
@@ -356,3 +348,9 @@ Guide
 ### [Monitor Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway)
 
 Learn how to monitor Agent Gateway.
+
+Troubleshooting
+
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
+
+Learn how to troubleshoot Agent Gateway connectivity.

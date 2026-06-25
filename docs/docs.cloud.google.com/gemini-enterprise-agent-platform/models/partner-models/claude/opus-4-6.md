@@ -10,7 +10,7 @@ Claude Opus 4.6 is optimized for coding, enterprise agents, and professional wor
 
 **Retirement Date:** Not sooner than February 5, 2027.
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
 
 Model ID
 

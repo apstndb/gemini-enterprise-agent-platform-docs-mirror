@@ -79,7 +79,7 @@ Each of the tutorials presented here walks you through a specific artificial int
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/images/automl-vision.svg" alt="Image classification training introduction" /></td>
 <td><p>Create a Gemini Enterprise Agent Platform dataset for image data, and then train a classification model with AutoML. Deploy the model to an endpoint and make online predictions.</p>
 <p><strong>Google Cloud console</strong> : You can choose tutorial guides with step-by-step instructions for the Google Cloud console.<br />
-<a href="https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/overview">Show on cloud.google.com</a></p></td>
+<a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/overview">Show on cloud.google.com</a></p></td>
 </tr>
 </tbody>
 </table>

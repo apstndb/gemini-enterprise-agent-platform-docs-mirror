@@ -14,8 +14,8 @@ To complete this tutorial, you can either follow the instructions in the followi
 
 This tutorial has several pages:
 
-1.  [Setting up your project](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl) .
-2.  [Creating a image classification dataset](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/dataset) .
-3.  [Training an AutoML image classification model](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/training) .
-4.  [Deploying the model for batch predictions](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/deploy-predict) .
-5.  [Cleaning up your project](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/cleanup) .
+1.  [Setting up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl) .
+2.  [Creating a image classification dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/dataset) .
+3.  [Training an AutoML image classification model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/training) .
+4.  [Deploying the model for batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/deploy-predict) .
+5.  [Cleaning up your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/cleanup) .

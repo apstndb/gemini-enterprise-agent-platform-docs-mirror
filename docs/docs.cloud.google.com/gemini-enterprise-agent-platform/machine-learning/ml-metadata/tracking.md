@@ -41,13 +41,13 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : Your region.
   - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - METADATA\_STORE : The metadata store ID where the execution is created. The default metadata store is named `default` .
-  - EXECUTION\_ID : (Optional) The ID of the execution record
-  - DISPLAY\_NAME : The execution's display name. This field may contain up to 128 Unicode characters
+  - EXECUTION\_ID : The ID of the execution record. If the execution ID is not specified, Vertex ML Metadata creates a unique identifier for this execution.
+  - DISPLAY\_NAME : The execution's display name. This field may contain up to 128 Unicode characters.
   - EXECUTION\_STATE : (Optional) A value from the [State enumeration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.executions#Execution.State) that represents the current state of the execution. This field is managed by client applications. Vertex ML Metadata does not check the validity of state transitions.
   - METADATA\_SCHEMA\_TITLE : The title of the schema that describes the metadata field. The title of the schema must meet the format \` . \`. The namespace must start with a lowercase letter, can contain lowercase characters and numbers, and can be two to twenty characters long. The schema name must start with an uppercase letter, can include letters and numbers, and can be two to fortynice characters long.
   - METADATA\_SCHEMA\_VERSION : (Optional) The version of the schema that describes the metadata field. `schema_version` must be a string of three numbers separated by periods, for example, 1.0.0, 1.0.1. This format helps order and compare versions.
   - METADATA : (Optional) Properties that describe the execution, such as the execution parameters.
-  - DESCRIPTION : (Optional) A description of the execution.
+  - DESCRIPTION : (Optional) A human readable string, that describes the purpose of the execution to be created..
   - LABELS : Optional. User-defined metadata for organizing your executions.
 
 HTTP method and URL:
@@ -184,15 +184,15 @@ You should receive a JSON response similar to the following:
             execution.assign_output_artifacts(output_artifacts)
             return execution
 
-  - `display_name` : The execution's display name. This field may contain up to 128 Unicode characters
+  - `display_name` : The execution's display name. This field may contain up to 128 Unicode characters.
   - `input_artifacts` : A list of one or more instances of aiplatform.Artifact representing an input artifact.
   - `output_artifacts` :A list of one or more instances of aiplatform.Artifact representing an output Artifact.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `execution_id` : (Optional) The ID of the execution record
+  - `execution_id` : The ID of the execution record. If the execution ID is not specified, Vertex ML Metadata creates a unique identifier for this execution.
   - `metadata` : Properties that describe the execution, such as the execution parameters.
   - `schema_version` :The version of the schema that describes the metadata field.
-  - `description` : (Optional) A description of the execution
+  - `description` : (Optional) A human readable string, that describes the purpose of the execution to be created.
 
 ## Look up an existing artifact
 
@@ -321,14 +321,14 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : Your region.
   - PROJECT\_ID : .
   - METADATA\_STORE : The metadata store ID where the artifact is created. The default metadata store is named `default` .
-  - ARTIFACT\_ID : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata created a unique identifier for this artifact
-  - DISPLAY\_NAME : The artifact's display name. This field may contain up to 128 Unicode characters
+  - ARTIFACT\_ID : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata creates a unique identifier for this artifact.
+  - DISPLAY\_NAME : (Optional) The user-defined name of the artifact.
   - URI : (Optional) The location where the artifact is stored
   - ARTIFACT\_STATE : (Optional) A value from the [State enumeration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.metadataStores.artifacts#Artifact.State) that represents the current state of the artifact. This field is managed by client applications. Vertex ML Metadata does not check the validity of state transitions.
   - METADATA\_SCHEMA\_TITLE : The title of the schema that describes the metadata field. The title of the schema must meet the format \` . \`. The namespace must start with a lowercase letter, can contain lowercase characters and numbers, and can be two to twenty characters long. The schema name must start with an uppercase letter, can include letters and numbers, and can be two to fortynice characters long.
   - METADATA\_SCHEMA\_VERSION : (Optional) The version of the schema that describes the metadata field. `schema_version` must be a string of three numbers separated by periods, for example, 1.0.0, 1.0.1. This format helps order and compare versions.
   - METADATA : (Optional.) Properties that describe the artifact, such as the type of dataset.
-  - DESCRIPTION : (Optional) A description of the execution
+  - DESCRIPTION : (Optional) A human readable string, that describes the purpose of the execution to be created.
   - LABELS :Optional. User-defined metadata for organizing your artifacts.
 
 HTTP method and URL:
@@ -467,11 +467,11 @@ You should receive a JSON response similar to the following:
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
   - `uri` : (Optional) The Uniform Resource Identifier for the artifact file if one exists. May be empty if there is no actual artifact file.
-  - `artifact_id` : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata created a unique identifier for this artifact
-  - `display_name` : The artifact's display name. This field may contain up to 128 Unicode characters
+  - `artifact_id` : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata creates a unique identifier for this artifact.
+  - `display_name` : (Optional) The user-defined name of the artifact.
   - `schema_version` : The version of the schema that describes the metadata field.
   - `description` : (Optional) A human readable string, that describes the purpose of the artifact to be created.
-  - `metadata` : The resource name of the artifact. The resource name is formatted as follows: ` projects/ PROJECT_ID /locations/ LOCATION_ID /metadataStores/ metadata-store /artifacts/ ARTIFACT_ID  `
+  - `metadata` : Properties that describe the artifact, such as the artifact parameters.
 
 ## Create events to link artifacts to an execution
 
@@ -604,10 +604,10 @@ You should receive a successful status code (2xx) and an empty response.
   - `output_artifacts` : A list of one or more instances of aiplatform.Artifact representing an output Artifact.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `execution_id` : (Optional) The ID of the execution record
+  - `execution_id` : The ID of the execution record. If the execution ID is not specified, Vertex ML Metadata creates a unique identifier for this execution.
   - `metadata` Properties that describe the execution, such as the execution parameters.
   - `schema_version` : The version of the schema that describes the metadata field.
-  - `description` : (Optional) A description of the execution
+  - `description` : (Optional) A human readable string, that describes the purpose of the execution to be created.
 
 ## Create a context
 
@@ -620,13 +620,13 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : Your region.
   - PROJECT\_ID : .
   - METADATA\_STORE :The metadata store ID where the execution is created. The default metadata store is named `default` .
-  - CONTEXT\_ID : The ID of the context record If the context ID is not specified, Vertex ML Metadata created a unique identifier for this context
-  - DISPLAY\_NAME : The context's display name. This field may contain up to 128 Unicode characters
+  - CONTEXT\_ID : (Optional) The ID of the context record. If the context ID is not specified, Vertex ML Metadata created a unique identifier for this context
+  - DISPLAY\_NAME : The context's display name. This field may contain up to 128 Unicode characters.
   - PARENT\_CONTEXT : Specify the resource name for any parent contexts. A context can not have more than 10 parent contexts.
   - METADATA\_SCHEMA\_TITLE : The title of the schema that describes the metadata field. The title of the schema must meet the format \` . \`. The namespace must start with a lowercase letter, can contain lowercase characters and numbers, and can be two to twenty characters long. The schema name must start with an uppercase letter, can include letters and numbers, and can be two to fortynice characters long.
   - METADATA\_SCHEMA\_VERSION : (Optional) The version of the schema that describes the metadata field. `schema_version` must be a string of three numbers separated by periods, for example, 1.0.0, 1.0.1. This format helps order and compare versions.
-  - METADATA : (Optional) Properties that describe the context.
-  - DESCRIPTION :(Optional) A description of the execution
+  - METADATA : Properties that describe the context, such as the context parameters..
+  - DESCRIPTION :(Optional) A human readable string, that describes the purpose of the execution to be created.
   - LABELS : Optional. User-defined metadata for organizing your contexts.
 
 HTTP method and URL:
@@ -767,11 +767,11 @@ You should see output similar to the following. CONTEXT\_ID is the ID of the con
             description=description,
         ).create()
 
-  - `display_name` : The context's display name. This field may contain up to 128 Unicode characters
+  - `display_name` : The context's display name. This field may contain up to 128 Unicode characters.
   - `project` : . You can find these IDs in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
   - `location` : See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - `context_id` : The ID of the context record
-  - `metadata` (Optional) Properties that describe the context
+  - `context_id` : (Optional) The ID of the context record.
+  - `metadata` Properties that describe the context, such as the context parameters.
   - `schema_version` : The version of the schema that describes the metadata field.
   - `description` : (Optional) A human readable string, that describes the purpose of the context to be created.
 
@@ -789,7 +789,7 @@ Before using any of the request data, make the following replacements:
 
   - METADATA\_STORE : The metadata store ID where the execution is created. The default metadata store is named `default` .
 
-  - CONTEXT : The ID of the context record
+  - CONTEXT : (Optional) The ID of the context record.
 
   - Specify the ARTIFACT resource name for any artifacts that you want to add to this context. The resource name is formatted like the following:
     

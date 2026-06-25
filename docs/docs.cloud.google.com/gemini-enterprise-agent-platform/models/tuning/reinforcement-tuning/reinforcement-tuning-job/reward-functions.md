@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions
 title: Reward functions for reinforcement learning fine-tuning
-description: Reward functions for reinforcement learning fine-tuning of Gemini models, including string matching, autorater, and Cloud Run rewards.
+description: Reward functions for reinforcement learning fine-tuning of Gemini models, including string matching, autorater, code execution, and Cloud Run rewards.
 data_source: docs.cloud.google.com
 ---
 
@@ -16,9 +16,10 @@ This page describes each supported reward type, recommended practices for design
 
   - [String matching reward](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#string-matching-reward)
   - [Gemini-based autorater reward](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#gemini-based-autorater-reward)
+  - [Code execution reward](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#code-execution-reward)
   - [Fully customizable reward through Cloud Run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#cloud-run-reward)
 
-You can also combine any of these three with per-scorer weights using a **composite reward** .
+You can also combine any of these four with per-scorer weights using a **composite reward** .
 
 ## Known restrictions
 
@@ -27,12 +28,13 @@ The following timeouts apply per reward type:
 | Reward type            | Timeout                                                   |
 | ---------------------- | --------------------------------------------------------- |
 | String matching        | No strict timeout                                         |
+| Code execution         | 100 seconds for every `evaluate` method call              |
 | Gemini-based autorater | 1 minute timeout while waiting for an LLM rating response |
 | Cloud Run              | 5 minute timeout for every trigger                        |
 
 ## String matching reward
 
-API spec: `ReinforcementTuningStringMatchRewardScorer`
+API spec: [`ReinforcementTuningStringMatchRewardScorer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningStringMatchRewardScorer)
 
 The string matching reward is a convenient configuration for evaluating model-generated responses against known ground truths. It is particularly useful for tasks like math questions, where each question has a known ground-truth answer.
 
@@ -42,7 +44,7 @@ For the configuration schema, see the `ReinforcementTuningStringMatchRewardScore
 
 ## Gemini-based autorater reward
 
-API spec: `ReinforcementTuningAutoraterScorer`
+API spec: [`ReinforcementTuningAutoraterScorer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningAutoraterScorer)
 
 The Gemini-based autorater reward is a convenient configuration for evaluating model-generated responses against LLM-as-a-judge feedback. For example, you might want a model to output responses in a certain tone where the tone is decided by an autorater (LLM-as-a-judge).
 
@@ -67,9 +69,57 @@ The following example autorater configuration filters to get the text between `<
       }
     }
 
+## Code execution reward
+
+API spec: [`ReinforcementTuningCodeExecutionRewardScorer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningCodeExecutionRewardScorer)
+
+The code execution reward configuration lets you provide user-defined Python code to evaluate model responses without setting up a Cloud Run service. Implement an `evaluate` function with the following signature:
+
+    def evaluate(example: dict[str, Any], response: dict[str, Any]) -> float:
+      ...
+
+The function receives:
+
+  - `example` : A [`ReinforcementTuningExample`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningExample) in ProtoJSON format (that is, the same format as one line in the training or validation dataset, except that the keys must be in camel case). System instructions ( `example.get("systemInstruction")` ) and references ( `example.get("references")` ) are also included in `example` , provided that they are set in the training or validation dataset.
+  - `response` : A [`Content`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/Content) in ProtoJSON format (that is, keys must be in camel case), which is the same as the online prediction response for Gemini models.
+
+The function must return a float, which is then clipped to the range `[-1, 1]` .
+
+Example implementation:
+
+    def evaluate(example, response) -> float:
+      response_str = response.get("parts", [])[0]["text"]
+      references = example.get("references", {})
+    
+      if response_str == references.get("concise_answer"):
+        return 1.0
+      return -1.0
+
+### Supported libraries
+
+In addition to the Python Standard Library, the following Python libraries are available inside the code-execution sandbox:
+
+  - `cv2`
+  - `matplotlib`
+  - `mpmath`
+  - `numpy`
+  - `pandas`
+  - `seaborn`
+  - `sklearn`
+  - `statsmodels`
+  - `sympy`
+
+### Timeouts and resource limits
+
+Each `evaluate` call has a 100-second timeout. Timed-out calls are retried several times. If the call continues to time out after several retries, the sample is dropped from reward calculation.
+
+We strongly recommend testing your code with the `ValidateReinforcementTuningReward` API (see [Validate a reward configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions#validate-a-reward-configuration) ) and aim for code execution to finish well under 100 seconds for best performance.
+
+The code execution environment provides 1 CPU and 1GB of memory per invocation.
+
 ## Fully customizable reward through Cloud Run
 
-API spec: `ReinforcementTuningCloudRunRewardScorer`
+API spec: [`ReinforcementTuningCloudRunRewardScorer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningCloudRunRewardScorer)
 
 The Cloud Run reward configuration lets you implement fully customizable scoring logic. Your Cloud Run service must implement the following HTTP contract.
 
@@ -154,7 +204,7 @@ Every single reward must be on the scale of `[-1, 1]` . Reward values outside th
 
 ## Validate a reward configuration
 
-API spec: `ValidateReinforcementTuningReward`
+API spec: [`ValidateReinforcementTuningReward`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/validateReinforcementTuningReward)
 
 Tuning jobs can be expensive, and rewards are crucial to making your tuning job effective. We recommend validating your reward configuration before launching a tuning job:
 
@@ -170,12 +220,6 @@ The `ValidateReinforcementTuningReward` API expects a `sampleResponse` (of type 
       -d @validate_reward_request.json
 
 Replace PROJECT\_ID with your Google Cloud project ID.
-
-### Troubleshooting
-
-We are actively working to improve error message surfacing. In the meantime, you can use the following hints to debug common `NaN` results:
-
-  - **Cloud Run reward returning `NaN` :** Your Gemini Enterprise Agent Platform Secure Fine Tuning Service Agent might lack permission to invoke the Cloud Run service. Grant `roles/run.invoker` to `service-PROJECT_NUMBER@gcp-sa-vertex-tune.iam.gserviceaccount.com` in IAM.
 
 ## What's next
 

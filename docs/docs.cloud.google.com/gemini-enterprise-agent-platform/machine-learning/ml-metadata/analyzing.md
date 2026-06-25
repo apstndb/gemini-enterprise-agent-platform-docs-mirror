@@ -683,7 +683,7 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : Your region.
   - PROJECT\_ID : .
   - METADATA\_STORE : The metadata store ID where the execution is created. The default metadata store is named `default` .
-  - CONTEXT\_ID : The ID of the context record
+  - CONTEXT\_ID : (Optional) The ID of the context record.
 
 HTTP method and URL:
 

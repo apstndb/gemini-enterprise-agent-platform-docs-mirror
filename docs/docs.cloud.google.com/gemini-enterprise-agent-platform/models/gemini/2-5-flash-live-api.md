@@ -25,7 +25,7 @@ For more information on Gemini Live API, see:
 
 ## Live 2.5 Flash Native Audio
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-native-audio)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-native-audio)
 
 Model ID
 
@@ -178,7 +178,7 @@ See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generati
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-preview-native-audio-09-2025)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-preview-native-audio-09-2025)
 
 Model ID
 

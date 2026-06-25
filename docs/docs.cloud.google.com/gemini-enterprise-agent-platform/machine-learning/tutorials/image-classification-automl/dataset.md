@@ -10,17 +10,17 @@ Use the Google Cloud console to create an image classification dataset. After yo
 
 This tutorial has several pages:
 
-1.  [Set up your project and environment.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl)
+1.  [Set up your project and environment.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl)
 
 2.  Create an image classification dataset, and import images.
 
-3.  [Train an AutoML image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/training)
+3.  [Train an AutoML image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/training)
 
-4.  [Evaluate and analyze model performance.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/error-analysis)
+4.  [Evaluate and analyze model performance.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/error-analysis)
 
-5.  [Deploy a model to an endpoint, and send a prediction.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/deploy-predict)
+5.  [Deploy a model to an endpoint, and send a prediction.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/deploy-predict)
 
-6.  [Clean up your project.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/cleanup)
+6.  [Clean up your project.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/cleanup)
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
@@ -70,4 +70,4 @@ When prompted, make sure to select the project that you used for your Cloud Stor
 
 ## What's next
 
-Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/training) to start an AutoML model training job.
+Follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/training) to start an AutoML model training job.

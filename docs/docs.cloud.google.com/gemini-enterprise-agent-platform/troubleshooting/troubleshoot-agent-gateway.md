@@ -6,12 +6,6 @@ description: Learn how to troubleshoot Gemini Enterprise Agent Platform connecti
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
-> To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
-
 This guide helps you debug and troubleshoot connectivity issues with the Gemini Enterprise Agent Platform, especially when you use Agent Gateway, agent identity, Identity and Access Management (IAM) policies, and delegated authorization with Service Extensions.
 
 ## Egress request flow
@@ -94,6 +88,8 @@ Replace the following:
 
 Look for the `Egress request is not authorized` message in the log entry's `textPayload` . If the 403 error contains different text, then the destination service might be rejecting the call directly, rather than Agent Gateway.
 
+You can also view egress traffic logs, including `403` denials, by using the built-in [observability dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#observability-dashboard) .
+
 ### Self-signed or private CA destinations fail to connect
 
   - **Symptom:** The agent fails to connect to destinations that present self-signed or private CA-issued certificates.
@@ -113,6 +109,8 @@ To narrow your log search to IAP egress decisions, run the following query in Lo
     protoPayload.metadata.mcp_attributes.base_protocol_method="true"
 
 If you don't see a matching IAP log entry at all, then the gateway might have denied the request before IAP evaluated it. Move on to the next step.
+
+> **Note:** You can monitor authorization failures by using the built-in [observability dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#observability-dashboard) .
 
 If you do see a matching log entry, review the following fields:
 
@@ -144,6 +142,8 @@ Every destination hostname, and any variations of the hostname that the agent at
 
 However, the gateway only matches hostnames exactly. Therefore, if you register `aiplatform.googleapis.com` but the agent calls `us-central1-aiplatform.googleapis.com` , the gateway denies the request. The gateway considers it an unregistered resource.
 
+> **Note:** You can view logs for outbound traffic to unregistered destinations by using the built-in [observability dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#observability-dashboard) .
+
 Run the following sample script to list your registry entries based on the resource type and check the entries for the specific hostname used by the agent's call:
 
     HOSTNAME="HOSTNAME"
@@ -151,17 +151,17 @@ Run the following sample script to list your registry entries based on the resou
     LOCATION="REGION"
     
     echo "Checking Endpoints..."
-    gcloud alpha agent-registry endpoints list \
+    gcloud agent-registry endpoints list \
       --project="$PROJECT_ID" \
       --location="$LOCATION" | grep "$HOSTNAME"
     
     echo "Checking MCP Servers..."
-    gcloud alpha agent-registry mcp-servers list \
+    gcloud agent-registry mcp-servers list \
       --project="$PROJECT_ID" \
       --location="$LOCATION" | grep "$HOSTNAME"
     
     echo "Checking Agents..."
-    gcloud alpha agent-registry agents list \
+    gcloud agent-registry agents list \
       --project="$PROJECT_ID" \
       --location="$LOCATION" | grep "$HOSTNAME"
 
@@ -225,7 +225,7 @@ Use one of the following examples to check for bindings:
     
         export HOSTNAME=HOSTNAME
         
-        ENDPOINT_ID=$(gcloud alpha agent-registry endpoints list \
+        ENDPOINT_ID=$(gcloud agent-registry endpoints list \
         --project="PROJECT_ID" \
         --location="REGION" \
         --filter="interfaces.url:$HOSTNAME" \
@@ -244,7 +244,7 @@ Use one of the following examples to check for bindings:
     
         export MCP_SERVER=MCP_SERVER
         
-        MCP_SERVER_ID=$(gcloud alpha agent-registry mcp-servers list \
+        MCP_SERVER_ID=$(gcloud agent-registry mcp-servers list \
         --project="PROJECT_ID" \
         --location="REGION" \
         --filter="interfaces.url:$MCP_SERVER" \
@@ -274,7 +274,7 @@ In this section we make sure that there is an authorization policy that is expli
 
 1.  Get the details of the authorization extension associated with the gateway and confirm that the extension you're using is configured as expected.
     
-        gcloud beta service-extensions authz-extensions describe AUTHORIZATION_EXTENSION_NAME \
+        gcloud service-extensions authz-extensions describe AUTHORIZATION_EXTENSION_NAME \
           --location=LOCATION \
           --project=PROJECT_ID
     

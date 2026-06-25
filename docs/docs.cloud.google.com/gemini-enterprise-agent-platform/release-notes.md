@@ -104,6 +104,16 @@ Feature
 
 Memory Bank and Sessions support for multi-regional and global endpoints is now in General Availability (GA). For more information, see [Supported locations for agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#multi-regional-and-global-endpoints) . Note that Customer-Managed Encryption Keys (CMEK) cannot be used if your Memory Bank or Sessions instance is configured to use the global endpoint.
 
+## June 15, 2026
+
+Feature
+
+**Reinforcement Learning fine-tuning is available for Gemini 3.5 Flash in Public Preview**
+
+Reinforcement Learning fine-tuning is now available for the `gemini-3.5-flash` models in [Preview](https://cloud.google.com/products#product-launch-stages) . Model tuning for Gemini 3.5 Flash is restricted to `us-central1` and `europe-west4` , and tuned model serving is restricted to the `us` and `eu` multi-region endpoints.
+
+See [About reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) for more information.
+
 ## June 09, 2026
 
 Feature

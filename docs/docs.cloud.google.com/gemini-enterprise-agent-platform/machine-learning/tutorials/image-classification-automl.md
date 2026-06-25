@@ -14,15 +14,15 @@ This tutorial has several pages:
 
 1.  Set up your project and environment.
 
-2.  [Create an image classification dataset, and import images.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/dataset)
+2.  [Create an image classification dataset, and import images.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/dataset)
 
-3.  [Train an AutoML image classification model.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/training)
+3.  [Train an AutoML image classification model.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/training)
 
-4.  [Evaluate and analyze model performance.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/error-analysis)
+4.  [Evaluate and analyze model performance.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/error-analysis)
 
-5.  [Deploy a model to an endpoint, and send a prediction.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/deploy-predict)
+5.  [Deploy a model to an endpoint, and send a prediction.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/deploy-predict)
 
-6.  [Clean up your project.](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/cleanup)
+6.  [Clean up your project.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/cleanup)
 
 Each page assumes that you have already performed the instructions from the previous pages of the tutorial.
 
@@ -75,4 +75,4 @@ Complete the following steps before using Gemini Enterprise Agent Platform funct
 
 ## What's next
 
-Follow the [next page of this tutorial](https://docs.cloud.google.com/vertex-ai/docs/tutorials/image-classification-automl/dataset) to use the Google Cloud console to create an image classification dataset and import images hosted in a public Cloud Storage bucket.
+Follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/dataset) to use the Google Cloud console to create an image classification dataset and import images hosted in a public Cloud Storage bucket.

@@ -373,7 +373,7 @@ Claude 3.5 Sonnet v2 is **deprecated as of August 20, 2025** and will be **shut 
 
 Claude 3.5 Sonnet v2 is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
 
-[Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-3-5-sonnet-v2)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-3-5-sonnet-v2)
 
 Model ID
 

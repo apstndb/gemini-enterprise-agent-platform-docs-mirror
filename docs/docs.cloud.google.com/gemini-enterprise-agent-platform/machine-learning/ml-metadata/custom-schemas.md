@@ -28,9 +28,9 @@ Before using any of the request data, make the following replacements:
   - METADATA\_SCHEMA\_VERSION : (Optional) The version of the schema that describes the metadata field. `schema_version` must be a string of three numbers separated by periods, for example, 1.0.0, 1.0.1. This format helps order and compare versions..
   - METADATA\_SCHEMA\_TYPE : The type of metadata resource to which the created schema applies. Types are: `ARTIFACT_TYPE` , `EXECUTION_TYPE` , or `CONTEXT_TYPE` .
   - METADATA\_SCHEMA : The detailed schema to create.
-  - DESCRIPTION : (Optional) A human readable string, that describes the purpose of the execution to be created..
-  - ARTIFACT\_ID : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata creates a unique identifier for this artifact..
-  - DISPLAY\_NAME : (Optional) The user-defined name of the artifact..
+  - DESCRIPTION : (Optional) A description of the execution.
+  - ARTIFACT\_ID : (Optional) The ID of the artifact record. If the artifact ID is not specified, Vertex ML Metadata created a unique identifier for this artifact.
+  - DISPLAY\_NAME : The artifact's display name. This field may contain up to 128 Unicode characters.
 
 HTTP method and URL:
 

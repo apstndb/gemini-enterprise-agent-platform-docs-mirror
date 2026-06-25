@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Anthropic's mid-size model with superior intelligence for high-volume uses, such as coding, in-depth research, and agents.
 
-[Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-sonnet-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-sonnet-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
 
 Model ID
 

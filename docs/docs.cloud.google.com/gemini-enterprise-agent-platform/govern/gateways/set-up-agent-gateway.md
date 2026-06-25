@@ -6,12 +6,6 @@ description: Secure and govern AI agent connectivity with Agent Gateway. Central
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI Agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
-> To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
-
 To centralize access control and secure connectivity across your agentic workflows, you can set up an Agent Gateway resource to manage ingress or egress traffic.
 
 Before you set up a gateway, review the conceptual basics and core components in the [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
@@ -73,7 +67,7 @@ Enable the following APIs in the Google Cloud project that you are using for thi
   - Text-to-Speech API ( `texttospeech.googleapis.com` )
   - Dataform API ( `dataform.googleapis.com` )
 
-## Plan your deployment
+## Plan your Agent Gateway deployment
 
 Use this section to plan your Agent Gateway deployment and understand the requirements for the setup to work. The following sections outline the essential components, but they *don't represent a strict order of steps* . You can register endpoints and MCP servers, and assign roles to the agent, either during initial setup or on an ongoing basis as more requirements arise.
 
@@ -204,7 +198,7 @@ Use the following steps to create an Agent Gateway resource.
     
     3.  To use a different template for responses, clear **Use same template for requests and responses** and select a template from the list.
         
-        > **Note:** If your Model Armor templates are in a different project from the gateway, you'll need to manually grant certain permissions to the Agent Gateway service account. For details, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
+        > **Important:** When you're using Model Armor, you must grant the Agent Gateway service account the permissions required to be able to use the Model Armor templates. For details, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
 
 10. Click **Add Gateway** .
 
@@ -229,7 +223,7 @@ You define Agent Gateways declaratively using YAML.
 
 2.  Run the following command to create an Agent Gateway resource based on the YAML specification:
     
-        gcloud alpha network-services agent-gateways import AGENT_GATEWAY_NAME \
+        gcloud network-services agent-gateways import AGENT_GATEWAY_NAME \
          --source="my-agent-gateway-egress.yaml" \
          --location=LOCATION
     
@@ -347,7 +341,7 @@ You define Agent Gateways declaratively using YAML.
 
 2.  Run the following command to create an Agent Gateway resource based on the YAML specification:
     
-        gcloud alpha network-services agent-gateways import AGENT_GATEWAY_NAME \
+        gcloud network-services agent-gateways import AGENT_GATEWAY_NAME \
          --source="my-agent-gateway-ingress.yaml" \
          --location=LOCATION
     
@@ -391,7 +385,7 @@ Learn how to monitor Agent Gateway.
 
 Troubleshooting
 
-### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
 
 Learn how to troubleshoot Agent Gateway connectivity.
 

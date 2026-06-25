@@ -99,7 +99,7 @@ Learn how to set up an Agent Gateway.
 
 Troubleshooting
 
-### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
 
 Learn how to troubleshoot Agent Gateway connectivity.
 

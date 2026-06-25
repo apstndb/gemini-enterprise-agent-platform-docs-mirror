@@ -6,10 +6,6 @@ description: Learn how to create Identity and Access Management policies to gove
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 You can create policies to govern agentic communication with services. Agent Gateway (Private preview) uses Identity-Aware Proxy (IAP) to enforce policies.
 
 You can use the **Policies** page in the Google Cloud console to create Agent Gateway IAM allow policies.

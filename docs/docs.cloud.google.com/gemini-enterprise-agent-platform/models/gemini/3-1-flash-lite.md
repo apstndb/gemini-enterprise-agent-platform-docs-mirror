@@ -15,7 +15,7 @@ Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low
   - **Improved audio input:** Improved audio-input quality for tasks like Automated Speech Recognition (ASR).
   - **Expanded thinking support:** You can control how much reasoning the model performs by choosing from minimal, low, medium, or high [thinking levels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) . This feature lets you balance response quality and speed for your specific use case.
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-flash-lite) [(Preview) Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-flash-lite)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-flash-lite) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-flash-lite)
 
 Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
 

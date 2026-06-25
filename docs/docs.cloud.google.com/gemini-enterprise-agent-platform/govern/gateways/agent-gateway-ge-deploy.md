@@ -6,19 +6,12 @@ description: Deploy an agent on Gemini Enterprise and route traffic through Agen
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI Agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
-> **Feature access:** Your project must be on the allowlist before you can use Agent Gateway with Gemini Enterprise. Contact your Google Cloud account team for more information.
-
 This page describes how to route Gemini Enterprise traffic through Agent Gateway. Agent Gateway is a central networking and security component of the Gemini Enterprise Agent Platform ecosystem. It provides secure and governed connectivity for all agentic interactions, whether they occur between users and agents, agents and tools, or among agents themselves.
 
 ## Before you begin
 
   - Make sure you are familiar with [Gemini Enterprise concepts](https://docs.cloud.google.com/gemini/enterprise/docs/concepts)
   - Learn about [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) . Note that Agent Gateway only supports Gemini Enterprise in Agent-to-Anywhere (egress) mode. Ingress traffic isn't supported.
-  - [Create a dedicated test project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects) to try this workflow. Avoid using projects that are also intended for other critical workloads.
   - Deploy a Gemini Enterprise app (also referred to as engine). The procedure on this page assumes that you already have an app deployed. For details, see [Create an app](https://docs.cloud.google.com/gemini/enterprise/docs/create-app) .
 
 ## Permissions required
@@ -44,7 +37,7 @@ Use the following steps to grant permissions to the Discovery Engine Service Age
 
 1.  Create a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) with these permissions.
     
-        gcloud alpha iam roles create AGENT_GATEWAY_ROLE_NAME \
+        gcloud iam roles create AGENT_GATEWAY_ROLE_NAME \
         --project=PROJECT_ID \
         --title="Custom Agent Gateway and Agent Registry access role" \
         --description="Custom role for Agent Gateway and Agent Registry access" \
@@ -57,7 +50,7 @@ Use the following steps to grant permissions to the Discovery Engine Service Age
 
 2.  Assign the role to the Gemini Enterprise service account.
     
-        gcloud alpha projects add-iam-policy-binding PROJECT_ID \
+        gcloud projects add-iam-policy-binding PROJECT_ID \
           --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-discoveryengine.iam.gserviceaccount.com" \
           --role="projects/PROJECT_ID/roles/AGENT_GATEWAY_ROLE_NAME"
     
@@ -197,7 +190,7 @@ This example creates a custom constraint that blocks all bindings between Gemini
 
 2.  Apply the custom constraint.
     
-        gcloud alpha org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
+        gcloud org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
     
     Replace EGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
 
@@ -212,7 +205,7 @@ This example creates a custom constraint that blocks all bindings between Gemini
 
 4.  Enforce the organization policy.
     
-        gcloud alpha org-policies set-policy EGRESS_POLICY_PATH
+        gcloud org-policies set-policy EGRESS_POLICY_PATH
     
     Replace EGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
 
@@ -237,3 +230,9 @@ Guide
 ### [Monitor Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway)
 
 Learn how to monitor Agent Gateway.
+
+Troubleshooting
+
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
+
+Learn how to troubleshoot Agent Gateway connectivity.

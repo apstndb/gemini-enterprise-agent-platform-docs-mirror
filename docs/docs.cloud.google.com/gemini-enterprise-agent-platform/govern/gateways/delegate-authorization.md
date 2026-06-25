@@ -6,12 +6,6 @@ description: Delegate authorization with Service Extensions for Agent Gateway.
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides capabilities to govern and secure AI Agents, so the "Agentic AI Services" Service Specific Terms apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-> 
-> To request access to use Agent Gateway with Agent Runtime, see the [access request page](https://forms.gle/ZLNYKUDW7j2B4a8K7) .
-
 Use this page to learn how to delegate authorization for Agent Gateway to Identity-Aware Proxy, Model Armor, and other custom authorization engines by using Service Extensions.
 
 Authorization policies let you enforce centralized access control and governance policies on traffic passing through the endpoint published by the Agent Gateway. These policies let you manage traffic by controlling access based on mTLS identities, request and response attributes, and even customize based on the protocol-specific attributes used (for example, MCP servers).
@@ -79,9 +73,9 @@ The following steps show you how to configure an authorization extension with an
         
         Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
     
-    2.  Import the authorization extension. Use the [`gcloud beta service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-extensions/authz-extensions/import) with the following sample values.
+    2.  Import the authorization extension. Use the [`gcloud service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/authz-extensions/import) with the following sample values.
         
-            gcloud beta service-extensions authz-extensions import my-iap-request-authz-ext \
+            gcloud service-extensions authz-extensions import my-iap-request-authz-ext \
                 --source=iap-request-authz-extension.yaml \
                 --location=LOCATION
 
@@ -104,7 +98,7 @@ The following steps show you how to configure an authorization extension with an
         
         Replace `  PROJECT_ID  ` with your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
     
-    2.  Import the authorization policy to the project. Use the [`gcloud beta network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/authorization-policies/import) with the following sample values.
+    2.  Import the authorization policy to the project. Use the [`gcloud network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import) with the following sample values.
         
             gcloud beta network-security authz-policies import my-iap-request-authz-policy \
                 --source=iap-request-authz-policy.yaml \
@@ -124,9 +118,9 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
 
 2.  See [Configure Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) to enable Model Armor while creating the Agent Gateway (by using the **Enable Model Armor** checkbox). Model Armor templates are supported in both Client-to-Agent and Agent-to-Anywhere modes.
 
-3.  If your Model Armor templates are in a different project from the gateway, you must manually grant the required roles to the Agent Gateway service account. The service account is of the format: `service- PROJECT_NUMBER @gcp-sa-dep.iam.gserviceaccount.com` , where PROJECT\_NUMBER is the project number of the project where you created the gateway.
+3.  When you're using Model Armor, you must grant the Agent Gateway service account the permissions required to be able to use the Model Armor templates. The service account is of the format: `service- PROJECT_NUMBER @gcp-sa-dep.iam.gserviceaccount.com` , where PROJECT\_NUMBER is the project number of the project where you created the gateway.
     
-    Grant the following roles:
+    You must complete this step even if both the gateway and the templates are in the same project. Grant the following roles:
     
       - The `roles/modelarmor.calloutUser` and `roles/serviceusage.serviceUsageConsumer` roles in the project that contains the gateway.
       - The `roles/modelarmor.user` role in the project that contains the Model Armor templates.
@@ -198,9 +192,9 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
             timeout: 1s
             EOF
     
-    2.  Import the authorization extension. Use the [`gcloud beta service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-extensions/authz-extensions/import) with the following sample values.
+    2.  Import the authorization extension. Use the [`gcloud service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/authz-extensions/import) with the following sample values.
         
-            gcloud beta service-extensions authz-extensions import my-ma-content-authz-ext \
+            gcloud service-extensions authz-extensions import my-ma-content-authz-ext \
                --source=ma-content-authz-extension.yaml \
                --location=LOCATION
 
@@ -252,9 +246,9 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
         
         The value of `policyProfile` is set to `CONTENT_AUTHZ` . This indicates that the custom policy provider processes request and response traffic including the request body.
     
-    2.  Import the authorization policy to the project. Use the [`gcloud beta network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/authorization-policies/import) with the following sample values.
+    2.  Import the authorization policy to the project. Use the [`gcloud network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import) with the following sample values.
         
-            gcloud beta network-security authz-policies import my-ma-content-authz-policy \
+            gcloud network-security authz-policies import my-ma-content-authz-policy \
               --source=ma-content-authz-policy.yaml \
               --location=LOCATION
 
@@ -299,7 +293,7 @@ When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryp
 
 4.  Create the authorization policy.
     
-        gcloud beta network-security authz-policies import authz-policy-with-extension \
+        gcloud network-security authz-policies import authz-policy-with-extension \
         --source=authz-policy.yaml \
         --location=LOCATION
 
@@ -326,7 +320,7 @@ The following example uses IAP as a centralized request authorization system and
     
     2.  Create the authorization extension.
         
-            gcloud beta service-extensions authz-extensions import iap-extension \
+            gcloud service-extensions authz-extensions import iap-extension \
             --source=iap-extension.yaml \
             --location=LOCATION
         
@@ -355,7 +349,7 @@ The following example uses IAP as a centralized request authorization system and
     
     4.  Create the authorization policy.
         
-            gcloud beta network-security authz-policies import authz-iap \
+            gcloud network-security authz-policies import authz-iap \
             --source=authz-policy-request-authz.yaml \
             --location=LOCATION
 
@@ -386,7 +380,7 @@ The following example uses IAP as a centralized request authorization system and
     
     2.  Create the authorization extension.
         
-            gcloud beta service-extensions authz-extensions import ma-extension \
+            gcloud service-extensions authz-extensions import ma-extension \
             --source=ma-extension-file.yaml \
             --location=LOCATION
     
@@ -407,7 +401,7 @@ The following example uses IAP as a centralized request authorization system and
     
     4.  Create the authorization policy.
         
-            gcloud beta network-security authz-policies import ma-authz-policy \
+            gcloud network-security authz-policies import ma-authz-policy \
             --source=authz-policy-content-authz.yaml \
             --location=LOCATION
 
@@ -470,7 +464,7 @@ You can restrict access based on MCP method parameters such as the names of spec
 
 2.  Create the authorization policy.
     
-        gcloud beta network-security authz-policies import AUTHZ_POLICY_NAME \
+        gcloud network-security authz-policies import AUTHZ_POLICY_NAME \
         --source=AUTH_POLICY_YAML_FILE_PATH \
         --location=LOCATION
     
@@ -484,7 +478,8 @@ You can restrict access based on MCP method parameters such as the names of spec
 
 The following limitations apply when you use authorization policies:
 
-  - You can configure a maximum of four custom authorization policies per Agent Gateway, regardless of policy profile.
+  - For Agent-to-Anywhere (egress) gateways, you can configure a maximum of four custom authorization policies per gateway, regardless of policy profile.
+  - For Client-to-Agent (ingress) gateways, you can configure a maximum of one `CONTENT_AUTHZ` policy, which must use Model Armor. Additional `CONTENT_AUTHZ` policies or other services such as custom Semantic Governance Policy extensions are not supported for ingress.
   - If you use custom authorization extensions with the `CONTENT_AUTHZ` profile, they must support the `ext_proc` protocol and `FULL_DUPLEX_STREAMED` mode for body events.
   - If you configure multiple custom authorization policies that use the same profile, their execution order is not guaranteed.
 
@@ -510,6 +505,6 @@ Learn how to monitor Agent Gateway.
 
 Troubleshooting
 
-### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/troubleshooting/agent-gateway-connectivity)
+### [Troubleshoot Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway)
 
 Learn how to troubleshoot Agent Gateway connectivity.

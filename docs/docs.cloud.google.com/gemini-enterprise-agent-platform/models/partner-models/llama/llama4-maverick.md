@@ -10,7 +10,7 @@ Llama 4 Maverick 17B-128E is Llama 4's largest and most capable model. It uses t
 
 ## Managed API (MaaS) specifications
 
-[Try in Agent Platform](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=llama-4-maverick-17b-128e-instruct-maas) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=llama-4-maverick-17b-128e-instruct-maas) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama-4-maverick-17b-128e-instruct-maas)
 
 Model ID
 

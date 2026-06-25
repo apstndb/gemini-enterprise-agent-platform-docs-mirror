@@ -68,12 +68,14 @@ The following Gemini models support reinforcement learning fine-tuning:
 <td>Supported endpoints for model tuning</td>
 <td><ul>
 <li><code dir="ltr" translate="no">us-central1</code> — <code dir="ltr" translate="no">us-central1-aiplatform.googleapis.com</code></li>
+<li><code dir="ltr" translate="no">europe-west4</code> — <code dir="ltr" translate="no">europe-west4-aiplatform.googleapis.com</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Supported endpoints for tuned model serving</td>
 <td><ul>
 <li><code dir="ltr" translate="no">us</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.us.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">us-central1</code></li>
+<li><code dir="ltr" translate="no">eu</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.eu.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">europe-west4</code></li>
 </ul></td>
 </tr>
 <tr class="odd">

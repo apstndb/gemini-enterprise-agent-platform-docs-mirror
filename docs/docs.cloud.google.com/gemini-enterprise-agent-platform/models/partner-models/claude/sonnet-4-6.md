@@ -10,7 +10,7 @@ Claude Sonnet 4.6 delivers frontier intelligence at scale—built for coding, ag
 
 **Retirement Date:** Not sooner than February 17, 2027.
 
-[Try in Agent Platform](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
 
 Model ID
 
