@@ -35,23 +35,31 @@ For more information on using these features, see [Get started with Gemini 3](ht
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-flash-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-flash-preview)
 
-Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
 `gemini-3-flash-preview`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image , Audio , Video
-  - Outputs:
-    Text
+Inputs
+
+Text, image, audio, video
+
+Outputs
+
+Text
 
 Token limits
 
-  - Maximum input tokens: 1,048,576
-  - Maximum output tokens: 65,536
+Context window
+
+1,048,576
+
+Maximum output tokens
+
+65,536
 
 Capabilities
 
@@ -94,15 +102,6 @@ See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 Technical specifications
 
-**Images** photo
-
-  - Maximum images per prompt: 3000
-  - Maximum file size per file for inline data or direct uploads through the console: 7 MB
-  - Maximum file size per file from Google Cloud Storage: 30 MB
-  - Default resolution tokens: 1120
-  - Supported MIME types:
-    `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
-
 **Documents** description
 
   - Maximum number of files per prompt: 3000
@@ -114,14 +113,14 @@ Technical specifications
   - Supported MIME types:
     `application/pdf` , `text/plain`
 
-**Video** videocam
+**Images** photo
 
-  - Maximum video length (with audio): Approximately 45 minutes
-  - Maximum video length (without audio): Approximately 1 hour
-  - Maximum number of videos per prompt: 10
-  - Default resolution tokens per frame: 70
+  - Maximum images per prompt: 3000
+  - Maximum file size per file for inline data or direct uploads through the console: 7 MB
+  - Maximum file size per file from Google Cloud Storage: 30 MB
+  - Default resolution tokens: 1120
   - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
+    `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
 **Audio** mic
 
@@ -130,6 +129,15 @@ Technical specifications
   - Speech understanding for: Audio summarization, transcription, and translation
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
+
+**Video** videocam
+
+  - Maximum video length (with audio): Approximately 45 minutes
+  - Maximum video length (without audio): Approximately 1 hour
+  - Maximum number of videos per prompt: 10
+  - Default resolution tokens per frame: 70
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -158,10 +166,6 @@ Versions
 
   - Launch stage: Public preview
   - Release date: December 17, 2025
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 

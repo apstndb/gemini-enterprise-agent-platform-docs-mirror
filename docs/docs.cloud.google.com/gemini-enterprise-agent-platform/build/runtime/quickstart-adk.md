@@ -130,6 +130,8 @@ Deploy the agent by creating a [`reasoningEngine`](https://docs.cloud.google.com
 
 > **Note:** Deploying an ADK agent to Agent Platform automatically generates a managed session resource. You can delete the managed session resource along with the agent in the [Clean-up section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk#clean-up) .
 
+    from vertexai import types
+    
     remote_agent = client.agent_engines.create(
         agent=app,
         config={

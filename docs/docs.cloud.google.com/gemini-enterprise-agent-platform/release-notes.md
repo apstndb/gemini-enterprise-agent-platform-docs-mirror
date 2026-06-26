@@ -27,6 +27,14 @@ Also, specific features within the AI security widgets are available in [Preview
 
 For more information, see [View security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings) .
 
+Feature
+
+**Model Armor for Agent Gateway in General Availability**
+
+You can enable Model Armor on an Agent Gateway resource to apply your organization's content security guardrails to prompts and responses that pass through the gateway. This feature is generally available ( [GA](https://cloud.google.com/products#product-launch-stages) ).
+
+For more information, see [Configure Model Armor on a gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) .
+
 ## June 22, 2026
 
 Change

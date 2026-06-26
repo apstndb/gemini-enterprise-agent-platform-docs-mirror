@@ -128,14 +128,14 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
     You will need to use the gcloud CLI to complete this step.
     
         gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
-         --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-         --role=roles/modelarmor.calloutUser
+            --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+            --role=roles/modelarmor.calloutUser
         gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
-         --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-         --role=roles/serviceusage.serviceUsageConsumer
+            --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+            --role=roles/serviceusage.serviceUsageConsumer
         gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
-         --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-         --role=roles/modelarmor.user
+            --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+            --role=roles/modelarmor.user
     
     Replace the following:
     
@@ -149,9 +149,9 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
 
 1.  Create the required [Model Armor templates](https://docs.cloud.google.com/model-armor/manage-templates#create-ma-template) .
 
-2.  If your Model Armor templates are in a different project from the gateway, you must manually grant the required roles to the Agent Gateway service account. The service account is of the format: `service- PROJECT_NUMBER @gcp-sa-dep.iam.gserviceaccount.com` , where PROJECT\_NUMBER is the project number of the project where you created the gateway.
+2.  When you're using Model Armor, you must grant the Agent Gateway service account the permissions required to be able to use the Model Armor templates. The service account is of the format: `service- PROJECT_NUMBER @gcp-sa-dep.iam.gserviceaccount.com` , where PROJECT\_NUMBER is the project number of the project where you created the gateway.
     
-    Grant the following roles:
+    You must complete this step even if both the gateway and the templates are in the same project. Grant the following roles:
     
       - The `roles/modelarmor.calloutUser` and `roles/serviceusage.serviceUsageConsumer` roles in the project that contains the gateway.
       - The `roles/modelarmor.user` role in the project that contains the Model Armor template.
@@ -159,14 +159,14 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
     <!-- end list -->
     
         gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
-         --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-         --role=roles/modelarmor.calloutUser
+            --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+            --role=roles/modelarmor.calloutUser
         gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
-         --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-         --role=roles/serviceusage.serviceUsageConsumer
+            --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+            --role=roles/serviceusage.serviceUsageConsumer
         gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
-         --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
-         --role=roles/modelarmor.user
+            --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+            --role=roles/modelarmor.user
     
     Replace the following:
     

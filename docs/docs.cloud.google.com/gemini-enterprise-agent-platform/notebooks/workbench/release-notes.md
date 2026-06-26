@@ -331,17 +331,6 @@ The M127 release of Vertex AI Workbench managed notebooks includes the following
 
 ## November 20, 2024
 
-v1
-
-Feature
-
-**M126 release**
-
-The M126 release of Vertex AI Workbench user-managed notebooks includes the following:
-
-  - Upgraded JupyterLab to 3.6.8.
-  - One or more framework versions have reached their end of patch and support dates. To view end of patch and support dates, see [Supported framework versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/user-managed/images#supported-frameworks) .
-
 v2
 
 Feature
@@ -361,17 +350,18 @@ The M126 release of Vertex AI Workbench managed notebooks includes the following
 
   - Upgraded JupyterLab to 3.6.8.
 
-## September 26, 2024
-
 v1
 
 Feature
 
-**M125 release**
+**M126 release**
 
-The M125 release of Vertex AI Workbench user-managed notebooks includes the following:
+The M126 release of Vertex AI Workbench user-managed notebooks includes the following:
 
-  - Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
+  - Upgraded JupyterLab to 3.6.8.
+  - One or more framework versions have reached their end of patch and support dates. To view end of patch and support dates, see [Supported framework versions](https://docs.cloud.google.com/vertex-ai/docs/workbench/user-managed/images#supported-frameworks) .
+
+## September 26, 2024
 
 v2
 
@@ -383,6 +373,16 @@ The M125 release of Vertex AI Workbench instances includes the following:
 
   - `bigframes` 1.9.0 is now available in all environments except TensorFlow.
   - Fixed a regression introduced in M124 where Conda was getting downgraded to an older version.
+  - Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
+
+v1
+
+Feature
+
+**M125 release**
+
+The M125 release of Vertex AI Workbench user-managed notebooks includes the following:
+
   - Patched a vulnerability with `adm` and `docker` permissions when the instance's root access isn't enabled.
 
 v1

@@ -24,23 +24,31 @@ For more information on how to use Gemini Embedding 2, see [Get multimodal embed
 
 [Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=gemini-embedding-2) [Deploy example app](https://console.cloud.google.com/vertex-ai/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-embedding-2)
 
-Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
 `gemini-embedding-2`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Images , Audio , Video , PDF
-  - Outputs:
-    Embeddings
+Inputs
+
+Text, images, audio, video, pdf
+
+Outputs
+
+Embeddings
 
 Token limits
 
-  - Maximum input tokens: 8,192
-  - Maximum output tokens: N/A
+Maximum input tokens
+
+8,192
+
+Maximum output tokens
+
+N/A
 
 Maximum sequence length
 
@@ -67,6 +75,14 @@ See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 Technical specifications
 
+**Documents** description
+
+  - Maximum number of files per prompt: 1
+  - Maximum number of pages per file: 6
+  - Maximum file size per file: N/A
+  - Supported MIME types:
+    `application/pdf`
+
 **Images** photo
 
   - Maximum images per prompt: 6
@@ -76,13 +92,12 @@ Technical specifications
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/bmp` , `image/heic` , `image/heif` , `image/avif`
 
-**Documents** description
+**Audio** mic
 
-  - Maximum number of files per prompt: 1
-  - Maximum number of pages per file: 6
-  - Maximum file size per file: N/A
+  - Maximum audio length per prompt: 180 seconds
+  - Maximum number of audio files per prompt: 1
   - Supported MIME types:
-    `application/pdf`
+    `audio/mp3` , `audio/wav`
 
 **Video** videocam
 
@@ -91,15 +106,6 @@ Technical specifications
   - Maximum number of videos per prompt: 1
   - Supported MIME types:
     `video/mpeg` , `video/mp4`
-
-**Audio** mic
-
-  - Maximum audio length per prompt: 180 seconds
-  - Maximum number of audio files per prompt: 1
-  - Supported MIME types:
-    `audio/mp3` , `audio/wav`
-
-**Parameter defaults** tune
 
 Supported regions
 
@@ -134,14 +140,6 @@ Versions
 
   - Launch stage: Public preview
   - Release date: March 10, 2026
-
-Security controls
-
-See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 

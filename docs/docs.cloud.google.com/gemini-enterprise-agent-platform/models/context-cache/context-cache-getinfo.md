@@ -343,27 +343,54 @@ For a non-streaming response, use the [`GenerateContent`](https://pkg.go.dev/clo
      "context"
      "fmt"
      "io"
+     "net/http"
+     "time"
     
-     "cloud.google.com/go/vertexai/genai"
+     "google.golang.org/genai"
     )
     
-    // getContextCache shows how to retrieve the metadata of a cached content
+    // getContentCache shows how to retrieve the metadata of a cached content
     // contentName is the ID of the cached content to retrieve
-    func getContextCache(w io.Writer, contentName string, projectID, location string) error {
-     // location := "us-central1"
+    func getContentCache(w io.Writer, contentName string) error {
      ctx := context.Background()
     
-     client, err := genai.NewClient(ctx, projectID, location)
+     client, err := genai.NewClient(ctx, &genai.ClientConfig{
+         HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+     })
      if err != nil {
-         return fmt.Errorf("unable to create client: %w", err)
+         return fmt.Errorf("failed to create genai client: %w", err)
      }
-     defer client.Close()
     
-     cachedContent, err := client.GetCachedContent(ctx, contentName)
+     cachedContent, err := client.Caches.Get(ctx, contentName, &genai.GetCachedContentConfig{
+         HTTPOptions: &genai.HTTPOptions{
+             Headers:    http.Header{"X-Custom-Header": []string{"example"}},
+             APIVersion: "v1",
+         },
+     })
      if err != nil {
          return fmt.Errorf("GetCachedContent: %w", err)
      }
-     fmt.Fprintf(w, "Retrieved cached content %q", cachedContent.Name)
+    
+     // Print basic info about the cached content
+     fmt.Fprintf(w, "Cache name: %s\n", cachedContent.Name)
+     fmt.Fprintf(w, "Display name: %s\n", cachedContent.DisplayName)
+     fmt.Fprintf(w, "Model: %s\n", cachedContent.Model)
+     fmt.Fprintf(w, "Create time: %s\n", cachedContent.CreateTime.Format(time.RFC3339))
+     fmt.Fprintf(w, "Update time: %s\n", cachedContent.UpdateTime.Format(time.RFC3339))
+     fmt.Fprintf(w, "Expire time: %s (in %s)\n", cachedContent.ExpireTime.Format(time.RFC3339), time.Until(cachedContent.ExpireTime).Round(time.Second))
+    
+     if cachedContent.UsageMetadata != nil {
+         fmt.Fprintf(w, "Usage metadata: %+v\n", cachedContent.UsageMetadata)
+     }
+    
+     // Example response:
+     // Cache name: projects/111111111111/locations/us-central1/cachedContents/1234567890123456789
+     // Display name: product_recommendations_prompt
+     // Model: models/gemini-2.5-flash
+     // Create time: 2025-04-08T02:15:23Z
+     // Update time: 2025-04-08T03:05:11Z
+     // Expire time: 2025-04-20T03:05:11Z (in 167h59m59s)
+     // Usage metadata: &{AudioDurationSeconds:0 ImageCount:167 TextCount:153 TotalTokenCount:43124 VideoDurationSeconds:0}
      return nil
     }
 

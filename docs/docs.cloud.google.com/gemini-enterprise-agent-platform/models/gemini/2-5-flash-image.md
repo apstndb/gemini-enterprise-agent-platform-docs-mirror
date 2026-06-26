@@ -14,23 +14,31 @@ Generating images with Gemini 2.5 Flash Image consumes 1290 tokens for each imag
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-flash-image) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-2.5-flash-image)
 
-Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
 `gemini-2.5-flash-image`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Text and image
+Inputs
+
+Text, image
+
+Outputs
+
+Text and image
 
 Token limits
 
-  - Maximum input tokens: 32,768
-  - Maximum output tokens: 32,768
+Context window
+
+32,768
+
+Maximum output tokens
+
+32,768
 
 Capabilities
 
@@ -80,6 +88,15 @@ Input size limit
 
 Technical specifications
 
+**Documents** description
+
+  - Maximum number of files per prompt: 3
+  - Maximum number of pages per file: 3
+  - Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
+  - Maximum file size per file for direct uploads through the console: 7 MB
+  - Supported MIME types:
+    `application/pdf` , `text/plain`
+
 **Images** photo
 
   - Maximum images per prompt: 3
@@ -89,15 +106,6 @@ Technical specifications
   - Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, and 21:9
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
-
-**Documents** description
-
-  - Maximum number of files per prompt: 3
-  - Maximum number of pages per file: 3
-  - Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
-  - Maximum file size per file for direct uploads through the console: 7 MB
-  - Supported MIME types:
-    `application/pdf` , `text/plain`
 
 **Parameter defaults** tune
 
@@ -174,10 +182,6 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 

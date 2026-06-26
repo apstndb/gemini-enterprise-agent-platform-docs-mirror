@@ -31,17 +31,25 @@ Model ID
 
 `gemini-live-2.5-flash-native-audio`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image , Audio , Video
-  - Outputs:
-    Text , Audio
+Inputs
+
+Text, image, audio, video
+
+Outputs
+
+Text, audio
 
 Token limits
 
-  - Maximum input tokens: 128K
-  - Maximum output tokens: 64K
+Context window
+
+128K
+
+Maximum output tokens
+
+64K
 
 Maximum concurrent sessions
 
@@ -95,12 +103,6 @@ Technical specifications
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
-**Video** videocam
-
-  - Standard resolution: 768 x 768
-  - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
-
 **Audio** mic
 
   - Maximum conversation length: Default 10 minutes that can [be extended.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-extension)
@@ -108,6 +110,12 @@ Technical specifications
   - Required audio output format: Raw 16-bit PCM audio at 24kHz, little-endian
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
+
+**Video** videocam
+
+  - Standard resolution: 768 x 768
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -160,10 +168,6 @@ Security controls
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
 
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
-
 Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
@@ -184,18 +188,29 @@ Model ID
 
 `gemini-live-2.5-flash-preview-native-audio-09-2025`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image , Audio , Video
-  - Outputs:
-    Text , Audio
+Inputs
+
+Text, image, audio, video
+
+Outputs
+
+Text, audio
 
 Token limits
 
-  - Maximum input tokens: 128K
-  - Maximum output tokens: 64K
-  - Context window: 32K (default), upgradable to 128K
+Context window
+
+128K
+
+Maximum output tokens
+
+64K
+
+Context window
+
+32K (default), upgradable to 128K
 
 Maximum concurrent sessions
 
@@ -249,12 +264,6 @@ Technical specifications
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
-**Video** videocam
-
-  - Standard resolution: 768 x 768
-  - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
-
 **Audio** mic
 
   - Maximum conversation length: Default 10 minutes that can [be extended.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-extension)
@@ -262,6 +271,12 @@ Technical specifications
   - Required audio output format: Raw 16-bit PCM audio at 24kHz, little-endian
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
+
+**Video** videocam
+
+  - Standard resolution: 768 x 768
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -291,10 +306,6 @@ Versions
   - Launch stage: Public preview
   - Release date: September 25, 2025
   - Discontinuation date: March 19, 2026
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 

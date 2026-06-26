@@ -6,10 +6,6 @@ description: Learn about how Model Armor works and how to configure it on a gate
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Model Armor**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Model Armor helps you ensure that your AI agents follow your security and governance standards without requiring you to implement filtering logic directly within the agents. When you configure Model Armor with Agent Gateway, Model Armor applies your organization's content security guardrails by inspecting all prompts and responses that pass through the gateway. This feature lets you enforce content security guardrails consistently across all agents governed by the gateway. Model Armor helps you mitigate risks such as prompt injection, jailbreak attempts, leakage of sensitive information, and generation of harmful content. For more information, see [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters) .
 
 ### Model Armor templates
@@ -77,20 +73,53 @@ To configure Model Armor on a gateway, follow these steps:
     
     Take note of the template names. To copy the name of a template in the Google Cloud console, [view the template's details](https://docs.cloud.google.com/model-armor/manage-templates#view-ma-template) and click content\_copy **Copy to clipboard** next to the template name.
 
-3.  [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) in the same region where the Model Armor templates are stored. For the **Client-to-Agent (ingress)** gateway, specify the Model Armor templates that you created for ingress traffic. For the **Agent-to-Anywhere (egress)** gateway, specify the Model Armor templates that you created for egress traffic. You can use the same template for both traffic flows.
+3.  Set up Agent Gateway in the same region where the Model Armor templates are stored. For the [Client-to-Agent (ingress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-client-to-agent) , specify the Model Armor templates that you created for ingress traffic. For the [Agent-to-Anywhere (egress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) , specify the Model Armor templates that you created for egress traffic. You can use the same template for both traffic flows.
 
-4.  If your Model Armor templates are in a project different from the gateway, you must grant the required IAM roles to the appropriate service accounts:
+4.  Grant the required IAM roles to the appropriate service accounts:
     
-      - **Client-to-Agent (ingress)** : Grant the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/agent-builder/agent-engine/manage/access#service-agent) service account the following roles:
+      - **Client-to-Agent (ingress)** : Grant the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#service-agent) service account the following roles:
         
           - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) role in the project that contains the AI agent.
         
           - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.
+        
+        <!-- end list -->
+        
+            gcloud projects add-iam-policy-binding AGENT_RUNTIME_PROJECT_ID \
+                --member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
+                --role=roles/modelarmor.calloutUser
+            gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
+                --member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
+                --role=roles/modelarmor.user
+        
+        Replace the following:
+        
+          - `  AGENT_RUNTIME_PROJECT_ID  ` : The project ID of the project where you created the agent.
+          - `  AGENT_RUNTIME_PROJECT_NUMBER  ` : The project number of the project where you created the agent.
+          - `  MODEL_ARMOR_PROJECT_ID  ` : The project ID of the project that contains the Model Armor template.
     
       - **Agent-to-Anywhere (egress)** : Grant the Agent Gateway service account the following roles:
         
           - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) and Service Usage Consumer ( `roles/serviceusage.serviceUsageConsumer` ) roles in the project that contains the gateway.
           - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.
+        
+        <!-- end list -->
+        
+            gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
+                --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+                --role=roles/modelarmor.calloutUser
+            gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
+                --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+                --role=roles/serviceusage.serviceUsageConsumer
+            gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
+                --member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+                --role=roles/modelarmor.user
+        
+        Replace the following:
+        
+          - `  GATEWAY_PROJECT_ID  ` : The project ID of the project where you created the gateway.
+          - `  GATEWAY_PROJECT_NUMBER  ` : The project number of the project where you created the gateway.
+          - `  MODEL_ARMOR_PROJECT_ID  ` : The project ID of the project that contains the Model Armor template.
         
         For instructions, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
     

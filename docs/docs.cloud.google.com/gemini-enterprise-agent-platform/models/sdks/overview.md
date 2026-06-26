@@ -365,7 +365,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     public class GenerateContentSimpleText {
       public static async Task SendRequestAsync() {
-        string apiKey = System.Environment.GetEnvironmentVariable("GOOGLE_API_KEY");
+        string apiKey = System.Environment.GetEnvironmentVariable("GEMINI_API_KEY");
         var geminiClient = new Client(apiKey: apiKey);
         try {
           var geminiResponse = await geminiClient.Models.GenerateContentAsync(

@@ -16,15 +16,19 @@ Perform the following steps:
     
     Note the following requirements:
     
-      - Agent Gateway requires a minimum `/28` subnet for the network attachment.
+      - The endpoint that you connect to must support HTTPS with a publicly signed certificate. If Agent Gateway is unable to validate the certificate, the connection fails.
     
-      - Agent Gateway can only send traffic to the following subnet ranges. Therefore, the subnet of the network attachment must fall within these ranges:
+      - Subnet requirements for the network attachment:
         
-          - RFC 1918: `10.0.0.0/8` , `172.16.0.0/12` , `192.168.0.0/16`
-          - RFC 6598: `100.64.0.0/10`
-          - Class E: `240.0.0.0/4`
-          - `private.googleapis.com` : `199.36.153.8/30`
-          - `restricted.googleapis.com` : `199.36.153.4/30`
+          - Agent Gateway requires a minimum `/28` subnet for the network attachment.
+        
+          - The network attachment subnet supports all [valid ranges](https://docs.cloud.google.com/vpc/docs/subnets#valid-ranges) . However, Agent Gateway can only send traffic to the following subnet ranges:
+            
+              - RFC 1918: `10.0.0.0/8` , `172.16.0.0/12` , `192.168.0.0/16`
+              - RFC 6598: `100.64.0.0/10`
+              - Class E: `240.0.0.0/4`
+              - `private.googleapis.com` : `199.36.153.8/30`
+              - `restricted.googleapis.com` : `199.36.153.4/30`
     
     For instructions, see [Create and manage Private Service Connect network attachments](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments) .
     
@@ -46,7 +50,7 @@ Perform the following steps:
     
     3.  Gather the DNS information to enable peering. This includes the domain name, the target project ID, and the name of the VPC network you want to connect to. You'll need this information when you update the Agent Gateway resource.
 
-4.  Create an Agent Gateway that includes the network attachment and DNS peering information. For this example, we update the `my-agent-gateway-egress.yaml` YAML file as follows:
+4.  Update your Agent Gateway to include the network attachment and DNS peering information. For this example, we update the `my-agent-gateway-vpc-egress.yaml` YAML file as follows:
     
     ``` 
       name: AGENT_GATEWAY_NAME
@@ -78,7 +82,7 @@ Perform the following steps:
 5.  Run the following command to update the resource based on the YAML specification:
     
         gcloud network-services agent-gateways import AGENT_GATEWAY_NAME \
-            --source="my-agent-gateway-egress.yaml" \
+            --source="my-agent-gateway-vpc-egress.yaml" \
             --location=LOCATION
     
     Replace `  LOCATION  ` with the location where you want to create the Agent Gateway resource. For example, `us-central1` .

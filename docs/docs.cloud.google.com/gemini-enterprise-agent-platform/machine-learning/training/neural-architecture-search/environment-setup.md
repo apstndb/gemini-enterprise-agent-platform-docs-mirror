@@ -40,10 +40,10 @@ This section demonstrates how to create a new bucket. You can use an existing bu
     
         BUCKET_NAME="YOUR_BUCKET_NAME"
     
-    For example, use your project name with `-vertexai-nas` appended:
+    To ensure a unique and unpredictable bucket name, use a randomly generated Universally Unique Identifier (UUID) in your bucket name, as shown in the following example. This practice helps prevent bucket squatting.
     
         PROJECT_ID="YOUR_PROJECT_ID"
-        BUCKET_NAME=${PROJECT_ID}-vertexai-nas
+        BUCKET_NAME="${PROJECT_ID}-vertexai-nas-$(uuidgen)"
 
 2.  Check the bucket name that you created.
     

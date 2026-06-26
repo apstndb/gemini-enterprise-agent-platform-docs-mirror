@@ -151,7 +151,7 @@ For MCP traffic only, Agent Gateway can parse request data to extract attributes
 
   - For Gemini Enterprise, Client-to-Agent mode is not supported by Agent Gateway.
   - Agent Gateway doesn't support VPC Service Controls. To ensure that agents are only using the Agent Gateway resources you approve of, you can use custom organization policy constraints to restrict agent and gateway bindings. For details, see [Restrict Agent Runtime to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#restrict-ae) and [Restrict Gemini Enterprise to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#restrict-ge) .
-  - Agent Gateway doesn't support connections to destinations with self-signed certificate chains. Use publicly trusted CA certificates.
+  - Agent Gateway doesn't support connections to public or private destinations with self-signed certificate chains. Use publicly trusted CA certificates for all destinations.
   - Each Agent Gateway instance can govern up to 5,000 resources registered in Agent Registry.
   - Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations) associated with authorization policies.
 

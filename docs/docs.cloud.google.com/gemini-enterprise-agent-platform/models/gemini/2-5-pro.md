@@ -12,23 +12,31 @@ For even more detailed technical information on Gemini 2.5 Pro (such as performa
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-pro) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-2.5-pro) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-2.5-pro)
 
-Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
 `gemini-2.5-pro`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image , Audio , Video
-  - Outputs:
-    Text
+Inputs
+
+Text, image, audio, video
+
+Outputs
+
+Text
 
 Token limits
 
-  - Maximum input tokens: 1,048,576
-  - Maximum output tokens: 65,535 (default)
+Context window
+
+1,048,576
+
+Maximum output tokens
+
+65,535 (default)
 
 Capabilities
 
@@ -74,14 +82,6 @@ Input size limit
 
 Technical specifications
 
-**Images** photo
-
-  - Maximum images per prompt: 3,000
-  - Maximum file size per file for inline data or direct uploads through the console: 7 MB
-  - Maximum file size per file from Google Cloud Storage: 30 MB
-  - Supported MIME types:
-    `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
-
 **Documents** description
 
   - Maximum number of files per prompt: 3,000
@@ -91,13 +91,13 @@ Technical specifications
   - Supported MIME types:
     `application/pdf` , `text/plain`
 
-**Video** videocam
+**Images** photo
 
-  - Maximum video length (with audio): Approximately 45 minutes
-  - Maximum video length (without audio): Approximately 1 hour
-  - Maximum number of videos per prompt: 10
+  - Maximum images per prompt: 3,000
+  - Maximum file size per file for inline data or direct uploads through the console: 7 MB
+  - Maximum file size per file from Google Cloud Storage: 30 MB
   - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
+    `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
 **Audio** mic
 
@@ -106,6 +106,14 @@ Technical specifications
   - Speech understanding for: Audio summarization, transcription, and translation
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
+
+**Video** videocam
+
+  - Maximum video length (with audio): Approximately 45 minutes
+  - Maximum video length (without audio): Approximately 1 hour
+  - Maximum number of videos per prompt: 10
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -209,10 +217,6 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 

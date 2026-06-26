@@ -10,23 +10,31 @@ Gemini 3 Pro Image (Nano Banana Pro), is designed to tackle the most challenging
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-pro-image) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-pro-image) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-pro-image-preview)
 
-Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
 `gemini-3-pro-image`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Text and image
+Inputs
+
+Text, image
+
+Outputs
+
+Text and image
 
 Token limits
 
-  - Maximum input tokens: 65,536
-  - Maximum output tokens: 32,768
+Context window
+
+65,536
+
+Maximum output tokens
+
+32,768
 
 Capabilities
 
@@ -76,6 +84,14 @@ Input size limit
 
 Technical specifications
 
+**Documents** description
+
+  - Maximum number of files per prompt: As supported by the 65,536 token context window
+  - Maximum number of pages per file: As supported by the 65,536 token context window
+  - Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
+  - Supported MIME types:
+    `application/pdf` , `text/plain`
+
 **Images** photo
 
   - Maximum images per prompt: 14
@@ -86,14 +102,6 @@ Technical specifications
   - Supported resolutions: 1K, 2K, 4K (Preview)
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
-
-**Documents** description
-
-  - Maximum number of files per prompt: As supported by the 65,536 token context window
-  - Maximum number of pages per file: As supported by the 65,536 token context window
-  - Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
-  - Supported MIME types:
-    `application/pdf` , `text/plain`
 
 **Parameter defaults** tune
 
@@ -141,10 +149,6 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 

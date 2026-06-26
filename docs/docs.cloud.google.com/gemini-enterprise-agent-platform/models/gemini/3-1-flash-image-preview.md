@@ -26,23 +26,31 @@ Generating images with Gemini 3.1 Flash Image consumes tokens based on output im
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-flash-image-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-flash-image-preview)
 
-Note: To use the "Deploy example app" feature, you need a Google Cloud project with billing and Agent Platform API enabled.
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
 `gemini-3.1-flash-image-preview`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Text and image
+Inputs
+
+Text, image
+
+Outputs
+
+Text and image
 
 Token limits
 
-  - Maximum input tokens: 131,072
-  - Maximum output tokens: 32,768
+Context window
+
+131,072
+
+Maximum output tokens
+
+32,768
 
 Capabilities
 
@@ -92,6 +100,15 @@ Input size limit
 
 Technical specifications
 
+**Documents** description
+
+  - Maximum number of files per prompt: As supported by the 128k token context window
+  - Maximum number of pages per file: As supported by the 65,536 token context window
+  - Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
+  - Maximum file size per file for direct uploads through the console: 7 MB
+  - Supported MIME types:
+    `application/pdf` , `text/plain`
+
 **Images** photo
 
   - Maximum images per prompt: 14
@@ -101,15 +118,6 @@ Technical specifications
   - Supported aspect ratios: 1:1, 1:4, 1:8, 3:2, 2:3, 3:4, 4:1, 4:3, 4:5, 5:4, 8:1, 9:16, 16:9, and 21:9
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
-
-**Documents** description
-
-  - Maximum number of files per prompt: As supported by the 128k token context window
-  - Maximum number of pages per file: As supported by the 65,536 token context window
-  - Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
-  - Maximum file size per file for direct uploads through the console: 7 MB
-  - Supported MIME types:
-    `application/pdf` , `text/plain`
 
 **Parameter defaults** tune
 
@@ -139,10 +147,6 @@ Versions
   - Launch stage: Public preview
   - Release date: February 26, 2026
   - Discontinuation date: July 17, 2026
-
-Supported languages
-
-See [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#expandable-1) .
 
 Pricing
 
