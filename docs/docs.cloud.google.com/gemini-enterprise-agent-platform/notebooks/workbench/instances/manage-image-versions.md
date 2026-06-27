@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 This document describes how to manage image versions for Gemini Enterprise Agent Platform Workbench instances, including software stack details and instructions for creating and upgrading instances.
 
-Reference the [Agent Platform Workbench release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/release-notes) to check what is supported with each image version.
+Reference the [Agent Platform Workbench release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes) to check what is supported with each image version.
 
 ## VM images
 
@@ -86,7 +86,7 @@ Replace the following:
   - `  INSTANCE_NAME  ` : the name of your instance.
   - `  LOCATION  ` : the region where you want to create the instance.
 
-For more information on creating an instance with a specific version, see [Create a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/instances/create-specific-version#create_a_specific_version) .
+For more information on creating an instance with a specific version, see [Create a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version#create_a_specific_version) .
 
 ### Terraform
 
@@ -132,7 +132,7 @@ To upgrade an instance using Terraform, update the `family` or `name` in the `vm
       }
     }
 
-For more information on upgrading, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/instances/upgrade) .
+For more information on upgrading, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) .
 
 #### Upgrade across image families
 
@@ -167,7 +167,7 @@ If the `--image-family` flag is omitted, the instance is upgraded to the latest 
 
 Custom containers on Agent Platform Workbench instances follow a strictly sequential release model without any image branching or parallel maintenance. A date versioning tag is used, which is shared with all the images used to manage custom containers on Agent Platform Workbench instances for any given release. The versioning tag follows the format `YYYYMMDD-HHMM-rcX` .
 
-[Create a custom container-based instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/instances/create-custom-container) describes how to build and utilize custom containers on Agent Platform Workbench instances.
+[Create a custom container-based instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) describes how to build and utilize custom containers on Agent Platform Workbench instances.
 
 ### Host image
 

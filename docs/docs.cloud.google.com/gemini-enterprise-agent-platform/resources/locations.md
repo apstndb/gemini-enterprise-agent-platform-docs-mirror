@@ -48,7 +48,7 @@ MODEL_ID="MODEL_ID"
 curl -X POST \
   -H "Authorization: Bearer $(gcloud auth print-access-token)" \
   -H "Content-Type: application/json" \
-  "https://${GOOGLE_CLOUD_LOCATION}$-aiplatform.googleapis.com/v1/projects/${GOOGLE_CLOUD_PROJECT}/locations/${GOOGLE_CLOUD_LOCATION}/publishers/google/models/${MODEL_ID}:generateContent" \
+  "https://${GOOGLE_CLOUD_LOCATION}-aiplatform.googleapis.com/v1/projects/${GOOGLE_CLOUD_PROJECT}/locations/${GOOGLE_CLOUD_LOCATION}/publishers/google/models/${MODEL_ID}:generateContent" \
   -d '{
     "contents": {
       "role": "user",
@@ -259,7 +259,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -385,7 +385,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -526,7 +526,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -652,7 +652,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -802,7 +802,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -943,7 +943,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -1072,7 +1072,7 @@ Embeddings for Text
 
 Embeddings for Multimodal
 
-Veo models
+Veo on Gemini Enterprise Agent Platform models
 
 [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
 `(veo-2.0-generate-001)`
@@ -1640,37 +1640,37 @@ Global
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -1683,29 +1683,29 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Multi-region
@@ -1718,37 +1718,37 @@ European Union multi-region
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -1761,29 +1761,29 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`
 
 ### United States
@@ -1811,37 +1811,37 @@ Dallas
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -1854,29 +1854,29 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Americas
@@ -1889,37 +1889,37 @@ São Paulo
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -1932,29 +1932,29 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Europe
@@ -1991,37 +1991,37 @@ Paris
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -2034,29 +2034,29 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Asia Pacific
@@ -2084,37 +2084,37 @@ Seoul
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -2127,29 +2127,29 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Middle East
@@ -2165,37 +2165,37 @@ Dammam
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
 `(deepseek-ocr-maas)`
 
-[DeepSeek-V3.2](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
 `(deepseek-v3.2-maas)`
 
-[DeepSeek-V3.1](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
 `(deepseek-v3.1-maas)`
 
-[DeepSeek R1 (0528)](https://console.cloud.google.com/vertex-ai/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
 `(deepseek-r1-0528-maas)`
 
 ZAI.org models
 
-[GLM 4.7](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-4.7-maas)  
+[GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/vertex-ai/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
 
-[gpt-oss 120B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-120b-maas)  
+[gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
 `(gpt-oss-120b-maas)`
 
-[gpt-oss 20B](https://console.cloud.google.com/vertex-ai/publishers/openai/model-garden/gpt-oss-20b-maas)  
+[gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)  
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
 
-[Kimi K2 Thinking](https://console.cloud.google.com/vertex-ai/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
 `(kimi-k2-thinking-maas)`
 
 Llama models
@@ -2208,27 +2208,27 @@ Llama 4 Scout 17B-16E
 
 MiniMax models
 
-[MiniMax M2](https://console.cloud.google.com/vertex-ai/publishers/minimaxai/model-garden/minimax-m2-maas)  
+[MiniMax M2](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)  
 `(minimax-m2-maas)`
 
 Qwen models
 
-[Qwen3-Next-80B Thinking](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
+[Qwen3-Next-80B Thinking](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-thinking-maas)  
 `(qwen3-next-80b-a3b-thinking-maas)`
 
-[Qwen3-Next-80B Instruct](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
+[Qwen3-Next-80B Instruct](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)  
 `(qwen3-next-80b-a3b-instruct-maas)`
 
-[Qwen3 Coder](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
+[Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)  
 `(qwen3-coder-480b-a35b-instruct-maas)`
 
-[Qwen3 235B](https://console.cloud.google.com/vertex-ai/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
+[Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)  
 `(qwen3-235b-a22b-instruct-2507-maas)`
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/vertex-ai/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
 `(multilingual-e5-large-instruct-maas)`

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of getting started with Responsible AI with Gemini API, run the "Responsible AI with Agent Platform Gemini API: Safety ratings and thresholds" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb)
 
 Google's generative AI models, like Gemini 2.5 Flash, are designed to prioritize safety. However, they can still generate harmful responses, especially when they're explicitly prompted. To further enhance safety and minimize misuse, you can configure content filters to block potentially harmful responses.
 
@@ -24,17 +24,17 @@ Safety and content filters act as a barrier, preventing harmful output, but they
 
 ## Unsafe prompts
 
-The Gemini API in Gemini Enterprise Agent Platform provides one of the following `enum` codes to explain why a prompt was rejected:
+The Gemini API provides one of the following `enum` codes to explain why a prompt was rejected:
 
-| Enum                         | Filter type                    | Description                                                                                                                                                                                                                                                                                                                    |
-| ---------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `PROHIBITED_CONTENT`         | Non-configurable safety filter | The prompt was blocked because it was flagged for containing prohibited contents, usually CSAM.                                                                                                                                                                                                                                |
-| `BLOCKED_REASON_UNSPECIFIED` | N/A                            | The reason for blocking the prompt is unspecified.                                                                                                                                                                                                                                                                             |
-| `OTHER`                      | N/A                            | This enum refers to all other reasons for blocking a prompt. Note that Gemini API in Gemini Enterprise Agent Platform does not support all languages. For a list of supported languages, see [Gemini language support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#languages-gemini) . |
+| Enum                         | Filter type                    | Description                                                                                                                                                                                                                                                                                |
+| ---------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `PROHIBITED_CONTENT`         | Non-configurable safety filter | The prompt was blocked because it was flagged for containing prohibited contents, usually CSAM.                                                                                                                                                                                            |
+| `BLOCKED_REASON_UNSPECIFIED` | N/A                            | The reason for blocking the prompt is unspecified.                                                                                                                                                                                                                                         |
+| `OTHER`                      | N/A                            | This enum refers to all other reasons for blocking a prompt. Note that Gemini API does not support all languages. For a list of supported languages, see [Gemini language support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#languages-gemini) . |
 
 To learn more, see the [`BlockedReason` API reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.types.GenerateContentResponse.PromptFeedback.BlockedReason) .
 
-The following are examples of Gemini API in Gemini Enterprise Agent Platform output for prompt feedback. If a prompt is blocked, `promptFeedback` contains a `blockReason` . If a prompt is not blocked, `promptFeedback` is empty, as in the following example:
+The following are examples of Gemini API output for prompt feedback. If a prompt is blocked, `promptFeedback` contains a `blockReason` . If a prompt is not blocked, `promptFeedback` is empty, as in the following example:
 
     {
       "promptFeedback": {
@@ -77,7 +77,7 @@ The following filters can detect and block potentially unsafe responses:
   - **Configurable content filters** , which block unsafe content based on a list of harm categories and their user-configured blocking thresholds. You can configure blocking thresholds for each of these harms based on what is appropriate for your use case and business. To learn more, see [Configurable content filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters#configurable-filters) .
   - **Citation filters** , which provide citations for source material. To learn more, see [Citation filter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters#citation-filter) .
 
-An LLM generates responses in units of text called tokens. A model stops generating tokens because it reaches a natural stopping point or because one of the filters blocks the response. The Gemini API in Gemini Enterprise Agent Platform provides one of the following `enum` codes to explain why token generation stopped:
+An LLM generates responses in units of text called tokens. A model stops generating tokens because it reaches a natural stopping point or because one of the filters blocks the response. The Gemini API provides one of the following `enum` codes to explain why token generation stopped:
 
 | Enum                        | Filter type                    | Description                                                                                                                                                                                                                                                                                               |
 | --------------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -121,18 +121,18 @@ Content can have a low *probability* score and a high *severity* score, or a hig
 
 ### Content filter configuration options
 
-You can use the Gemini API in Gemini Enterprise Agent Platform or the Google Cloud console to configure content filters.
+You can use the Gemini API or the Google Cloud console to configure content filters.
 
-### Gemini API in Gemini Enterprise Agent Platform
+### Gemini API
 
-The Gemini API in Gemini Enterprise Agent Platform provides two "harm block" methods:
+The Gemini API provides two "harm block" methods:
 
   - **SEVERITY** : This method uses both probability and severity scores.
   - **PROBABILITY** : This method uses the probability score only.
 
 The default method is `SEVERITY` . For models older than `gemini-1.5-flash` and `gemini-1.5-pro` , the default method is `PROBABILITY` . To learn more, see [`HarmBlockMethod` API reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.types.SafetySetting.HarmBlockMethod) .
 
-The Gemini API in Gemini Enterprise Agent Platform provides the following "harm block" thresholds:
+The Gemini API provides the following "harm block" thresholds:
 
   - **`BLOCK_LOW_AND_ABOVE`** : Block when the probability score or the severity score is `LOW` , `MEDIUM` or `HIGH` .
   - **`BLOCK_MEDIUM_AND_ABOVE`** : Block when the probability score or the severity score is `MEDIUM` or `HIGH` .
@@ -181,7 +181,7 @@ To set the thresholds, see the following steps:
 
 ### Example output for a blocked response
 
-The following is an example of Gemini API in Gemini Enterprise Agent Platform output when a response is blocked by the configurable content filter for containing dangerous content:
+The following is an example of Gemini API output when a response is blocked by the configurable content filter for containing dangerous content:
 
     {
       "candidates": [{
@@ -221,7 +221,7 @@ The following is an example of Gemini API in Gemini Enterprise Agent Platform ou
 
 ### Implementing a content filter configuration
 
-The following examples demonstrate how you can configure the content filter using the Gemini API in Gemini Enterprise Agent Platform:
+The following examples demonstrate how you can configure the content filter using the Gemini API:
 
 ### Python
 

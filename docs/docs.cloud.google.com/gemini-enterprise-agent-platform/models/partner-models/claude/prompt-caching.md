@@ -34,6 +34,12 @@ By default, the cache has a five-minute lifetime or time to live (TTL). You can 
 
 The one-hour TTL isn't supported for the following models: Claude 3.7 Sonnet, Claude 3.5 Sonnet v2, Claude 3.5 Sonnet, and Claude 3 Opus.
 
+### Use prompt caching with the global endpoint
+
+When you use prompt caching with the global endpoint ( `global` ), subsequent requests might be routed to different backend servers. Because prompt caches are stored in memory on specific servers, this routing can cause unexpected cache misses.
+
+To ensure consistent cache hits on the global endpoint, include the `X-Vertex-Ai-Session-Id` header with a unique session ID in your requests. This header enables session affinity, ensuring that subsequent requests with the same session ID are routed to the backend server where your cache is stored. Alternatively, you can use a regional endpoint instead of the global endpoint.
+
 ## Pricing
 
 Prompt caching can affect billing costs. Note that:

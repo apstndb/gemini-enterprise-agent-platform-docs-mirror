@@ -6,10 +6,6 @@ description: Learn how to test your policies for agent runtime traffic ingress a
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Agent Gateway**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 After you define policies for agent ingress and egress traffic, we recommend that you test them to ensure they're working as you expect before you enforce them. When you test a policy, you can verify that it correctly filters traffic during ingress or egress based on the conditions you've defined. This page describes how to use dry-run modes to test ingress policies using Identity-Aware Proxy and egress policies using Agent Gateway.
 
 ## Before you begin

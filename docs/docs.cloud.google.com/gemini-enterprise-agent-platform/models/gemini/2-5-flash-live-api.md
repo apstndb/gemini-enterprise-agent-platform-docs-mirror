@@ -33,13 +33,25 @@ Model ID
 
 Modalities
 
-Inputs
+description
 
-Text, image, audio, video
+Text  
+Input and output
 
-Outputs
+photo
 
-Text, audio
+Image  
+Input only
+
+mic
+
+Audio  
+Input and output
+
+videocam
+
+Video  
+Input only
 
 Token limits
 
@@ -95,7 +107,7 @@ See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 Technical specifications
 
-**Images** photo
+**Image** photo
 
   - Maximum images per prompt: 3,000
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB
@@ -190,13 +202,25 @@ Model ID
 
 Modalities
 
-Inputs
+description
 
-Text, image, audio, video
+Text  
+Input and output
 
-Outputs
+photo
 
-Text, audio
+Image  
+Input only
+
+mic
+
+Audio  
+Input and output
+
+videocam
+
+Video  
+Input only
 
 Token limits
 
@@ -256,7 +280,7 @@ See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 Technical specifications
 
-**Images** photo
+**Image** photo
 
   - Maximum images per prompt: 3,000
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB

@@ -48,7 +48,7 @@ See the following documentation:
 
 ### Try code samples and tutorials
 
-Notebook tutorials show how to use the Agent Platform SDK for Python as part of a larger workflow. For more information, see [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials/jupyter-notebooks) .
+Notebook tutorials show how to use the Agent Platform SDK for Python as part of a larger workflow. For more information, see [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .
 
 Code samples in the Agent Platform SDK for Python GitHub repository show you how to complete individual tasks. For more information, see the [Agent Platform SDK for Python GitHub repository](https://github.com/googleapis/python-aiplatform/) .
 

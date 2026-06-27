@@ -82,7 +82,7 @@ For information about how to use a specific version to create a Agent Platform W
 
 Before you upgrade, complete the following steps.
 
-1.  Check the [release notes](https://docs.cloud.google.com/vertex-ai/docs/release-notes) to learn about updates to newer versions.
+1.  Check the [release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes) to learn about updates to newer versions.
 
 2.  [Make a copy of your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#copy-user-data) as a backup.
 

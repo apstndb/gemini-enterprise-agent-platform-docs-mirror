@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of using the Chat Completions API, run the "Call Gemini with the OpenAI Library" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/chat-completions/intro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fchat-completions%2Fintro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fchat-completions%2Fintro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/chat-completions/intro_chat_completions_api.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/chat-completions/intro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fchat-completions%2Fintro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fchat-completions%2Fintro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/chat-completions/intro_chat_completions_api.ipynb)
 
 The Chat Completions API works as an Open AI-compatible endpoint, designed to make it easier to interface with Gemini on Gemini Enterprise Agent Platform by using the OpenAI libraries for Python and REST. If you're already using the OpenAI libraries, you can use this API as a low-cost way to switch between calling OpenAI models and Agent Platform hosted models to compare output, cost, and scalability, without changing your existing code. If you aren't already using the OpenAI libraries, we recommend that you [use the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart-multimodal) . To migrate your existing OpenAI SDK code to use the Google Gen AI SDK, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .
 
@@ -56,11 +56,11 @@ The [Hugging Face Text Generation Interface (HF TGI)](https://huggingface.co/doc
 <li><a href="https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407"><code dir="ltr" translate="no">Mistral-Nemo-Instruct-2407</code></a></li>
 </ul></td>
 <td><ul>
-<li><a href="https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/335">Gemma</a></li>
-<li><a href="https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama2">Llama 2</a></li>
-<li><a href="https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama3">Llama 3</a></li>
-<li><a href="https://console.cloud.google.com/vertex-ai/publishers/mistral-ai/model-garden/mistral-7b">Mistral-7B</a></li>
-<li><a href="https://console.cloud.google.com/vertex-ai/publishers/mistralai/model-garden/mistral-nemo">Mistral Nemo</a></li>
+<li><a href="https://console.cloud.google.com/agent-platform/publishers/google/model-garden/335">Gemma</a></li>
+<li><a href="https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama2">Llama 2</a></li>
+<li><a href="https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3">Llama 3</a></li>
+<li><a href="https://console.cloud.google.com/agent-platform/publishers/mistral-ai/model-garden/mistral-7b">Mistral-7B</a></li>
+<li><a href="https://console.cloud.google.com/agent-platform/publishers/mistralai/model-garden/mistral-nemo">Mistral Nemo</a></li>
 </ul></td>
 </tr>
 </tbody>

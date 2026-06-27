@@ -14,7 +14,7 @@ To ensure that your Agent Platform Workbench instance has software that is compa
 
 Agent Platform Workbench instance images are updated frequently, and specific versions of preinstalled software and packages vary from version to version.
 
-To learn more about specific Agent Platform Workbench versions, see the [Agent Platform release notes](https://docs.cloud.google.com/vertex-ai/docs/release-notes) .
+To learn more about specific Agent Platform Workbench versions, see the [Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes) .
 
 After you create a specific version of a Agent Platform Workbench instance, you can upgrade it. Upgrading the instance updates the preinstalled software and packages. For more information, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) .
 

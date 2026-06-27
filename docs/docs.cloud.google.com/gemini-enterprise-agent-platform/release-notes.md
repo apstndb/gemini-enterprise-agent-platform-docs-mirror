@@ -10,6 +10,27 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 26, 2026
+
+Feature
+
+### New Provisioned Throughput features
+
+The following Provisioned Throughput features are generally available:
+
+  - **Change an order** : See [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
+  - **Schedule a new order** : Set a start date and time when you create an order. See [Place a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#place-an-order) .
+  - **Schedule a change to an order** : Set a start date and time when you change an order. See [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
+  - **Split an order** : Divide an active order into two orders. See [Split an order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#split-order) .
+
+## June 25, 2026
+
+Announcement
+
+**Administrative correction to Gemini Online Inference API on Gemini Enterprise Agent Platform SLA**
+
+We made an administrative correction to the Gemini Online Inference API on Gemini Enterprise Agent Platform [Service Level Agreement (SLA)](https://cloud.google.com/vertex-ai/generative-ai/sla?e=48754805) , addressing a clerical issue.
+
 ## June 24, 2026
 
 Feature

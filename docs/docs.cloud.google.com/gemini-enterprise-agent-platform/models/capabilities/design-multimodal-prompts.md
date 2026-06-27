@@ -6,7 +6,7 @@ description: Learn how to design multimodal prompts that work with the Gemini AP
 data_source: docs.cloud.google.com
 ---
 
-The Gemini API in Gemini Enterprise Agent Platform lets you include multimodal inputs like text, images, and video as part of your prompt to Gemini models. This page provides best practices for designing multimodal prompts and how to troubleshoot if your prompts aren't working as expected. For general guidance on prompt design, see [our recommended prompt design strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , or see the following list of multimodal-specific best practices.
+The Gemini API lets you include multimodal inputs like text, images, and video as part of your prompt to Gemini models. This page provides best practices for designing multimodal prompts and how to troubleshoot if your prompts aren't working as expected. For general guidance on prompt design, see [our recommended prompt design strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , or see the following list of multimodal-specific best practices.
 
 ## Prompt design fundamentals
 
@@ -611,4 +611,4 @@ Specify a lower value for less random responses and a higher value for more rand
 ## What's next
 
   - Try a quickstart tutorial using [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstart-ide) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
-  - To get started using the Gemini API in Gemini Enterprise Agent Platform, see the [Gemini API in Gemini Enterprise Agent Platform quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+  - To get started using the Gemini API, see the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .

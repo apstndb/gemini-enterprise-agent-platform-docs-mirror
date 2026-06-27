@@ -22,13 +22,25 @@ Model ID
 
 Modalities
 
-Inputs
+description
 
-Text, image
+Text  
+Input and output
 
-Outputs
+photo
 
-Text and image
+Image  
+Input and output
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Not supported
 
 Token limits
 
@@ -88,7 +100,7 @@ Input size limit
 
 Technical specifications
 
-**Documents** description
+**Text** description
 
   - Maximum number of files per prompt: 3
   - Maximum number of pages per file: 3
@@ -97,7 +109,7 @@ Technical specifications
   - Supported MIME types:
     `application/pdf` , `text/plain`
 
-**Images** photo
+**Image** photo
 
   - Maximum images per prompt: 3
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB

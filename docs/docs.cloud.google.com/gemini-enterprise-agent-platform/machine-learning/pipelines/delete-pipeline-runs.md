@@ -83,7 +83,7 @@ You should receive a JSON response similar to the following:
 
 ### Python
 
-Use the following sample to delete a failed or cancelled pipeline run by using the [`PipelineJob.delete`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_delete) method:
+Use the following sample to delete a failed or cancelled pipeline run by using the [`PipelineJob.delete`](https://docs.cloud.google.com/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_delete) method:
 
     from google.cloud import aiplatform
     aiplatform.init(project="PROJECT_ID", location="LOCATION")
@@ -190,7 +190,7 @@ You should receive a JSON response similar to the following:
 
 ### Python
 
-Use the following sample to delete multiple ongoing or scheduled pipeline runs by using the [`PipelineJob.batch_delete`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_batch_delete) method:
+Use the following sample to delete multiple ongoing or scheduled pipeline runs by using the [`PipelineJob.batch_delete`](https://docs.cloud.google.com/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_batch_delete) method:
 
     from google.cloud import aiplatform_v1
     from google.api_core.client_options import ClientOptions

@@ -1,18 +1,18 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview
-title: About Vertex AI Feature Store
+title: About Feature Store on Gemini Enterprise Agent Platform
 description: Serve your feature data for batch predictions and model training.
 data_source: docs.cloud.google.com
 ---
 
-Vertex AI Feature Store is a managed, cloud-native feature store service that's integral to Gemini Enterprise Agent Platform. It streamlines your ML feature management and online serving processes by letting you manage your feature data in a BigQuery table or view. You can then serve features online directly from the BigQuery data source.
+Feature Store on Gemini Enterprise Agent Platform is a managed, cloud-native feature store service that's integral to Gemini Enterprise Agent Platform. It streamlines your ML feature management and online serving processes by letting you manage your feature data in a BigQuery table or view. You can then serve features online directly from the BigQuery data source.
 
-Vertex AI Feature Store provisions resources that let you set up online serving by specifying your feature data sources. It then acts as a metadata layer interfacing with the BigQuery data sources and serves the latest feature values directly from BigQuery for online predictions at low latencies.
+Agent Platform Feature Store provisions resources that let you set up online serving by specifying your feature data sources. It then acts as a metadata layer interfacing with the BigQuery data sources and serves the latest feature values directly from BigQuery for online predictions at low latencies.
 
-In Vertex AI Feature Store, the BigQuery tables or views containing the feature data collectively form the *offline store* . You can maintain feature values, including historical feature data, in the offline store. Because all the feature data is maintained in BigQuery, Vertex AI Feature Store doesn't need to provision a separate offline store within Gemini Enterprise Agent Platform. Moreover, if you want to use the data in the offline store to train ML models, you can use the APIs and capabilities in BigQuery to export or fetch the data.
+In Agent Platform Feature Store, the BigQuery tables or views containing the feature data collectively form the *offline store* . You can maintain feature values, including historical feature data, in the offline store. Because all the feature data is maintained in BigQuery, Agent Platform Feature Store doesn't need to provision a separate offline store within Gemini Enterprise Agent Platform. Moreover, if you want to use the data in the offline store to train ML models, you can use the APIs and capabilities in BigQuery to export or fetch the data.
 
-The workflow to set up and start online serving using Vertex AI Feature Store can be summarized as follows:
+The workflow to set up and start online serving using Agent Platform Feature Store can be summarized as follows:
 
 1.  Prepare your data source in BigQuery.
 
@@ -22,9 +22,9 @@ The workflow to set up and start online serving using Vertex AI Feature Store ca
 
 4.  Serve the latest feature values online from a feature view.
 
-## Vertex AI Feature Store data model and resources
+## Agent Platform Feature Store data model and resources
 
-This section explains the data models and resources associated with the following aspects of Vertex AI Feature Store:
+This section explains the data models and resources associated with the following aspects of Agent Platform Feature Store:
 
   - [Data source preparation in BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#data_source_prep)
 
@@ -36,7 +36,7 @@ This section explains the data models and resources associated with the followin
 
 ### Data source preparation in BigQuery
 
-During online serving, Vertex AI Feature Store uses feature data from BigQuery data sources. Before you set up Feature Registry or online serving resources, you must store your feature data in one or more BigQuery tables or views.
+During online serving, Agent Platform Feature Store uses feature data from BigQuery data sources. Before you set up Feature Registry or online serving resources, you must store your feature data in one or more BigQuery tables or views.
 
 Within a BigQuery table or view, each column represents a feature. Each row contains feature values corresponding to a unique ID. For more information about how to prepare the feature data in BigQuery, see [Prepare data source](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/prepare-data-source) .
 
@@ -58,7 +58,7 @@ After you've prepared your data sources in BigQuery, you can register those data
 
 Registering your features is optional. You can serve features online even if you don't add your BigQuery data sources to the Feature Registry. However, registering your features is advantageous in the following scenarios:
 
-  - Your data contains multiple instances of the same entity ID and you need to prepare your data in a time-series format with a timestamp column. When you register your features, Vertex AI Feature Store looks up the timestamp and serves only the latest feature values.
+  - Your data contains multiple instances of the same entity ID and you need to prepare your data in a time-series format with a timestamp column. When you register your features, Agent Platform Feature Store looks up the timestamp and serves only the latest feature values.
 
   - You want to register specific feature columns from a data source.
 
@@ -68,7 +68,7 @@ Registering your features is optional. You can serve features online even if you
 
 > **Caution:** If you choose not to register your features, you must ensure that every row contains a unique value in the `ID` column. For more information, see [Data source preparation guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/prepare-data-source#guidelines) .
 
-There are two types of Vertex AI Feature Store resources in the Feature Registry:
+There are two types of Agent Platform Feature Store resources in the Feature Registry:
 
   - [Feature Registry resources for feature data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#feature_registry_resources)
 
@@ -76,7 +76,7 @@ There are two types of Vertex AI Feature Store resources in the Feature Registry
 
 #### Feature Registry resources for feature data
 
-To register your feature data in the Feature Registry, you need to create the following Vertex AI Feature Store resources:
+To register your feature data in the Feature Registry, you need to create the following Agent Platform Feature Store resources:
 
   - **Feature group** ( [`FeatureGroup`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups#resource:-featuregroup) ): A `FeatureGroup` resource is associated with a specific BigQuery source table or view. It represents a logical grouping of feature columns, which are represented by `Feature` resources. A feature group also contains one or multiple entity ID columns to identify the feature records. If the feature data is in a time-series format, the feature group must also contain a timestamp column. For information about how to create a feature group, see [Create a feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featuregroup) .
 
@@ -102,11 +102,11 @@ For more information about how to create feature monitoring resources, see [Moni
 
 ### Online serving setup
 
-To serve features for online predictions, you must define and configure at least one online serving cluster, and associate it with your feature data source or Feature Registry resources. In Vertex AI Feature Store, the online serving cluster is called an *online store* instance. An online store instance can contain multiple *feature view* instances, where each feature view is associated with a feature data source.
+To serve features for online predictions, you must define and configure at least one online serving cluster, and associate it with your feature data source or Feature Registry resources. In Agent Platform Feature Store, the online serving cluster is called an *online store* instance. An online store instance can contain multiple *feature view* instances, where each feature view is associated with a feature data source.
 
 #### Online serving resources
 
-To set up online serving, you must create the following Vertex AI Feature Store resources:
+To set up online serving, you must create the following Agent Platform Feature Store resources:
 
   - **Online store** ( [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores#resource:-featureOnlineStore) ): A [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores#resource:-featureOnlineStore) resource represents an online serving cluster instance and contains the online serving configuration, such as the number of online serving nodes. An online store instance doesn't specify the source of the feature data, but contains `FeatureView` resources that specify the feature data sources in either BigQuery or the Feature Registry. For information about how to create an online store instance, see [Create an online store instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-onlinestore) .
 
@@ -124,7 +124,7 @@ For example, figure 3 illustrates a feature view comprising feature columns `f2`
 
 ### Online serving
 
-Vertex AI Feature Store provides the following types of online serving for real-time online predictions:
+Agent Platform Feature Store provides the following types of online serving for real-time online predictions:
 
   - **Bigtable online serving** is useful for serving large data volumes (terabytes of data). Bigtable online serving doesn't support [embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#embedding) . If you need to serve large volumes of data that are frequently updated and don't need to serve embeddings, use Bigtable online serving.
 
@@ -132,7 +132,7 @@ Vertex AI Feature Store provides the following types of online serving for real-
     
     To use Optimized online serving, you need to configure either a public endpoint or a dedicated Private Service Connect endpoint.
 
-To learn how to set up online serving in Vertex AI Feature Store after you set up features, see [Online serving types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types) .
+To learn how to set up online serving in Agent Platform Feature Store after you set up features, see [Online serving types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types) .
 
 ## Offline serving for batch predictions or model training
 
@@ -144,7 +144,7 @@ Because you don't need to copy or import your feature data from BigQuery to a se
 
 For more information about machine learning using BigQuery, see [BigQuery ML introduction](https://docs.cloud.google.com/bigquery/docs/bqml-introduction) .
 
-## Vertex AI Feature Store terms
+## Agent Platform Feature Store terms
 
 ### Terms related to feature engineering
 
@@ -198,35 +198,35 @@ For more information about machine learning using BigQuery, see [BigQuery ML int
 
 ## Location constraints
 
-All Vertex AI Feature Store resources must be located in the same region or the same multi-regional location as your BigQuery data source. For example, if the feature data source is located in `us-central1` , you must create your `FeatureOnlineStore` instance only in `us-central1` or in the `US` multi-region location.
+All Agent Platform Feature Store resources must be located in the same region or the same multi-regional location as your BigQuery data source. For example, if the feature data source is located in `us-central1` , you must create your `FeatureOnlineStore` instance only in `us-central1` or in the `US` multi-region location.
 
 > **Caution:** Using source data from dual-region buckets isn't supported.
 
 ## Feature metadata
 
-Vertex AI Feature Store is integrated with Knowledge Catalog to provide feature governance capabilities, including feature metadata. Online store instances, feature views, and feature groups are automatically registered as data assets in Data Catalog, a feature that catalogs metadata from these resources. You can then use the metadata search capability of Knowledge Catalog to search for, view, and manage the metadata for these resources. For more information about searching for Vertex AI Feature Store resources, see [Search for resource metadata in Data Catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-feature-metadata) .
+Agent Platform Feature Store is integrated with Knowledge Catalog to provide feature governance capabilities, including feature metadata. Online store instances, feature views, and feature groups are automatically registered as data assets in Data Catalog, a feature that catalogs metadata from these resources. You can then use the metadata search capability of Knowledge Catalog to search for, view, and manage the metadata for these resources. For more information about searching for Agent Platform Feature Store resources, see [Search for resource metadata in Data Catalog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-feature-metadata) .
 
 ### Feature labels
 
-You can add labels to resources during or after the resource creation. For more information about adding labels to existing Vertex AI Feature Store resources, see [Update labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/feature-labels) .
+You can add labels to resources during or after the resource creation. For more information about adding labels to existing Agent Platform Feature Store resources, see [Update labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/feature-labels) .
 
 ### Resource version metadata
 
-Vertex AI Feature Store only supports the version `0` for features.
+Agent Platform Feature Store only supports the version `0` for features.
 
 ## Feature monitoring
 
-Vertex AI Feature Store lets you set up feature monitoring to retrieve feature statistics and detect anomalies in feature data. You can either set up monitoring schedules to periodically run monitoring jobs, or manually run a monitoring job. For more information about setting up feature monitoring and running feature monitoring jobs, see [Monitor features for anomalies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/monitor-features) .
+Agent Platform Feature Store lets you set up feature monitoring to retrieve feature statistics and detect anomalies in feature data. You can either set up monitoring schedules to periodically run monitoring jobs, or manually run a monitoring job. For more information about setting up feature monitoring and running feature monitoring jobs, see [Monitor features for anomalies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/monitor-features) .
 
 ## Embedding management and vector retrieval
 
-> Gemini Enterprise Agent Platform Feature Store Optimized online serving is [deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) . Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
+> Gemini Enterprise Agent Platform Feature Store Optimized online serving is deprecated. Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
 > 
-> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/vertex-ai/docs/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
+> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
-Optimized online serving in Vertex AI Feature Store supports embedding management. You can store embeddings in BigQuery as regular `double` arrays. Using the embedding management capabilities of Vertex AI Feature Store, you can perform vector similarity searches to retrieve entities that are approximate nearest neighbors for a specified entity or embedding value.
+Optimized online serving in Agent Platform Feature Store supports embedding management. You can store embeddings in BigQuery as regular `double` arrays. Using the embedding management capabilities of Agent Platform Feature Store, you can perform vector similarity searches to retrieve entities that are approximate nearest neighbors for a specified entity or embedding value.
 
-To use embedding management in Vertex AI Feature Store, you need to do the following:
+To use embedding management in Agent Platform Feature Store, you need to do the following:
 
   - Set up the BigQuery data source to support embeddings by including the `embedding` column. Optionally, include filtering and crowding columns. For more information, see [Data source preparation guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/prepare-data-source#guidelines) .
 
@@ -234,25 +234,25 @@ To use embedding management in Vertex AI Feature Store, you need to do the follo
 
   - Specify the `embedding` column while creating the feature view. For more information about how to create a feature view that supports embeddings, see [Configure vector retrieval for a feature view](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview#configure-vectorretrieval) .
 
-For information about how to perform a vector similarity search in Vertex AI Feature Store, see [Perform a vector search for entities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/embeddings-search) .
+For information about how to perform a vector similarity search in Agent Platform Feature Store, see [Perform a vector search for entities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/embeddings-search) .
 
 ## Data retention
 
-Vertex AI Feature Store retains the latest feature values for a unique ID, based on the timestamp associated with the feature values in the data source. There's no data retention limit in the online store.
+Agent Platform Feature Store retains the latest feature values for a unique ID, based on the timestamp associated with the feature values in the data source. There's no data retention limit in the online store.
 
 Because the offline store is provisioned by BigQuery, data retention limits or quotas from BigQuery might apply to the feature data source, including historical feature values. [Learn more about quotas and limits in BigQuery](https://docs.cloud.google.com/bigquery/quotas) .
 
 ## Quotas and limits
 
-Vertex AI Feature Store enforces quotas and limits to help you manage resources by setting usage limits, and to protect the community of Google Cloud users by preventing unforeseen spikes in usage. To efficiently use Vertex AI Feature Store resources without hitting these constraints, review the [Vertex AI Feature Store quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#feature_store) .
+Agent Platform Feature Store enforces quotas and limits to help you manage resources by setting usage limits, and to protect the community of Google Cloud users by preventing unforeseen spikes in usage. To efficiently use Agent Platform Feature Store resources without hitting these constraints, review the [Agent Platform Feature Store quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#feature_store) .
 
 ## Pricing
 
-For information about resource usage pricing for Vertex AI Feature Store, see [Vertex AI Feature Store pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#featurestore) .
+For information about resource usage pricing for Agent Platform Feature Store, see [Agent Platform Feature Store pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#agent-platform-feature-store) .
 
 ## Notebook tutorials
 
-Use the following samples and tutorials to learn more about Vertex AI Feature Store.
+Use the following samples and tutorials to learn more about Feature Store on Gemini Enterprise Agent Platform.
 
 ### Online feature serving and fetching of BigQuery data with Vertex AI Feature Store Bigtable online serving
 
@@ -265,7 +265,7 @@ Use the following samples and tutorials to learn more about Vertex AI Feature St
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/featurestore/images/icon-vertex.png" /></td>
 <td><p>In this tutorial, you learn how to use Bigtable online serving in Vertex AI Feature Store for online serving and fetching of feature values in BigQuery.</p>
-<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fonline_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb">View on GitHub</a></p></td>
+<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fonline_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb">View on GitHub</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -281,7 +281,7 @@ Use the following samples and tutorials to learn more about Vertex AI Feature St
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/featurestore/images/icon-vertex.png" /></td>
 <td><p>In this tutorial, you learn how to use Vertex AI Feature Store for online serving and vector retrieval of feature values in BigQuery.</p>
-<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fonline_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb">View on GitHub</a></p></td>
+<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fonline_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/online_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb">View on GitHub</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -297,7 +297,7 @@ Use the following samples and tutorials to learn more about Vertex AI Feature St
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/featurestore/images/icon-vertex.png" /></td>
 <td><p>In this tutorial, you learn how to enable feature view Service Agents and grant each feature view access to the specific source data that is used.</p>
-<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_feature_view_service_agents.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fvertex_ai_feature_store_feature_view_service_agents.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_feature_view_service_agents.ipynb">View on GitHub</a></p></td>
+<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_feature_view_service_agents.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fvertex_ai_feature_store_feature_view_service_agents.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_feature_view_service_agents.ipynb">View on GitHub</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -313,7 +313,7 @@ Use the following samples and tutorials to learn more about Vertex AI Feature St
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/featurestore/images/icon-vertex.png" /></td>
 <td><p>In this tutorial, you learn how to chunk user-provided data, and then generate embedding vectors for each chunk using a Large Language Model (LLM) that has embedding generation capabilities. The resulting embedding vector dataset can then be loaded into Vertex AI Feature Store, enabling fast feature retrieval and efficient online serving.</p>
-<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_based_llm_grounding_tutorial.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fvertex_ai_feature_store_based_llm_grounding_tutorial.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_based_llm_grounding_tutorial.ipynb">View on GitHub</a></p></td>
+<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_based_llm_grounding_tutorial.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fvertex_ai_feature_store_based_llm_grounding_tutorial.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_based_llm_grounding_tutorial.ipynb">View on GitHub</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -329,7 +329,7 @@ Use the following samples and tutorials to learn more about Vertex AI Feature St
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/featurestore/images/icon-vertex.png" /></td>
 <td><p>In this tutorial, you learn how to build a low-latency vector search system for your Gen AI application using BigQuery vector search and Vertex AI Feature Store.</p>
-<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/retrieval-augmented-generation/rag_qna_with_bq_and_featurestore.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fuse-cases%2Fretrieval-augmented-generation%2Frag_qna_with_bq_and_featurestore.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/retrieval-augmented-generation/rag_qna_with_bq_and_featurestore.ipynb">View on GitHub</a></p></td>
+<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/retrieval-augmented-generation/rag_qna_with_bq_and_featurestore.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fuse-cases%2Fretrieval-augmented-generation%2Frag_qna_with_bq_and_featurestore.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/use-cases/retrieval-augmented-generation/rag_qna_with_bq_and_featurestore.ipynb">View on GitHub</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -345,7 +345,7 @@ Use the following samples and tutorials to learn more about Vertex AI Feature St
 <tr class="odd">
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/featurestore/images/icon-vertex.png" /></td>
 <td><p>In this tutorial, you learn how to configure an IAM policy to control access to resources and data stored within Vertex AI Feature Store.</p>
-<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_iam_policy.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fvertex_ai_feature_store_iam_policy.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_iam_policy.ipynb">View on GitHub</a></p></td>
+<p><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_iam_policy.ipynb">Open in Colab</a> | <a href="https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Ffeature_store%2Fvertex_ai_feature_store_iam_policy.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/feature_store/vertex_ai_feature_store_iam_policy.ipynb">View on GitHub</a></p></td>
 </tr>
 </tbody>
 </table>

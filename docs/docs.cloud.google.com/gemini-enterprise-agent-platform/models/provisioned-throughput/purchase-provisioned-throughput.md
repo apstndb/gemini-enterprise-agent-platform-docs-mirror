@@ -70,7 +70,11 @@ This role includes the following permissions:
 | `aiplatform.provisionedThroughputs.update` | Modify a Provisioned Throughput order.        |
 | `aiplatform.provisionedThroughputs.cancel` | Cancel a pending order or pending update.     |
 
-## Place a standard Provisioned Throughput order
+## Planning your Provisioned Throughput order
+
+Consider the following when planning your Provisioned Throughput orders.
+
+### Quotas
 
 If you expect your QPM to exceed 30,000, then to maximize your Provisioned Throughput order, [request a quota adjustment](https://docs.cloud.google.com/docs/quotas/help/request_increase) for your default Agent Platform system quota using the following information:
 
@@ -80,7 +84,11 @@ If you expect your QPM to exceed 30,000, then to maximize your Provisioned Throu
   - **Dimensions** : The region where you ordered Provisioned Throughput.
   - **Value** : This is your chosen online-prediction traffic limit.
 
+### Order processing
+
 Provisioned Throughput orders are processed based on the size of the order and the available capacity. Depending on the number of GSUs requested and the available capacity, it might take from a few minutes to a few weeks to process your order. While placing a Provisioned Throughput order, you can use the Generative AI scale unit estimator tool to calculate the number of GSUs that you need to purchase. After reviewing the estimate, you can either proceed with it, or modify the number of GSUs to purchase.
+
+## Place a standard Provisioned Throughput order
 
 Follow these steps to purchase standard Provisioned Throughput. For assistance with purchasing Single Zone Provisioned Throughput, [contact your Google Cloud account representative](https://cloud.google.com/contact) .
 
@@ -191,11 +199,11 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
       - **3 months**
       - **1 year**
 
-11. Optional: Select the **Start date and time** for your term (Preview).
+11. Optional: Select the **Start date and time** for your term.
     
     You can provide a start date and time within two weeks into the future from when you place the order. If you don't specify a start date and time, then the order is processed as soon as the capacity is available. Requested start dates and times are processed based on commercially reasonable efforts, and orders aren't guaranteed to be fulfilled by these dates until the order status is set to **Approved** .
     
-    If your requested start date is too close to the current date, your order might be approved and activated after your requested start date. In this case, the end date is adjusted, based on the duration of the selected term, starting from the activation date. For information about cancelling a pending order, see [Change Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
+    If your requested start date is too close to the current date, your order might be approved and activated after your requested start date. In this case, the end date is adjusted, based on the duration of the selected term, starting from the activation date. For information about cancelling a pending order, see [Change a standard Provisioned Throughput order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#change-order) .
     
     > **Note:** You can schedule a future start date and time only for Google models. Scheduling a start date and time isn't available for open models.
 
@@ -211,15 +219,15 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
 
 ## Change a standard Provisioned Throughput order
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+You can modify your Provisioned Throughput orders by using the Google Cloud console based on the status of your order and any existing conditions. Modifying your orders is only available for online orders for Google models placed through the console. For changes to offline orders or orders for open models, contact your [Google Cloud account representative](https://cloud.google.com/contact) for assistance. You can't change Provisioned Throughput orders for Google models to open models.
 
-This table describes how you can modify your Provisioned Throughput orders through the [Google Cloud console](https://console.cloud.google.com/agent-platform/provisioned-throughput) based on the status of your order and any existing conditions. Modifying your orders is a Preview feature and is only available for online orders placed through the console. For changes to offline orders, contact your [Google Cloud account representative](https://cloud.google.com/contact) for assistance.
+When you use the Google Cloud console to change your model or model version, the existing order's model or model version is updated, but the subscription end date remains the same.
 
-Also, changes made when using the Google Cloud console to your model or model version modifies the existing order while keeping the same subscription end date.
+You can provide a start date and time within the next two weeks for your change request. If you don't specify a start date and time, then the change request is processed as soon as the capacity is available. Requested start dates and times are processed based on commercially reasonable efforts, and order changes aren't guaranteed to be fulfilled by these dates until the change status is set to **Approved** .
 
-To change a Provisioned Throughput order for an open model, [contact your Google Cloud account representative](https://cloud.google.com/contact) for assistance. You can't change Provisioned Throughput orders for Google models to open models.
+If your requested start date is too close to the current date, your change order might be approved and activated after your requested start date. For information about cancelling a pending change order, see the following table.
+
+The following table describes how to modify your Provisioned Throughput orders by using the [Google Cloud console](https://console.cloud.google.com/agent-platform/provisioned-throughput)
 
 <table>
 <colgroup>
@@ -278,6 +286,30 @@ To change a Provisioned Throughput order for an open model, [contact your Google
 </tr>
 </tbody>
 </table>
+
+### Split an order
+
+You can divide an active order into two orders while maintaining the same model, region, term, expiration time, and renewal policy to facilitate partial migrations.
+
+To split an order, do the following:
+
+1.  In the Google Cloud console, go to the **Provisioned Throughput Orders** page.
+
+2.  Click an Order ID.
+
+3.  On the **Order details** page, click the **Split** button.
+
+4.  Enter an **Order name** for the split order that you are creating.
+
+5.  Enter the number of GSUs to be moved from the original order to this new order.
+
+6.  Review the **Summary of changes** table to understand how this action will impact your existing order.
+
+7.  Click **Submit changes** .
+    
+    The Orders summary page opens. On the Orders summary page, your new split order is shown with an **Approved** status.
+
+Within 10 minutes, the split order will move to **Active** status and the original order's GSU count will be reduced by the number of GSUs activated on the newly created order. There is no loss in service or increase in billing charges as a result of this change.
 
 ### When you can't change an order
 

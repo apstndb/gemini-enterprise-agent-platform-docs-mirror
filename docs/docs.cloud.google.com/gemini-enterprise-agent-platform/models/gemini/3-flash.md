@@ -12,26 +12,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3 Flash combines Gemini 3 Pro's reasoning capabilities with the Flash line's levels on latency, efficiency, and cost. It not only enables everyday tasks with improved reasoning, but is designed to tackle the most complex agentic workflows.
 
-Gemini 3 Flash uses several new features to improve performance, control, and multimodal fidelity:
-
-  - **Thinking level** : Use the `thinking_level` parameter to control the amount of internal reasoning the model performs ( *minimal* , *low* , *medium* , or *high* ) to balance response quality, reasoning complexity, latency, and cost. The `thinking_level` parameter replaces `thinking_budget` for Gemini 3 models.
-    
-    > **Note:** If you used a thinking budget of `0` with Gemini 2.5 Flash, set your thinking level to `MINIMAL` for similar latency and cost; however, you still need to handle thought signatures when using the *minimal* thinking level.
-    
-    For details on the different thinking levels, see [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#gemini-3-and-later-models) .
-
-  - **Thought signatures** : Stricter validation of [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) improves reliability in multi-turn function calling.
-
-  - **Media resolution** : Use the `media_resolution` parameter ( *low* , *medium* , *high* , or *ultra high* ) to control vision processing for multimodal inputs, impacting token usage and latency. See [Get started with Gemini 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media_resolution) for default resolution settings.
-    
-      - The *ultra high* media resolution level is only available for the `IMAGE` modality.
-      - PDF token counts will be listed under the `IMAGE` modality instead of the `DOCUMENT` modality in `usage_metadata` .
-
-  - **Multimodal function responses** : Function responses can now include [multimodal objects like images and PDFs in addition to text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#mm-fr) .
-
-  - **Streaming Function calling** : [Stream partial function call arguments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#streaming-fc) to improve user experience during tool use.
-
-For more information on using these features, see [Get started with Gemini 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3) .
+See [Get started with Gemini 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3) for information on what's new with the Gemini 3 family of models.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-flash-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-flash-preview)
 
@@ -43,13 +24,25 @@ Model ID
 
 Modalities
 
-Inputs
+description
 
-Text, image, audio, video
+Text  
+Input and output
 
-Outputs
+photo
 
-Text
+Image  
+Input only
+
+mic
+
+Audio  
+Input only
+
+videocam
+
+Video  
+Input only
 
 Token limits
 
@@ -102,7 +95,7 @@ See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 Technical specifications
 
-**Documents** description
+**Text** description
 
   - Maximum number of files per prompt: 3000
   - Maximum number of pages per file: 3000
@@ -113,7 +106,7 @@ Technical specifications
   - Supported MIME types:
     `application/pdf` , `text/plain`
 
-**Images** photo
+**Image** photo
 
   - Maximum images per prompt: 3000
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB

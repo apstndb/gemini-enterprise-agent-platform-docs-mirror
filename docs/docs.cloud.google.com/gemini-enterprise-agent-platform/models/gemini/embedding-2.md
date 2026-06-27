@@ -32,13 +32,25 @@ Model ID
 
 Modalities
 
-Inputs
+description
 
-Text, images, audio, video, pdf
+Text  
+Input only
 
-Outputs
+photo
 
-Embeddings
+Image  
+Not supported
+
+mic
+
+Audio  
+Input only
+
+videocam
+
+Video  
+Input only
 
 Token limits
 
@@ -74,23 +86,6 @@ Not supported
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
 Technical specifications
-
-**Documents** description
-
-  - Maximum number of files per prompt: 1
-  - Maximum number of pages per file: 6
-  - Maximum file size per file: N/A
-  - Supported MIME types:
-    `application/pdf`
-
-**Images** photo
-
-  - Maximum images per prompt: 6
-  - Maximum file size per file for inline data or direct uploads through the console: No limit
-  - Maximum file size per file from Google Cloud Storage: No limit
-  - Maximum number of output images per prompt: N/A
-  - Supported MIME types:
-    `image/png` , `image/jpeg` , `image/webp` , `image/bmp` , `image/heic` , `image/heif` , `image/avif`
 
 **Audio** mic
 

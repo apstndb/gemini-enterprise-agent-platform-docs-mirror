@@ -38,16 +38,16 @@ Distillation provides smaller gains on tasks where the student model already per
   - Gemma 3 12B IT ( `google/gemma3@gemma-3-12b-it` )
   - Gemma 3 27B IT ( `google/gemma3@gemma-3-27b-it` )
   - Medgemma 1.5 4B IT ( `google/medgemma@medgemma-4b-it` )
+  - Qwen 3.5 9B ( `qwen/qwen3-5@qwen3.5-9b` )
+  - Qwen 3 4B ( `qwen/qwen3@qwen3-4b` )
+  - Qwen 3 8B ( `qwen/qwen3@qwen3-8b` )
+  - Qwen 3 14B ( `qwen/qwen3@qwen3-14b` )
+  - Qwen 3 32B ( `qwen/qwen3@qwen3-32b` )
   - Llama 3.1 8B ( `meta/llama3_1@llama-3.1-8b` )
   - Llama 3.1 8B Instruct ( `meta/llama3_1@llama-3.1-8b-instruct` )
   - Llama 3.2 1B Instruct ( `meta/llama3-2@llama-3.2-1b-instruct` )
   - Llama 3.2 3B Instruct ( `meta/llama3-2@llama-3.2-3b-instruct` )
   - Llama 3.3 70B Instruct ( `meta/llama3-3@llama-3.3-70b-instruct` )
-  - Qwen 3 4B ( `qwen/qwen3@qwen3-4b` )
-  - Qwen 3 8B ( `qwen/qwen3@qwen3-8b` )
-  - Qwen 3 14B ( `qwen/qwen3@qwen3-14b` )
-  - Qwen 3 32B ( `qwen/qwen3@qwen3-32b` )
-  - Qwen 3.5 9B ( `qwen/qwen3-5@qwen3.5-9b` )
   - Llama 4 Scout 17B 16E Instruct ( `meta/llama4@llama-4-scout-17b-16e-instruct` )
 
 #### Distillation tuning supported models
@@ -156,6 +156,78 @@ Modalities
 
 Text
 
+Qwen 3.5 9B
+
+Tuning modes
+
+Parameter-efficient fine-tuning  
+Full fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Qwen 3 4B
+
+Tuning modes
+
+Full fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Qwen 3 8B
+
+Tuning modes
+
+Full fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Qwen 3 14B
+
+Tuning modes
+
+Full fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Qwen 3 32B
+
+Tuning modes
+
+Parameter-efficient fine-tuning  
+Full fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
 Llama 3.1 8B
 
 Tuning modes
@@ -245,78 +317,6 @@ Text
 Images <sup>\*</sup>  
   
 <sup>\*</sup> Mixed datasets of both text-only and image examples are not supported. If there is at least one image example in the dataset, all text-only examples will be filtered out.
-
-Qwen 3 4B
-
-Tuning modes
-
-Full fine-tuning
-
-Maximum sequence length
-
-8192
-
-Modalities
-
-Text
-
-Qwen 3 8B
-
-Tuning modes
-
-Full fine-tuning
-
-Maximum sequence length
-
-8192
-
-Modalities
-
-Text
-
-Qwen 3 14B
-
-Tuning modes
-
-Full fine-tuning
-
-Maximum sequence length
-
-8192
-
-Modalities
-
-Text
-
-Qwen 3 32B
-
-Tuning modes
-
-Parameter-efficient fine-tuning  
-Full fine-tuning
-
-Maximum sequence length
-
-8192
-
-Modalities
-
-Text
-
-Qwen 3.5 9B
-
-Tuning modes
-
-Parameter-efficient fine-tuning  
-Full fine-tuning
-
-Maximum sequence length
-
-8192
-
-Modalities
-
-Text
 
 ## Before you begin
 

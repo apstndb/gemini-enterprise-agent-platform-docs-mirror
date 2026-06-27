@@ -29,7 +29,7 @@ Use the [Pricing Calculator](https://cloud.google.com/products/calculator/) to g
 
 ## Containers
 
-To support multi-host deployments, this guide uses a prebuilt vLLM container image with [Ray](https://docs.ray.io/en/latest/ray-overview/index.html) integration from [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden) . Ray enables the distributed processing required to run models across multiple GPU nodes.
+To support multi-host deployments, this guide uses a prebuilt vLLM container image with [Ray](https://docs.ray.io/en/latest/ray-overview/index.html) integration from [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) . Ray enables the distributed processing required to run models across multiple GPU nodes.
 
 If desired, you can [create your own vLLM multi-node image](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-multihost-gpu#create_your_own_vllm_multi-node_image) . Note that this custom container image needs to be [compatible with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
 

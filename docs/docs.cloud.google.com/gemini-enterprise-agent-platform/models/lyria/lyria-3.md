@@ -31,7 +31,6 @@ Supported
 
   - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
   - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts) preview Preview feature
   - [Full song generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
   - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
   - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
@@ -47,6 +46,8 @@ Supported
   - [Prompt rewriter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
 
 Not supported
+
+  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)
 
 Technical specifications
 
@@ -90,7 +91,6 @@ Supported
 
   - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
   - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts) preview Preview feature
   - [30s clip generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
   - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
   - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
@@ -106,6 +106,7 @@ Supported
 
 Not supported
 
+  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)
   - [Duration controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure)
 
 Technical specifications

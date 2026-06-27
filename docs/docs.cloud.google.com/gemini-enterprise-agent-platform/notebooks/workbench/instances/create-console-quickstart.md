@@ -12,7 +12,7 @@ Learn how to create a Gemini Enterprise Agent Platform Workbench instance and op
 
 ## Before you begin
 
-> **Note:** The [Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) lets you manage Agent Platform Workbench resources. For managing Agent Platform resources, see the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/reference/rest) .
+> **Note:** The [Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) lets you manage Agent Platform Workbench resources. For managing Agent Platform resources, see the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) .
 
 ### Required roles
 

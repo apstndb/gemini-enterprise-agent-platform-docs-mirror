@@ -18,7 +18,7 @@ To get started generating content with Gemini, do the following:
 
 2.  Review this document to learn about the Gemini model [request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#request) , [parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#parameters) , and [response body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#response) . To see some sample requests, see [Examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#sample-requests) .
 
-3.  To learn how to send a request to the Gemini API in Gemini Enterprise Agent Platform by using a programming language SDK or the REST API, see the [Gemini API in Gemini Enterprise Agent Platform quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+3.  To learn how to send a request to the Gemini API by using a programming language SDK or the REST API, see the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
 
 ## Supported models
 
