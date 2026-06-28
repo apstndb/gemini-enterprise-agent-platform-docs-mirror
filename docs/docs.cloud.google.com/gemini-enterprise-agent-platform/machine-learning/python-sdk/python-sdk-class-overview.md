@@ -17,7 +17,7 @@ If you want to try using the Agent Platform SDK for Python right now, see the fo
   - [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk)
   - [Vertex AI SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform)
   - [Vertex AI SDK language model reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/vertexai.language_models)
-  - [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction)
+  - [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction)
 
 The Vertex AI SDK includes many classes to help you automate data ingestion, train models, and get predictions. It also includes classes to help you monitor, evaluate, and optimize your machine learning (ML) workflow. The classes can be loosely grouped into the following categories:
 

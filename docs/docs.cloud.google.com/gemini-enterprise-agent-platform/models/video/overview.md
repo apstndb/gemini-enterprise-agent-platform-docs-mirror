@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/overview
-title: Generate videos with Veo
+title: Generate videos with Veo on Gemini Enterprise Agent Platform
 description: A high-level guide about Veo's model versions, locations, and using Veo responsibly.
 data_source: docs.cloud.google.com
 ---
@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 > To see an example of Veo 3 Video Generation, run the "Veo 3 Video Generation" notebook in one of the following environments:
 > 
-> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/veo3_video_generation.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/vertex-ai/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fveo3_video_generation.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/vertex-ai/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fveo3_video_generation.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/veo3_video_generation.ipynb)
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/veo3_video_generation.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fveo3_video_generation.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fvision%2Fgetting-started%2Fveo3_video_generation.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/vision/getting-started/veo3_video_generation.ipynb)
 
 Veo is Google's model for generating videos with audio. You can use this model in the [Gemini Enterprise Agent Platform Media Studio](https://console.cloud.google.com/agent-platform/studio/media/video) or using the [Gemini Enterprise Agent Platform video generation API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/VideoGenerationModelInstance) .
 
@@ -45,6 +45,6 @@ For more information about writing effective text prompts for video generation, 
 
 A location is a [region](https://docs.cloud.google.com/about/locations) that you can specify in a request to control where data is stored at rest. For more information about where Veo is available, see [Generative AI on Gemini Enterprise Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations-genai) .
 
-## Responsible AI for Veo
+## Responsible AI for Veo on Gemini Enterprise Agent Platform
 
-Veo is designed with Google's [AI Principles](https://ai.google/principles/) in mind. However, it's important to understand how to test and deploy Google's models safely and responsibly. Veo has built-in safety features to help you block potentially harmful outputs within your use cases. For more information, see [Responsible AI for Veo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines) .
+Veo on Gemini Enterprise Agent Platform is designed with Google's [AI Principles](https://ai.google/principles/) in mind. However, it's important to understand how to test and deploy Google's models safely and responsibly. Veo on Gemini Enterprise Agent Platform has built-in safety features to help you block potentially harmful outputs within your use cases. For more information, see [Responsible AI for Veo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines) .

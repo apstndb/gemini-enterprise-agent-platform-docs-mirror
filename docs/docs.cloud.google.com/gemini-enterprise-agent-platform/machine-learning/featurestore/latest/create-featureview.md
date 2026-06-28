@@ -124,9 +124,9 @@ If a feature view is configured to have a dedicated service account, you can vie
 
 ## Configure vector retrieval for a feature view
 
-> Gemini Enterprise Agent Platform Feature Store Optimized online serving is [deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) . Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
+> Gemini Enterprise Agent Platform Feature Store Optimized online serving is deprecated. Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
 > 
-> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/vertex-ai/docs/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
+> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
 You can configure vector retrieval for a feature view within an online store created for Optimized online serving by using the [`FeatureView.index_config`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores.featureViews#IndexConfig) parameter. For information about how to prepare or update the BigQuery data source to support embeddings by including the `embedding` column, see [Data source preparation guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/prepare-data-source#guidelines) .
 

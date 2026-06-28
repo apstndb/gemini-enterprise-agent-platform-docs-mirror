@@ -12,7 +12,7 @@ For more information about best practices, see [Best practices for Veo on Gemini
 
 ## Safety filters
 
-Veo applies safety filters across Agent Platform to help ensure that generated videos and uploaded photos don't contain offensive content. For example, prompts that violate [responsible AI guidelines](https://docs.cloud.google.com/vertex-ai/docs/learn/responsible-ai) are blocked.
+Veo applies safety filters across Agent Platform to help ensure that generated videos and uploaded photos don't contain offensive content. For example, prompts that violate [responsible AI guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) are blocked.
 
 If you suspect abuse of Veo or any generated output that contains inappropriate material or inaccurate information, use the [Report suspected abuse on Google Cloud form](https://support.google.com/code/contact/cloud_platform_report) .
 

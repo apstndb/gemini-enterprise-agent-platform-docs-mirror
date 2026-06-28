@@ -109,6 +109,6 @@ In your Cloud Shell session, run the following command:
 
 ## What's next
 
-  - To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials) .
+  - To learn about additional ways to train ML models on Agent Platform, try one of the other [Agent Platform tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 
   - Read an [overview of how Agent Platform works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-unified-platform) .

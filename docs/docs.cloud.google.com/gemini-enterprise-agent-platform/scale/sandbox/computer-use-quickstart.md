@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > **Preview**
 > 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides a sandbox environment for AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. To utilize this feature, you will need to enable full network access for your AI Agent so please consider applicable safeguards (including human supervision) and your organization's policies before doing so. For built-in computer use safeguards, consider the Agent Platform [Computer Use Tool](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/computer-use#safety-and-security) .
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides a sandbox environment for AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. To utilize this feature, you will need to enable full network access for your AI Agent so please consider applicable safeguards (including human supervision) and your organization's policies before doing so. For built-in computer use safeguards, consider the Agent Platform [Computer Use Tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#safety-and-security) .
 > 
 > Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) .
 

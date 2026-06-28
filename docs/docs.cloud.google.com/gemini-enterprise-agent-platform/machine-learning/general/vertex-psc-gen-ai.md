@@ -66,7 +66,7 @@ When you finish the tasks that are described in this document, you can avoid con
       gcloud config set project ${projectid}
     ```
     
-    Replace PROJECT\_ID with your project ID. If necessary, you can locate your project ID in the Google Cloud console. For more information, see [Find your project ID](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
+    Replace PROJECT\_ID with your project ID. If necessary, you can locate your project ID in the Google Cloud console. For more information, see [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
 
 7.  Grant roles to your user account. Run the following command once for each of the following IAM roles: `roles/compute.instanceAdmin.v1, roles/compute.networkAdmin, roles/compute.securityAdmin, roles/dns.admin, roles/iap.tunnelResourceAccessor, roles/iam.serviceAccountCreator, roles/iam.serviceAccountUser, roles/iam.serviceAccountDeleter, roles/resourcemanager.projectIamAdmin, roles/servicedirectory.editor, roles/servicemanagement.quotaAdmin, roles/aiplatform.user`
     

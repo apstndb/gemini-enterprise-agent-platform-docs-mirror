@@ -148,7 +148,7 @@ After you create the script, it appears in the root folder of your notebook: ![V
 
 You pass the following command-line arguments to your training script:
 
-  - `label_column` - This identifies the column in your data that contains what you want to predict. In this case, that column is `species` . You defined this in a variable named `LABEL_COLUMN` when you processed your data. For more information, see [Download, preprocess, and split the data](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction/create-dataset#download-process-public-dataset) .
+  - `label_column` - This identifies the column in your data that contains what you want to predict. In this case, that column is `species` . You defined this in a variable named `LABEL_COLUMN` when you processed your data. For more information, see [Download, preprocess, and split the data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-dataset#download-process-public-dataset) .
 
   - `epochs` - This is the number of epochs used when you train your model. An *epoch* is an iteration over the data when training your model. This tutorial uses 20 epochs.
 

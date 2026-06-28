@@ -635,9 +635,14 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
                   .build();
     
           LocationName parent = LocationName.of(project, location);
-          BatchPredictionJob response = client.createBatchPredictionJob(parent, batchPrediction<Job);
-     >     System.out.format("\tName: %s\n&q<uot;, >response.getName());
-          // Example response://Name:projects/project/locations/us-central1/batchPredictionJobs/job-idreturnresponse;}}}
+          BatchPredictionJob response = client.createBatchPredictionJob(parent, batchPredictionJob);
+          System.out.format("\tName: %s\n", response.getName());
+          // Example response:
+          //   Name: projects/<project>/locations/us-central1/batchPredictionJobs/<job-id>
+          return response;
+        }
+      }
+    }
 
 ### BigQuery input
 
@@ -702,9 +707,13 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
           LocationName parent = LocationName.of(project, location);
           BatchPredictionJob response = client.createBatchPredictionJob(parent, batchPredictionJob);
-          System.o<ut.form>at("\tName: %s\n", response.getNa<me());>
+          System.out.format("\tName: %s\n", response.getName());
           // Example response:
-          //Name:projects/project/locations/us-central1/batchPredictionJobs/job-idreturnresponse;}}}
+          //   Name: projects/<project>/locations/us-central1/batchPredictionJobs/<job-id>
+          return response;
+        }
+      }
+    }
 
 ### Go
 
@@ -730,8 +739,8 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     // batchPredictGCS submits a batch prediction job using GCS data source as its input
     func batchPredictGCS(w io.Writer, projectID, location string, inputURIs []string, outputURI string) error {
         // location := "us-central1"
-        // inputURIs := []string{&quo<t;gs://cloud-samp>l<es-data/bat>ch/prompt_for_batch_gemini_predict.jsonl"}
-        // outputURI := "gs://cloud-bucket-name/prefix-name"
+        // inputURIs := []string{"gs://cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl"}
+        // outputURI := "gs://<cloud-bucket-name>/<prefix-name>"
         modelName := "gemini-2.0-flash-001"
         jobName := "batch-predict-gcs-test-001"
     
@@ -744,32 +753,32 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         defer client.Close()
     
         modelParameters, err := structpb.NewValue(map[string]interface{}{
-            "temperature&&quot;:     0.2,
+            "temperature":     0.2,
             "maxOutputTokens": 200,
         })
         if err != nil {
-            return fmt.Errorf("unable to convert model parameters to pro&tobuf value: %w", err)
+            return fmt.Errorf("unable to convert model parameters to protobuf value: %w", err)
         }
     
-        req := aiplatformpb.CreateBatchPredictionJobRequest{
+        req := &aiplatformpb.CreateBatchPredictionJobRequest{
             Parent: fmt.Sprintf("projects/%s/locations/%s", projectID, location),
-            BatchPredictionJob: aiplatformpb.BatchPredictionJob{
+            BatchPredictionJob: &aiplatformpb.BatchPredictionJob{
                 DisplayName:     jobName,
                 Model:           fmt.Sprintf("publishers/google/models/%s", modelName),
                 ModelParameters: modelParameters,
-                // Check the API reference for `BatchPred&ictionJob` for supported input and output formats:
-                // &https://cloud.google.com/vertex-ai/docs/reference/rpc/google.cloud.aipl&atform.v1#google.cloud.aiplatform.v1.BatchPredictionJob
-                InputConfig: aiplatformpb.BatchPredictionJob_InputConfig&{
-                    Source: aiplatformpb.BatchPredictionJob_InputConfig_GcsSo&urce{
-                        GcsSource: aiplatformpb.GcsSource{
+                // Check the API reference for `BatchPredictionJob` for supported input and output formats:
+                // https://cloud.google.com/vertex-ai/docs/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.BatchPredictionJob
+                InputConfig: &aiplatformpb.BatchPredictionJob_InputConfig{
+                    Source: &aiplatformpb.BatchPredictionJob_InputConfig_GcsSource{
+                        GcsSource: &aiplatformpb.GcsSource{
                             Uris: inputURIs,
                         },
-                    }&,
+                    },
                     InstancesFormat: "jsonl",
                 },
-                OutputConfig: aiplatformpb.BatchPredictionJob_OutputConfig{
-                    Destination: aiplatformpb.BatchPredictionJob_OutputConfig_GcsDestination{
-                        GcsDestination: aiplatformpb.GcsDestination{
+                OutputConfig: &aiplatformpb.BatchPredictionJob_OutputConfig{
+                    Destination: &aiplatformpb.BatchPredictionJob_OutputConfig_GcsDestination{
+                        GcsDestination: &aiplatformpb.GcsDestination{
                             OutputUriPrefix: outputURI,
                         },
                     },
@@ -787,18 +796,30 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         fmt.Fprintf(w, "job id: %q\n", fullJobId)
         fmt.Fprintf(w, "job state: %s\n", job.GetState())
         // Example response:
-        // submitted batch predict job for model& "publishers/google/models/gemini-2.0-flash-001"
+        // submitted batch predict job for model "publishers/google/models/gemini-2.0-flash-001"
         // job id: "projects/.../locations/.../batchPredictionJobs/1234567890000000000"
         // job state: JOB_STATE_PENDING
     
         for {
             time.Sleep(5 * time.Second)
     
-            job, err := client.GetBatchPredictionJob(ctx, aiplatformpb.GetBatchPredictionJobRequest{
+            job, err := client.GetBatchPredictionJob(ctx, &aiplatformpb.GetBatchPredictionJobRequest{
                 Name: fullJobId,
             })
             if err != nil {
-                return fmt.Errorf("error: couldn't get updated job state: %w",err)}ifjob.GetEndTime()!=nil{fmt.Fprintf(w,"batch predict job finished with state %s\n",job.GetState())break}else{fmt.Fprintf(w,"batch predict job is running... job state is %s\n",job.GetState())}}returnnil}
+                return fmt.Errorf("error: couldn't get updated job state: %w", err)
+            }
+    
+            if job.GetEndTime() != nil {
+                fmt.Fprintf(w, "batch predict job finished with state %s\n", job.GetState())
+                break
+            } else {
+                fmt.Fprintf(w, "batch predict job is running... job state is %s\n", job.GetState())
+            }
+        }
+    
+        return nil
+    }
 
 ### BigQuery input
 
@@ -818,8 +839,8 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     // batchPredictBQ submits a batch prediction job using BigQuery data source as its input
     func batchPredictBQ(w io.Writer, projectID, location string, inputURI string, outputURI string) error {
         // location  := "us-central1"
-        // inputURI  := "<bq://storage-sampl>e<s.generative>_<ai.batch_r>equests_for_multimodal_input"
-        // outputURI := "bq://cloud-project-name.dataset-name.table-name"
+        // inputURI  := "bq://storage-samples.generative_ai.batch_requests_for_multimodal_input"
+        // outputURI := "bq://<cloud-project-name>.<dataset-name>.<table-name>"
         modelName := "gemini-2.0-flash-001"
         jobName := "batch-predict-bq-test-001"
     
@@ -832,33 +853,33 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         defer client.Close()
     
         modelParameters, err := structpb.NewValue(map[string]interface{}{
-            "temperature&&quot;:     0.2,
+            "temperature":     0.2,
             "maxOutputTokens": 200,
         })
         if err != nil {
-            return fmt.Errorf("unable to convert model parameters to pro&tobuf value: %w", err)
+            return fmt.Errorf("unable to convert model parameters to protobuf value: %w", err)
         }
     
-        req := aiplatformpb.CreateBatchPredictionJobRequest{
+        req := &aiplatformpb.CreateBatchPredictionJobRequest{
             Parent: fmt.Sprintf("projects/%s/locations/%s", projectID, location),
-            BatchPredictionJob: aiplatformpb.BatchPredictionJob{
+            BatchPredictionJob: &aiplatformpb.BatchPredictionJob{
                 DisplayName:     jobName,
                 Model:           fmt.Sprintf("publishers/google/models/%s", modelName),
                 ModelParameters: modelParameters,
-                // Check the API reference for `BatchPred&ictionJob` for supported input and output formats:
-                // &https://cloud.google.com/vertex-ai/docs/reference/rpc/google.cloud.aiplatform.v1#&google.cloud.aiplatform.v1.BatchPredictionJob
-                InputConfig: aiplatformpb.BatchPredictionJob_InputConfig{
-                    Source: aiplatfo&rmpb.BatchPredictionJob_InputConfig_BigquerySource{
-                        Bigque&rySource: aiplatformpb.BigQuerySource{
+                // Check the API reference for `BatchPredictionJob` for supported input and output formats:
+                // https://cloud.google.com/vertex-ai/docs/reference/rpc/google.cloud.aiplatform.v1#google.cloud.aiplatform.v1.BatchPredictionJob
+                InputConfig: &aiplatformpb.BatchPredictionJob_InputConfig{
+                    Source: &aiplatformpb.BatchPredictionJob_InputConfig_BigquerySource{
+                        BigquerySource: &aiplatformpb.BigQuerySource{
                             InputUri: inputURI,
                         },
                     },
-                    Instance&sFormat: "bigquery",
+                    InstancesFormat: "bigquery",
                 },
     
-                OutputConfig: aiplatformpb.BatchPredictionJob_OutputConfig{
-                    Destination: aiplatformpb.BatchPredictionJob_OutputConfig_BigqueryDestination{
-                        BigqueryDestination: aiplatformpb.BigQueryDestination{
+                OutputConfig: &aiplatformpb.BatchPredictionJob_OutputConfig{
+                    Destination: &aiplatformpb.BatchPredictionJob_OutputConfig_BigqueryDestination{
+                        BigqueryDestination: &aiplatformpb.BigQueryDestination{
                             OutputUri: outputURI,
                         },
                     },
@@ -876,18 +897,30 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         fmt.Fprintf(w, "job id: %q\n", fullJobId)
         fmt.Fprintf(w, "job state: %s\n", job.GetState())
         // Example response:
-        // submitted batch predict job for model& "publishers/google/models/gemini-2.0-flash-001"
+        // submitted batch predict job for model "publishers/google/models/gemini-2.0-flash-001"
         // job id: "projects/.../locations/.../batchPredictionJobs/1234567890000000000"
         // job state: JOB_STATE_PENDING
     
         for {
             time.Sleep(5 * time.Second)
     
-            job, err := client.GetBatchPredictionJob(ctx, aiplatformpb.GetBatchPredictionJobRequest{
+            job, err := client.GetBatchPredictionJob(ctx, &aiplatformpb.GetBatchPredictionJobRequest{
                 Name: fullJobId,
             })
             if err != nil {
-                return fmt.Errorf("error: couldn't get updated job state: %w",err)}ifjob.GetEndTime()!=nil{fmt.Fprintf(w,"batch predict job finished with state %s\n",job.GetState())break}else{fmt.Fprintf(w,"batch predict job is running... job state is %s\n",job.GetState())}}returnnil}
+                return fmt.Errorf("error: couldn't get updated job state: %w", err)
+            }
+    
+            if job.GetEndTime() != nil {
+                fmt.Fprintf(w, "batch predict job finished with state %s\n", job.GetState())
+                break
+            } else {
+                fmt.Fprintf(w, "batch predict job is running... job state is %s\n", job.GetState())
+            }
+        }
+    
+        return nil
+    }
 
 ## Retrieve batch output
 

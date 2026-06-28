@@ -31,7 +31,7 @@ You can use BigQuery to prepare training data for Agent Platform models, which y
 
 You can train models in Agent Platform in three ways:
 
-  - [AutoML](https://docs.cloud.google.com/vertex-ai/docs/beginner/beginners-guide) : Train models on image, tabular, and video datasets without writing code.
+  - [AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide) : Train models on image, tabular, and video datasets without writing code.
   - [Custom Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service) : Run custom training code catered to your specific use case.
   - [Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) : Use Ray to scale AI and Python applications like machine learning.
 

@@ -32,7 +32,7 @@ To learn about which TensorFlow versions have prebuilt training containers and h
 
 > **Preview**
 > 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 The [optimized TensorFlow runtime](https://docs.cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime) uses model optimizations and new proprietary Google technologies to improve the speed and lower the cost of inferences compared to Gemini Enterprise Agent Platform's standard prebuilt inference containers for TensorFlow.
 

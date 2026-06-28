@@ -52,7 +52,7 @@ For managed models, you can use curl commands to send requests to the Gemini Ent
 
 To use a self-deployed Gemini Enterprise Agent Platform model:
 
-1.  Navigate to the [Model Garden console](https://console.cloud.google.com/vertex-ai/model-garden) .
+1.  Navigate to the [Model Garden console](https://console.cloud.google.com/agent-platform/model-garden) .
 2.  Find the relevant Gemini Enterprise Agent Platform model.
 3.  Click **Enable** and complete the provided form to get the necessary commercial use licenses.
 

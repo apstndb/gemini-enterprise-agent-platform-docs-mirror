@@ -40,7 +40,7 @@ The image files you use in this tutorial are from the flower dataset used in thi
 
 ## Create an image classification dataset and import data
 
-Visit the [Google Cloud console](https://console.cloud.google.com/vertex-ai/) to begin the process of creating your dataset and training your image classification model.
+Visit the [Google Cloud console](https://console.cloud.google.com/agent-platform/) to begin the process of creating your dataset and training your image classification model.
 
 When prompted, make sure to select the project that you used for your Cloud Storage bucket.
 

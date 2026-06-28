@@ -394,7 +394,7 @@ You can also connect to your instance by opening your instance's Compute Engine 
 
 ### Re-register with the Inverting Proxy server
 
-To re-register the Agent Platform Workbench instance with the internal Inverting Proxy server, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To re-register the Agent Platform Workbench instance with the internal Inverting Proxy server, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/agent-platform/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     cd /opt/deeplearning/bin
     sudo ./attempt-register-vm-on-proxy.sh
@@ -449,19 +449,19 @@ To run these commands in your Agent Platform Workbench instance, open JupyterLab
 
 ### Restart the Docker service
 
-To restart the Docker service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Docker service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/agent-platform/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo service docker restart
 
 ### Restart the Inverting Proxy agent
 
-To restart the Inverting Proxy agent, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Inverting Proxy agent, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/agent-platform/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo docker restart proxy-agent
 
 ### Restart the Jupyter service
 
-To restart the Jupyter service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/vertex-ai/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
+To restart the Jupyter service, you can stop and start the VM from the [Instances page](https://console.cloud.google.com/agent-platform/workbench/instances) or you can [use ssh to connect to your Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/troubleshooting-workbench#ssh-connect) and enter:
 
     sudo service jupyter restart
 

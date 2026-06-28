@@ -377,7 +377,7 @@ When you create a new [CMEK-supported resource](https://docs.cloud.google.com/ge
 
 ### Console
 
-When you create a new [CMEK-supported resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) in the [Agent Platform section of the Google Cloud console](https://console.cloud.google.com/vertex-ai/) , you can select your key in the general or advanced option section:
+When you create a new [CMEK-supported resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) in the [Agent Platform section of the Google Cloud console](https://console.cloud.google.com/agent-platform/) , you can select your key in the general or advanced option section:
 
 ![Select encryption key for resource section](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/general/images/select-encryption-key.png)
 

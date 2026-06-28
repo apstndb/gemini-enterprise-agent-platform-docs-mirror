@@ -6,10 +6,6 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Each of the tutorials presented here walks you through a specific artificial intelligence (AI) workflow, created to represent the most common tasks and to illustrate the capabilities of Gemini Enterprise Agent Platform. Choose the tutorial that best matches your data type and AI task. After following the tutorial, you can use the patterns that you have learned to solve your own AI problem. Gemini Enterprise Agent Platform offers Google Cloud console tutorials and notebook tutorials that use the Python SDK. You can open a notebook tutorial directly in Colab, download the notebook to your preferred environment, or [open the notebook tutorial in Vertex AI Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials#workbench) .
 
 ## Train a classification model for tabular data

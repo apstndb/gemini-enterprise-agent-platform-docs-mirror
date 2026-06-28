@@ -170,7 +170,7 @@ There are several tutorial notebooks that demonstrate how to use the [`PipelineJ
 
   - To learn how to build an AutoML image classification model and use a Gemini Enterprise Agent Platform pipeline, see the [AutoML image classification pipelines using google-cloud-pipeline-components](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_images.ipynb) tutorial on GitHub.
 
-For more tutorial notebooks, see [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials/jupyter-notebooks) .
+For more tutorial notebooks, see [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .
 
 ## What's next
 

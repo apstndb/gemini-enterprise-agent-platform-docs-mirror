@@ -506,9 +506,9 @@ Replace the following:
 
 ## Fetch feature values using Optimized online serving from a public endpoint
 
-> Gemini Enterprise Agent Platform Feature Store Optimized online serving is [deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) . Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
+> Gemini Enterprise Agent Platform Feature Store Optimized online serving is deprecated. Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
 > 
-> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/vertex-ai/docs/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
+> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
 If you've configured your online store instance to serve feature values using Optimized online serving from a public endpoint, then you need to perform the following steps to fetch feature values from a feature view within the online store:
 
@@ -722,9 +722,9 @@ Replace the following:
 
 ## Fetch feature values using Optimized online serving from a Private Service Connect endpoint
 
-> Gemini Enterprise Agent Platform Feature Store Optimized online serving is [deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) . Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
+> Gemini Enterprise Agent Platform Feature Store Optimized online serving is deprecated. Beginning on May 17, 2026, no new features will be added and only critical patches will be provided. On February 17, 2027, the capability will be fully sunset and APIs will no longer be available.
 > 
-> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/vertex-ai/docs/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
+> To improve latency and cost optimizations, migrate to [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving) . To efficiently store and serve embeddings, use the purpose-built [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) .
 
 If you've configured your online store instance to serve feature values using Optimized online serving from a Private Service Connect endpoint, then you need to perform the following steps to fetch feature values from a feature view within the online store:
 

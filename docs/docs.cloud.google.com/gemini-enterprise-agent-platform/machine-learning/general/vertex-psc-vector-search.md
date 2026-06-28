@@ -66,7 +66,7 @@ When you finish the tasks that are described in this document, you can avoid con
       gcloud config set project ${projectid}
     ```
     
-    Replace PROJECT\_ID with your project ID. If necessary, you can locate your project ID in the Google Cloud console. For more information, see [Find your project ID](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
+    Replace PROJECT\_ID with your project ID. If necessary, you can locate your project ID in the Google Cloud console. For more information, see [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
 
 6.  If you're not the project owner, ask the project owner to grant you the [Project IAM Admin (roles/resourcemanager.projectIamAdmin)](https://docs.cloud.google.com/resource-manager/docs/access-control-proj#resourcemanager.projectIamAdmin) role. You must have this role to grant IAM roles in the next step.
 
