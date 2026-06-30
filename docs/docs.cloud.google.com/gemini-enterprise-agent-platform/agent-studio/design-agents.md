@@ -38,7 +38,7 @@ Use the following steps to design and test an agent in Agent Studio:
 
 2.  Click **Create agent** to open the Agent Studio canvas for a new agent.
 
-3.  Design your agent in the Agent Studio canvas. You can switch between the following tabs:
+3.  Design and save your agent in the Agent Studio canvas. You can switch between the following tabs:
     
       - **Flow:** Create the main agent and subagents by using a visual representation of your agent's workflow and control logic.
         
@@ -55,12 +55,26 @@ Use the following steps to design and test an agent in Agent Studio:
             4.  **Model:** Select the model to power your agent.
             
             5.  **Tools:** Click **Add tools** (+) to add tools that let the agent complete tasks. For more information, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
+        
+        3.  To save your agent, click **Save** in the canvas header and follow the prompts. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
     
-      - **Preview:** Test the agent's capabilities and response as you build your agent. Chat with your agent to test its capabilities.
+      - **Preview tab:** Chat with your agent in the preview pane to test its capabilities and responses.
 
-4.  Click **Get code** to see your agent code. If you want to continue developing your agent elsewhere, you can copy the code and paste it to a code editor of your choice. See [ADK tutorials](https://google.github.io/adk-docs/get-started/python/) for more options to continue developing your agent.
+4.  Click **Get code** to see your agent code. If you want to continue developing your agent elsewhere, you can copy the code and paste it to a code editor of your choice.
 
-Once your agent is complete, you can deploy it directly from Agent Studio. For more information, see [Deploy an Agent from Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#deploy-agent) .
+When your agent is complete, you can deploy it directly from Agent Studio. For more information, see [Deploy an Agent from Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#deploy-agent) .
+
+## Save an agent
+
+You must save an agent before you can preview or deploy it, because an unsaved agent doesn't have an identity yet. To save an agent for the first time:
+
+1.  In the Agent Studio canvas, click **Save** .
+
+2.  In the **Save Agent** dialog, enter an **Agent name** .
+
+3.  Click **Save** .
+
+After the first save, Agent Studio automatically saves any further changes that you make. If you try to leave the canvas before you save a new agent, Agent Studio prompts you to save it first.
 
 ## Set up and add tools in Agent Studio
 
@@ -86,23 +100,24 @@ You can configure the following tools for your agent:
     
     2.  Click **Grant access** .
     
-    3.  In the **New principals** field, enter the following service account information: `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` .
+    3.  In the **New principals** field, enter the following service account information:
+        
+        `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` .
     
     4.  Select **+ Add roles** . Search for and select **Discovery Engine User** . Click **Apply** and then **Save** .
 
-  - **MCP Server:** Click **Add** (+) to add MCP tools by connecting to an MCP server.
+  - **MCP Server:** Connect a Model Context Protocol (MCP) server directly.
     
-    1.  **MCP display name:** Enter a name for your MCP server.
-    
-    2.  **Endpoint URL:** Enter an endpoint URL for the MCP server.
-    
-    3.  **Authentication:** Autofilled as **None** . Agent Studio only supports MCP servers that don't require authentication.
+    1.  To add MCP tools by connecting to an MCP server, click **Add** (+) next to **MCP Server** .
+    2.  **MCP display name:** Enter a name for your MCP server.
+    3.  **Endpoint URL:** Enter an endpoint URL for the MCP server.
+    4.  **Authentication:** Autofilled as **None** . Agent Studio only supports MCP servers that don't require authentication.
     
     Your agent can use all tools in your connected MCP server.
 
 ## Deploy an Agent from Agent Studio
 
-Once you create and preview an agent, you can deploy it to production. Use the following steps to deploy an agent from Agent Studio:
+After you create and preview an agent, you can deploy it to production. Use the following steps to deploy an agent from Agent Studio:
 
 1.  From the **Agents** list page, click the agent you want to deploy. The Agent detail page appears for the selected agent.
 
@@ -127,5 +142,9 @@ To view your deployed agent:
 3.  Deployed agents that are part of the selected project appear in the list.
 
 4.  Click the name of the specified agent. The **Metrics** page for the agent opens.
+
+5.  Select the **Playground** tab to test your agent.
+
+6.  Enter a test query in the chat pane to verify that the agent runs successfully.
 
 For more information on available metrics for your agent, see [View metrics for your deployed agent](https://docs.cloud.google.com/agent-builder/agent-engine/manage/overview#view-metrics) .

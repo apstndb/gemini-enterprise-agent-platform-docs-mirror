@@ -12,12 +12,27 @@ Model ID
 
 `lyria-002`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Audio
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Output only
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 

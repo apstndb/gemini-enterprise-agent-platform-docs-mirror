@@ -26100,6 +26100,12 @@ Output only. Reserved for future use.
 
 Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models, advanced features like native RAG integration can be configured. Currently, only Model Garden models are supported.
 
+`publisher_model_config`
+
+`  PublisherModelConfig  `
+
+Optional. Configuration for a Publisher Model. This message contains details about a publisher model used with this Endpoint, such as logging config or data sharing settings.
+
 ## EnterpriseWebSearch
 
 Tool to search public web data, powered by Agent Platform Search and Sec4 compliance.

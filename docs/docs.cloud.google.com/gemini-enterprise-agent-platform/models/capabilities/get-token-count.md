@@ -527,7 +527,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To get the token count for a prompt by using the Agent Platform API, send a POST request to the publisher model endpoint.
 
-    MODEL_ID="gemini-2.5-flash"
+    MODEL_ID="gemini-3.5-flash"
     PROJECT_ID="my-project"
     TEXT="Provide a summary with about two sentences for the following article."
     REGION="us-central1"

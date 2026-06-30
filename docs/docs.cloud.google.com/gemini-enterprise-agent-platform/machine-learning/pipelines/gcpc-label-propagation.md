@@ -123,7 +123,7 @@ If you're using the Agent Platform SDK for Python, use the following code sample
     )
     
     aiplatform.RESOURCE.create(
-      ...ß
+      ...
       json.loads(os.getenv("VERTEX_AI_PIPELINES_RUN_LABELS"))
     )
 

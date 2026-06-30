@@ -23,12 +23,27 @@ Model ID
 
 veo-3.0-generate-001
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -93,12 +108,27 @@ Model ID
 
 veo-3.0-fast-generate-001
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -179,12 +209,27 @@ Model ID
 
 veo-3.0-generate-preview
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -265,12 +310,27 @@ Model ID
 
 veo-3.0-fast-generate-preview
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 

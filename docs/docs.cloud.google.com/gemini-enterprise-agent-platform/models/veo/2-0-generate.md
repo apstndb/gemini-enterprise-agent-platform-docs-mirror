@@ -23,12 +23,27 @@ Model ID
 
 veo-2.0-generate-001
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -107,12 +122,27 @@ Model ID
 
 veo-2.0-generate-exp
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -190,12 +220,27 @@ Model ID
 
 veo-2.0-generate-preview
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 

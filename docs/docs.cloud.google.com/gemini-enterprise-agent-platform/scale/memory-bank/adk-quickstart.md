@@ -1,18 +1,18 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart
-title: Agent Platform Memory Bank quickstart with Agent Development Kit
+title: Memory Bank quickstart with ADK
 description: Learn how to create an agent using the Agent Development Kit (ADK) and integrate it with Agent Platform Memory Bank to manage long-term memories.
 data_source: docs.cloud.google.com
 ---
 
-Agent Platform Memory Bank allows your agents to manage long-term memories across sessions. When used with the Agent Development Kit (ADK), your agent can automatically orchestrate calls to Memory Bank to store and retrieve memories based on user interactions.
+Agent Platform Memory Bank allows your agents to manage long-term memories across sessions. When used with the Agent Development Kit (ADK) (ADK), your agent can automatically orchestrate calls to Memory Bank to store and retrieve memories based on user interactions.
 
 This document explains how to create an ADK agent, configure it to use Memory Bank, and interact with it to generate and access memories.
 
 For information on making direct calls to the API without ADK, see the [Memory Bank API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/api-quickstart) .
 
-> **Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async) . If you're running code in a notebook like Colab, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function` .
+> **Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async) . If you're running code in a notebook like Colaboratory, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function` .
 
 > To see an example of using Memory Bank with ADK, run the "Get started with Memory Bank on ADK" notebook in one of the following environments:
 > 
@@ -103,7 +103,7 @@ If you use `PreloadMemoryTool` , your agent will retrieve memories at the start 
     ]
     
     agent = adk.Agent(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         name='stateful_agent',
         instruction="""You are a Vehicle Voice Agent, designed to assist users with information and in-vehicle actions.
     
@@ -126,7 +126,7 @@ Alternatively, you can create your own custom tool to retrieve memories, which i
       return await tool_context.search_memory(query)
     
     agent = adk.Agent(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         name='stateful_agent',
         instruction="""...""",
         tools=[FunctionTool(func=search_memories)],
@@ -216,7 +216,7 @@ Replace the following:
   - MEMORY\_BANK\_ID : The Memory Bank instance ID. For example, `456` in `projects/my-project/locations/us-central1/reasoningEngines/456` .
   - SESSIONS\_ID : The Agent Platform Sessions instance ID. For example, `789` in `projects/my-project/locations/us-central1/reasoningEngines/789` .
 
-### Agent Runtime
+### Agent Runtime on Gemini Enterprise Agent Platform
 
 The [Agent Runtime ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) ( `AdkApp` ) can be used both locally and to deploy an ADK agent to Agent Runtime. When deployed on Agent Platform, the [Memory Bank ADK template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) uses `VertexAiMemoryBankService` as the default memory service. So, you can create your Memory Bank instance and deploy to a runtime in a single step.
 
@@ -315,13 +315,13 @@ To deploy your agent to Cloud Run, refer to the instructions in the [ADK documen
         ...
         --memory_service_uri=agentengine://AGENT_ENGINE_ID
 
-### GKE
+### Google Kubernetes Engine (GKE)
 
 > To see an example of using Memory Bank with Google Kubernetes Engine, run the "Get started with Sessions and Memory Bank for ADK agents in Google Kubernetes Engine" notebook in one of the following environments:
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fagents%2Fgke%2Fagents_with_memory%2Fget_started_with_memory_for_adk_in_gke.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/gke/agents_with_memory/get_started_with_memory_for_adk_in_gke.ipynb)
 
-To deploy your agent to Google Kubernetes Engine (GKE), refer to the instructions in the [ADK documentation](https://google.github.io/adk-docs/deploy/gke/) to learn how to define your agent to deploy to GKE.
+To deploy your agent to GKE, refer to the instructions in the [ADK documentation](https://google.github.io/adk-docs/deploy/gke/) to learn how to define your agent to deploy to GKE.
 
     adk deploy gke \
         ...

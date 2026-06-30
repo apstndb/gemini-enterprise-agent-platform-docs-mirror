@@ -325,6 +325,44 @@ For example, the following sample shows how to submit a request with an API key 
       ]
     }'
 
+## Get email notifications
+
+You can get email notifications about your Provisioned Throughput orders by using the [Essential Contacts API](https://docs.cloud.google.com/resource-manager/docs/reference/essentialcontacts/rest) . After enabling, click **Notifications** at the top of the Provisioned Throughput Orders page. Then, in the dialog that opens, click **Essential contacts** and follow the on-screen instructions.
+
+1.  Enable the Essential Contacts API.
+    
+    **Roles required to enable APIs**
+    
+    To enable APIs, you need the Service Usage Admin IAM role ( `roles/serviceusage.serviceUsageAdmin` ), which contains the `serviceusage.services.enable` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+2.  Go to the Provisioned Throughput page.
+
+3.  Click **Notifications** .
+
+4.  In the **Notifications** dialog, click **Essential contacts** .
+    
+    The Essential contacts page opens.
+
+5.  Click **Add contact** .
+
+6.  In the **Add a contact** dialog, enter the contact's email address into the **Email** and **Confirm email** fields.
+
+7.  Select **Product updates** .
+
+8.  Click **Save** .
+
+The contact email address is notified for the following Provisioned Throughput events:
+
+| Event                                        | When the contact is notified       |
+| -------------------------------------------- | ---------------------------------- |
+| Order submitted                              | Within minutes                     |
+| Order activated                              | Within minutes                     |
+| Order update submitted                       | Within minutes                     |
+| Order update activated                       | Within minutes                     |
+| 1 month, 3 month, or 1 year order expiration | 2 weeks prior to expiration date   |
+| 1 week order expiration.                     | 3 days prior to expiration date    |
+| 1 month, 3 month, or 1 year auto-renewal     | 2 weeks prior to auto-renewal date |
+
 ## Monitor Provisioned Throughput
 
 > **Preview**

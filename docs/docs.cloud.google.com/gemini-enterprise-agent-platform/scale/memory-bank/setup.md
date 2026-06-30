@@ -221,7 +221,7 @@ You can configure the following Memory Bank settings for your instance:
 
   - [Customization configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#customization-config) : Configures how memories are extracted from source data and consolidated with existing memories.
   - [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) : Specifies which embedding model Memory Bank uses for similarity search. Defaults to `text-embedding-005` .
-  - [Generation configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) : Configures which LLM Memory Bank uses for memory generation. Defaults to `gemini-2.5-flash` .
+  - [Generation configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) : Configures which LLM Memory Bank uses for memory generation. Defaults to `gemini-3.5-flash` .
   - [TTL configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#ttl-config) : Configures how TTL is automatically set for created or updated memories. Defaults to no TTL.
 
 The following sample shows the default Memory Bank:
@@ -230,10 +230,8 @@ The following sample shows the default Memory Bank:
 
     memory_bank_config = {
       "generation_config": {
-        # `gemini-2.5-flash` will be used to extract and consolidate memories.
-        # Note: The global endpoint will be used for regions that don't have a
-        # regional endpoint available.
-        "model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-2.5-flash"
+        # `gemini-3.5-flash` will be used to extract and consolidate memories.
+        "model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
       },
       "similarity_search_config": {
         # `text-embedding-005` will be used for similarity search, including
@@ -284,10 +282,10 @@ The following sample shows the default Memory Bank:
     
     memory_bank_config = MemoryBankConfig(
       generation_config=GenerationConfig(
-        # `gemini-2.5-flash` will be used to extract and consolidate memories.
+        # `gemini-3.5-flash` will be used to extract and consolidate memories.
         # Note: The global endpoint will be used for regions that don't have a
         # regional endpoint available.
-        model="projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-2.5-flash"
+        model="projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
       ),
       similarity_search_config=SimilaritySearchConfig(
         # `text-embedding-005` will be used for similarity search, including
@@ -739,7 +737,15 @@ Replace the following:
 
 The generation configuration controls which LLM is used for [generating memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) , including extracting memories and consolidating new memories with existing memories.
 
-Memory Bank uses `gemini-2.5-flash` as the default model. For regions that don't have [regional Gemini availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) , the global endpoint is used.
+Effective June 29, 2026, Memory Bank uses `gemini-3.5-flash` for the default model. Instances created prior to that date use `gemini-2.5-flash` .
+
+For new Memory Bank instances using the default model:
+
+  - Memory Bank instances in `us` multi-region or `us-*` single-regions (for example, us-central1) use the multi-region `us` Gemini 3.5 endpoint.
+  - Memory Bank instances in `eu` multi-region or `eu-*` single-regions (for example, europe-west2) use the multi-region `eu` Gemini 3.5 endpoint.
+  - All other Memory Bank regions use the global Gemini 3.5 endpoint.
+
+For Memory Bank instances created before June 29, 2026 using the default model, Memory Bank uses the `global` Gemini endpoint for regions that don't have a regional Gemini 2.5 endpoint available.
 
 ### Dictionary
 

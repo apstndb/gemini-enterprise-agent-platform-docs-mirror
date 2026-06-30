@@ -130,6 +130,10 @@ Output only. reserved for future use.
 
 Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models, advanced features like native RAG integration can be configured. Currently, only Model Garden models are supported.
 
+`endpoint.publisherModelConfig` ` object ( PublisherModelConfig  ` )
+
+Optional. Configuration for a Publisher Model. This message contains details about a publisher model used with this Endpoint, such as logging config or data sharing settings.
+
 ### Response body
 
 If successful, the response body contains an instance of `  Operation  ` .

@@ -14,12 +14,27 @@ Model ID
 
 veo-3.1-generate-001
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Input only
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -83,12 +98,27 @@ Model ID
 
 veo-3.1-fast-generate-001
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Input only
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -156,12 +186,27 @@ Model ID
 
 veo-3.1-lite-generate-001
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -242,12 +287,27 @@ Model ID
 
 veo-3.1-generate-preview
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 
@@ -328,12 +388,27 @@ Model ID
 
 veo-3.1-fast-generate-preview
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text
-  - Outputs:
-    Video
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Output only
 
 Capabilities
 

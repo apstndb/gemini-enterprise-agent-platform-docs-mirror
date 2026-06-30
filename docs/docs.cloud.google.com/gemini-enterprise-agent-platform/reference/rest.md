@@ -3434,6 +3434,15 @@ Remove Datapoints from an Index.
 `POST /v1beta1/{index}:upsertDatapoints`  
 Add/update Datapoints into an Index.
 
+## REST Resource: [v1beta1.projects.locations.memoryBanks.memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories)
+
+Methods
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Get a Memory.
+
 ## REST Resource: [v1beta1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores)
 
 Methods

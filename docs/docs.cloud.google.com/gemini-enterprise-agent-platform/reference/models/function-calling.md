@@ -375,7 +375,7 @@ Save the request body in a file named `request.json` , and execute the following
 
     PROJECT_ID=myproject
     LOCATION=us-central1
-    MODEL_ID=gemini-2.5-flash
+    MODEL_ID=gemini-3.5-flash
     
     curl -X POST \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -860,7 +860,7 @@ The `functionCallingConfig` ensures that the model output is always a specific f
 
     PROJECT_ID=myproject
     LOCATION=us-central1
-    MODEL_ID=gemini-2.5-flash
+    MODEL_ID=gemini-3.5-flash
     
     curl -X POST \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \

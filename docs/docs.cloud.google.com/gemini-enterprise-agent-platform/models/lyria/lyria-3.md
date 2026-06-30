@@ -18,12 +18,27 @@ Model ID
 
 `lyria-3-pro-preview`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Audio
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Input only
+
+mic
+
+Audio  
+Output only
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 
@@ -78,12 +93,27 @@ Model ID
 
 `lyria-3-clip-preview`
 
-Supported inputs & outputs
+Modalities
 
-  - Inputs:
-    Text , Image
-  - Outputs:
-    Audio
+description
+
+Text  
+Input only
+
+photo
+
+Image  
+Input only
+
+mic
+
+Audio  
+Output only
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 

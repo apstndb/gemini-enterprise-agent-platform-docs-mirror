@@ -1,7 +1,7 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories
-title: 'REST Resource: projects.locations.reasoningEngines.memories'
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories
+title: 'REST Resource: projects.locations.memoryBanks.memories'
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
@@ -108,40 +108,43 @@ Optional. Input only. Indicates whether no revision will be created for this req
 </tbody>
 </table>
 
+### StructuredContent
+
+Represents the structured value of the memory.
+
+Fields
+
+`data` ` object ( Struct  ` format)
+
+Required. Represents the structured value of the memory.
+
+`schemaId` `string`
+
+Required. Represents the schema id for which this structured memory belongs to.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;data&quot;: {
+    object
+  },
+  &quot;schemaId&quot;: string
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
 ## Methods
-
-### `            create           `
-
-Create a Memory.
-
-### `            delete           `
-
-Delete a Memory.
-
-### `            generate           `
-
-Generate memories.
 
 ### `            get           `
 
 Get a Memory.
-
-### `            ingestEvents           `
-
-Ingests events for a Memory Bank.
-
-### `            list           `
-
-List Memories.
-
-### `            patch           `
-
-Update a Memory.
-
-### `            retrieve           `
-
-Retrieve memories.
-
-### `            retrieveProfiles           `
-
-Retrieves profiles.

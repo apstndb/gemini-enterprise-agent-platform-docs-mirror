@@ -193,7 +193,7 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
       "displayName": "my-cloud-storage-batch-inference-job",
-      "model": "publishers/google/models/gemini-2.5-flash",
+      "model": "publishers/google/models/gemini-3.5-flash",
       "inputConfig": {
         "instancesFormat": "jsonl",
         "gcsSource": {
@@ -284,7 +284,7 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
       "displayName": "my-bigquery-batch-inference-job",
-      "model": "publishers/google/models/gemini-2.5-flash",
+      "model": "publishers/google/models/gemini-3.5-flash",
       "inputConfig": {
         "instancesFormat": "bigquery",
         "bigquerySource": {

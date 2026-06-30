@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Claude Fable 5 is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 
-> **Advanced AI Safety Notice:** Claude Fable 5 is within the scope of the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . All prompts and responses are stored for up to 60 days for the sole purpose of monitoring for potential abuse of relevant terms of service. See [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) and [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
+> **Advanced AI Safety Notice:** Claude Fable 5 is within the scope of the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . All prompts and responses are stored for up to 30 days for the sole purpose of monitoring for potential abuse of relevant terms of service. See [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) and [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
 
 **Retirement Date:** Not sooner than June 8, 2027.
 

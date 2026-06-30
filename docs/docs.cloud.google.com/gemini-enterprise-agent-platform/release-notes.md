@@ -10,6 +10,30 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## June 29, 2026
+
+Feature
+
+**Semantic Governance Policies available in Public Preview**
+
+Semantic Governance Policies (SGP) and the SGP engine are now available in [Preview](https://cloud.google.com/products#product-launch-stages) . SGP provides an intelligent security and compliance layer that evaluates an AI agent's proposed tool calls against user intent and organizational business rules at runtime.
+
+Key capabilities include:
+
+  - **Natural Language Constraints (NLC):** Author declarative business rules and security guardrails in plain English without needing to write code or redeploy agent applications.
+  - **Layered Intent Gating:** Intercepts agent tool calls at runtime to verify alignment with trusted user intent and prevent unauthorized actions, rogue tool use, and data exfiltration.
+  - **Granular Scoping:** Apply constraints globally across all tools for an agent or target specific tools and parameters (e.g., enforcing strict financial limits or geographic restrictions).
+  - **Agent Skills Lifecycle Governance:** Protects agents from context poisoning and supply-chain exploits by governing the dynamic loading of Agent Skills (tool packages) during sessions.
+  - **Dry Run Mode:** Test and observe policy verdicts in Log Explorer before enforcing them on active traffic.
+
+For more information, see [Semantic governance policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
+
+Feature
+
+### Provisioned Throughput: Email notifications GA
+
+The ability to get email notifications for Provisioned Throughput events is generally available. See [Get email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#email-notifications) .
+
 ## June 26, 2026
 
 Feature

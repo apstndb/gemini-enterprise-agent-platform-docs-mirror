@@ -1,12 +1,12 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam
-title: Create IAM agent policies
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies
+title: Configure IAM agent policies
 description: Learn how to create Identity and Access Management policies to govern agentic communication in Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-You can create policies to govern agentic communication with services. Agent Gateway (Private preview) uses Identity-Aware Proxy (IAP) to enforce policies.
+You can create policies to govern agentic communication with services. Agent Gateway uses Identity-Aware Proxy (IAP) to enforce policies.
 
 You can use the **Policies** page in the Google Cloud console to create Agent Gateway IAM allow policies.
 
@@ -46,10 +46,10 @@ You might also be able to get the required permissions through [custom roles](ht
 
 You can define egress policies for the following types of agent interactions:
 
-  - [Agent to registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-registry)
-  - [Agent to agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-agent)
-  - [Agent to MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-mcp-server)
-  - [Agent to endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-endpoint)
+  - [Agent to registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies#agent-to-registry)
+  - [Agent to agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies#agent-to-agent)
+  - [Agent to MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies#agent-to-mcp-server)
+  - [Agent to endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies#agent-to-endpoint)
 
 ### Create an agent-to-registry policy
 

@@ -40,7 +40,7 @@ Input only
 photo
 
 Image  
-Not supported
+Input only
 
 mic
 
@@ -86,6 +86,25 @@ Not supported
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
 Technical specifications
+
+**Text** description
+
+  - Maximum input tokens: 8,192
+  - Maximum number of files per prompt: 1
+  - Maximum number of pages per file (for PDF): 6
+  - Maximum file size per file: N/A
+  - OCR for scanned PDFs: Not used by default
+  - Supported MIME types:
+    `text/plain` , `application/pdf`
+
+**Image** photo
+
+  - Maximum images per prompt: 6
+  - Maximum file size per file for inline data or direct uploads through the console: No limit
+  - Maximum file size per file from Google Cloud Storage: No limit
+  - Maximum number of output images per prompt: N/A
+  - Supported MIME types:
+    `image/png` , `image/jpeg` , `image/webp` , `image/bmp` , `image/heic` , `image/heif` , `image/avif`
 
 **Audio** mic
 

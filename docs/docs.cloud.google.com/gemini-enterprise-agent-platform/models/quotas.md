@@ -79,6 +79,29 @@ To view and edit the quotas in the Google Cloud console, do the following:
 3.  Click the three dots at the end of the row, and select **Edit quota** .
 4.  Enter a new quota value in the pane, and click **Submit request** .
 
+## Semantic Governance Policy quotas
+
+The following quotas apply to [Semantic Governance Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) for a given project in each region:
+
+| Description                                                                            | Quota | Metric                                                                |
+| -------------------------------------------------------------------------------------- | ----- | --------------------------------------------------------------------- |
+| Get or list Semantic Governance Policy (SGP) policy resources per minute               | 600   | `aiplatform.googleapis.com/semantic_governance/policy_read_requests`  |
+| Create, update, or delete Semantic Governance Policy (SGP) policy resources per minute | 60    | `aiplatform.googleapis.com/semantic_governance/policy_write_requests` |
+| Get Semantic Governance Policy engine resources per minute                             | 600   | `aiplatform.googleapis.com/semantic_governance/engine_read_requests`  |
+| Update or deprovision Semantic Governance Policy engine resources per minute           | 60    | `aiplatform.googleapis.com/semantic_governance/engine_write_requests` |
+| Number of Semantic Governance Policy resources per project per location.               | 1,000 | `aiplatform.googleapis.com/semantic_governance/policy_count`          |
+
+### View and edit the quotas in the Google Cloud console
+
+> **Caution:** Before you begin, make sure that you have [enabled the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) for your project. If the API isn't enabled, the Agent Platform quotas won't display.
+
+To view and edit the quotas in the Google Cloud console, do the following:
+
+1.  Go to the **Quotas and System Limits** page.
+2.  To adjust the quota, copy and paste the property `aiplatform.googleapis.com/semantic_governance/policy_write_requests` in the **Filter** . Press **Enter** .
+3.  Click the three dots at the end of the row, and select **Edit quota** .
+4.  Enter a new quota value in the pane, and click **Submit request** .
+
 ## RAG Engine on Gemini Enterprise Agent Platform
 
 > The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
