@@ -32,6 +32,27 @@ The following table lists the models that support video understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum video length (with audio): 10 seconds</li>
+<li>Maximum video length (without audio): 10 seconds</li>
+<li>Maximum number of videos per prompt: 3</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">video/x-flv</code></li>
+<li><code dir="ltr" translate="no">video/quicktime</code></li>
+<li><code dir="ltr" translate="no">video/mpeg</code></li>
+<li><code dir="ltr" translate="no">video/mpegs</code></li>
+<li><code dir="ltr" translate="no">video/mpg</code></li>
+<li><code dir="ltr" translate="no">video/mp4</code></li>
+<li><code dir="ltr" translate="no">video/webm</code></li>
+<li><code dir="ltr" translate="no">video/wmv</code></li>
+<li><code dir="ltr" translate="no">video/3gpp</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite">Gemini 3.1 Flash-Lite</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro">Gemini 2.5 Pro</a></li>
@@ -57,7 +78,7 @@ The following table lists the models that support video understanding:
 <li><code dir="ltr" translate="no">video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
@@ -80,7 +101,7 @@ The following table lists the models that support video understanding:
 <li><code dir="ltr" translate="no">video/3gpp</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
 </ul></td>

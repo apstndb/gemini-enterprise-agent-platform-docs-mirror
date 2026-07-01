@@ -14,6 +14,12 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 Feature
 
+**Gemini 3.5 Flash default model for Memory Bank**
+
+The default model used for Memory Bank generation is now Gemini 3.5 Flash instead of Gemini 2.5 Flash. For information, see [Set up Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup) .
+
+Feature
+
 **Semantic Governance Policies available in Public Preview**
 
 Semantic Governance Policies (SGP) and the SGP engine are now available in [Preview](https://cloud.google.com/products#product-launch-stages) . SGP provides an intelligent security and compliance layer that evaluates an AI agent's proposed tool calls against user intent and organizational business rules at runtime.

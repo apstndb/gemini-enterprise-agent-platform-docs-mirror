@@ -40,6 +40,8 @@ Turn ideas into production-ready assets
 
 ## Generally available Gemini models
 
+🍌 [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
+
 🍌 [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 
 🍌 [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
@@ -59,6 +61,8 @@ performance\_auto [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-e
 audio\_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api) Designed for real-time, bidirectional streaming. Features low-latency built-in audio and affective dialogue capabilities for natural, conversational interactions.
 
 ## Preview Gemini models
+
+preview [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) Generate video from text or reference assets, or edit existing videos.
 
 preview [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image-preview) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 

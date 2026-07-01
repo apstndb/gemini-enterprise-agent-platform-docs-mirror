@@ -16,8 +16,60 @@ You can add images to Gemini requests to perform tasks that involve understandin
 
 The following table lists the models that support image understanding:
 
-| Models | Media details | MIME types |
-| ------ | ------------- | ---------- |
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Models</th>
+<th style="text-align: left;">Media details</th>
+<th>MIME types</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum images per prompt: 10</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 20 GiB</li>
+<li>Supported aspect ratios: 16:9, 9:16</li>
+<li>Supported resolutions: 720p</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">image/png</code></li>
+<li><code dir="ltr" translate="no">image/jpeg</code></li>
+<li><code dir="ltr" translate="no">image/webp</code></li>
+<li><code dir="ltr" translate="no">image/heic</code></li>
+<li><code dir="ltr" translate="no">image/heif</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum images per prompt: 14</li>
+<li>Maximum file size per file for inline data or direct uploads through the console: 7 MB</li>
+<li>Maximum file size per file from Google Cloud Storage: 30 MB</li>
+<li>Maximum number of output images per prompt: Limited to 32,768 output tokens</li>
+<li>Supported aspect ratios: 1:1, 1:4, 4:1, 1:8, 8:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9</li>
+<li>Supported resolutions: 1K</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">image/png</code></li>
+<li><code dir="ltr" translate="no">image/jpeg</code></li>
+<li><code dir="ltr" translate="no">image/webp</code></li>
+<li><code dir="ltr" translate="no">image/heic</code></li>
+<li><code dir="ltr" translate="no">image/heif</code></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 For a list of languages supported by Gemini models, see model information [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) . To learn more about how to design multimodal prompts, see [Design multimodal prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) . If you're looking for a way to use Gemini directly from your mobile and web apps, see the [Firebase AI Logic client SDKs](https://firebase.google.com/docs/ai-logic) for Swift, Android, Web, Flutter, and Unity apps.
 
