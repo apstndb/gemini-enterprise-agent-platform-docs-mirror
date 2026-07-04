@@ -32,24 +32,6 @@ The following table lists the models that support image understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li>Maximum images per prompt: 10</li>
-<li>Maximum file size per file for inline data or direct uploads through the console: 20 GiB</li>
-<li>Supported aspect ratios: 16:9, 9:16</li>
-<li>Supported resolutions: 720p</li>
-</ul></td>
-<td><ul>
-<li><code dir="ltr" translate="no">image/png</code></li>
-<li><code dir="ltr" translate="no">image/jpeg</code></li>
-<li><code dir="ltr" translate="no">image/webp</code></li>
-<li><code dir="ltr" translate="no">image/heic</code></li>
-<li><code dir="ltr" translate="no">image/heif</code></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 </ul></td>
 <td style="text-align: left;"><ul>

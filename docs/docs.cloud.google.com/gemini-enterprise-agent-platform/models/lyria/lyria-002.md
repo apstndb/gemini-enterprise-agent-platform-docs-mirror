@@ -43,6 +43,10 @@ Supported
 
 Not supported
 
+Quotas
+
+  - Regional online prediction requests per minute per base model: 10
+
 Technical specifications
 
 **Audio** mic
@@ -53,15 +57,25 @@ Technical specifications
   - Supported MIME types:
     `audio/wav`
 
+Prompt languages
+
+  - US English ( `en-us` )
+
+Supported regions
+
+Model availability
+
+Global
+
+  - global
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+
 Versions
 
 `lyria-002`
 
   - Launch stage: GA
   - Release date: 2025-10-27
-
-Quotas
-
-  - Regional online prediction requests per minute per base model: 10
 
 For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.

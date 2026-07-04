@@ -20,20 +20,11 @@ For more information about the API, see the [Interaction API](https://docs.cloud
 
 > **Note:** Model usage during the preview is billed at standard rates. For more information, see the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Prerequisites
+## Before you begin
 
-Before starting interactions with agents, ensure you complete the initial setup.
+Before starting interactions with agents, set up your environment:
 
-  - In the Google Google Cloud console, go to the project selector page and select or create a Google Cloud project to hold your agent and sandbox resources.
-
-  - Enable the Gemini Enterprise Agent Platform API ( `aiplatform.googleapis.com` ) on your project. This API provides the Interactions API to interact with agents you created in the same project.
-
-  - Make sure you enable billing for your Google Cloud project. For details, see [Confirm billing is enabled on a project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project) .
-
-  - Ensure you have one of the following roles:
-    
-      - `aiplatform.user` : Provides permissions to interact with AI Platform resources.
-      - `aiplatform.admin` : Provides full control over AI Platform resources, including administrative tasks.
+1.  If your agent uses Google Cloud Model Context Protocol (MCP) tools, grant the MCP Tool User ( `roles/mcp.toolUser` ) role to both your user account and the associated service account.
 
 ## Interact with Antigravity agents
 

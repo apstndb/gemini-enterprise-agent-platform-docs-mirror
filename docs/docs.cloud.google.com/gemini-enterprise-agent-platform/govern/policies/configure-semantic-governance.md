@@ -247,6 +247,8 @@ After the network is configured, you must create an authorization extension and 
     
     > **Important:** The `httpRules` must include a [CEL expression](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference) to exclude gRPC traffic. Without this exclusion, the policy engine intercepts gRPC calls (such as Cloud Resource Manager) and causes agent startup failures.
     
+    > **Important:** The `when` condition in the following command also matches only the model-inference paths— `:generateContent` and `:streamGenerateContent` —so that **only** agent-to-model (LLM) requests are sent to the policy engine. Keep this path match: if you broaden the filter, non-LLM traffic such as MCP tool calls is also routed to the engine, which then processes and rejects it, adding unnecessary latency and policy-engine cost.
+    
         curl -X POST \
             "https://networksecurity.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzPolicies?authzPolicyId=AUTHZ_POLICY_NAME" \
             -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
@@ -260,7 +262,7 @@ After the network is configured, you must create an authorization extension and 
                 "to": {
                   "operations": [{"paths": [{"prefix": "/"}]}]
                 },
-                 "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"')"
+                "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"') && (request.path.endsWith('"'"':generateContent'"'"') || request.path.endsWith('"'"':streamGenerateContent'"'"'))"
               }],
               "action": "CUSTOM",
               "policyProfile": "CONTENT_AUTHZ",

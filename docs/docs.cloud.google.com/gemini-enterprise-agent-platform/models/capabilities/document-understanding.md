@@ -32,18 +32,6 @@ The following table lists the models that support document understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview">Gemini Omni Flash</a> preview</li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li>Maximum file size per file for the API or Cloud Storage imports: 50 MB</li>
-<li>Maximum file size per file for direct uploads through the console: 7 MB</li>
-</ul></td>
-<td><ul>
-<li><code dir="ltr" translate="no">text/plain</code></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
 </ul></td>
 <td style="text-align: left;"><ul>

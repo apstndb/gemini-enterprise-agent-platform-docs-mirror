@@ -21,7 +21,7 @@ Veo 3 is our latest line of video generation models. This page documents the cap
 
 Model ID
 
-veo-3.0-generate-001
+`veo-3.0-generate-001`
 
 Modalities
 
@@ -62,20 +62,26 @@ Not supported
   - [Reference style images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-style-images)
   - [Reference asset images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-subject-images)
 
-Usage types
+Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Not supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Supported
 
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
-Not supported
+Quotas
 
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
+  - Regional online prediction requests per base model per minute per base model: 10
 
 Technical specifications
 
-**Videos**
+**Video** videocam
 
   - Video lengths: 4, 6, or 8 seconds
   - Maximum number of output videos per prompt: 4
@@ -85,6 +91,20 @@ Technical specifications
   - Supported framerates: 24 FPS
   - Supported MIME types:
     `video/mp4`
+
+Prompt languages
+
+  - English
+
+Supported regions
+
+Model availability
+
+United States
+
+  - us-central1
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
 Versions
 
@@ -92,21 +112,24 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Discontinuation date: June 30, 2026
+  - Retirement date: June 30, 2026
 
-Prompt languages
+Security controls
 
-  - English
+**Online prediction**
 
-Quotas
+  - Data residency
+  - CMEK
+  - VPC-SC
+  - AXT
 
-  - Regional online prediction requests per base model per minute per base model: 10
+See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
 
 ## 3.0 Fast Generate 001
 
 Model ID
 
-veo-3.0-fast-generate-001
+`veo-3.0-fast-generate-001`
 
 Modalities
 
@@ -147,20 +170,26 @@ Not supported
   - [Reference style images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-style-images)
   - [Reference asset images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-subject-images)
 
-Usage types
+Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Not supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Supported
 
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
-Not supported
+Quotas
 
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
+  - Regional online prediction requests per base model per minute per base model: 10
 
 Technical specifications
 
-**Videos**
+**Video** videocam
 
   - Video lengths: 4, 6, or 8 seconds
   - Maximum number of output videos per prompt: 4
@@ -171,21 +200,38 @@ Technical specifications
   - Supported MIME types:
     `video/mp4`
 
+Prompt languages
+
+  - English
+
+Supported regions
+
+Model availability
+
+United States
+
+  - us-central1
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+
 Versions
 
 `veo-3.0-fast-generate-001`
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Discontinuation date: June 30, 2026
+  - Retirement date: June 30, 2026
 
-Prompt languages
+Security controls
 
-  - English
+**Online prediction**
 
-Quotas
+  - Data residency
+  - CMEK
+  - VPC-SC
+  - AXT
 
-  - Regional online prediction requests per base model per minute per base model: 10
+See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
 
 > **Caution:** The following table describes the video generation preview endpoints that will be deprecated and removed on April 2, 2026. Migrate any workflows using preview models to the recommended GA endpoints.
 > 
@@ -207,7 +253,7 @@ Quotas
 
 Model ID
 
-veo-3.0-generate-preview
+`veo-3.0-generate-preview`
 
 Modalities
 
@@ -248,20 +294,26 @@ Not supported
   - [Reference style images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-style-images)
   - [Reference asset images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-subject-images)
 
-Usage types
+Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Not supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Not supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Supported
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
-Not supported
+Quotas
 
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
+  - Regional online prediction requests per base model per minute per base model: 10
 
 Technical specifications
 
-**Videos**
+**Video** videocam
 
   - Video lengths: 4, 6, or 8 seconds
   - Maximum number of output videos per prompt: 2
@@ -272,21 +324,27 @@ Technical specifications
   - Supported MIME types:
     `video/mp4`
 
+Prompt languages
+
+  - English preview Preview feature
+
+Supported regions
+
+Model availability
+
+United States
+
+  - us-central1
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+
 Versions
 
 `veo-3.0-generate-preview`
 
   - Launch stage: Preview
   - Release date: May 20, 2025
-  - Discontinuation date: April 2, 2026
-
-Prompt languages
-
-  - English preview Preview feature
-
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 10
+  - Retirement date: April 2, 2026
 
 > **Caution:** The following table describes the video generation preview endpoints that will be deprecated and removed on April 2, 2026. Migrate any workflows using preview models to the recommended GA endpoints.
 > 
@@ -308,7 +366,7 @@ Quotas
 
 Model ID
 
-veo-3.0-fast-generate-preview
+`veo-3.0-fast-generate-preview`
 
 Modalities
 
@@ -349,20 +407,26 @@ Not supported
   - [Reference style images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-style-images)
   - [Reference asset images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation#use-subject-images)
 
-Usage types
+Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Not supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Not supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Supported
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
-Not supported
+Quotas
 
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
+  - Regional online prediction requests per base model per minute per base model: 10
 
 Technical specifications
 
-**Videos**
+**Video** videocam
 
   - Video lengths: 4, 6, or 8 seconds
   - Maximum number of output videos per prompt: 2
@@ -372,20 +436,26 @@ Technical specifications
   - Supported MIME types:
     `video/mp4`
 
+Prompt languages
+
+  - English preview Preview feature
+
+Supported regions
+
+Model availability
+
+United States
+
+  - us-central1
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+
 Versions
 
 `veo-3.0-fast-generate-preview`
 
   - Launch stage: Preview
   - Release date: July 07, 2025
-  - Discontinuation date: April 2, 2026
-
-Prompt languages
-
-  - English preview Preview feature
-
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 10
+  - Retirement date: April 2, 2026
 
 For Veo pricing information, see the [Veo](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#veo) section of the [Cost of building and deploying AI models in Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.

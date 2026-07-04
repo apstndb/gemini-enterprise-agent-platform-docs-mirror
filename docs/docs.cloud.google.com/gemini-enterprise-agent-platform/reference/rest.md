@@ -220,6 +220,11 @@ Generates synthetic (artificial) data based on a description
 `GET /v1/{name}`  
 Gets a RagEngineConfig.
 
+`  getSemanticGovernancePolicyEngine  `
+
+`GET /v1/{name}`  
+Gets a SemanticGovernancePolicyEngine.
+
 `  retrieveContexts  `
 
 `POST /v1/{parent}:retrieveContexts`  
@@ -229,6 +234,11 @@ Retrieves relevant contexts for a query.
 
 `PATCH /v1/{ragEngineConfig.name}`  
 Updates a RagEngineConfig.
+
+`  updateSemanticGovernancePolicyEngine  `
+
+`PATCH /v1/{semanticGovernancePolicyEngine.name}`  
+Updates a SemanticGovernancePolicyEngine.
 
 ## REST Resource: [v1.projects.locations.batchPredictionJobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs)
 
@@ -1907,6 +1917,44 @@ Pauses a Schedule.
 `POST /v1/{name}:resume`  
 Resumes a paused Schedule to start scheduling new runs.
 
+## REST Resource: [v1.projects.locations.semanticGovernancePolicies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicies)
+
+Methods
+
+`  create  `
+
+`POST /v1/{parent}/semanticGovernancePolicies`  
+Creates a SemanticGovernancePolicy.
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes a SemanticGovernancePolicy.
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets a SemanticGovernancePolicy.
+
+`  list  `
+
+`GET /v1/{parent}/semanticGovernancePolicies`  
+Lists SemanticGovernancePolicies in a given location.
+
+`  patch  `
+
+`PATCH /v1/{semanticGovernancePolicy.name}`  
+Updates a SemanticGovernancePolicy.
+
+## REST Resource: [v1.projects.locations.semanticGovernancePolicyEngine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.semanticGovernancePolicyEngine)
+
+Methods
+
+`  deprovision  `
+
+`POST /v1/{name}:deprovision`  
+Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+
 ## REST Resource: [v1.projects.locations.specialistPools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools)
 
 Methods
@@ -2369,6 +2417,11 @@ Generates synthetic (artificial) data based on a description
 `GET /v1beta1/{name}`  
 Gets a RagEngineConfig.
 
+`  getSemanticGovernancePolicyEngine  `
+
+`GET /v1beta1/{name}`  
+Gets a SemanticGovernancePolicyEngine.
+
 `  recommendSpec  `
 
 `POST /v1beta1/{parent}:recommendSpec`  
@@ -2383,6 +2436,11 @@ Retrieves relevant contexts for a query.
 
 `PATCH /v1beta1/{ragEngineConfig.name}`  
 Updates a RagEngineConfig.
+
+`  updateSemanticGovernancePolicyEngine  `
+
+`PATCH /v1beta1/{semanticGovernancePolicyEngine.name}`  
+Updates a SemanticGovernancePolicyEngine.
 
 ## REST Resource: [v1beta1.projects.locations.agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents)
 
@@ -3438,10 +3496,40 @@ Add/update Datapoints into an Index.
 
 Methods
 
+`  create  `
+
+`POST /v1beta1/{parent}/memories`  
+Create a Memory.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Delete a Memory.
+
+`  generate  `
+
+`POST /v1beta1/{parent}/memories:generate`  
+Generate memories.
+
 `  get  `
 
 `GET /v1beta1/{name}`  
 Get a Memory.
+
+`  list  `
+
+`GET /v1beta1/{parent}/memories`  
+List Memories.
+
+`  patch  `
+
+`PATCH /v1beta1/{memory.name}`  
+Update a Memory.
+
+`  retrieve  `
+
+`POST /v1beta1/{parent}/memories:retrieve`  
+Retrieve memories.
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores)
 
@@ -4516,6 +4604,44 @@ Pauses a Schedule.
 
 `POST /v1beta1/{name}:resume`  
 Resumes a paused Schedule to start scheduling new runs.
+
+## REST Resource: [v1beta1.projects.locations.semanticGovernancePolicies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicies)
+
+Methods
+
+`  create  `
+
+`POST /v1beta1/{parent}/semanticGovernancePolicies`  
+Creates a SemanticGovernancePolicy.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes a SemanticGovernancePolicy.
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets a SemanticGovernancePolicy.
+
+`  list  `
+
+`GET /v1beta1/{parent}/semanticGovernancePolicies`  
+Lists SemanticGovernancePolicies in a given location.
+
+`  patch  `
+
+`PATCH /v1beta1/{semanticGovernancePolicy.name}`  
+Updates a SemanticGovernancePolicy.
+
+## REST Resource: [v1beta1.projects.locations.semanticGovernancePolicyEngine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.semanticGovernancePolicyEngine)
+
+Methods
+
+`  deprovision  `
+
+`POST /v1beta1/{name}:deprovision`  
+Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
 
 ## REST Resource: [v1beta1.projects.locations.skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills)
 

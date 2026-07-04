@@ -72,16 +72,15 @@ Up to 3,072 (with MRL support)
 
 Consumption options
 
-Supported
-
-  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-
-Not supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
-  - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
-  - [Batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Not supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
@@ -106,13 +105,6 @@ Technical specifications
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/bmp` , `image/heic` , `image/heif` , `image/avif`
 
-**Audio** mic
-
-  - Maximum audio length per prompt: 180 seconds
-  - Maximum number of audio files per prompt: 1
-  - Supported MIME types:
-    `audio/mp3` , `audio/wav`
-
 **Video** videocam
 
   - Maximum video length (with audio): 80 seconds
@@ -120,6 +112,13 @@ Technical specifications
   - Maximum number of videos per prompt: 1
   - Supported MIME types:
     `video/mpeg` , `video/mp4`
+
+**Audio** mic
+
+  - Maximum audio length per prompt: 180 seconds
+  - Maximum number of audio files per prompt: 1
+  - Supported MIME types:
+    `audio/mp3` , `audio/wav`
 
 Supported regions
 

@@ -60,25 +60,72 @@ Use the following steps to grant permissions to the Discovery Engine Service Age
       - `  PROJECT_NUMBER  ` : Your project number.
       - `  AGENT_GATEWAY_ROLE_NAME  ` : The name of the custom role you created.
 
+## Plan your location and Agent Registry mappings
+
+Before you deploy your Agent Gateway, pick the region where you deploy the gateway and the Agent Registry where you register your resources. Note the following requirements:
+
+  - **Location mapping:** Deploy the Agent Gateway in the specific region that corresponds to your Gemini Enterprise app's multi-region setup to ensure proper routing.
+
+  - **Registry mapping:** Choose either the global, multi-region, or regional registry for your deployment. See [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) for more guidance on deployment patterns and registry choices.
+
+> **Caution:** Multi-region `eu` and `us` registries don't support manual registration of agents, endpoints, and MCP servers.
+
+<table>
+<caption> <strong>Table:</strong> Gemini Enterprise app location and Agent Registry mappings </caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gemini Enterprise app location</th>
+<th>Required Agent Gateway region</th>
+<th>Supported Agent Registry instances for Agent Gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code dir="ltr" translate="no">global</code></td>
+<td><code dir="ltr" translate="no">us-central1</code></td>
+<td><p>Choose <em>one</em> of the following:</p>
+<ul>
+<li><code dir="ltr" translate="no">global</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/global)</code></li>
+<li><code dir="ltr" translate="no">us</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/us</code> )</li>
+<li><code dir="ltr" translate="no">us-central1</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/us-central1</code> )</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><code dir="ltr" translate="no">us</code></td>
+<td><code dir="ltr" translate="no">us-central1</code></td>
+<td><p>Choose <em>one</em> of the following:</p>
+<ul>
+<li><code dir="ltr" translate="no">global</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/global)</code></li>
+<li><code dir="ltr" translate="no">us</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/us</code> )</li>
+<li><code dir="ltr" translate="no">us-central1</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/us-central1</code> )</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><code dir="ltr" translate="no">eu</code></td>
+<td><code dir="ltr" translate="no">europe-west1</code></td>
+<td><p>Choose <em>one</em> of the following:</p>
+<ul>
+<li><code dir="ltr" translate="no">global</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/global)</code></li>
+<li><code dir="ltr" translate="no">eu</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/eu</code> )</li>
+<li><code dir="ltr" translate="no">europe-west1</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/europe-west1</code> )</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+
 ## Route Gemini Enterprise traffic through Agent Gateway
 
 > **Important:** Enabling Agent Gateway routes all Gemini Enterprise traffic, including LLM calls, through the gateway. You can then secure this traffic using authorization policies.
 
 To route Gemini Enterprise traffic through Agent Gateway, perform the following steps:
 
-1.  Register your agent with your Gemini Enterprise project's global instance of Agent Registry. Only traffic to and from registered agents, tools, and MCP servers is permitted through a gateway. For more information, see [Register an agent](https://docs.cloud.google.com/agent-registry/quickstart-register-agent) .
-
-2.  Create an Agent Gateway resource and attach any authorization policies as needed. See [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
+1.  Create an Agent Gateway resource and ensure that you adhere to the region and registry you selected in the previous section. For instructions, see [Set up Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
     
-    **Location mapping:** To ensure proper routing, your Agent Gateway must be deployed in a specific region corresponding to your Gemini Enterprise multi-region setup. You must strictly adhere to the following mapping:
-    
-    | Gemini Enterprise location | Required Agent Gateway region |
-    | -------------------------- | ----------------------------- |
-    | `global`                   | `us-central1`                 |
-    | `us`                       | `us-central1`                 |
-    | `eu`                       | `europe-west1`                |
-    
-
     Verify your gateway configuration. Use the Network Services API to retrieve your Agent Gateway configuration and inspect the settings.
     
         curl -X GET \
@@ -101,69 +148,87 @@ To route Gemini Enterprise traffic through Agent Gateway, perform the following 
           ]
         }
 
-3.  Bind the gateway to your Gemini Enterprise engine by using the `UpdateEngine` API. Note that completing this step immediately routes all existing data connector traffic through the specified Agent Gateway.
+2.  Bind the gateway to your Gemini Enterprise app by using the `UpdateEngine` API. Note that completing this step immediately routes all existing agent traffic through the specified Agent Gateway.
     
-        curl -X PATCH \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -H "Content-Type: application/json" \
-        -H "X-Goog-User-Project: PROJECT_ID" \
-        -d '{
-          "agentGatewaySetting": {
-            "defaultEgressAgentGateway": {
-              "name": "projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
+    ### Console
+    
+    1.  In the Google Cloud console, go to the **Gemini Enterprise** page.
+    
+    2.  Click the name of the app that you want to associate with an Agent Gateway.
+    
+    3.  Click **Security** .
+    
+    4.  On the **Configuration** tab, under **Agent Gateway configuration** , enter the full resource name for the gateway. Use the format: ` projects/ PROJECT_ID /locations/ LOCATION /agentGateways/ AGENT_GATEWAY_NAME  ` .
+    
+    5.  Click **Save** .
+    
+    ### REST
+    
+    1.  Use the following request to update your app.
+        
+            curl -X PATCH \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Content-Type: application/json" \
+            -H "X-Goog-User-Project: PROJECT_ID" \
+            -d '{
+              "agentGatewaySetting": {
+                "defaultEgressAgentGateway": {
+                  "name": "projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
+                }
+              }
+            }' \
+            "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID?updateMask=agentGatewaySetting.defaultEgressAgentGateway.name"
+        
+        Replace the following:
+        
+          - `  PROJECT_ID  ` : The project ID.
+          - `  AGENT_GATEWAY_REGION  ` : The region of the Agent Gateway.
+          - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway.
+          - `  PROJECT_NUMBER  ` : The project number.
+          - `  GE_APP_LOCATION  ` : The location of the Gemini Enterprise app (for example, `us` or `global` ).
+          - `  GE_APP_ID  ` : The ID of the Gemini Enterprise app.
+    
+    2.  To verify the app configuration, use the following command to retrieve your configuration and inspect the settings:
+        
+            curl -s -X GET \
+            -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+            -H "X-Goog-User-Project: PROJECT_ID" \
+            -H "Content-Type: application/json" \
+            "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/GE_APP_ID" \
+            | jq '{name: .name, displayName: .displayName, agentGatewaySetting: .agentGatewaySetting}'
+        
+        Here is an example output for a properly configured app:
+        
+            {
+            "name": "projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/GE_APP_ID",
+            "displayName": "GE_APP_ID",
+            "agentGatewaySetting": {
+              "defaultEgressAgentGateway": {
+                "name": "projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
+              }
             }
-          }
-        }' \
-        "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/ENGINE_ID?updateMask=agentGatewaySetting.defaultEgressAgentGateway.name"
-    
-    Replace the following:
-    
-      - `  PROJECT_ID  ` : The project ID.
-      - `  AGENT_GATEWAY_REGION  ` : The region of the Agent Gateway.
-      - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway.
-      - `  PROJECT_NUMBER  ` : The project number.
-      - `  GE_LOCATION  ` : The location of the Gemini Enterprise engine (for example, `us` or `global` ).
-      - `  ENGINE_ID  ` : The ID of the Gemini Enterprise engine.
+            }
 
-4.  Verify the engine configuration. Use the following command to retrieve your engine configuration and inspect the settings:
+3.  While egress governance is now enabled for your Gemini Enterprise app, your app does not automatically know which external resources on the Agent Registry it can interact with.
     
-        curl -s -X GET \
-        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-        -H "X-Goog-User-Project: PROJECT_ID" \
-        -H "Content-Type: application/json" \
-        "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/ENGINE_ID" \
-        | jq '{name: .name, displayName: .displayName, agentGatewaySetting: .agentGatewaySetting}'
+    You must explicitly import the chosen agents, endpoints, and MCP servers into your Gemini Enterprise app. The imported resource must be referenced using its exact registry-based resource name. For instructions, see the following guides:
     
-    Here is an example output for a properly configured engine:
-    
-        {
-        "name": "projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/ENGINE_ID",
-        "displayName": "ENGINE_ID",
-        "agentGatewaySetting": {
-          "defaultEgressAgentGateway": {
-            "name": "projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
-          }
-        }
-        }
+      - [Import MCP servers from Agent Registry](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/import-govern-mcp-server-agent-registry)
+      - [Import A2A agents from Agent Registry](https://docs.cloud.google.com/gemini/enterprise/docs/import-govern-agent-registry) .
 
-5.  While egress governance is now enabled for your Gemini Enterprise instance (and immediately active for data connectors), your engine does not automatically know which external endpoints on the Agent Registry to interact with. Therefore, you must complete the following steps:
-    
-      - **Import Agent Registry resources** : Explicitly import the chosen Agent Registry agent or MCP server into your Gemini Enterprise Engine. The imported resource must be referenced using its exact Registry-based resource name from your project's global registry.
-      - **Authorize data connectors** : If you are using data connectors rather than custom agents/MCP servers, navigate to the Gemini Enterprise web application UI, locate your connector, and click **Authorize** .
-
-6.  To verify that egress is functioning correctly, perform the following steps:
+4.  To verify that egress is functioning correctly, perform the following steps:
     
     1.  Open the Gemini Enterprise web application.
-    2.  Submit a query designed to trigger an external tool or data connector (for example, "Give me a list of recent issues from my GitHub connector").
+    2.  Submit a query designed to trigger an external tool (for example, "Give me a list of recent issues from GitHub").
     3.  Monitor the execution to ensure the response is successfully retrieved. Behind the scenes, the Gemini Enterprise agent packages the request, routes it through your Agent Gateway (which enforces any configured authorization policies), and retrieves the response from the destination.
 
 ## Restrict Gemini Enterprise binding to approved Agent Gateways
 
-You can create custom organization policy constraints to restrict whether a Gemini Enterprise engine can bind to any or all Agent Gateways.
+You can create custom organization policy constraints to restrict whether a Gemini Enterprise app can bind to any or all Agent Gateways.
 
 ### Create custom organization policy constraints
 
-This example creates a custom constraint that blocks all bindings between Gemini Enterprise engines and Agent Gateways.
+This example creates a custom constraint that blocks all bindings between Gemini Enterprise apps and Agent Gateways.
 
 ### Agent-to-Anywhere
 

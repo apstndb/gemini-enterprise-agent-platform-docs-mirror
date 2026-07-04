@@ -24,6 +24,18 @@ The following models are available from Anthropic to use in Gemini Enterprise Ag
 
 Anthropic's Claude models support Agent Platform request-response logging. Enable 30-day request-response logging of your prompt and completion activity to track any model misuse by your users. For more information, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+### Claude Sonnet 5
+
+Claude Sonnet 5 is our most capable Sonnet model yet, built for coding, agents, and professional work at scale.
+
+**Retirement Date:** Not sooner than December 24, 2026.
+
+  - **Agents** : Claude Sonnet 5 can operate as both a lead-agent and sub-agent in production pipelines, with reliable tool use and the cost profile to run high-volume agentic workloads at scale.
+  - **Coding** : Claude Sonnet 5 is built for everyday development work: building features, refactoring, and debugging across complex codebases without losing quality.
+  - **Enterprise workflows** : Users need fewer rounds of editing to reach production-ready documents, spreadsheets, and presentations. Perfect for teams that need a reliable, everyday model for office tasks.
+  - **Financial analysis** : Claude Sonnet 5 pairs general intelligence improvements with stronger analysis and spreadsheet work, fitting high-volume financial workflows where precision and iteration speed matter.
+  - **Computer use** : Claude Sonnet 5 is our most efficient computer-use model, making browser automation cost-effective enough to deploy across business tools at scale.
+
 ### Claude Fable 5
 
 Claude Fable 5 is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.

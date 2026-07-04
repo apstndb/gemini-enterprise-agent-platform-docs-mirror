@@ -1265,6 +1265,10 @@ Optional. How often at steps to save checkpoints during training. If not set, on
 
 Optional. Number of training epoches for the tuning job.
 
+`stepCount` `string ( int64 format)`
+
+Optional. Number of steps for the tuning job (mutually exclusive with `  epochCount  ` ).
+
 `learningRateMultiplier` `number`
 
 Optional. Learning rate multiplier for Reinforcement Tuning.
@@ -1310,7 +1314,7 @@ Indicates the maximum thinking depth during tuning. Starting from Gemini 3.5 mod
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;adapterSize&quot;: enum (AdapterSize),// checkpoint_config&quot;checkpointInterval&quot;: integer// Union type&quot;epochCount&quot;: string,&quot;learningRateMultiplier&quot;: number,&quot;samplesPerPrompt&quot;: integer,&quot;thinkingBudget&quot;: integer,&quot;batchSize&quot;: integer,&quot;evaluateInterval&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;thinkingLevel&quot;: enum (ReinforcementTuningThinkingLevel)}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;adapterSize&quot;: enum (AdapterSize),// checkpoint_config&quot;checkpointInterval&quot;: integer// Union type&quot;epochCount&quot;: string,&quot;stepCount&quot;: string,&quot;learningRateMultiplier&quot;: number,&quot;samplesPerPrompt&quot;: integer,&quot;thinkingBudget&quot;: integer,&quot;batchSize&quot;: integer,&quot;evaluateInterval&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;thinkingLevel&quot;: enum (ReinforcementTuningThinkingLevel)}</code></pre></td>
 </tr>
 </tbody>
 </table>

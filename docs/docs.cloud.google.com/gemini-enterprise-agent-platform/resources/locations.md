@@ -1189,6 +1189,8 @@ Global
 
 Anthropic models
 
+Claude Sonnet 5
+
 Claude Fable 5
 
 Claude Opus 4.8
@@ -1250,6 +1252,8 @@ European Union multi-region
 (eu)
 
 Anthropic models
+
+Claude Sonnet 5
 
 Claude Fable 5
 
@@ -1328,6 +1332,8 @@ Dallas
 
 Anthropic models
 
+Claude Sonnet 5
+
 Claude Fable 5
 
 Claude Opus 4.8
@@ -1389,6 +1395,8 @@ São Paulo
 (southamerica-east1)
 
 Anthropic models
+
+Claude Sonnet 5
 
 Claude Fable 5
 
@@ -1476,6 +1484,8 @@ Paris
 
 Anthropic models
 
+Claude Sonnet 5
+
 Claude Fable 5
 
 Claude Opus 4.8
@@ -1553,6 +1563,8 @@ Seoul
 
 Anthropic models
 
+Claude Sonnet 5
+
 Claude Fable 5
 
 Claude Opus 4.8
@@ -1617,6 +1629,8 @@ Dammam
 (me-central2)
 
 Anthropic models
+
+Claude Sonnet 5
 
 Claude Fable 5
 

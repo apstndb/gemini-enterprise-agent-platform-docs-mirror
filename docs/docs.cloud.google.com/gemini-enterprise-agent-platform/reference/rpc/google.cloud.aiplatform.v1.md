@@ -36,6 +36,8 @@ data_source: docs.cloud.google.com
   - `  ReasoningEngineExecutionService  ` (interface)
   - `  ReasoningEngineService  ` (interface)
   - `  ScheduleService  ` (interface)
+  - `  SemanticGovernancePolicyEngineService  ` (interface)
+  - `  SemanticGovernancePolicyService  ` (interface)
   - `  SessionService  ` (interface)
   - `  SpecialistPoolService  ` (interface)
   - `  TensorboardService  ` (interface)
@@ -226,6 +228,8 @@ data_source: docs.cloud.google.com
   - `  CreateReasoningEngineRequest  ` (message)
   - `  CreateRegistryFeatureOperationMetadata  ` (message)
   - `  CreateScheduleRequest  ` (message)
+  - `  CreateSemanticGovernancePolicyOperationMetadata  ` (message)
+  - `  CreateSemanticGovernancePolicyRequest  ` (message)
   - `  CreateSessionOperationMetadata  ` (message)
   - `  CreateSessionRequest  ` (message)
   - `  CreateSpecialistPoolOperationMetadata  ` (message)
@@ -293,6 +297,8 @@ data_source: docs.cloud.google.com
   - `  DeleteReasoningEngineRequest  ` (message)
   - `  DeleteSavedQueryRequest  ` (message)
   - `  DeleteScheduleRequest  ` (message)
+  - `  DeleteSemanticGovernancePolicyOperationMetadata  ` (message)
+  - `  DeleteSemanticGovernancePolicyRequest  ` (message)
   - `  DeleteSessionRequest  ` (message)
   - `  DeleteSpecialistPoolRequest  ` (message)
   - `  DeleteStudyRequest  ` (message)
@@ -324,6 +330,8 @@ data_source: docs.cloud.google.com
   - `  DeployedModelRef  ` (message)
   - `  DeploymentResourcePool  ` (message)
   - `  DeploymentStage  ` (enum)
+  - `  DeprovisionSemanticGovernancePolicyEngineOperationMetadata  ` (message)
+  - `  DeprovisionSemanticGovernancePolicyEngineRequest  ` (message)
   - `  DestinationFeatureSetting  ` (message)
   - `  DirectPredictRequest  ` (message)
   - `  DirectPredictResponse  ` (message)
@@ -499,6 +507,8 @@ data_source: docs.cloud.google.com
   - `  FunctionResponseBlob  ` (message)
   - `  FunctionResponseFileData  ` (message)
   - `  FunctionResponsePart  ` (message)
+  - `  GatewayConfig  ` (message)
+  - `  GatewayConfig.State  ` (enum)
   - `  GcsDestination  ` (message)
   - `  GcsSource  ` (message)
   - `  GenAiAdvancedFeaturesConfig  ` (message)
@@ -565,6 +575,8 @@ data_source: docs.cloud.google.com
   - `  GetRagFileRequest  ` (message)
   - `  GetReasoningEngineRequest  ` (message)
   - `  GetScheduleRequest  ` (message)
+  - `  GetSemanticGovernancePolicyEngineRequest  ` (message)
+  - `  GetSemanticGovernancePolicyRequest  ` (message)
   - `  GetSessionRequest  ` (message)
   - `  GetSpecialistPoolRequest  ` (message)
   - `  GetStudyRequest  ` (message)
@@ -723,6 +735,8 @@ data_source: docs.cloud.google.com
   - `  ListSavedQueriesResponse  ` (message)
   - `  ListSchedulesRequest  ` (message)
   - `  ListSchedulesResponse  ` (message)
+  - `  ListSemanticGovernancePoliciesRequest  ` (message)
+  - `  ListSemanticGovernancePoliciesResponse  ` (message)
   - `  ListSessionsRequest  ` (message)
   - `  ListSessionsResponse  ` (message)
   - `  ListSpecialistPoolsRequest  ` (message)
@@ -1127,6 +1141,10 @@ data_source: docs.cloud.google.com
   - `  SecretEnvVar  ` (message)
   - `  SecretRef  ` (message)
   - `  Segment  ` (message)
+  - `  SemanticGovernancePolicy  ` (message)
+  - `  SemanticGovernancePolicy.McpTool  ` (message)
+  - `  SemanticGovernancePolicyEngine  ` (message)
+  - `  SemanticGovernancePolicyEngine.State  ` (enum)
   - `  ServiceAccountSpec  ` (message)
   - `  Session  ` (message)
   - `  SessionEvent  ` (message)
@@ -1352,6 +1370,10 @@ data_source: docs.cloud.google.com
   - `  UpdateReasoningEngineOperationMetadata  ` (message)
   - `  UpdateReasoningEngineRequest  ` (message)
   - `  UpdateScheduleRequest  ` (message)
+  - `  UpdateSemanticGovernancePolicyEngineOperationMetadata  ` (message)
+  - `  UpdateSemanticGovernancePolicyEngineRequest  ` (message)
+  - `  UpdateSemanticGovernancePolicyOperationMetadata  ` (message)
+  - `  UpdateSemanticGovernancePolicyRequest  ` (message)
   - `  UpdateSessionRequest  ` (message)
   - `  UpdateSpecialistPoolOperationMetadata  ` (message)
   - `  UpdateSpecialistPoolRequest  ` (message)
@@ -10828,6 +10850,288 @@ A service for creating and managing Agent Platform's Schedule resources to perio
 </tbody>
 </table>
 
+## SemanticGovernancePolicyEngineService
+
+Service for managing SemanticGovernancePolicyEngine resources.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeprovisionSemanticGovernancePolicyEngine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeprovisionSemanticGovernancePolicyEngine(              DeprovisionSemanticGovernancePolicyEngineRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments. This operation is irreversible.</p>
+<p>Returns a long-running operation; poll for completion. The response contains the SemanticGovernancePolicyEngine in DEPROVISIONING state.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetSemanticGovernancePolicyEngine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetSemanticGovernancePolicyEngine(              GetSemanticGovernancePolicyEngineRequest            </code> ) returns ( <code dir="ltr" translate="no">             SemanticGovernancePolicyEngine            </code> )</p>
+<p>Gets a SemanticGovernancePolicyEngine.</p>
+<p>A SemanticGovernancePolicyEngine is a singleton resource that is created when its parent is created, and deleted when its parent is deleted. This method retrieves the current state of the Semantic Governance Policy Engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicyEngine.get</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>UpdateSemanticGovernancePolicyEngine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc UpdateSemanticGovernancePolicyEngine(              UpdateSemanticGovernancePolicyEngineRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Updates a SemanticGovernancePolicyEngine.</p>
+<p>This method performs an upsert operation. If the SemanticGovernancePolicyEngine resource does not exist, it will be created. Otherwise, it will be updated.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicyEngine.update</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+## SemanticGovernancePolicyService
+
+Manages SemanticGovernancePolicies. A SemanticGovernancePolicy is a resource that represents a user-specified policy applied to an Agent and optionally a specific Tool within that Agent.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CreateSemanticGovernancePolicy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CreateSemanticGovernancePolicy(              CreateSemanticGovernancePolicyRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Creates a SemanticGovernancePolicy.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicies.create</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteSemanticGovernancePolicy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteSemanticGovernancePolicy(              DeleteSemanticGovernancePolicyRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deletes a SemanticGovernancePolicy.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicies.delete</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetSemanticGovernancePolicy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetSemanticGovernancePolicy(              GetSemanticGovernancePolicyRequest            </code> ) returns ( <code dir="ltr" translate="no">             SemanticGovernancePolicy            </code> )</p>
+<p>Gets a SemanticGovernancePolicy.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicies.get</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListSemanticGovernancePolicies</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListSemanticGovernancePolicies(              ListSemanticGovernancePoliciesRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListSemanticGovernancePoliciesResponse            </code> )</p>
+<p>Lists SemanticGovernancePolicies in a given location.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicies.list</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>UpdateSemanticGovernancePolicy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc UpdateSemanticGovernancePolicy(              UpdateSemanticGovernancePolicyRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Updates a SemanticGovernancePolicy.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.semanticGovernancePolicies.update</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
 ## SessionService
 
 The service that manages Vertex Session related resources.
@@ -17566,6 +17870,44 @@ Required. The resource name of the Location to create the Schedule in. Format: `
 
 Required. The Schedule to create.
 
+## CreateSemanticGovernancePolicyOperationMetadata
+
+Runtime operation metadata for `  SemanticGovernancePolicyService.CreateSemanticGovernancePolicy  ` .
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## CreateSemanticGovernancePolicyRequest
+
+Request message for SemanticGovernancePolicyService.CreateSemanticGovernancePolicy.
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the Location into which to create the SemanticGovernancePolicy. Format: `projects/{project}/locations/{location}`
+
+`semantic_governance_policy`
+
+`  SemanticGovernancePolicy  `
+
+Required. The SemanticGovernancePolicy to create.
+
+`semantic_governance_policy_id`
+
+`string`
+
+Required. The ID to use for the SemanticGovernancePolicy, which will become the final component of the SemanticGovernancePolicy's resource name.
+
+This value may be up to 63 characters, and valid characters are `[a-z0-9-]` . The first character cannot be a number or hyphen. The last character must be a letter or a number.
+
 ## CreateSessionOperationMetadata
 
 Metadata associated with the `  SessionService.CreateSession  ` operation.
@@ -19040,6 +19382,36 @@ Fields
 
 Required. The name of the Schedule resource to be deleted. Format: `projects/{project}/locations/{location}/schedules/{schedule}`
 
+## DeleteSemanticGovernancePolicyOperationMetadata
+
+Runtime operation metadata for `  SemanticGovernancePolicyService.DeleteSemanticGovernancePolicy  ` .
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## DeleteSemanticGovernancePolicyRequest
+
+Request message for SemanticGovernancePolicyService.DeleteSemanticGovernancePolicy.
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the SemanticGovernancePolicy resource to be deleted. Format: `projects/{project}/locations/{location}/semanticGovernancePolicies/{semantic_governance_policy}`
+
+`etag`
+
+`string`
+
+Optional. The etag of the SemanticGovernancePolicy. If an etag is provided and does not match the current etag of the SemanticGovernancePolicy, deletion will be blocked and an ABORTED error will be returned.
+
 ## DeleteSessionRequest
 
 Request message for `  SessionService.DeleteSession  ` .
@@ -19975,6 +20347,30 @@ The deployment has succeeded.
 `FAILED_TO_DEPLOY`
 
 The deployment has failed.
+
+## DeprovisionSemanticGovernancePolicyEngineOperationMetadata
+
+Details of `  SemanticGovernancePolicyEngineService.DeprovisionSemanticGovernancePolicyEngine  ` operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## DeprovisionSemanticGovernancePolicyEngineRequest
+
+Request message for `  SemanticGovernancePolicyEngineService.DeprovisionSemanticGovernancePolicyEngine  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the SemanticGovernancePolicyEngine to deprovision. Format: projects/{project}/locations/{location}/semanticGovernancePolicyEngine
 
 ## DestinationFeatureSetting
 
@@ -25116,6 +25512,84 @@ Inline media bytes.
 
 URI based data.
 
+## GatewayConfig
+
+Configuration for a single gateway.
+
+Fields
+
+`network`
+
+`string`
+
+Optional. The URI of the network resource where PSC-E will be provisioned. if not provided `default` network will be used. Format: projects/{project}/global/networks/{network}
+
+`subnetwork`
+
+`string`
+
+Optional. The URI of the subnetwork resource where PSC-E will be provisioned. if not provided `default` subnet will be used from the same {location} Format: projects/{project}/regions/{region}/subnetworks/{subnetwork}
+
+`dns_zone_name`
+
+`string`
+
+Optional. FQDN of the private DNS zone to create DNS record set for PSC endpoint.
+
+`state`
+
+`  State  `
+
+Output only. The state of the Gateway configuration.
+
+`ip_address`
+
+`string`
+
+Output only. The private IP address of the PSC endpoint.
+
+`psc_endpoint`
+
+`string`
+
+Output only. The self-link or name of the Private Service Connect endpoint forwarding rule.
+
+`dns_record`
+
+`string`
+
+Output only. The fully qualified record name of the created A-record in Cloud DNS.
+
+## State
+
+State of the Gateway configuration.
+
+Enums
+
+`STATE_UNSPECIFIED`
+
+The default value. This value is used if the state is omitted.
+
+`PROVISIONING`
+
+The Gateway is being provisioned.
+
+`ACTIVE`
+
+The Gateway is active and ready to use.
+
+`DEPROVISIONING`
+
+The Gateway is being de-provisioned.
+
+`INACTIVE`
+
+The Gateway is inactive.
+
+`FAILED`
+
+The Gateway failed to be provisioned.
+
 ## GcsDestination
 
 The Google Cloud Storage location where the output is to be written to.
@@ -26443,6 +26917,30 @@ Fields
 `string`
 
 Required. The name of the Schedule resource. Format: `projects/{project}/locations/{location}/schedules/{schedule}`
+
+## GetSemanticGovernancePolicyEngineRequest
+
+Request message for GetSemanticGovernancePolicyEngine.
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the SemanticGovernancePolicyEngine to retrieve. Format: projects/{project}/locations/{location}/semanticGovernancePolicyEngine
+
+## GetSemanticGovernancePolicyRequest
+
+Request message for SemanticGovernancePolicyService.GetSemanticGovernancePolicy.
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the SemanticGovernancePolicy resource. Format: `projects/{project}/locations/{location}/semanticGovernancePolicies/{semantic_governance_policy}`
 
 ## GetSessionRequest
 
@@ -31332,6 +31830,48 @@ List of Schedules in the requested page.
 `string`
 
 A token to retrieve the next page of results. Pass to `  ListSchedulesRequest.page_token  ` to obtain that page.
+
+## ListSemanticGovernancePoliciesRequest
+
+Request message for SemanticGovernancePolicyService.ListSemanticGovernancePolicies.
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the Location from which to list the SemanticGovernancePolicies. Format: `projects/{project}/locations/{location}`
+
+`page_size`
+
+`int32`
+
+Optional. The list page size. If zero, a default page size of 10 is used.
+
+`page_token`
+
+`string`
+
+Optional. The standard list page token.
+
+## ListSemanticGovernancePoliciesResponse
+
+Response message for SemanticGovernancePolicyService.ListSemanticGovernancePolicies.
+
+Fields
+
+`semantic_governance_policies[]`
+
+`  SemanticGovernancePolicy  `
+
+The list of SemanticGovernancePolicies.
+
+`next_page_token`
+
+`string`
+
+A token to retrieve the next page of results. Pass to `  ListSemanticGovernancePoliciesRequest.page_token  ` to obtain that page.
 
 ## ListSessionsRequest
 
@@ -42723,6 +43263,180 @@ Output only. The end index of the segment in the `Part` , measured in bytes. Thi
 
 Output only. The text of the segment.
 
+## SemanticGovernancePolicy
+
+Represents a governance policy applied to a specific Agent and optionally a specific Tool within that Agent.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. Resource name of the SemanticGovernancePolicy.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when this SemanticGovernancePolicy was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when this SemanticGovernancePolicy was last updated.
+
+`etag`
+
+`string`
+
+Optional. Used to perform consistent read-modify-write transactions. If provided, the request will only succeed if the etag matches the current value. Otherwise, an ABORTED error will be returned.
+
+`display_name`
+
+`string`
+
+Optional. The user-defined name of the SemanticGovernancePolicy.
+
+`description`
+
+`string`
+
+Optional. The description of the SemanticGovernancePolicy.
+
+`natural_language_constraint`
+
+`string`
+
+Required. The natural language constraint of the SemanticGovernancePolicy.
+
+`agent`
+
+`string`
+
+Required. The name of the agent in Agent Registry that is affected by this policy.
+
+`mcp_tools[]`
+
+`  McpTool  `
+
+Optional. The McpTools that are affected by this policy.
+
+`agent_identity`
+
+`string`
+
+Output only. Represents the principal of the agent, used by the Policy Decision Point (PDP) for governance checks. For more information, see <https://docs.cloud.google.com/agent-builder/agent-engine/agent-identity>
+
+Format: `principal://TRUST_DOMAIN/NAMESPACE/AGENT_NAME`
+
+Example: `principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/AGENT_ENGINE_ID`
+
+## McpTool
+
+Represents a governance policy applied to MCP tools used by an Agent.
+
+Fields
+
+`mcp_server`
+
+`string`
+
+Required. The resource name of the McpServer in Agent Registry that is affected by this policy. Format: `projects/{project}/locations/{location}/mcpServers/{mcp_server}`
+
+`tools[]`
+
+`string`
+
+Optional. The resource names of the McpTools used by the Agent that is affected by this policy. If not specified, the policy applies to all McpTools in the McpServer.
+
+## SemanticGovernancePolicyEngine
+
+Define a singleton SemanticGovernancePolicyEngine resource under a project and location.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name of the SemanticGovernancePolicyEngine. Format: projects/{project}/locations/{location}/semanticGovernancePolicyEngine
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when this SemanticGovernancePolicyEngine was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when this SemanticGovernancePolicyEngine was last updated.
+
+`psc_service_attachment`
+
+`string`
+
+Output only. URI of the PSC attachment resource provided by SGP. Format: projects/{project}/regions/{region}/serviceAttachments/{service\_attachment}
+
+`ip_address`
+
+`string`
+
+Output only. The private IPv4 address of the PSC endpoint.
+
+`psc_forwarding_rule`
+
+`string`
+
+Output only. The URI of the PSC endpoint resource created in customer project. Format: projects/{project}/regions/{region}/forwardingRules/{forwarding\_rule}
+
+`state`
+
+`  State  `
+
+Output only. The state of the SemanticGovernancePolicyEngine.
+
+`gateway_configs`
+
+` map<string, GatewayConfig  ` \>
+
+Optional. Configurations for gateways. The keys are user-defined names for each gateway. At most 5 gateway configurations are allowed.
+
+## State
+
+State of the SemanticGovernancePolicyEngine.
+
+The lifecycle is: INACTIVE -\> PROVISIONING -\> {ACTIVE, FAILED} and ACTIVE -\> DEPROVISIONING -\> INACTIVE. A FAILED engine may be either re-provisioned or deprovisioned.
+
+Enums
+
+`STATE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`PROVISIONING`
+
+A provisioning operation is in progress. The engine will transition to ACTIVE on success or FAILED on failure.
+
+`ACTIVE`
+
+The engine and all of its gateway configurations are provisioned and ready to serve traffic.
+
+`DEPROVISIONING`
+
+A deprovisioning operation is in progress. The engine will transition to INACTIVE on success or FAILED on failure.
+
+`INACTIVE`
+
+The engine has no provisioned infrastructure: either never provisioned, or successfully deprovisioned.
+
+`FAILED`
+
+The most recent provisioning or deprovisioning operation failed. The engine may have partial infrastructure that needs explicit deprovision; the engine may be either re-provisioned or deprovisioned to recover.
+
 ## ServiceAccountSpec
 
 Configuration for the use of custom service account to run the workloads.
@@ -47817,6 +48531,74 @@ Required. The Schedule which replaces the resource on the server. The following 
 `  FieldMask  `
 
 Required. The update mask applies to the resource. See `  google.protobuf.FieldMask  ` .
+
+## UpdateSemanticGovernancePolicyEngineOperationMetadata
+
+Details of `  SemanticGovernancePolicyEngineService.UpdateSemanticGovernancePolicyEngine  ` operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+`progress_message`
+
+`string`
+
+Output only. Granular progress message for the operation.
+
+## UpdateSemanticGovernancePolicyEngineRequest
+
+Request message for UpdateSemanticGovernancePolicyEngine.
+
+Fields
+
+`semantic_governance_policy_engine`
+
+`  SemanticGovernancePolicyEngine  `
+
+Required. The SemanticGovernancePolicyEngine resource to update. The name field of the semantic\_governance\_policy\_engine must be of the form `projects/{project}/locations/{location}/semanticGovernancePolicyEngine` .
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. Specifies the fields to be overwritten in the SemanticGovernancePolicyEngine resource by the update. The fields specified in the update\_mask are relative to the resource itself. If no update\_mask is provided, all fields are overwritten.
+
+## UpdateSemanticGovernancePolicyOperationMetadata
+
+Runtime operation metadata for `  SemanticGovernancePolicyService.UpdateSemanticGovernancePolicy  ` .
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## UpdateSemanticGovernancePolicyRequest
+
+Request message for SemanticGovernancePolicyService.UpdateSemanticGovernancePolicy.
+
+Fields
+
+`semantic_governance_policy`
+
+`  SemanticGovernancePolicy  `
+
+Required. The SemanticGovernancePolicy to update.
+
+The SemanticGovernancePolicy's `name` field is used to identify the SemanticGovernancePolicy to update. Format: `projects/{project}/locations/{location}/semanticGovernancePolicies/{semantic_governance_policy}`
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. `update_mask` is used to specify the fields to be overwritten in the SemanticGovernancePolicy resource by the update. The fields specified in the `update_mask` are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the mask is not present, then all fields that are populated in the request message will be overwritten. Set the `update_mask` to `*` to override all fields.
 
 ## UpdateSessionRequest
 

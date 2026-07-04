@@ -46,6 +46,10 @@ Generates synthetic (artificial) data based on a description
 
 Gets a RagEngineConfig.
 
+### `            getSemanticGovernancePolicyEngine           `
+
+Gets a SemanticGovernancePolicyEngine.
+
 ### `            retrieveContexts           `
 
 Retrieves relevant contexts for a query.
@@ -53,3 +57,7 @@ Retrieves relevant contexts for a query.
 ### `            updateRagEngineConfig           `
 
 Updates a RagEngineConfig.
+
+### `            updateSemanticGovernancePolicyEngine           `
+
+Updates a SemanticGovernancePolicyEngine.

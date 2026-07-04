@@ -8,6 +8,7 @@ data_source: docs.cloud.google.com
 
 You can use Anthropic's SDK or curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
+  - For Claude Sonnet 5, use `claude-sonnet-5`
   - For Claude Fable 5, use `claude-fable-5`
   - For Claude Opus 4.8, use `claude-opus-4-8`
   - For Claude Opus 4.7, use `claude-opus-4-7`
@@ -39,6 +40,7 @@ To use the Anthropic Claude models with Gemini Enterprise Agent Platform, you mu
 Make sure you have the required permissions to enable and use partner models. For more information, see [Grant the required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#grant-permissions) .
 
 1.  Go to one of the following Model Garden model cards, then click **Enable** :
+      - 
       - 
       - 
       - 

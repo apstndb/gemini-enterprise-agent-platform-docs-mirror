@@ -64,6 +64,10 @@ Not supported
 
   - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)
 
+Quotas
+
+  - Regional online prediction requests per minute per base model: 10
+
 Technical specifications
 
 **Audio** mic
@@ -76,16 +80,22 @@ Technical specifications
   - Supported MIME types:
     `audio/mp3`
 
+Supported regions
+
+Model availability
+
+Global
+
+  - global
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+
 Versions
 
 `lyria-3-pro-preview`
 
   - Launch stage: Preview
   - Release date: 2026-03-25
-
-Quotas
-
-  - Regional online prediction requests per minute per base model: 10
 
 ## 3 Clip Preview
 
@@ -139,6 +149,10 @@ Not supported
   - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)
   - [Duration controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure)
 
+Quotas
+
+  - Regional online prediction requests per minute per base model: 10
+
 Technical specifications
 
 **Audio** mic
@@ -151,15 +165,21 @@ Technical specifications
   - Supported MIME types:
     `audio/mp3`
 
+Supported regions
+
+Model availability
+
+Global
+
+  - global
+
+See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+
 Versions
 
 `lyria-3-clip-preview`
 
   - Launch stage: Preview
   - Release date: 2026-03-25
-
-Quotas
-
-  - Regional online prediction requests per minute per base model: 10
 
 For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.

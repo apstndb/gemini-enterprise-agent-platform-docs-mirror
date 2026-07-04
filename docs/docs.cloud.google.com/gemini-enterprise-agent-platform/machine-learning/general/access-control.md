@@ -76,6 +76,8 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.agents.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  list</code></li>
@@ -198,6 +200,10 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  cancel</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationRuns.  delete</code></li>
@@ -553,6 +559,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
@@ -732,6 +743,13 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
 <ul>
@@ -1294,6 +1312,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
@@ -1463,6 +1486,13 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
 <ul>
@@ -1926,6 +1956,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.agentExamples.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.agents.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.agents.list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
@@ -1975,6 +2010,8 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  evaluationExperiments.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.evaluationRuns.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.evaluationRuns.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.evaluationSets.get</code></p>
@@ -3027,6 +3064,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
@@ -3196,6 +3238,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
 <ul>
@@ -4055,6 +4104,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.agents.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.agents.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  analyzedInvocations.  list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.analyzedSessions.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  analyzedSessions.  aggregate</code></li>
@@ -4224,6 +4278,13 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.evaluationItems.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  evaluationItems.  update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.evaluationMetrics.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  evaluationMetrics.  list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.evaluationRuns.*</code></p>
 <ul>
@@ -5168,6 +5229,11 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.agents.list`
   - `aiplatform.agents.update`
 
+`aiplatform. analyzedInvocations.*`
+
+  - `aiplatform. analyzedInvocations. get`
+  - `aiplatform. analyzedInvocations. list`
+
 `aiplatform.analyzedSessions.*`
 
   - `aiplatform. analyzedSessions. aggregate`
@@ -5360,6 +5426,13 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.evaluationItems.get`
   - `aiplatform. evaluationItems. list`
   - `aiplatform. evaluationItems. update`
+
+`aiplatform.evaluationMetrics.*`
+
+  - `aiplatform. evaluationMetrics. create`
+  - `aiplatform. evaluationMetrics. delete`
+  - `aiplatform. evaluationMetrics. get`
+  - `aiplatform. evaluationMetrics. list`
 
 `aiplatform.evaluationRuns.*`
 
@@ -6364,6 +6437,11 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.agents.list`
   - `aiplatform.agents.update`
 
+`aiplatform. analyzedInvocations.*`
+
+  - `aiplatform. analyzedInvocations. get`
+  - `aiplatform. analyzedInvocations. list`
+
 `aiplatform.analyzedSessions.*`
 
   - `aiplatform. analyzedSessions. aggregate`
@@ -6556,6 +6634,13 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.evaluationItems.get`
   - `aiplatform. evaluationItems. list`
   - `aiplatform. evaluationItems. update`
+
+`aiplatform.evaluationMetrics.*`
+
+  - `aiplatform. evaluationMetrics. create`
+  - `aiplatform. evaluationMetrics. delete`
+  - `aiplatform. evaluationMetrics. get`
+  - `aiplatform. evaluationMetrics. list`
 
 `aiplatform.evaluationRuns.*`
 
@@ -7284,6 +7369,10 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `compute.addresses.use`
 
 `compute.addresses.useInternal`
+
+`compute.advice.capacity`
+
+`compute.advice.capacityHistory`
 
 `compute.autoscalers.*`
 

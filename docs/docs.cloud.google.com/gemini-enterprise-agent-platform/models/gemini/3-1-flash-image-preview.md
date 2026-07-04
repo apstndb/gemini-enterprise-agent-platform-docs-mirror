@@ -70,13 +70,13 @@ Supported
 
   - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search)
   - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction)
-  - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)
+  - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count) preview Preview feature
   - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)
-  - [Image generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation)
-  - [Interleaved images and text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#interleaved-images)
-  - [Edit images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images)
-  - [Multi-turn image editing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images#multi-turn-editing)
+  - [Image generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) preview Preview feature
+  - [Interleaved images and text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#interleaved-images) preview Preview feature
+  - [Edit images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images) preview Preview feature
+  - [Multi-turn image editing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images#multi-turn-editing) preview Preview feature
 
 Not supported
 
@@ -93,16 +93,15 @@ Not supported
 
 Consumption options
 
-Supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
-
-Not supported
-
-  - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo, Flex PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
@@ -111,15 +110,6 @@ Input size limit
 500 MB
 
 Technical specifications
-
-**Text** description
-
-  - Maximum number of files per prompt: As supported by the 128k token context window
-  - Maximum number of pages per file: As supported by the 65,536 token context window
-  - Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
-  - Maximum file size per file for direct uploads through the console: 7 MB
-  - Supported MIME types:
-    `application/pdf` , `text/plain`
 
 **Image** photo
 
@@ -130,6 +120,15 @@ Technical specifications
   - Supported aspect ratios: 1:1, 1:4, 1:8, 3:2, 2:3, 3:4, 4:1, 4:3, 4:5, 5:4, 8:1, 9:16, 16:9, and 21:9
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
+
+**Text** description
+
+  - Maximum number of files per prompt: As supported by the 128k token context window
+  - Maximum number of pages per file: As supported by the 65,536 token context window
+  - Maximum file size per file for the API or Cloud Storage imports: 50 MB(application/pdf) or 7 MB(text/plain)
+  - Maximum file size per file for direct uploads through the console: 7 MB
+  - Supported MIME types:
+    `application/pdf` , `text/plain`
 
 **Parameter defaults** tune
 
@@ -158,7 +157,7 @@ Versions
 
   - Launch stage: Public preview
   - Release date: February 26, 2026
-  - Discontinuation date: July 17, 2026
+  - Retirement date: July 17, 2026
 
 Pricing
 

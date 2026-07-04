@@ -30,6 +30,8 @@ Consider the following limitations when planning your project:
 
 ## Base containers
 
+Agent Platform Workbench provides Google-built base container images in two variants: standard and slim. Each variant includes Python 3.10 (the default) or Python 3.12. Use the URI that matches the Python version you want when you write your derivative container's `FROM` statement.
+
 ### Standard base container
 
 The standard base container supports all Agent Platform Workbench features and includes the following:
@@ -47,7 +49,8 @@ The standard base container has the following specifications:
 
   - Base image: `nvidia/cuda:12.6.1-cudnn-devel-ubuntu24.04`
   - Image size: Approximately 22 GB
-  - URI: `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container:latest`
+  - URI (Python 3.10, default): `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container:latest`
+  - URI (Python 3.12): `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
 
 ### Slim base container
 
@@ -65,7 +68,8 @@ The slim base container has the following specifications:
 
   - Base image: `marketplace.gcr.io/google/ubuntu24.04`
   - Image size: Approximately 2 GB
-  - URI: `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container-slim:latest`
+  - URI (Python 3.10, default): `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container-slim:latest`
+  - URI (Python 3.12): `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`
 
 ## Before you begin
 

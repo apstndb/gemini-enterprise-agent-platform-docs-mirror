@@ -10,6 +10,22 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 01, 2026
+
+Feature
+
+### Provisioned Throughput: Multiple pending new orders GA
+
+The ability to submit multiple pending orders is generally available. you can submit up to seven Google model orders for the same model and region. See [Multiple pending orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#multiple) .
+
+## June 30, 2026
+
+Feature
+
+**Anthropic's Claude Sonnet 5**
+
+[Claude Sonnet 5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5) is available in Model Garden.
+
 ## June 29, 2026
 
 Feature
@@ -36,7 +52,7 @@ For more information, see [Semantic governance policies overview](https://docs.c
 
 Feature
 
-### Provisioned Throughput: Email notifications GA
+**Provisioned Throughput: Email notifications GA**
 
 The ability to get email notifications for Provisioned Throughput events is generally available. See [Get email notifications](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput#email-notifications) .
 
@@ -44,7 +60,7 @@ The ability to get email notifications for Provisioned Throughput events is gene
 
 Feature
 
-### New Provisioned Throughput features
+**New Provisioned Throughput features**
 
 The following Provisioned Throughput features are generally available:
 

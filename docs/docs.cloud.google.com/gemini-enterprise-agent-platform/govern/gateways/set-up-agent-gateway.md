@@ -78,26 +78,118 @@ Agent Gateway supports two deployment modes:
   - **Client-to-Agent (ingress)** : Secures communications from clients to your agents running on Google Cloud.
   - **Agent-to-Anywhere (egress)** : Secures communications from your agents to external targets, public APIs, and MCP servers.
 
-### Select your runtime
+### Select your runtime and region of deployment
 
-Agent Gateway supports agents running on Gemini Enterprise and Agent Runtime. However, Gemini Enterprise agents are only supported in Agent-to-Anywhere mode.
+Agent Gateway governs traffic from agents running on Gemini Enterprise and Runtime. To centralize governance of agents across Gemini Enterprise and Runtime, you can use a single Agent Gateway. Alternatively, you can also deploy independent Agent Gateway instances for Gemini Enterprise and Runtime.
 
-Note that a single Agent Gateway resource cannot simultaneously support both Gemini Enterprise and Agent Runtime integrations. Therefore, you must plan to deploy separate, mutually exclusive gateways: one for Gemini Enterprise (associated with a global Agent Registry) and one for Agent Runtime (associated with a regional Agent Registry).
+Note that the Gemini Enterprise app, Runtime agents, Agent Gateway, and its associated Agent Registry all need to be in the same Google Cloud project.
 
-### Select your region of deployment
+Here are some sample deployment patterns for your consideration:
 
-  - Runtime agents  
-    You must deploy Agent Gateway in the same project and region where your agents are deployed.
-
-  - Gemini Enterprise agents  
-    You must ensure that your gateway is deployed in the same project as your Gemini Enterprise agents, and in a specific region corresponding to the Gemini Enterprise multi-region setup. Make sure you strictly adhere to the following mapping:
+  - Pattern 1: Centralized governance for Gemini Enterprise and Runtime agents  
+    Your Gemini Enterprise app is deployed as a multi-region deployment (in either `us` or `eu` ) while all the other resources (Runtime, Agent Gateway, and Agent Registry) are deployed within a single region corresponding to the Gemini Enterprise multi-region setup.
     
-    | Gemini Enterprise location | Required Agent Gateway region |
-    | -------------------------- | ----------------------------- |
-    | `global`                   | `us-central1`                 |
-    | `us`                       | `us-central1`                 |
-    | `eu`                       | `europe-west1`                |
+    In such a deployment, both the Gemini Enterprise app and Runtime route their traffic through a single, local Agent Gateway directly to the final destination.
     
+    | Gemini Enterprise app location | Runtime region | Agent Gateway region | Agent Registry instance <sup>1</sup>                                          |
+    | ------------------------------ | -------------- | -------------------- | ----------------------------------------------------------------------------- |
+    | `global` or `us`               | `us-central1`  | `us-central1`        | The single Agent Gateway must be associated with the `us-central1` registry.  |
+    | `eu`                           | `europe-west1` | `europe-west1`       | The single Agent Gateway must be associated with the `europe-west1` registry. |
+    
+
+    <sup>1</sup> For the agent to communicate with endpoints and servers, including Google Cloud MCP servers, you must manually register them with the regional Agent Registry instance.
+
+  - Pattern 2: Independent governance for Gemini Enterprise (using Google Cloud MCP servers) and Runtime agents  
+    Your Gemini Enterprise app is deployed as a multi-region deployment (in either `global` , `us` , or `eu` ) while Runtime agents are deployed in separate regions as needed. Agent Gateway instances are deployed in each region where runtimes are located.
+    
+    This pattern ensures regional isolation, with each region having a dedicated Agent Gateway to monitor and govern agent traffic.
+    
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th>Gemini Enterprise app location</th>
+    <th>Runtime region</th>
+    <th>Agent Gateway region</th>
+    <th>Agent Registry instance <sup>1</sup></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><code dir="ltr" translate="no">global</code></td>
+    <td>Any region</td>
+    <td><p>One Agent Gateway in <code dir="ltr" translate="no">us-central1</code> for Gemini Enterprise</p>
+    <p>An Agent Gateway in each region where you want to govern Runtime agents</p></td>
+    <td><p>The Agent Gateway for Gemini Enterprise must be associated with the <code dir="ltr" translate="no">global</code> registry.</p>
+    <p>The Agent Gateway for Runtime must be associated with the corresponding regional registry.</p></td>
+    </tr>
+    <tr class="even">
+    <td><code dir="ltr" translate="no">us</code></td>
+    <td>Any region</td>
+    <td><p>One Agent Gateway in <code dir="ltr" translate="no">us-central1</code> for Gemini Enterprise</p>
+    <p>An Agent Gateway in each region where you want to govern Runtime agents</p></td>
+    <td><p>The Agent Gateway for Gemini Enterprise must be associated with the <code dir="ltr" translate="no">global</code> registry.</p>
+    <p>The Agent Gateway for Runtime must be associated with the corresponding regional registry.</p></td>
+    </tr>
+    <tr class="odd">
+    <td><code dir="ltr" translate="no">eu</code></td>
+    <td>Any region</td>
+    <td><p>One Agent Gateway in <code dir="ltr" translate="no">europe-west1</code> for Gemini Enterprise</p>
+    <p>An Agent Gateway in each region where you want to govern Runtime agents</p></td>
+    <td><p>The Agent Gateway for Gemini Enterprise must be associated with the <code dir="ltr" translate="no">global</code> registry.</p>
+    <p>The Agent Gateway for Runtime must be associated with the corresponding regional registry.</p></td>
+    </tr>
+    </tbody>
+    </table>
+    
+    <sup>1</sup> You must manually register your Runtime agents with the global Agent Registry instance to be able to govern connectivity between the Gemini Enterprise app and the Runtime agent.
+
+  - Pattern 3: Independent governance for Gemini Enterprise, Google Workspace, and Runtime agents  
+    Your Gemini Enterprise, Google Workspace and Runtime agents are deployed as multi-region or regional deployments as needed. The Agent Gateway instances are deployed in each region where runtimes are located.
+    
+    If your Google Workspace agents are multi-region, you'll need to associate the multi-region registry with Agent Gateway as shown in the following table.
+    
+    > **Caution:** Multi-region `eu` and `us` registries don't support manual registration of agents, endpoints, and MCP servers.
+    
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th>Gemini Enterprise app and Google Workspace location</th>
+    <th>Runtime region</th>
+    <th>Agent Gateway region</th>
+    <th>Agent Registry instance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><code dir="ltr" translate="no">us</code></td>
+    <td>Any region</td>
+    <td><p>One Agent Gateway in <code dir="ltr" translate="no">us-central1</code> for Gemini Enterprise and Google Workspace</p>
+    <p>An Agent Gateway in each region where you want to govern Runtime agents</p></td>
+    <td><p>The Agent Gateway for Gemini Enterprise and Google Workspace must be associated with the <code dir="ltr" translate="no">us</code> registry.</p>
+    <p>The Agent Gateway for Runtime must be associated with the corresponding regional registry.</p></td>
+    </tr>
+    <tr class="even">
+    <td><code dir="ltr" translate="no">eu</code></td>
+    <td>Any region</td>
+    <td><p>One Agent Gateway in <code dir="ltr" translate="no">europe-west1</code> for Gemini Enterprise and Google Workspace</p>
+    <p>An Agent Gateway in each region where you want to govern Runtime agents</p></td>
+    <td><p>The Agent Gateway for Gemini Enterprise and Google Workspace must be associated with the <code dir="ltr" translate="no">eu</code> registry.</p>
+    <p>The Agent Gateway for Runtime must be associated with the corresponding regional registry.</p></td>
+    </tr>
+    </tbody>
+    </table>
 
 ### Register your agents, endpoints, servers, and tools
 
@@ -106,7 +198,7 @@ To enable secure communication, you must identify your Agent Registry instance a
 1.  Identify the Agent Registry instance that you will be using.
     
       - For Agent Runtime, you reference the regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ) in the same project and region where the Agent Runtime agents are deployed and where the gateway will be deployed.
-      - For Gemini Enterprise, you reference the global registry ( `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ) in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed.
+      - For Gemini Enterprise, you reference either the global, multi-region, or regional registry in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed. See the [Plan your deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section for guidance on which registry is suitable for your deployment.
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
 
@@ -181,7 +273,7 @@ Use the following steps to create an Agent Gateway resource.
 
 5.  For **Deployment mode** , verify that **Google-managed** is selected.
 
-6.  For **Agent Registry** , select a registry from the list. For Agent Runtime agents, select a regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ). For Gemini Enterprise, select the project's global registry ( `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ).
+6.  For **Agent Registry** , select a registry from the list. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
 7.  From the **Governed Access Path** list, select **Agent-to-Anywhere (Agent Egress)** .
 
@@ -219,7 +311,7 @@ You define Agent Gateways declaratively using YAML.
     Replace the following:
     
       - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
-      - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For Agent Runtime agents, use a regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ). For Gemini Enterprise, use the project's global registry ( `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ).
+      - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
 2.  Run the following command to create an Agent Gateway resource based on the YAML specification:
     

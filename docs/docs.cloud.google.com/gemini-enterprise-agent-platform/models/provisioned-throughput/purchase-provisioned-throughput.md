@@ -88,6 +88,10 @@ If you expect your QPM to exceed 30,000, then to maximize your Provisioned Throu
 
 Provisioned Throughput orders are processed based on the size of the order and the available capacity. Depending on the number of GSUs requested and the available capacity, it might take from a few minutes to a few weeks to process your order. While placing a Provisioned Throughput order, you can use the Generative AI scale unit estimator tool to calculate the number of GSUs that you need to purchase. After reviewing the estimate, you can either proceed with it, or modify the number of GSUs to purchase.
 
+### Multiple pending orders
+
+You can submit up to seven Google model orders for the same model and region, even if a prior order is in an approved or pending state, as long as the scheduled start time for each order is greater than 1 hour from the scheduled start time of another order. If an order was submitted without a start time, you won't be able to submit another unscheduled order.
+
 ## Place a standard Provisioned Throughput order
 
 Follow these steps to purchase standard Provisioned Throughput. For assistance with purchasing Single Zone Provisioned Throughput, [contact your Google Cloud account representative](https://cloud.google.com/contact) .
@@ -249,7 +253,7 @@ The following table describes how to modify your Provisioned Throughput orders b
 <td><strong>Pending review</strong></td>
 <td>You can cancel your order.</td>
 <td><p>If you have additional changes to your order, then cancel the pending order, and place a new order.</p>
-<p>If you have multiple models, each model can have only one pending order revision or pending order at a time.</p></td>
+<p>If you have multiple models, each model can have only one pending order revision.</p></td>
 <td>To cancel your pending order in the Google Cloud console, do the following:<br />
 
 <ol>

@@ -12,6 +12,19 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators) , or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly.
 
+## June 30, 2026
+
+v2
+
+Feature
+
+**Python 3.12 base containers for Agent Platform Workbench custom containers**
+
+You can build [custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) for Agent Platform Workbench instances using Python 3.12 base containers, in addition to the default Python 3.10 base containers. The Python 3.12 standard and slim base containers are available at the following URIs:
+
+  - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
+  - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`
+
 ## March 30, 2026
 
 v2

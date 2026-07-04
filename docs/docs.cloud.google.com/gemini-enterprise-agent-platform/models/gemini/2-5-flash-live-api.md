@@ -27,6 +27,8 @@ For more information on Gemini Live API, see:
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-native-audio)
 
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
+
 Model ID
 
 `gemini-live-2.5-flash-native-audio`
@@ -92,16 +94,15 @@ Not supported
 
 Consumption options
 
-Supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-
-Not supported
-
-  - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
-  - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
@@ -115,6 +116,12 @@ Technical specifications
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
+**Video** videocam
+
+  - Standard resolution: 768 x 768
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
+
 **Audio** mic
 
   - Maximum conversation length: Default 10 minutes that can [be extended.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-extension)
@@ -122,12 +129,6 @@ Technical specifications
   - Required audio output format: Raw 16-bit PCM audio at 24kHz, little-endian
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
-
-**Video** videocam
-
-  - Standard resolution: 768 x 768
-  - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -167,7 +168,7 @@ Versions
 
   - Launch stage: GA
   - Release date: December 12, 2025
-  - Discontinuation date: December 13, 2026
+  - Retirement date: December 13, 2026
 
 Security controls
 
@@ -195,6 +196,8 @@ See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generati
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-preview-native-audio-09-2025)
+
+Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
@@ -265,16 +268,15 @@ Not supported
 
 Consumption options
 
-Supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-
-Not supported
-
-  - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
-  - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
@@ -288,6 +290,12 @@ Technical specifications
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
+**Video** videocam
+
+  - Standard resolution: 768 x 768
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
+
 **Audio** mic
 
   - Maximum conversation length: Default 10 minutes that can [be extended.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-extension)
@@ -295,12 +303,6 @@ Technical specifications
   - Required audio output format: Raw 16-bit PCM audio at 24kHz, little-endian
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
-
-**Video** videocam
-
-  - Standard resolution: 768 x 768
-  - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -329,7 +331,7 @@ Versions
 
   - Launch stage: Public preview
   - Release date: September 25, 2025
-  - Discontinuation date: March 19, 2026
+  - Retirement date: March 19, 2026
 
 Pricing
 

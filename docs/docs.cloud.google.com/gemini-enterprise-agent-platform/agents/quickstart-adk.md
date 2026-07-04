@@ -79,7 +79,7 @@ Your AI development tool then performs a basic functionality test:
 
 This is the expected output from that test:
 
-> “Deploy options: Agent Runtime, Cloud Run, GKE. Pick one. Ship.”
+> "Deploy options: Agent Runtime, Cloud Run, GKE. Pick one. Ship."
 
 ## Evaluate agent
 
@@ -129,7 +129,7 @@ To enable more detailed observability, instruct your AI development tool:
 
     Set up observability infrastructure for my agent.
 
-Your AI development tool provisions a service account, a Cloud Storage bucket, and a BigQuery dataset, and updates the deployed service to use these resources. Refer to the [Observability Guide](https://agents-cli-docs-569187589892.us-east1.run.app/guide/observability/) for details.
+Your AI development tool provisions a service account, a Cloud Storage bucket, and a BigQuery dataset, and updates the deployed service to use these resources. Refer to the [Observability Guide](https://google.github.io/agents-cli/guide/observability/) for details.
 
 ## Summary of actions
 

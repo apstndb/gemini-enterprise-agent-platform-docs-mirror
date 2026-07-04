@@ -145,6 +145,30 @@ Required. Represents the schema id for which this structured memory belongs to.
 
 ## Methods
 
+### `            create           `
+
+Create a Memory.
+
+### `            delete           `
+
+Delete a Memory.
+
+### `            generate           `
+
+Generate memories.
+
 ### `            get           `
 
 Get a Memory.
+
+### `            list           `
+
+List Memories.
+
+### `            patch           `
+
+Update a Memory.
+
+### `            retrieve           `
+
+Retrieve memories.

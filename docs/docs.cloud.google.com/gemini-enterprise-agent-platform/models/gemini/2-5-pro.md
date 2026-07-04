@@ -75,16 +75,15 @@ Not supported
 
 Consumption options
 
-Supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard PayGo with Usage Tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
-
-Not supported
-
-  - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Priority PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
@@ -93,6 +92,14 @@ Input size limit
 500 MB
 
 Technical specifications
+
+**Image** photo
+
+  - Maximum images per prompt: 3,000
+  - Maximum file size per file for inline data or direct uploads through the console: 7 MB
+  - Maximum file size per file from Google Cloud Storage: 30 MB
+  - Supported MIME types:
+    `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
 **Text** description
 
@@ -103,13 +110,13 @@ Technical specifications
   - Supported MIME types:
     `application/pdf` , `text/plain`
 
-**Image** photo
+**Video** videocam
 
-  - Maximum images per prompt: 3,000
-  - Maximum file size per file for inline data or direct uploads through the console: 7 MB
-  - Maximum file size per file from Google Cloud Storage: 30 MB
+  - Maximum video length (with audio): Approximately 45 minutes
+  - Maximum video length (without audio): Approximately 1 hour
+  - Maximum number of videos per prompt: 10
   - Supported MIME types:
-    `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Audio** mic
 
@@ -118,14 +125,6 @@ Technical specifications
   - Speech understanding for: Audio summarization, transcription, and translation
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
-
-**Video** videocam
-
-  - Maximum video length (with audio): Approximately 45 minutes
-  - Maximum video length (without audio): Approximately 1 hour
-  - Maximum number of videos per prompt: 10
-  - Supported MIME types:
-    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 
@@ -182,7 +181,7 @@ Versions
 
   - Launch stage: GA
   - Release date: June 17, 2025
-  - Discontinuation date: October 16, 2026
+  - Retirement date: October 16, 2026
 
 Security controls
 

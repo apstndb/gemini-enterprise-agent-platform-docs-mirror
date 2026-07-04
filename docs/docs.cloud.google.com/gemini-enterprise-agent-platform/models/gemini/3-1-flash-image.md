@@ -56,10 +56,10 @@ Supported
   - [Interleaved images and text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#interleaved-images)
   - [Edit images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images)
   - [Multi-turn image editing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images#multi-turn-editing)
-  - [Image generation from video input](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-to-image-generation)
+  - [Image generation from video input](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-to-image-generation) preview Preview feature
   - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search)
   - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction)
-  - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)
+  - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count) preview Preview feature
   - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)
 
@@ -78,16 +78,15 @@ Not supported
 
 Consumption options
 
-Supported
-
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
-  - [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo)
-  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)
-
-Not supported
-
-  - [Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo, Flex PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
 See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
 
@@ -96,14 +95,6 @@ Input size limit
 500 MB
 
 Technical specifications
-
-**Text** description
-
-  - Maximum number of files per prompt: As supported by the 128k token context window
-  - Maximum number of pages per file: As supported by the 65,536 token context window
-  - Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
-  - Supported MIME types:
-    `application/pdf` , `text/plain`
 
 **Image** photo
 
@@ -115,6 +106,14 @@ Technical specifications
   - Supported resolutions: 512, 1K, 2K, 4K (Preview)
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
+
+**Text** description
+
+  - Maximum number of files per prompt: As supported by the 128k token context window
+  - Maximum number of pages per file: As supported by the 65,536 token context window
+  - Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
+  - Supported MIME types:
+    `application/pdf` , `text/plain`
 
 **Parameter defaults** tune
 
@@ -142,7 +141,7 @@ Versions
 
   - Launch stage: GA
   - Release date: May 28, 2026
-  - Discontinuation date: Not before May 28, 2027
+  - Retirement date: Not before May 28, 2027
 
 Security controls
 

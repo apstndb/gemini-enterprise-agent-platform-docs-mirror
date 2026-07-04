@@ -194,6 +194,32 @@ Quotas
 
 Context length
 
+Claude Sonnet 5
+
+`Multi-region`
+
+  - QPM: 1,250
+  - Input TPM: 12,500,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,250,000
+
+1,000,000
+
+`Multi-region`
+
+  - QPM: 1,250
+  - Input TPM: 12,500,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,250,000
+
+1,000,000
+
+`global endpoint`
+
+  - QPM: 2,500
+  - Input TPM: 25,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 2,500,000
+
+1,000,000
+
 Claude Fable 5
 
 `Multi-region`

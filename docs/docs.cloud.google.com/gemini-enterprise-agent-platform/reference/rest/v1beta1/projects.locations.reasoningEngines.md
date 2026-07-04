@@ -226,6 +226,14 @@ Optional. Specifies to trigger generation at a fixed interval. The duration must
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
+`overlap_window` `Union type`
+
+Specifies how much context to carry over from one generation window into the next, so that memories stay coherent across GenerateMemories calls. Carried-over events do not count toward the trigger rule. `overlap_window` can be only one of the following:
+
+`overlapEventCount` `integer`
+
+Optional. Re-include the last N already-processed events in the next window.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -243,6 +251,10 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
   // time_based_condition
   &quot;idleDuration&quot;: string,
   &quot;fixedInterval&quot;: string
+  // Union type
+
+  // overlap_window
+  &quot;overlapEventCount&quot;: integer
   // Union type
 }</code></pre></td>
 </tr>

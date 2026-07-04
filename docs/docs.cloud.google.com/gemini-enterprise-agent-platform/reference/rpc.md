@@ -1188,6 +1188,46 @@ Resumes a paused Schedule to start scheduling new runs.
 
 Updates an active or paused Schedule.
 
+## `        google.cloud.aiplatform.v1.SemanticGovernancePolicyEngineService       `
+
+Methods
+
+`  DeprovisionSemanticGovernancePolicyEngine  `
+
+Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+
+`  GetSemanticGovernancePolicyEngine  `
+
+Gets a SemanticGovernancePolicyEngine.
+
+`  UpdateSemanticGovernancePolicyEngine  `
+
+Updates a SemanticGovernancePolicyEngine.
+
+## `        google.cloud.aiplatform.v1.SemanticGovernancePolicyService       `
+
+Methods
+
+`  CreateSemanticGovernancePolicy  `
+
+Creates a SemanticGovernancePolicy.
+
+`  DeleteSemanticGovernancePolicy  `
+
+Deletes a SemanticGovernancePolicy.
+
+`  GetSemanticGovernancePolicy  `
+
+Gets a SemanticGovernancePolicy.
+
+`  ListSemanticGovernancePolicies  `
+
+Lists SemanticGovernancePolicies in a given location.
+
+`  UpdateSemanticGovernancePolicy  `
+
+Updates a SemanticGovernancePolicy.
+
 ## `        google.cloud.aiplatform.v1.SessionService       `
 
 Methods
@@ -3006,6 +3046,46 @@ Resumes a paused Schedule to start scheduling new runs.
 `  UpdateSchedule  `
 
 Updates an active or paused Schedule.
+
+## `        google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyEngineService       `
+
+Methods
+
+`  DeprovisionSemanticGovernancePolicyEngine  `
+
+Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+
+`  GetSemanticGovernancePolicyEngine  `
+
+Gets a SemanticGovernancePolicyEngine.
+
+`  UpdateSemanticGovernancePolicyEngine  `
+
+Updates a SemanticGovernancePolicyEngine.
+
+## `        google.cloud.aiplatform.v1beta1.SemanticGovernancePolicyService       `
+
+Methods
+
+`  CreateSemanticGovernancePolicy  `
+
+Creates a SemanticGovernancePolicy.
+
+`  DeleteSemanticGovernancePolicy  `
+
+Deletes a SemanticGovernancePolicy.
+
+`  GetSemanticGovernancePolicy  `
+
+Gets a SemanticGovernancePolicy.
+
+`  ListSemanticGovernancePolicies  `
+
+Lists SemanticGovernancePolicies in a given location.
+
+`  UpdateSemanticGovernancePolicy  `
+
+Updates a SemanticGovernancePolicy.
 
 ## `        google.cloud.aiplatform.v1beta1.SessionService       `
 

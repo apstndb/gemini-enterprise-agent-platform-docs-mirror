@@ -56,10 +56,6 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`overallReward` `number`
-
-Output only. The overall weighted reward. For a `  CompositeReinforcementTuningRewardConfig  ` , this is the weighted average of all rewards. For a `  SingleReinforcementTuningRewardConfig  ` , this will be the value of the single reward.
-
 ` rewardDetails (deprecated)  ` `map (key: string, value: number)`
 
 > This item is deprecated\!
@@ -69,6 +65,10 @@ Output only. Deprecated: Use `  rewardInfoDetails  ` instead. A map from reward 
 `rewardInfoDetails` ` map (key: string, value: object ( ReinforcementTuningRewardInfo  ` ))
 
 A map from reward name to reward info.
+
+`overallReward` `number`
+
+Output only. The overall weighted reward. For a `  CompositeReinforcementTuningRewardConfig  ` , this is the weighted average of all rewards. For a `  SingleReinforcementTuningRewardConfig  ` , this will be the value of the single reward.
 
 `error` `string`
 
@@ -85,7 +85,7 @@ Output only. In case of an error, this field will be populated with a detailed e
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;overallReward&quot;: number,&quot;rewardDetails&quot;: {string: number,...},&quot;rewardInfoDetails&quot;: {string: {object (ReinforcementTuningRewardInfo)},...},&quot;error&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rewardDetails&quot;: {string: number,...},&quot;rewardInfoDetails&quot;: {string: {object (ReinforcementTuningRewardInfo)},...},&quot;overallReward&quot;: number,&quot;error&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -96,13 +96,13 @@ The reward info for a reward function.
 
 Fields
 
-`reward` `number`
-
-Output only. The calculated reward for the reward function.
-
 `userRequestedAuxInfo` `string`
 
 Output only. The user-requested auxiliary info for the reward function. This field is set only if the Cloud Run reward function configured by user returns a "user\_requested\_aux\_info". Refer to `  ReinforcementTuningCloudRunRewardScorer  ` for more details.
+
+`reward` `number`
+
+Output only. The calculated reward for the reward function.
 
 <table>
 <colgroup>
@@ -116,8 +116,8 @@ Output only. The user-requested auxiliary info for the reward function. This fie
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;reward&quot;: number,
-  &quot;userRequestedAuxInfo&quot;: string
+  &quot;userRequestedAuxInfo&quot;: string,
+  &quot;reward&quot;: number
 }</code></pre></td>
 </tr>
 </tbody>

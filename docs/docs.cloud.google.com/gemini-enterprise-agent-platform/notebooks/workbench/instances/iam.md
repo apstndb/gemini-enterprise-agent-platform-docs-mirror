@@ -87,6 +87,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.addresses.list</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacity</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacityHistory</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.get</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.list</code></p>
 <p><code dir="ltr" translate="no">compute.backendBuckets.get</code></p>
@@ -601,6 +603,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.addresses.list</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacity</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacityHistory</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.get</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.list</code></p>
 <p><code dir="ltr" translate="no">compute.backendBuckets.get</code></p>
@@ -1117,6 +1121,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.addresses.list</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacity</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacityHistory</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.get</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.list</code></p>
 <p><code dir="ltr" translate="no">compute.backendBuckets.get</code></p>
@@ -1629,6 +1635,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.addresses.use</code></li>
 <li><code dir="ltr" translate="no">compute.addresses.useInternal</code></li>
 <li><code dir="ltr" translate="no">compute.advice.calendarMode</code></li>
+<li><code dir="ltr" translate="no">compute.advice.capacity</code></li>
+<li><code dir="ltr" translate="no">compute.advice.capacityHistory</code></li>
 <li><code dir="ltr" translate="no">compute.autoscalers.create</code></li>
 <li><code dir="ltr" translate="no">compute.autoscalers.delete</code></li>
 <li><code dir="ltr" translate="no">compute.autoscalers.get</code></li>
@@ -2745,6 +2753,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.addresses.list</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacity</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacityHistory</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.get</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.list</code></p>
 <p><code dir="ltr" translate="no">compute.backendBuckets.get</code></p>
@@ -3236,6 +3246,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.addresses.list</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  addresses.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacity</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacityHistory</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.get</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.list</code></p>
 <p><code dir="ltr" translate="no">compute.backendBuckets.get</code></p>
@@ -3783,6 +3795,8 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">compute.  addresses.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.addresses.use</code></p>
 <p><code dir="ltr" translate="no">compute.addresses.useInternal</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacity</code></p>
+<p><code dir="ltr" translate="no">compute.advice.capacityHistory</code></p>
 <p><code dir="ltr" translate="no">compute.autoscalers.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">compute.autoscalers.create</code></li>

@@ -18,22 +18,11 @@ This guide explains how to create, retrieve, list, update, and delete custom age
 
 > **Note:** Model usage during the preview is billed at standard rates. For more information, see the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Prerequisites
+## Before you begin
 
-Before configuring your agents, complete the following:
+Before configuring your agents, set up your environment:
 
-  - In the Google Google Cloud console, on the project selector page, select or create a Google Cloud project.
-
-  - [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project) .
-
-  - Enable the Gemini Enterprise Agent Platform API ( `aiplatform.googleapis.com` ) on your project.
-
-  - Ensure you have one of the following roles:
-    
-      - `aiplatform.user` : Provides permissions to interact with AI Platform resources.
-      - `aiplatform.admin` : Provides full control over AI Platform resources, including administrative tasks.
-
-  - If you plan to use Google Cloud Model Context Protocol (MCP) tools with your agent, grant the `mcp.toolUser` role to both your user account and the associated service account.
+1.  If you plan to use Google Cloud Model Context Protocol (MCP) tools with your agent, grant the MCP Tool User ( `roles/mcp.toolUser` ) role to both your user account and the associated service account.
 
 ## Create an agent
 

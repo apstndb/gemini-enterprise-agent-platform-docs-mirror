@@ -62,6 +62,10 @@ Generates synthetic (artificial) data based on a description
 
 Gets a RagEngineConfig.
 
+### `            getSemanticGovernancePolicyEngine           `
+
+Gets a SemanticGovernancePolicyEngine.
+
 ### `            recommendSpec           `
 
 Gets a Model's spec recommendations.
@@ -73,3 +77,7 @@ Retrieves relevant contexts for a query.
 ### `            updateRagEngineConfig           `
 
 Updates a RagEngineConfig.
+
+### `            updateSemanticGovernancePolicyEngine           `
+
+Updates a SemanticGovernancePolicyEngine.

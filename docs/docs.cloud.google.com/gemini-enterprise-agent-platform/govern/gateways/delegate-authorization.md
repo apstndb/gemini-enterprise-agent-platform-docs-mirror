@@ -479,7 +479,7 @@ You can restrict access based on MCP method parameters such as the names of spec
 The following limitations apply when you use authorization policies:
 
   - For Agent-to-Anywhere (egress) gateways, you can configure a maximum of four custom authorization policies per gateway, regardless of policy profile.
-  - For Client-to-Agent (ingress) gateways, you can configure a maximum of one `CONTENT_AUTHZ` policy, which must use Model Armor. Additional `CONTENT_AUTHZ` policies or other services such as custom Semantic Governance Policy extensions are not supported for ingress.
+  - For Client-to-Agent (ingress) gateways, you can configure a maximum of one `CONTENT_AUTHZ` policy. We strongly recommend using Model Armor to protect against prompt injection attacks. However, if you want to use a Semantic Governance Policy extension instead, you must ensure that Model Armor is not configured on the gateway. Other types of service extensions are not supported for ingress.
   - If you use custom authorization extensions with the `CONTENT_AUTHZ` profile, they must support the `ext_proc` protocol and `FULL_DUPLEX_STREAMED` mode for body events.
   - If you configure multiple custom authorization policies that use the same profile, their execution order is not guaranteed.
 

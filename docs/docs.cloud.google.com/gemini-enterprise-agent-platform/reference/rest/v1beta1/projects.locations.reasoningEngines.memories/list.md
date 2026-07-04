@@ -52,32 +52,4 @@ The request body must be empty.
 
 ### Response body
 
-Response message for `  MemoryBankService.ListMemories  ` .
-
-If successful, the response body contains data with the following structure:
-
-Fields
-
-`memories[]` ` object ( Memory  ` )
-
-List of Memories in the requested page.
-
-`nextPageToken` `string`
-
-A token to retrieve the next page of results. Pass to `  ListMemoriesRequest.page_token  ` to obtain that page.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;memories&quot;: [{object (Memory)}],&quot;nextPageToken&quot;: string}</code></pre></td>
-</tr>
-</tbody>
-</table>
+If successful, the response body contains an instance of `  ListMemoriesResponse  ` .

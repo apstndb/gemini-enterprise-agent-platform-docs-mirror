@@ -29,21 +29,25 @@ For more information, see the [Cloud Quotas overview](https://docs.cloud.google.
 
 The following quotas apply to agents deployed on Agent Platform for a given project in each region:
 
-| Description                                                                          | Quota | Metric                                                                         |
-| ------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------ |
-| Create, delete, or update Agent Platform resources per minute                        | 10    | `aiplatform.googleapis.com/reasoning_engine_service_write_requests`            |
-| Create, delete, or update Agent Platform sessions per minute                         | 100   | `aiplatform.googleapis.com/session_write_requests`                             |
-| `Query` or `StreamQuery` Agent Platform per minute                                   | 90    | `aiplatform.googleapis.com/reasoning_engine_service_query_requests`            |
-| Append event to Agent Platform sessions per minute                                   | 300   | `aiplatform.googleapis.com/session_event_append_requests`                      |
-| Maximum number of Agent Platform resources                                           | 100   | `aiplatform.googleapis.com/reasoning_engine_service_entities`                  |
-| Create, delete, or update Agent Platform memory resources per minute                 | 100   | `aiplatform.googleapis.com/memory_bank_write_requests`                         |
-| Get, list, or retrieve from Agent Platform Memory Bank per minute                    | 300   | `aiplatform.googleapis.com/memory_bank_read_requests`                          |
-| Sandbox environment (Code Execution) execute requests per minute                     | 1000  | `aiplatform.googleapis.com/sandbox_environment_execute_requests`               |
-| Sandbox environment (Code Execution) entities per region                             | 1000  | `aiplatform.googleapis.com/sandbox_environment_entities`                       |
-| Sandbox environment (Code Execution) write requests per minute                       | 500   | `aiplatform.googleapis.com/sandbox_environment_write_requests`                 |
-| A2A Agent post requests like `sendMessage` and `cancelTask` per minute               | 60    | `aiplatform.googleapis.com/a2a_agent_post_requests`                            |
-| A2A Agent get requests like `getTask` and `getCard` per minute                       | 600   | `aiplatform.googleapis.com/a2a_agent_get_requests`                             |
-| Concurrent live bidirectional connections using the `BidiStreamQuery` API per minute | 10    | `aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests` |
+| Description                                                                                                 | Quota | Metric                                                                         |
+| ----------------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------ |
+| Create, delete, or update Agent Platform resources per minute                                               | 10    | `aiplatform.googleapis.com/reasoning_engine_service_write_requests`            |
+| Create, delete, or update Agent Platform sessions per minute                                                | 100   | `aiplatform.googleapis.com/session_write_requests`                             |
+| `Query` or `StreamQuery` Agent Platform per minute                                                          | 90    | `aiplatform.googleapis.com/reasoning_engine_service_query_requests`            |
+| Append event to Agent Platform sessions per minute                                                          | 300   | `aiplatform.googleapis.com/session_event_append_requests`                      |
+| Create, delete, or update Agent Platform non-regional (global or multiregional) sessions per minute         | 100   | `aiplatform.googleapis.com/non_regional_session_write_requests`                |
+| Append event to Agent Platform non-regional (global or multiregional) sessions per minute                   | 300   | `aiplatform.googleapis.com/non_regional_session_event_append_requests`         |
+| Maximum number of Agent Platform resources                                                                  | 100   | `aiplatform.googleapis.com/reasoning_engine_service_entities`                  |
+| Create, delete, or update Agent Platform memory resources per minute                                        | 100   | `aiplatform.googleapis.com/memory_bank_write_requests`                         |
+| Get, list, or retrieve from Agent Platform Memory Bank per minute                                           | 300   | `aiplatform.googleapis.com/memory_bank_read_requests`                          |
+| Create, delete, or update Agent Platform non-regional (global or multiregional) memory resources per minute | 100   | `aiplatform.googleapis.com/non_regional_memory_bank_write_requests`            |
+| Get, list, or retrieve from non-regional (global or multiregional) Agent Platform Memory Bank per minute    | 300   | `aiplatform.googleapis.com/non_regional_memory_bank_read_requests`             |
+| Sandbox environment (Code Execution) execute requests per minute                                            | 1000  | `aiplatform.googleapis.com/sandbox_environment_execute_requests`               |
+| Sandbox environment (Code Execution) entities per region                                                    | 1000  | `aiplatform.googleapis.com/sandbox_environment_entities`                       |
+| Sandbox environment (Code Execution) write requests per minute                                              | 500   | `aiplatform.googleapis.com/sandbox_environment_write_requests`                 |
+| A2A Agent post requests like `sendMessage` and `cancelTask` per minute                                      | 60    | `aiplatform.googleapis.com/a2a_agent_post_requests`                            |
+| A2A Agent get requests like `getTask` and `getCard` per minute                                              | 600   | `aiplatform.googleapis.com/a2a_agent_get_requests`                             |
+| Concurrent live bidirectional connections using the `BidiStreamQuery` API per minute                        | 10    | `aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests` |
 
 ### Quota management for production loads
 
