@@ -61,7 +61,7 @@ The resulting agent definition resembles the following:
 
     root_agent = Agent(
        name="caveman_agent",
-       model=Gemini(model="gemini-flash-latest"),
+       model=Gemini(model="gemini-3.5-flash"),
        instruction="""You are a text compressor. Convert verbose input text into short, simple summaries with a caveman-like tone. Rules:
        - Omit articles, filler words, and politeness.
        - Use short sentences and simple words.

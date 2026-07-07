@@ -163,6 +163,12 @@ Codelab
 
 Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Agent Platform.
 
+Overview
+
+### [Agent Gateway partners](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agw-partners)
+
+Explore the ecosystem of identity and AI security providers integrating with Agent Gateway.
+
 Guide
 
 ### [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)

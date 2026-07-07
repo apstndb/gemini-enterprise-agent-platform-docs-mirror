@@ -38,7 +38,7 @@ To find out how many tokens your workload requires, refer to the [SDK tokenizer]
 
 Latest supported version: `gemini-3.1-flash-lite-image`
 
-2015
+4030
 
 Tokens
 

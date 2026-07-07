@@ -73,6 +73,18 @@ Codelab
 
 Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Agent Platform.
 
+Codelab
+
+### [Codelab: Agent Gateway egress from Agent Runtime to Google MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-gmcp)
+
+Learn about Agent Gateway egress governance for AI agents accessing Google Cloud Model Context Protocol (MCP) servers.
+
+Codelab
+
+### [Codelab: Agent Gateway egress from Agent Runtime to external MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-emcp)
+
+Learn about Agent Gateway egress governance for AI agents accessing external MCP servers.
+
 Overview
 
 ### [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)

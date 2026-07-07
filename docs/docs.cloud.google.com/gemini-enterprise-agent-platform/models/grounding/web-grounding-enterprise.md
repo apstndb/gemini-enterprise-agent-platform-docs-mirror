@@ -16,7 +16,7 @@ Web Grounding for Enterprise uses a web index that is used to generate grounded 
 
 > **Important:** If you receive Search suggestions with a response, that response is a *grounded result* subject to the Grounding with Search terms in the [Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms) . For more information about using Google Search suggestions, see [Use Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise#use-google-search-suggestions) .
 
-> **Important:** If you receive Web Grounding for Enterprise suggestions with a response, that response is a "Grounded Result", which is defined as Google Cloud web index subject to the Web Grounding for Enterprise terms in the [Service Terms](https://docs.cloud.google.com/terms/service-terms) subsection 19k of the Service Specific Terms. To use Web Grounding for Enterprise suggestions, see [Use Google Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
+> **Important:** If you receive Web Grounding for Enterprise suggestions with a response, that response is a "Grounded Result", which is defined as Google Cloud web index subject to the Web Grounding for Enterprise terms in the [Service Terms](https://docs.cloud.google.com/terms/service-terms) subsection 20k of the Service Specific Terms. To use Web Grounding for Enterprise suggestions, see [Use Google Search suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
 
 ## Index freshness and curation
 

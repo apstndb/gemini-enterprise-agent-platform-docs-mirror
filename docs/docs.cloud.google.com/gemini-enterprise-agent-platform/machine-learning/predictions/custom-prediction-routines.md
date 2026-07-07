@@ -107,7 +107,7 @@ Then, upload to Model Registry.
 
 > **Note:** **Security Best Practice** : When you specify an `artifact_uri` that isn't set to a Cloud Storage ( `gs://` ) location, you must set the `staging_bucket` parameter to a Cloud Storage location to help ensure full asset isolation.
 
-Once your model is uploaded to Model Registry, it may be used to [get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions) or deployed to an Agent Platform endpoint to get online inferences.
+Once your model is uploaded to Model Registry, it may be used to [get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) or deployed to an Agent Platform endpoint to get online inferences.
 
 ### Deploy to Agent Platform endpoint
 

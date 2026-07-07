@@ -526,7 +526,7 @@ You should receive a JSON response similar to the following.
 
 Before using any of the request data, make the following replacements:
 
-  - `  LOCATION  ` : The region to process the request. Enter a supported region. For the full list of supported regions, see [Available locations](https://docs.cloud.google.com/vertex-ai/docs/learn/locations#available-regions) .
+  - `  LOCATION  ` : The region to process the request. Enter a supported region. For the full list of supported regions, see [Available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/learn/locations#available-regions) .
     
     **Click to expand a partial list of available regions**
     

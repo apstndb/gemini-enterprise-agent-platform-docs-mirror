@@ -29,7 +29,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 ### Specific to Ray on Agent Platform
 
   - You can store your data in Cloud Storage buckets, which Ray on Agent Platform can access.
-  - Ray can directly read data from Cloud Storage. For example, when running [Spark on Ray](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/run-spark-on-ray) , you can read files from Cloud Storage.
+  - Ray can directly read data from Cloud Storage. For example, when running [Spark on Ray](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/run-spark-on-ray) , you can read files from Cloud Storage.
   - Agent Platform uses Cloud Storage FUSE to mount Cloud Storage buckets as local file systems within your training jobs running on Ray. This lets your Ray applications access data as if it were on a local disk using standard file I/O operations.
   - For optimal performance, it's recommended that you use Cloud Storage buckets in the same region where you're running your Ray cluster.
 
@@ -93,4 +93,4 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
   - [Agent Platform for BigQuery users](https://docs.cloud.google.com/vertex-ai/docs/beginner/bqml)
   - [Build a pipeline for continuous model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/continuous-training-tutorial)
-  - [Use Ray on Vertex AI with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/bigquery-integration)
+  - [Use Ray on Vertex AI with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration)

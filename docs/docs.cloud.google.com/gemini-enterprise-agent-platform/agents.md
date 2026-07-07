@@ -70,11 +70,11 @@ Query the registry for endpoints and configure managed OAuth 2.0 connections for
 
 #### Agent Identity
 
-When deploying agents, agents must be configured with [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) —a unique, SPIFFE-formatted ID that serves as a granular alternative to shared service accounts. Supported directly in IAM, it allows administrators to assign specific permissions (such as to Cloud Storage buckets or BigQuery datasets) directly to the agent. This identity also works with [Agent Identity Auth Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-auth-manager) for user-delegated tool access, providing a clear audit trail. The Agent Gateway uses this identity to enforce fine-grained access control across all agent interactions.
+When deploying agents, agents must be configured with [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) —a unique, SPIFFE-formatted ID that serves as a granular alternative to shared service accounts. Supported directly in IAM, it allows administrators to assign specific permissions (such as to Cloud Storage buckets or BigQuery datasets) directly to the agent. This identity also works with [Agent Identity Auth Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-auth-manager) for user-delegated tool access, providing a clear audit trail. Agent Gateway uses this identity to enforce fine-grained access control across all agent interactions.
 
 #### Agent Gateway
 
-Agent traffic is managed by the [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) , a fully managed networking component that governs all traffic from an agent. It acts as the runtime enforcement point, intercepting calls to tools or other agents to enforce access control policies and support Model Armor inspection of tool calls and responses.
+Agent traffic is managed by the [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) , a fully managed networking component that governs all traffic from an agent. It acts as the runtime enforcement point, intercepting calls to tools or other agents to enforce access control policies and support Model Armor inspection of tool calls and responses. See the [Agent Gateway ISV ecosystem](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agw-partners) .
 
 #### Application Design Center
 
@@ -109,7 +109,7 @@ The Agent Platform is the central console for platform and security administrato
 ### Agent Platform
 
   - **[Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry)** : View, manage, version, register, and monitor agents.
-  - **[Agent Gateway Management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)** : Configure, manage, and monitor Agent Gateways.
+  - **[Agent Gateway Management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)** : Configure, manage, and monitor Agent Gateway instances.
   - **[Policy Enforcement](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview)** : Define and apply IAM and Model Armor policies.
   - **[Observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Monitor agent metrics, traces, and logs, and visualize agent dependencies and interactions.
   - **[Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam)** : Manage agent service accounts and permissions.

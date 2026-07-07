@@ -47,12 +47,7 @@ Implicit caching is supported when using the following models:
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
 
-Implicit caching also supports the latest aliases, including:
-
-  - `gemini-flash-latest`
-  - `gemini-flash-lite-latest`
-
-Implicit caching also supports Open Models. For more information, see [Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#context-caching) .
+Implicit caching also supports open models. For more information, see [Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models#context-caching) .
 
 ## Explicit caching
 

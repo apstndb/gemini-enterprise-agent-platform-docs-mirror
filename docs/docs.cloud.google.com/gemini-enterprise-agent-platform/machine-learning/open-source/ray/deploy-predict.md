@@ -22,7 +22,7 @@ After training a model on a Ray cluster on Gemini Enterprise Agent Platform, dep
 
   - Make inference requests.
 
-Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/set-up) all the prerequisite tools you need.
+Before you begin, make sure to read the [Ray on Agent Platform overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) and [set up](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/set-up) all the prerequisite tools you need.
 
 The steps in this section assume that you use the Ray on Agent Platform SDK in an interactive Python environment.
 
@@ -239,6 +239,6 @@ You should get output like the following:
 
 ## What's next
 
-  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/view-logs)
+  - [View logs for your Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/view-logs)
 
-  - [Delete a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/delete-cluster)
+  - [Delete a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/delete-cluster)

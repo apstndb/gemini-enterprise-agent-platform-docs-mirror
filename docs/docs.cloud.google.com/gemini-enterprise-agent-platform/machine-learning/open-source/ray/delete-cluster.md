@@ -6,7 +6,7 @@ description: Instructions for how to delete a Ray cluster, which avoids unnecess
 data_source: docs.cloud.google.com
 ---
 
-When you finish [developing an application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/develop-application) for your Ray cluster on Gemini Enterprise Agent Platform, delete the cluster to avoid unnecessary billing.
+When you finish [developing an application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/develop-application) for your Ray cluster on Gemini Enterprise Agent Platform, delete the cluster to avoid unnecessary billing.
 
 > **Note:** You can't reuse the cluster name for up to two hours after deleting the cluster.
 

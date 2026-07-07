@@ -8,13 +8,45 @@ data_source: docs.cloud.google.com
 
 Data stored at rest in the customer selected location remains at rest in that [location](https://cloud.google.com/about/locations) , independent of the Agent Platform endpoint called by that customer's request.
 
-## ML processing
+## Where your data lives and is processed
 
-Machine learning (ML) processing for Agent Platform services occurs within the specific [region or multi-region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the request is made. For instructions on how to connect to endpoints, see [Specify an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) .
+Gemini Enterprise Agent Platform provides transparency on where your data is stored ("at rest") and where the actual model computation ("ML processing") happens.
 
-For any regional endpoint not explicitly listed in the following tables, such as those in the Middle East, there is no guarantee that ML processing occurs at a specific location. These endpoints support older models that don't offer ML processing guarantees.
+### 1\. Data-at-rest (storage)
 
-### Google Cloud model support
+When you store data on Agent Platform (such as custom model weights or metadata), it remains physically stored in the specific Google Cloud location you chose. This residency is maintained regardless of which endpoint you use to call the model.
+
+### 2\. ML processing (in-use)
+
+*ML processing* is the method by which data is processed such that it produces model weights (tuning & training) or applies the model to the data for model inference. The geographic location of this processing is determined by your choice of endpoint:
+
+  - **Jurisdictional multi-region endpoints** : When you use jurisdictional endpoints, ML processing stays within that specific geographical region (such as the United States or the European Union).
+    
+    > **Note:** The European Union multi-region ( `eu` ) endpoint strictly covers data residency within EU member states. Geographies outside the European Union political boundary, including the United Kingdom and Switzerland, are excluded from this endpoint.
+    
+      - **Operational efficiency (unified capacity)** : Multi-region endpoints eliminate regional resource siloes. Instead of purchasing and managing separate Provisioned Throughput allocations for individual regions (such as `us-central1` and `us-east4` ), you can deploy a single Provisioned Throughput commitment that covers your entire jurisdictional boundary (such as the United States).
+    
+      - **Compliance enablement** : Multi-region endpoints provide the data-in-use isolation controls required to help satisfy stringent regulatory frameworks. While multi-region endpoints serve as a foundational technical capability for complying with Department of Defense (DoD) Impact Level 5 (IL5) or International Traffic in Arms Regulations (ITAR) requirements, fully achieving compliance also requires broader customer-managed architecture, identity, and access controls.
+        
+        > **Important:** Models not explicitly listed as supporting US multi-regions don't meet DoD IL5 commitments. IL5 customers are responsible for restricting access to these models on Global endpoints by configuring [organizational policies](https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage) to block global endpoint traffic.
+
+  - **Locational endpoints** : These endpoints (like `us-central1` , `europe-west1` ) ensure that ML processing remains entirely within the broader multi-regional or country jurisdiction associated with that region (for example, requests to us-central1 are processed within the United States).
+    
+    For European regions, local in-country processing varies by model type (for example, specific models may have local processing in France or Germany, while others are processed within the broader EU multi-region boundary). See the [following section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#supported-models) for the exact ML processing commitments for each model and location.
+    
+      - **Compliance alignment** : While locational endpoints meet standard enterprise data governance and sovereign requirements (such as GDPR and HIPAA), workloads requiring specialized government isolation frameworks like DoD IL5 or ITAR should be deployed on jurisdictional endpoints as part of a broader compliant architecture.
+
+  - **Global endpoints** : Global endpoints route and process data anywhere globally, without restricting it to a specific geographic region. These endpoints (like `https://aiplatform.googleapis.com` ) don't specify a region in the hostname. They are designed to maximize availability and minimize latency by terminating TLS sessions as close to the client as possible, but they don't provide regional isolation or data residency guarantees.
+
+## Supported models
+
+The tables in this section cover the regional support for ML processing at a per-model basis for the following model categories:
+
+  - [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-google-models)
+  - [Partner models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-partner-models)
+  - [Open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-open-models)
+
+### Google models
 
 To learn what capabilities support data residency, see [Supported capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/supported-capabilities) .
 
@@ -41,27 +73,27 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>US multi-region</th>
 <th>EU multi-region</th>
 <th>Brazil<br />
-(southamerica-east1)</th>
+)southamerica-east1)</th>
 <th>Canada<br />
-(northamerica-northeast1)</th>
+)northamerica-northeast1)</th>
 <th>France<br />
-(europe-west9)</th>
+)europe-west9)</th>
 <th>Germany<br />
-(europe-west3)</th>
+)europe-west3)</th>
 <th>Netherlands<br />
-(europe-west4)</th>
+)europe-west4)</th>
 <th>United Kingdom<br />
-(europe-west2)</th>
+)europe-west2)</th>
 <th>Australia<br />
-(australia-southeast1)</th>
+)australia-southeast1)</th>
 <th>India<br />
-(asia-south1)</th>
+)asia-south1)</th>
 <th>Japan<br />
-(asia-northeast1)</th>
+)asia-northeast1)</th>
 <th>Singapore<br />
-(asia-southeast1)</th>
+)asia-southeast1)</th>
 <th>South Korea<br />
-(asia-northeast3)</th>
+)asia-northeast3)</th>
 </tr>
 </thead>
 <tbody>
@@ -458,13 +490,13 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>US multi-region</th>
 <th>EU multi-region</th>
 <th>Belgium<br />
-(europe-west1)</th>
+)europe-west1)</th>
 <th>Netherlands<br />
-(europe-west4)</th>
+)europe-west4)</th>
 <th>Singapore<br />
-(asia-southeast1)</th>
+)asia-southeast1)</th>
 <th>Taiwan<br />
-(asia-east1)</th>
+)asia-east1)</th>
 <th>Global</th>
 </tr>
 </thead>
@@ -698,7 +730,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>US multi-region</th>
 <th>EU multi-region</th>
 <th>Singapore<br />
-(asia-southeast1)</th>
+)asia-southeast1)</th>
 <th>Global</th>
 </tr>
 </thead>

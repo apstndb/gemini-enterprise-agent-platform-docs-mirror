@@ -56,7 +56,7 @@ The following models provide support for code execution:
 
 ## Get started with code execution
 
-This section assumes that you've completed the setup and configuration steps shown in the [Gemini API quickstart](https://docs.cloud.google.com/vertex-ai/docs/start/quickstarts/quickstart-multimodal) .
+This section assumes that you've completed the setup and configuration steps shown in the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstarts/quickstart-multimodal) .
 
 ### Enable code execution
 

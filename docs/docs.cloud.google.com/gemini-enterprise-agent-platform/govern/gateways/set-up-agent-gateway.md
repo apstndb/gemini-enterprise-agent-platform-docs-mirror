@@ -255,8 +255,6 @@ The following steps are required to enable communications between the agent and 
 
 ## Configure Agent Gateway in Agent-to-Anywhere (egress) mode
 
-> **Note:** For an end-to-end codelab that explores how to govern communications initiated by an agent on Gemini Enterprise Agent Platform, see [Codelab: Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway) .
-
 This section shows you how to set up an Agent Gateway for [Agent-to-Anywhere](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#modes) communications.
 
 Use the following steps to create an Agent Gateway resource.
@@ -449,6 +447,14 @@ To deploy a Agent Runtime agent that routes traffic through Agent Gateway, see [
 
 To deploy a Gemini Enterprise agent that routes traffic through Agent Gateway, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy) .
 
+## Codelabs
+
+For end-to-end demonstrations on how to set up and use Agent Gateway, see the following codelabs:
+
+  - **[Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway)** : Learn how to deploy a governed ADK agent on Agent Runtime.
+  - **[Agent Gateway egress from Agent Runtime to Google Cloud MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-gmcp)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to a Google Cloud MCP servers.
+  - **[Agent Gateway egress from Agent Runtime to external MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-gmcp)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to external MCP servers.
+
 ## What's next
 
 Guide
@@ -456,12 +462,6 @@ Guide
 ### [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
 
 Learn how to route Agent Runtime traffic through Agent Gateway for secure and governed connectivity.
-
-Codelab
-
-### [Codelab: Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway)
-
-Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Agent Platform.
 
 Guide
 

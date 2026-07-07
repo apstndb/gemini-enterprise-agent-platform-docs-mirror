@@ -599,97 +599,99 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import com.google.cloud.vertexai.VertexAI;
-    import com.google.cloud.vertexai.api.Content;
-    import com.google.cloud.vertexai.api.FunctionDeclaration;
-    import com.google.cloud.vertexai.api.GenerateContentResponse;
-    import com.google.cloud.vertexai.api.Schema;
-    import com.google.cloud.vertexai.api.Tool;
-    import com.google.cloud.vertexai.api.Type;
-    import com.google.cloud.vertexai.generativeai.ChatSession;
-    import com.google.cloud.vertexai.generativeai.ContentMaker;
-    import com.google.cloud.vertexai.generativeai.GenerativeModel;
-    import com.google.cloud.vertexai.generativeai.PartMaker;
-    import com.google.cloud.vertexai.generativeai.ResponseHandler;
-    import java.io.IOException;
-    import java.util.Arrays;
-    import java.util.Collections;
+    import com.google.genai.Client;
+    import com.google.genai.types.FunctionDeclaration;
+    import com.google.genai.types.GenerateContentConfig;
+    import com.google.genai.types.GenerateContentResponse;
+    import com.google.genai.types.HttpOptions;
+    import com.google.genai.types.Schema;
+    import com.google.genai.types.Tool;
+    import com.google.genai.types.Type;
+    import java.util.Map;
     
-    public class FunctionCalling {
-      public static void main(String[] args) throws IOException {
+    public class ToolFunctionDescriptionWithText {
+    
+      public static void main(String[] args) {
         // TODO(developer): Replace these variables before running the sample.
-        String projectId = "your-google-cloud-project-id";
-        String location = "us-central1";
-        String modelName = "gemini-2.5-flash";
+        String modelId = "gemini-2.5-flash";
+        String contents =
+            "At Stellar Sounds, a music label, 2024 was a rollercoaster. \"Echoes of the Night,\""
+                + " a debut synth-pop album, \n surprisingly sold 350,000 copies, while veteran"
+                + " rock band \"Crimson Tide's\" latest, \"Reckless Hearts,\" \n lagged at"
+                + " 120,000. Their up-and-coming indie artist, \"Luna Bloom's\" EP, \"Whispers "
+                + "of Dawn,\" \n secured 75,000 sales. The biggest disappointment was the "
+                + "highly-anticipated rap album \"Street Symphony\" \n only reaching 100,000"
+                + " units. Overall, Stellar Sounds moved over 645,000 units this year, revealing"
+                + " unexpected \n trends in music consumption.";
     
-        String promptText = "What's the weather like in Paris?";
-    
-        whatsTheWeatherLike(projectId, location, modelName, promptText);
+        generateContent(modelId, contents);
       }
     
-      // A request involving the interaction with an external tool
-      public static String whatsTheWeatherLike(String projectId, String location,
-                                               String modelName, String promptText)
-          throws IOException {
-        // Initialize client that will be used to send requests.
-        // This client only needs to be created once, and can be reused for multiple requests.
-        try (VertexAI vertexAI = new VertexAI(projectId, location)) {
+      // Generates content with text input and function declaration that
+      // the model may use to retrieve external data for the response
+      public static String generateContent(String modelId, String contents) {
+        // Initialize client that will be used to send requests. This client only needs to be created
+        // once, and can be reused for multiple requests.
+        try (Client client =
+            Client.builder()
+                .location("global")
+                .vertexAI(true)
+                .httpOptions(HttpOptions.builder().apiVersion("v1").build())
+                .build()) {
     
-          FunctionDeclaration functionDeclaration = FunctionDeclaration.newBuilder()
-              .setName("getCurrentWeather")
-              .setDescription("Get the current weather in a given location")
-              .setParameters(
-                  Schema.newBuilder()
-                      .setType(Type.OBJECT)
-                      .putProperties("location", Schema.newBuilder()
-                          .setType(Type.STRING)
-                          .setDescription("location")
-                          .build()
-                      )
-                      .addRequired("location")
-                      .build()
-              )
-              .build();
+          FunctionDeclaration getAlbumSales =
+              FunctionDeclaration.builder()
+                  .name("get_album_sales")
+                  .description("Gets the number of albums sold")
+                  // Function parameters are specified in schema format
+                  .parameters(
+                      Schema.builder()
+                          .type(Type.Known.OBJECT)
+                          .properties(
+                              Map.of(
+                                  "albums",
+                                  Schema.builder()
+                                      .type(Type.Known.ARRAY)
+                                      .description("List of albums")
+                                      .items(
+                                          Schema.builder()
+                                              .description("Album and its sales")
+                                              .type(Type.Known.OBJECT)
+                                              .properties(
+                                                  Map.of(
+                                                      "album_name",
+                                                          Schema.builder()
+                                                              .type(Type.Known.STRING)
+                                                              .description("Name of the music album")
+                                                              .build(),
+                                                      "copies_sold",
+                                                          Schema.builder()
+                                                              .type(Type.Known.INTEGER)
+                                                              .description("Number of copies sold")
+                                                              .build()))
+                                              .build()) // End items schema for albums
+                                      .build() // End "albums" property schema
+                                  ))
+                          .build()) // End parameters schema
+                  .build(); // End function declaration
     
-          System.out.println("Function declaration:");
-          System.out.println(functionDeclaration);
+          Tool salesTool = Tool.builder().functionDeclarations(getAlbumSales).build();
     
-          // Add the function to a "tool"
-          Tool tool = Tool.newBuilder()
-              .addFunctionDeclarations(functionDeclaration)
-              .build();
+          GenerateContentConfig config =
+              GenerateContentConfig.builder().tools(salesTool).temperature(0.0f).build();
     
-          // Start a chat session from a model, with the use of the declared function.
-          GenerativeModel model = new GenerativeModel(modelName, vertexAI)
-              .withTools(Arrays.asList(tool));
-          ChatSession chat = model.startChat();
+          GenerateContentResponse response = client.models.generateContent(modelId, contents, config);
     
-          System.out.println(String.format("Ask the question: %s", promptText));
-          GenerateContentResponse response = chat.sendMessage(promptText);
+          // response.functionCalls() returns an Immutable<FunctionCall>.
+          System.out.println(response.functionCalls().get(0));
     
-          // The model will most likely return a function call to the declared
-          // function `getCurrentWeather` with "Paris" as the value for the
-          // argument `location`.
-          System.out.println("\nPrint response: ");
-          System.out.println(ResponseHandler.getContent(response));
-    
-          // Provide an answer to the model so that it knows what the result
-          // of a "function call" is.
-          Content content =
-              ContentMaker.fromMultiModalData(
-                  PartMaker.fromFunctionResponse(
-                      "getCurrentWeather",
-                      Collections.singletonMap("currentWeather", "sunny")));
-          System.out.println("Provide the function response: ");
-          System.out.println(content);
-          response = chat.sendMessage(content);
-    
-          // See what the model replies now
-          System.out.println("Print response: ");
-          String finalAnswer = ResponseHandler.getText(response);
-          System.out.println(finalAnswer);
-    
-          return finalAnswer;
+          return response.functionCalls().toString();
+          // Example response:
+          // FunctionCall{id=Optional.empty, args=Optional[{albums=[{copies_sold=350000,
+          // album_name=Echoes of the Night},
+          // {copies_sold=120000, album_name=Reckless Hearts}, {copies_sold=75000, album_name=Whispers
+          // of Dawn},
+          // {album_name=Street Symphony, copies_sold=100000}]}], name=Optional[get_album_sales]}
         }
       }
     }

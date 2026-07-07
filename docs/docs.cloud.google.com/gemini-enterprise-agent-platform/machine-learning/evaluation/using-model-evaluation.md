@@ -19,7 +19,7 @@ This page describes how to evaluate models using Gemini Enterprise Agent Platfor
 
 3.  Upload your test dataset to [BigQuery](https://docs.cloud.google.com/bigquery/docs/loading-data) or [Cloud Storage](https://docs.cloud.google.com/storage/docs/uploading-objects) . The test dataset should contain the ground truth, which is the actual result expected for an inference. Obtain the link to the file or the dataset ID.
 
-4.  Have a [batch inference output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions) in the form of a BigQuery table or Cloud Storage URI.
+4.  Have a [batch inference output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) in the form of a BigQuery table or Cloud Storage URI.
 
 5.  Make sure your [default Compute Engine service account](https://docs.cloud.google.com/iam/docs/service-account-types#default) has the following [IAM permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) :
     

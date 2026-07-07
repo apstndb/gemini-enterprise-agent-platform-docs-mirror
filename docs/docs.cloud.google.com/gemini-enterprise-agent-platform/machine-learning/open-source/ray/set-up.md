@@ -18,7 +18,7 @@ Before you begin with Ray on Agent Platform, follow these steps to set up your G
 
 3.  The Ray on Agent Platform SDK for Python used here is a version of the Agent Platform SDK for Python that includes the functionality of the [Ray Client](https://docs.ray.io/en/latest/cluster/running-applications/job-submission/ray-client.html) , Ray BigQuery connector, Ray cluster management on Gemini Enterprise Agent Platform, and predictions on Gemini Enterprise Agent Platform.
     
-      - If you use Ray on Agent Platform in the Google Cloud console, a Colab Enterprise notebook guides you through the Agent Platform SDK for Python installation process after you [create a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster) .
+      - If you use Ray on Agent Platform in the Google Cloud console, a Colab Enterprise notebook guides you through the Agent Platform SDK for Python installation process after you [create a Ray cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster) .
     
       - If you use Ray on Agent Platform in the Vertex AI Workbench or other interactive Python environment, install the Agent Platform SDK for Python:
         
@@ -56,4 +56,4 @@ The [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent
 
 ## What's next
 
-  - [Create a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray-on-vertex-ai/create-cluster)
+  - [Create a Ray cluster on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster)

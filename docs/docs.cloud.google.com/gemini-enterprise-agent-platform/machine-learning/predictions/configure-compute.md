@@ -6,7 +6,7 @@ description: Learn about the different compute resources that you can use for Ag
 data_source: docs.cloud.google.com
 ---
 
-Agent Platform allocates *nodes* to handle online and batch inferences. When you [deploy a custom-trained model or AutoML model to an `Endpoint` resource to serve online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or when you [request batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions) , you can customize the type of virtual machine that the inference service uses for these nodes. You can optionally configure inference nodes to use GPUs.
+Agent Platform allocates *nodes* to handle online and batch inferences. When you [deploy a custom-trained model or AutoML model to an `Endpoint` resource to serve online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console) or when you [request batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) , you can customize the type of virtual machine that the inference service uses for these nodes. You can optionally configure inference nodes to use GPUs.
 
 *Machine types* differ in a few ways:
 
@@ -42,7 +42,7 @@ Learn how to deploy each model type:
 
 ### Batch inference
 
-If you want to get batch inferences from a custom-trained model or an AutoML tabular model, you must specify a machine type when you [create a `BatchPredictionJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions) . Specify the machine type (and, optionally, GPU configuration) in the [`dedicatedResources.machineSpec` field of your `BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs) .
+If you want to get batch inferences from a custom-trained model or an AutoML tabular model, you must specify a machine type when you [create a `BatchPredictionJob` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions) . Specify the machine type (and, optionally, GPU configuration) in the [`dedicatedResources.machineSpec` field of your `BatchPredictionJob`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs) .
 
 <span id="machine_type_comparison"></span>
 
@@ -687,4 +687,4 @@ Because more than one replica is being coscheduled on the same VM, Vertex AI Inf
   - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
   - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-recognition-custom/serving#1_create_an_endpoint)
   - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
-  - [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/batch-predictions)
+  - [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions)
