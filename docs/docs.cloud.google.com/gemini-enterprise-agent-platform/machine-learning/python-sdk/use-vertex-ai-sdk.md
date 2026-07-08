@@ -10,7 +10,7 @@ The Vertex AI SDK lets you use Google's [generative AI models and features](http
 
 The Vertex AI SDK is available for Python, Go, Java, and Node.js. To learn about each SDK, see the following:
 
-  - [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk)
+  - [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/python-sdk/use-vertex-ai-python-sdk)
 
   - [Agent Platform Node.js SDK](https://github.com/googleapis/js-genai)
 

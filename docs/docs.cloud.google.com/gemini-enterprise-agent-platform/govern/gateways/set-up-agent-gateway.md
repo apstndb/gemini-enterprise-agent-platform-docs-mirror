@@ -334,8 +334,7 @@ You define Agent Gateways declaratively using YAML.
             timeout: 1s
             metadata:
               iamEnforcementMode: "DRY_RUN"
-              iapPolicyVersion: "V1"
-            EOF
+              iapPolicyVersion: "V1"EOF
     
     2.  Import the YAML configuration file to an authorization extension.
         

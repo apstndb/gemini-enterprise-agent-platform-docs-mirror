@@ -235,7 +235,7 @@ Not applicable.
 
 ### ROUGE
 
-The `ROUGE` metric is used to compare the provided `response` parameter against a `reference` parameter. All `rouge` metrics return the F1 score. `rouge-l-sum` is calculated by default, but you can [specify the `rouge` variant](https://docs.cloud.google.com/vertex-ai/docs/model-reference/evaluation#rougeinput) that you want to use.
+The `ROUGE` metric is used to compare the provided `response` parameter against a `reference` parameter. All `rouge` metrics return the F1 score. `rouge-l-sum` is calculated by default, but you can [specify the `rouge` variant](https://docs.cloud.google.com/gemini-enterprise-agent-platform/model-reference/evaluation#rougeinput) that you want to use.
 
   - **Token limit** : None
 

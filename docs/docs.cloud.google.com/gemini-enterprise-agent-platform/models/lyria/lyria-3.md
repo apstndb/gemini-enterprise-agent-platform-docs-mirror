@@ -14,6 +14,8 @@ Lyria is a music generation model from Google. This page documents the capabilit
 
 ## 3 Pro Preview
 
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/studio/media/music)
+
 Model ID
 
 `lyria-3-pro-preview`
@@ -42,27 +44,35 @@ Not supported
 
 Capabilities
 
-Supported
-
-  - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Full song generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Lyrics generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [User-provided lyrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Duration controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure) preview Preview feature
-  - [BPM controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure) preview Preview feature
-  - [Intensity controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure) preview Preview feature
-  - [Audio watermarking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Input filtering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Output filtering - recitation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Output filtering - vocal likeness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Prompt rewriter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-
-Not supported
-
-  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)
+  - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Lyrics generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [User-provided lyrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)  
+    Not supported
+  - [Song generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Full song  
+    Supported
+  - [Detailed structure controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure)  
+    Duration, BPM, Intensity  
+    Supported
+  - [Audio watermarking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Filtering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Input, output (recitation), output (vocal likeness)  
+    Supported
+  - [Prompt rewriter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
+    Supported
 
 Quotas
 
@@ -97,7 +107,13 @@ Versions
   - Launch stage: Preview
   - Release date: 2026-03-25
 
+Pricing
+
+See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+
 ## 3 Clip Preview
+
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/studio/media/music)
 
 Model ID
 
@@ -127,27 +143,35 @@ Not supported
 
 Capabilities
 
-Supported
-
-  - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [30s clip generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Lyrics generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [User-provided lyrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [BPM controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure) preview Preview feature
-  - [Intensity controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure) preview Preview feature
-  - [Audio watermarking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Input filtering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Output filtering - recitation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Output filtering - vocal likeness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-  - [Prompt rewriter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music) preview Preview feature
-
-Not supported
-
-  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)
-  - [Duration controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure)
+  - [Text to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Image to music](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Vocal generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Instrumental mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Lyrics generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [User-provided lyrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Negative prompting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#negative-prompts)  
+    Not supported
+  - [Song generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    30 second clips  
+    Supported
+  - [Detailed structure controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide#detailed-structure)  
+    BPM, Intensity  
+    Supported
+  - [Audio watermarking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Filtering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Input, output (recitation), output (vocal likeness)  
+    Supported
+  - [Prompt rewriter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/generate-music)  
+    Supported
+  - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
+    Supported
 
 Quotas
 
@@ -181,5 +205,9 @@ Versions
 
   - Launch stage: Preview
   - Release date: 2026-03-25
+
+Pricing
+
+See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.

@@ -75,7 +75,7 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
           "reservationAffinityType": "RESERVATION_AFFINITY_TYPE",
           "key": "compute.googleapis.com/reservation-name",
           "values": [
-            "projects/PROJECT_ID/zones/ZONE/reservations/RESERVATION"
+            "projects/PROJECT_ID/zones/ZONE/reservations/RESERVATION_NAME"
           ]
         }
       },
@@ -513,8 +513,8 @@ The following parameters are used to define the node pools for both login and wo
       - `NVIDIA_H200_141GB`
       - `NVIDIA_B200`
   - ACCELERATOR\_COUNT : The number of accelerators to attach to each worker node.
-  - RESERVATION\_AFFINITY\_TYPE : The reservation affinity for the node pool (for example, `SPECIFIC_RESERVATION` ).
-  - RESERVATION\_NAME : The name of the reservation to use for the node pool.
+  - RESERVATION\_AFFINITY\_TYPE (corresponds to `machine_spec.reservation_affinity.reservationAffinityType` ): The reservation affinity for the node pool. This parameter must be `SPECIFIC_RESERVATION` , which is the only supported value. When `SPECIFIC_RESERVATION` is used, you must specify the reservation in `machine_spec.reservation_affinity.values` .
+  - RESERVATION\_NAME : The name of the reservation to use for the node pool. This is used in the full reservation resource name provided in `machine_spec.reservation_affinity.values` , for example ` projects/ PROJECT_ID /zones/ ZONE /reservations/ RESERVATION_NAME  ` . A reservation is required when RESERVATION\_AFFINITY\_TYPE is `SPECIFIC_RESERVATION` .
 
 ### Orchestrator and storage configuration
 

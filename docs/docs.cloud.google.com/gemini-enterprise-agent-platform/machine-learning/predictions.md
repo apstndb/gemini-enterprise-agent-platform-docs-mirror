@@ -43,8 +43,8 @@ Other than that, the workflow for AutoML models is similar, but varies slightly 
 
 Learn how to get inferences from the following types of image AutoML models:
 
-  - [Image classification models](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/get-predictions)
-  - [Image object detection models](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/get-predictions)
+  - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/get-predictions)
+  - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/get-predictions)
 
 ### Tabular
 
@@ -52,10 +52,10 @@ Learn how to get inferences from the following types of tabular AutoML models:
 
   - Tabular classification and regression models
     
-      - [Online inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-online-predictions)
-      - [Batch inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions)
+      - [Online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-online-predictions)
+      - [Batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-batch-predictions)
 
-  - [Tabular forecasting models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/get-predictions) (batch inferences only)
+  - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/get-predictions) (batch inferences only)
 
 ## Get inferences from BigQuery ML models
 

@@ -6,8 +6,6 @@ description: Learn how to use asynchronous function calling in Gemini Live API t
 data_source: docs.cloud.google.com
 ---
 
-> **Caution:** `gemini-live-2.5-flash-preview-native-audio-09-2025` will be deprecated and removed on March 19, 2026. Migrate any workflows to `gemini-live-2.5-flash-native-audio` .
-
 When building real-time voice agents, some function calls can block the model's execution, which causes the audio stream to go quiet and the user to be left waiting in silence. With Gemini Live API, all function calls are non-blocking by default, which lets you [execute functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) in parallel with the main conversation flow. This process is called *asynchronous function calling* . Your backend can process heavy tasks like searching live flight prices or querying complex external APIs in the background, while the model continues to listen, speak, and converse naturally with the user. Gemini Live API lets function calls process in the background without interrupting the user's interaction with the model, enabling more fluid and real-time interactions.
 
 Asynchronous function calling lets you complete tasks like booking appointments, setting reminders, or fetching data without pausing the conversation. For example, a user can request to book a flight and immediately ask for weather information while the booking is processed in the background.

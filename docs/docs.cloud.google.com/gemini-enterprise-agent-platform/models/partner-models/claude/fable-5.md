@@ -1,14 +1,14 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5
-title: Claude Fable 5
-description: Claude Fable 5 is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
+title: Claude Fable 5 on Google Cloud
+description: Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 data_source: docs.cloud.google.com
 ---
 
-Claude Fable 5 is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
+Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
 
-> **Advanced AI Safety Notice:** Claude Fable 5 is within the scope of the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . All prompts and responses are stored for up to 30 days for the sole purpose of monitoring for potential abuse of relevant terms of service. See [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) and [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
+> **Advanced AI Safety Notice:** Claude Fable 5 on Google Cloud is within the scope of the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . All prompts and responses are stored for up to 30 days for the sole purpose of monitoring for potential abuse of relevant terms of service. See [Responsible AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) and [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
 
 **Retirement Date:** Not sooner than June 8, 2027.
 
@@ -132,9 +132,9 @@ Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Enable Claude Fable 5 in your project
+## Enable Claude Fable 5 on Google Cloud in your project
 
-Follow these steps to enable Claude Fable 5 in your project:
+Follow these steps to enable Claude Fable 5 on Google Cloud in your project:
 
   - Consent to the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) in Model Garden (required once per project). See [Abuse Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) to learn more.
   - For online terms customers, click 'enable' on the [Model Garden model card](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) to:

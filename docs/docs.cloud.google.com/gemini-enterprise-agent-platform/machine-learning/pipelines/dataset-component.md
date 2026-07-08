@@ -6,7 +6,7 @@ description: Learn how to use dataset components in Gemini Enterprise Agent Plat
 data_source: docs.cloud.google.com
 ---
 
-The dataset operators prepare the data for training an AutoML model in Gemini Enterprise Agent Platform. For more details about specific data type dataset information, see [Train and use your own models](https://docs.cloud.google.com/vertex-ai/docs/training-overview) . For information about AutoML training in Agent Platform, see the [AutoML training documentation](https://docs.cloud.google.com/vertex-ai/docs/training-overview#automl) . For information about Google Cloud Pipeline Components related to AutoML models and workflows, see [Gemini Enterprise Agent Platform AutoML components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/vertex-automl-component) .
+The dataset operators prepare the data for training an AutoML model in Gemini Enterprise Agent Platform. For more details about specific data type dataset information, see [Train and use your own models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview) . For information about AutoML training in Agent Platform, see the [AutoML training documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview#automl) . For information about Google Cloud Pipeline Components related to AutoML models and workflows, see [Gemini Enterprise Agent Platform AutoML components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/vertex-automl-component) .
 
 The Google Cloud SDK includes the following operators related to AutoML `dataset` resource management:
 

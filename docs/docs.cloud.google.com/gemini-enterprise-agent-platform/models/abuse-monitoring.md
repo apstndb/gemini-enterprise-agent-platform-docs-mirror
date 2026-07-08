@@ -61,7 +61,7 @@ Use of Anthropic models on Gemini Enterprise Agent Platform is governed by Anthr
 
 #### Data retention
 
-For Anthropic Claude Fable 5 and Mythos 5, prompts and responses are retained for up to 30 days. To use Claude Fable 5 and Mythos 5, as required by Anthropic, you must enable sharing this data with Anthropic for abuse monitoring.
+For Anthropic Claude Fable 5 on Google Cloud and Mythos 5, prompts and responses are retained for up to 30 days. To use Claude Fable 5 on Google Cloud and Mythos 5, as required by Anthropic, you must enable sharing this data with Anthropic for abuse monitoring.
 
 ## What's next
 

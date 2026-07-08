@@ -12,7 +12,7 @@ This document lists the prebuilt containers for inferences and explanations, and
 
 ## Support policy and schedule
 
-Gemini Enterprise Agent Platform supports each framework version based on a schedule to minimize security vulnerabilities. Review the [Support policy schedule](https://docs.cloud.google.com/vertex-ai/docs/framework-support-policy#support_policy_schedule) to understand the implications of the end-of-support and end-of-availability dates.
+Gemini Enterprise Agent Platform supports each framework version based on a schedule to minimize security vulnerabilities. Review the [Support policy schedule](https://docs.cloud.google.com/gemini-enterprise-agent-platform/framework-support-policy#support_policy_schedule) to understand the implications of the end-of-support and end-of-availability dates.
 
 ## Available container images
 

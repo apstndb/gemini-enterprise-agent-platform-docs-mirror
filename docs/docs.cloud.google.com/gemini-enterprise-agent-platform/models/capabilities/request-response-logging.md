@@ -508,7 +508,7 @@ The following table lists MaaS partners and models that support sharing requests
 <td><ul>
 <li>Claude Mythos Preview</li>
 <li>Claude Mythos 5</li>
-<li>Claude Fable 5</li>
+<li>Claude Fable 5 on Google Cloud</li>
 </ul></td>
 </tr>
 </tbody>

@@ -45,7 +45,7 @@ After you install the Agent Platform SDK for Python, you need to authenticate. T
 
 ### Understanding service accounts
 
-The [service account](https://docs.cloud.google.com/iam/docs/principals-overview#service-account) is used by the Gen AI evaluation service to get predictions from the [Gemini API in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/start/quickstarts/quickstart-multimodal) for model-based evaluation metrics. This service account is automatically provisioned on the first request to the Gen AI evaluation service.
+The [service account](https://docs.cloud.google.com/iam/docs/principals-overview#service-account) is used by the Gen AI evaluation service to get predictions from the [Gemini API in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstarts/quickstart-multimodal) for model-based evaluation metrics. This service account is automatically provisioned on the first request to the Gen AI evaluation service.
 
 | Name                                    | Description                                                             | Email address                                                       | Role                                     |
 | --------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------- |
@@ -423,7 +423,7 @@ A single evaluation request for a model-based metric results in multiple underly
 
 If you're using the default judge model of `gemini-2.0-flash` or newer models, we recommend that you use [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) to manage your quota.
 
-For models older than `gemini-2.0-flash` , use the following instructions to increase the [judge model RPM quota](https://docs.cloud.google.com/vertex-ai/docs/quotas#quotas_by_region_and_model) :
+For models older than `gemini-2.0-flash` , use the following instructions to increase the [judge model RPM quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#quotas_by_region_and_model) :
 
 1.  In the Google Cloud console, go to the IAM & Admin **Quotas** page.  
 

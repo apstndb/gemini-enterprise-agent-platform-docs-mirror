@@ -12,7 +12,7 @@ The following objective sections include information about data requirements, th
 
 ### Permissions
 
-To use images from a Cloud Storage bucket, you must grant the [Agent Platform Service Agent](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) the `Storage Object Viewer` role for the bucket. The Service Agent is a Google-managed service account that Agent Platform uses to access your data on your behalf. For a more detailed explanation, see [Service agents](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) .
+To use images from a Cloud Storage bucket, you must grant the [Agent Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/access-control#service-agents) the `Storage Object Viewer` role for the bucket. The Service Agent is a Google-managed service account that Agent Platform uses to access your data on your behalf. For a more detailed explanation, see [Service agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/access-control#service-agents) .
 
 ### Single-label classification
 

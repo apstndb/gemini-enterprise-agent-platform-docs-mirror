@@ -43,4 +43,4 @@ Partners can apply by visiting [Google Cloud Marketplace](https://console.cloud.
 
 ## What's next
 
-  - See a list of [AI Agent Ecosystem partners](https://docs.cloud.google.com/vertex-ai/docs/ai-agent-ecosystem-partners) .
+  - See a list of [AI Agent Ecosystem partners](https://docs.cloud.google.com/gemini-enterprise-agent-platform/ai-agent-ecosystem-partners) .

@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4
-title: Claude Opus 4
+title: Claude Opus 4 on Google Cloud
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-Anthropic's Claude Opus 4 delivers sustained performance on long-running tasks that require focused effort and thousands of steps, significantly expanding what AI agents can solve.
+Anthropic's Claude Opus 4 on Google Cloud delivers sustained performance on long-running tasks that require focused effort and thousands of steps, significantly expanding what AI agents can solve.
 
 [Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-opus-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
 

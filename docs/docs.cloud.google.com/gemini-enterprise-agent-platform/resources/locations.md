@@ -1189,35 +1189,35 @@ Global
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 
@@ -1253,35 +1253,35 @@ European Union multi-region
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 
@@ -1332,35 +1332,35 @@ Dallas
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 
@@ -1396,35 +1396,35 @@ São Paulo
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 
@@ -1484,35 +1484,35 @@ Paris
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 
@@ -1563,35 +1563,35 @@ Seoul
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 
@@ -1630,35 +1630,35 @@ Dammam
 
 Anthropic models
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
-Anthropic's Claude 3.7 Sonnet
+Anthropic's Claude 3.7 Sonnet on Google Cloud
 
-Anthropic's Claude 3.5 Haiku
+Anthropic's Claude 3.5 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku (deprecated)
+Anthropic's Claude 3 Haiku on Google Cloud (deprecated)
 
 Mistral models
 

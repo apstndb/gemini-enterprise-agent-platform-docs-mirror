@@ -155,7 +155,7 @@ Gemini Enterprise Agent Platform consumes:
 
 However, *preemptible* quota is used only in name. Your resources aren't preemptible and behave like standard resources.
 
-Before submitting a job using Dynamic Workload Scheduler, ensure that your preemptible quotas have been increased to a sufficient amount. For details on Gemini Enterprise Agent Platform quotas and instructions for making quota increase requests, see [Gemini Enterprise Agent Platform quotas and limits](https://docs.cloud.google.com/vertex-ai/docs/quotas) .
+Before submitting a job using Dynamic Workload Scheduler, ensure that your preemptible quotas have been increased to a sufficient amount. For details on Gemini Enterprise Agent Platform quotas and instructions for making quota increase requests, see [Gemini Enterprise Agent Platform quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas) .
 
 ## Billing
 

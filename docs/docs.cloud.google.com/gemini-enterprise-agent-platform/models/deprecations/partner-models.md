@@ -8,11 +8,11 @@ data_source: docs.cloud.google.com
 
 After a period of time, [MaaS models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) are deprecated and typically replaced with newer model versions. This page lists deprecated MaaS models and their shutdown dates to help you plan and migrate to newer model versions.
 
-## Anthropic's Claude 3 Haiku
+## Anthropic's Claude 3 Haiku on Google Cloud
 
-Anthropic's Claude 3 Haiku is **deprecated as of February 23, 2026** and will be **shut down on August 23, 2026** . Anthropic's Claude 3 Haiku is available to existing customers only.
+Anthropic's Claude 3 Haiku on Google Cloud is **deprecated as of February 23, 2026** and will be **shut down on August 23, 2026** . Anthropic's Claude 3 Haiku on Google Cloud is available to existing customers only.
 
-Anthropic's Claude 3 Haiku is Anthropic's fastest vision and text model for near-instant responses to basic queries, meant for seamless AI experiences mimicking human interactions.
+Anthropic's Claude 3 Haiku on Google Cloud is Anthropic's fastest vision and text model for near-instant responses to basic queries, meant for seamless AI experiences mimicking human interactions.
 
 Model ID
 
@@ -133,11 +133,11 @@ Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Claude 3.5 Haiku
+## Claude 3.5 Haiku on Google Cloud
 
-Claude 3.5 Haiku is **deprecated as of January 5, 2026** and will be **shut down on July 5, 2026** . Claude 3.5 Haiku is available to existing customers only.
+Claude 3.5 Haiku on Google Cloud is **deprecated as of January 5, 2026** and will be **shut down on July 5, 2026** . Claude 3.5 Haiku on Google Cloud is available to existing customers only.
 
-Claude 3.5 Haiku, the next generation of Anthropic's fastest and most cost-effective model, is optimal for use cases where speed and affordability matter.
+Claude 3.5 Haiku on Google Cloud, the next generation of Anthropic's fastest and most cost-effective model, is optimal for use cases where speed and affordability matter.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
 
@@ -246,11 +246,11 @@ Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Claude 3.7 Sonnet
+## Claude 3.7 Sonnet on Google Cloud
 
-Claude 3.7 Sonnet is **deprecated as of November 11, 2025** and will be **shut down on May 11, 2026** . Claude 3.7 Sonnet is available to existing customers only.
+Claude 3.7 Sonnet on Google Cloud is **deprecated as of November 11, 2025** and will be **shut down on May 11, 2026** . Claude 3.7 Sonnet on Google Cloud is available to existing customers only.
 
-Claude 3.7 Sonnet is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
+Claude 3.7 Sonnet on Google Cloud is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
 
 Model ID
 
@@ -367,11 +367,11 @@ Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Claude 3.5 Sonnet v2
+## Claude 3.5 Sonnet v2 on Google Cloud
 
-Claude 3.5 Sonnet v2 is **deprecated as of August 20, 2025** and will be **shut down on February 19, 2026** . Claude 3.5 Sonnet v2 is available to existing customers only.
+Claude 3.5 Sonnet v2 on Google Cloud is **deprecated as of August 20, 2025** and will be **shut down on February 19, 2026** . Claude 3.5 Sonnet v2 on Google Cloud is available to existing customers only.
 
-Claude 3.5 Sonnet v2 is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
+Claude 3.5 Sonnet v2 on Google Cloud is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
 
 [Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-3-5-sonnet-v2)
 
@@ -490,11 +490,11 @@ Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Claude 3.5 Sonnet
+## Claude 3.5 Sonnet on Google Cloud
 
-Claude 3.5 Sonnet is **deprecated as of August 20, 2025** and will be **shut down on February 19, 2026** . Claude 3.5 Sonnet is available to existing customers only.
+Claude 3.5 Sonnet on Google Cloud is **deprecated as of August 20, 2025** and will be **shut down on February 19, 2026** . Claude 3.5 Sonnet on Google Cloud is available to existing customers only.
 
-Claude 3.5 Sonnet outperforms Anthropic's Claude 3 Opus on a wide range of Anthropic's evaluations with the speed and cost of Anthropic's mid-tier model, Claude 3 Sonnet.
+Claude 3.5 Sonnet on Google Cloud outperforms Anthropic's Claude 3 Opus on Google Cloud on a wide range of Anthropic's evaluations with the speed and cost of Anthropic's mid-tier model, Claude 3 Sonnet on Google Cloud.
 
 Model ID
 
@@ -775,11 +775,11 @@ Pricing
 
 See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
-## Claude 3 Opus
+## Claude 3 Opus on Google Cloud
 
-Anthropic's Claude 3 Opus is **deprecated as of June 30, 2025** and will be **shut down on August 1, 2025** . Claude 3 Opus is available to existing customers only.
+Anthropic's Claude 3 Opus on Google Cloud is **deprecated as of June 30, 2025** and will be **shut down on August 1, 2025** . Claude 3 Opus on Google Cloud is available to existing customers only.
 
-Anthropic's Claude 3 Opus is a powerful AI model with top-level performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Claude 3 Opus is optimized for the following use cases:
+Anthropic's Claude 3 Opus on Google Cloud is a powerful AI model with top-level performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Claude 3 Opus on Google Cloud is optimized for the following use cases:
 
   - Task automation, such as interactive coding and planning, or running complex actions across APIs and databases.
 

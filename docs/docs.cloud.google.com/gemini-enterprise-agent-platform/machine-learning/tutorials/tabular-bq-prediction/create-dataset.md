@@ -82,7 +82,7 @@ The first three values are the islands a penguin might inhabit. The second three
 
 ## Create a tabular dataset for training your model
 
-In the previous step you downloaded and processed your data. In this step, you load the data stored in your `df_train` `DataFrame` into a BigQuery dataset. Then, you use the BigQuery dataset to create a Gemini Enterprise Agent Platform tabular dataset. This tabular dataset is used to train your model. For more information, see [Use managed datasets](https://docs.cloud.google.com/vertex-ai/docs/training/using-managed-datasets) .
+In the previous step you downloaded and processed your data. In this step, you load the data stored in your `df_train` `DataFrame` into a BigQuery dataset. Then, you use the BigQuery dataset to create a Gemini Enterprise Agent Platform tabular dataset. This tabular dataset is used to train your model. For more information, see [Use managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/using-managed-datasets) .
 
 ### Create a BigQuery dataset
 

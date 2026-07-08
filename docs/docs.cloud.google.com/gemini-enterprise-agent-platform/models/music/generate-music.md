@@ -146,7 +146,7 @@ The request returns the operation name, status, and result.
 
 Use the `predict` method to send a music generation request. The response will directly contain the audio data, typically base64-encoded if the response is JSON.
 
-For more information about `lyria-002` model requests, see the [`lyria-002` model API reference](https://docs.cloud.google.com/vertex-ai/docs/model-reference/lyria-music-generation) .
+For more information about `lyria-002` model requests, see the [`lyria-002` model API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/model-reference/lyria-music-generation) .
 
 To generate music, send a POST request to the model's `predict` endpoint.
 
@@ -193,8 +193,8 @@ You would then decode the `audioContent` (base64) to get the WAV audio file. Eac
 
 ## What's next
 
-  - Learn how to write effective prompts in the [Lyria music generation prompt guide](https://docs.cloud.google.com/vertex-ai/docs/music/music-gen-prompt-guide)
+  - Learn how to write effective prompts in the [Lyria music generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/music/music-gen-prompt-guide)
 
-  - Explore the [Lyria API reference](https://docs.cloud.google.com/vertex-ai/docs/model-reference/lyria-music-generation)
+  - Explore the [Lyria API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/model-reference/lyria-music-generation)
 
   - Discover other [Generative AI models on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)

@@ -293,7 +293,7 @@ When faced with a `RANGES_EXHAUSTED` error, you should first consider whether th
 
 For more information, see [Service Infrastructure Validation Errors](https://docs.cloud.google.com/service-infrastructure/docs/service-networking/reference/rest/v1/services/validate#validationerror)
 
-If the error persists, [contact support](https://docs.cloud.google.com/vertex-ai/docs/support/getting-support) .
+If the error persists, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/support/getting-support) .
 
 ### `Router status is temporarily unavailable`
 
@@ -307,7 +307,7 @@ When you launch Agent Platform Pipelines, you receive an error message similar t
 
 The error message indicates that this is a temporary condition. Try launching Agent Platform Pipelines again.
 
-If the error persists, [contact support](https://docs.cloud.google.com/vertex-ai/docs/support/getting-support) .
+If the error persists, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/support/getting-support) .
 
 ### Workloads are unable to resolve the hostnames for DNS domains in your VPC
 
@@ -620,7 +620,7 @@ Your training failed because of a system error.
 
 **Solution**
 
-The issue might be transient; try to resubmit the `CustomJob` , `HyperparameterTuningJob` , or `TrainingPipeline` . If the error persists, [contact support](https://docs.cloud.google.com/vertex-ai/docs/support/getting-support) .
+The issue might be transient; try to resubmit the `CustomJob` , `HyperparameterTuningJob` , or `TrainingPipeline` . If the error persists, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/support/getting-support) .
 
 #### Error code 500 when using a custom container image
 

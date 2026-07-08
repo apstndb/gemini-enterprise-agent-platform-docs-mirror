@@ -31,7 +31,7 @@ Requests for `gemini-embedding-001` using the `predict` API are also subject to 
 
 ## Agent Runtime quotas
 
-The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/vertex-ai/docs/agent-engine/overview) for a given project in each region:
+The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-engine/overview) for a given project in each region:
 
 | Description                                                                          | Quota | Metric                                                                         |
 | ------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------ |
@@ -150,7 +150,7 @@ The following limits apply:
 | Concurrent `ImportRagFiles` requests                 |  3 RPM | `VertexRagService concurrent import requests per region` |
 | Maximum number of files per `ImportRagFiles` request | 10,000 | `VertexRagService import rag files requests per region`  |
 
-For more rate limits and quotas, see [Generative AI on Gemini Enterprise Agent Platform rate limits](https://docs.cloud.google.com/vertex-ai/docs/quotas) .
+For more rate limits and quotas, see [Generative AI on Gemini Enterprise Agent Platform rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas) .
 
 ## Gen AI evaluation service
 

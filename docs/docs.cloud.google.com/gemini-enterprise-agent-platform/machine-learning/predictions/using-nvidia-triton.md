@@ -10,9 +10,9 @@ This page describes how to serve inference requests with [NVIDIA Triton inferenc
 
 ## NVIDIA Triton on Gemini Enterprise Agent Platform
 
-Gemini Enterprise Agent Platform supports deploying models on Triton inference server running on a custom container published by NVIDIA GPU Cloud (NGC) - [NVIDIA Triton inference server Image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver) . Triton images from NVIDIA have all the required packages and configurations that meet the [Gemini Enterprise Agent Platform requirements for custom serving container images](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) . The image contains the Triton inference server with support for TensorFlow, PyTorch, TensorRT, ONNX, and OpenVINO models. The image also includes FIL ( [Forest Inference Library](https://github.com/rapidsai/cuml/tree/branch-21.10/python/cuml/fil) ) backend that supports running ML frameworks such as XGBoost, LightGBM, and Scikit-Learn.
+Gemini Enterprise Agent Platform supports deploying models on Triton inference server running on a custom container published by NVIDIA GPU Cloud (NGC) - [NVIDIA Triton inference server Image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver) . Triton images from NVIDIA have all the required packages and configurations that meet the [Gemini Enterprise Agent Platform requirements for custom serving container images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/custom-container-requirements) . The image contains the Triton inference server with support for TensorFlow, PyTorch, TensorRT, ONNX, and OpenVINO models. The image also includes FIL ( [Forest Inference Library](https://github.com/rapidsai/cuml/tree/branch-21.10/python/cuml/fil) ) backend that supports running ML frameworks such as XGBoost, LightGBM, and Scikit-Learn.
 
-Triton loads the models and exposes inference, health, and model management REST endpoints that use [standard inference protocols](https://github.com/kserve/kserve/tree/master/docs/predict-api/v2) . While deploying a model to Gemini Enterprise Agent Platform, Triton recognizes Gemini Enterprise Agent Platform environments and adopts the Vertex AI Inference protocol for [health checks](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#health) and inference requests.
+Triton loads the models and exposes inference, health, and model management REST endpoints that use [standard inference protocols](https://github.com/kserve/kserve/tree/master/docs/predict-api/v2) . While deploying a model to Gemini Enterprise Agent Platform, Triton recognizes Gemini Enterprise Agent Platform environments and adopts the Vertex AI Inference protocol for [health checks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/custom-container-requirements#health) and inference requests.
 
 The following list outlines key features and use cases of NVIDIA Triton inference server:
 
@@ -44,18 +44,18 @@ The following figure shows the high-level architecture of Triton on Vertex AI In
 ![triton-on-vertex-ai-prediction](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/predictions/images/using-triton-on-vertex-ai-predictions-architecture.png)
 
   - An ML model to be served by Triton is registered with Gemini Enterprise Agent Platform Model Registry. The model's metadata references a location of the model artifacts in Cloud Storage, the custom serving container, and its configuration.
-  - The model from Gemini Enterprise Agent Platform Model Registry is deployed to a Vertex AI Inference endpoint that is running Triton inference server as a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) on compute nodes with CPU and GPU.
+  - The model from Gemini Enterprise Agent Platform Model Registry is deployed to a Vertex AI Inference endpoint that is running Triton inference server as a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/custom-container-requirements) on compute nodes with CPU and GPU.
   - Inference requests arrive at the Triton inference server through a Vertex AI Inference endpoint and routed to the appropriate scheduler.
   - The backend performs inference by using the inputs provided in the batched requests and returns a response.
   - Triton provides readiness and liveness health endpoints, which enable the integration of Triton into deployment environments such as Gemini Enterprise Agent Platform.
 
-This tutorial shows you how to use a [custom container](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) that is running NVIDIA Triton inference server to deploy a machine learning (ML) model on Gemini Enterprise Agent Platform, which serves online inferences. You deploy a container that is running Triton to serve inferences from an [object detection model from TensorFlow Hub](https://www.kaggle.com/models/tensorflow/faster-rcnn-resnet-v1/frameworks/tensorFlow2/variations/faster-rcnn-resnet101-v1-640x640/versions/1) that has been pre-trained on the [COCO 2017 dataset](https://cocodataset.org/#download) . You can then use Gemini Enterprise Agent Platform to detect objects in an image.
+This tutorial shows you how to use a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/custom-container-requirements) that is running NVIDIA Triton inference server to deploy a machine learning (ML) model on Gemini Enterprise Agent Platform, which serves online inferences. You deploy a container that is running Triton to serve inferences from an [object detection model from TensorFlow Hub](https://www.kaggle.com/models/tensorflow/faster-rcnn-resnet-v1/frameworks/tensorFlow2/variations/faster-rcnn-resnet101-v1-640x640/versions/1) that has been pre-trained on the [COCO 2017 dataset](https://cocodataset.org/#download) . You can then use Gemini Enterprise Agent Platform to detect objects in an image.
 
 To run this tutorial in notebook form:
 
 [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) | [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fvertex_endpoints%2Fnvidia-triton%2Fnvidia-triton-custom-container-prediction.ipynb) | [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) | [Open in Vertex AI Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fvertex_endpoints%2Fnvidia-triton%2Fnvidia-triton-custom-container-prediction.ipynb) |
 
-> **Note:** The [tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) uses [Agent Platform SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/client-libraries#python) . This tutorial runs [`gcloud ai`](https://cloud.google.com/sdk/gcloud/reference/ai) commands.
+> **Note:** The [tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) uses [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/client-libraries#python) . This tutorial runs [`gcloud ai`](https://cloud.google.com/sdk/gcloud/reference/ai) commands.
 
 ## Before you begin
 
@@ -77,7 +77,7 @@ Throughout this tutorial, we recommend that you use [Cloud Shell](https://docs.c
 
 ## Build and push the container image
 
-To use a custom container, you must specify a Docker container image that meets the [custom container requirements](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) . This section describes how to create the container image and push it to Artifact Registry.
+To use a custom container, you must specify a Docker container image that meets the [custom container requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/custom-container-requirements) . This section describes how to create the container image and push it to Artifact Registry.
 
 ### Download model artifacts
 
@@ -132,7 +132,7 @@ Run the following command in your shell to create Artifact Registry repository:
         --location=LOCATION_ID \
         --description="NVIDIA Triton Docker repository"
 
-Replace LOCATION\_ID with the region where Artifact Registry stores your container image. Later, you must create a Gemini Enterprise Agent Platform model resource on a locational endpoint that matches this region, so choose [a region where Gemini Enterprise Agent Platform has a locational endpoint](https://docs.cloud.google.com/vertex-ai/docs/general/locations#feature-availability) , such as `us-central1` .
+Replace LOCATION\_ID with the region where Artifact Registry stores your container image. Later, you must create a Gemini Enterprise Agent Platform model resource on a locational endpoint that matches this region, so choose [a region where Gemini Enterprise Agent Platform has a locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#feature-availability) , such as `us-central1` .
 
 After completing the operation, the command prints the following output:
 
@@ -140,7 +140,7 @@ After completing the operation, the command prints the following output:
 
 ### Build the container image
 
-NVIDIA provides [Docker images](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver) for building a container image that is running Triton and aligns with Gemini Enterprise Agent Platform [custom container requirements](https://docs.cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) for serving. You can pull the image by using `docker` and tag the Artifact Registry path that the image will be pushed to.
+NVIDIA provides [Docker images](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver) for building a container image that is running Triton and aligns with Gemini Enterprise Agent Platform [custom container requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/custom-container-requirements) for serving. You can pull the image by using `docker` and tag the Artifact Registry path that the image will be pushed to.
 
     NGC_TRITON_IMAGE_URI="nvcr.io/nvidia/tritonserver:22.01-py3"
     docker pull $NGC_TRITON_IMAGE_URI
@@ -326,7 +326,7 @@ Replace the following:
 
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
 
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute)
+  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/configure-compute)
 
   - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes.
 
@@ -426,10 +426,6 @@ To avoid incurring further [Gemini Enterprise Agent Platform charges](https://do
           --quiet
     
     Replace LOCATION\_ID with the region where you created your Artifact Registry repository in a previous section.
-
-## Limitations
-
-  - The Triton custom container is not compatible with [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) or [Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) .
 
 ## What's next
 

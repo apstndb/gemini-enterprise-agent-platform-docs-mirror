@@ -32,13 +32,7 @@ Caching automatically occurs when subsequent requests contain the identical text
 
 By default, the cache has a five-minute lifetime or time to live (TTL). You can extend the TTL to one hour by setting `"ttl": "1h"` within the `cache_control` object. The cache lifetime is refreshed each time the cached content is accessed. For more information, see [1-hour cache duration](https://platform.claude.com/en/docs/build-with-claude/prompt-caching#1-hour-cache-duration) .
 
-The one-hour TTL isn't supported for the following models: Claude 3.7 Sonnet, Claude 3.5 Sonnet v2, Claude 3.5 Sonnet, and Claude 3 Opus.
-
-### Use prompt caching with the global endpoint
-
-When you use prompt caching with the global endpoint ( `global` ), subsequent requests might be routed to different backend servers. Because prompt caches are stored in memory on specific servers, this routing can cause unexpected cache misses.
-
-To ensure consistent cache hits on the global endpoint, include the `X-Vertex-Ai-Session-Id` header with a unique session ID in your requests. This header enables session affinity, ensuring that subsequent requests with the same session ID are routed to the backend server where your cache is stored. Alternatively, you can use a regional endpoint instead of the global endpoint.
+The one-hour TTL isn't supported for the following models: Claude 3.7 Sonnet on Google Cloud, Claude 3.5 Sonnet v2 on Google Cloud, Claude 3.5 Sonnet on Google Cloud, and Claude 3 Opus on Google Cloud.
 
 ## Pricing
 

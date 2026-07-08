@@ -6,7 +6,7 @@ description: Use dedicated AutoML components within your ML pipelines for automa
 data_source: docs.cloud.google.com
 ---
 
-The AutoML `TrainingPipeline` resource orchestrates tasks associated with training an AutoML model. This resource always executes the training task, and optionally may also export data from a Gemini Enterprise Agent Platform `Dataset` which becomes the training input, upload the Model to Gemini Enterprise Agent Platform, and evaluate the Model. For information about AutoML training in Agent Platform, see the [AutoML training documentation](https://docs.cloud.google.com/vertex-ai/docs/training-overview#automl) . For information about Google Cloud Pipeline Components related to datasets, see [Dataset components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataset-component) .
+The AutoML `TrainingPipeline` resource orchestrates tasks associated with training an AutoML model. This resource always executes the training task, and optionally may also export data from a Gemini Enterprise Agent Platform `Dataset` which becomes the training input, upload the Model to Gemini Enterprise Agent Platform, and evaluate the Model. For information about AutoML training in Agent Platform, see the [AutoML training documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview#automl) . For information about Google Cloud Pipeline Components related to datasets, see [Dataset components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataset-component) .
 
 The Google Cloud SDK includes the following operators related to AutoML models and workflows:
 
@@ -33,7 +33,7 @@ The Google Cloud SDK includes the following operators related to AutoML models a
   - [`AutoMLTabularTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTabularTrainingJobRunOp)
   - [`AutoMLTextTrainingJobRunOp`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/automl/training_job.html#v1.automl.training_job.AutoMLTextTrainingJobRunOp)
 
-[Learn more about training and using your own AutoML models](https://docs.cloud.google.com/vertex-ai/docs/training-overview#automl) .
+[Learn more about training and using your own AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview#automl) .
 
 ## API reference
 

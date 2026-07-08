@@ -44,7 +44,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
         
         Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
         
-        You must also make sure the Runtime instance is assigned an [agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) by using the `identity_type` parameter as shown in this example.
+        If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. Without `identity_type=AGENT_IDENTITY` , the Runtime instance's `effectiveIdentity` falls back to the default Vertex AI service account, and Semantic Governance Policies silently filter the agent out of the policy-creation selector.
         
             remote_agent = client.agent_engines.create(
               agent=local_agent,
@@ -69,6 +69,8 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
         If you created a gateway in Client-to-Agent (ingress) mode, use the `client_to_agent_config` field instead and replace `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` with the name of the Agent Gateway you created for ingress.
     
       - **For existing agents**
+        
+        > **Note:** Updating an existing reasoning engine to set `agentGatewayConfig` does *not* change its `identity_type` . If the engine was originally created without `identity_type=AGENT_IDENTITY` , you cannot retroactively make it eligible for [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) by patching it. You must redeploy a new reasoning engine with both `agent_gateway_config` and `identity_type=AGENT_IDENTITY` set at agent creation time.
         
         ### Agent-to-Anywhere
         

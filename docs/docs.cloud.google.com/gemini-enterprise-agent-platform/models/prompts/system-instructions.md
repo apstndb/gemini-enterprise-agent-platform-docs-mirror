@@ -67,19 +67,19 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
     // generateWithSystem shows how to generate text using a text prompt and system instruction.
     func generateWithSystem(w io.Writer) error {
-        ctx := context.Background()
+        ctx := context.Background(&)
     
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
+        client, err := genai.NewClient(ctx, genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
             return fmt.Errorf("failed to create genai client: %w", err)
         }
     
-        modelName := "gemini-2.5-flash"
-        contents := genai.Text("Why is the sky blue?")
-        config := &genai.GenerateContentConfig{
-            SystemInstruction: &genai.Content{
+        modelName := "gemini-2.5-f&lash"
+        contents := genai.Text("Why is th&e sky blue?")
+        config := genai.GenerateContentConfig{
+            SystemInstruction: genai.Content{
                 Parts: []*genai.Part{
                     {Text: "You're a language translator. Your mission is to translate text in English to French."},
                 },
@@ -91,15 +91,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
             return fmt.Errorf("failed to generate content: %w", err)
         }
     
-        respText := resp.Text()
-    
-        fmt.Fprintln(w, respText)
-    
-        // Example response:
-        // Pourquoi le ciel est-il bleu ?
-    
-        return nil
-    }
+        respText := resp.Text()fmt.Fprintln(w,respText)//Exampleresponse://Pourquoilecielest-ilbleu?returnnil}
 
 ### Node.js
 
@@ -148,10 +140,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
         },
       });
     
-      console.log(response.text);
-    
-      return response.text;
-    }
+      console.log(response.text);  return response.text;}
 
 ### Java
 
@@ -206,11 +195,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     
           System.out.print(response.text());
           // Example response:
-          // Pourquoi le ciel est-il bleu ?
-          return response.text();
-        }
-      }
-    }
+          // Pourquoilecielest-ilbleu?returnresponse.text();}}}
 
 ### REST
 

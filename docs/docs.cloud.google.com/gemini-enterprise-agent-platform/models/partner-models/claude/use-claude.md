@@ -8,24 +8,24 @@ data_source: docs.cloud.google.com
 
 You can use Anthropic's SDK or curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
-  - For Claude Sonnet 5, use `claude-sonnet-5`
-  - For Claude Fable 5, use `claude-fable-5`
-  - For Claude Opus 4.8, use `claude-opus-4-8`
-  - For Claude Opus 4.7, use `claude-opus-4-7`
-  - For Claude Opus 4.6, use `claude-opus-4-6`
-  - For Claude Sonnet 4.6, use `claude-sonnet-4-6`
-  - For Claude Opus 4.5, use `claude-opus-4-5`
-  - For Claude Opus 4.1, use `claude-opus-4-1`
-  - For Claude Opus 4, use `claude-opus-4`
-  - For Claude Sonnet 4.5, use `claude-sonnet-4-5`
-  - For Claude Sonnet 4, use `claude-sonnet-4`
-  - For Claude 3.7 Sonnet, use `claude-3-7-sonnet`
-  - For Claude 3.5 Sonnet v2, use `claude-3-5-sonnet-v2`
-  - For Claude Haiku 4.5, use `claude-haiku-4-5`
-  - For Claude 3.5 Haiku, use `claude-3-5-haiku`
-  - For Claude 3.5 Sonnet, use `claude-3-5-sonnet`
-  - For Claude 3 Opus, use `claude-3-opus`
-  - For Claude 3 Haiku, use `claude-3-haiku`
+  - For Claude Sonnet 5 on Google Cloud, use `claude-sonnet-5`
+  - For Claude Fable 5 on Google Cloud, use `claude-fable-5`
+  - For Claude Opus 4.8 on Google Cloud, use `claude-opus-4-8`
+  - For Claude Opus 4.7 on Google Cloud, use `claude-opus-4-7`
+  - For Claude Opus 4.6 on Google Cloud, use `claude-opus-4-6`
+  - For Claude Sonnet 4.6 on Google Cloud, use `claude-sonnet-4-6`
+  - For Claude Opus 4.5 on Google Cloud, use `claude-opus-4-5`
+  - For Claude Opus 4.1 on Google Cloud, use `claude-opus-4-1`
+  - For Claude Opus 4 on Google Cloud, use `claude-opus-4`
+  - For Claude Sonnet 4.5 on Google Cloud, use `claude-sonnet-4-5`
+  - For Claude Sonnet 4 on Google Cloud, use `claude-sonnet-4`
+  - For Claude 3.7 Sonnet on Google Cloud, use `claude-3-7-sonnet`
+  - For Claude 3.5 Sonnet v2 on Google Cloud, use `claude-3-5-sonnet-v2`
+  - For Claude Haiku 4.5 on Google Cloud, use `claude-haiku-4-5`
+  - For Claude 3.5 Haiku on Google Cloud, use `claude-3-5-haiku`
+  - For Claude 3.5 Sonnet on Google Cloud, use `claude-3-5-sonnet`
+  - For Claude 3 Opus on Google Cloud, use `claude-3-opus`
+  - For Claude 3 Haiku on Google Cloud, use `claude-3-haiku`
 
 > **Note:** The maximum allowed image file size is 5 MB and you can include up to 100 images in one request.
 
@@ -188,7 +188,7 @@ Before using any of the request data, make the following replacements:
     
     Specify a lower value for less random responses and a higher value for more random responses.
 
-  - TYPE : For Claude 3.7 Sonnet and later Claude models, to enable extended thinking mode, specify `enabled` .
+  - TYPE : For Claude 3.7 Sonnet on Google Cloud and later Claude models, to enable extended thinking mode, specify `enabled` .
 
   - BUDGET\_TOKENS : If you enable extended thinking, you must specify the number of tokens that the model can use for its internal reasoning as part of the output. Larger budgets can enable more thorough analysis for complex problems and improve response quality. You must specify a value greater than or equal to `1024` but less than `MAX_TOKENS` .
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 In previous steps in this tutorial, you prepared your data for training and created a script that Gemini Enterprise Agent Platform uses to train your model. You're now ready to use the Agent Platform SDK for Python to create a [`CustomTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomTrainingJob) .
 
-When you create a `CustomTrainingJob` , you define a training pipeline in the background. Gemini Enterprise Agent Platform uses the training pipeline and the code in your Python training script to train and create your model. For more information, see [Create training pipelines](https://docs.cloud.google.com/vertex-ai/docs/training/create-training-pipeline) .
+When you create a `CustomTrainingJob` , you define a training pipeline in the background. Gemini Enterprise Agent Platform uses the training pipeline and the code in your Python training script to train and create your model. For more information, see [Create training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/create-training-pipeline) .
 
 ## Define your training pipeline
 
@@ -38,7 +38,7 @@ Run the following code to create your training pipeline. The [`CustomTrainingJob
 
 In the previous step you created a [`CustomTrainingJob`](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomTrainingJob) named `job` . To create and train your model, call the `run` method on your `CustomTrainingJob` object and pass it the following parameters:
 
-  - `dataset` - The [tabular dataset you created earlier](https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-bq-prediction/create-dataset#create-tabular-dataset) in this tutorial. This parameter can be a tabular, image, video, or text dataset.
+  - `dataset` - The [tabular dataset you created earlier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/create-dataset#create-tabular-dataset) in this tutorial. This parameter can be a tabular, image, video, or text dataset.
 
   - `model_display_name` - A name for your model.
 

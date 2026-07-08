@@ -38,7 +38,7 @@ Gemini Enterprise Agent Platform lets you get online inferences and batch infere
 
 A **classification** model analyzes image data and returns a list of content categories that apply to the image. For example, you can train a model that classifies images as containing a cat or not containing a cat, or you could train a model to classify images of dogs by breed.
 
-Documentation: [Prepare data](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/prepare-data) | [Create dataset](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/create-dataset) | [Train model](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/train-model) | [Evaluate model](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/evaluate-model) | [Get inferences](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/get-predictions) | [Interpret results](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/interpret-results)
+Documentation: [Prepare data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data) | [Create dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/create-dataset) | [Train model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/train-model) | [Evaluate model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/evaluate-model) | [Get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/get-predictions) | [Interpret results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/interpret-results)
 
 > To see an example of how to train an image classification model and get batch predictions as part of a more comprehensive workflow, run the "AutoML training image classification model for batch prediction" notebook in one of the following environments:
 > 
@@ -48,7 +48,7 @@ Documentation: [Prepare data](https://docs.cloud.google.com/vertex-ai/docs/image
 
 An **object detection** model analyzes your image data and returns annotations for all objects found in an image, consisting of a label and bounding box location for each object. For example, you can train a model to find the location of the cats in image data.
 
-Documentation: [Prepare data](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/prepare-data) | [Create dataset](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/create-dataset) | [Train model](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/train-model) | [Evaluate model](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/evaluate-model) | [Get inferences](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/get-predictions) | [Interpret results](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/interpret-results)
+Documentation: [Prepare data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/prepare-data) | [Create dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/create-dataset) | [Train model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/train-model) | [Evaluate model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/evaluate-model) | [Get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/get-predictions) | [Interpret results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/interpret-results)
 
 > To see an example of how to train an object detection model and get online inferences as part of a more comprehensive workflow, run the "AutoML training image object detection model for online prediction" notebook in one of the following environments:
 > 
@@ -67,7 +67,7 @@ Agent Platform lets you perform machine learning with tabular data using straigh
   - **Regression** models predict a continuous value. For example, as a retailer, you might want to build a regression model to predict how much a customer will spend next month.
   - **Forecasting** models predict a sequence of values. For example, as a retailer, you might want to forecast daily demand of your products for the next 3 months so that you can appropriately stock product inventories in advance.
 
-To learn more, see [Tabular data overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/overview) .
+To learn more, see [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/overview) .
 
 If your tabular data is stored in BigQuery ML, you can train an AutoML tabular model directly in BigQuery ML. To learn more, see [AutoML Tabular reference documentation](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-automl) .
 

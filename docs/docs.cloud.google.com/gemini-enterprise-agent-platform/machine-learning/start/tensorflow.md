@@ -10,23 +10,23 @@ This page explains Gemini Enterprise Agent Platform's TensorFlow integration and
 
 ## Run code in notebooks
 
-Agent Platform provides two options for running your code in notebooks, Colab Enterprise and Vertex AI Workbench. To learn more about these options, see [choose a notebook solution](https://docs.cloud.google.com/vertex-ai/docs/workbench/notebook-solution) .
+Agent Platform provides two options for running your code in notebooks, Colab Enterprise and Vertex AI Workbench. To learn more about these options, see [choose a notebook solution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/notebook-solution) .
 
 ## Prebuilt containers for training
 
 Gemini Enterprise Agent Platform provides prebuilt Docker container images for model training. These containers are organized by machine learning frameworks and framework versions and include common dependencies that you might want to use in your training code.
 
-To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/vertex-ai/docs/training/pre-built-containers#tensorflow) .
+To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/pre-built-containers#tensorflow) .
 
 ## Distributed training
 
-You can run distributed training of TensorFlow models on Gemini Enterprise Agent Platform. For multi-worker training, you can use Reduction Server to optimize performance even further for all-reduce collective operations. To learn more about distributed training on Gemini Enterprise Agent Platform, see [Distributed training](https://docs.cloud.google.com/vertex-ai/docs/training/distributed-training) .
+You can run distributed training of TensorFlow models on Gemini Enterprise Agent Platform. For multi-worker training, you can use Reduction Server to optimize performance even further for all-reduce collective operations. To learn more about distributed training on Gemini Enterprise Agent Platform, see [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/distributed-training) .
 
 ## Prebuilt containers for inference
 
 Similar to prebuilt containers for training, Gemini Enterprise Agent Platform provides prebuilt container images for serving inferences and explanations from TensorFlow models that you either created within or outside of Gemini Enterprise Agent Platform. These images provide HTTP inference servers that you can use to serve inferences with minimal configuration.
 
-To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/vertex-ai/docs/predictions/pre-built-containers#tensorflow) .
+To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/pre-built-containers#tensorflow) .
 
 ### Optimized TensorFlow runtime
 
@@ -34,7 +34,7 @@ To learn about which TensorFlow versions have prebuilt training containers and h
 > 
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-The [optimized TensorFlow runtime](https://docs.cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime) uses model optimizations and new proprietary Google technologies to improve the speed and lower the cost of inferences compared to Gemini Enterprise Agent Platform's standard prebuilt inference containers for TensorFlow.
+The [optimized TensorFlow runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/optimized-tensorflow-runtime) uses model optimizations and new proprietary Google technologies to improve the speed and lower the cost of inferences compared to Gemini Enterprise Agent Platform's standard prebuilt inference containers for TensorFlow.
 
 ## TensorFlow Cloud Profiler integration
 

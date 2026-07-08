@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6
-title: Claude Sonnet 4.6
+title: Claude Sonnet 4.6 on Google Cloud
 description: Claude Sonnet 4.6 delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows.
 data_source: docs.cloud.google.com
 ---
 
-Claude Sonnet 4.6 delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows.
+Claude Sonnet 4.6 on Google Cloud delivers frontier intelligence at scale—built for coding, agents, and enterprise workflows.
 
 **Retirement Date:** Not sooner than February 17, 2027.
 

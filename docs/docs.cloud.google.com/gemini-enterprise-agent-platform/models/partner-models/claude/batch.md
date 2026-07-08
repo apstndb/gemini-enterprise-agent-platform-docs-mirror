@@ -12,19 +12,19 @@ Batch predictions lets you send multiple prompts that aren't latency sensitive t
 
 Gemini Enterprise Agent Platform supports batch predictions for the following Anthropic Claude models:
 
-  - [Claude Sonnet 5](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
-  - [Claude Fable 5](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
-  - [Claude Opus 4.8](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
-  - [Claude Opus 4.7](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
-  - [Claude Opus 4.6](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
-  - [Claude Sonnet 4.6](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
-  - [Claude Opus 4.5](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
-  - [Claude Opus 4.1](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
-  - [Claude Opus 4](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
-  - [Claude Sonnet 4.5](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
-  - [Claude Sonnet 4](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
-  - [Claude Haiku 4.5](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
-  - [Claude 3.5 Haiku](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
+  - [Claude Sonnet 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
+  - [Claude Fable 5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
+  - [Claude Opus 4.8 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-8)
+  - [Claude Opus 4.7 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-7)
+  - [Claude Opus 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
+  - [Claude Sonnet 4.6 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-6)
+  - [Claude Opus 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-5)
+  - [Claude Opus 4.1 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
+  - [Claude Opus 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
+  - [Claude Sonnet 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
+  - [Claude Sonnet 4 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
+  - [Claude Haiku 4.5 on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
+  - [Claude 3.5 Haiku on Google Cloud](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-3-5-haiku)
 
 ### Quotas
 

@@ -14,7 +14,7 @@ If you don't have a Google Cloud account, go to <https://console.cloud.google.co
 
 ## Create a Google Cloud project
 
-If you have a Google Cloud project that you want to use for this tutorial, you can skip this step and continue with [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) . Otherwise, follow the steps in [Set up a project](https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment#set_up_a_project) . For more information, see [Creating and managing projects](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects) .
+If you have a Google Cloud project that you want to use for this tutorial, you can skip this step and continue with [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) . Otherwise, follow the steps in [Set up a project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/cloud-environment#set_up_a_project) . For more information, see [Creating and managing projects](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects) .
 
 ## Find your Google Cloud project ID
 

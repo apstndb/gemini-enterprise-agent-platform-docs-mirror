@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 If you're interested in Gemini Enterprise Agent Platform training clusters, contact your sales representative for access.
 
-Gemini Enterprise Agent Platform training clusters is a managed Google Cloud service that is provisioned as a [Compute Engine instance](https://docs.cloud.google.com/vertex-ai/docs/glossary#compute_engine_instance) within your VPC. This deployment model allows the service to connect securely to other workloads within your VPC, Google-managed services, or multi-cloud networks.
+Gemini Enterprise Agent Platform training clusters is a managed Google Cloud service that is provisioned as a [Compute Engine instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/glossary#compute_engine_instance) within your VPC. This deployment model allows the service to connect securely to other workloads within your VPC, Google-managed services, or multi-cloud networks.
 
 ## Network MTU requirement
 

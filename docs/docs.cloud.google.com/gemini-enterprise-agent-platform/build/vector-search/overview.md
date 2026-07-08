@@ -176,13 +176,13 @@ In this course, you'll use text embeddings for tasks like classification and sem
 
 ### Related products
 
-[**Gemini Enterprise Agent Platform Embeddings**](https://docs.cloud.google.com/vertex-ai/docs/generative-ai/embeddings) Provides an overview of Embeddings API. Text and multimodal embedding use cases, along with links to additional resources and related Google Cloud services.
+[**Gemini Enterprise Agent Platform Embeddings**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/generative-ai/embeddings) Provides an overview of Embeddings API. Text and multimodal embedding use cases, along with links to additional resources and related Google Cloud services.
 
 [**Agent Search ranking API**](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) The ranking API reranks documents based on relevance to a query using a pre-trained language model, providing precise scores. It's ideal for improving search results from various sources including Vector Search.
 
-[**Gemini Enterprise Agent Platform Feature Store**](https://docs.cloud.google.com/vertex-ai/docs/featurestore) Lets you manage and serve feature data using BigQuery as the data source. It provisions resources for online serving, acting as a metadata layer to serve the latest feature values directly from BigQuery. Feature Store allows for the instant retrieval of feature values for the items Vector Store returned for queries.
+[**Gemini Enterprise Agent Platform Feature Store**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/featurestore) Lets you manage and serve feature data using BigQuery as the data source. It provisions resources for online serving, acting as a metadata layer to serve the latest feature values directly from BigQuery. Feature Store allows for the instant retrieval of feature values for the items Vector Store returned for queries.
 
-[**Agent Platform Pipelines**](https://docs.cloud.google.com/vertex-ai/docs/pipelines/introduction) Agent Platform Pipelines enables the automation, monitoring, and governance of your ML systems in a serverless manner by orchestrating ML workflows with ML pipelines. You can run ML pipelines defined using Kubeflow Pipelines or the TensorFlow Extended (TFX) framework in batches. Pipelines allows for building automated pipelines to generate embeddings, create and update Vector Search indexes, and form an MLOps setup for production search and recommendation systems.
+[**Agent Platform Pipelines**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pipelines/introduction) Agent Platform Pipelines enables the automation, monitoring, and governance of your ML systems in a serverless manner by orchestrating ML workflows with ML pipelines. You can run ML pipelines defined using Kubeflow Pipelines or the TensorFlow Extended (TFX) framework in batches. Pipelines allows for building automated pipelines to generate embeddings, create and update Vector Search indexes, and form an MLOps setup for production search and recommendation systems.
 
 ### Deep dive resources
 

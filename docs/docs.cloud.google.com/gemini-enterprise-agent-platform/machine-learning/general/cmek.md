@@ -385,7 +385,7 @@ When you create a new [CMEK-supported resource](https://docs.cloud.google.com/ge
 
 When you create a [supported resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list) , add an [`encryptionSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/EncryptionSpec) object to your request and set the `encryptionSpec.kmsKeyName` field to point to your key resource.
 
-For example, when [creating a `dataset`](https://docs.cloud.google.com/vertex-ai/docs/datasets/overview) resource you would specify your key in the request body:
+For example, when [creating a `dataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/overview) resource you would specify your key in the request body:
 
 ``` 
  {

@@ -22,11 +22,11 @@ The data splits are used in the training process as follows:
 
 2.  Model evaluation
     
-    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
+    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
 
 3.  Serving model
     
-    Agent Platform trains a model with the training, validation, and test sets to maximize the amount of training data. Use this model to request [online predictions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-online-predictions) or [batch predictions](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions) .
+    Agent Platform trains a model with the training, validation, and test sets to maximize the amount of training data. Use this model to request [online predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-online-predictions) or [batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-batch-predictions) .
 
 ### Default data split
 
@@ -104,7 +104,7 @@ With only the test set specified:
     "UNASSIGNED","Roger","Rogers","123-45-6789"
     "UNASSIGNED","Sarah","Smith","333-33-3333"
 
-The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
+The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
 
 If the value of the data split column is `UNASSIGNED` , Agent Platform automatically assigns that row to the training or validation set.
 
@@ -120,7 +120,7 @@ Agent Platform treats each row as an independent and identically distributed tra
 
 If you specify a Time column, include a value for the Time column for every row in your dataset. Make sure that the Time column has enough distinct values, so that the validation and test sets are non-empty. Usually, at least 20 distinct values should be sufficient.
 
-The data in the Time column must conform to one of the formats supported by the [timestamp transformation](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#timestamp) . However, the Time column can have any supported [transformation](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular) , because the transformation only affects how that column is used in training; transformations do not affect data split.
+The data in the Time column must conform to one of the formats supported by the [timestamp transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#timestamp) . However, the Time column can have any supported [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) , because the transformation only affects how that column is used in training; transformations do not affect data split.
 
 You can also specify the percentages of the training data that get assigned to each set.
 
@@ -140,11 +140,11 @@ The data splits are used in the training process as follows:
 
 2.  Model evaluation
     
-    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
+    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
 
 3.  Serving model
     
-    Agent Platform trains a model with the training and validation set. The model is validated (to select best checkpoint) using the test set. The test set is never trained on in the sense that the loss is calculated from it. You use this model to [get inferences](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/get-predictions) .
+    Agent Platform trains a model with the training and validation set. The model is validated (to select best checkpoint) using the test set. The test set is never trained on in the sense that the loss is calculated from it. You use this model to [get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/get-predictions) .
 
 ### Default split
 
@@ -177,8 +177,8 @@ For example:
     "TRAIN","sku_id_2","2020-09-22","3"
     "VALIDATE","sku_id_2","2020-09-23","45"
 
-The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
+The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
 
 Designate a column as a data split column during model training.
 
-Make sure you take care to avoid [data leakage](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular#data-leakage) between your time series.
+Make sure you take care to avoid [data leakage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#data-leakage) between your time series.

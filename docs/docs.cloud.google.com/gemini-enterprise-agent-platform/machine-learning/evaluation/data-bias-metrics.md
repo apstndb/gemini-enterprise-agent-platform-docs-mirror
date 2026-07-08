@@ -10,9 +10,9 @@ data_source: docs.cloud.google.com
 > 
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-This page describes evaluation metrics you can use to detect *data bias* , which can appear in raw data and ground truth values even before you train the model. For the examples and notation on this page, we use a hypothetical college application dataset that we describe in detail in [Introduction to model evaluation for fairness](https://docs.cloud.google.com/vertex-ai/docs/evaluation/intro-evaluation-fairness) .
+This page describes evaluation metrics you can use to detect *data bias* , which can appear in raw data and ground truth values even before you train the model. For the examples and notation on this page, we use a hypothetical college application dataset that we describe in detail in [Introduction to model evaluation for fairness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/intro-evaluation-fairness) .
 
-For descriptions of metrics that are generated from post-training data, see [Model bias metrics](https://docs.cloud.google.com/vertex-ai/docs/evaluation/model-bias-metrics) .
+For descriptions of metrics that are generated from post-training data, see [Model bias metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/model-bias-metrics) .
 
 ## Overview
 
@@ -51,7 +51,7 @@ The positive value of the Difference in Population Size indicates that there are
 
 The *Difference in Positive Proportions in True Labels* measures whether a dataset has disproportionately more positive ground truth labels for one slice over the other. This metric calculates the difference in Positive Proportions in True Labels between slice 1 and slice 2, where Positive Proportions in True Labels for a slice is (Labeled positive outcomes / Total population size). This metric is also known as *Label Imbalance* :
 
-> **Note:** This metric is analogous to the [model bias metric](https://docs.cloud.google.com/vertex-ai/docs/evaluation/model-bias-metrics) of *Difference in Positive Proportions in Predicted Labels* , which focuses on predicted positive outcomes instead of labeled positive outcomes.
+> **Note:** This metric is analogous to the [model bias metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/model-bias-metrics) of *Difference in Positive Proportions in Predicted Labels* , which focuses on predicted positive outcomes instead of labeled positive outcomes.
 
 $$ \\frac{l^1\_1}{n\_1} - \\frac{l^1\_2}{n\_2} $$
 
@@ -65,6 +65,6 @@ The positive value of the DPPTL indicates that the dataset has disproportionatel
 
 ## What's next
 
-  - Learn about the [model bias metrics](https://docs.cloud.google.com/vertex-ai/docs/evaluation/model-bias-metrics) supported by Gemini Enterprise Agent Platform.
+  - Learn about the [model bias metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/model-bias-metrics) supported by Gemini Enterprise Agent Platform.
 
   - Read the [model evaluation pipeline component reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/model-evaluation-component#fairness) .

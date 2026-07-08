@@ -42,7 +42,7 @@ After you define your ML pipeline, you can create an ML pipeline run using any o
 
 > **Note:** Agent Platform Pipelines doesn't support the gcloud CLI interface.
 
-For more information about the interfaces you can use to interact with Gemini Enterprise API, see [Interfaces for Gemini Enterprise API](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-interfaces) .
+For more information about the interfaces you can use to interact with Gemini Enterprise API, see [Interfaces for Gemini Enterprise API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/introduction-interfaces) .
 
 ### REST API
 

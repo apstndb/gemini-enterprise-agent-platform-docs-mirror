@@ -4445,6 +4445,45 @@ Queries using a reasoning engine.
 `POST /v1beta1/{name}:streamQuery`  
 Streams queries using a reasoning engine.
 
+## REST Resource: [v1beta1.projects.locations.reasoningEngines.feedbackEntries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries)
+
+Methods
+
+`  create  `
+
+`POST /v1beta1/{parent}/feedbackEntries`  
+Creates a new FeedbackEntry.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes a FeedbackEntry and its associated FeedbackContext.
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Retrieves a single FeedbackEntry by its resource name.
+
+`  getFeedbackContext  `
+
+`GET /v1beta1/{name}`  
+Retrieves the FeedbackContext associated with a FeedbackEntry.
+
+`  list  `
+
+`GET /v1beta1/{parent}/feedbackEntries`  
+Lists FeedbackEntries in a ReasoningEngine.
+
+`  patch  `
+
+`PATCH /v1beta1/{feedbackEntry.name}`  
+Updates an existing FeedbackEntry.
+
+`  updateFeedbackContext  `
+
+`PATCH /v1beta1/{feedbackContext.name}`  
+Updates the FeedbackContext associated with a FeedbackEntry.
+
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.memories)
 
 Methods

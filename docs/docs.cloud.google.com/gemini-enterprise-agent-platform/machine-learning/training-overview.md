@@ -28,7 +28,7 @@ The types of models you can build depend on the type of data that you have. Gemi
 | Image data   | Classification, object detection.       |
 | Tabular data | Classification/regression, forecasting. |
 
-To learn more about AutoML, see [AutoML training overview](https://docs.cloud.google.com/vertex-ai/docs/training/automl-training-overview) .
+To learn more about AutoML, see [AutoML training overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/automl-training-overview) .
 
 ## Run custom training code on Agent Platform
 

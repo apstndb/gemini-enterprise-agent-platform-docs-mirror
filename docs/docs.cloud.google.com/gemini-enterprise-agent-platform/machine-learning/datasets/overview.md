@@ -10,7 +10,7 @@ You can use a managed dataset to provide the source data used to train AutoML an
 
 ## Permissions and access control
 
-When you use data from a Cloud Storage bucket to create a dataset, Agent Platform requires permissions to access the data. Agent Platform uses a special Google-managed service account known as a Service Agent to securely access your data. For more information on the roles required and how the Service Agent works, see [Access control with IAM](https://docs.cloud.google.com/vertex-ai/docs/general/access-control#service-agents) .
+When you use data from a Cloud Storage bucket to create a dataset, Agent Platform requires permissions to access the data. Agent Platform uses a special Google-managed service account known as a Service Agent to securely access your data. For more information on the roles required and how the Service Agent works, see [Access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/access-control#service-agents) .
 
 ## Create a managed dataset for AutoML models
 
@@ -20,15 +20,15 @@ You can create managed datasets for training AutoML models by using the Google C
 
 Learn how to create a managed dataset for the following types of image AutoML models:
 
-  - [Image classification models](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/prepare-data)
-  - [Image object detection models](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/prepare-data)
+  - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data)
+  - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/prepare-data)
 
 ### Tabular
 
 Learn how to create a managed dataset for the following types of tabular AutoML models:
 
-  - [Tabular classification and regression models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data)
-  - [Tabular forecasting models](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data)
+  - [Tabular classification and regression models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data)
+  - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data)
 
 ## Create a managed dataset for custom trained models
 

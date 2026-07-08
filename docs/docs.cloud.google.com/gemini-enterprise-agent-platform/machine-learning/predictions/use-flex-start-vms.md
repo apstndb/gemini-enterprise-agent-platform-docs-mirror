@@ -55,7 +55,7 @@ Before using any of the request data, make the following replacements:
   - ENDPOINT\_ID : The ID for the endpoint.
   - MODEL\_ID : The ID for the model to be deployed.
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute)
+  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/configure-compute)
   - ACCELERATOR\_TYPE : Optional. The type of accelerator to attach to the machine. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus) .
   - ACCELERATOR\_COUNT : Optional. The number of accelerators for each replica to use.
   - MAX\_RUNTIME\_DURATION : The maximum duration for the flex-start deployment. The deployed model is automatically undeployed after this duration. Specify the duration in seconds, ending with an `s` . For example, `3600s` for one hour. The maximum value is `604800s` (7 days).

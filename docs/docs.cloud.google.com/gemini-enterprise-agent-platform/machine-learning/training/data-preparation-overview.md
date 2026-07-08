@@ -35,7 +35,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Use Cloud Storage FUSE](https://docs.cloud.google.com/vertex-ai/docs/training/cloud-storage-file-system)
+  - [Use Cloud Storage FUSE](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/cloud-storage-file-system)
 
 ## Network File System (NFS) share
 
@@ -53,7 +53,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Use NFS shares](https://docs.cloud.google.com/vertex-ai/docs/training/train-nfs-share)
+  - [Use NFS shares](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/train-nfs-share)
 
 ## Managed dataset
 
@@ -71,7 +71,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Use managed datasets](https://docs.cloud.google.com/vertex-ai/docs/training/using-managed-datasets)
+  - [Use managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/using-managed-datasets)
 
 ## BigQuery
 
@@ -91,6 +91,6 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Agent Platform for BigQuery users](https://docs.cloud.google.com/vertex-ai/docs/beginner/bqml)
+  - [Agent Platform for BigQuery users](https://docs.cloud.google.com/gemini-enterprise-agent-platform/beginner/bqml)
   - [Build a pipeline for continuous model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/continuous-training-tutorial)
   - [Use Ray on Vertex AI with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration)

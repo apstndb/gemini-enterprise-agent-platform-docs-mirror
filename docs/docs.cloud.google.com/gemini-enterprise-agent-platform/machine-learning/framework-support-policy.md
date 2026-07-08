@@ -12,7 +12,7 @@ This allows you time to update and test your code when moving from one framework
 
 For all services, subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/release-notes) page for announcements about new version releases for your containers, images, and frameworks.
 
-For the list of supported framework versions, see the [Supported frameworks list](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list) .
+For the list of supported framework versions, see the [Supported frameworks list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/supported-frameworks-list) .
 
 ## Shared responsibility
 
@@ -22,7 +22,7 @@ Securing your workloads on Gemini Enterprise Agent Platform is a shared responsi
 
   - Ensuring that you properly configured your services to use the latest version.
 
-For more information, see [Shared responsibility](https://docs.cloud.google.com/vertex-ai/docs/shared-responsibility) .
+For more information, see [Shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/shared-responsibility) .
 
 ## Support policy for framework versions
 
@@ -34,7 +34,7 @@ During the supported period for an ML framework version, we publish new image ve
 
   - Non-breaking updates to other packages and software installed on the image.
 
-  - Updates to dependencies that have reached end-of-support. For example, if an image has Python 3.7 installed and it reaches the end-of-support date, we release a new image version. If the change in dependency might be a breaking change, we update the [Supported frameworks list](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list) to indicate the change in the dependency.
+  - Updates to dependencies that have reached end-of-support. For example, if an image has Python 3.7 installed and it reaches the end-of-support date, we release a new image version. If the change in dependency might be a breaking change, we update the [Supported frameworks list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/supported-frameworks-list) to indicate the change in the dependency.
 
 Once published, an image version is immutable and doesn't change. You should always use the latest image version, as earlier versions might have security vulnerabilities or other critical bugs.
 
@@ -62,14 +62,14 @@ If you use the following services, you should be aware of new version releases t
 
   - [Prebuilt containers for predictions and explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers)
 
-  - [Prebuilt containers for Ray on Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list#ray)
+  - [Prebuilt containers for Ray on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/supported-frameworks-list#ray)
 
   - [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-pipeline#version-pipeline)
     
-      - For the version support schedule for pipeline SDKs, see [Supported frameworks for pipelines](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list#pipelines) in "Supported frameworks list."
+      - For the version support schedule for pipeline SDKs, see [Supported frameworks for pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/supported-frameworks-list#pipelines) in "Supported frameworks list."
 
 For all services, subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/release-notes) page for announcements about new version releases for your containers, images, and frameworks.
 
 ## What's next
 
-  - Review the [list of supported framework versions](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list) .
+  - Review the [list of supported framework versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/supported-frameworks-list) .

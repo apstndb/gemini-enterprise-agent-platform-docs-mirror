@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 An *annotation set* is a set of labels that you apply to the data of an unstructured dataset for model training. Annotation sets are associated with a data type and model objective (for example, `image/classification` ). You create an annotation set for image data types.
 
-To learn how to apply the labels of your annotation set to your dataset's data, see [Label using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/datasets/label-using-console) .
+To learn how to apply the labels of your annotation set to your dataset's data, see [Label using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/label-using-console) .
 
 ## How to create an annotation set
 
@@ -40,4 +40,4 @@ You can create a new annotation set for an existing dataset in the Google Cloud 
 
 ## What's next
 
-  - Edit, or add labels to your dataset [using the Google Cloud console](https://docs.cloud.google.com/vertex-ai/docs/datasets/label-using-console) .
+  - Edit, or add labels to your dataset [using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/label-using-console) .

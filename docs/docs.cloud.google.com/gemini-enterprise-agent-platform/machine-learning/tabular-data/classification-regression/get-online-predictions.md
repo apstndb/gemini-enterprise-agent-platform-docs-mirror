@@ -396,7 +396,7 @@ Before using any of the command data below, make the following replacements:
   - LOCATION\_ID : The region where you are using Agent Platform.
   - MODEL\_ID : The ID for the model to be deployed.
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute)
+  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/configure-compute)
   - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes. This value must be greater than or equal to 1. If the `--min-replica-count` flag is omitted, the value defaults to 1.
   - MAX\_REPLICA\_COUNT : The maximum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to this number of nodes and never fewer than the minimum number of nodes. If you omit the `--max-replica-count` flag, then maximum number of nodes is set to the value of `--min-replica-count` .
 
@@ -503,7 +503,7 @@ Before using any of the request data, make the following replacements:
   - ENDPOINT\_ID : The ID for the endpoint.
   - MODEL\_ID : The ID for the model to be deployed.
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute)
+  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/configure-compute)
   - ACCELERATOR\_TYPE : The type of accelerator to be attached to the machine. Optional if ACCELERATOR\_COUNT is not specified or is zero. Not recommended for AutoML models or custom-trained models that are using non-GPU images. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus) .
   - ACCELERATOR\_COUNT : The number of accelerators for each replica to use. Optional. Should be zero or unspecified for AutoML models or custom-trained models that are using non-GPU images.
   - MIN\_REPLICA\_COUNT : The minimum number of nodes for this deployment. The node count can be increased or decreased as required by the inference load, up to the maximum number of nodes and never fewer than this number of nodes. This value must be greater than or equal to 1.
@@ -828,7 +828,7 @@ To make an online inference, submit one or more test items to a model for analys
             "material":"cotton",
             "tag_array": ["abc","def"]
         
-        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -859,7 +859,7 @@ Before using any of the request data, make the following replacements:
         "material":"cotton",
         "tag_array": ["abc","def"]
     
-    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID : Output by the `predict` method, and accepted as input by the `explain` method. The ID of the model used to generate the inference. If you need to request explanations for a previously requested inference, and you have more than one model deployed, you can use this ID to ensure that the explanations are returned for the same model that provided the previous inference.
 
@@ -1109,7 +1109,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
             "sq_ft":5392,
             "code": "90331"
         
-        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -1140,7 +1140,7 @@ Before using any of the request data, make the following replacements:
         "sq_ft":5392,
         "code": "90331"
     
-    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID : Output by the `predict` method, and accepted as input by the `explain` method. The ID of the model used to generate the inference. If you need to request explanations for a previously requested inference, and you have more than one model deployed, you can use this ID to ensure that the explanations are returned for the same model that provided the previous inference.
 
@@ -1383,7 +1383,7 @@ Regression models return an inference value. For BigQuery destinations, they als
 
 ## Get an online explanation using your deployed model
 
-You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-explanations) .
+You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
 
 ### Console
 
@@ -1413,7 +1413,7 @@ If you used the pre-filled prediction values, the local feature importance value
             "material":"cotton",
             "tag_array": ["abc","def"]
         
-        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -1455,7 +1455,7 @@ Before using any of the request data, make the following replacements:
         "material":"cotton",
         "tag_array": ["abc","def"]
     
-    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID (optional): The ID of the deployed model for which you want to get explanations. The ID is included in the `predict` method's response. If you need to request explanations for a particular model and you have more than one model deployed to the same endpoint, you can use this ID to ensure that the explanations are returned for that particular model.
 
@@ -1548,7 +1548,7 @@ For a specific inference, the local feature importance for each feature tells yo
 
 For classification models, the score is always between 0.0 and 1.0, inclusive. Therefore, local feature importance values for classification models are always between -1.0 and 1.0 (inclusive).
 
-For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-explanations) .
+For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
 
 ## Example output for inferences and explanations
 
@@ -1632,4 +1632,4 @@ The `instanceOutputValue` of `1795.1246466281819` is the predicted value, with t
 
 ## What's next
 
-  - Learn how to [export your model](https://docs.cloud.google.com/vertex-ai/docs/export/export-model-tabular) .
+  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/export/export-model-tabular) .

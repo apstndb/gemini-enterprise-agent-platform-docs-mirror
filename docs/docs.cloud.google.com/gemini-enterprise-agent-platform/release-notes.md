@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 06, 2026
+
+Feature
+
+**AlphaGenome released for Gemini Enterprise Agent Platform**
+
+AlphaGenome, Google DeepMind's state-of-the-art genomics foundation model, is now available for deployment and use with Gemini Enterprise Agent Platform.
+
+Designed to decipher the functional regulatory code of the human genome, AlphaGenome analyzes large-scale DNA sequences at single-base resolution to predict how genetic variations affect molecular and biological mechanisms like gene expression, chromatin accessibility, and RNA splicing. For information on how to use AlphaGenome in Agent Platform, see the [documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphagenome) .
+
 ## July 01, 2026
 
 Feature

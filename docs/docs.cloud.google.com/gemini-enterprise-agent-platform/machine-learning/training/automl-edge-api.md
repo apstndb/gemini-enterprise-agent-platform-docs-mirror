@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 You create an AutoML model directly in the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-console) , or by creating a training pipeline programmatically, using the API or one of the [Agent Platform client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
-This model is created using a prepared dataset provided by you using the [console](https://docs.cloud.google.com/vertex-ai/docs/training/automl-edge-console) or the Agent Platform API. The Agent Platform API uses the items from the dataset to train the model, test it, and evaluate model performance. Review the evaluations results, adjust the training dataset as needed, and create a new training pipeline using the improved dataset.
+This model is created using a prepared dataset provided by you using the [console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/automl-edge-console) or the Agent Platform API. The Agent Platform API uses the items from the dataset to train the model, test it, and evaluate model performance. Review the evaluations results, adjust the training dataset as needed, and create a new training pipeline using the improved dataset.
 
 Model training can take several hours to complete. The Agent Platform API lets you get the status of the training job.
 

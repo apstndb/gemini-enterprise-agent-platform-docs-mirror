@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput
 title: Use Provisioned Throughput
-description: Guide on how to use Provisioned Throughput for Gemini Enterprise Agent Platform.
+description: Learn how Provisioned Throughput works, how to manage overages, and how to monitor usage for your Gemini Enterprise Agent Platform agents.
 data_source: docs.cloud.google.com
 ---
 

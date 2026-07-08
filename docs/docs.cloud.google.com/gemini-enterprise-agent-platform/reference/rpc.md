@@ -2104,6 +2104,38 @@ Updates the parameters of a single Feature.
 
 Updates the parameters of a single Featurestore.
 
+## `        google.cloud.aiplatform.v1beta1.FeedbackService       `
+
+Methods
+
+`  CreateFeedbackEntry  `
+
+Creates a new FeedbackEntry.
+
+`  DeleteFeedbackEntry  `
+
+Deletes a FeedbackEntry and its associated FeedbackContext.
+
+`  GetFeedbackContext  `
+
+Retrieves the FeedbackContext associated with a FeedbackEntry.
+
+`  GetFeedbackEntry  `
+
+Retrieves a single FeedbackEntry by its resource name.
+
+`  ListFeedbackEntries  `
+
+Lists FeedbackEntries in a ReasoningEngine.
+
+`  UpdateFeedbackContext  `
+
+Updates the FeedbackContext associated with a FeedbackEntry.
+
+`  UpdateFeedbackEntry  `
+
+Updates an existing FeedbackEntry.
+
 ## `        google.cloud.aiplatform.v1beta1.GenAiCacheService       `
 
 Methods

@@ -749,8 +749,8 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    from vertexai.preview import rag
-    import vertexai
+    import agentplatform
+    from agentplatform import types
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
@@ -760,26 +760,31 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     # display_name = "test_corpus"
     # description = "Corpus Description"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
     
     # Configure embedding model (Optional)
-    embedding_model_config = rag.EmbeddingModelConfig(
-        publisher_model="publishers/google/models/text-embedding-004"
+    embedding_model_config = types.RagEmbeddingModelConfig(
+        vertex_prediction_endpoint=types.RagEmbeddingModelConfigVertexPredictionEndpoint(
+            endpoint="publishers/google/models/text-embedding-004"
+        )
     )
     
     # Configure Vector DB
-    vector_db = rag.Weaviate(
-        weaviate_http_endpoint=weaviate_http_endpoint,
+    vector_db = types.RagVectorDbConfigWeaviate(
+        http_endpoint=weaviate_http_endpoint,
         collection_name=weaviate_collection_name,
-        api_key=weaviate_api_key_secret_manager_version,
     )
     
-    corpus = rag.create_corpus(
-        display_name=display_name,
-        description=description,
-        embedding_model_config=embedding_model_config,
-        vector_db=vector_db,
+    corpus = client.rag.create_corpus(
+        rag_corpus=types.RagCorpus(
+            display_name=display_name,
+            description=description,
+            rag_embedding_model_config=embedding_model_config,
+            rag_vector_db_config=types.RagVectorDbConfig(
+                weaviate=vector_db
+            ),
+        )
     )
     print(corpus)
     # Example response:
@@ -845,28 +850,25 @@ A successful response returns the `RagFile` resource. The last component of the 
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
     # path = "path/to/local/file.txt"
     # display_name = "file_display_name"
-    # description = "file description"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
     
-    rag_file = rag.upload_file(
+    rag_file = client.rag.upload_file(
         corpus_name=corpus_name,
         path=path,
         display_name=display_name,
-        description=description,
     )
     print(rag_file)
     # RagFile(name='projects/[PROJECT_ID]/locations/us-central1/ragCorpora/1234567890/ragFiles/09876543',
-    #  display_name='file_display_name', description='file description')
+    #  display_name='file_display_name')
 
 #### Import RAG files
 
@@ -1021,26 +1023,43 @@ The following sample demonstrates how to import a file from Drive. Use the `max_
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
+    from agentplatform import types
+    
+    from google.genai import types as genai_types
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
-    # paths = ["https://drive.google.com/file/123", "gs://my_bucket/my_files_dir"]  # Supports Google Cloud Storage and Google Drive Links
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Supports Google Cloud Storage and Google Drive Links
+    # paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
     
-    response = rag.import_files(
-        corpus_name=corpus_name,
-        paths=paths,
-        transformation_config=rag.TransformationConfig(
-            rag.ChunkingConfig(chunk_size=512, chunk_overlap=100)
-        ),
-        import_result_sink="gs://sample-existing-folder/sample_import_result_unique.ndjson",  # Optional, this has to be an existing storage bucket folder, and file name has to be unique (non-existent).
-        max_embedding_requests_per_min=900,  # Optional
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    
+    response = client.rag.import_files(
+        name=corpus_name,
+        import_config=types.ImportRagFilesConfig(
+            gcs_source=genai_types.GcsSource(uris=[paths[1]]),
+            google_drive_source=types.GoogleDriveSource(
+                resource_ids=[
+                    types.GoogleDriveSourceResourceId(
+                        resource_id=paths[0],
+                        resource_type=types.ResourceType.RESOURCE_TYPE_FILE
+                    )
+                ]
+            ), # optional
+            rag_file_transformation_config=types.RagFileTransformationConfig(
+                rag_file_chunking_config=types.RagFileChunkingConfig(
+                    chunk_size=512,
+                    chunk_overlap=100,
+                )
+            ), # optional
+            max_embedding_requests_per_min=900, # optional
+        )
     )
+    
     print(f"Imported {response.imported_rag_files_count} files.")
     # Example response:
     # Imported 2 files.
@@ -1086,17 +1105,16 @@ A successful response returns the `RagFile` resource.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
     
-    rag_file = rag.get_file(name=file_name)
+    rag_file = client.rag.get_file(name=file_name)
     print(rag_file)
     # Example response:
     # RagFile(name='projects/1234567890/locations/us-central1/ragCorpora/11111111111/ragFiles/22222222222',
@@ -1144,18 +1162,17 @@ You should receive a successful status code (2xx) along with a list of `RagFiles
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
     
-    files = rag.list_files(corpus_name=corpus_name)
-    for file in files:
+    files_response = client.rag.list_files(name=corpus_name)
+    for file in files_response.rag_files:
         print(file.display_name)
         print(file.name)
     # Example response:
@@ -1205,17 +1222,16 @@ A successful response returns the `DeleteOperationMetadata` resource.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
     
-    rag.delete_file(name=file_name)
+    client.rag.delete_file(name=file_name)
     print(f"File {file_name} deleted.")
     # Example response:
     # Successfully deleted the RagFile.
@@ -1285,29 +1301,37 @@ You should receive a successful status code (2xx) and a list of related `RagFile
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
+    
+    from agentplatform import types
+    from google.genai import types as genai_types
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
     
-    response = rag.retrieval_query(
-        rag_resources=[
-            rag.RagResource(
-                rag_corpus=corpus_name,
-                # Optional: supply IDs from `rag.list_files()`.
-                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-            )
-        ],
-        text="Hello World!",
-        rag_retrieval_config=rag.RagRetrievalConfig(
-            top_k=10,
-            filter=rag.utils.resources.Filter(vector_distance_threshold=0.5),
+    response = client.rag.retrieve_contexts(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name,
+                    # Optional: supply IDs from `rag.list_files()`.
+                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+                )
+            ],
         ),
+        query=types.RagQuery(
+            text="Hello World!",
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
+                ),
+            ),
+        )
     )
     print(response)
     # Example response:
@@ -1391,39 +1415,41 @@ A successful response returns the generated content with citations.
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    from vertexai.generative_models import GenerativeModel, Tool
-    import vertexai
+    from google import genai
+    from google.genai import types as genai_types
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    rag_retrieval_tool = Tool.from_retrieval(
-        retrieval=rag.Retrieval(
-            source=rag.VertexRagStore(
+    rag_retrieval_tool = genai_types.Tool(
+        retrieval=genai_types.Retrieval(
+            vertex_rag_store=genai_types.VertexRagStore(
                 rag_resources=[
-                    rag.RagResource(
-                        rag_corpus=corpus_name,
-                        # Optional: supply IDs from `rag.list_files()`.
-                        # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+                    genai_types.VertexRagStoreRagResource(
+                        rag_corpus=corpus_name
                     )
                 ],
-                rag_retrieval_config=rag.RagRetrievalConfig(
+                rag_retrieval_config=genai_types.RagRetrievalConfig(
                     top_k=10,
-                    filter=rag.utils.resources.Filter(vector_distance_threshold=0.5),
+                    filter=genai_types.RagRetrievalConfigFilter(
+                        vector_distance_threshold=0.5
+                    ),
                 ),
             ),
         )
     )
     
-    rag_model = GenerativeModel(
-        model_name="gemini-2.0-flash-001", tools=[rag_retrieval_tool]
+    # Create a GenAI SDK client to make a generate_content request
+    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+    
+    response = genai_client.models.generate_content(
+        model="gemini-2.5-pro",
+        contents="Why is the sky blue?",
+        config=genai_types.GenerateContentConfig(
+            tools=[rag_retrieval_tool]
+        )
     )
-    response = rag_model.generate_content("Why is the sky blue?")
     print(response.text)
     # Example response:
     #   The sky appears blue due to a phenomenon called Rayleigh scattering.
@@ -1503,29 +1529,37 @@ This is an example of how to enable a hybrid search using the RAG Engine retriev
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    import vertexai
+    import agentplatform
+    
+    from agentplatform import types
+    from google.genai import types as genai_types
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
     
-    response = rag.retrieval_query(
-        rag_resources=[
-            rag.RagResource(
-                rag_corpus=corpus_name,
-                # Optional: supply IDs from `rag.list_files()`.
-                # rag_file_ids=["rag-file-1", "rag-file-2", ...],
-            )
-        ],
-        text="Hello World!",
-        rag_retrieval_config=rag.RagRetrievalConfig(
-            top_k=10,
-            filter=rag.utils.resources.Filter(vector_distance_threshold=0.5),
+    response = client.rag.retrieve_contexts(
+        vertex_rag_store=genai_types.VertexRagStore(
+            rag_resources=[
+                genai_types.VertexRagStoreRagResource(
+                    rag_corpus=corpus_name,
+                    # Optional: supply IDs from `rag.list_files()`.
+                    # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+                )
+            ],
         ),
+        query=types.RagQuery(
+            text="Hello World!",
+            rag_retrieval_config=genai_types.RagRetrievalConfig(
+                top_k=10,
+                filter=genai_types.RagRetrievalConfigFilter(
+                    vector_distance_threshold=0.5
+                ),
+            ),
+        )
     )
     print(response)
     # Example response:
@@ -1603,39 +1637,41 @@ This is an example of how to use hybrid search and RAG Engine for grounded gener
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    from vertexai import rag
-    from vertexai.generative_models import GenerativeModel, Tool
-    import vertexai
+    from google import genai
+    from google.genai import types as genai_types
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
     
-    # Initialize Vertex AI API once per session
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    rag_retrieval_tool = Tool.from_retrieval(
-        retrieval=rag.Retrieval(
-            source=rag.VertexRagStore(
+    rag_retrieval_tool = genai_types.Tool(
+        retrieval=genai_types.Retrieval(
+            vertex_rag_store=genai_types.VertexRagStore(
                 rag_resources=[
-                    rag.RagResource(
-                        rag_corpus=corpus_name,
-                        # Optional: supply IDs from `rag.list_files()`.
-                        # rag_file_ids=["rag-file-1", "rag-file-2", ...],
+                    genai_types.VertexRagStoreRagResource(
+                        rag_corpus=corpus_name
                     )
                 ],
-                rag_retrieval_config=rag.RagRetrievalConfig(
+                rag_retrieval_config=genai_types.RagRetrievalConfig(
                     top_k=10,
-                    filter=rag.utils.resources.Filter(vector_distance_threshold=0.5),
+                    filter=genai_types.RagRetrievalConfigFilter(
+                        vector_distance_threshold=0.5
+                    ),
                 ),
             ),
         )
     )
     
-    rag_model = GenerativeModel(
-        model_name="gemini-2.0-flash-001", tools=[rag_retrieval_tool]
+    # Create a GenAI SDK client to make a generate_content request
+    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+    
+    response = genai_client.models.generate_content(
+        model="gemini-2.5-pro",
+        contents="Why is the sky blue?",
+        config=genai_types.GenerateContentConfig(
+            tools=[rag_retrieval_tool]
+        )
     )
-    response = rag_model.generate_content("Why is the sky blue?")
     print(response.text)
     # Example response:
     #   The sky appears blue due to a phenomenon called Rayleigh scattering.

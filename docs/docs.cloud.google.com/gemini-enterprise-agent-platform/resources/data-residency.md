@@ -502,7 +502,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 </thead>
 <tbody>
 <tr class="odd">
-<td>Anthropic's Claude Sonnet 5</td>
+<td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -512,7 +512,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Fable 5</td>
+<td>Anthropic's Claude Fable 5 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -522,7 +522,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Haiku 4.5</td>
+<td>Anthropic's Claude Haiku 4.5 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -532,7 +532,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Opus 4</td>
+<td>Anthropic's Claude Opus 4 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -542,7 +542,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4.1</td>
+<td>Anthropic's Claude Opus 4.1 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -552,7 +552,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Opus 4.5</td>
+<td>Anthropic's Claude Opus 4.5 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -562,7 +562,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4.8</td>
+<td>Anthropic's Claude Opus 4.8 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -572,7 +572,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Opus 4.7</td>
+<td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -582,7 +582,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4.6</td>
+<td>Anthropic's Claude Opus 4.6 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -592,7 +592,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Sonnet 4</td>
+<td>Anthropic's Claude Sonnet 4 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -602,7 +602,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Sonnet 4.5</td>
+<td>Anthropic's Claude Sonnet 4.5 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -612,7 +612,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Sonnet 4.6</td>
+<td>Anthropic's Claude Sonnet 4.6 on Google Cloud</td>
 <td></td>
 <td></td>
 <td></td>
@@ -622,7 +622,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude 3.5 Haiku (deprecated)</td>
+<td>Anthropic's Claude 3.5 Haiku on Google Cloud (deprecated)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -632,7 +632,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude 3 Haiku (deprecated)</td>
+<td>Anthropic's Claude 3 Haiku on Google Cloud (deprecated)</td>
 <td></td>
 <td></td>
 <td></td>
@@ -642,7 +642,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude 3.7 Sonnet (deprecated)</td>
+<td>Anthropic's Claude 3.7 Sonnet on Google Cloud (deprecated)</td>
 <td></td>
 <td></td>
 <td></td>

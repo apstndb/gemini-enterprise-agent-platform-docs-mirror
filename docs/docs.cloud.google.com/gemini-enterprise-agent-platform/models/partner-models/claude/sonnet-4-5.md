@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-5
-title: Claude Sonnet 4.5
+title: Claude Sonnet 4.5 on Google Cloud
 description: Model details for Claude Sonnet 4.5
 data_source: docs.cloud.google.com
 ---

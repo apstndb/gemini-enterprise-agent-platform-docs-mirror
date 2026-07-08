@@ -55,7 +55,7 @@ For classification and regression models, if the underlying pattern in your data
 
   - If your time column doesn't have many distinct values, use a manual split instead of using the Time column to split your data. Otherwise, you might not get enough rows in each dataset, which can cause training to fail.
 
-  - If the time information is not contained in a single column, you can use a [manual data split](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits) to use the most recent data as the test data, and the earliest data as the training data.
+  - If the time information is not contained in a single column, you can use a [manual data split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) to use the most recent data as the test data, and the earliest data as the training data.
 
 ### Make information explicit where needed
 
@@ -103,7 +103,7 @@ If your data uses special characters or numbers to represent null values, includ
 
 ### Avoid missing values where possible
 
-Check your data for missing values, and correct them if possible. Otherwise, you can leave the value blank, and it is treated as a [null value](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#null-values) .
+Check your data for missing values, and correct them if possible. Otherwise, you can leave the value blank, and it is treated as a [null value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) .
 
 ### Use spaces to separate text
 
@@ -127,7 +127,7 @@ Having too few rows of data for one class degrades model quality. If possible, p
 
 Agent Platform selects the rows for the test dataset randomly (but deterministically). For imbalanced classes, you could end up with a small number of the minority class in your test dataset, or even none, which causes training to fail.
 
-If you have imbalanced classes, you might want to assign a [manual split](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits) to make sure enough rows with the minority outcomes are included in every split.
+If you have imbalanced classes, you might want to assign a [manual split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) to make sure enough rows with the minority outcomes are included in every split.
 
 ### Provide enough training data
 
@@ -155,7 +155,7 @@ At least 50 times as many rows as the number of columns.
 
 ### Leave all other preprocessing and transformations to Agent Platform
 
-Unless otherwise noted, let Agent Platform do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Agent Platform transformations](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#transformations) .
+Unless otherwise noted, let Agent Platform do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Agent Platform transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#transformations) .
 
 ## Best practices for tabular forecasting models
 
@@ -165,7 +165,7 @@ Training data for forecasting models has some special considerations.
 
 When you train a forecasting model, you specify the data *granularity* , or the time interval between the training data rows. It can be hourly, daily, weekly, monthly, or yearly. In addition, it can be every 1, 5, 10, 15, or 30 minutes.
 
-The data granularity must be consistent throughout the training data, and all batch inference data. If you specify a daily granularity, and there are 2 days between two training data rows, Agent Platform treats the interim day as [missing data](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#null-values) , which can degrade model performance. Multiple rows in the same time series with the same timestamp (as determined by the granularity) are considered a validation error at training time.
+The data granularity must be consistent throughout the training data, and all batch inference data. If you specify a daily granularity, and there are 2 days between two training data rows, Agent Platform treats the interim day as [missing data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) , which can degrade model performance. Multiple rows in the same time series with the same timestamp (as determined by the granularity) are considered a validation error at training time.
 
 Generally, your data collection practices determine your data granularity.
 
@@ -197,7 +197,7 @@ Increasing the context window has the following effects:
 
 You can create your training data in either [wide or narrow format](https://en.wikipedia.org/wiki/Wide_and_narrow_data) . For regression and classification models, wide format is widely used and can be easier to assemble and review. For forecasting models using narrow format can help you avoid setting up unintentional connections between your data and your target ( [data leakage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#data-leakage) ).
 
-When you create training data to train a forecasting model, each row should represent a *single observation on a single time series* . You must have a column that represents your [time series identifier](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/prepare-data#data-structure) (how the time series are distinguished from each other), and a column that represents the value that you'll be predicting (your target). Then every other value in the row that is used to train the model must be present at the time you request an inference for your target.
+When you create training data to train a forecasting model, each row should represent a *single observation on a single time series* . You must have a column that represents your [time series identifier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#data-structure) (how the time series are distinguished from each other), and a column that represents the value that you'll be predicting (your target). Then every other value in the row that is used to train the model must be present at the time you request an inference for your target.
 
 Consider the following (simplified and abbreviated) sample training data:
 

@@ -14,13 +14,13 @@ A machine learning workflow can include evaluating your model for fairness. An u
 
 You can detect bias during the data collection or post-training evaluation process. Gemini Enterprise Agent Platform provides the following model evaluation metrics to help you evaluate your model for bias:
 
-  - [**Data bias metrics**](https://docs.cloud.google.com/vertex-ai/docs/evaluation/data-bias-metrics) : Before you train and build your model, these metrics detect whether your raw data includes biases. For example, a smile-detection dataset may contain far fewer elderly people than younger ones. Several of these metrics are based on quantifying the distance between label distribution for different groups of data:
+  - [**Data bias metrics**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/data-bias-metrics) : Before you train and build your model, these metrics detect whether your raw data includes biases. For example, a smile-detection dataset may contain far fewer elderly people than younger ones. Several of these metrics are based on quantifying the distance between label distribution for different groups of data:
     
       - Difference in Population Size.
     
       - Difference in Positive Proportions in True Labels.
 
-  - [**Model bias metrics**](https://docs.cloud.google.com/vertex-ai/docs/evaluation/model-bias-metrics) : After you train your model, these metrics detect whether your model's predictions include biases. For example, a model may be more accurate for one subset of the data than the rest of the data:
+  - [**Model bias metrics**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/model-bias-metrics) : After you train your model, these metrics detect whether your model's predictions include biases. For example, a model may be more accurate for one subset of the data than the rest of the data:
     
       - Accuracy Difference.
     
@@ -94,8 +94,8 @@ Note the following about the college application dataset example:
 
 ## What's next
 
-  - Learn about the [data bias metrics](https://docs.cloud.google.com/vertex-ai/docs/evaluation/data-bias-metrics) supported by Gemini Enterprise Agent Platform.
+  - Learn about the [data bias metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/data-bias-metrics) supported by Gemini Enterprise Agent Platform.
 
-  - Learn about the [model bias metrics](https://docs.cloud.google.com/vertex-ai/docs/evaluation/model-bias-metrics) supported by Gemini Enterprise Agent Platform.
+  - Learn about the [model bias metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/model-bias-metrics) supported by Gemini Enterprise Agent Platform.
 
   - Read the [model evaluation pipeline component reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/model-evaluation-component#fairness) .

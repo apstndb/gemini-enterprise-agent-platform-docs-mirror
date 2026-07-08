@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-7
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-7
-title: Claude Opus 4.7
+title: Claude Opus 4.7 on Google Cloud
 description: Claude Opus 4.7 is optimized for coding, agents, computer use, and enterprise workflows.
 data_source: docs.cloud.google.com
 ---
 
-Claude Opus 4.7 is optimized for coding, agents, computer use, and enterprise workflows.
+Claude Opus 4.7 on Google Cloud is optimized for coding, agents, computer use, and enterprise workflows.
 
 **Retirement Date:** Not sooner than April 16, 2027.
 

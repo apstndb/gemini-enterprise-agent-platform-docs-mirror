@@ -155,7 +155,7 @@ Numeric transformations can be applied to STRING data in CSV files or to the fol
 
 ### Timestamp
 
-A Timestamp transformation causes a feature to be used as a point in time, represented either as a civil time with a time zone, or a Unix timestamp. Only features with a Timestamp transformation can be used for the [Time column](https://docs.cloud.google.com/vertex-ai/docs/datasets/prepare-tabular#time) .
+A Timestamp transformation causes a feature to be used as a point in time, represented either as a civil time with a time zone, or a Unix timestamp. Only features with a Timestamp transformation can be used for the [Time column](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/prepare-tabular#time) .
 
 If a time zone is not specified with the civil time, it defaults to UTC.
 
@@ -423,5 +423,5 @@ Conversely, the following JSON key-value pair will throw an error:
 ## What's next
 
   - Learn more about [BigQuery data types](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types)
-  - Learn how to [prepare your tabular training data](https://docs.cloud.google.com/vertex-ai/docs/datasets/prepare-tabular)
-  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular)
+  - Learn how to [prepare your tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/prepare-tabular)
+  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular)

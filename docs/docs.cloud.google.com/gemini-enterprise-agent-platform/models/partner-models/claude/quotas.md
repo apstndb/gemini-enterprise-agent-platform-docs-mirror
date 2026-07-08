@@ -19,7 +19,7 @@ Anthropic Claude models on Agent Platform use one of the following quota systems
 
 Global and multi-regional endpoints for Anthropic Claude models launched after May 26, 2026 use shared model lineage quotas. A single quota limit is shared across **all model versions in a model lineage** for a given location.
 
-For example, if you call Claude Opus 4.8 through the global endpoint, then all requests, input tokens, and output tokens count against the same `anthropic-claude-opus` quota bucket for the global endpoint, regardless of the specific Opus version that you call.
+For example, if you call Claude Opus 4.8 on Google Cloud through the global endpoint, then all requests, input tokens, and output tokens count against the same `anthropic-claude-opus` quota bucket for the global endpoint, regardless of the specific Opus version that you call.
 
 Quotas on the global endpoint and each multi-region endpoint are independent buckets. Usage on the global endpoint doesn't consume quota on a multi-region endpoint, and similarly usage on a multi-region endpoint doesn't consume quota on the global endpoint.
 
@@ -194,7 +194,7 @@ Quotas
 
 Context length
 
-Claude Sonnet 5
+Claude Sonnet 5 on Google Cloud
 
 `Multi-region`
 
@@ -220,7 +220,7 @@ Claude Sonnet 5
 
 1,000,000
 
-Claude Fable 5
+Claude Fable 5 on Google Cloud
 
 `Multi-region`
 
@@ -246,7 +246,7 @@ Claude Fable 5
 
 1,000,000
 
-Claude Opus 4.8
+Claude Opus 4.8 on Google Cloud
 
 `Multi-region`
 
@@ -272,7 +272,7 @@ Claude Opus 4.8
 
 1,000,000
 
-Claude Opus 4.7
+Claude Opus 4.7 on Google Cloud
 
 `Multi-region`
 
@@ -298,7 +298,7 @@ Claude Opus 4.7
 
 1,000,000
 
-Claude Opus 4.6
+Claude Opus 4.6 on Google Cloud
 
 `us-east5`
 
@@ -332,7 +332,7 @@ Claude Opus 4.6
 
 1,000,000
 
-Claude Sonnet 4.6
+Claude Sonnet 4.6 on Google Cloud
 
 `us-east5`
 
@@ -366,7 +366,7 @@ Claude Sonnet 4.6
 
 1,000,000
 
-Claude Opus 4.5
+Claude Opus 4.5 on Google Cloud
 
 `us-east5`
 
@@ -400,7 +400,7 @@ Claude Opus 4.5
 
 200,000
 
-Claude Opus 4.1
+Claude Opus 4.1 on Google Cloud
 
 `us-east5`
 
@@ -418,7 +418,7 @@ Claude Opus 4.1
 
 200,000
 
-Claude Opus 4
+Claude Opus 4 on Google Cloud
 
 `us-east5`
 
@@ -436,7 +436,7 @@ Claude Opus 4
 
 200,000
 
-Claude Sonnet 4.5
+Claude Sonnet 4.5 on Google Cloud
 
 `us-east5`
 
@@ -470,7 +470,7 @@ Claude Sonnet 4.5
 
 1,000,000 (beta), 200,000 (GA)
 
-Claude Sonnet 4
+Claude Sonnet 4 on Google Cloud
 
 `us-east5`
 
@@ -496,7 +496,7 @@ Claude Sonnet 4
 
 1,000,000
 
-Claude 3.7 Sonnet
+Claude 3.7 Sonnet on Google Cloud
 
 `us-east5`
 
@@ -519,7 +519,7 @@ Claude 3.7 Sonnet
 
 200,000
 
-Claude 3.5 Sonnet v2
+Claude 3.5 Sonnet v2 on Google Cloud
 
 `us-east5`
 
@@ -542,7 +542,7 @@ Claude 3.5 Sonnet v2
 
 200,000
 
-Claude Haiku 4.5
+Claude Haiku 4.5 on Google Cloud
 
 `us-east5`
 
@@ -576,7 +576,7 @@ Claude Haiku 4.5
 
 200,000
 
-Claude 3.5 Haiku
+Claude 3.5 Haiku on Google Cloud
 
 `us-east5`
 
@@ -592,7 +592,7 @@ Claude 3.5 Haiku
 
 200,000
 
-Claude 3.5 Sonnet
+Claude 3.5 Sonnet on Google Cloud
 
 `us-east5`
 
@@ -615,7 +615,7 @@ Claude 3.5 Sonnet
 
 200,000
 
-Claude 3 Opus
+Claude 3 Opus on Google Cloud
 
 `us-east5`
 
@@ -624,7 +624,7 @@ Claude 3 Opus
 
 200,000
 
-Claude 3 Haiku
+Claude 3 Haiku on Google Cloud
 
 `us-east5`
 

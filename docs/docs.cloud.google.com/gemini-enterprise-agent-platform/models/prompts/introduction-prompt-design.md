@@ -71,7 +71,7 @@ He&#39;ll plunder your biscuits and leave you forlorn.</code></pre></td>
 
 ### System instructions
 
-System instructions are instructions that get passed to the model before any user input in the prompt. You can add system instructions in the dedicated [`systemInstruction`](https://docs.cloud.google.com/vertex-ai/docs/model-reference/inference#parameter-list) parameter.
+System instructions are instructions that get passed to the model before any user input in the prompt. You can add system instructions in the dedicated [`systemInstruction`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference) parameter.
 
 In the following example, system instructions are used to dictate the style and tone of the model, while adding constraints to what it can and can't talk about:
 
@@ -101,7 +101,7 @@ carrying a chest full of dubloons! Yo ho ho, and a bottle of rum! Woof!</code></
 </tbody>
 </table>
 
-To learn more about configuring system instructions, see [Use system instructions](https://docs.cloud.google.com/vertex-ai/docs/learn/prompts/system-instructions) .
+To learn more about configuring system instructions, see [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction) .
 
 ### Few-shot examples
 

@@ -117,7 +117,7 @@ See [Log time series metrics](https://docs.cloud.google.com/gemini-enterprise-ag
 
   - An artifact is a discrete entity or piece of data produced and consumed by a machine learning workflow. Examples of artifacts include datasets, models, input files, and training logs.
 
-Agent Platform Experiments lets you use a schema to define the type of artifact. For example, supported schema types include `system.Dataset` , `system.Model` , and `system.Artifact` . For more information, see [System schemas](https://docs.cloud.google.com/vertex-ai/docs/ml-metadata/system-schemas) .
+Agent Platform Experiments lets you use a schema to define the type of artifact. For example, supported schema types include `system.Dataset` , `system.Model` , and `system.Artifact` . For more information, see [System schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/ml-metadata/system-schemas) .
 
 ## Notebook tutorial
 

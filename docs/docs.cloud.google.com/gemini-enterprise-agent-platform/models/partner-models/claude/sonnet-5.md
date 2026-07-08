@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5
-title: Claude Sonnet 5
+title: Claude Sonnet 5 on Google Cloud
 description: Claude Sonnet 5 is built for coding, agents, and professional work at scale.
 data_source: docs.cloud.google.com
 ---
 
-Claude Sonnet 5 is built for coding, agents, and professional work at scale.
+Claude Sonnet 5 on Google Cloud is built for coding, agents, and professional work at scale.
 
 **Retirement Date:** Not sooner than December 24, 2026.
 

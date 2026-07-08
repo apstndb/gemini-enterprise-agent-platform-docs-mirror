@@ -43,6 +43,21 @@ Before you begin, enable the APIs required for SGP and its networking components
 
 > **Administrative quotas:** SGP management operations—such as creating policies or enabling the SGP engine—consume administrative quotas. For information about rate limits and how to view your quota in the Google Cloud console, see [Semantic Governance Policy quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#sgp-quotas) .
 
+#### Agent eligibility requirements
+
+To appear in a Semantic governance policy's agent selector in the Google Cloud console, an agent's reasoning engine must have been deployed with **both** `identity_type=AGENT_IDENTITY` and `agent_gateway_config` set. If either is missing, the Google Cloud console filters the agent out of the selector. The API and `gcloud` return an explicit error instead.
+
+To deploy an agent that meets these requirements, follow [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) . Both fields are immutable on an existing reasoning engine, so an agent deployed without them must be redeployed — patching will not work.
+
+To verify an existing agent is eligible, confirm that its reasoning engine's `spec.effectiveIdentity` starts with `agents.global.` :
+
+    gcloud ai reasoning-engines describe REASONING_ENGINE_ID \
+        --region=LOCATION \
+        --project=PROJECT_ID \
+        --format='value(spec.effectiveIdentity)' \
+        | grep -q '^agents.global.' \
+        && echo "Eligible" || echo "Not eligible"
+
 ### Supported locations
 
 The Semantic Governance Policy engine and SGP policies are supported in the following regional locations:
@@ -67,10 +82,15 @@ After you complete the provisioning, you must [connect the SGP engine to Agent G
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine?updateMask=SemanticGovernancePolicyEngine" \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
-        -d '{ "gatewayConfigs": { \
-          "GATEWAY_NAME": { "network": "projects/'${PROJECT_ID}'/global/networks/default", \
-          "subnetwork": "projects/'${PROJECT_ID}'/regions/${LOCATION}/subnetworks/default", \
-          "dnsZoneName": "DNS_NAME" } } }'
+        -d '{
+          "gatewayConfigs": {
+            "GATEWAY_NAME": {
+              "network": "projects/PROJECT_ID/global/networks/default",
+              "subnetwork": "projects/PROJECT_ID/regions/LOCATION/subnetworks/default",
+              "dnsZoneName": "DNS_NAME"
+            }
+          }
+        }'
 
 > **Note:** When you specify the `gatewayConfig` parameter, all subsequent updates must include existing gateways to keep and new gateways to add. Exclude gateways that you want to remove.
 
@@ -91,13 +111,13 @@ This command returns a long-running operation. You can poll the operation status
 
     curl "https://LOCATION-aiplatform.googleapis.com/v1beta1/OPERATION" \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-        -H "Content-Type: application/json" \
+        -H "Content-Type: application/json"
 
 Alternatively, check the overall engine status until the `state` field returns `ACTIVE` :
 
     curl "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine" \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-        -H "Content-Type: application/json" \
+        -H "Content-Type: application/json"
 
 > **Provisioning requirement:** Wait until the `state` field returns `ACTIVE` before proceeding. Save the `pscServiceAttachment` value from the response — you'll need it when you [configure the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) .
 
@@ -295,7 +315,7 @@ Once the SGP engine is active, you can define the technical and behavioral guard
 3.  In the **Add Policy** side panel, configure the following:
       - **Name** : Enter a unique ID for the policy. The name can contain only lowercase letters, numbers, and hyphens.
       - **Description** : (Optional) Enter a brief description of the policy's purpose.
-      - **Agent selection** : Select the specific agent or all agents this rule applies to.
+      - **Agent selection** : Select the specific agent or all agents this rule applies to. If the picker is empty or an agent you expect is missing, see [Agent eligibility requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#agent-eligibility) .
       - **Access targets** :
           - To apply the constraint to every action, select the **Apply constraints to all tools** checkbox.
           - To target specific resources, select an **MCP Server** and the individual **Tools** from the drop-down menus.
@@ -457,7 +477,7 @@ Alternatively, use the following `curl` command:
 
     curl -X DELETE \
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicies/POLICY_ID" \
-        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
 
 #### De-provision an SGP engine
 

@@ -83,7 +83,7 @@ Depending on the type of container you are using, select the appropriate tab bel
     
     After the import has completed, your model appears on the **Models** page.
     
-    Otherwise, continue configuring your model by entering your explainability settings on the **Explainability** tab. Learn more about the [Explainability settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations#import-model-example) .
+    Otherwise, continue configuring your model by entering your explainability settings on the **Explainability** tab. Learn more about the [Explainability settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/configuring-explanations#import-model-example) .
 
 ### Custom container
 
@@ -103,7 +103,7 @@ Depending on the type of container you are using, select the appropriate tab bel
     
     After the import has completed, your model appears on the **Models** page.
     
-    Otherwise, continue configuring your model by entering your explainability settings on the **Explainability** tab. Learn more about the [Explainability settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations#import-model-example) .
+    Otherwise, continue configuring your model by entering your explainability settings on the **Explainability** tab. Learn more about the [Explainability settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/configuring-explanations#import-model-example) .
 
 ### AutoML tabular container
 
@@ -430,7 +430,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
         print(model.resource_name)
         return model
 
-To import a model with Vertex Explainable AI settings enabled, refer to the [Vertex Explainable AI model import examples](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations#import-model-example) .
+To import a model with Vertex Explainable AI settings enabled, refer to the [Vertex Explainable AI model import examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/configuring-explanations#import-model-example) .
 
 ### Get operation status
 

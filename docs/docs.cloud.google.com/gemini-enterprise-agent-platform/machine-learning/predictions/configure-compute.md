@@ -303,7 +303,7 @@ Other configurations, such as the N1 series, let you optionally add GPUs to acce
 To add optional GPU accelerators, you must account for several requirements:
 
   - You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
-  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/vertex-ai/docs/general/locations#accelerators) .
+  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#accelerators) .
   - You can only use one type of GPU for your `DeployedModel` resource or `BatchPredictionJob` , and there are limitations on the number of GPUs you can add depending on which machine type you are using. The following table describes these limitations.
 
 The following table shows the optional GPUs that are available for online inference and how many of each type of GPU you can use with each Compute Engine machine type:
@@ -562,7 +562,7 @@ Before using any of the request data, make the following replacements:
   - LOCATION\_ID : The region where you are using Agent Platform.
   - MODEL\_ID : The ID for the model to be deployed.
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.
-  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/vertex-ai/docs/predictions/configure-compute)
+  - MACHINE\_TYPE : Optional. The machine resources used for each node of this deployment. Its default setting is `n1-standard-2` . [Learn more about machine types.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/configure-compute)
   - ACC\_TYPE : The GPU accelerator type. Should correspond to the \`GPU\_PARTITION\_SIZE\`.
   - GPU\_PARTITION\_SIZE : The GPU partition size. For example, "1g.10gb".
   - ACC\_COUNT : The number of GPUs that each replica can use. Must be at least 1 and no more than the total number of GPUs in the machine.

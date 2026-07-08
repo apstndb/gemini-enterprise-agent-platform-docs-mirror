@@ -32,7 +32,7 @@ This page provides an overview of the following:
 
 An ML pipeline is a portable and extensible description of an MLOps workflow as a series of steps called pipeline tasks. Each task performs a specific step in the workflow to train and deploy an ML model.
 
-With ML pipelines, you can apply MLOps strategies to automate and monitor repeatable processes in your ML practice. For example, you can reuse a pipeline definition to continuously retrain a model on the latest production data. For more information about MLOps in Gemini Enterprise, see [MLOps on Gemini Enterprise API](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-mlops) .
+With ML pipelines, you can apply MLOps strategies to automate and monitor repeatable processes in your ML practice. For example, you can reuse a pipeline definition to continuously retrain a model on the latest production data. For more information about MLOps in Gemini Enterprise, see [MLOps on Gemini Enterprise API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/introduction-mlops) .
 
 ## Structure of an ML pipeline
 

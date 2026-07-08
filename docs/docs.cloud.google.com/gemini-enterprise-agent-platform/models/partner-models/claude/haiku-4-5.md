@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/haiku-4-5
-title: Claude Haiku 4.5
-description: Claude Haiku 4.5 delivers near-frontier performance for a wide range of use cases, and stands out as one of the best coding models in the world on Agent Platform.
+title: Claude Haiku 4.5 on Google Cloud
+description: Claude Haiku 4.5 on Google Cloud delivers near-frontier performance for a wide range of use cases, and stands out as one of the best coding models in the world on Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-Claude Haiku 4.5 delivers near-frontier performance for a wide range of use cases, and stands out as one of the best coding models in the world–with the right speed and cost to power free products and high-volume user experiences.
+Claude Haiku 4.5 on Google Cloud delivers near-frontier performance for a wide range of use cases, and stands out as one of the best coding models in the world–with the right speed and cost to power free products and high-volume user experiences.
 
 [Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-haiku-4-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-haiku-4-5)
 

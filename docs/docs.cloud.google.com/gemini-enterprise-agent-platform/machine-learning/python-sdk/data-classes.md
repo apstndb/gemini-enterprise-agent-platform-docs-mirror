@@ -18,7 +18,7 @@ The following classes work with structured data, which is organized in rows and 
 
 ### [`TabularDataset`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TabularDataset)
 
-Use this class to work with tabular datasets. You can use a CSV file, BigQuery, or a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) to create a tabular dataset. For more information about paging through BigQuery data, see [Read data with BigQuery API using pagination](https://docs.cloud.google.com/bigquery/docs/paging-results) . For more information about tabular data, see [Tabular data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/overview) .
+Use this class to work with tabular datasets. You can use a CSV file, BigQuery, or a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) to create a tabular dataset. For more information about paging through BigQuery data, see [Read data with BigQuery API using pagination](https://docs.cloud.google.com/bigquery/docs/paging-results) . For more information about tabular data, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/overview) .
 
 The following code shows you how to create a tabular dataset by importing a CSV file.
 
@@ -44,7 +44,7 @@ If you create a tabular dataset with a pandas [`DataFrame`](https://pandas.pydat
 
 ### [`TimeSeriesDataset`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TimeSeriesDataset)
 
-Use this class to work with time series datasets. A time series is a dataset that contains data recorded at different time intervals. The dataset includes time and at least one variable that's dependent on time. You use a time series dataset for forecasting predictions. For more information, see [Forecasting overview](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/overview) .
+Use this class to work with time series datasets. A time series is a dataset that contains data recorded at different time intervals. The dataset includes time and at least one variable that's dependent on time. You use a time series dataset for forecasting predictions. For more information, see [Forecasting overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/overview) .
 
 You can create a managed time series dataset from CSV files in a Cloud Storage bucket or from a BigQuery table.
 
@@ -68,9 +68,9 @@ Use this class to work with a managed image dataset. To create a managed image d
 
 Use image data for the following objectives:
 
-  - Single-label classification. For more information, see [Prepare image training data for single-label classification](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/prepare-data#single-label-classification) .
-  - Multi-label classification. For more information, see [Prepare image training data for multi-label classification](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/prepare-data#multi-label-classification) .
-  - Object detection. For more information, see [Prepare image training data for object detection](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/prepare-data) .
+  - Single-label classification. For more information, see [Prepare image training data for single-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data#single-label-classification) .
+  - Multi-label classification. For more information, see [Prepare image training data for multi-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data#multi-label-classification) .
+  - Object detection. For more information, see [Prepare image training data for object detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/prepare-data) .
 
 The following code shows you how to create image dataset by importing a CSV data source file and a YAML schema file. The schema file you use depends on whether your image dataset is used for single-label classification, multi-label classification, or object detection.
 

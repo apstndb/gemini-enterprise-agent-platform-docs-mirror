@@ -467,7 +467,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 </thead>
 <tbody>
 <tr class="odd">
-<td>Anthropic's Claude Sonnet 5</td>
+<td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>
@@ -478,7 +478,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Fable 5</td>
+<td>Anthropic's Claude Fable 5 on Google Cloud</td>
 <td>105</td>
 <td>1</td>
 <td>1</td>
@@ -489,7 +489,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4.8</td>
+<td>Anthropic's Claude Opus 4.8 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
 <td>1</td>
@@ -500,7 +500,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Opus 4.7</td>
+<td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
 <td>1</td>
@@ -511,7 +511,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Sonnet 4.6</td>
+<td>Anthropic's Claude Sonnet 4.6 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>
@@ -522,7 +522,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Opus 4.6</td>
+<td>Anthropic's Claude Opus 4.6 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
 <td>1</td>
@@ -533,7 +533,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4.5</td>
+<td>Anthropic's Claude Opus 4.5 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
 <td>1</td>
@@ -544,7 +544,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Sonnet 4.5</td>
+<td>Anthropic's Claude Sonnet 4.5 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>
@@ -563,7 +563,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.2 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4.1</td>
+<td>Anthropic's Claude Opus 4.1 on Google Cloud</td>
 <td>70</td>
 <td>35</td>
 <td>1</td>
@@ -574,7 +574,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Haiku 4.5</td>
+<td>Anthropic's Claude Haiku 4.5 on Google Cloud</td>
 <td>1,050</td>
 <td>8</td>
 <td>1</td>
@@ -586,7 +586,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude Opus 4</td>
+<td>Anthropic's Claude Opus 4 on Google Cloud</td>
 <td>70</td>
 <td>35</td>
 <td>1</td>
@@ -597,7 +597,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude Sonnet 4</td>
+<td>Anthropic's Claude Sonnet 4 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>
@@ -616,7 +616,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.2 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude 3.7 Sonnet (deprecated)</td>
+<td>Anthropic's Claude 3.7 Sonnet on Google Cloud (deprecated)</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>
@@ -626,7 +626,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude 3.5 Sonnet v2 (deprecated)</td>
+<td>Anthropic's Claude 3.5 Sonnet v2 on Google Cloud (deprecated)</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>
@@ -636,7 +636,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude 3.5 Haiku (deprecated)</td>
+<td>Anthropic's Claude 3.5 Haiku on Google Cloud (deprecated)</td>
 <td>2,000</td>
 <td>10</td>
 <td>1</td>
@@ -647,7 +647,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude 3 Opus</td>
+<td>Anthropic's Claude 3 Opus on Google Cloud</td>
 <td>70</td>
 <td>35</td>
 <td>1</td>
@@ -657,7 +657,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="odd">
-<td>Anthropic's Claude 3 Haiku (deprecated)</td>
+<td>Anthropic's Claude 3 Haiku on Google Cloud (deprecated)</td>
 <td>4,200</td>
 <td>5</td>
 <td>1</td>
@@ -668,7 +668,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache hit token = 0.1 token</td>
 </tr>
 <tr class="even">
-<td>Anthropic's Claude 3.5 Sonnet (deprecated)</td>
+<td>Anthropic's Claude 3.5 Sonnet on Google Cloud (deprecated)</td>
 <td>350</td>
 <td>25</td>
 <td>1</td>

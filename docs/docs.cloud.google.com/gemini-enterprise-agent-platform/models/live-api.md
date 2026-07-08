@@ -6,8 +6,6 @@ description: Gemini Live API enables low-latency, real-time voice and video inte
 data_source: docs.cloud.google.com
 ---
 
-> **Caution:** `gemini-live-2.5-flash-preview-native-audio-09-2025` will be deprecated and removed on March 19, 2026. Migrate any workflows to `gemini-live-2.5-flash-native-audio` .
-
 ![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/live-api/liveapi.png)
 
 Gemini Live API enables low-latency, real-time voice and video interactions with Gemini. It processes continuous streams of audio, video, or text to deliver immediate, human-like spoken responses. This creates a natural conversational experience for your users.

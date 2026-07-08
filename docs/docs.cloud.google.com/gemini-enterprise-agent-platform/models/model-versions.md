@@ -18,22 +18,22 @@ The following table lists the models that will be available for at least 12 mont
 
 ### Gemini models
 
-| Model ID                             | Release date      | Retirement date         |
-| ------------------------------------ | ----------------- | ----------------------- |
-| `gemini-3.5-flash`                   | May 19, 2026      | Not before May 19, 2027 |
-| `gemini-3.1-flash-lite`              | May 7, 2026       | Not before May 7, 2027  |
-| `gemini-live-2.5-flash-native-audio` | December 12, 2025 | December 13, 2026       |
-| `gemini-2.5-pro`                     | June 17, 2025     | October 16, 2026        |
-| `gemini-2.5-flash`                   | June 17, 2025     | October 16, 2026        |
-| `gemini-2.5-flash-lite`              | July 22, 2025     | October 16, 2026        |
+| Model ID                             | Release date      | Retirement date       | Replacement model                         |
+| ------------------------------------ | ----------------- | --------------------- | ----------------------------------------- |
+| `gemini-3.5-flash`                   | May 19, 2026      | May 19, 2027 or later |                                           |
+| `gemini-3.1-flash-lite`              | May 7, 2026       | May 7, 2027 or later  |                                           |
+| `gemini-live-2.5-flash-native-audio` | December 12, 2025 | December 13, 2026     |                                           |
+| `gemini-2.5-pro`                     | June 17, 2025     | October 16, 2026      | Gemini 3.5 Flash                          |
+| `gemini-2.5-flash`                   | June 17, 2025     | October 16, 2026      | Gemini 3.1 Flash-Lite or Gemini 3.5 Flash |
+| `gemini-2.5-flash-lite`              | July 22, 2025     | October 16, 2026      | Gemini 3.1 Flash-Lite or Gemma 4          |
 
 ### Gemini image models
 
-| Model ID                 | Release date    | Retirement date         |
-| ------------------------ | --------------- | ----------------------- |
-| `gemini-3.1-flash-image` | May 28, 2026    | Not before May 28, 2027 |
-| `gemini-3-pro-image`     | May 28, 2026    | Not before May 28, 2027 |
-| `gemini-2.5-flash-image` | October 2, 2025 | October 2, 2026         |
+| Model ID                 | Release date    | Retirement date       |
+| ------------------------ | --------------- | --------------------- |
+| `gemini-3.1-flash-image` | May 28, 2026    | May 28, 2027 or later |
+| `gemini-3-pro-image`     | May 28, 2026    | May 28, 2027 or later |
+| `gemini-2.5-flash-image` | October 2, 2025 | October 2, 2026       |
 
 ### Veo models
 

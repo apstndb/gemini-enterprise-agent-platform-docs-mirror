@@ -2,9 +2,21 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation
 title: Guide video generation using asset and style images
-description: You can specify the subject of your Veo on Gemini Enterprise Agent Platform generated videos. You use either the {{dynamic_data.site_values.cloud_name_short}} console or the Agent Platform API and specify reference images that the model uses to match the subject that you provided.
+description: You can specify the subject of your Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform generated videos. You use either the {{dynamic_data.site_values.cloud_name_short}} console or the Agent Platform API and specify reference images that the model uses to match the subject that you provided.
 data_source: docs.cloud.google.com
 ---
+
+You can use Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform to guide video generation using reference images.
+
+## Gemini Omni Flash
+
+Gemini Omni Flash lets you use reference images to provide additional input to the model when generating a video. The following Gemini Omni Flash models support reference images:
+
+#### Click to expand supported models
+
+  - [`gemini-omni-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
+
+## Veo
 
 Veo on Gemini Enterprise Agent Platform lets you use reference images to direct your generated video's content and artistic style. You can choose to use one of the following when using reference images with Veo:
 
@@ -12,23 +24,15 @@ Veo on Gemini Enterprise Agent Platform lets you use reference images to direct 
     
     The following models support reference asset image to video:
     
-      - [`veo-2.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
-      - [`veo-2.0-generate-exp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview
-      - [`veo-2.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview
-      - [`veo-3.1-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview
-      - [`veo-3.1-fast-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview
-      - [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)
-      - [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001)
+    #### Click to expand supported models
 
   - **Style image** : You provide a single style image. Veo applies the style from your uploaded image in the output video.
     
     The following models support reference style image to video:
     
-      - [`veo-2.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
-      - [`veo-2.0-generate-exp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview
-      - [`veo-2.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview
+    #### Click to expand supported models
 
-For more information about writing effective text prompts for video generation, see the [Veo prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide) .
+For more information about writing effective text prompts for video generation, see the [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide) .
 
 ## Before you begin
 
@@ -64,7 +68,336 @@ For more information about writing effective text prompts for video generation, 
     
     For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
-## Use asset images to generate videos
+## Use Gemini Omni Flash and references to generate videos
+
+### REST
+
+For more information about using the Gemini Omni Flash API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
+
+Video generation can take over a minute to complete. To generate a video to download immediately after completion, use a synchronous request. To generate a video that can be downloaded later, send an asynchronous request by setting the `background` parameter to `true` . Asynchronous interactions are retained for up to 14 days.
+
+### Synchronous request
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+      - `"gemini-omni-flash-preview"`
+  - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+  - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+  - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+  - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+      - `"16:9"`
+      - `"9:16"`
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s` "
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body:
+
+    {
+      "model": "MODEL_ID",
+      "input": [
+        {
+          "type": "text",
+          "text": "TEXT_PROMPT"
+        },
+        {
+          "type": "image",
+          "uri": "CLOUD_STORAGE_INPUT_URI",
+          "mime_type": "image/png"
+        }
+      ],
+      "response_format": [
+        {
+          "type": "video",
+          "delivery": "uri",
+          "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
+          "aspect_ratio": "ASPECT_RATIO",
+          "duration": "DURATION"
+        }
+      ],
+      "generation_config": {
+        "video_config": {
+          "task": "reference_to_video"
+        }
+      }
+    }
+
+To send your request, choose one of these options:
+
+#### curl
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+The response contains an interaction which includes the model thoughts and an output video.
+
+    {
+      "id":"INTERACTION_ID",
+      "model":"gemini-omni-flash-preview",
+      "status":"completed",
+      "usage":{
+        "total_tokens":479,
+        "total_input_tokens":26,
+        "input_tokens_by_modality":[
+          {
+            "modality":"text",
+            "tokens":26
+          },
+          {
+            "modality":"image",
+            "tokens":124
+          }
+        ],
+        "output_tokens_by_modality": [
+          {
+            "modality": "video",
+            "tokens": 28832
+          }
+        ],
+        "total_output_tokens":28832,
+        "total_thought_tokens":453
+      },
+      "steps":[
+        {
+          "type":"thought",
+          "summary":[
+            {
+              "type":"text",
+              "text":"MODEL THOUGHTS"
+            }
+          ],
+        },
+        { 
+          "type":"model_output",
+          "content":[
+            {
+              "type":"video",
+              "uri":"gs://some/output_path/123.mp4",
+              "mime_type":"video/mp4" 
+            }
+          ]
+        }
+      ],
+      "object":"interaction"
+      "role":"model",
+      "created":"2026-05-29T02:17:56Z",
+      "updated":"2026-05-29T02:17:56Z",
+    }
+
+### Asynchronous request
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+      - `"gemini-omni-flash-preview"`
+  - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+  - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+  - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+  - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+      - `"16:9"`
+      - `"9:16"`
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s` "
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body:
+
+    {
+      "model": "MODEL_ID",
+      "input": [
+        {
+          "background": true,
+          "type": "text",
+          "text": "TEXT_PROMPT"
+        },
+        {
+          "type": "image",
+          "uri": "CLOUD_STORAGE_INPUT_URI",
+          "mime_type": "image/png"
+        }
+      ],
+      "response_format": [
+        {
+          "type": "video",
+          "delivery": "uri",
+          "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
+          "aspect_ratio": "ASPECT_RATIO",
+          "duration": "DURATION"
+        }
+      ],
+      "generation_config": {
+        "video_config": {
+          "task": "reference_to_video"
+        }
+      }
+    }
+
+To send your request, choose one of these options:
+
+#### curl
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+The response contains an interaction ID, which you'll use to get the video you generated.
+
+    {
+      "id":"INTERACTION_ID",
+      "status":"in_progress",
+      "object":"interaction"
+    }
+
+Later, use the INTERACTION\_ID to get the generated video:
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  INTERACTION_ID  ` : The interaction ID from the asynchronous request.
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
+
+To send your request, choose one of these options:
+
+#### curl
+
+Execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d "" \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID"
+
+#### PowerShell
+
+Execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" | Select-Object -Expand Content
+
+The response is in a format similar to the following:
+
+    {
+      "id":"INTERACTION_ID",
+      "model":"gemini-omni-flash-preview",
+      "status":"completed",
+      "usage":{
+        "total_tokens":479,
+        "total_input_tokens":26,
+        "input_tokens_by_modality":[
+          {
+            "modality":"text",
+            "tokens":26
+          },
+          {
+            "modality":"image",
+            "tokens":124
+          }
+        ],
+        "output_tokens_by_modality": [
+          {
+            "modality": "video",
+            "tokens": 28832
+          }
+        ],
+        "total_output_tokens":28832,
+        "total_thought_tokens":453
+      },
+      "steps":[
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "5 second, 9:16 video. Use the image as the first frame."
+            },
+            {
+              "type": "image",
+              "uri": "gs://some/path",
+              "mime_type": "image/png"
+            }
+          ]
+        },
+        {
+          "type":"thought"
+          "summary":[
+            {
+              "type":"text",
+              "text":"MODEL THOUGHTS"
+            }
+          ],
+        },
+        { 
+          "type":"model_output",
+          "content":[
+            {
+              "type":"video",
+              "data":"VIDEO DATA",
+              "mime_type":"video/mp4" 
+            }
+          ]
+        }
+      ],
+      "object":"interaction"
+      "role":"model",
+      "created":"2026-05-29T02:17:56Z",
+      "updated":"2026-05-29T02:17:56Z",
+    }
+
+## Use Veo and references to generate videos
+
+The following sections describe how to use Veo to generate videos from references.
+
+### Use asset images to generate videos
 
 Do the following:
 
@@ -180,14 +513,6 @@ For more information about the Veo API, see the following:
       - `  PROJECT_ID  ` : Your Google Cloud project ID.
     
       - `  MODEL_ID  ` : A string representing the model ID to use. The following models are supported:
-        
-          - [`veo-2.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
-          - [`veo-2.0-generate-exp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp)
-          - [`veo-2.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
-          - [`veo-3.1-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
-          - [`veo-3.1-fast-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
-          - [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
-          - [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
     
       - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
     
@@ -396,7 +721,7 @@ For more information about the Veo API, see the following:
           }
         }
 
-## Use style images to generate videos
+### Use style images to generate videos
 
 Do the following:
 
@@ -445,10 +770,6 @@ For more information about the Veo API, see the [Veo on Gemini Enterprise Agent 
       - `  PROJECT_ID  ` : Your Google Cloud project ID.
     
       - `  MODEL_ID  ` : A string representing the model ID to use. The following models are supported:
-        
-          - [`veo-2.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
-          - [`veo-2.0-generate-exp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp)
-          - [`veo-2.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
         
         > **Important:** Veo 3.1 models don't support `referenceImages.style` . Use `veo-2.0-generate-exp` when using style images.
     
@@ -640,6 +961,6 @@ For more information about the Veo API, see the [Veo on Gemini Enterprise Agent 
 
 ## What's next
 
+  - [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
   - [Generate videos from text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
-  - [Learn more about prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
   - [Understand responsible AI and usage guidelines for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)

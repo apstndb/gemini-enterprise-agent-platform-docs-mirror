@@ -29,19 +29,19 @@ The process for creating a classification or regression model in Agent Platform 
 </thead>
 <tbody>
 <tr class="odd">
-<td>1. <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/prepare-data">Prepare training data</a></td>
+<td>1. <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data">Prepare training data</a></td>
 <td>Prepare your training data for model training.</td>
 </tr>
 <tr class="even">
-<td>2. <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset">Create a dataset</a></td>
+<td>2. <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/create-dataset">Create a dataset</a></td>
 <td>Create a new dataset and associate your prepared training data with it.</td>
 </tr>
 <tr class="odd">
-<td>3. <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/train-model">Train a model</a></td>
+<td>3. <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/train-model">Train a model</a></td>
 <td>Train a classification or regression model in Gemini Enterprise Agent Platform using your dataset.</td>
 </tr>
 <tr class="even">
-<td>4. <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/evaluate-model">Evaluate your model</a></td>
+<td>4. <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/evaluate-model">Evaluate your model</a></td>
 <td>Evaluate your newly trained model for inference accuracy.</td>
 </tr>
 <tr class="odd">
@@ -50,8 +50,8 @@ The process for creating a classification or regression model in Agent Platform 
 </tr>
 <tr class="even">
 <td>6. Get inferences from your model</td>
-<td><p>To get real-time inferences, deploy your model and <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-online-predictions">get online inferences</a> .</p>
-<p>If you don't need real-time inferences, make <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/get-batch-predictions">batch inference requests</a> directly to your model.</p></td>
+<td><p>To get real-time inferences, deploy your model and <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-online-predictions">get online inferences</a> .</p>
+<p>If you don't need real-time inferences, make <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-batch-predictions">batch inference requests</a> directly to your model.</p></td>
 </tr>
 </tbody>
 </table>

@@ -403,7 +403,7 @@ Securing your workloads on Gemini Enterprise Agent Platform is a shared responsi
 1.  Periodically delete and recreate your Ray on Vertex AI clusters and persistent resources to use the latest infrastructure versions. Gemini Enterprise Agent Platform recommends recreating your clusters and persistent resources at least once every 30 days.
 2.  Properly configure any custom images you use.
 
-For more information, see [Shared responsibility](https://docs.cloud.google.com/vertex-ai/docs/shared-responsibility) .
+For more information, see [Shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/shared-responsibility) .
 
 ## What's next
 

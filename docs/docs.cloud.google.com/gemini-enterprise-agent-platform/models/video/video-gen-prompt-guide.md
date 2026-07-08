@@ -1,28 +1,28 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide
-title: Veo on Gemini Enterprise Agent Platform video generation prompt guide
-description: Learn prompt techniques that help improve the results of your Veo on Gemini Enterprise Agent Platform generated videos.
+title: Video generation prompt guide
+description: Learn prompt techniques that help improve the results of your generated videos on Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
-Veo offers endless customization through textual prompts. This guide explains how to modify your Veo prompts to produce different results and effects.
+Gemini Omni Flash and Veo offer endless customization through textual prompts. This guide explains how to modify your prompts to produce different results and effects.
 
 For more information about best practices, see [Best practices for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice) .
 
 ## Safety filters
 
-Veo applies safety filters across Agent Platform to help ensure that generated videos and uploaded photos don't contain offensive content. For example, prompts that violate [responsible AI guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) are blocked.
+Gemini Omni Flash and Veo apply safety filters across Agent Platform to help ensure that generated videos and uploaded photos don't contain offensive content. For example, prompts that violate [responsible AI guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) are blocked.
 
-If you suspect abuse of Veo or any generated output that contains inappropriate material or inaccurate information, use the [Report suspected abuse on Google Cloud form](https://support.google.com/code/contact/cloud_platform_report) .
+If you suspect abuse of Gemini Omni Flash or Veo, or if any generated output contains inappropriate material or inaccurate information, use the [Report suspected abuse on Google Cloud form](https://support.google.com/code/contact/cloud_platform_report) .
 
-## Anatomy of a Veo prompt
+## Anatomy of a prompt
 
-When you use Veo to generate videos, using the correct keywords and prompt structure helps the model to generate the content that you want. Breaking your idea down into key components is the most effective way to guide Veo toward the outcome that you want.
+When you use Gemini Omni Flash or Veo to generate videos, using the correct keywords and prompt structure helps the model to generate the content that you want. Breaking your idea down into key components is the most effective way to guide Gemini Omni Flash or Veo toward the outcome that you want.
 
-The following sections explain how to use key elements and keywords in your prompts to guide Veo when generating videos.
+The following sections explain how to use key elements and keywords in your prompts to guide Gemini Omni Flash or Veo when generating videos.
 
-You don't need to use all elements in every prompt, but understanding how each element works can help you apply them effectively in your Veo prompts.
+You don't need to use all elements in every prompt, but understanding how each element works can help you apply them effectively in your Gemini Omni Flash or Veo prompts.
 
 ## Subject
 
@@ -457,11 +457,11 @@ We recommend the following:
 
   - [Best practices for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
+  - [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
+  - [Generate videos from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform using first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
+  - [Generate videos by using first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
 
   - [Extend Veo on Gemini Enterprise Agent Platform-generate videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
 

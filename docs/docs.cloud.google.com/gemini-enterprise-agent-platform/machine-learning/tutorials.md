@@ -20,7 +20,7 @@ Each of the tutorials presented here walks you through a specific artificial int
 <td><img src="https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/images/automl-tables.svg" alt="Tabular classification training introduction" /></td>
 <td><p>Create a Gemini Enterprise Agent Platform dataset from tabular data, and then train a classification model with AutoML. Deploy the model to an endpoint and make online predictions.</p>
 <p><strong>Google Cloud console</strong> : You can choose tutorial guides with step-by-step instructions for the Google Cloud console.<br />
-<a href="https://docs.cloud.google.com/vertex-ai/docs/tutorials/tabular-automl/overview">Show on cloud.google.com</a> | <a href="https://console.cloud.google.com/?walkthrough_id=vertex_tabular_part1">Show in an interactive format in Google Cloud console</a></p>
+<a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-automl/overview">Show on cloud.google.com</a> | <a href="https://console.cloud.google.com/?walkthrough_id=vertex_tabular_part1">Show in an interactive format in Google Cloud console</a></p>
 <p><strong>Notebook</strong> : You can choose to run this tutorial as a notebook.<br />
 <a href="https://colab.sandbox.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl-tabular-classification.ipynb">Run in Colab</a> | <a href="https://console.cloud.google.com/vertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fautoml%2Fautoml-tabular-classification.ipynb">Open in Colab Enterprise</a> | <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/automl/automl-tabular-classification.ipynb">View on GitHub</a> | <a href="https://console.cloud.google.com/vertex-ai/notebooks/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/automl/automl-tabular-classification.ipynb">Open in Gemini Enterprise Agent Platform Workbench</a></p></td>
 </tr>
@@ -84,7 +84,7 @@ Each of the tutorials presented here walks you through a specific artificial int
 
 To open a notebook tutorial in a Vertex AI Workbench instance:
 
-1.  Click the **Vertex AI Workbench** link in the [notebook list](https://docs.cloud.google.com/vertex-ai/docs/tutorials/jupyter-notebooks) . The link opens the Vertex AI Workbench console.
+1.  Click the **Vertex AI Workbench** link in the [notebook list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/jupyter-notebooks) . The link opens the Vertex AI Workbench console.
 2.  In the **Deploy to notebook** screen, type a name for your new Vertex AI Workbench instance and click **Create** .
 3.  In the **Ready to open notebook** dialog that appears after the instance starts, click **Open** .
 4.  On the **Confirm deployment to notebook server** page, select **Confirm** .
@@ -92,5 +92,5 @@ To open a notebook tutorial in a Vertex AI Workbench instance:
 
 ## What's next
 
-  - View the full list of [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/vertex-ai/docs/tutorials/jupyter-notebooks) .
-  - Learn more about [model training](https://docs.cloud.google.com/vertex-ai/docs/training-overview) .
+  - View the full list of [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/jupyter-notebooks) .
+  - Learn more about [model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview) .

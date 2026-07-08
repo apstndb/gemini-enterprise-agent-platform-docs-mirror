@@ -14,20 +14,20 @@ This document covers the following topics:
 2.  [Prepare your import source](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#import-source)
 3.  [Add weights to your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#weight)
 
-By default, Agent Platform uses a [random split](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits#classification-random) algorithm to separate your data into three data splits. Agent Platform randomly selects 80% of your data rows for the training set, 10% for the validation set, and 10% for the test set. Alternatively, you can use a [manual split](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits#classification-manual) or a [chronological split](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits#classification-time) , but this requires you to prepare a data split column or a time column. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/data-splits) about data splits.
+By default, Agent Platform uses a [random split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits#classification-random) algorithm to separate your data into three data splits. Agent Platform randomly selects 80% of your data rows for the training set, 10% for the validation set, and 10% for the test set. Alternatively, you can use a [manual split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits#classification-manual) or a [chronological split](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits#classification-time) , but this requires you to prepare a data split column or a time column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) about data splits.
 
 ## Data structure requirements
 
 Your training data must conform to the following basic requirements:
 
-| Requirement Type   | Requirement                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size               | The dataset must be 100 GB or smaller.                                                                                                                                                                                                                                                                                                                               |
-| \# of columns      | The dataset must have at least 2 and no more than 1,000 columns. The dataset must have a target and at least one feature for training the model. Ideally, your training data has many more than two columns. The maximum number of columns includes both feature and non-feature columns.                                                                            |
-| Target column      | You must specify a target column. The target column lets Gemini Enterprise Agent Platform associate the training data with the desired result. It must not contain null values and must be either Categorical or Numerical. If it is Categorical, it must have at least 2 and no more than 500 distinct values.                                                      |
-| Column name format | The column name can include any alphanumeric character or an underscore ( `_` ). The column name cannot begin with an underscore.                                                                                                                                                                                                                                    |
-| \# of rows         | The dataset must have at least 1,000 and no more than 100,000,000 rows. Depending on how many features your dataset has, 1,000 rows might not be enough to train a high-performing model. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular#how-many-rows) .                                                                         |
-| Data format        | Use the appropriate [data format](https://en.wikipedia.org/wiki/Wide_and_narrow_data) (wide or narrow) for your objective. Wide format is generally best, with every row representing one training data item (product, person, and so on). [Learn how to choose the data format](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular#data-format) . |
+| Requirement Type   | Requirement                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Size               | The dataset must be 100 GB or smaller.                                                                                                                                                                                                                                                                                                                                                 |
+| \# of columns      | The dataset must have at least 2 and no more than 1,000 columns. The dataset must have a target and at least one feature for training the model. Ideally, your training data has many more than two columns. The maximum number of columns includes both feature and non-feature columns.                                                                                              |
+| Target column      | You must specify a target column. The target column lets Gemini Enterprise Agent Platform associate the training data with the desired result. It must not contain null values and must be either Categorical or Numerical. If it is Categorical, it must have at least 2 and no more than 500 distinct values.                                                                        |
+| Column name format | The column name can include any alphanumeric character or an underscore ( `_` ). The column name cannot begin with an underscore.                                                                                                                                                                                                                                                      |
+| \# of rows         | The dataset must have at least 1,000 and no more than 100,000,000 rows. Depending on how many features your dataset has, 1,000 rows might not be enough to train a high-performing model. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#how-many-rows) .                                                                         |
+| Data format        | Use the appropriate [data format](https://en.wikipedia.org/wiki/Wide_and_narrow_data) (wide or narrow) for your objective. Wide format is generally best, with every row representing one training data item (product, person, and so on). [Learn how to choose the data format](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#data-format) . |
 
 ## Prepare your import source
 
@@ -52,7 +52,7 @@ Your BigQuery URI (specifying the location of your training data) must conform t
 
 The URI cannot contain any other special characters.
 
-For information about BigQuery data types and how they map into Agent Platform, see [BigQuery tables](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#bq) . For more information about using BigQuery external data sources, see [Introduction to external data sources](https://docs.cloud.google.com/bigquery/external-data-sources) .
+For information about BigQuery data types and how they map into Agent Platform, see [BigQuery tables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#bq) . For more information about using BigQuery external data sources, see [Introduction to external data sources](https://docs.cloud.google.com/bigquery/external-data-sources) .
 
 ### CSV
 
@@ -70,7 +70,7 @@ CSV files can be in Cloud Storage, or on your local computer. They must conform 
 
 You do not need to specify a schema for your CSV data. Agent Platform automatically infers the schema for your table when you import your data, and uses the header row for column names.
 
-For more information about CSV file format and data types, see [CSV files](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular#csv) .
+For more information about CSV file format and data types, see [CSV files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#csv) .
 
 If you import your data from Cloud Storage, it must be in a bucket that meets the following requirements:
 
@@ -99,6 +99,6 @@ Custom weighting schemes are used only for training the model; they do not affec
 
 ## What's next
 
-  - [Create your dataset](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/classification-regression/create-dataset) .
-  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/bp-tabular) .
-  - Learn how [Agent Platform works with different types of tabular data](https://docs.cloud.google.com/vertex-ai/docs/datasets/data-types-tabular) .
+  - [Create your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/create-dataset) .
+  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular) .
+  - Learn how [Agent Platform works with different types of tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) .

@@ -353,7 +353,7 @@ Learn more about using Identity and Access Management to [create a service accou
 
 The SDK clients and container images that you use to build and run pipelines are periodically updated to new versions to patch security vulnerabilities and add new functionality. To keep your pipelines up to date with the latest version, we recommend that you do the following:
 
-  - Review the [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/vertex-ai/docs/framework-support-policy) and [Supported frameworks list](https://docs.cloud.google.com/vertex-ai/docs/supported-frameworks-list#pipelines) .
+  - Review the [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/framework-support-policy) and [Supported frameworks list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/supported-frameworks-list#pipelines) .
 
   - Subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/release-notes) and the PyPi.org RSS feeds for SDKs you use ( [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/overview/) SDK, [Google Cloud Pipeline Components SDK](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/index.html) , or [TensorFlow Extended SDK](https://github.com/tensorflow/tfx) ) to stay aware of new releases.
 

@@ -99,7 +99,7 @@ Feature attributions indicate how much each feature in your model contributed to
 
 By monitoring feature attributions, Model Monitoring v2 tracks changes in a feature's contributions to a model's inferences over time. A change in a key feature's attribution score often signals that the feature has changed in a way that can impact the accuracy of the model's inferences.
 
-For more information about feature attributions and metrics, see [Feature-based explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview#feature-attribution-methods) and [Sampled Shapley method](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview#sampled-shapley) .
+For more information about feature attributions and metrics, see [Feature-based explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview#feature-attribution-methods) and [Sampled Shapley method](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview#sampled-shapley) .
 
 ### How to set up Model Monitoring v2
 

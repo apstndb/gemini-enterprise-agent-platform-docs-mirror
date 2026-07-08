@@ -37,16 +37,23 @@ Multimodal datasets are a type of [managed datasets on Agent Platform](https://d
 
 1.  [Install and initialize the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk)
 
-2.  Import the following libraries:
+2.  Import the following libraries and create a client:
     
     ```python
-    from google.cloud.aiplatform.preview import datasets
+    import agentplatform
+    from agentplatform.types import (
+        GeminiExample,
+        GeminiRequestReadConfig,
+        GeminiTemplateConfig,
+    )
     
-    # To use related features, you may also need to import some of the following features:
-    from vertexai.preview.tuning import sft
-    from vertexai.batch_prediction import BatchPredictionJob
+    # To use related features, such as tuning and batch prediction, you may also
+    # need to import the Google Gen AI SDK:
+    from google import genai
+    from google.genai.types import Content, Part
     
-    from vertexai.generative_models import Content, Part, Tool, ToolConfig, SafetySetting, GenerationConfig, FunctionDeclaration
+    # Create a client for multimodal dataset operations.
+    client = agentplatform.Client(project="PROJECT_ID", location="LOCATION")
     ```
 
 ## Create a dataset
@@ -55,22 +62,22 @@ You can create a multimodal [`dataset`](https://docs.cloud.google.com/gemini-ent
 
   - from a Pandas DataFrame
     
-        my_dataset = datasets.MultimodalDataset.from_pandas(
+        my_dataset = client.datasets.create_from_pandas(
             dataframe=my_dataframe,
             target_table_id=table_id    # optional
         )
 
   - from a [BigQuery DataFrame](https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) :
     
-        my_dataset = datasets.MultimodalDataset.from_bigframes(
+        my_dataset = client.datasets.create_from_bigframes(
             dataframe=my_dataframe,
             target_table_id=table_id    # optional
         )
 
   - from a BigQuery table
     
-        my_dataset_from_bigquery = datasets.MultimodalDataset.from_bigquery(
-            bigquery_uri=f"bq://projectId.datasetId.tableId"
+        my_dataset_from_bigquery = client.datasets.create_from_bigquery(
+            bigquery_uri="bq://projectId.datasetId.tableId"
         )
 
   - from a BigQuery table, using the REST API
@@ -93,31 +100,29 @@ You can create a multimodal [`dataset`](https://docs.cloud.google.com/gemini-ent
 
   - from a JSONL file in Cloud Storage. In the following example, the JSONL file contains requests that are already formatted for Gemini, so no assembly is required.
     
-        my_dataset = datasets.MultimodalDataset.from_gemini_request_jsonl(
+        my_dataset = client.datasets.create_from_gemini_request_jsonl(
           gcs_uri = gcs_uri_of_jsonl_file,
         )
 
   - from an existing multimodal dataset
     
-        # Get the most recently created dataset
-        first_dataset = datasets.MultimodalDataset.list()[0]
-        
-        # Load dataset based on its name
-        same_dataset = datasets.MultimodalDataset(first_dataset.name)
+        # Load dataset based on its name. This accepts a full resource name or a
+        # dataset ID.
+        same_dataset = client.datasets.get_multimodal_dataset(name=dataset_name)
 
-## Construct and attach a template
+## Construct and attach a read configuration
 
-A template defines how to transform the multimodal dataset to a format that can be passed to the model. This is required for running a tuning or batch prediction job.
+A read configuration ( `GeminiRequestReadConfig` ) defines how to transform the multimodal dataset to a format that can be passed to the model. It contains a template with placeholders that are replaced with the values of the corresponding dataset columns during assembly. This is required for running a tuning or batch prediction job.
 
 ### Agent Platform SDK
 
-1.  Construct a template. There are two ways to construct a template:
+1.  Construct a read configuration. There are two ways to construct one:
     
-      - Use the `construct_single_turn_template` helper method:
+      - Use the `GeminiRequestReadConfig.single_turn_template` helper method:
     
     <!-- end list -->
     
-        template_config = datasets.construct_single_turn_template(
+        read_config = GeminiRequestReadConfig.single_turn_template(
                 prompt="This is the image: {image_uris}",
                 response="{labels}",
                 system_instruction='You are a botanical image classifier. Analyze the provided image '
@@ -126,48 +131,51 @@ A template defines how to transform the multimodal dataset to a format that can 
                         'Return only one category per image.'
         )
     
-      - Manually construct a template from a `GeminiExample` , which allows finer granularity, such as multi-turn conversations. The following code sample also includes optional commented code for specifying a `field_mapping` , which lets you use a placeholder name that is different from the column name of the dataset. For example:
+      - Manually construct a read configuration from a `GeminiExample` , which allows finer granularity, such as multi-turn conversations. The following code sample also includes optional commented code for specifying a `field_mapping` , which lets you use a placeholder name that is different from the column name of the dataset. For example:
     
     <!-- end list -->
     
         # Define a GeminiExample
-        gemini_example = datasets.GeminiExample(
-            contents=[
-                Content(role="user", parts=[Part.from_text("This is the image: {image_uris}")]),
-                Content(role="model", parts=[Part.from_text("This is the flower class: {label}.")]),
-              Content(role="user", parts=[Part.from_text("Your response should only contain the class label.")]),
-              Content(role="model", parts=[Part.from_text("{label}")]),
+        gemini_example = GeminiExample(
+          contents=[
+              Content(role="user", parts=[Part.from_text(text="This is the image: {image_uris}")]),
+              Content(role="model", parts=[Part.from_text(text="This is the flower class: {label}.")]),
+              Content(role="user", parts=[Part.from_text(text="Your response should only contain the class label.")]),
+              Content(role="model", parts=[Part.from_text(text="{label}")]),
         
               # Optional: If you specify a field_mapping, you can use different placeholder values. For example:
-              # Content(role="user", parts=[Part.from_text("This is the image: {uri_placeholder}")]),
-              # Content(role="model", parts=[Part.from_text("This is the flower class: {flower_placeholder}.")]),
-              # Content(role="user", parts=[Part.from_text("Your response should only contain the class label.")]),
-              # Content(role="model", parts=[Part.from_text("{flower_placeholder}")]),
-            ],
-            system_instruction=Content(
-                parts=[
-                    Part.from_text(
-                        'You are a botanical image classifier. Analyze the provided image '
-                        'and determine the most accurate classification of the flower.'
-                        'These are the only flower categories: [\'daisy\', \'dandelion\', \'roses\', \'sunflowers\', \'tulips\'].'
-                        'Return only one category per image.'
-                    )
-                ]
-            ),
+              # Content(role="user", parts=[Part.from_text(text="This is the image: {uri_placeholder}")]),
+              # Content(role="model", parts=[Part.from_text(text="This is the flower class: {flower_placeholder}.")]),
+              # Content(role="user", parts=[Part.from_text(text="Your response should only contain the class label.")]),
+              # Content(role="model", parts=[Part.from_text(text="{flower_placeholder}")]),
+          ],
+          system_instruction=Content(
+              parts=[
+                  Part.from_text(
+                      text='You are a botanical image classifier. Analyze the provided image '
+                      'and determine the most accurate classification of the flower.'
+                      'These are the only flower categories: [\'daisy\', \'dandelion\', \'roses\', \'sunflowers\', \'tulips\'].'
+                      'Return only one category per image.'
+                  )
+              ]
+          ),
         )
         
-        # construct the template, specifying a map for the placeholder
-        template_config = datasets.GeminiTemplateConfig(
-            gemini_example=gemini_example,
+        # Construct the read config, specifying a map for the placeholders.
+        read_config = GeminiRequestReadConfig(
+            template_config=GeminiTemplateConfig(
+                gemini_example=gemini_example,
         
-            # Optional: Map the template placeholders to the column names of your dataset.
-            # Not required if the template placesholders are column names of the dataset.
-            # field_mapping={"uri_placeholder": "image_uris", "flower_placeholder": "labels"},
+                # Optional: Map the template placeholders to the column names of your dataset.
+                # Not required if the template placeholders are column names of the dataset.
+                # field_mapping={"uri_placeholder": "image_uris", "flower_placeholder": "labels"},
+            ),
         )
 
-2.  Attach it to the dataset:
+2.  Attach it to the dataset and persist the change:
     
-        my_dataset.attach_template_config(template_config=template_config)
+        my_dataset.set_read_config(read_config=read_config)
+        my_dataset = client.datasets.update_multimodal_dataset(multimodal_dataset=my_dataset)
 
 ### REST
 
@@ -226,13 +234,19 @@ Call the [`patch`](https://docs.cloud.google.com/gemini-enterprise-agent-platfor
 
 ## (Optional) Assemble the dataset
 
-The [`assemble`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assemble) method applies the template to transform your dataset and stores the output in a new BigQuery table. This lets you preview the data before it is passed to the model.
+The [`assemble`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets/assemble) method applies the read configuration to transform your dataset and stores the output in a new BigQuery table. This lets you preview the data before it is passed to the model.
 
-By default, the dataset's attached `template_config` is used, but you can specify a template to override the default behavior.
+By default, the dataset's attached read configuration is used, but you can pass a `gemini_request_read_config` to override the default behavior.
 
 ### Agent Platform SDK
 
-    table_id, assembly = my_dataset.assemble(template_config=template_config)
+The `assemble` method returns a `(table_id, dataframe)` tuple. Pass `load_dataframe=True` to also load the assembled table as a DataFrame for inspection.
+
+    table_id, assembly = client.datasets.assemble(
+        name=my_dataset.name,
+        gemini_request_read_config=read_config,    # optional if attached to the dataset
+        load_dataframe=True,
+    )
     
     # Inspect the results
     assembly.head()
@@ -297,13 +311,15 @@ Assess the dataset to check whether it contains errors, such as dataset formatti
 
 ### Agent Platform SDK
 
-Call `assess_tuning_validity()` . By default, the dataset's attached `template_config` is used, but you can specify a template to override the default behavior.
+Call `assess_tuning_validity()` . By default, the dataset's attached read configuration is used, but you can pass a `gemini_request_read_config` to override the default behavior.
 
-    # Attach template
-    my_dataset.attach_template_config(template_config=template_config)
+    # Attach the read configuration to the dataset.
+    my_dataset.set_read_config(read_config=read_config)
+    my_dataset = client.datasets.update_multimodal_dataset(multimodal_dataset=my_dataset)
     
     # Validation for tuning
-    validation = my_dataset.assess_tuning_validity(
+    validation = client.datasets.assess_tuning_validity(
+        dataset_name=my_dataset.name,
         model_name="gemini-2.5-flash",
         dataset_usage="SFT_TRAINING"
     )
@@ -335,7 +351,8 @@ Assess the dataset to get the token and billable character count for your tuning
 Call `assess_tuning_resources()` .
 
     # Resource estimation for tuning.
-    tuning_resources = my_dataset.assess_tuning_resources(
+    tuning_resources = client.datasets.assess_tuning_resources(
+        dataset_name=my_dataset.name,
         model_name="gemini-2.5-flash"
     )
     
@@ -358,32 +375,26 @@ Call the `assess` method and provide a [`TuningResourceUsageAssessmentConfig`](h
 
 ### Run the tuning job
 
-### Agent Platform SDK
-
-    from vertexai.tuning import sft
-    
-    sft_tuning_job = sft.train(
-      source_model="gemini-2.5-flash",
-      # Pass the Vertex Multimodal Datasets directly
-      train_dataset=my_multimodal_dataset,
-      validation_dataset=my_multimodal_validation_dataset,
-    )
+Use the Google Gen AI SDK to start a tuning job, passing the resource name of the multimodal dataset. The dataset must have an attached read configuration.
 
 ### Google Gen AI SDK
 
     from google import genai
     from google.genai.types import HttpOptions, CreateTuningJobConfig
     
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
+    genai_client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
-    tuning_job = client.tunings.tune(
+    tuning_job = genai_client.tunings.tune(
       base_model="gemini-2.5-flash",
       # Pass the resource name of the Multimodal Dataset, not the dataset object
       training_dataset={
-          "vertex_dataset_resource": my_multimodal_dataset.resource_name
+          "vertex_dataset_resource": my_multimodal_dataset.name
       },
       # Optional
       config=CreateTuningJobConfig(
+          validation_dataset={
+              "vertex_dataset_resource": my_multimodal_validation_dataset.name
+          },
           tuned_model_display_name="Example tuning job"),
     )
 
@@ -399,15 +410,16 @@ Assess the dataset to check whether it contains errors, such as dataset formatti
 
 ### Agent Platform SDK
 
-Call `assess_batch_prediction_validity()` . By default, the dataset's attached `template_config` is used, but you can specify a template to override the default behavior.
+Call `assess_batch_prediction_validity()` . By default, the dataset's attached read configuration is used, but you can pass a `gemini_request_read_config` to override the default behavior.
 
-    # Attach template
-    my_dataset.attach_template_config(template_config=template_config)
+    # Attach the read configuration to the dataset.
+    my_dataset.set_read_config(read_config=read_config)
+    my_dataset = client.datasets.update_multimodal_dataset(multimodal_dataset=my_dataset)
     
     # Validation for batch prediction
-    validation = my_dataset.assess_batch_prediction_validity(
-        model_name="gemini-2.5-flash",
-        dataset_usage="SFT_TRAINING"
+    validation = client.datasets.assess_batch_prediction_validity(
+        dataset_name=my_dataset.name,
+        model_name="gemini-2.5-flash"
     )
     
     # Inspect validation result
@@ -435,7 +447,8 @@ Assess the dataset to get the token count for your job.
 
 Call `assess_batch_prediction_resources()` .
 
-    batch_prediction_resources = my_dataset.assess_batch_prediction_resources(
+    batch_prediction_resources = client.datasets.assess_batch_prediction_resources(
+        dataset_name=my_dataset.name,
         model_name="gemini-2.5-flash"
     )
     
@@ -460,34 +473,23 @@ Call the `assess` method and provide a [`batchPredictionResourceUsageAssessmentC
 
 You can use your multimodal dataset to do batch prediction by passing the BigQuery `table_id` of the assembled output:
 
-### Agent Platform SDK
-
-    from vertexai.batch_prediction import BatchPredictionJob
-    
-    # Dataset needs to have an attached template_config to batch prediction
-    my_dataset.attach_template_config(template_config=template_config)
-    
-    # assemble dataset to get assembly table id
-    assembly_table_id, _ = my_dataset.assemble()
-    
-    batch_prediction_job = BatchPredictionJob.submit(
-        source_model="gemini-2.5-flash",
-        input_dataset=assembly_table_id,
-    )
-
 ### Google Gen AI SDK
 
     from google import genai
+    from google.genai.types import HttpOptions
     
-    client = genai.Client(http_options=HttpOptions(api_version="v1"))
+    # Attach the read configuration to the dataset.
+    my_dataset.set_read_config(read_config=read_config)
+    my_dataset = client.datasets.update_multimodal_dataset(multimodal_dataset=my_dataset)
     
-    # Attach template_config and assemble dataset
-    my_dataset.attach_template_config(template_config=template_config)
-    assembly_table_id, _ = my_dataset.assemble()
+    # Assemble the dataset to get the assembled BigQuery table.
+    table_id, _ = client.datasets.assemble(name=my_dataset.name)
     
-    job = client.batches.create(
+    genai_client = genai.Client(http_options=HttpOptions(api_version="v1"))
+    
+    job = genai_client.batches.create(
         model="gemini-2.5-flash",
-        src=assembly_table_id,
+        src=f"bq://{table_id}",
     )
 
 For more information, see [Request a batch prediction job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini#request_a_batch_prediction_job) .

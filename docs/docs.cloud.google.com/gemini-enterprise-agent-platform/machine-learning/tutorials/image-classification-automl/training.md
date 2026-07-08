@@ -28,7 +28,7 @@ Each page assumes that you have already performed the instructions from the prev
 
 After the dataset import, you are taken to the **Browse** tab. You can also access this tab by selecting **Datasets** from the menu. Select the **annotation set** (set of single-label image annotations) associated with your new dataset.
 
-> **Key point:** An *annotation set* is the collection of annotations associated with a data type and a specific objective (image data type, classification objective in this case). For more information about *annotation sets* , see [Creating an annotation set](https://docs.cloud.google.com/vertex-ai/docs/datasets/create-annotation-set) .
+> **Key point:** An *annotation set* is the collection of annotations associated with a data type and a specific objective (image data type, classification objective in this case). For more information about *annotation sets* , see [Creating an annotation set](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/create-annotation-set) .
 
 ![Dataset page](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/images/dataset-annotation-set.png)
 

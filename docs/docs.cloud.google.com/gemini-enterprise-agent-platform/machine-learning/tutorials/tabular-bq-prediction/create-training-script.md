@@ -20,7 +20,7 @@ In this section, you create a training script. This script is a new file in your
 
   - Specifies the number of epochs and the batch size to use when the Keras [`Model.fit`](https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit) method is invoked.
 
-  - Specifies where to save model artifacts using the `AIP_MODEL_DIR` environment variable. `AIP_MODEL_DIR` is set by Gemini Enterprise Agent Platform and contains the URI of a directory for saving model artifacts. For more information, see [Environment variables for special Cloud Storage directories](https://docs.cloud.google.com/vertex-ai/docs/training/code-requirements#environment-variables) .
+  - Specifies where to save model artifacts using the `AIP_MODEL_DIR` environment variable. `AIP_MODEL_DIR` is set by Gemini Enterprise Agent Platform and contains the URI of a directory for saving model artifacts. For more information, see [Environment variables for special Cloud Storage directories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/code-requirements#environment-variables) .
 
   - Exports a TensorFlow [`SavedModel`](https://www.tensorflow.org/api_docs/python/tf/saved_model) to the model directory. For more information, see [Using the `SavedModel` format](https://www.tensorflow.org/guide/saved_model#the_savedmodel_format_on_disk) on the TensorFlow website.
 

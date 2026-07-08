@@ -39,7 +39,7 @@ To serve inferences using these artifacts, create a `Model` with the [prebuilt c
 
 #### TensorFlow for Vertex Explainable AI
 
-If you want to [get explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) from a `Model` that uses a TensorFlow prebuilt container to serve inferences, read the [additional requirements for exporting a TensorFlow model for Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/tensorflow#exporting) .
+If you want to [get explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview) from a `Model` that uses a TensorFlow prebuilt container to serve inferences, read the [additional requirements for exporting a TensorFlow model for Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/tensorflow#exporting) .
 
 #### Enable server-side request batching for TensorFlow
 

@@ -47,7 +47,7 @@ After you install the Agent Platform SDK for Python, you need to authenticate. T
 
 ### Understanding service accounts
 
-The [service account](https://docs.cloud.google.com/iam/docs/principals-overview#service-account) is used by the Gen AI evaluation service to get predictions from the [Gemini API in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/start/quickstarts/quickstart-multimodal) for model-based evaluation metrics. This service account is automatically provisioned on the first request to the Gen AI evaluation service.
+The [service account](https://docs.cloud.google.com/iam/docs/principals-overview#service-account) is used by the Gen AI evaluation service to get predictions from the [Gemini API in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstarts/quickstart-multimodal) for model-based evaluation metrics. This service account is automatically provisioned on the first request to the Gen AI evaluation service.
 
 | Name                                    | Description                                                             | Email address                                                       | Role                                     |
 | --------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------- |

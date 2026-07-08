@@ -23,6 +23,7 @@ data_source: docs.cloud.google.com
   - `  FeatureRegistryService  ` (interface)
   - `  FeaturestoreOnlineServingService  ` (interface)
   - `  FeaturestoreService  ` (interface)
+  - `  FeedbackService  ` (interface)
   - `  GenAiCacheService  ` (interface)
   - `  GenAiTuningService  ` (interface)
   - `  IndexEndpointService  ` (interface)
@@ -268,6 +269,8 @@ data_source: docs.cloud.google.com
   - `  CreateFeatureViewRequest  ` (message)
   - `  CreateFeaturestoreOperationMetadata  ` (message)
   - `  CreateFeaturestoreRequest  ` (message)
+  - `  CreateFeedbackEntryOperationMetadata  ` (message)
+  - `  CreateFeedbackEntryRequest  ` (message)
   - `  CreateHyperparameterTuningJobRequest  ` (message)
   - `  CreateIndexEndpointOperationMetadata  ` (message)
   - `  CreateIndexEndpointRequest  ` (message)
@@ -362,6 +365,8 @@ data_source: docs.cloud.google.com
   - `  DeleteFeatureValuesResponse.SelectTimeRangeAndFeature  ` (message)
   - `  DeleteFeatureViewRequest  ` (message)
   - `  DeleteFeaturestoreRequest  ` (message)
+  - `  DeleteFeedbackEntryOperationMetadata  ` (message)
+  - `  DeleteFeedbackEntryRequest  ` (message)
   - `  DeleteHyperparameterTuningJobRequest  ` (message)
   - `  DeleteIndexEndpointRequest  ` (message)
   - `  DeleteIndexRequest  ` (message)
@@ -632,6 +637,9 @@ data_source: docs.cloud.google.com
   - `  FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.State  ` (enum)
   - `  FeaturestoreMonitoringConfig.SnapshotAnalysis  ` (message)
   - `  FeaturestoreMonitoringConfig.ThresholdConfig  ` (message)
+  - `  FeedbackContext  ` (message)
+  - `  FeedbackEntry  ` (message)
+  - `  FeedbackEntry.FeedbackType  ` (enum)
   - `  FetchExamplesRequest  ` (message)
   - `  FetchExamplesResponse  ` (message)
   - `  FetchFeatureValuesRequest  ` (message)
@@ -736,6 +744,8 @@ data_source: docs.cloud.google.com
   - `  GetFeatureViewRequest  ` (message)
   - `  GetFeatureViewSyncRequest  ` (message)
   - `  GetFeaturestoreRequest  ` (message)
+  - `  GetFeedbackContextRequest  ` (message)
+  - `  GetFeedbackEntryRequest  ` (message)
   - `  GetHyperparameterTuningJobRequest  ` (message)
   - `  GetIndexEndpointRequest  ` (message)
   - `  GetIndexRequest  ` (message)
@@ -904,6 +914,8 @@ data_source: docs.cloud.google.com
   - `  ListFeaturesResponse  ` (message)
   - `  ListFeaturestoresRequest  ` (message)
   - `  ListFeaturestoresResponse  ` (message)
+  - `  ListFeedbackEntriesRequest  ` (message)
+  - `  ListFeedbackEntriesResponse  ` (message)
   - `  ListHyperparameterTuningJobsRequest  ` (message)
   - `  ListHyperparameterTuningJobsResponse  ` (message)
   - `  ListIndexEndpointsRequest  ` (message)
@@ -1787,6 +1799,10 @@ data_source: docs.cloud.google.com
   - `  UpdateFeatureViewRequest  ` (message)
   - `  UpdateFeaturestoreOperationMetadata  ` (message)
   - `  UpdateFeaturestoreRequest  ` (message)
+  - `  UpdateFeedbackContextOperationMetadata  ` (message)
+  - `  UpdateFeedbackContextRequest  ` (message)
+  - `  UpdateFeedbackEntryOperationMetadata  ` (message)
+  - `  UpdateFeedbackEntryRequest  ` (message)
   - `  UpdateIndexEndpointRequest  ` (message)
   - `  UpdateIndexOperationMetadata  ` (message)
   - `  UpdateIndexRequest  ` (message)
@@ -6233,6 +6249,194 @@ The service that handles CRUD and List for resources for Featurestore.
 <li><code dir="ltr" translate="no">aiplatform.featurestores.update</code></li>
 </ul>
 <p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+## FeedbackService
+
+The service that manages Feedback related resources.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CreateFeedbackEntry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CreateFeedbackEntry(              CreateFeedbackEntryRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Creates a new FeedbackEntry.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteFeedbackEntry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteFeedbackEntry(              DeleteFeedbackEntryRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deletes a FeedbackEntry and its associated FeedbackContext.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetFeedbackContext</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetFeedbackContext(              GetFeedbackContextRequest            </code> ) returns ( <code dir="ltr" translate="no">             FeedbackContext            </code> )</p>
+<p>Retrieves the FeedbackContext associated with a FeedbackEntry.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetFeedbackEntry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetFeedbackEntry(              GetFeedbackEntryRequest            </code> ) returns ( <code dir="ltr" translate="no">             FeedbackEntry            </code> )</p>
+<p>Retrieves a single FeedbackEntry by its resource name.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListFeedbackEntries</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListFeedbackEntries(              ListFeedbackEntriesRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListFeedbackEntriesResponse            </code> )</p>
+<p>Lists FeedbackEntries in a ReasoningEngine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>UpdateFeedbackContext</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc UpdateFeedbackContext(              UpdateFeedbackContextRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Updates the FeedbackContext associated with a FeedbackEntry.</p>
+<p>Only the fields specified in update_mask are modified. If the mask is empty, all mutable fields are replaced with the values supplied in the request.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>UpdateFeedbackEntry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc UpdateFeedbackEntry(              UpdateFeedbackEntryRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Updates an existing FeedbackEntry.</p>
+<p>Only the fields specified in update_mask are modified. If the mask is empty, all mutable fields are replaced with the values supplied in the request.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -22028,6 +22232,38 @@ This value may be up to 60 characters, and valid characters are `[a-z0-9_]` . Th
 
 The value must be unique within the project and location.
 
+## CreateFeedbackEntryOperationMetadata
+
+Metadata associated with CreateFeedbackEntry operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## CreateFeedbackEntryRequest
+
+Request message for CreateFeedbackEntry.
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the ReasoningEngine in which to create the FeedbackEntry.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`feedback_entry`
+
+`  FeedbackEntry  `
+
+Required. The FeedbackEntry to create.
+
 ## CreateHyperparameterTuningJobRequest
 
 Request message for `  JobService.CreateHyperparameterTuningJob  ` .
@@ -24199,6 +24435,32 @@ Required. The name of the Featurestore to be deleted. Format: `projects/{project
 `bool`
 
 If set to true, any EntityTypes and Features for this Featurestore will also be deleted. (Otherwise, the request will only work if the Featurestore has no EntityTypes.)
+
+## DeleteFeedbackEntryOperationMetadata
+
+Metadata associated with DeleteFeedbackEntry operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## DeleteFeedbackEntryRequest
+
+Request message for DeleteFeedbackEntry.
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the FeedbackEntry to delete.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}`
 
 ## DeleteHyperparameterTuningJobRequest
 
@@ -31705,6 +31967,118 @@ Union field `threshold` .
 
 Specify a threshold value that can trigger the alert. 1. For categorical feature, the distribution distance is calculated by L-inifinity norm. 2. For numerical feature, the distribution distance is calculated by Jensen–Shannon divergence. Each feature must have a non-zero threshold if they need to be monitored. Otherwise no alert will be triggered for that feature.
 
+## FeedbackContext
+
+Feedback context is a resource that represents additional information about the conversation where the feedback was given, such as the conversation history, system instructions, etc. If provided, feedback context allows to correlate the feedback with the conversation, even if the original session is deleted or not available.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name. Assigned by the server on create.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}/feedbackContext`
+
+`context_events[]`
+
+`  SessionEvent  `
+
+Optional. The session events from the originating session.
+
+## FeedbackEntry
+
+FeedbackEntry is a resource that represents a user's feedback on a conversation with an agent.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name. Assigned by the server on create.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}`
+
+`session_id`
+
+`string`
+
+Required. The ID of the session that the feedback relates to.
+
+`event_id`
+
+`string`
+
+Required. The ID of the event within the session that the feedback relates to.
+
+`feedback_type`
+
+`  FeedbackType  `
+
+Required. The coarse-grained type of feedback provided by the user. Must be set to a value other than `FEEDBACK_TYPE_UNSPECIFIED` .
+
+`feedback_labels[]`
+
+`string`
+
+`feedback_text`
+
+`string`
+
+Optional. Qualitative free-form comments provided by the user.
+
+`user_id`
+
+`string`
+
+Optional. A caller-supplied identifier for the user who provided the feedback. The semantics of this field (for example whether it is an opaque token, a hashed value, or a user-visible identifier) are determined by the calling application.
+
+`source`
+
+`string`
+
+Optional. The surface that the feedback originated from.
+
+`custom_metadata`
+
+`map<string, string>`
+
+Optional. Additional key-value metadata associated with the feedback.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. The time at which the entry was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. The time at which the entry was most recently updated.
+
+## FeedbackType
+
+The coarse-grained type of feedback provided by the user.
+
+The enum is not frozen; additional values may be added in the future, so clients should treat unknown values gracefully.
+
+Enums
+
+`FEEDBACK_TYPE_UNSPECIFIED`
+
+This is the default value meaning the type has not been set.
+
+`THUMBS_UP`
+
+Indicates positive feedback.
+
+`THUMBS_DOWN`
+
+Indicates negative feedback.
+
 ## FetchExamplesRequest
 
 Request message for `  ExampleStoreService.FetchExamples  ` .
@@ -34099,6 +34473,34 @@ Fields
 `string`
 
 Required. The name of the Featurestore resource.
+
+## GetFeedbackContextRequest
+
+Request message for GetFeedbackContext.
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the FeedbackContext to retrieve.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}/feedbackContext`
+
+## GetFeedbackEntryRequest
+
+Request message for GetFeedbackEntry.
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the FeedbackEntry to retrieve.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}`
 
 ## GetHyperparameterTuningJobRequest
 
@@ -38633,6 +39035,80 @@ The Featurestores matching the request.
 `string`
 
 A token, which can be sent as `  ListFeaturestoresRequest.page_token  ` to retrieve the next page. If this field is omitted, there are no subsequent pages.
+
+## ListFeedbackEntriesRequest
+
+Request message for ListFeedbackEntries.
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the ReasoningEngine from which to list FeedbackEntries.
+
+Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`page_size`
+
+`int32`
+
+Optional. The maximum number of FeedbackEntries to return per page.
+
+`page_token`
+
+`string`
+
+Optional. A page token, received from a previous ListFeedbackEntries call.
+
+`filter`
+
+`string`
+
+Optional. Standard list filter.
+
+Supported fields:
+
+  - `session_id`
+  - `user_id`
+  - `feedback_type`
+  - `feedback_labels` : Supports the HAS operator ( `:` ). For example: `feedback_labels:"inaccurate"` .
+  - `create_time`
+  - `update_time`
+
+Example: `feedback_type="THUMBS_DOWN" AND feedback_labels:"hallucination"` .
+
+`order_by`
+
+`string`
+
+Optional. A comma-separated list of fields to order results by, sorted in ascending order by default. Append `desc` after a field name to sort that field in descending order.
+
+Supported fields:
+
+  - `create_time`
+  - `update_time`
+
+Example: `create_time desc` .
+
+## ListFeedbackEntriesResponse
+
+Response message for ListFeedbackEntries.
+
+Fields
+
+`feedback_entries[]`
+
+`  FeedbackEntry  `
+
+The page of FeedbackEntries matching the request.
+
+`next_page_token`
+
+`string`
+
+A token to retrieve the next page. Absence of this field indicates there are no subsequent pages.
 
 ## ListHyperparameterTuningJobsRequest
 
@@ -61969,6 +62445,70 @@ Updatable fields:
   - `online_serving_config.fixed_node_count`
   - `online_serving_config.scaling`
   - `online_storage_ttl_days`
+
+## UpdateFeedbackContextOperationMetadata
+
+Metadata associated with UpdateFeedbackContext operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## UpdateFeedbackContextRequest
+
+Request message for UpdateFeedbackContext.
+
+Fields
+
+`feedback_context`
+
+`  FeedbackContext  `
+
+Required. The FeedbackContext to update.
+
+The name field must be set and identifies the resource to update. Its format is: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}/feedbackContext` .
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. The field mask that controls which fields are updated. If unset or empty, all mutable fields of the FeedbackContext are replaced with the values from feedback\_context.
+
+## UpdateFeedbackEntryOperationMetadata
+
+Metadata associated with the UpdateFeedbackEntry operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## UpdateFeedbackEntryRequest
+
+Request message for UpdateFeedbackEntry.
+
+Fields
+
+`feedback_entry`
+
+`  FeedbackEntry  `
+
+Required. The FeedbackEntry to update.
+
+The name field must be set and identifies the resource to update. Its format is: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/feedbackEntries/{feedback_entry}` .
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. The field mask that controls which fields are updated. If unset or empty, all mutable fields of the FeedbackEntry are replaced with the values from feedback\_entry.
 
 ## UpdateIndexEndpointRequest
 

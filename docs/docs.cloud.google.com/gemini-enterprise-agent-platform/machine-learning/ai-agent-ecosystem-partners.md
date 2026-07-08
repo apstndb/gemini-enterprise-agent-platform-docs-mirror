@@ -12,7 +12,7 @@ This page lists the AI agent solutions from our partners that have been validate
   - **Evaluate** the solutions to ensure that they meet our agentic criteria.
   - **Enhance** the solutions as new capabilities become available.
 
-To learn more about the program, see [Overview of the Google Cloud AI Agent Ecosystem Program](https://docs.cloud.google.com/vertex-ai/docs/ai-agent-ecosystem-overview) .
+To learn more about the program, see [Overview of the Google Cloud AI Agent Ecosystem Program](https://docs.cloud.google.com/gemini-enterprise-agent-platform/ai-agent-ecosystem-overview) .
 
 ## Approved AI Agent solutions
 

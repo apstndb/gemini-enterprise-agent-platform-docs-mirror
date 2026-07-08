@@ -82,7 +82,7 @@ Use the Google Cloud console to request a batch inference.
           - For BigQuery, you can specify a project ID or an existing dataset:
               - To specify the project ID, enter the project ID in the **Google Cloud project ID** field. Gemini Enterprise Agent Platform creates a new output dataset for you.
               - To specify an existing dataset, enter its BigQuery path in the **Google Cloud project ID** field, such as `bq://projectid.datasetid` .
-          - **Optional.** If your output destination is BigQuery or JSONL on Cloud Storage, you can enable feature attributions in addition to inferences. To do this, select **Enable feature attributions for this model** . Feature attributions are not supported for CSV on Cloud Storage. [Learn more](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+          - **Optional.** If your output destination is BigQuery or JSONL on Cloud Storage, you can enable feature attributions in addition to inferences. To do this, select **Enable feature attributions for this model** . Feature attributions are not supported for CSV on Cloud Storage. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting-explanations) .
 4.  Optional: [**Model Monitoring**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) analysis for batch inferences is available in [Preview](https://cloud.google.com/products/#product-launch-stages) . See the [Prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/model-monitoring-batch-predictions#prerequisites) for adding skew detection configuration to your batch inference job.
     1.  Click to toggle on **Enable model monitoring for this batch inference** .
     2.  Select a **Training data source** . Enter the data path or location for the training data source that you selected.
@@ -570,7 +570,7 @@ SELECT explanation.attributions[OFFSET(0)].featureAttributions.BQ_FEATURE_NAME F
   
 ```
 
-To learn more, see [Feature attributions for forecasting](https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting-explanations) .
+To learn more, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting-explanations) .
 
 ### Errors validation table
 

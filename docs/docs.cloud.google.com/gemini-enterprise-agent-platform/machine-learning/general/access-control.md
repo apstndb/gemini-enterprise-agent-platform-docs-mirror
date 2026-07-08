@@ -8529,4 +8529,4 @@ To authorize Agent Platform to access your Sheets file:
   - [Learn more about IAM](https://docs.cloud.google.com/iam/docs) .
   - [Learn about specific IAM permissions and the operations they support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) .
   - To learn about recommended ways to set up a project for a team, see [Set up a project for a team](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/set-up-project) .
-  - [Get an overview of Agent Platform](https://docs.cloud.google.com/vertex-ai/docs/start/introduction-unified-platform) .
+  - [Get an overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/introduction-unified-platform) .
