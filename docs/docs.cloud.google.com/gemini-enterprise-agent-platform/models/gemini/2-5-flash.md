@@ -151,80 +151,21 @@ Supported regions
 
 Model availability
 
-Global
-
-  - global
-
-United States
-
-  - us-central1
-  - us-east1
-  - us-east4
-  - us-east5
-  - us-south1
-  - us-west1
-  - us-west4
-
-Canada
-
-  - northamerica-northeast1
-
-South America
-
-  - southamerica-east1
-
-Europe
-
-  - europe-central2
-  - europe-north1
-  - europe-southwest1
-  - europe-west1
-  - europe-west2
-  - europe-west3
-  - europe-west4
-  - europe-west8
-  - europe-west9
-
-Asia Pacific
-
-  - asia-northeast1
-  - asia-northeast3
-  - asia-south1
-  - asia-southeast1
-  - australia-southeast1
-
-Global
-
-  - global
+  - **Global** : global
+  - **United States** : us-central1, us-east1, us-east4, us-east5, us-south1, us-west1, us-west4
+  - **Canada** : northamerica-northeast1
+  - **South America** : southamerica-east1
+  - **Europe** : europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west8, europe-west9
+  - **Asia Pacific** : asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast1
+  - **Global** : global
 
 ML processing
 
-United States
-
-  - Multi-region
-
-Canada
-
-  - northamerica-northeast1
-
-South America
-
-  - southamerica-east1
-
-Europe
-
-  - Multi-region
-  - europe-west2
-  - europe-west3
-  - europe-west9
-
-Asia Pacific
-
-  - asia-northeast1
-  - asia-northeast3
-  - asia-south1
-  - asia-southeast1
-  - australia-southeast1
+  - **United States** : Multi-region
+  - **Canada** : northamerica-northeast1
+  - **South America** : southamerica-east1
+  - **Europe** : Multi-region, europe-west2, europe-west3, europe-west9
+  - **Asia Pacific** : asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast1
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
@@ -434,9 +375,7 @@ Supported regions
 
 Model availability
 
-Global
-
-  - global
+  - **Global** : global
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 

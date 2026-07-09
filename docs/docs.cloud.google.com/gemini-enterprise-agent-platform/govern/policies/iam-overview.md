@@ -102,7 +102,7 @@ To create IAM policies by using the gcloud CLI, see [Configure IAM policies](htt
 IAP and Context-Aware Access provide on-by-default, end-to-end agent identity authentication and authorization by using the following protocols:
 
   - Mutual TLS (mTLS)
-  - Demonstrable Proof of Possession (DPoP)
+  - Demonstrating Proof of Possession (DPoP)
 
 Agent identities are provisioned with an X.509 certificate and a certificate-bound token. IAP enforces that agent identities use mutual TLS (mTLS) to authenticate to Agent Gateway. When the gateway allows the agent to egress and access Google Cloud APIs, MCP servers, other agents, and endpoints, the agent attempts access outside of the mTLS boundary. To maintain security, Context-Aware Access enforces a Google-managed Context-Aware Access policy. The policy requires DPoP to validate the certificate-bound token that is bound to the agent identity. To learn more about how Context-Aware Access provides end-to-end mTLS and DPoP security, see [Context-Aware Access agent security](https://docs.cloud.google.com/access-context-manager/docs/caa-agent-security) .
 

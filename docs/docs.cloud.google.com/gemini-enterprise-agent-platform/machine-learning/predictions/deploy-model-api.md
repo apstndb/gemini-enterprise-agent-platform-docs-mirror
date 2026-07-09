@@ -507,7 +507,7 @@ Learn how to [change the default settings for inference logging](https://docs.cl
 
 ## Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) .
 
 ## What's next
 

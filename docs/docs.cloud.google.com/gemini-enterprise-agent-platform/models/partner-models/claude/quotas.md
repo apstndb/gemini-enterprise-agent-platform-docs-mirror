@@ -560,14 +560,6 @@ Claude Haiku 4.5 on Google Cloud
 
 200,000
 
-`asia-east1`
-
-  - QPM: 2,500
-  - Input TPM: 2,500,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
-  - Output TPM: 250,000
-
-200,000
-
 `global endpoint`
 
   - QPM: 2,500

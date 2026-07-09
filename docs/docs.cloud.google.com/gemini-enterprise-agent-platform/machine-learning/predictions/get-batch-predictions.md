@@ -275,7 +275,7 @@ Use the Google Cloud console to request a batch inference.
     
     4.  In the **Destination path** field, specify the Cloud Storage directory where you want Agent Platform to store batch inference output.
     
-    5.  Optionally, you can check **Enable feature attributions for this model** to get [feature attributions](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) as part of the batch inference response. Then click **Edit** to [configure explanation settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations) . (Editing the explanation settings is optional if you previously configured explanation settings for the model, and required otherwise.)
+    5.  Optionally, you can check **Enable feature attributions for this model** to get [feature attributions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview) as part of the batch inference response. Then click **Edit** to [configure explanation settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/configuring-explanations) . (Editing the explanation settings is optional if you previously configured explanation settings for the model, and required otherwise.)
     
     6.  Specify compute options for the batch inference job: **Number of compute nodes** , [**Machine type**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) , and (optionally) [**Accelerator type**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus) and **Accelerator count** .
 
@@ -595,9 +595,9 @@ The preceding REST example uses Cloud Storage for the source and destination. To
 
 If you want feature importance values returned for your inferences, set the `generateExplanation` property to `true` . Note that *forecasting* models don't support feature importance, so you can't include it in your batch inference requests.
 
-Feature importance, sometimes called *feature attributions* , is part of [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) .
+Feature importance, sometimes called *feature attributions* , is part of [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview) .
 
-You can only set `generateExplanation` to `true` if you have [configured your `Model` for explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations) or if you specify the `BatchPredictionJob` 's [`explanationSpec` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#BatchPredictionJob.FIELDS.explanation_spec) .
+You can only set `generateExplanation` to `true` if you have [configured your `Model` for explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/configuring-explanations) or if you specify the `BatchPredictionJob` 's [`explanationSpec` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs#BatchPredictionJob.FIELDS.explanation_spec) .
 
 ### Choose machine type and replica count
 
@@ -705,9 +705,9 @@ To improve observability and reduce the number of quotas to manage, the model se
 
 ## Use Explainable AI
 
-We don't recommend running [feature-based explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview#feature-based) on a large amount of data. This is because each input can potentially fan out to thousands of requests based on the set of possible feature values which may result in massively increased processing time and cost. In general, a small dataset is enough to understand feature importance.
+We don't recommend running [feature-based explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview#feature-based) on a large amount of data. This is because each input can potentially fan out to thousands of requests based on the set of possible feature values which may result in massively increased processing time and cost. In general, a small dataset is enough to understand feature importance.
 
-Batch inference does not support [example-based explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview#example-based) .
+Batch inference does not support [example-based explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview#example-based) .
 
 ## Notebooks
 

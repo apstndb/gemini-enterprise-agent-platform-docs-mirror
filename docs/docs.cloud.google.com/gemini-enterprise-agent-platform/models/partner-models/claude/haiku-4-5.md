@@ -84,10 +84,6 @@ Europe
 
   - `europe-west1`
 
-Asia Pacific
-
-  - `asia-east1`
-
 Global
 
   - `global endpoint`
@@ -101,10 +97,6 @@ United States
 Europe
 
   - `Multi-region`
-
-Asia Pacific
-
-  - `asia-east1`
 
 Quota limits
 
@@ -120,13 +112,6 @@ europe-west1:
   - QPM: 1,800
   - Input TPM: 1,800,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
   - Output TPM: 180,000
-  - Context length: 200,000
-
-asia-east1:
-
-  - QPM: 2,500
-  - Input TPM: 2,500,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
-  - Output TPM: 250,000
   - Context length: 200,000
 
 global endpoint:

@@ -60,9 +60,9 @@ Capabilities
     Supported
   - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
     Supported
-  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos)  
+  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos) preview Preview feature  
     Not supported
-  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos)  
+  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos) preview Preview feature  
     Not supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
@@ -105,9 +105,7 @@ Supported regions
 
 Model availability
 
-United States
-
-  - us-central1
+  - **United States** : us-central1
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
@@ -117,7 +115,7 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Retirement date: June 30, 2026
+  - Deprecation date: June 30, 2026
 
 Security controls
 
@@ -177,9 +175,9 @@ Capabilities
     Supported
   - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
     Supported
-  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos)  
+  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos) preview Preview feature  
     Not supported
-  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos)  
+  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos) preview Preview feature  
     Not supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
@@ -222,9 +220,7 @@ Supported regions
 
 Model availability
 
-United States
-
-  - us-central1
+  - **United States** : us-central1
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
@@ -234,7 +230,7 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Retirement date: June 30, 2026
+  - Deprecation date: June 30, 2026
 
 Security controls
 
@@ -310,9 +306,9 @@ Capabilities
     Supported
   - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
     Supported
-  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos)  
+  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos) preview Preview feature  
     Not supported
-  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos)  
+  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos) preview Preview feature  
     Not supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
@@ -355,9 +351,7 @@ Supported regions
 
 Model availability
 
-United States
-
-  - us-central1
+  - **United States** : us-central1
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
@@ -367,7 +361,7 @@ Versions
 
   - Launch stage: Preview
   - Release date: May 20, 2025
-  - Retirement date: April 2, 2026
+  - Deprecation date: April 2, 2026
 
 Pricing
 
@@ -432,9 +426,9 @@ Capabilities
     Supported
   - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
     Supported
-  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos)  
+  - [Insert objects into videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/insert-objects-into-videos) preview Preview feature  
     Not supported
-  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos)  
+  - [Remove objects from videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/remove-objects-from-videos) preview Preview feature  
     Not supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
@@ -476,9 +470,7 @@ Supported regions
 
 Model availability
 
-United States
-
-  - us-central1
+  - **United States** : us-central1
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
@@ -488,7 +480,7 @@ Versions
 
   - Launch stage: Preview
   - Release date: July 07, 2025
-  - Retirement date: April 2, 2026
+  - Deprecation date: April 2, 2026
 
 Pricing
 

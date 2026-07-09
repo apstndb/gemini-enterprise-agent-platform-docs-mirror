@@ -51,7 +51,7 @@ Grounding with Parallel web search is supported by the following models:
 
 To use Grounding with Parallel Web Search, you must set up your access. You have two options:
 
-  - Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) for a streamlined integration within your existing cloud environment.
+  - Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) for a streamlined integration within your existing cloud environment. A [Zero Data Retention offering](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) is also available for sensitive workloads. To use ZDR, you must be subscribed to the ZDR offering *and* set the corresponding `enable_zero_data_retention` flag in your API requests.
 
   - Use an existing Parallel API key.
 
@@ -86,6 +86,7 @@ Before using any of the request data, make the following replacements:
   - MODEL\_ID : The ID of the model to use.
   - TEXT : The text prompt to send to the model.
   - API\_KEY : Your API key for Parallel Web Search. If you specify an API key and are also subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), the API key takes precedence.
+  - ENABLE\_ZERO\_DATA\_RETENTION : Optional: Switch to the [ZDR version of Parallel Web Search](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) to enable Zero Data Retention on sensitive workloads. Set to `true` to use the ZDR offering for your request. You *must* be subscribed to the ZDR-specific offering for these requests to succeed. If not specified, it defaults to the [standard version](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) . The ZDR version is only available via Google Cloud Marketplace.
   - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 10 domains.
   - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 10 domains.
   - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
@@ -110,13 +111,14 @@ Request JSON body:
       "tools": [{
         "parallelAiSearch": {
             "api_key": "API_KEY",
+            "enable_zero_data_retention": ENABLE_ZERO_DATA_RETENTION,
             "customConfigs": {
                 "mode": "MODE",
                 "location": "SEARCH_LOCATION",
                 "max_results": MAX_RESULTS,
                 "source_policy": {
                     "exclude_domains": ["EXCLUDE_DOMAINS"],
-                    "include_domains": ["INCLUDE_DOMAINS"],
+                    "include_domains": ["INCLUDE_DOMAINS"]
                 },
                 "excerpts": {
                     "max_chars_per_result": MAX_CHARS_PER_RESULT,

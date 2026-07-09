@@ -32,8 +32,9 @@ The following models support count tokens:
 
 The following regions support count tokens:
 
-  - `us-east5`
-  - `europe-west1`
+  - `global`
+  - `us`
+  - `eu`
   - `asia-southeast1`
 
 ## Count tokens in basic messages

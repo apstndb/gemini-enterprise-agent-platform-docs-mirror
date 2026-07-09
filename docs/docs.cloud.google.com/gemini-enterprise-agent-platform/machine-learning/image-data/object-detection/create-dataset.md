@@ -308,7 +308,7 @@ Before using any of the request data, make the following replacements:
   - LOCATION : Region where the dataset is located. For example, `us-central1` .
   - PROJECT\_ID : .
   - DATASET\_ID : ID of the dataset.
-  - IMPORT\_FILE\_URI : Path to the CSV or [JSON Lines](https://jsonlines.org/) file in Cloud Storage that lists data items stored in Cloud Storage to use for model training; for import file formats and limitations, see [Preparing image data](https://docs.cloud.google.com/vertex-ai/docs/datasets/prepare-image) .
+  - IMPORT\_FILE\_URI : Path to the CSV or [JSON Lines](https://jsonlines.org/) file in Cloud Storage that lists data items stored in Cloud Storage to use for model training; for import file formats and limitations, see [Preparing image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/prepare-image) .
 
 HTTP method and URL:
 
@@ -521,4 +521,4 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Get operation status
 
-Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/long-running-operations) .
+Some requests start long-running operations that require time to complete. These requests return an operation name, which you can use to view the operation's status or cancel the operation. Agent Platform provides helper methods to make calls against long-running operations. For more information, see [Working with long-running operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) .

@@ -124,17 +124,9 @@ Supported regions
 
 Model availability
 
-Global
-
-  - global
-
-United States multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
-
-  - us
-
-Europe multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
-
-  - eu
+  - **Global** : global
+  - **United States multi-region** : us
+  - **Europe multi-region** : eu
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 

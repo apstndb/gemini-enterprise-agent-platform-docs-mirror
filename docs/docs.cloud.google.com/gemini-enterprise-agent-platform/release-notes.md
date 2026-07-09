@@ -10,6 +10,32 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 08, 2026
+
+Feature
+
+**Memory Bank support for Gemini Embedding 2**
+
+Memory Bank supports the `gemini-embedding-2` model for similarity search configurations.
+
+When you configure `gemini-embedding-2` as the embedding model, you must use one of the `global` , `us` , or `eu` endpoints in the model's resource name (for example, `projects/{project}/locations/us/publishers/google/models/gemini-embedding-2` ). Memory Bank does not support using regional locations (for example, `us-central1` ) for `gemini-embedding-2` .
+
+For details, see [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) .
+
+Feature
+
+**Memory Bank IngestEvents is generally available (GA)**
+
+The Memory Bank `IngestEvents` API is generally available. The `IngestEvents` API decouples event ingestion from memory generation, letting you continuously stream content to Memory Bank and configure when memory generation is triggered.
+
+This GA release includes the following features:
+
+  - **Carry over context between generation windows:** Use the `overlap_event_count` parameter to re-include already-processed events at the start of the next window to keep memories coherent.
+  - **Configure memory revisions for ingested events:** Use `revision_labels` , `revision_ttl` , or `disable_memory_revisions` to customize how generated revisions are managed.
+  - **Attach metadata to memories:** Use the `metadata` and `metadata_merge_strategy` configuration parameters to store structured information alongside generated memories.
+
+For details, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
+
 ## July 06, 2026
 
 Feature

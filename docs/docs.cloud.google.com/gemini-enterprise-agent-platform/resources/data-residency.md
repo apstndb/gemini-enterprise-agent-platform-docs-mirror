@@ -73,27 +73,27 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>US multi-region</th>
 <th>EU multi-region</th>
 <th>Brazil<br />
-)southamerica-east1)</th>
+(southamerica-east1)</th>
 <th>Canada<br />
-)northamerica-northeast1)</th>
+(northamerica-northeast1)</th>
 <th>France<br />
-)europe-west9)</th>
+(europe-west9)</th>
 <th>Germany<br />
-)europe-west3)</th>
+(europe-west3)</th>
 <th>Netherlands<br />
-)europe-west4)</th>
+(europe-west4)</th>
 <th>United Kingdom<br />
-)europe-west2)</th>
+(europe-west2)</th>
 <th>Australia<br />
-)australia-southeast1)</th>
+(australia-southeast1)</th>
 <th>India<br />
-)asia-south1)</th>
+(asia-south1)</th>
 <th>Japan<br />
-)asia-northeast1)</th>
+(asia-northeast1)</th>
 <th>Singapore<br />
-)asia-southeast1)</th>
+(asia-southeast1)</th>
 <th>South Korea<br />
-)asia-northeast3)</th>
+(asia-northeast3)</th>
 </tr>
 </thead>
 <tbody>
@@ -490,13 +490,13 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>US multi-region</th>
 <th>EU multi-region</th>
 <th>Belgium<br />
-)europe-west1)</th>
+(europe-west1)</th>
 <th>Netherlands<br />
-)europe-west4)</th>
+(europe-west4)</th>
 <th>Singapore<br />
-)asia-southeast1)</th>
+(asia-southeast1)</th>
 <th>Taiwan<br />
-)asia-east1)</th>
+(asia-east1)</th>
 <th>Global</th>
 </tr>
 </thead>
@@ -730,7 +730,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>US multi-region</th>
 <th>EU multi-region</th>
 <th>Singapore<br />
-)asia-southeast1)</th>
+(asia-southeast1)</th>
 <th>Global</th>
 </tr>
 </thead>

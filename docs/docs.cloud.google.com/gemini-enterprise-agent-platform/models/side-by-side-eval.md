@@ -95,16 +95,17 @@ If any of the models don't have pre-generated predictions, AutoSxS uses Gemini E
 
 In AutoSxS, you can provide a single column in the evaluation dataset as a prompt parameter.
 
-    {'some_parameter': {'column':'my_column'}}
+    {'some_parameter': {'column': 'my_column'}}
 
 Alternatively, you can define templates, using columns from the evaluation dataset as variables, to specify prompt parameters:
 
-    {'some_parameter': {'template': 'Summarize the following: .'}}
+    {'some_parameter': {'template': 'Summarize the following: {{ my_column }}.'}}
 
 When providing model prompt parameters for inference, users can use the protected `default_instruction` keyword as a template argument, which is replaced with the default inference instruction for the given task:
 
     model_prompt_parameters = {
-            'prompt': {'template': '{{ default_instruction }}: '},}
+            'prompt': {'template': '{{ default_instruction }}: {{ context }}'},
+    }
 
 If generating predictions, provide model prompt parameters and an output column. See the following examples:
 
@@ -116,7 +117,8 @@ For Gemini models, the keys for model prompt parameters are `contents` (required
         'contents': {
             'column': 'context'
         },
-        'system_instruction': {'template':''},},
+        'system_instruction': {'template': '{{ default_instruction }}'},
+    },
 
 ### `text-bison`
 
@@ -131,12 +133,12 @@ For example, [`text-bison` uses "prompt" for input and "content" for output](htt
     model_a_prompt_parameters={
         'prompt': {
             'template': {
-                'Answer the following question from the point of view of a college professor: {{ context }}\n'
+                'Answer the following question from the point of view of a college professor: {{ context }}\n{{ question }}'
             },
         },
     },
     response_column_a='content',  # Column in Model A response.
-    response_column_b='model_b_response',# Column in eval dataset.
+    response_column_b='model_b_response',  # Column in eval dataset.
 
 #### Evaluation
 
@@ -155,10 +157,12 @@ Sample code using the parameters:
 
     autorater_prompt_parameters={
         'inference_instruction': {
-            'template': 'Answer the following question from the point of view of a college professor: .'
+            'template': 'Answer the following question from the point of view of a college professor: {{ question }}.'
         },
         'inference_context': {
-        'column':'context'}}
+            'column': 'context'
+        }
+    }
 
 Models A and B can have inference instructions and context that are formatted differently, whether or not the same information is provided. This means that the autorater takes a separate but single inference instruction and context.
 
@@ -185,7 +189,11 @@ This section provides an example of a question-answer task evaluation dataset, i
       "model_b_response": "Francis Ford Coppola directed The Godfather."
     }
     {
-      "id";: 4,  "question": "Who directed The Godfather?",  "context": "Mario Puzo and Francis Ford Coppola co-wrote the screenplay for The Godfather, and the latter directed it as well.",  "model_b_response": "John Smith."}
+      "id": 4,
+      "question": "Who directed The Godfather?",
+      "context": "Mario Puzo and Francis Ford Coppola co-wrote the screenplay for The Godfather, and the latter directed it as well.",
+      "model_b_response": "John Smith."
+    }
 
 ### Best practices
 
@@ -344,18 +352,23 @@ Request JSON body
     "displayName": "PIPELINEJOB_DISPLAYNAME",
     "runtimeConfig": {
         "gcsOutputDirectory": "gs://OUTPUT_DIR",
-        "parameterValues&quot;: {
+        "parameterValues": {
             "evaluation_dataset": "EVALUATION_DATASET",
-            "id_columns";: ["ID_COLUMNS"],
-            "task": &quot;TASK",
+            "id_columns": ["ID_COLUMNS"],
+            "task": "TASK",
             "autorater_prompt_parameters": AUTORATER_PROMPT_PARAMETERS,
             "response_column_a": "RESPONSE_COLUMN_A",
-            "response_column_b&quot;: "RESPONSE_COLUMN_B",
+            "response_column_b": "RESPONSE_COLUMN_B",
             "model_a": "MODEL_A",
-            &quot;model_a_prompt_parameters": MODEL_A_PROMPT_PARAMETERS,
+            "model_a_prompt_parameters": MODEL_A_PROMPT_PARAMETERS,
             "model_b": "MODEL_B",
             "model_b_prompt_parameters": MODEL_B_PROMPT_PARAMETERS,
-            "judgments_format": "JUDGMENTS_FORMAT",            "bigquery_destination_prefix":BIGQUERY_DESTINATION_PREFIX,        },    },    "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/autosxs-template/default"  }
+            "judgments_format": "JUDGMENTS_FORMAT",
+            "bigquery_destination_prefix":BIGQUERY_DESTINATION_PREFIX,
+        },
+    },
+    "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/autosxs-template/default"
+  }
 ```
 
 Use `curl` to send your request.
@@ -383,7 +396,7 @@ Response
       "task": "question_answering",
       "autorater_prompt_parameters": {
         "inference_instruction": {
-          "template": "Answer the following question:  }."
+          "template": "Answer the following question: {{ question }} }."
         },
         "inference_context": {
           "column": "context"
@@ -392,12 +405,21 @@ Response
       "response_column_a": "",
       "response_column_b": "response_b",
       "model_a": "publishers/google/models/text-bison@002",
-      "model_a_prompt_parameters&quodeveloper.gserviceaccount.comt;: {
+      "model_a_prompt_parameters": {
         "prompt": {
-          "template": "Answer the following question from the point of view of a college professor: \n }"
+          "template": "Answer the following question from the point of view of a college professor: {{ question }}\n{{ context }} }"
         }
       },
-      "model_b": "",      "model_b_prompt_parameters": {}    }  },  "serviceAccount": "123456789012-compute@",  "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/autosxs-template/default",  "templateMetadata": {    "version": "sha256:7366b784205551ed28f2c076e841c0dbeec4111b6df16743fc5605daa2da8f8a"  }}
+      "model_b": "",
+      "model_b_prompt_parameters": {}
+    }
+  },
+  "serviceAccount": "123456789012-compute@developer.gserviceaccount.com",
+  "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/autosxs-template/default",
+  "templateMetadata": {
+    "version": "sha256:7366b784205551ed28f2c076e841c0dbeec4111b6df16743fc5605daa2da8f8a"
+  }
+}
 ```
 
 ### Agent Platform SDK for Python
@@ -431,23 +453,27 @@ Before using any of the request data, make the following replacements:
     from google.cloud import aiplatform
     parameters = {
         'evaluation_dataset': 'EVALUATION_DATASET',
-        'id_columns': [';ID_COLUMNS'],
-        'task': 9;TASK',
+        'id_columns': ['ID_COLUMNS'],
+        'task': 'TASK',
         'autorater_prompt_parameters': AUTORATER_PROMPT_PARAMETERS,
-        'response_column_a': 'RESPONSE_COLUMN_A';,
-        'response_column_b': 'RESPONSE_COLUMN_B9;,
+        'response_column_a': 'RESPONSE_COLUMN_A',
+        'response_column_b': 'RESPONSE_COLUMN_B',
         'model_a': 'MODEL_A',
         'model_a_prompt_parameters': MODEL_A_PROMPT_PARAMETERS,
         'model_b': 'MODEL_B',
         'model_b_prompt_parameters': MODEL_B_PROMPT_PARAMETERS,
-        'judgments_format&#39;: &#39;JUDGMENTS_FORMAT',
-        ';bigquery_destination_prefix':
+        'judgments_format': 'JUDGMENTS_FORMAT',
+        'bigquery_destination_prefix':
         BIGQUERY_DESTINATION_PREFIX,
     }
     aiplatform.init(project='PROJECT_ID', location='LOCATION', staging_bucket='gs://OUTPUT_DIR')
     aiplatform.PipelineJob(
         display_name='PIPELINEJOB_DISPLAYNAME',
-        pipeline_root=os.path.join('gs://OUTPUT_DIR','PIPELINEJOB_DISPLAYNAME'),template_path=('https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/autosxs-template/default'),parameter_values=parameters,).run()
+        pipeline_root=os.path.join('gs://OUTPUT_DIR', 'PIPELINEJOB_DISPLAYNAME'),
+        template_path=(
+          'https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/autosxs-template/default'),
+        parameter_values=parameters,
+    ).run()
 
 ### Console
 
@@ -665,9 +691,12 @@ This code sample evaluates a tuned model from [Vertex Model Registry](https://co
           'inference_context': {'column': 'my_context'},
       },
         'model_a': 'publishers/google/models/text-bison@002',
-        'model_a_prompt_parameters': {QUESTION: {'template': '\nCONTEXT: '}},
+        'model_a_prompt_parameters': {QUESTION: {'template': '{{my_question}}\nCONTEXT: {{my_context}}'}},
       'response_column_a': 'content',
-        'model_b': 'projects/abc/locations/abc/models/tuned_bison','model_b_prompt_parameters':{'prompt':{'template':'\n'}},'response_column_b':'content',}
+        'model_b': 'projects/abc/locations/abc/models/tuned_bison',
+        'model_b_prompt_parameters': {'prompt': {'template': '{{my_context}}\n{{my_question}}'}},
+      'response_column_b': 'content',
+    }
 
 ### Compare predictions
 
@@ -690,7 +719,11 @@ This code sample evaluates a tuned 3p model against a reference 3p model.
         'task': 'question_answering',
         'autorater_prompt_parameters':
             'inference_instruction': {'column': 'my_question'},
-            'inference_context': {'column': 'my_context'},},'response_column_a':'content','response_column_b':'response_b',}
+            'inference_context': {'column': 'my_context'},
+        },
+        'response_column_a': 'content',
+        'response_column_b': 'response_b',
+    }
 
 ### Check alignment
 
@@ -716,7 +749,10 @@ This code sample verifies that the autorater's results and explanations align wi
           'inference_instruction': {'column': 'my_question'},
           'inference_context': {'column': 'my_context'},
       },
-      'response_column_a':'response_a','response_column_b':'response_b','human_preference_column':'actual',}
+      'response_column_a': 'response_a',
+      'response_column_b': 'response_b',
+      'human_preference_column': 'actual',
+    }
 
 ## What's next
 

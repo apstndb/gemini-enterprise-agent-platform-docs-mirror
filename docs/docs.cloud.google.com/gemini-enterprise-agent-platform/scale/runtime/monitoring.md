@@ -25,6 +25,12 @@ The following agent metrics are supported and associated with the Agent Runtime 
 
 Refer to the [full list of AI Platform metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b#gcp-aiplatform) for more details about metric types, units, labels, as well as latency and sampling period.
 
+#### ADK Telemetry Metrics
+
+For Agent Development Kit (ADK) based agents with version \>= 2.4.0, `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY` enables additional built-in metrics, in line with OpenTelemetry's [generative AI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-metrics.md) .
+
+These metrics are exported to [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs) as user-defined metrics under the project in [Set up your Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#project) . The env var also enables traces and logs (see [Write traces for an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing#write-traces) ).
+
 ## View metrics for an agent
 
 You can view your agent built-in metrics in the Google Cloud console using the [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) :

@@ -149,73 +149,28 @@ Supported regions
 
 Model availability
 
-Global
-
-  - global
-
-Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
-
-  - us
-  - eu
-
-Europe
-
-  - europe-west2
-
-Asia Pacific
-
-  - asia-northeast1
-  - asia-south1
-  - asia-southeast1
+  - **Global** : global
+  - **Multi-region** : us, eu
+  - **Europe** : europe-west2
+  - **Asia Pacific** : asia-northeast1, asia-south1, asia-southeast1
 
 ML processing
 
-Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
-
-  - us
-  - eu
-
-Europe
-
-  - europe-west2
-
-Asia Pacific
-
-  - asia-northeast1
-  - asia-south1
-  - asia-southeast1
+  - **Multi-region** : us, eu
+  - **Europe** : europe-west2
+  - **Asia Pacific** : asia-northeast1, asia-south1, asia-southeast1
 
 Provisioned throughput
 
-Global
-
-  - global
-
-Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
-
-  - us
-  - eu
-
-Europe
-
-  - europe-west2
-
-Asia Pacific
-
-  - asia-northeast1
-  - asia-south1
-  - asia-southeast1
+  - **Global** : global
+  - **Multi-region** : us, eu
+  - **Europe** : europe-west2
+  - **Asia Pacific** : asia-northeast1, asia-south1, asia-southeast1
 
 Standard pay-as-you-go
 
-Global
-
-  - global
-
-Multi-region (See [connection guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#specify-an-endpoint) )
-
-  - us
-  - eu
+  - **Global** : global
+  - **Multi-region** : us, eu
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 

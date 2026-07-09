@@ -288,14 +288,14 @@ The `tool_call_valid` metric describes the model's ability to predict a valid to
 </thead>
 <tbody>
 <tr class="odd">
-<td><code dir="ltr" translate="no">prediction</code></td>
+<td><code dir="ltr" translate="no">response</code></td>
 <td>The candidate model output, which is a JSON serialized string that contains <code dir="ltr" translate="no">content</code> and <code dir="ltr" translate="no">tool_calls</code> keys. The <code dir="ltr" translate="no">content</code> value is the text output from the model. The <code dir="ltr" translate="no">tool_calls</code> value is a JSON serialized string of a list of tool calls. Here is an example:<br />
 <br />
 <code dir="ltr" translate="no">{"content": "", "tool_calls": [{"name": "book_tickets", "arguments": {"movie": "Mission Impossible Dead Reckoning Part 1", "theater":"Regal Edwards 14", "location": "Mountain View CA", "showtime": "7:30", "date": "2024-03-30","num_tix": "2"}}]}</code></td>
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">reference</code></td>
-<td>The ground-truth reference prediction, which follows the same format as <code dir="ltr" translate="no">prediction</code> .</td>
+<td>The ground-truth reference prediction, which follows the same format as <code dir="ltr" translate="no">response</code> .</td>
 </tr>
 </tbody>
 </table>

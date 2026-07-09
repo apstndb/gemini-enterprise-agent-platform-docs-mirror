@@ -94,9 +94,7 @@ Supported regions
 
 Model availability
 
-Global
-
-  - global
+  - **Global** : global
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 
@@ -193,9 +191,7 @@ Supported regions
 
 Model availability
 
-Global
-
-  - global
+  - **Global** : global
 
 See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
 

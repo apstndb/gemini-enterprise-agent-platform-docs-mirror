@@ -708,7 +708,9 @@ Increasing `revisions_per_candidate_count` results in more consistent and corrob
 
 The similarity search configuration controls which embedding model is used by your instance for similarity search. Similarity search is used for identifying which memories should be candidates for [consolidation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories) and for [similarity search-based memory retrieval](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#similarity-search) . If this configuration is not provided, Memory Bank uses `text-embedding-005` as the default model.
 
-If you expect user conversations to be in non-English languages, use a [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) that supports multiple languages, such as `gemini-embedding-001` or `text-multilingual-embedding-002` , to improve retrieval quality.
+If you expect user conversations to be in non-English languages, use a [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) that supports multiple languages, such as `gemini-embedding-2` , `gemini-embedding-001` , or `text-multilingual-embedding-002` , to improve retrieval quality.
+
+> **Note:** If you use `gemini-embedding-2` as the embedding model, you must use one of the following locations in the model's resource name: `global` , `us` , or `eu` . Memory Bank doesn't support using regional locations (for example, `us-central1` ) for `gemini-embedding-2` .
 
 ### Dictionary
 
