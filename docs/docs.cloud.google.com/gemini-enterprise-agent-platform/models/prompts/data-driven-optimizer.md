@@ -764,7 +764,7 @@ Make the following replacements:
     auth.authenticate_user(project_id=PROJECT_ID)
     
     # Set the Service Account
-    SERVICE_ACCOUNT = f"{PROJECT_NUMBER}-comdeveloper.gserviceaccount.compute@"
+    SERVICE_ACCOUNT = f"{PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
     
     # Import Agent Platform SDK and Setup
     import vertexai
@@ -781,7 +781,7 @@ Make the following replacements:
     }
     
     #Start the Agent Platform Prompt Optimizer
-    client = client.prompt_optimizer.optimize(method=vertexai.types.PromptOptimizerMethod.VAPO,config=vapo_config)
+    client = client.prompt_optimizer.optimize(method=vertexai.types.PromptOptimizerMethod.VAPO, config=vapo_config)
 
 To use Gemma model as the target model, make the following changes:
 
@@ -799,7 +799,9 @@ To use Gemma model as the target model, make the following changes:
     logging.basicConfig(encoding='utf-8', level=logging.INFO, force=True)
     
     client.prompt_optimizer.optimize(
-        method=vertexai.types.PromptOptimizerMethod.OPTIMIZATION_TARGET_GEMINI_NANO,config=nano_config)
+        method=vertexai.types.PromptOptimizerMethod.OPTIMIZATION_TARGET_GEMINI_NANO,
+        config=nano_config
+    )
 
 Once the optimization completes, examine the output artifacts at the output location specified in the config.
 

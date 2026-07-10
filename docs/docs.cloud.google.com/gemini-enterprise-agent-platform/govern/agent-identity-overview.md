@@ -100,6 +100,8 @@ Because the agent itself is the principal, you grant permissions directly to thi
 
 Agent credentials provide cryptographic proof of an agent's identity. The system supports X.509 certificates and Google Cloud access tokens. An X.509 certificate is auto-provisioned and managed on the agent to help support stronger authentication.
 
+By default, agent identities use mutual TLS (mTLS) with X.509 certificates when communicating directly with Google Cloud APIs. When agents interact across the Agent Gateway, they also use Demonstrating Proof of Possession (DPoP), creating double-bound credentials for end-to-end security. This double binding means that agents authenticate using mTLS for first-party access to the gateway and use DPoP for interactions beyond the gateway.
+
 ### Agent Identity auth manager
 
 > **Preview**
@@ -118,7 +120,7 @@ For more information, see the [Agent Identity auth manager overview](https://doc
 
 Agent Identity is fully integrated with Google's policy systems like IAM, Principal Access Boundary (PAB), and VPC Service Controls, which allow for enhanced security and governance. It also integrates with audit logging to ensure accountability and provide clear audit logs both when the agent is acting as itself and when it is acting on behalf of an end user.
 
-  - **Context-Aware Access:** By default, a Google-managed Context-Aware Access policy helps to secure Agent Identity credentials. Beyond the Agent Gateway, the policy enforces Demonstrating Proof of Possession (DPoP) by authenticating the agent's access token. The policy also enforces that mTLS is used to access the Agent Gateway. This ensures that certificate-bound tokens can only be used from their intended, trusted runtime environment.
+  - **Context-Aware Access:** By default, a Google-managed Context-Aware Access policy helps secure [agent credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-credentials) by enforcing mTLS and DPoP token binding. This approach ensures that certificate-bound tokens cannot be replayed outside their trusted runtime environment.
   - **IAM integration:** Support for standard IAM allow policies and deny policies.
   - **Principal Access Boundary (PAB):** A PAB limits the resources an agent can access, regardless of other permissions.
   - **VPC Service Controls:** Support for using agent identities ( [Preview](https://cloud.google.com/products#product-launch-stages) ) in [ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules) to allow access to resources protected by a service perimeter.

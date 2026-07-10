@@ -10,7 +10,27 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 09, 2026
+
+Feature
+
+**Retirement for preview models for 2.5 Flash, 2.5 Flash-Lite, and 3.1 Flash-Lite**
+
+The following preview model endpoints have been retired and are no longer accessible:
+
+  - `gemini-2.5-flash-lite-preview-09-2025`
+  - `gemini-2.5-flash-preview-05-2025`
+  - `gemini-3.1-flash-lite-preview`
+
+See [Migrate to the latest Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) for information on how to migrate your project.
+
 ## July 08, 2026
+
+Deprecated
+
+**Grok 4.1 models deprecation**
+
+The Grok 4.1 model family (including `xai/grok-4.1-fast-reasoning` and `xai/grok-4.1-fast-non-reasoning` ) on the Gemini Enterprise Agent Platform is deprecated and will be shut down on August 20, 2026. After this date, Google Agent Platform Model as a Service (MaaS) will no longer serve these models. Specifically, API requests directed to the `https://aiplatform.googleapis.com/v1/projects/<your-project>/locations/global/endpoints/openapi/chat/completions` endpoint using the Grok 4.1 model IDs will fail and return a `400` error. To maintain service, migrate your applications to newer xAI models (such as Grok 4.2 or Grok 4.3) or choose an alternative model from the Google Cloud Model Garden.
 
 Feature
 
@@ -50,7 +70,7 @@ Designed to decipher the functional regulatory code of the human genome, AlphaGe
 
 Feature
 
-### Provisioned Throughput: Multiple pending new orders GA
+**Provisioned Throughput: Multiple pending new orders GA**
 
 The ability to submit multiple pending orders is generally available. you can submit up to seven Google model orders for the same model and region. See [Multiple pending orders](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#multiple) .
 

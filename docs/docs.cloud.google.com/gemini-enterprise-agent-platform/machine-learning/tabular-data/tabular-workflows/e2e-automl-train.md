@@ -16,15 +16,15 @@ This page shows you how to train a classification or regression model from a tab
 
 Before you train a model, complete the following:
 
-  - [Prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data)
+  - [Prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data)
 
-  - [Create an Agent Platform dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/create-dataset) .
+  - [Create an Agent Platform dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset) .
 
   - Enable the following APIs: Agent Platform, Dataflow, Compute Engine, Cloud Storage.
 
   - Ensure that your project's service accounts have the [necessary roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts) assigned to them. To view the service accounts and their associated roles, go to the **IAM** page and check the "Include Google-provided role grants" checkbox.
 
-If you receive an error related to quotas while running Tabular Workflow for End-to-End AutoML, you might need to request a higher quota. To learn more, see [Manage quotas for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/tabular-workflows/quotas) .
+If you receive an error related to quotas while running Tabular Workflow for End-to-End AutoML, you might need to request a higher quota. To learn more, see [Manage quotas for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/quotas) .
 
 ## Get the URI of the previous hyperparameter tuning result
 
@@ -105,14 +105,14 @@ To train a model by using the Google Cloud console, perform the following steps:
 6.  In the **Training method** page, configure as follows:
     
     1.  Select the name of the dataset you want to use to train your model.
-    2.  Select your target column. The target column is the value that the model will predict. Learn more about [target column requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data#data-structure) .
+    2.  Select your target column. The target column is the value that the model will predict. Learn more about [target column requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#data-structure) .
     3.  Enter the display name for your new model.
     4.  **Optional** : To choose how to split the data between training, test, and validation sets, open the **Advanced options** . You can choose between the following data split options:
           - **Random** (Default): Agent Platform randomly selects the rows associated with each of the data sets. By default, Agent Platform selects 80% of your data rows for the training set, 10% for the validation set, and 10% for the test set. Set the percentage of data rows that you want to be associated with each of the data sets.
           - **Manual** : Agent Platform selects data rows for each of the data sets based on the values in a data split column. Provide the name of the data split column.
           - **Chronological** : Agent Platform splits data based on the timestamp in a time column. Provide the name of the time column. You can also set the percentage of data rows that you want to be associated with the training set, the validation set, and the test set.
           - **Stratified** : Agent Platform randomly selects the rows associated with each of the data sets, but preserves the distribution of target column values. Provide the name of the target column. You can also set the percentage of data rows that you want to be associated with the training set, the validation set, and the test set.
-        Learn more about [data splits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data#split) .
+        Learn more about [data splits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#split) .
     5.  **Optional:** You can run the pipeline without the architecture search. If you choose **Skip architecture search** , you will be prompted to provide a set of hyperparameters from a previous pipeline run in the **Training options** page.
     6.  Click **Continue** .
 
@@ -124,9 +124,9 @@ To train a model by using the Google Cloud console, perform the following steps:
     
     3.  Review the transformations selected for your included features, along with whether invalid data is allowed, and make any required updates. Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#transformations) and [invalid data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) .
     
-    4.  If you chose to skip the architecture search in the **Training method** page, provide the path to the [hyperparameter tuning result](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/tabular-workflows/e2e-automl-train#previous-result) from a previous pipeline run.
+    4.  If you chose to skip the architecture search in the **Training method** page, provide the path to the [hyperparameter tuning result](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train#previous-result) from a previous pipeline run.
     
-    5.  **Optional:** If you want to specify the weight column, open the **Advanced options** and make your selection. Learn more about [weight columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data#weight) .
+    5.  **Optional:** If you want to specify the weight column, open the **Advanced options** and make your selection. Learn more about [weight columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#weight) .
     
     6.  **Optional:** If you want to change your optimization objective from the default, open the **Advanced options** and make your selection. Learn more about [optimization objectives](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train#optimization-objectives) .
     
@@ -149,7 +149,7 @@ To train a model by using the Google Cloud console, perform the following steps:
 
 8.  In the **Compute and pricing** page, configure as follows:
     
-    1.  Enter the maximum number of hours you want your model to train for. Learn more about [pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/tabular-workflows/pricing) .
+    1.  Enter the maximum number of hours you want your model to train for. Learn more about [pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
     2.  **Optional:** In the **Compute Settings** section, you can configure the machine types and the number of machines for each stage of the workflow. This option is a good choice if you have a large dataset and want to optimize the machine hardware accordingly.
 
 9.  Click **Submit** .
@@ -244,7 +244,7 @@ The following `get_automl_tabular_pipeline_and_parameters` parameter lets you cr
 
 **Skip architecture search**
 
-The following `get_automl_tabular_pipeline_and_parameters` parameter lets you run the pipeline without the architecture search and provide a set of [hyperparameters from a previous pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/tabular-workflows/e2e-automl-train#previous-result) instead.
+The following `get_automl_tabular_pipeline_and_parameters` parameter lets you run the pipeline without the architecture search and provide a set of [hyperparameters from a previous pipeline run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train#previous-result) instead.
 
 | Parameter name                       | Type   | Definition                                                                       |
 | ------------------------------------ | ------ | -------------------------------------------------------------------------------- |
@@ -276,4 +276,4 @@ Regression models are best for:
 
   - Learn about [online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) for classification and regression models.
   - Learn about [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) for classification and regression models.
-  - Learn about [pricing for model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#tabular-data) .

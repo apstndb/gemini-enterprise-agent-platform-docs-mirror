@@ -22,7 +22,7 @@ For sample code that shows you how to use [`AutoMLForecastingTrainingJob`](https
 
 ### [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob)
 
-The [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob) class represents a job that creates, trains, and returns an `AutoML` tabular model. For more information about training tabular models and Gemini Enterprise Agent Platform, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview#tabular_data) and [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/overview) .
+The [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob) class represents a job that creates, trains, and returns an `AutoML` tabular model. For more information about training tabular models and Gemini Enterprise Agent Platform, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview#tabular_data) and [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) .
 
 The following sample code snippet shows how you might use the Vertex AI SDK to create and run an `AutoML` tabular model:
 

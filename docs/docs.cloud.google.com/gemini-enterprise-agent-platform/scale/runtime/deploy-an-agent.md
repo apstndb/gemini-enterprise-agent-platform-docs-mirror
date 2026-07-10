@@ -796,6 +796,13 @@ The schema for each operation is a dictionary that documents the information of 
 
 If the deployed agent needs to be granted any additional permissions, follow the instructions in [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) .
 
+## Optional: Deploy agents with enterprise infrastructure
+
+To deploy your agent with a complete environment that includes security and governance layers, copy and customize the following Application Design Center templates:
+
+  - [Simple Agent Platform](https://docs.cloud.google.com/application-design-center/docs/simple-agent-platform) .
+  - [Agent Platform with governance](https://docs.cloud.google.com/application-design-center/docs/agent-platform-with-governance) .
+
 ## What's next
 
 Guide

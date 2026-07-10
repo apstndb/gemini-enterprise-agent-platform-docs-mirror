@@ -120,20 +120,6 @@ movie [Veo 3.1 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 movie [Veo 3.1 Lite preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001) Generates videos from text prompts and images with high quality and low cost.
 
-movie [Veo 3 Generate preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) Generates videos from text prompts and images with high quality.
-
-movie [Veo 3 Fast preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) Generates videos from text prompts and images with high quality and low latency.
-
-movie [Veo 3.1 Generate preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) Generates videos from text prompts and images with high quality.
-
-movie [Veo 3.1 Fast preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) Generates videos from text prompts and images with high quality and low latency.
-
-movie [Veo 2 Preview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) Generates videos from text prompts and images, supporting inpaint and outpaint.
-
-## Experimental Veo models
-
-movie [Veo 2 Experimental](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) An experimental model with features under test.
-
 ## Lyria models
 
 music\_note\_spark [Lyria 3 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3#lyria-3-pro-preview) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) Generates full-length music tracks from text and image prompts.

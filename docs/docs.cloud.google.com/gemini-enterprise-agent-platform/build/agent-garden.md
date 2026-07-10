@@ -45,9 +45,9 @@ This method is the standard and most direct path for deploying agents from the A
 
 #### Deploy E2E implementation with Application Design Center
 
-This option is for full-scale, enterprise-grade deployment. It uses the Application Design Center (ADC), which provides a low-code visual 'ClickOps' configuration experience. ADC uses an Agent Cloud Terraform template for deployment.
+This option is for full-scale, enterprise-grade deployment. It uses App Design Center, which provides a low-code visual 'ClickOps' configuration experience. You can copy and customize Google-provided templates, such as [Simple Agent Platform](https://docs.cloud.google.com/application-design-center/docs/simple-agent-platform) or [Agent Platform with governance](https://docs.cloud.google.com/application-design-center/docs/agent-platform-with-governance) . Then use your customized template to standardize the architecture for every agent that you deploy.
 
-  - **Target environment** : Deploys the agent to Agent Cloud, which is a complex grouping of production-ready infrastructure and configurations.
+  - **Target environment** : Deploys the agent in an application, which is a complex grouping of production-ready infrastructure and configurations.
   - **Use case** : This option provides the entire enterprise deployment stack, offering significant benefits over simpler deployment methods, including the following:
       - Managed post-deployment experience across Day 0, 1, and 2.
       - Operational dashboards, FinOps cost optimization, and version control.

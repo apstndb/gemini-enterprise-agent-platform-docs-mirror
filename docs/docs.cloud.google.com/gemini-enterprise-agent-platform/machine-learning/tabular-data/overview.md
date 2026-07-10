@@ -106,7 +106,7 @@ For further information, see [Forecasting Overview](https://docs.cloud.google.co
 
 [BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-time-series) is a univariate forecasting model. As a statistical model, it is faster to train than a [model based on neural networks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) . We recommend training a BigQuery ML ARIMA\_PLUS model if you need to perform many quick iterations of model training or if you need an inexpensive baseline to measure other models against.
 
-Like [Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting-prophet) , BigQuery ML ARIMA\_PLUS attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. One of the many differences, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
+Like [Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet) , BigQuery ML ARIMA\_PLUS attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. One of the many differences, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
 
 Google Cloud offers a pipeline for training a BigQuery ML ARIMA\_PLUS model and a pipeline for getting batch inferences from a BigQuery ML ARIMA\_PLUS model. Both pipelines are instances of [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) from [Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/components-introduction) (GCPC).
 
@@ -121,14 +121,14 @@ For further information, see [Forecasting with ARIMA+](https://docs.cloud.google
 
 Prophet is a forecasting model maintained by Meta. See the [Prophet paper](https://peerj.com/preprints/3190/) for algorithm details and the [documentation](https://facebook.github.io/prophet/docs/quick_start.html) for more information about the library.
 
-Like [BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting-arima/overview) , Prophet attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. An important difference, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
+Like [BigQuery ML ARIMA\_PLUS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-arima/overview) , Prophet attempts to decompose each time series into trends, seasons, and holidays, producing a forecast using the aggregation of these models' inferences. An important difference, however, is that BQML ARIMA+ uses ARIMA to model the trend component, while Prophet attempts to fit a curve using a piecewise logistic or linear model.
 
 Google Cloud offers a pipeline for training a Prophet model and a pipeline for getting batch inferences from a Prophet model. Both pipelines are instances of [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) from [Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/components-introduction) (GCPC).
 
 Integration of Prophet with Agent Platform means that you can do the following:
 
-  - Use Agent Platform [data splitting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#split) and [windowing strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/train-model#forecast-window) .
-  - Read data from either BigQuery tables or CSVs stored in Cloud Storage. Agent Platform expects each row to have the same format as [Agent Platform Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data) .
+  - Use Agent Platform [data splitting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#split) and [windowing strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/train-model#forecast-window) .
+  - Read data from either BigQuery tables or CSVs stored in Cloud Storage. Agent Platform expects each row to have the same format as [Agent Platform Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data) .
 
 Although Prophet is a multivariate model, Agent Platform supports only a univariate version of it.
 

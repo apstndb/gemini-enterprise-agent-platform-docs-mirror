@@ -102,8 +102,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Not supported
 
-See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
-
 Technical specifications
 
 **Image** photo
@@ -152,11 +150,9 @@ Technical specifications
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **Global** : global
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+  - Global: `global`
 
 Knowledge cutoff date
 

@@ -73,7 +73,7 @@ Your agents, and any endpoints or servers you want to connect to, must all be re
 
   - For Agent Runtime, you must register with the Agent Registry instance in the same project and region where your agent and gateway are created.
 
-  - For Gemini Enterprise, you must register with the project's global instance of Agent Registry.
+  - For Gemini Enterprise, you must register with the global, multi-region, or regional instance of Agent Registry that corresponds to your deployment. For more information on regions of deployment and sample deployment patterns, see [Select your runtime and region of deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#choose-runtime-region) .
 
 For more details on Agent Registry requirements, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 

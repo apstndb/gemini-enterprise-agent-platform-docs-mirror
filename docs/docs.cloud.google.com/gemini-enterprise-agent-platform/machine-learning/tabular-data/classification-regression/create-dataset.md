@@ -13,7 +13,7 @@ This page shows you how to create a Gemini Enterprise Agent Platform dataset fro
 Before you create an Agent Platform dataset from your tabular data, first prepare your data. For details, see:
 
   - [Prepare tabular training data for classification and regression models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data)
-  - [Best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular) .
+  - [Best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular) .
 
 ## Create an empty dataset and associate your prepared data
 
@@ -594,4 +594,4 @@ Some requests start long-running operations that require time to complete. These
 
 ## What's next
 
-  - [Train a classification or regression model with your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/train-model) .
+  - [Train a classification or regression model with your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model) .

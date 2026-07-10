@@ -67,7 +67,7 @@ Agent Platform lets you perform machine learning with tabular data using straigh
   - **Regression** models predict a continuous value. For example, as a retailer, you might want to build a regression model to predict how much a customer will spend next month.
   - **Forecasting** models predict a sequence of values. For example, as a retailer, you might want to forecast daily demand of your products for the next 3 months so that you can appropriately stock product inventories in advance.
 
-To learn more, see [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/overview) .
+To learn more, see [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) .
 
 If your tabular data is stored in BigQuery ML, you can train an AutoML tabular model directly in BigQuery ML. To learn more, see [AutoML Tabular reference documentation](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-automl) .
 

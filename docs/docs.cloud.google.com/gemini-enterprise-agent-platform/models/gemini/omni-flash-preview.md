@@ -114,8 +114,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
-
 Technical specifications
 
 **Image** photo
@@ -146,24 +144,17 @@ Technical specifications
 
   - Temperature: 0.0-2.0 (default 1.0)
   - topP: 0.0-1.0 (default 0.95)
-  - topK: -
   - candidateCount: 1
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **Global** : global
+  - Global: `global`
 
-Standard pay-as-you-go
+**[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**
 
-  - **Global** : global
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
-
-Knowledge cutoff date
-
-\-
+  - Global: `global`
 
 Versions
 

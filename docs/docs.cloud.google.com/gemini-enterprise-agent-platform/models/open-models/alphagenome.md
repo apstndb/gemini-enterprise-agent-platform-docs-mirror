@@ -14,6 +14,8 @@ data_source: docs.cloud.google.com
 
 This document covers how to deploy and use AlphaGenome, as well as the hardware and deployment requirements for using the model.
 
+> **GA with allowlist:** To access AlphaGenome, complete the [AlphaGenome request form](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/alphagenome-request) .
+
 ## Hardware and deployment requirements
 
 Because of AlphaGenome's deep architecture and 1 MB context window, the model has strict hardware and memory requirements. This section covers:

@@ -78,7 +78,10 @@ Agent traffic is managed by the [Agent Gateway](https://docs.cloud.google.com/ge
 
 #### Application Design Center
 
-[Application Design Center](https://docs.cloud.google.com/application-design-center/docs/overview) helps you design and provision secure infrastructure templates for AI applications. It ensures that dependent services—such as the Agent Gateway, Model Armor security policies, and IAM configurations—are correctly instantiated within your environment. Application Design Center simplifies ensuring governance policies are enforced from the moment an agent is deployed.
+[App Design Center](https://docs.cloud.google.com/application-design-center/docs/overview) helps you design and provision secure infrastructure templates for AI applications. It ensures that dependent services—such as the Agent Gateway, Model Armor security policies, and IAM configurations—are correctly instantiated within your environment. App Design Center simplifies ensuring governance policies are enforced from the moment an agent is deployed. You can copy and customize the following Google-provided templates:
+
+  - [Simple Agent Platform](https://docs.cloud.google.com/application-design-center/docs/simple-agent-platform) .
+  - [Agent Platform with governance](https://docs.cloud.google.com/application-design-center/docs/agent-platform-with-governance) .
 
 ### Optimize
 

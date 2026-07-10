@@ -41,11 +41,11 @@ Before you train a forecast model, complete the following:
     
     2.  Select your target column.
         
-        The target column is the value that the model will forecast. Learn more about [target column requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#data-structure) .
+        The target column is the value that the model will forecast. Learn more about [target column requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#data-structure) .
     
-    3.  If you did not set your [**Series identifier** and **Timestamp** columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#data-structure) on your dataset, select them now.
+    3.  If you did not set your [**Series identifier** and **Timestamp** columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#data-structure) on your dataset, select them now.
     
-    4.  Select your **Data granularity** . Select `Daily` if you would like to use holiday effect modeling. [Learn how to choose the data granularity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#granularity) .
+    4.  Select your **Data granularity** . Select `Daily` if you would like to use holiday effect modeling. [Learn how to choose the data granularity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#granularity) .
     
     5.  **Optional** : In the **Holiday regions** dropdown, choose one or more geographical regions to enable holiday effect modeling. During training, Agent Platform creates holiday categorical features within the model based on the date from the **Timestamp** column and the specified geographical regions. You can select this option only when **Data granularity** is set to `Daily` . By default, holiday effect modeling is disabled. To learn about the geographical regions used for holiday effect modeling, see [Holiday regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#holiday-regions) .
     
@@ -63,7 +63,7 @@ Before you train a forecast model, complete the following:
     
     9.  The default data split is chronological, with the standard 80/10/10 percentages. If you would like to manually specify which rows are assigned to which split, select **Manual** and specify your Data split column.
         
-        Learn more about [data splits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) .
+        Learn more about [data splits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
     
     10. Select a rolling window strategy for forecast window generation. The default strategy is **Count** .
         
@@ -93,7 +93,7 @@ Before you train a forecast model, complete the following:
     
     5.  If you want to specify a weight column, change your optimization objective from the default, or enable hierarchical forecasting, open **Advanced options** .
     
-    6.  **Optional** . If you want to specify a weight column, select it from the dropdown list. Learn more about [weight columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#weight) .
+    6.  **Optional** . If you want to specify a weight column, select it from the dropdown list. Learn more about [weight columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#weight) .
     
     7.  **Optional** . If you want to select the optimization objective, select it from the list. Learn more [optimization objectives](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#optimization-objectives) .
     
@@ -109,7 +109,7 @@ Before you train a forecast model, complete the following:
           - `Temporal total weight` .
           - `Group temporal total weight` . This field can be set only if you select the `Group by columns` or the `Group all` option.
         
-        Learn more about [hierarchical forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/hierarchical) .
+        Learn more about [hierarchical forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
     
     9.  Click **Continue** .
 
@@ -160,12 +160,12 @@ Before using any of the request data, make the following replacements:
         `gs://google-cloud-aiplatform/schema/trainingjob/definition/seq2seq_plus_time_series_forecasting_1.0.0.yaml`
     To learn more, see [Model training methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#training-methods) .
   - TARGET\_COLUMN : The column (value) you want this model to predict.
-  - TIME\_COLUMN : The time column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#data-structure) .
-  - TIME\_SERIES\_IDENTIFIER\_COLUMN : The time series identifier column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#data-structure) .
-  - WEIGHT\_COLUMN : (Optional) The weight column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#weight) .
+  - TIME\_COLUMN : The time column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#data-structure) .
+  - TIME\_SERIES\_IDENTIFIER\_COLUMN : The time series identifier column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#data-structure) .
+  - WEIGHT\_COLUMN : (Optional) The weight column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#weight) .
   - TRAINING\_BUDGET : The maximum amount of time you want the model to train, in milli node hours (1,000 milli node hours equals one node hour).
-  - GRANULARITY\_UNIT : The unit to use for the granularity of your training data and your forecast horizon and context window. Can be `minute` , `hour` , `day` , `week` , `month` , or `year` . Select `day` if you would like to use holiday effect modeling. [Learn how to choose the data granularity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#granularity) .
-  - GRANULARITY\_QUANTITY : The number of granularity units that make up the interval between observations in your training data. Must be one for all units except minutes, which can be 1, 5, 10, 15, or 30. [Learn how to choose the data granularity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#granularity) .
+  - GRANULARITY\_UNIT : The unit to use for the granularity of your training data and your forecast horizon and context window. Can be `minute` , `hour` , `day` , `week` , `month` , or `year` . Select `day` if you would like to use holiday effect modeling. [Learn how to choose the data granularity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#granularity) .
+  - GRANULARITY\_QUANTITY : The number of granularity units that make up the interval between observations in your training data. Must be one for all units except minutes, which can be 1, 5, 10, 15, or 30. [Learn how to choose the data granularity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#granularity) .
   - GROUP\_COLUMNS : Column names in your training input table that identify the grouping for the hierarchy level. The column(s) must be \`time\_series\_attribute\_columns\`. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
   - GROUP\_TOTAL\_WEIGHT : Weight of the group aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. If the group column is not set, all time series will be treated as part of the same group and is aggregated over all time series. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
   - TEMPORAL\_TOTAL\_WEIGHT : Weight of the time aggregated loss relative to the individual loss. Disabled if set to \`0.0\` or is not set. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/hierarchical) .
@@ -361,7 +361,7 @@ DATA\_SPLIT\_COLUMN is the column containing the data split values ( `TRAIN` , `
       "key": DATA_SPLIT_COLUMN
     },
 
-[Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) about data splits.
+[Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) about data splits.
 
 ## Configure the rolling window strategy using REST
 

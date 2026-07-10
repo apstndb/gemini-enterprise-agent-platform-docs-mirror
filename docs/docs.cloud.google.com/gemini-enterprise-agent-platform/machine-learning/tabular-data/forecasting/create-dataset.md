@@ -58,7 +58,7 @@ When you create a dataset, you also associate it with its data source. The train
     
     Your data source is associated with your dataset.
 
-10. On the **Analyze** tab, specify the **Timestamp** column and the [**Series identifier**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/prepare-data#data-structure) column for this dataset.
+10. On the **Analyze** tab, specify the **Timestamp** column and the [**Series identifier**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/prepare-data#data-structure) column for this dataset.
     
     You can also specify these columns when you train your model, but generally a forecasting dataset has specific Time and Time-series identifier columns, so specifying them in the dataset is a best practice.
 

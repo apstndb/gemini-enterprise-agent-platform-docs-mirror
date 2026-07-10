@@ -535,7 +535,11 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
             // A markdown page for a Paella recipe(`paella-recipe.md`) has been generated.
             // It includes detailed steps and several images illustrating the cooking process.
             //
-            // Content written to:resources/output/paella-recipe.md}}}}
+            // Content written to:  resources/output/paella-recipe.md
+          }
+        }
+      }
+    }
 
 ### Go
 
@@ -564,9 +568,9 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
     // generateMMFlashTxtImgWithText demonstrates how to generate an illustrated recipe
     // combining text and image outputs into a markdown file.
     func generateMMFlashTxtImgWithText(w io.Writer) error {
-        ctx :=& context.Background()
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -580,14 +584,14 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
                     {Text: "Generate an illustrated recipe for a paella. " +
                         "Create images to go alongside the text as you generate the recipe."},
                 },
-    &           Role: genai.RoleUser,
+                Role: genai.RoleUser,
             },
         }
     
         resp, err := client.Models.GenerateContent(ctx,
             modelName,
             contents,
-            genai.GenerateContentConfig{
+            &genai.GenerateContentConfig{
                 ResponseModalities: []string{
                     string(genai.ModalityText),
                     string(genai.ModalityImage),
@@ -629,7 +633,13 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
             }
         }
     
-        fmt.Fprintln(w,mdFile)//Exampleresponse://AmarkdownpageforaPaellarecipe(`paella-recipe.md`)hasbeengenerated.//Itincludesdetailedstepsandseveralimagesillustratingthecookingprocess.returnnil}
+        fmt.Fprintln(w, mdFile)
+    
+        // Example response:
+        //  A markdown page for a Paella recipe (`paella-recipe.md`) has been generated.
+        //  It includes detailed steps and several images illustrating the cooking process.
+        return nil
+    }
 
 ### Node.js
 
@@ -658,9 +668,9 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
       const parts = response.candidates[0].content.parts;
     
       let mdText = '';
-      const outputDir = 'o<utput-folder';
+      const outputDir = 'output-folder';
     
-      for (let i = 0; i  parts.length; i++) {
+      for (let i = 0; i < parts.length; i++) {
         const part = parts[i];
     
         if (part.text) {
@@ -735,9 +745,12 @@ Run the following command in the terminal to create or overwrite this file in th
             "aspectRatio": "16:9",
           },
         },
-        "s>afetySetti>ngs": {
+        "safetySettings": {
           "method": "PROBABILITY",
-          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",      "threshold": "BLOCK_MEDIUM_AND_ABOVE"    },  }' 2/dev/null response.json
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+        },
+      }' 2>/dev/null >response.json
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 

@@ -12,8 +12,8 @@ This page shows you how to train a classification or regression model from a tab
 
 Before you train a model, you must complete the following:
 
-  - [Prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data)
-  - [Create an Agent Platform dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/create-dataset) .
+  - [Prepare your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data)
+  - [Create an Agent Platform dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset) .
 
 ## Train a model
 
@@ -43,7 +43,7 @@ Before you train a model, you must complete the following:
         
         The target column is the value that the model will predict.
         
-        Learn more about [target column requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data#data-structure) .
+        Learn more about [target column requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#data-structure) .
     
     4.  **Optional** : To export your test dataset to BigQuery, check **Export test dataset to BigQuery** and provide the name of the table.
     
@@ -53,7 +53,7 @@ Before you train a model, you must complete the following:
           - **Manual** : Agent Platform selects data rows for each of the data sets based on the values in a data split column. Provide the name of the data split column.
           - **Chronological** : Agent Platform splits data based on the timestamp in a time column. Provide the name of the time column.
         
-        Learn more about [data splits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) .
+        Learn more about [data splits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
     
     6.  Click **Continue** .
     
@@ -67,7 +67,7 @@ Before you train a model, you must complete the following:
     
     10. If you want to specify a weight column, or change your optimization objective from the default, open the **Advanced options** and make your selections.
         
-        Learn more about [weight columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data#weight) and [optimization objectives](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/train-model#optimization-objectives) .
+        Learn more about [weight columns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data#weight) and [optimization objectives](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model#optimization-objectives) .
     
     11. Click **Continue** .
     
@@ -1130,7 +1130,7 @@ The methods you use to split your data depend on your data type:
       - VALIDATION\_FRACTION : The fraction of the training data to use for the validation set.
       - TEST\_FRACTION : The fraction of the training data to use for the test set.
     
-    If you specify any of the fractions, specify all. The fractions must add up to 1.0. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) .
+    If you specify any of the fractions, specify all. The fractions must add up to 1.0. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
     
         "fractionSplit": {
         "trainingFraction": TRAINING_FRACTION,
@@ -1142,7 +1142,7 @@ The methods you use to split your data depend on your data type:
     
       - DATA\_SPLIT\_COLUMN : The column containing the data split values ( `TRAIN` , `VALIDATION` , `TEST` ).
     
-    Manually specify the data split for each row by using a split column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) .
+    Manually specify the data split for each row by using a split column. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
     
         "predefinedSplit": {
           "key": DATA_SPLIT_COLUMN
@@ -1155,7 +1155,7 @@ The methods you use to split your data depend on your data type:
       - TEST\_FRACTION : The percentage of the training data to use for the test set. Defaults to 0.10.
       - TIME\_COLUMN : The column containing the timestamps.
     
-    If you specify any of the fractions, specify all. The fractions must add up to 1.0. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) .
+    If you specify any of the fractions, specify all. The fractions must add up to 1.0. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
     
         "timestampSplit": {
           "trainingFraction": TRAINING_FRACTION,
@@ -1188,5 +1188,5 @@ Regression models are best for:
 
 ## What's next
 
-  - [Evaluate your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/evaluate-model) .
+  - [Evaluate your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) .
   - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .

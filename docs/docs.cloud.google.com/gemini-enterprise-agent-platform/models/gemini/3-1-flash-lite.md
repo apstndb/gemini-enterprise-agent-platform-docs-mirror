@@ -6,8 +6,6 @@ description: Learn about Gemini 3.1 Flash-Lite, our most cost effective model th
 data_source: docs.cloud.google.com
 ---
 
-> **Important:** The preview version of Gemini 3.1 Flash-Lite ( `gemini-3.1-flash-lite-preview` ) will be discontinued on July 9, 2026. Update your application to use `gemini-3.1-flash-lite` instead.
-
 Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic. It provides a significant quality increase over Gemini 2.0 Flash-Lite and Gemini 2.5 Flash-Lite models, matching Gemini 2.5 Flash performance across key capability areas:
 
   - **Improved response quality:** Aims to match 2.5 Flash performance.
@@ -104,8 +102,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Not supported
 
-See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
-
 Technical specifications
 
 **Image** photo
@@ -149,17 +145,15 @@ Technical specifications
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **Global** : global
-  - **Multi-region** : us, eu
+  - Global: `global`
+  - Multi-region: `us` , `eu`
 
-ML processing
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency)**
 
-  - **United States** : Multi-region
-  - **Europe** : Multi-region
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+  - United States: `Multi-region`
+  - Europe: `Multi-region`
 
 Knowledge cutoff date
 
@@ -172,12 +166,6 @@ Versions
   - Launch stage: GA
   - Release date: May 7, 2026
   - Retirement date: May 7, 2027 or later
-
-`gemini-3.1-flash-lite-preview`
-
-  - Launch stage: Public preview
-  - Release date: March 3, 2026
-  - Retirement date: July 9, 2026
 
 Security controls
 

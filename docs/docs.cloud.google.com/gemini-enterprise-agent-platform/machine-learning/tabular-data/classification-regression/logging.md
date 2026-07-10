@@ -22,7 +22,7 @@ The following topics are covered:
 
 ## Before you begin
 
-Before you can view the hyperparameter logs for your model, you must [train it](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/train-model) .
+Before you can view the hyperparameter logs for your model, you must [train it](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model) .
 
 To perform this task, you must have the following [permissions](https://docs.cloud.google.com/iam/docs/overview#permissions) :
 
@@ -112,11 +112,11 @@ The hyperparameter data provided in the logs differ for each type of model. The 
 
 Once you're ready to make predictions with your classification or regression model, you have two options:
 
-  - [Make online (real-time) predictions using your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-online-predictions) .
-  - [Get batch predictions directly from your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-batch-predictions) .
+  - [Make online (real-time) predictions using your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) .
+  - [Get batch predictions directly from your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) .
 
 Additionally, you can:
 
-  - [Evaluate your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/evaluate-model) .
+  - [Evaluate your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) .
   - [Review general information about Cloud Logging](https://docs.cloud.google.com/logging/docs) .
   - You can export your logs to BigQuery, Cloud Storage, or Pub/Sub. Read [Route logs to supported destinations](https://docs.cloud.google.com/logging/docs/export/configure_export_v2) in the Logging documentation to learn how to export activity logs.

@@ -85,11 +85,9 @@ Prompt languages
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **Global** : global
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+  - Global: `global`
 
 Versions
 

@@ -362,7 +362,7 @@ In this tutorial, you train a machine learning model custom container image appr
 <td>Cloud Profiler<br />
 </td>
 <td><strong>Profile model training performance using Cloud Profiler</strong> .<br />
-Learn how to enable Cloud Profiler for custom training jobs. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-profiler">Cloud Profiler</a> .
+Learn how to enable Cloud Profiler for custom training jobs. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler">Cloud Profiler</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Setup a service account and a Cloud Storage bucket</li>
@@ -483,7 +483,7 @@ Learn how to use BigQuery as a dataset for training with Gemini Enterprise Agent
 Vertex ML Metadata<br />
 </td>
 <td><strong>Build Gemini Enterprise Agent Platform Experiment lineage for custom training</strong> .<br />
-Learn how to integrate preprocessing code in a Gemini Enterprise Agent Platform experiments. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments">Vertex AI Experiments</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata">Vertex ML Metadata</a> .
+Learn how to integrate preprocessing code in a Gemini Enterprise Agent Platform experiments. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments">Vertex AI Experiments</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction">Vertex ML Metadata</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Execute module for preprocessing data</li>
@@ -578,7 +578,7 @@ Vertex ML Metadata<br />
 Custom training<br />
 </td>
 <td><strong>Get started with Vertex AI Experiments</strong> .<br />
-Learn how to use Vertex AI Experiments when training with Gemini Enterprise Agent Platform. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments">Vertex AI Experiments</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata">Vertex ML Metadata</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview">Custom training</a> .
+Learn how to use Vertex AI Experiments when training with Gemini Enterprise Agent Platform. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments">Vertex AI Experiments</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction">Vertex ML Metadata</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview">Custom training</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Local (notebook) training</li>
@@ -617,199 +617,10 @@ Learn how to use Gemini Enterprise Agent Platform Autologging.
 </td>
 </tr>
 <tr class="even">
-<td>Classification for tabular data<br />
-Vertex Explainable AI<br />
-</td>
-<td><strong>Batch explanation for AutoML tabular binary classification model</strong> .<br />
-Learn to use <code dir="ltr" translate="no">AutoML</code> to create a tabular binary classification model from a Python script, and then learn to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Batch Prediction</code> to make predictions with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview">Classification for tabular data</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a Gemini Enterprise Agent Platform managed dataset resource.</li>
-<li>Train an AutoML tabular binary classification model.</li>
-<li>View the model evaluation metrics for the trained model.</li>
-<li>Make a batch prediction request with explainability.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_automl_tabular_binary_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_automl_tabular_binary_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_automl_tabular_binary_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_automl_tabular_binary_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="odd">
-<td>Classification for tabular data<br />
-Vertex Explainable AI<br />
-</td>
-<td><strong>AutoML training tabular classification model for online explanation</strong> .<br />
-Learn how to use AutoML to create a tabular binary classification model from a Python script. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/overview">Classification for tabular data</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a Gemini Enterprise Agent Platform dataset resource.</li>
-<li>Train an AutoML tabular binary classification model.</li>
-<li>View the model evaluation metrics for the trained model.</li>
-<li>Create a serving endpoint resource.</li>
-<li>Deploy the Model resource to a serving endpoint resource.</li>
-<li>Make an online prediction request with explainability.</li>
-<li>Undeploy the Model resource.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_automl_tabular_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_automl_tabular_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_automl_tabular_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_automl_tabular_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="even">
-<td>Vertex Explainable AI<br />
-Gemini Enterprise Agent Platform Batch Prediction<br />
-</td>
-<td><strong>Custom training image classification model for batch prediction with explainabilty</strong> .<br />
-Learn to use <code dir="ltr" translate="no">Vertex AI Training and Vertex Explainable AI</code> to create a custom image classification model with explanations, and then you learn to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Batch Prediction</code> to make a batch prediction request with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions">Gemini Enterprise Agent Platform Batch Prediction</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a <code dir="ltr" translate="no">Gemini Enterprise Agent Platform</code> custom job for training a TensorFlow model.</li>
-<li>View the model evaluation for the trained model.</li>
-<li>Set explanation parameters for when the model is deployed.</li>
-<li>Upload the trained model artifacts and explanation parameters as a <code dir="ltr" translate="no">Model</code> resource.</li>
-<li>Make a batch prediction with explanations.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_image_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_custom_image_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_image_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_custom_image_classification_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="odd">
-<td>Vertex Explainable AI<br />
-Vertex AI Inference<br />
-</td>
-<td><strong>Custom training image classification model for online prediction with explainability</strong> .<br />
-Learn how to use Gemini Enterprise Agent Platform training and Vertex Explainable AI to create a custom image classification model with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions">Vertex AI Inference</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a Gemini Enterprise Agent Platform custom job for training a TensorFlow model.</li>
-<li>View the model evaluation for the trained model.</li>
-<li>Set explanation parameters for when the model is deployed.</li>
-<li>Upload the trained model artifacts and explanations as a model resource.</li>
-<li>Create a serving endpoint resource.</li>
-<li>Deploy the model resource to a serving endpoint resource.</li>
-<li>Make a prediction with explanation.</li>
-<li>Undeploy the model resource.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_image_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_custom_image_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/notebook_template.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_custom_image_classification_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="even">
-<td>Vertex Explainable AI<br />
-Gemini Enterprise Agent Platform Batch Prediction<br />
-</td>
-<td><strong>Custom training tabular regression model for batch prediction with explainabilty</strong> .<br />
-Learn how to use Gemini Enterprise Agent Platform training and Vertex Explainable AI to create a custom image classification model with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions">Gemini Enterprise Agent Platform Batch Prediction</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a Gemini Enterprise Agent Platform custom job for training a TensorFlow model.</li>
-<li>View the model evaluation for the trained model.</li>
-<li>Set explanation parameters for the model.</li>
-<li>Upload the trained model artifacts as a model resource.</li>
-<li>Make a batch prediction with explanations.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_custom_tabular_regression_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_batch_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="odd">
-<td>Vertex Explainable AI<br />
-Vertex AI Inference<br />
-</td>
-<td><strong>Custom training tabular regression model for online prediction with explainabilty</strong> .<br />
-Learn how to use Gemini Enterprise Agent Platform training and Vertex Explainable AI to create a custom tabular regression model with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions">Vertex AI Inference</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a Gemini Enterprise Agent Platform custom job for training a TensorFlow model.</li>
-<li>View the model evaluation for the trained model.</li>
-<li>Set explanation parameters for when the model is deployed.</li>
-<li>Upload the trained model artifacts and explanations as a model resource.</li>
-<li>Create a serving endpoint resource.</li>
-<li>Deploy the model resource to a serving endpoint resource.</li>
-<li>Make a prediction with explanation.</li>
-<li>Undeploy the model resource.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_custom_tabular_regression_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_online_explain.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="even">
-<td>Vertex Explainable AI<br />
-Vertex AI Inference<br />
-</td>
-<td><strong>Custom training tabular regression model for online prediction with explainabilty using get_metadata</strong> .<br />
-Learn how to create a custom model from a Python script in a Google prebuilt Docker container using the Agent Platform SDK. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions">Vertex AI Inference</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Create a Gemini Enterprise Agent Platform custom job for training a TensorFLow model.</li>
-<li>Train a TensorFlow model.</li>
-<li>Retrieve and load the model artifacts.</li>
-<li>View the model evaluation for the trained model.</li>
-<li>Set explanation parameters.</li>
-<li>Upload the model as a Gemini Enterprise Agent Platform model resource.</li>
-<li>Deploy the Model resource to a serving endpoint resource.</li>
-<li>Make a prediction with explanation.</li>
-<li>Undeploy the Model resource.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_online_explain_get_metadata.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fsdk_custom_tabular_regression_online_explain_get_metadata.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_online_explain_get_metadata.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/sdk_custom_tabular_regression_online_explain_get_metadata.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="odd">
-<td>Vertex Explainable AI<br />
-Vertex AI Inference<br />
-</td>
-<td><strong>Explaining image classification with Vertex Explainable AI</strong> .<br />
-Learn how to configure feature-based explanations on a pre-trained image classification model and make online and batch predictions with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-predictions">Vertex AI Inference</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Download pretrained model from TensorFlow Hub</li>
-<li>Upload model for deployment</li>
-<li>Deploy model for online prediction</li>
-<li>Make online prediction with explanations</li>
-<li>Make batch predictions with explanations</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/xai_image_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2fxai_image_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/xai_image_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/xai_image_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="even">
-<td>Vertex Explainable AI<br />
-</td>
-<td><strong>Explaining text classification with Vertex Explainable AI</strong> .<br />
-Learn how to configure feature-based explanations using the sampled Shapley method on a TensorFlow text classification model for online predictions with explanations. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Build and train a TensorFlow text classification model</li>
-<li>Upload model for deployment</li>
-<li>Deploy model for online prediction</li>
-<li>Make online prediction with explanations</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/xai_text_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fexplainable_ai%2Fxai_text_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/explainable_ai/xai_text_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/explainable_ai/xai_text_classification_feature_attributions.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="odd">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Online feature serving and fetching of BigQuery data with Agent Platform Feature Store</strong> .<br />
-Learn how to create and use an online feature store instance to host and serve data in BigQuery with Agent Platform Feature Store in an end to end workflow of feature values serving and fetching user journey. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/overview">Agent Platform Feature Store</a> .
+Learn how to create and use an online feature store instance to host and serve data in BigQuery with Agent Platform Feature Store in an end to end workflow of feature values serving and fetching user journey. Learn more about <a href="https://cloud.google.com/vertex-ai/docs/featurestore/overview">Agent Platform Feature Store</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Provision an online feature store instance to host and serve data.</li>
@@ -822,7 +633,7 @@ Learn how to create and use an online feature store instance to host and serve d
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store/online_feature_serving_and_fetching_bigquery_data_with_feature_store_bigtable.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Online feature serving and fetching of BigQuery data with Agent Platform Feature Store Optimized Serving</strong> .<br />
@@ -839,11 +650,11 @@ Learn how to create and use an online feature store instance to host and serve d
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store/online_feature_serving_and_fetching_bigquery_data_with_feature_store_optimized.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Online feature serving and vector retrieval of BigQuery data with Agent Platform Feature Store</strong> .<br />
-Learn how to create and use an online feature store instance to host and serve data in BigQuery with Agent Platform Feature Store in an end to end workflow of features serving and vector retrieval user journey. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/overview">Agent Platform Feature Store</a> .
+Learn how to create and use an online feature store instance to host and serve data in BigQuery with Agent Platform Feature Store in an end to end workflow of features serving and vector retrieval user journey. Learn more about <a href="https://cloud.google.com/vertex-ai/docs/featurestore/overview">Agent Platform Feature Store</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Provision an online feature store instance to host and serve data.</li>
@@ -856,11 +667,11 @@ Learn how to create and use an online feature store instance to host and serve d
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store/online_feature_serving_and_vector_retrieval_bigquery_data_with_feature_store.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Agent Platform Feature Store Based LLM Grounding tutorial</strong> .<br />
-Learn how to create and use an online feature store instance to host and serve data in BigQuery with Agent Platform Feature Store in an end to end workflow of features serving and vector retrieval user journey. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/overview">Agent Platform Feature Store</a> .
+Learn how to create and use an online feature store instance to host and serve data in BigQuery with Agent Platform Feature Store in an end to end workflow of features serving and vector retrieval user journey. Learn more about <a href="https://cloud.google.com/vertex-ai/docs/featurestore/overview">Agent Platform Feature Store</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Provision an online feature store instance to host and serve data.</li>
@@ -873,7 +684,7 @@ Learn how to create and use an online feature store instance to host and serve d
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store/vertex_ai_feature_store_based_llm_grounding_tutorial.ipynb.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Agent Platform Feature Store Feature View Service Agents Tutorial</strong> .<br />
@@ -890,7 +701,7 @@ Learn how to use a dedicated service agent for a feature view in Agent Platform 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store/vertex_ai_feature_store_feature_view_service_agents.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Streaming import SDK in Agent Platform Feature Store (Legacy)</strong> .<br />
@@ -907,7 +718,7 @@ Learn how to import features from a <code dir="ltr" translate="no">Pandas DataFr
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store_legacy/feature_store_streaming_ingestion_sdk.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Using Agent Platform Feature Store (Legacy) with Pandas Dataframe</strong> .<br />
@@ -929,7 +740,7 @@ Learn how to use <code dir="ltr" translate="no">Agent Platform Feature Store</co
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store_legacy/sdk-feature-store-pandas.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent Platform Feature Store<br />
 </td>
 <td><strong>Online and Batch predictions using Agent Platform Feature Store (Legacy)</strong> .<br />
@@ -948,11 +759,11 @@ Learn how to use <code dir="ltr" translate="no">Agent Platform Feature Store</co
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/feature_store_legacy/sdk-feature-store.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Overview of Generative AI support on Gemini Enterprise Agent Platform<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform LLM Batch Inference with RLHF-tuned Models</strong> .<br />
-In this tutorial, you use Gemini Enterprise Agent Platform to get predictions from an RLHF-tuned large-language model. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/generative-ai/learn/overview">Overview of Generative AI support on Gemini Enterprise Agent Platform</a> .
+In this tutorial, you use Gemini Enterprise Agent Platform to get predictions from an RLHF-tuned large-language model. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/models/">Overview of Generative AI support on Gemini Enterprise Agent Platform</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Create Gemini Enterprise Agent Platform Pipeline job using a predefined template for bulk inference.</li>
@@ -964,7 +775,7 @@ In this tutorial, you use Gemini Enterprise Agent Platform to get predictions fr
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/batch_eval_llm.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>generative_ai<br />
 </td>
 <td><strong>Distill a large language model</strong> .<br />
@@ -981,11 +792,11 @@ Learn how to distill and deploy a large language model using Gemini Enterprise A
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/distillation.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>text embedding<br />
 </td>
 <td><strong>Semantic Search using Embeddings</strong> .<br />
-In this tutorial, we demonstrate how to create an embedding generated from text and perform a semantic search. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/generative-ai/embeddings/get-text-embeddings">text embedding</a> .
+In this tutorial, we demonstrate how to create an embedding generated from text and perform a semantic search. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings">text embedding</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Installation and imports</li>
@@ -999,20 +810,6 @@ In this tutorial, we demonstrate how to create an embedding generated from text 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/text_embedding_api_semantic_search_with_scann.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
-<td>generative_ai<br />
-</td>
-<td><strong>Getting Text Embeddings on Gemini Enterprise Agent Platform</strong> .<br />
-Learn how to get a text embedding given a text-embedding model and a text.
-<p>Tutorial steps</p>
-<ul>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/text_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fgenerative_ai%2Ftext_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/text_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/text_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
 <tr class="odd">
 <td>generative_ai<br />
 </td>
@@ -1028,6 +825,20 @@ Learn how to get a text embedding given a text-embedding model and a text.
 </td>
 </tr>
 <tr class="even">
+<td>generative_ai<br />
+</td>
+<td><strong>Getting Text Embeddings on Gemini Enterprise Agent Platform</strong> .<br />
+Learn how to get a text embedding given a text-embedding model and a text.
+<p>Tutorial steps</p>
+<ul>
+</ul></td>
+<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/text_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
+<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fgenerative_ai%2Ftext_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
+<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/generative_ai/text_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
+<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/text_embedding_new_api.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
+</td>
+</tr>
+<tr class="odd">
 <td>Tune text models by using supervised tuning<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Tuning a PEFT model</strong> .<br />
@@ -1046,7 +857,7 @@ Learn to use Gemini Enterprise Agent Platform LLM to tune and deploy a PEFT larg
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/tune_peft.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>generative_ai<br />
 </td>
 <td><strong>Getting Tuned Text-Embeddings on Gemini Enterprise Agent Platform</strong> .<br />
@@ -1059,7 +870,7 @@ Learn how to tune a text-embedding model.
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/tuned_text-embeddings.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>PaLM API<br />
 </td>
 <td><strong>Using the Agent Platform SDK with Large Language Models</strong> .<br />
@@ -1076,7 +887,7 @@ Learn how to provide text input to Large Language Models available on Gemini Ent
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/generative_ai/vertex_sdk_llm_snippets.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Classification for image data<br />
 </td>
@@ -1095,7 +906,7 @@ Learn to use <code dir="ltr" translate="no">AutoML</code> to train an image mode
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-automl-image-classification-batch-online.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Object detection for image data<br />
 </td>
@@ -1114,7 +925,7 @@ Learn to use <code dir="ltr" translate="no">AutoML</code> to train an image mode
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-automl-image-object-detection-batch-online.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Classification for tabular data<br />
 </td>
@@ -1135,7 +946,7 @@ In this tutorial, you create an AutoML tabular binary classification model and d
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-automl-tabular-binary-classification-online-prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Custom training<br />
 </td>
@@ -1159,7 +970,7 @@ Learn how to train a tensorflow image classification model using a custom contai
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-custom-image-classification-custom-container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Custom training overview<br />
 </td>
@@ -1183,7 +994,7 @@ Learn how to train a tensorflow image classification model using a prebuilt cont
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-custom-image-classification-prebuilt-container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Custom training overview<br />
 </td>
@@ -1204,7 +1015,7 @@ Learn how to use Vertex AI Training to create a custom trained model. Learn more
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-custom-scikit-learn-prebuilt-container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Migrate to Gemini Enterprise Agent Platform<br />
 Custom training overview<br />
 </td>
@@ -1225,7 +1036,7 @@ Learn to use Vertex AI Training to create a custom trained model. Learn more abo
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-custom-xgboost-prebuilt-container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform hyperparameter tuning<br />
 Custom training<br />
 </td>
@@ -1241,7 +1052,7 @@ Learn to use Gemini Enterprise Agent Platform hyperparameter to create and tune 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/migration/sdk-hyperparameter-tuning.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Google Artifact Registry documentation<br />
 </td>
 <td><strong>Get started with Google Artifact Registry</strong> .<br />
@@ -1260,7 +1071,7 @@ Learn how to use Google Artifact Registry. Learn more about <a href="https://clo
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/ml_metadata/get_started_with_google_artifact_registry.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex ML Metadata<br />
 </td>
 <td><strong>Track parameters and metrics for custom training jobs</strong> .<br />
@@ -1276,11 +1087,11 @@ Learn how to use Agent Platform SDK for Python to:
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/ml_metadata/sdk-metric-parameter-tracking-for-custom-jobs.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vertex ML Metadata<br />
 </td>
 <td><strong>Track parameters and metrics for locally trained models</strong> .<br />
-Learn how to use Vertex ML Metadata to track training parameters and evaluation metrics. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata">Vertex ML Metadata</a> .
+Learn how to use Vertex ML Metadata to track training parameters and evaluation metrics. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction">Vertex ML Metadata</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Track parameters and metrics for a locally trained model.</li>
@@ -1292,12 +1103,12 @@ Learn how to use Vertex ML Metadata to track training parameters and evaluation 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/ml_metadata/sdk-metric-parameter-tracking-for-locally-trained-models.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex ML Metadata<br />
 Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Track artifacts and metrics across Gemini Enterprise Agent Platform Pipelines runs using Vertex ML Metadata</strong> .<br />
-Learn how to track artifacts and metrics with Vertex ML Metadata in Gemini Enterprise Agent Platform Pipeline runs. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata">Vertex ML Metadata</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction">Gemini Enterprise Agent Platform Pipelines</a> .
+Learn how to track artifacts and metrics with Vertex ML Metadata in Gemini Enterprise Agent Platform Pipeline runs. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction">Vertex ML Metadata</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction">Gemini Enterprise Agent Platform Pipelines</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Use the Kubeflow Pipelines SDK to build an ML pipeline that runs on Gemini Enterprise Agent Platform.</li>
@@ -1313,7 +1124,7 @@ Learn how to track artifacts and metrics with Vertex ML Metadata in Gemini Enter
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/ml_metadata/vertex-pipelines-ml-metadata.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Model Evaluation<br />
 Classification for tabular data<br />
 </td>
@@ -1334,7 +1145,7 @@ Learn how to train a Gemini Enterprise Agent Platform AutoML Tabular classificat
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_evaluation/automl_tabular_classification_model_evaluation.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Model Evaluation<br />
 Regression for tabular data<br />
 </td>
@@ -1356,7 +1167,7 @@ Learn how to evaluate a Gemini Enterprise Agent Platform model resource through 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_evaluation/automl_tabular_regression_model_evaluation.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform custom training<br />
 Gemini Enterprise Agent Platform model evaluation<br />
 </td>
@@ -1377,7 +1188,7 @@ In this tutorial, you train a scikit-learn RandomForest model, save the model in
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_evaluation/custom_tabular_classification_model_evaluation.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Model Evaluation<br />
 Custom training<br />
 </td>
@@ -1401,11 +1212,11 @@ Learn how to evaluate a Gemini Enterprise Agent Platform model resource through 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_evaluation/custom_tabular_regression_model_evaluation.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform AutoSxS Model Evaluation<br />
 </td>
 <td><strong>Check autorater alignment against a human-preference dataset</strong> .<br />
-Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pipelines</code> and <code dir="ltr" translate="no">google_cloud_pipeline_components</code> to check autorater alignment using human-preference data: Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/generative-ai/models/side-by-side-eval#autosxs">Gemini Enterprise Agent Platform AutoSxS Model Evaluation</a> .
+Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pipelines</code> and <code dir="ltr" translate="no">google_cloud_pipeline_components</code> to check autorater alignment using human-preference data: Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval#autosxs">Gemini Enterprise Agent Platform AutoSxS Model Evaluation</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Create a evaluation dataset with predictions and human preference data.</li>
@@ -1420,11 +1231,11 @@ Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_evaluation/model_based_llm_evaluation/autosxs_check_alignment_against_human_preference_data.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform AutoSxS Model Evaluation<br />
 </td>
 <td><strong>Evaluate a LLM in Model Registry against a third-party model</strong> .<br />
-Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pipelines</code> and <code dir="ltr" translate="no">google_cloud_pipeline_components</code> to evaluate the performance between two LLM models: Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/generative-ai/models/side-by-side-eval#autosxs">Gemini Enterprise Agent Platform AutoSxS Model Evaluation</a> .
+Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pipelines</code> and <code dir="ltr" translate="no">google_cloud_pipeline_components</code> to evaluate the performance between two LLM models: Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval#autosxs">Gemini Enterprise Agent Platform AutoSxS Model Evaluation</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Fetch the dataset from the public source.</li>
@@ -1439,7 +1250,7 @@ Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_evaluation/model_based_llm_evaluation/autosxs_llm_evaluation_for_summarization_task.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Model Monitoring for batch predictions<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Batch Prediction with Model Monitoring</strong> .<br />
@@ -1456,11 +1267,11 @@ Learn to use the Gemini Enterprise Agent Platform model monitoring service to de
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/batch_prediction_model_monitoring.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring for AutoML tabular models</strong> .<br />
-Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests, for AutoML tabular models. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests, for AutoML tabular models. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Train an AutoML model.</li>
@@ -1476,11 +1287,11 @@ Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to de
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/get_started_with_model_monitoring_automl.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring for online prediction in AutoML image models</strong> .<br />
-Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Model Monitoring</code> with <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Online Prediction</code> with an AutoML image classification model to detect an out of distribution image. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Model Monitoring</code> with <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Online Prediction</code> with an AutoML image classification model to detect an out of distribution image. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>1. Train an AutoML image classification model.</li>
@@ -1496,11 +1307,11 @@ Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/get_started_with_model_monitoring_automl_image_online.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring for custom tabular models</strong> .<br />
-Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skewness and drift in the input predict requests, for custom tabular models. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skewness and drift in the input predict requests, for custom tabular models. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Download a pretrained custom tabular model.</li>
@@ -1518,11 +1329,11 @@ Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to de
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/get_started_with_model_monitoring_custom.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring for custom tabular models with TensorFlow Serving container</strong> .<br />
-Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests, for custom tabular models, using a custom deployment container. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests, for custom tabular models, using a custom deployment container. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Download a pretrained custom tabular model.</li>
@@ -1540,11 +1351,11 @@ Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to de
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/get_started_with_model_monitoring_custom_tf_serving.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring for setup for tabular models</strong> .<br />
-Learn to setup the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn to setup the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Download a pretrained custom tabular model.</li>
@@ -1564,11 +1375,11 @@ Learn to setup the Gemini Enterprise Agent Platform Model Monitoring service to 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/get_started_with_model_monitoring_setup.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring for XGBoost models</strong> .<br />
-Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests for XGBoost models. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect feature skew and drift in the input predict requests for XGBoost models. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Download a pretrained XGBoost model.</li>
@@ -1582,11 +1393,11 @@ Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to de
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/get_started_with_model_monitoring_xgboost.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Model Monitoring<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Model Monitoring with Vertex Explainable AI Feature Attributions</strong> .<br />
-Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect drift and anomalies in prediction requests from a deployed Gemini Enterprise Agent Platform model resource. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring">Gemini Enterprise Agent Platform Model Monitoring</a> .
+Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to detect drift and anomalies in prediction requests from a deployed Gemini Enterprise Agent Platform model resource. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview">Gemini Enterprise Agent Platform Model Monitoring</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Upload a pretrained model as a Gemini Enterprise Agent Platform model resource.</li>
@@ -1603,7 +1414,7 @@ Learn to use the Gemini Enterprise Agent Platform Model Monitoring service to de
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/model_monitoring/model_monitoring.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>model_monitoring_v2<br />
 </td>
 <td><strong>Model Monitoring for Gemini Enterprise Agent Platform Custom Model Batch Prediction Job</strong> .<br />
@@ -1617,7 +1428,7 @@ In this tutorial, you'll complete the following steps:
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring_v2/model_monitoring_for_custom_model_batch_prediction_job.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>model_monitoring_v2<br />
 </td>
 <td><strong>Model Monitoring for Gemini Enterprise Agent Platform Custom Model Online Prediction</strong> .<br />
@@ -1631,7 +1442,7 @@ In this tutorial, you'll complete the following steps:
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring_v2/model_monitoring_for_custom_model_online_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Model Registry<br />
 </td>
 <td><strong>Get started with Model Registry</strong> .<br />
@@ -1650,7 +1461,7 @@ Learn how to use Model Registry to create and register multiple versions of a mo
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_registry/get_started_with_model_registry.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 AutoML components<br />
 Classification for tabular data<br />
@@ -1672,7 +1483,7 @@ Learn to use Gemini Enterprise Agent Platform Pipelines and Google Cloud Pipelin
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/automl_tabular_classification_beans.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Challenger vs Blessed methodology for model deployment into production</strong> .<br />
@@ -1691,7 +1502,7 @@ Learn how to construct a Gemini Enterprise Agent Platform pipeline, which trains
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/challenger_vs_blessed_deployment_method.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Pipeline control structures using the KFP SDK</strong> .<br />
@@ -1708,7 +1519,7 @@ Learn how to use the KFP SDK, which uses loops and conditionals including nested
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/control_flow_kfp.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 Custom training components<br />
 </td>
@@ -1724,7 +1535,7 @@ Learn to use Gemini Enterprise Agent Platform Pipelines and Google Cloud Pipelin
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/custom_model_training_and_batch_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 Gemini Enterprise Agent Platform Batch Prediction components<br />
 </td>
@@ -1744,7 +1555,7 @@ In this tutorial, you train a scikit-learn tabular classification model and crea
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/custom_tabular_train_batch_pred_bq_pipeline.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 Gemini Enterprise Agent Platform hyperparameter tuning<br />
 </td>
@@ -1760,7 +1571,7 @@ Learn how to use prebuilt Google Cloud Pipeline Components for Gemini Enterprise
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/get_started_with_hpt_pipeline_components.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Get started with machine management for Gemini Enterprise Agent Platform Pipelines</strong> .<br />
@@ -1777,7 +1588,7 @@ Learn how to convert a self-contained custom training component into a <code dir
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/get_started_with_machine_management.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 AutoML components<br />
 </td>
@@ -1793,7 +1604,7 @@ Learn how to use Gemini Enterprise Agent Platform Pipelines and Google Cloud pip
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_images.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 AutoML components<br />
 Regression for tabular data<br />
@@ -1815,7 +1626,7 @@ Learn to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pip
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/google_cloud_pipeline_components_automl_tabular.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 BigQuery ML components<br />
 </td>
@@ -1835,7 +1646,7 @@ Learn how to build a simple BigQuery ML pipeline using Agent Platform Pipelines 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/google_cloud_pipeline_components_bqml_text.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 Custom training components<br />
 </td>
@@ -1851,7 +1662,7 @@ Learn how to use Gemini Enterprise Agent Platform Pipelines and Google Cloud pip
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/google_cloud_pipeline_components_model_train_upload_deploy.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Pipelines with KFP 2.x</strong> .<br />
@@ -1866,7 +1677,7 @@ Learn to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform Pip
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/kfp2_pipeline.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Lightweight Python function-based components, and component I/O</strong> .<br />
@@ -1886,7 +1697,7 @@ Learn to use the KFP SDK to build lightweight Python function-based components, 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/lightweight_functions_component_io_kfp.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Metrics visualization and run comparison using the KFP SDK</strong> .<br />
@@ -1901,7 +1712,7 @@ Learn how to use the KFP SDK for Python to build pipelines that generate evaluat
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/metrics_viz_run_compare_kfp.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Multicontender vs Champion methodology for model deployment into production</strong> .<br />
@@ -1922,7 +1733,7 @@ Learn how to construct a Gemini Enterprise Agent Platform pipeline, which evalua
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/multicontender_vs_champion_deployment_method.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Pipelines<br />
 </td>
 <td><strong>Pipelines introduction for KFP</strong> .<br />
@@ -1939,7 +1750,7 @@ Learn how to use the KFP SDK for Python to build pipelines that generate evaluat
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/pipelines_intro_kfp.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>AutoML components<br />
 BigQuery ML components<br />
 </td>
@@ -1960,7 +1771,7 @@ Learn how to use Gemini Enterprise Agent Platform Pipelines for rapid prototypin
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/pipelines/rapid_prototyping_bqml_automl.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Batch Inference<br />
 </td>
 <td><strong>Custom model batch inference with feature filtering</strong> .<br />
@@ -1977,11 +1788,11 @@ Learn how to create a custom-trained model from a Python script in a Docker cont
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/custom_batch_prediction_feature_filter.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex AI Inference<br />
 </td>
 <td><strong>Get started with NVIDIA Triton server</strong> .<br />
-Learn how to deploy a container running Nvidia Triton Server with a Gemini Enterprise Agent Platform model resource to a Gemini Enterprise Agent Platform endpoint for making online predictions. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/getting-predictions">Vertex AI Inference</a> .
+Learn how to deploy a container running Nvidia Triton Server with a Gemini Enterprise Agent Platform model resource to a Gemini Enterprise Agent Platform endpoint for making online predictions. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions">Vertex AI Inference</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Download the model artifacts from TensorFlow Hub.</li>
@@ -1998,7 +1809,7 @@ Learn how to deploy a container running Nvidia Triton Server with a Gemini Enter
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/get_started_with_nvidia_triton_serving.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Raw Predict<br />
 </td>
 <td><strong>Get started with TensorFlow serving functions with Gemini Enterprise Agent Platform Raw Prediction</strong> .<br />
@@ -2017,7 +1828,7 @@ Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/get_started_with_raw_predict.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>getting predictions from a custom trained model<br />
 </td>
 <td><strong>Get started with TensorFlow Serving with Vertex AI Inference</strong> .<br />
@@ -2031,7 +1842,7 @@ Learn how to use <code dir="ltr" translate="no">Vertex AI Inference</code> on a 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/get_started_with_tf_serving.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Private Endpoints<br />
 </td>
 <td><strong>Get started with Gemini Enterprise Agent Platform Private Endpoints</strong> .<br />
@@ -2050,7 +1861,7 @@ Learn how to use <code dir="ltr" translate="no">Gemini Enterprise Agent Platform
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/get_started_with_vertex_private_endpoints.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Language Models<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform LLM and streaming prediction</strong> .<br />
@@ -2072,7 +1883,7 @@ Learn how to use Gemini Enterprise Agent Platform LLM to download pretrained LLM
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/llm_streaming_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Pre-built containers for prediction<br />
 </td>
 <td><strong>Serving PyTorch image models with prebuilt containers on Gemini Enterprise Agent Platform</strong> .<br />
@@ -2093,7 +1904,7 @@ Learn how to package and deploy a PyTorch image classification model using a pre
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/pytorch_image_classification_with_prebuilt_serving_containers.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Inference<br />
 </td>
 <td><strong>Train and deploy PyTorch models with prebuilt containers on Gemini Enterprise Agent Platform</strong> .<br />
@@ -2113,7 +1924,7 @@ Learn how to build, train and deploy a PyTorch image classification model using 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/prediction/pytorch_train_deploy_models_with_prebuilt_containers.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ray on Gemini Enterprise Agent Platform overview<br />
 </td>
 <td><strong>Get started with PyTorch on Ray on Gemini Enterprise Agent Platform</strong> .<br />
@@ -2135,7 +1946,7 @@ Learn how to efficiently distribute the training process of a PyTorch image clas
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/ray_on_vertex_ai/get_started_with_pytorch_rov.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Ray on Gemini Enterprise Agent Platform overview<br />
 </td>
 <td><strong>Ray on Gemini Enterprise Agent Platform cluster management</strong> .<br />
@@ -2155,7 +1966,7 @@ Learn how to create a cluster, list existing clusters, get a cluster, update a c
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/ray_on_vertex_ai/ray_cluster_management.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ray on Gemini Enterprise Agent Platform<br />
 Spark on Ray on Gemini Enterprise Agent Platform<br />
 </td>
@@ -2177,7 +1988,7 @@ Learn how to use RayDP to run Spark applications on a Ray cluster on Gemini Ente
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/ray_on_vertex_ai/spark_on_ray_on_vertex_ai.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex AI Training<br />
 Gemini Enterprise Agent Platform Reduction Server<br />
 </td>
@@ -2196,7 +2007,7 @@ Learn how to create a PyTorch distributed training job that uses PyTorch distrib
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/reduction_server/pytorch_distributed_training_reduction_server.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Custom training<br />
 </td>
 <td><strong>Custom training using Python package, managed text dataset, and TF Serving container</strong> .<br />
@@ -2219,7 +2030,7 @@ Learn how to create a custom model using Custom Python Package Training and you 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/sdk/SDK_Custom_Training_Python_Package_Managed_Text_Dataset_Tensorflow_Serving_Container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>BigQuery ML ARIMA+ forecasting for tabular data<br />
 </td>
 <td><strong>Train a BigQuery ML ARIMA_PLUS Model using Gemini Enterprise Agent Platform tabular workflows</strong> .<br />
@@ -2236,7 +2047,7 @@ Learn how to create the BigQuery ML ARIMA_PLUS model using a training Gemini Ent
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tabular_workflows/bqml_arima_plus.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Google Cloud Pipeline Components<br />
 Prophet for tabular data<br />
 </td>
@@ -2254,7 +2065,7 @@ Learn how to create several Prophet models using a training Gemini Enterprise Ag
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tabular_workflows/prophet_on_vertex_pipelines.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex AI TensorBoard<br />
 Custom training<br />
 </td>
@@ -2273,7 +2084,7 @@ Learn how to create a custom training job using custom containers, and monitor y
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tensorboard/tensorboard_custom_training_with_custom_container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vertex AI TensorBoard<br />
 Custom training<br />
 </td>
@@ -2292,7 +2103,7 @@ Learn how to create a custom training job using prebuilt containers, and monitor
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tensorboard/tensorboard_custom_training_with_prebuilt_container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex AI TensorBoard<br />
 </td>
 <td><strong>Vertex AI TensorBoard hyperparameter tuning with the HParams Dashboard</strong> .<br />
@@ -2309,7 +2120,7 @@ In this notebook, you train a model and perform hyperparameter tuning using tens
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tensorboard/tensorboard_hyperparameter_tuning_with_hparams.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Profiler<br />
 Vertex AI TensorBoard<br />
 </td>
@@ -2328,12 +2139,12 @@ Learn how to enable Profiler for custom training jobs. Learn more about <a href=
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tensorboard/tensorboard_profiler_custom_training.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Profiler<br />
 Vertex AI TensorBoard<br />
 </td>
 <td><strong>Profile model training performance using Cloud Profiler in custom training with prebuilt container</strong> .<br />
-Learn how to enable Profiler in Gemini Enterprise Agent Platform for custom training jobs with a prebuilt container. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-profiler">Profiler</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction">Vertex AI TensorBoard</a> .
+Learn how to enable Profiler in Gemini Enterprise Agent Platform for custom training jobs with a prebuilt container. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler">Profiler</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction">Vertex AI TensorBoard</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Prepare your custom training code and load your training code as a Python package to a prebuilt container</li>
@@ -2346,7 +2157,7 @@ Learn how to enable Profiler in Gemini Enterprise Agent Platform for custom trai
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tensorboard/tensorboard_profiler_custom_training_with_prebuilt_container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vertex AI TensorBoard<br />
 Gemini Enterprise Agent Platform Pipelines<br />
 </td>
@@ -2364,7 +2175,7 @@ Learn how to create a training pipeline using the KFP SDK, execute the pipeline 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/tensorboard/tensorboard_vertex_ai_pipelines_integration.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Hyperparameter Tuning<br />
 </td>
 <td><strong>Distributed Gemini Enterprise Agent Platform Hyperparameter Tuning</strong> .<br />
@@ -2381,7 +2192,7 @@ In this notebook, you create a custom trained model from a Python script in a Do
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/distributed_hyperparameter_tuning.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vertex AI Training<br />
 </td>
 <td><strong>Get started with Vertex AI Training for LightGBM</strong> .<br />
@@ -2404,7 +2215,7 @@ Learn how to train a LightGBM custom model using the custom container method for
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/get_started_vertex_training_lightgbm.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform distributed training<br />
 </td>
 <td><strong>Get started with Gemini Enterprise Agent Platform distributed training</strong> .<br />
@@ -2418,7 +2229,7 @@ Learn how to use Gemini Enterprise Agent Platform distributed training when trai
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/get_started_with_vertex_distributed_training.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Hyperparameter Tuning<br />
 </td>
 <td><strong>Run hyperparameter tuning for a TensorFlow model</strong> .<br />
@@ -2435,7 +2246,7 @@ Learn how to run a Gemini Enterprise Agent Platform hyperparameter tuning job fo
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/hyperparameter_tuning_tensorflow.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform hyperparameter tuning<br />
 </td>
 <td><strong>Gemini Enterprise Agent Platform Hyperparameter Tuning for XGBoost</strong> .<br />
@@ -2453,7 +2264,7 @@ Learn how to use the Gemini Enterprise Agent Platform hyperparameter tuning serv
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/hyperparameter_tuning_xgboost.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Vertex AI Training<br />
 </td>
 <td><strong>PyTorch image classification multi-node distributed data parallel training on cpu using Gemini Enterprise Agent Platform training with custom container</strong> .<br />
@@ -2468,7 +2279,7 @@ Learn how to create a distributed PyTorch training job using Agent Platform SDK 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/multi_node_ddp_gloo_vertex_training_with_custom_container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Vertex AI Training<br />
 </td>
 <td><strong>PyTorch image classification using multi-node NCCL distributed data parallel training on CPU and Gemini Enterprise Agent Platform</strong> .<br />
@@ -2485,7 +2296,7 @@ Learn how to create a distributed PyTorch training job using Agent Platform SDK 
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/multi_node_ddp_nccl_vertex_training_with_custom_container.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Custom training<br />
 </td>
 <td><strong>Training, tuning and deploying a PyTorch text sentiment classification model on Gemini Enterprise Agent Platform</strong> .<br />
@@ -2506,7 +2317,7 @@ Learn to build, train, tune and deploy a PyTorch model on Gemini Enterprise Agen
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/pytorch-text-sentiment-classification-custom-train-deploy.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>PyTorch integration in Gemini Enterprise Agent Platform<br />
 </td>
 <td><strong>Train PyTorch model on Gemini Enterprise Agent Platform with data from Cloud Storage</strong> .<br />
@@ -2522,7 +2333,7 @@ Learn how to create a training job using PyTorch and a dataset stored on Cloud S
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/pytorch_gcs_data_training.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Distributed training<br />
 </td>
 <td><strong>Using PyTorch torchrun to simplify multi-node training with custom containers</strong> .<br />
@@ -2540,7 +2351,7 @@ Learn how to train an Imagenet model using PyTorch's Torchrun on multiple nodes.
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/sdk_pytorch_torchrun_custom_container_training_imagenet.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Custom training<br />
 </td>
 <td><strong>Distributed XGBoost training with Dask</strong> .<br />
@@ -2558,7 +2369,7 @@ Learn how to create a distributed training job using XGBoost with Dask. Learn mo
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/training/xgboost_data_parallel_training_on_cpu_using_dask.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>vector_search<br />
 </td>
 <td><strong>Using Gemini Enterprise Agent Platform Multimodal Embeddings and Vector Search</strong> .<br />
@@ -2578,7 +2389,7 @@ Learn how to encode custom text embeddings, create an Approximate Nearest Neighb
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/vector_search/sdk_vector_search_create_multimodal_embeddings.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Vector Search<br />
 </td>
 <td><strong>Using Gemini Enterprise Agent Platform Vector Search for StackOverflow Questions</strong> .<br />
@@ -2596,12 +2407,12 @@ Learn how to encode custom text embeddings, create an Approximate Nearest Neighb
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/vector_search/sdk_vector_search_create_stack_overflow_embeddings.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Vector Search<br />
 Gemini Enterprise Agent Platform embeddings for text<br />
 </td>
 <td><strong>Using Gemini Enterprise Agent Platform Vector Search and Gemini Enterprise Agent Platform embeddings for text for StackOverflow Questions</strong> .<br />
-Learn how to encode text embeddings, create an Approximate Nearest Neighbor index, and query against indexes. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview">Gemini Enterprise Agent Platform Vector Search</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/generative-ai/embeddings/get-text-embeddings">Gemini Enterprise Agent Platform embeddings for text</a> .
+Learn how to encode text embeddings, create an Approximate Nearest Neighbor index, and query against indexes. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview">Gemini Enterprise Agent Platform Vector Search</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings">Gemini Enterprise Agent Platform embeddings for text</a> .
 <p>Tutorial steps</p>
 <ul>
 <li>Convert a BigQuery dataset to embeddings.</li>
@@ -2617,7 +2428,7 @@ Learn how to encode text embeddings, create an Approximate Nearest Neighbor inde
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/vector_search/sdk_vector_search_create_stack_overflow_embeddings_vertex"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Enterprise Agent Platform Vector Search<br />
 </td>
 <td><strong>Create Gemini Enterprise Agent Platform Vector Search index</strong> .<br />
@@ -2636,7 +2447,7 @@ Learn how to create Approximate Nearest Neighbor Index, query against indexes, a
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/vector_search/sdk_vector_search_for_indexing.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent Platform Vizier<br />
 </td>
 <td><strong>Optimizing multiple objectives with Agent Platform Vizier</strong> .<br />
@@ -2650,7 +2461,7 @@ Learn how to use Agent Platform Vizier to optimize a multi-objective study. Lear
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/vizier/gapic-vizier-multi-objective-optimization.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent Platform Vizier<br />
 </td>
 <td><strong>Get started with Agent Platform Vizier</strong> .<br />
@@ -2667,7 +2478,7 @@ Learn how to use Agent Platform Vizier when training with Gemini Enterprise Agen
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/vizier/get_started_vertex_vizier.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Enterprise Agent Platform Workbench<br />
 Vertex AI Training<br />
 </td>
@@ -2687,29 +2498,6 @@ Learn how to collect data from BigQuery, preprocess it, and train a multi-class 
 <a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fads_targetting%2Ftraining-multi-class-classification-model-for-ads-targeting-usecase.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
 <a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/ads_targetting/training-multi-class-classification-model-for-ads-targeting-usecase.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
 <a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/workbench/ads_targetting/training-multi-class-classification-model-for-ads-targeting-usecase.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
-</td>
-</tr>
-<tr class="even">
-<td>Gemini Enterprise Agent Platform Workbench<br />
-Vertex Explainable AI<br />
-</td>
-<td><strong>Taxi fare prediction using the Chicago Taxi Trips dataset</strong> .<br />
-The goal of this notebook is to provide an overview on Gemini Enterprise Agent Platform features like Vertex Explainable AI and BigQuery in Notebooks by trying to solve a taxi fare prediction problem. Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction">Gemini Enterprise Agent Platform Workbench</a> . Learn more about <a href="https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview">Vertex Explainable AI</a> .
-<p>Tutorial steps</p>
-<ul>
-<li>Loading the dataset using "BigQuery in Notebooks".</li>
-<li>Performing exploratory data analysis on the dataset.</li>
-<li>Feature selection and preprocessing.</li>
-<li>Building a linear regression model using scikitlearn.</li>
-<li>Configuring the model for Vertex Explainable AI.</li>
-<li>Deploying the model to Gemini Enterprise Agent Platform.</li>
-<li>Testing the deployed model.</li>
-<li>Clean up.</li>
-</ul></td>
-<td><a href="https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/chicago_taxi_fare_prediction/chicago_taxi_fare_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png" width="24" height="24" alt="Colab logo" /> Colab</a><br />
-<a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fworkbench%2Fchicago_taxi_fare_prediction%2Fchicago_taxi_fare_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png" width="24" height="24" alt="Colab Enterprise logo" /> Colab Enterprise</a><br />
-<a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/workbench/chicago_taxi_fare_prediction/chicago_taxi_fare_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png" width="24" height="24" alt="GitHub logo" /> GitHub</a><br />
-<a href="https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https://raw.githubusercontent.com/GoogleCloudPlatform/vertex-ai-samples/main/notebooks/official/workbench/chicago_taxi_fare_prediction/chicago_taxi_fare_prediction.ipynb"><img src="https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png" width="24" height="24" alt="Gemini Enterprise Agent Platform Workbench logo" /> Gemini Enterprise Agent Platform Workbench</a><br />
 </td>
 </tr>
 <tr class="odd">

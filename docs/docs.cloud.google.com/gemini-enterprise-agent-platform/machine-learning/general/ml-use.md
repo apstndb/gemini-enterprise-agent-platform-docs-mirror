@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page describes how Gemini Enterprise Agent Platform uses the training, validation, and test sets of your data to train an AutoML model and the ways you can control how your data is split among these three sets. AutoML uses data splits differently depending on the data type of the training data.
 
-This page describes data splits for image data. For information about data splits for tabular data, see [Data splits for tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/data-splits) .
+This page describes data splits for image data. For information about data splits for tabular data, see [Data splits for tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits) .
 
 For image datasets, AutoML uses the training set to train the model, and the validation set to validate the results that the model returns during training. When training is complete, AutoML uses the test set to provide the final evaluation metrics.
 

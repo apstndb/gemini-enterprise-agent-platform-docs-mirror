@@ -74,14 +74,14 @@ When the model finishes training, it's displayed in the model tab as a live link
 
 Your model is now being trained, which can take an hour or more to complete. You'll receive an email when training is complete. When your model has finished training, follow the [next page of this tutorial](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/deploy-predict) to deploy your model and request a prediction.
 
-This tutorial uses a dataset that's been cleaned and formatted for AutoML training, but most data will require some work before it's ready to be used. The quality of your training data impacts the effectiveness of the models you create. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/prepare-data) about preparing data.
+This tutorial uses a dataset that's been cleaned and formatted for AutoML training, but most data will require some work before it's ready to be used. The quality of your training data impacts the effectiveness of the models you create. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data) about preparing data.
 
-Sourcing and preparing your data is a critical to ensuring an accurate machine learning model. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular) about best practices.
+Sourcing and preparing your data is a critical to ensuring an accurate machine learning model. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular) about best practices.
 
-[Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/create-dataset) about creating a tabular dataset.
+[Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset) about creating a tabular dataset.
 
 Gemini Enterprise Agent Platform offers two model training methods, AutoML and custom training. AutoML lets you train with minimal effort and machine learning experience, while custom training gives you complete control over training functionality. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/training-methods) about training methods.
 
 Gemini Enterprise Agent Platform examines the source data type and feature values and infers how it will use that feature in model training. It's recommended that you review each column's data type to verify that it's been interpreted correctly. If needed, you can specify a different supported transformation for any feature. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) about transformations.
 
-[Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/train-model) about training an AutoML for classification or regression.
+[Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/train-model) about training an AutoML for classification or regression.

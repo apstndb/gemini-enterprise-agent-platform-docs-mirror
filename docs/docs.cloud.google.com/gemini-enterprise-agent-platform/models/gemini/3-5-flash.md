@@ -101,8 +101,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Not supported
 
-See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
-
 Technical specifications
 
 **Image** photo
@@ -147,32 +145,30 @@ Technical specifications
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **Global** : global
-  - **Multi-region** : us, eu
-  - **Europe** : europe-west2
-  - **Asia Pacific** : asia-northeast1, asia-south1, asia-southeast1
+  - Global: `global`
+  - Multi-region: `us` , `eu`
+  - Europe: `europe-west2`
+  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
-ML processing
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency)**
 
-  - **Multi-region** : us, eu
-  - **Europe** : europe-west2
-  - **Asia Pacific** : asia-northeast1, asia-south1, asia-southeast1
+  - Multi-region: `us` , `eu`
+  - Europe: `europe-west2`
+  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
-Provisioned throughput
+**[Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models)**
 
-  - **Global** : global
-  - **Multi-region** : us, eu
-  - **Europe** : europe-west2
-  - **Asia Pacific** : asia-northeast1, asia-south1, asia-southeast1
+  - Global: `global`
+  - Multi-region: `us` , `eu`
+  - Europe: `europe-west2`
+  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
-Standard pay-as-you-go
+**[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**
 
-  - **Global** : global
-  - **Multi-region** : us, eu
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+  - Global: `global`
+  - Multi-region: `us` , `eu`
 
 Knowledge cutoff date
 

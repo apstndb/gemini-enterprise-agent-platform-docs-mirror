@@ -112,8 +112,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Not supported
 
-See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
-
 Technical specifications
 
 **Image** photo
@@ -147,12 +145,10 @@ Technical specifications
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **United States** : us-central1, us-east1, us-east4, us-east5, us-south1, us-west1, us-west4
-  - **Europe** : europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west4, europe-west8
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+  - United States: `us-central1` , `us-east1` , `us-east4` , `us-east5` , `us-south1` , `us-west1` , `us-west4`
+  - Europe: `europe-central2` , `europe-north1` , `europe-southwest1` , `europe-west1` , `europe-west4` , `europe-west8`
 
 Versions
 

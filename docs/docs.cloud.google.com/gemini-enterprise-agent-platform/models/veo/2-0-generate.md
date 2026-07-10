@@ -77,8 +77,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-See [Consumption options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options) for more information.
-
 Quotas
 
   - Regional online prediction requests per base model per minute per base model: 10
@@ -103,12 +101,10 @@ Prompt languages
 
 Supported regions
 
-Model availability
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - **United States** : us-central1
-  - **Europe** : europe-west3
-
-See [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) for more information.
+  - United States: `us-central1`
+  - Europe: `europe-west3`
 
 Versions
 

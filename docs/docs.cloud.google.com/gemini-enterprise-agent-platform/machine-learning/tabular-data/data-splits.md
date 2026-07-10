@@ -22,11 +22,11 @@ The data splits are used in the training process as follows:
 
 2.  Model evaluation
     
-    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
+    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
 
 3.  Serving model
     
-    Agent Platform trains a model with the training, validation, and test sets to maximize the amount of training data. Use this model to request [online predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-online-predictions) or [batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-batch-predictions) .
+    Agent Platform trains a model with the training, validation, and test sets to maximize the amount of training data. Use this model to request [online predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) or [batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) .
 
 ### Default data split
 
@@ -140,11 +140,11 @@ The data splits are used in the training process as follows:
 
 2.  Model evaluation
     
-    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
+    Agent Platform trains an evaluation model, using the training and validation sets as training data. Agent Platform generates the final [model evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/evaluate-model) on this model, using the test set. This is the first time in the process that the test set is used. This approach ensures that the final evaluation metrics are an unbiased reflection of how well the final trained model will perform in production.
 
 3.  Serving model
     
-    Agent Platform trains a model with the training and validation set. The model is validated (to select best checkpoint) using the test set. The test set is never trained on in the sense that the loss is calculated from it. You use this model to [get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/get-predictions) .
+    Agent Platform trains a model with the training and validation set. The model is validated (to select best checkpoint) using the test set. The test set is never trained on in the sense that the loss is calculated from it. You use this model to [get inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions) .
 
 ### Default split
 
@@ -181,4 +181,4 @@ The data split column can have any valid column name; its [transformation](https
 
 Designate a column as a data split column during model training.
 
-Make sure you take care to avoid [data leakage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#data-leakage) between your time series.
+Make sure you take care to avoid [data leakage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#data-leakage) between your time series.

@@ -81,7 +81,7 @@ Taken together, the rows in the window define a time-series instance that serves
 
 The forecast horizon determines how far into the future the model forecasts the target value for each row of inference data.
 
-The context window sets how far back the model looks during training (and for forecasts). In other words, for each training datapoint, the context window determines how far back the model looks for predictive patterns. [Learn best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular#context-window) for finding a good value for the context window.
+The context window sets how far back the model looks during training (and for forecasts). In other words, for each training datapoint, the context window determines how far back the model looks for predictive patterns. [Learn best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular#context-window) for finding a good value for the context window.
 
 For example, if **Context window** = `14` and **Forecast horizon** = `7` , then each window example will have `14 + 7 = 21` rows.
 

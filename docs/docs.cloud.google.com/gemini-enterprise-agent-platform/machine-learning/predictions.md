@@ -52,10 +52,10 @@ Learn how to get inferences from the following types of tabular AutoML models:
 
   - Tabular classification and regression models
     
-      - [Online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-online-predictions)
-      - [Batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-regression/get-batch-predictions)
+      - [Online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions)
+      - [Batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions)
 
-  - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/get-predictions) (batch inferences only)
+  - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions) (batch inferences only)
 
 ## Get inferences from BigQuery ML models
 

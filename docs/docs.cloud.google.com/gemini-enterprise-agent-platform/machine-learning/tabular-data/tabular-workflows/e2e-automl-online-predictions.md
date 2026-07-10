@@ -958,30 +958,42 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictTabularClassification(String instance, String project, String endpointId)
           throws IOException {
-        PredictionServicPredictionServiceSettingsceSettings =
-            PredictionServicPredictionServiceSettings          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServiceSettings predictionServiceSettings =
+            PredictionServiceSettings.newBuilder()
+                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServicPredictionServiceClientceClient =
-            PredictionServicPredictionServiceClientonServiceSettings)) {
+        try (PredictionServiceClient predictionServiceClient =
+            PredictionServiceClient.create(predictionServiceSettings)) {
           String location = "us-central1";
-          EndpointName endEndpointNameEndpointName.of(EndpointNameation, endpointId);
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
     
-          ListValue.BuildeListValueue = ListValue.newBuiListValue     JsonFormat.parseJsonFormatinstance, listValue);
-          List<Value> instanListValuelistValue.getValuesList();
+          ListValue.Builder listValue = ListValue.newBuilder();
+          JsonFormat.parser().merge(instance, listValue);
+          List<Value> instanceList = listValue.getValuesList();
     
-          Value parametersValuelue.newBuilderValuetListValue(listValue).build();
-          PredictResponse PredictResponse =
+          Value parameters = Value.newBuilder().setListValue(listValue).build();
+          PredictResponse predictResponse =
               predictionServiceClient.predict(endpointName, instanceList, parameters);
           System.out.println("Predict Tabular Classification Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.predictResponse.getDeployedModelId().out.println("Predictions");
-          for (Value predictionValueedictResponse.predictResponse.getPredictionsList()larClassificTabularClassificationPredictionResultuilder =
-                TabularClassificTabularClassificationPredictionResult       TabularClassificTabularClassificationPredictionResult      (TabularClassificTabularClassificationPredictionResult  ValueConverter.fValueConvertertBuilder, prediction);
+          System.out.format("\tDeployed Model Id: %s\n", predictResponse.getDeployedModelId());
     
-            for (int i = 0; i < result.getClasseresult.getClassesCount()   System.out.printf("\tClass: %s", result.getClasseresult.getClasses(i)tem.out.printf("\tScore: %f", result.getScoresresult.getScores(i)   }
+          System.out.println("Predictions");
+          for (Value prediction : predictResponse.getPredictionsList()) {
+            TabularClassificationPredictionResult.Builder resultBuilder =
+                TabularClassificationPredictionResult.newBuilder();
+            TabularClassificationPredictionResult result =
+                (TabularClassificationPredictionResult)
+                    ValueConverter.fromValue(resultBuilder, prediction);
+    
+            for (int i = 0; i < result.getClassesCount(); i++) {
+              System.out.printf("\tClass: %s", result.getClasses(i));
+              System.out.printf("\tScore: %f", result.getScores(i));
+            }
+          }
         }
       }
     }
@@ -1231,30 +1243,42 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictTabularRegression(String instance, String project, String endpointId)
           throws IOException {
-        PredictionServicPredictionServiceSettingsceSettings =
-            PredictionServicPredictionServiceSettings          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServiceSettings predictionServiceSettings =
+            PredictionServiceSettings.newBuilder()
+                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServicPredictionServiceClientceClient =
-            PredictionServicPredictionServiceClientonServiceSettings)) {
+        try (PredictionServiceClient predictionServiceClient =
+            PredictionServiceClient.create(predictionServiceSettings)) {
           String location = "us-central1";
-          EndpointName endEndpointNameEndpointName.of(EndpointNameation, endpointId);
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
     
-          ListValue.BuildeListValueue = ListValue.newBuiListValue     JsonFormat.parseJsonFormatinstance, listValue);
-          List<Value> instanListValuelistValue.getValuesList();
+          ListValue.Builder listValue = ListValue.newBuilder();
+          JsonFormat.parser().merge(instance, listValue);
+          List<Value> instanceList = listValue.getValuesList();
     
-          Value parametersValuelue.newBuilderValuetListValue(listValue).build();
-          PredictResponse PredictResponse =
+          Value parameters = Value.newBuilder().setListValue(listValue).build();
+          PredictResponse predictResponse =
               predictionServiceClient.predict(endpointName, instanceList, parameters);
           System.out.println("Predict Tabular Regression Response");
-          System.out.format("\tDisplay Model Id: %s\n", predictResponse.predictResponse.getDeployedModelId().out.println("Predictions");
-          for (Value predictionValueedictResponse.predictResponse.getPredictionsList()larRegressioTabularRegressionPredictionResultuilder =
-                TabularRegressioTabularRegressionPredictionResult        TabularRegressioTabularRegressionPredictionResult      (TabularRegressioTabularRegressionPredictionResult.fValueConvertertBuilder, prediction);
+          System.out.format("\tDisplay Model Id: %s\n", predictResponse.getDeployedModelId());
     
-            System.out.printf("\tUpper bound: %f\n", result.getUpperBresult.getUpperBound()m.out.printf("\tLower bound: %f\n", result.getLowerBresult.getLowerBound()m.out.printf("\tValue: %f\n", result.getValue(result.getValue()
+          System.out.println("Predictions");
+          for (Value prediction : predictResponse.getPredictionsList()) {
+            TabularRegressionPredictionResult.Builder resultBuilder =
+                TabularRegressionPredictionResult.newBuilder();
+    
+            TabularRegressionPredictionResult result =
+                (TabularRegressionPredictionResult) ValueConverter.fromValue(resultBuilder, prediction);
+    
+            System.out.printf("\tUpper bound: %f\n", result.getUpperBound());
+            System.out.printf("\tLower bound: %f\n", result.getLowerBound());
+            System.out.printf("\tValue: %f\n", result.getValue());
+          }
+        }
       }
     }
 
@@ -1385,7 +1409,7 @@ If your model uses probabilistic inference with quantiles, Gemini Enterprise Age
 
 ## Get an online explanation using your deployed model
 
-You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
+You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ### Console
 
@@ -1550,7 +1574,7 @@ For a specific inference, the local feature importance for each feature tells yo
 
 For classification models, the score is always between 0.0 and 1.0, inclusive. Therefore, local feature importance values for classification models are always between -1.0 and 1.0 (inclusive).
 
-For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
+For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ## Example output for inferences and explanations
 

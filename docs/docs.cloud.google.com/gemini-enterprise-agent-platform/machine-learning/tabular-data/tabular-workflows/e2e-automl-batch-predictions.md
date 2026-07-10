@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page shows you how to make a batch inference request to your trained AutoML classification or regression model using the Google Cloud console or the Agent Platform API.
 
-A batch inference request is an asynchronous request (as opposed to [online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/tabular-workflows/e2e-automl-online-predictions) , which is a synchronous request). You request batch inferences directly from the model resource without deploying the model to an endpoint. For tabular data, use batch inferences when you don't require an immediate response and want to process accumulated data by using a single request.
+A batch inference request is an asynchronous request (as opposed to [online inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-online-predictions) , which is a synchronous request). You request batch inferences directly from the model resource without deploying the model to an endpoint. For tabular data, use batch inferences when you don't require an immediate response and want to process accumulated data by using a single request.
 
 To make a batch inference request, specify an input source and an output format where Gemini Enterprise Agent Platform stores inference results.
 
@@ -16,7 +16,7 @@ To make a batch inference request, specify an input source and an output format 
 
 ## Before you begin
 
-Before you make a batch inference request, first [train](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/tabular-workflows/e2e-automl-train) a model.
+Before you make a batch inference request, first [train](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train) a model.
 
 ## Input data
 
@@ -76,7 +76,7 @@ Use the Google Cloud console to request a batch inference.
               - To specify the project ID, enter the project ID in the **Google Cloud project ID** field. Gemini Enterprise Agent Platform creates a new output dataset for you.
               - To specify an existing dataset, enter its BigQuery path in the **Google Cloud project ID** field, such as `bq://projectid.datasetid` .
         
-          - **Optional** . You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .  
+          - **Optional** . You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .  
             
             To enable feature attributions, select **Enable feature attributions for this model** . This option is available if your output destination is BigQuery or JSONL on Cloud Storage. Feature attributions are not supported for CSV on Cloud Storage.
 4.  Optional: [**Model Monitoring**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) analysis for batch inferences is available in [Preview](https://cloud.google.com/products/#product-launch-stages) . See the [Prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/model-monitoring-batch-predictions#prerequisites) for adding skew detection configuration to your batch inference job.
@@ -117,7 +117,7 @@ Before using any of the request data, make the following replacements:
 
   - MAX\_REPLICA\_COUNT : The maximum number of nodes for this batch inference job. The node count can be increased or decreased as required by load, but will never exceed the maximum. Optional, defaults to 10.
 
-  - GENERATE\_EXPLANATION : You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .  
+  - GENERATE\_EXPLANATION : You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .  
     
     Default value is *false* . Set to *true* to enable feature attributions.
 
@@ -401,7 +401,7 @@ Before using any of the request data, make the following replacements:
 
   - MAX\_REPLICA\_COUNT : The maximum number of nodes for this batch inference job. The node count can be increased or decreased as required by load, but will never exceed the maximum. Optional, defaults to 10.
 
-  - GENERATE\_EXPLANATION : You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .  
+  - GENERATE\_EXPLANATION : You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .  
     
     Default value is *false* . Set to *true* to enable feature attributions. This option is available only if your output destination is JSONL. Feature attributions are not supported for CSV on Cloud Storage.
 
@@ -636,7 +636,7 @@ For a specific inference, the local feature importance for each feature tells yo
 
 For classification models, the score is always between 0.0 and 1.0, inclusive. Therefore, local feature importance values for classification models are always between -1.0 and 1.0 (inclusive).
 
-For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
+For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ## What's next
 

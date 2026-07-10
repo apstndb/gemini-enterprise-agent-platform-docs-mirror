@@ -1383,7 +1383,7 @@ Regression models return an inference value. For BigQuery destinations, they als
 
 ## Get an online explanation using your deployed model
 
-You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
+You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. Feature attributions are included in Agent Platform inferences through [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ### Console
 
@@ -1548,7 +1548,7 @@ For a specific inference, the local feature importance for each feature tells yo
 
 For classification models, the score is always between 0.0 and 1.0, inclusive. Therefore, local feature importance values for classification models are always between -1.0 and 1.0 (inclusive).
 
-For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/classification-explanations) .
+For examples of feature attribution queries and to learn more, see [Feature Attributions for Classification and Regression](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations) .
 
 ## Example output for inferences and explanations
 

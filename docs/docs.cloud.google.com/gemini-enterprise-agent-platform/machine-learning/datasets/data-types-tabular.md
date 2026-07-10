@@ -424,4 +424,4 @@ Conversely, the following JSON key-value pair will throw an error:
 
   - Learn more about [BigQuery data types](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types)
   - Learn how to [prepare your tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/prepare-tabular)
-  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/bp-tabular)
+  - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular)

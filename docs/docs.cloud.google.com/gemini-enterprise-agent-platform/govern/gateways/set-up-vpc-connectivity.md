@@ -73,7 +73,7 @@ Perform the following steps:
     Replace the following:
     
       - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
-      - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For Agent Runtime agents, use a regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ). For Gemini Enterprise, use the project's global registry ( `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ).
+      - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For Agent Runtime agents, use a regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ). For Gemini Enterprise, use the global, multi-region, or regional registry that corresponds to your deployment (for example, `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ).
       - `  PSC_NETWORK_ATTACHMENT_URI  ` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project (such as the Shared VPC host project) different from where you deployed the agent, you need to pass the full path of your network attachment.
       - `  DOMAIN_NAME  ` : A domain name for DNS peering. This value is required and must end with a dot ( `.` ).
       - `  TARGET_PROJECT_ID  ` : The target project for DNS peering.

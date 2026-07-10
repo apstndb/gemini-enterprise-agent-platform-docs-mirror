@@ -18,7 +18,7 @@ The following classes work with structured data, which is organized in rows and 
 
 ### [`TabularDataset`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TabularDataset)
 
-Use this class to work with tabular datasets. You can use a CSV file, BigQuery, or a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) to create a tabular dataset. For more information about paging through BigQuery data, see [Read data with BigQuery API using pagination](https://docs.cloud.google.com/bigquery/docs/paging-results) . For more information about tabular data, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/overview) .
+Use this class to work with tabular datasets. You can use a CSV file, BigQuery, or a pandas [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) to create a tabular dataset. For more information about paging through BigQuery data, see [Read data with BigQuery API using pagination](https://docs.cloud.google.com/bigquery/docs/paging-results) . For more information about tabular data, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) .
 
 The following code shows you how to create a tabular dataset by importing a CSV file.
 
@@ -44,7 +44,7 @@ If you create a tabular dataset with a pandas [`DataFrame`](https://pandas.pydat
 
 ### [`TimeSeriesDataset`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.TimeSeriesDataset)
 
-Use this class to work with time series datasets. A time series is a dataset that contains data recorded at different time intervals. The dataset includes time and at least one variable that's dependent on time. You use a time series dataset for forecasting predictions. For more information, see [Forecasting overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tabular-data/forecasting/overview) .
+Use this class to work with time series datasets. A time series is a dataset that contains data recorded at different time intervals. The dataset includes time and at least one variable that's dependent on time. You use a time series dataset for forecasting predictions. For more information, see [Forecasting overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/overview) .
 
 You can create a managed time series dataset from CSV files in a Cloud Storage bucket or from a BigQuery table.
 
