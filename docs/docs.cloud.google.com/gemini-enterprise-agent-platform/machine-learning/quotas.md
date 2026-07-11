@@ -6933,7 +6933,7 @@ Not available
 
 `asia-southeast1`
 
-0
+8
 
 `asia-southeast2`
 

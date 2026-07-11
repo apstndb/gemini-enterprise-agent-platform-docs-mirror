@@ -150,7 +150,7 @@ Supported regions
   - Global: `global`
   - Multi-region: `us` , `eu`
 
-**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency)**
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - United States: `Multi-region`
   - Europe: `Multi-region`

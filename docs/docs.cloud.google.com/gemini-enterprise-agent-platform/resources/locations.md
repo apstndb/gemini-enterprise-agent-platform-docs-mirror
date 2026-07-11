@@ -1715,10 +1715,10 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Multi-region
@@ -1793,10 +1793,10 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`
 
 ### United States
@@ -1886,10 +1886,10 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Americas
@@ -1964,10 +1964,10 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Europe
@@ -2066,10 +2066,10 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Asia Pacific
@@ -2159,10 +2159,10 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`
 
 ### Middle East
@@ -2240,8 +2240,8 @@ Qwen models
 
 e5 models
 
-[Multilingual E5 Small](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Small  
 `(multilingual-e5-small-maas)`
 
-[Multilingual E5 Large](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)  
+Multilingual E5 Large  
 `(multilingual-e5-large-instruct-maas)`

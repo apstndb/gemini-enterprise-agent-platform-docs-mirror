@@ -54,7 +54,7 @@ The following models provide support for code execution:
 
 ## Get started with code execution
 
-This section assumes that you've completed the setup and configuration steps shown in the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstarts/quickstart-multimodal) .
+This section assumes that you've completed the setup and configuration steps shown in [Get started with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
 
 ### Enable code execution
 

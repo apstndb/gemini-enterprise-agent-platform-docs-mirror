@@ -65,10 +65,6 @@ Capabilities
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Not supported
 
-Quotas
-
-  - Regional online prediction requests per minute per base model: 10
-
 Technical specifications
 
 **Audio** mic
@@ -88,6 +84,10 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - Global: `global`
+
+Quotas
+
+  - **Regional online prediction requests per minute per base model** : 10 tokens per minute
 
 Versions
 

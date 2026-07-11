@@ -114,7 +114,7 @@ Colab Enterprise connects to the runtime. If the runtime isn't running, Colab En
 
 ## Create a runtime
 
-This section describes how to create a runtime and connect to it by using the **Connect to Agent Platform runtime** dialog. Alternatively, you can [create a runtime from the **Runtimes** tab](https://docs.cloud.google.com/colab/colab/create-runtime) .
+This section describes how to create a runtime and connect to it by using the **Connect to Agent Platform runtime** dialog. Alternatively, you can [create a runtime from the **Runtimes** tab](https://docs.cloud.google.com/colab/docs/create-runtime) .
 
 ### Required roles
 

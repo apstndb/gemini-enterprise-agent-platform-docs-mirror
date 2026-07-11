@@ -560,6 +560,10 @@ Creates a reasoning engine.
 
 Deletes a reasoning engine.
 
+### `            executeCode           `
+
+Executes code statelessly.
+
 ### `            get           `
 
 Gets a reasoning engine.

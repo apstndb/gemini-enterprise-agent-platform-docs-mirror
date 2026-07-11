@@ -10,17 +10,17 @@ This page explains Gemini Enterprise Agent Platform's TensorFlow integration and
 
 ## Run code in notebooks
 
-Agent Platform provides two options for running your code in notebooks, Colab Enterprise and Vertex AI Workbench. To learn more about these options, see [choose a notebook solution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/notebook-solution) .
+Agent Platform provides two options for running your code in notebooks, Colab Enterprise and Gemini Enterprise Agent Platform Workbench. To learn more about these options, see [Choose a notebook solution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution) .
 
 ## Prebuilt containers for training
 
 Gemini Enterprise Agent Platform provides prebuilt Docker container images for model training. These containers are organized by machine learning frameworks and framework versions and include common dependencies that you might want to use in your training code.
 
-To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/pre-built-containers#tensorflow) .
+To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers#tensorflow) .
 
 ## Distributed training
 
-You can run distributed training of TensorFlow models on Gemini Enterprise Agent Platform. For multi-worker training, you can use Reduction Server to optimize performance even further for all-reduce collective operations. To learn more about distributed training on Gemini Enterprise Agent Platform, see [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/distributed-training) .
+You can run distributed training of TensorFlow models on Gemini Enterprise Agent Platform. For multi-worker training, you can use Reduction Server to optimize performance even further for all-reduce collective operations. To learn more about distributed training on Gemini Enterprise Agent Platform, see [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) .
 
 ## Prebuilt containers for inference
 

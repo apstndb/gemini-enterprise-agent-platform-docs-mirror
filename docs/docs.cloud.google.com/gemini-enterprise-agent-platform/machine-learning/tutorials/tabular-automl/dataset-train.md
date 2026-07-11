@@ -80,7 +80,7 @@ Sourcing and preparing your data is a critical to ensuring an accurate machine l
 
 [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/create-dataset) about creating a tabular dataset.
 
-Gemini Enterprise Agent Platform offers two model training methods, AutoML and custom training. AutoML lets you train with minimal effort and machine learning experience, while custom training gives you complete control over training functionality. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/training-methods) about training methods.
+Gemini Enterprise Agent Platform offers two model training methods, AutoML and custom training. AutoML lets you train with minimal effort and machine learning experience, while custom training gives you complete control over training functionality. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-methods) about training methods.
 
 Gemini Enterprise Agent Platform examines the source data type and feature values and infers how it will use that feature in model training. It's recommended that you review each column's data type to verify that it's been interpreted correctly. If needed, you can specify a different supported transformation for any feature. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) about transformations.
 

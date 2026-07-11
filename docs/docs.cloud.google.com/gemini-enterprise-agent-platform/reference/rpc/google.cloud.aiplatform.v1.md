@@ -35,6 +35,8 @@ data_source: docs.cloud.google.com
   - `  PredictionService  ` (interface)
   - `  ReasoningEngineExecutionService  ` (interface)
   - `  ReasoningEngineService  ` (interface)
+  - `  SandboxEnvironmentExecutionService  ` (interface)
+  - `  SandboxEnvironmentService  ` (interface)
   - `  ScheduleService  ` (interface)
   - `  SemanticGovernancePolicyEngineService  ` (interface)
   - `  SemanticGovernancePolicyService  ` (interface)
@@ -141,6 +143,7 @@ data_source: docs.cloud.google.com
   - `  CheckTrialEarlyStoppingStateRequest  ` (message)
   - `  CheckTrialEarlyStoppingStateResponse  ` (message)
   - `  Checkpoint  ` (message)
+  - `  Chunk  ` (message)
   - `  Citation  ` (message)
   - `  CitationMetadata  ` (message)
   - `  Claim  ` (message)
@@ -227,6 +230,10 @@ data_source: docs.cloud.google.com
   - `  CreateReasoningEngineOperationMetadata  ` (message)
   - `  CreateReasoningEngineRequest  ` (message)
   - `  CreateRegistryFeatureOperationMetadata  ` (message)
+  - `  CreateSandboxEnvironmentOperationMetadata  ` (message)
+  - `  CreateSandboxEnvironmentRequest  ` (message)
+  - `  CreateSandboxEnvironmentTemplateOperationMetadata  ` (message)
+  - `  CreateSandboxEnvironmentTemplateRequest  ` (message)
   - `  CreateScheduleRequest  ` (message)
   - `  CreateSemanticGovernancePolicyOperationMetadata  ` (message)
   - `  CreateSemanticGovernancePolicyRequest  ` (message)
@@ -295,6 +302,9 @@ data_source: docs.cloud.google.com
   - `  DeleteRagCorpusRequest  ` (message)
   - `  DeleteRagFileRequest  ` (message)
   - `  DeleteReasoningEngineRequest  ` (message)
+  - `  DeleteSandboxEnvironmentRequest  ` (message)
+  - `  DeleteSandboxEnvironmentSnapshotRequest  ` (message)
+  - `  DeleteSandboxEnvironmentTemplateRequest  ` (message)
   - `  DeleteSavedQueryRequest  ` (message)
   - `  DeleteScheduleRequest  ` (message)
   - `  DeleteSemanticGovernancePolicyOperationMetadata  ` (message)
@@ -385,6 +395,10 @@ data_source: docs.cloud.google.com
   - `  ExamplesRestrictionsNamespace  ` (message)
   - `  ExecutableCode  ` (message)
   - `  ExecutableCode.Language  ` (enum)
+  - `  ExecuteCodeRequest  ` (message)
+  - `  ExecuteCodeResponse  ` (message)
+  - `  ExecuteSandboxEnvironmentRequest  ` (message)
+  - `  ExecuteSandboxEnvironmentResponse  ` (message)
   - `  Execution  ` (message)
   - `  Execution.State  ` (enum)
   - `  ExplainRequest  ` (message)
@@ -574,6 +588,9 @@ data_source: docs.cloud.google.com
   - `  GetRagEngineConfigRequest  ` (message)
   - `  GetRagFileRequest  ` (message)
   - `  GetReasoningEngineRequest  ` (message)
+  - `  GetSandboxEnvironmentRequest  ` (message)
+  - `  GetSandboxEnvironmentSnapshotRequest  ` (message)
+  - `  GetSandboxEnvironmentTemplateRequest  ` (message)
   - `  GetScheduleRequest  ` (message)
   - `  GetSemanticGovernancePolicyEngineRequest  ` (message)
   - `  GetSemanticGovernancePolicyRequest  ` (message)
@@ -731,6 +748,12 @@ data_source: docs.cloud.google.com
   - `  ListRagFilesResponse  ` (message)
   - `  ListReasoningEnginesRequest  ` (message)
   - `  ListReasoningEnginesResponse  ` (message)
+  - `  ListSandboxEnvironmentSnapshotsRequest  ` (message)
+  - `  ListSandboxEnvironmentSnapshotsResponse  ` (message)
+  - `  ListSandboxEnvironmentTemplatesRequest  ` (message)
+  - `  ListSandboxEnvironmentTemplatesResponse  ` (message)
+  - `  ListSandboxEnvironmentsRequest  ` (message)
+  - `  ListSandboxEnvironmentsResponse  ` (message)
   - `  ListSavedQueriesRequest  ` (message)
   - `  ListSavedQueriesResponse  ` (message)
   - `  ListSchedulesRequest  ` (message)
@@ -767,6 +790,7 @@ data_source: docs.cloud.google.com
   - `  Measurement  ` (message)
   - `  Measurement.Metric  ` (message)
   - `  MergeVersionAliasesRequest  ` (message)
+  - `  Metadata  ` (message)
   - `  MetadataSchema  ` (message)
   - `  MetadataSchema.MetadataSchemaType  ` (enum)
   - `  MetadataStore  ` (message)
@@ -912,6 +936,8 @@ data_source: docs.cloud.google.com
   - `  Part.MediaResolution.Level  ` (enum)
   - `  PartialArg  ` (message)
   - `  PauseModelDeploymentMonitoringJobRequest  ` (message)
+  - `  PauseSandboxEnvironmentOperationMetadata  ` (message)
+  - `  PauseSandboxEnvironmentRequest  ` (message)
   - `  PauseScheduleRequest  ` (message)
   - `  PersistentDiskSpec  ` (message)
   - `  PersistentResource  ` (message)
@@ -1091,6 +1117,8 @@ data_source: docs.cloud.google.com
   - `  RestoreDatasetVersionOperationMetadata  ` (message)
   - `  RestoreDatasetVersionRequest  ` (message)
   - `  ResumeModelDeploymentMonitoringJobRequest  ` (message)
+  - `  ResumeSandboxEnvironmentOperationMetadata  ` (message)
+  - `  ResumeSandboxEnvironmentRequest  ` (message)
   - `  ResumeScheduleRequest  ` (message)
   - `  Retrieval  ` (message)
   - `  RetrievalConfig  ` (message)
@@ -1117,6 +1145,25 @@ data_source: docs.cloud.google.com
   - `  SampledShapleyAttribution  ` (message)
   - `  SamplingStrategy  ` (message)
   - `  SamplingStrategy.RandomSampleConfig  ` (message)
+  - `  SandboxEnvironment  ` (message)
+  - `  SandboxEnvironment.ConnectionInfo  ` (message)
+  - `  SandboxEnvironment.State  ` (enum)
+  - `  SandboxEnvironmentSnapshot  ` (message)
+  - `  SandboxEnvironmentSnapshot.PostSnapshotAction  ` (enum)
+  - `  SandboxEnvironmentSpec  ` (message)
+  - `  SandboxEnvironmentSpec.CodeExecutionEnvironment  ` (message)
+  - `  SandboxEnvironmentSpec.CodeExecutionEnvironment.Language  ` (enum)
+  - `  SandboxEnvironmentSpec.MachineConfig  ` (enum)
+  - `  SandboxEnvironmentTemplate  ` (message)
+  - `  SandboxEnvironmentTemplate.CustomContainerEnvironment  ` (message)
+  - `  SandboxEnvironmentTemplate.CustomContainerSpec  ` (message)
+  - `  SandboxEnvironmentTemplate.DefaultContainerEnvironment  ` (message)
+  - `  SandboxEnvironmentTemplate.DefaultContainerEnvironment.DefaultContainerCategory  ` (enum)
+  - `  SandboxEnvironmentTemplate.EgressControlConfig  ` (message)
+  - `  SandboxEnvironmentTemplate.NetworkPort  ` (message)
+  - `  SandboxEnvironmentTemplate.NetworkPort.Protocol  ` (enum)
+  - `  SandboxEnvironmentTemplate.ResourceRequirements  ` (message)
+  - `  SandboxEnvironmentTemplate.State  ` (enum)
   - `  SavedQuery  ` (message)
   - `  Scalar  ` (message)
   - `  Schedule  ` (message)
@@ -1155,6 +1202,8 @@ data_source: docs.cloud.google.com
   - `  SlackSource.SlackChannels  ` (message)
   - `  SlackSource.SlackChannels.SlackChannel  ` (message)
   - `  SmoothGradConfig  ` (message)
+  - `  SnapshotSandboxEnvironmentOperationMetadata  ` (message)
+  - `  SnapshotSandboxEnvironmentRequest  ` (message)
   - `  SpeakerVoiceConfig  ` (message)
   - `  SpecialistPool  ` (message)
   - `  SpeculativeDecodingSpec  ` (message)
@@ -10598,6 +10647,475 @@ A service for managing Agent Platform's Reasoning Engines.
 </tbody>
 </table>
 
+## SandboxEnvironmentExecutionService
+
+A service for execution on Sandbox Environments.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ExecuteCode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ExecuteCode(              ExecuteCodeRequest            </code> ) returns ( <code dir="ltr" translate="no">             ExecuteCodeResponse            </code> )</p>
+<p>Executes code statelessly.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ExecuteSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ExecuteSandboxEnvironment(              ExecuteSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             ExecuteSandboxEnvironmentResponse            </code> )</p>
+<p>Executes using a sandbox environment.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.execute</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+## SandboxEnvironmentService
+
+Service for managing SandboxEnvironments.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CreateSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CreateSandboxEnvironment(              CreateSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Creates a <code dir="ltr" translate="no">            SandboxEnvironment           </code> in a given reasoning engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.create</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CreateSandboxEnvironmentTemplate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CreateSandboxEnvironmentTemplate(              CreateSandboxEnvironmentTemplateRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Creates a <code dir="ltr" translate="no">            SandboxEnvironmentTemplate           </code> in a given reasoning engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteSandboxEnvironment(              DeleteSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deletes the specific <code dir="ltr" translate="no">            SandboxEnvironment           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.delete</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteSandboxEnvironmentSnapshot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteSandboxEnvironmentSnapshot(              DeleteSandboxEnvironmentSnapshotRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deletes the specific <code dir="ltr" translate="no">            SandboxEnvironmentSnapshot           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteSandboxEnvironmentTemplate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteSandboxEnvironmentTemplate(              DeleteSandboxEnvironmentTemplateRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Deletes the specific <code dir="ltr" translate="no">            SandboxEnvironmentTemplate           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetSandboxEnvironment(              GetSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             SandboxEnvironment            </code> )</p>
+<p>Gets details of the specific <code dir="ltr" translate="no">            SandboxEnvironment           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.get</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetSandboxEnvironmentSnapshot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetSandboxEnvironmentSnapshot(              GetSandboxEnvironmentSnapshotRequest            </code> ) returns ( <code dir="ltr" translate="no">             SandboxEnvironmentSnapshot            </code> )</p>
+<p>Gets details of the specific <code dir="ltr" translate="no">            SandboxEnvironmentSnapshot           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetSandboxEnvironmentTemplate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetSandboxEnvironmentTemplate(              GetSandboxEnvironmentTemplateRequest            </code> ) returns ( <code dir="ltr" translate="no">             SandboxEnvironmentTemplate            </code> )</p>
+<p>Gets details of the specific <code dir="ltr" translate="no">            SandboxEnvironmentTemplate           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListSandboxEnvironmentSnapshots</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListSandboxEnvironmentSnapshots(              ListSandboxEnvironmentSnapshotsRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListSandboxEnvironmentSnapshotsResponse            </code> )</p>
+<p>Lists <code dir="ltr" translate="no">            SandboxEnvironmentSnapshot           </code> s in a given reasoning engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListSandboxEnvironmentTemplates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListSandboxEnvironmentTemplates(              ListSandboxEnvironmentTemplatesRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListSandboxEnvironmentTemplatesResponse            </code> )</p>
+<p>Lists <code dir="ltr" translate="no">            SandboxEnvironmentTemplate           </code> s in a given reasoning engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListSandboxEnvironments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListSandboxEnvironments(              ListSandboxEnvironmentsRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListSandboxEnvironmentsResponse            </code> )</p>
+<p>Lists <code dir="ltr" translate="no">            SandboxEnvironment           </code> s in a given reasoning engine.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.list</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>PauseSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc PauseSandboxEnvironment(              PauseSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Pauses the specific <code dir="ltr" translate="no">            SandboxEnvironment           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ResumeSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ResumeSandboxEnvironment(              ResumeSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Resumes the specific <code dir="ltr" translate="no">            SandboxEnvironment           </code> .</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>SnapshotSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc SnapshotSandboxEnvironment(              SnapshotSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Snapshots the specific <code dir="ltr" translate="no">            SandboxEnvironment           </code> resource and creates a <code dir="ltr" translate="no">            SandboxEnvironmentSnapshot           </code> resource.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
 ## ScheduleService
 
 A service for creating and managing Agent Platform's Schedule resources to periodically launch shceudled runs to make API calls.
@@ -16052,6 +16570,30 @@ The epoch of the checkpoint.
 
 The step of the checkpoint.
 
+## Chunk
+
+Container for bytes-encoded data such as video frame, audio sample, or a complete binary/text data.
+
+Fields
+
+`mime_type`
+
+`string`
+
+Required. Mime type of the chunk data. See <https://www.iana.org/assignments/media-types/media-types.xhtml> for the full list.
+
+`data`
+
+`bytes`
+
+Required. The data in the chunk.
+
+`metadata`
+
+`  Metadata  `
+
+Optional. Metadata that is associated with the data in the payload.
+
 ## Citation
 
 A citation for a piece of generatedcontent.
@@ -17852,6 +18394,66 @@ Fields
 
 Operation metadata for Feature.
 
+## CreateSandboxEnvironmentOperationMetadata
+
+Metadata associated with the \[SandboxEnvironmentService.CreateSandboxEnvironment\] operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## CreateSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentService.CreateSandboxEnvironment  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the reasoning engine to create the SandboxEnvironment in. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}` .
+
+`sandbox_environment`
+
+`  SandboxEnvironment  `
+
+Required. The SandboxEnvironment to create.
+
+## CreateSandboxEnvironmentTemplateOperationMetadata
+
+Metadata associated with the \[SandboxEnvironmentService.CreateSandboxEnvironmentTemplate\] operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## CreateSandboxEnvironmentTemplateRequest
+
+Request message for `  SandboxEnvironmentService.CreateSandboxEnvironmentTemplate  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the reasoning engine to create the SandboxEnvironmentTemplate in. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}` .
+
+`sandbox_environment_template`
+
+`  SandboxEnvironmentTemplate  `
+
+Required. The SandboxEnvironmentTemplate to create.
+
 ## CreateScheduleRequest
 
 Request message for `  ScheduleService.CreateSchedule  ` .
@@ -19357,6 +19959,42 @@ Required. The name of the ReasoningEngine resource to be deleted. Format: `proje
 `bool`
 
 Optional. If set to true, child resources of this reasoning engine will also be deleted. Otherwise, the request will fail with FAILED\_PRECONDITION error when the reasoning engine has undeleted child resources.
+
+## DeleteSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentService.DeleteSandboxEnvironment  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the SandboxEnvironment to delete. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
+## DeleteSandboxEnvironmentSnapshotRequest
+
+Request message for `  SandboxEnvironmentService.DeleteSandboxEnvironmentSnapshot  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the SandboxEnvironmentSnapshot to delete. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentSnapshots/{sandbox_environment_snapshot}`
+
+## DeleteSandboxEnvironmentTemplateRequest
+
+Request message for `  SandboxEnvironmentService.DeleteSandboxEnvironmentTemplate  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the SandboxEnvironmentTemplate to delete. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentTemplates/{sandbox_environment_template}`
 
 ## DeleteSavedQueryRequest
 
@@ -22176,6 +22814,66 @@ Unspecified language. This value should not be used.
 `PYTHON`
 
 Python \>= 3.10, with numpy and simpy available.
+
+## ExecuteCodeRequest
+
+Request message for `  SandboxEnvironmentExecutionService.ExecuteCode  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to execute. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`inputs[]`
+
+`  Chunk  `
+
+Required. The inputs used for the stateless code execution.
+
+## ExecuteCodeResponse
+
+Response message for `  SandboxEnvironmentExecutionService.ExecuteCode  ` .
+
+Fields
+
+`outputs[]`
+
+`  Chunk  `
+
+The outputs from the sandbox environment.
+
+## ExecuteSandboxEnvironmentRequest
+
+Request message for \[SandboxEnvironmentExecutionService.Execute\]\[\].
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to execute. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
+`inputs[]`
+
+`  Chunk  `
+
+Required. The inputs to the sandbox environment.
+
+## ExecuteSandboxEnvironmentResponse
+
+Response message for \[SandboxEnvironmentExecutionService.Execute\]\[\].
+
+Fields
+
+`outputs[]`
+
+`  Chunk  `
+
+The outputs from the sandbox environment.
 
 ## Execution
 
@@ -26905,6 +27603,42 @@ Fields
 `string`
 
 Required. The name of the ReasoningEngine resource. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+## GetSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentService.GetSandboxEnvironment  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
+## GetSandboxEnvironmentSnapshotRequest
+
+Request message for `  SandboxEnvironmentService.GetSandboxEnvironmentSnapshot  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment snapshot. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentSnapshots/{sandbox_environment_snapshot}`
+
+## GetSandboxEnvironmentTemplateRequest
+
+Request message for `  SandboxEnvironmentService.GetSandboxEnvironmentTemplate  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment template. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentTemplates/{sandbox_environment_template}`
 
 ## GetScheduleRequest
 
@@ -31688,6 +32422,150 @@ List of ReasoningEngines in the requested page.
 
 A token to retrieve the next page of results. Pass to `  ListReasoningEnginesRequest.page_token  ` to obtain that page.
 
+## ListSandboxEnvironmentSnapshotsRequest
+
+Request message for `  SandboxEnvironmentService.ListSandboxEnvironmentSnapshots  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the reasoning engine to list sandbox environments from. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`filter`
+
+`string`
+
+Optional. The standard list filter. More detail in [AIP-160](https://google.aip.dev/160) .
+
+`page_size`
+
+`int32`
+
+Optional. The maximum number of SandboxEnvironmentSnapshots to return. The service may return fewer than this value. If unspecified, at most 100 SandboxEnvironmentSnapshots will be returned. Values above 100 will be coerced to 100.
+
+`page_token`
+
+`string`
+
+Optional. The standard list page token, received from a previous `ListSandboxEnvironmentSnapshots` call. Provide this to retrieve the subsequent page.
+
+## ListSandboxEnvironmentSnapshotsResponse
+
+Response message for `  SandboxEnvironmentService.ListSandboxEnvironmentSnapshots  ` .
+
+Fields
+
+`sandbox_environment_snapshots[]`
+
+`  SandboxEnvironmentSnapshot  `
+
+The SandboxEnvironmentSnapshots matching the request.
+
+`next_page_token`
+
+`string`
+
+A token, which can be sent as `  ListSandboxEnvironmentSnapshotsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+
+## ListSandboxEnvironmentTemplatesRequest
+
+Request message for `  SandboxEnvironmentService.ListSandboxEnvironmentTemplates  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the reasoning engine to list sandbox environment templates from. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`filter`
+
+`string`
+
+Optional. The standard list filter. More detail in [AIP-160](https://google.aip.dev/160) .
+
+`page_size`
+
+`int32`
+
+Optional. The maximum number of SandboxEnvironmentTemplates to return. The service may return fewer than this value. If unspecified, at most 100 SandboxEnvironmentTemplates will be returned.
+
+`page_token`
+
+`string`
+
+Optional. The standard list page token, received from a previous `ListSandboxEnvironmentTemplates` call. Provide this to retrieve the subsequent page.
+
+## ListSandboxEnvironmentTemplatesResponse
+
+Response message for `  SandboxEnvironmentService.ListSandboxEnvironmentTemplates  ` .
+
+Fields
+
+`sandbox_environment_templates[]`
+
+`  SandboxEnvironmentTemplate  `
+
+The SandboxEnvironmentTemplates matching the request.
+
+`next_page_token`
+
+`string`
+
+A token, which can be sent as `  ListSandboxEnvironmentTemplatesRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+
+## ListSandboxEnvironmentsRequest
+
+Request message for `  SandboxEnvironmentService.ListSandboxEnvironments  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the reasoning engine to list sandbox environments from. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+
+`filter`
+
+`string`
+
+Optional. The standard list filter. More detail in [AIP-160](https://google.aip.dev/160) .
+
+`page_size`
+
+`int32`
+
+Optional. The maximum number of SandboxEnvironments to return. The service may return fewer than this value. If unspecified, at most 100 SandboxEnvironments will be returned.
+
+`page_token`
+
+`string`
+
+Optional. The standard list page token, received from a previous `ListSandboxEnvironments` call. Provide this to retrieve the subsequent page.
+
+## ListSandboxEnvironmentsResponse
+
+Response message for `  SandboxEnvironmentService.ListSandboxEnvironments  ` .
+
+Fields
+
+`sandbox_environments[]`
+
+`  SandboxEnvironment  `
+
+The SandboxEnvironments matching the request.
+
+`next_page_token`
+
+`string`
+
+A token, which can be sent as `  ListSandboxEnvironmentsRequest.page_token  ` to retrieve the next page. Absence of this field indicates there are no subsequent pages.
+
 ## ListSavedQueriesRequest
 
 Request message for `  DatasetService.ListSavedQueries  ` .
@@ -32674,6 +33552,18 @@ Example: `projects/{project}/locations/{location}/models/{model}@1234`
 Required. The set of version aliases to merge. The alias should be at most 128 characters, and match `[a-z][a-zA-Z0-9-]{0,126}[a-z-0-9]` . Add the `-` prefix to an alias means removing that alias from the version. `-` is NOT counted in the 128 characters. Example: `-golden` means removing the `golden` alias from the version.
 
 There is NO ordering in aliases, which means 1) The aliases returned from GetModel API might not have the exactly same order from this MergeVersionAliases API. 2) Adding and deleting the same alias in the request is not recommended, and the 2 operations will be cancelled out.
+
+## Metadata
+
+Metadata for a chunk.
+
+Fields
+
+`attributes`
+
+`map<string, bytes>`
+
+Optional. Attributes attached to the data. The keys have semantic conventions and the consumers of the attributes should know how to deserialize the value bytes based on the keys.
 
 ## MetadataSchema
 
@@ -37352,6 +38242,30 @@ Fields
 
 Required. The resource name of the ModelDeploymentMonitoringJob to pause. Format: `projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}`
 
+## PauseSandboxEnvironmentOperationMetadata
+
+Metadata associated with the \[SandboxEnvironmentService.PauseSandboxEnvironment\] operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## PauseSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentService.PauseSandboxEnvironment  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to pause. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
 ## PauseScheduleRequest
 
 Request message for `  ScheduleService.PauseSchedule  ` .
@@ -41756,6 +42670,30 @@ Fields
 
 Required. The resource name of the ModelDeploymentMonitoringJob to resume. Format: `projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}`
 
+## ResumeSandboxEnvironmentOperationMetadata
+
+Metadata associated with the \[SandboxEnvironmentService.ResumeSandboxEnvironment\] operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## ResumeSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentService.ResumeSandboxEnvironment  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to resume. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
 ## ResumeScheduleRequest
 
 Request message for `  ScheduleService.ResumeSchedule  ` .
@@ -42271,6 +43209,528 @@ Fields
 `double`
 
 Sample rate (0, 1\]
+
+## SandboxEnvironment
+
+SandboxEnvironment is a containerized environment that provides a customizable secure execution runtime for AI agents.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The name of the SandboxEnvironment.
+
+`display_name`
+
+`string`
+
+Required. The display name of the SandboxEnvironment.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. The timestamp when this SandboxEnvironment was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. The timestamp when this SandboxEnvironment was most recently updated.
+
+`state`
+
+`  State  `
+
+Output only. The runtime state of the SandboxEnvironment.
+
+`spec`
+
+`  SandboxEnvironmentSpec  `
+
+Optional. The configuration of the SandboxEnvironment.
+
+`sandbox_environment_template`
+
+`string`
+
+Optional. The name of the SandboxEnvironmentTemplate specified in the parent Agent Engine resource that this SandboxEnvironment is created from.
+
+`connection_info`
+
+`  ConnectionInfo  `
+
+Output only. The connection information of the SandboxEnvironment.
+
+`latest_sandbox_environment_snapshot`
+
+`string`
+
+Output only. The resource name of the latest snapshot taken for this SandboxEnvironment.
+
+`owner`
+
+`string`
+
+Optional. Owner information for this sandbox environment. A Sandbox can only be restored from a snapshot that belongs to the same owner. If not set, sandbox will be created as the default owner.
+
+`sandbox_environment_snapshot`
+
+`string`
+
+Optional. The resource name of the SandboxEnvironmentSnapshot to use for creating this SandboxEnvironment. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentSnapshots/{sandbox_environment_snapshot}`
+
+Union field `expiration` . The expiration of the SandboxEnvironment. If not set, the SandboxEnvironment will not be automatically deleted. `expiration` can be only one of the following:
+
+`expire_time`
+
+`  Timestamp  `
+
+Optional. Timestamp in UTC of when this SandboxEnvironment is considered expired. This is *always* provided on output, regardless of what `expiration` was sent on input.
+
+`ttl`
+
+`  Duration  `
+
+Optional. Input only. The TTL for the sandbox environment. The expiration time is computed: now + TTL.
+
+## ConnectionInfo
+
+The connection information of the SandboxEnvironment.
+
+Fields
+
+`load_balancer_ip`
+
+`string`
+
+Output only. The IP address of the load balancer.
+
+`load_balancer_hostname`
+
+`string`
+
+Output only. The hostname of the load balancer.
+
+`sandbox_internal_ip`
+
+`string`
+
+Output only. The internal IP address of the SandboxEnvironment.
+
+`routing_token`
+
+`string`
+
+Output only. The routing token for the SandboxEnvironment.
+
+## State
+
+The state of the SandboxEnvironment.
+
+Enums
+
+`STATE_UNSPECIFIED`
+
+The default value. This value is unused.
+
+`STATE_PROVISIONING`
+
+Runtime resources are being allocated for the sandbox environment.
+
+`STATE_RUNNING`
+
+Sandbox runtime is ready for serving.
+
+`STATE_DEPROVISIONING`
+
+Sandbox runtime is halted, performing tear down tasks.
+
+`STATE_TERMINATED`
+
+Sandbox has terminated with underlying runtime failure.
+
+`STATE_DELETED`
+
+Sandbox runtime has been deleted.
+
+## SandboxEnvironmentSnapshot
+
+SandboxEnvironmentSnapshot is a snapshot of the SandboxEnvironment.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name of the SandboxEnvironmentSnapshot. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentSnapshots/{sandbox_environment_snapshot}`
+
+`display_name`
+
+`string`
+
+Required. The display name of the SandboxEnvironmentSnapshot.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. The timestamp when this SandboxEnvironmentSnapshot was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. The timestamp when this SandboxEnvironment was most recently updated.
+
+`source_sandbox_environment`
+
+`string`
+
+Required. The resource name of the source SandboxEnvironment this snapshot was taken from.
+
+`parent_snapshot`
+
+`string`
+
+Output only. The resource name of the parent SandboxEnvironmentSnapshot. Empty if this is a root Snapshot (the first snapshot from a newly created sandbox). Can be used to reconstruct the whole ancestry tree of snapshots.
+
+`size_bytes`
+
+`int64`
+
+Optional. Output only. Size of the snapshot data in bytes.
+
+`owner`
+
+`string`
+
+Optional. Owner information for this sandbox snapshot. Different owners will have isolations on snapshot storage and identity. If not set, snapshot will be created as the default owner.
+
+`post_snapshot_action`
+
+`  PostSnapshotAction  `
+
+Optional. Input only. Action to take on the source SandboxEnvironment after the snapshot is taken. This field is only used in CreateSandboxEnvironmentSnapshotRequest and it is not stored in the resource.
+
+Union field `expiration` . The expiration of the SandboxEnvironmentSnapshot. If not set, the SandboxEnvironmentSnapshot will have a default TTL of 30 days. `expire_time` is recommended for specifying a precise expiration time. `expiration` can be only one of the following:
+
+`expire_time`
+
+`  Timestamp  `
+
+Optional. Timestamp in UTC of when this SandboxEnvironmentSnapshot is considered expired. This is *always* provided on output, regardless of what `expiration` was sent on input.
+
+`ttl`
+
+`  Duration  `
+
+Optional. Input only. The TTL for the sandbox environment snapshot. The expiration time is computed: now + TTL.
+
+## PostSnapshotAction
+
+Action to take on the source SandboxEnvironment after the snapshot is taken.
+
+Enums
+
+`POST_SNAPSHOT_ACTION_UNSPECIFIED`
+
+The default value. This value is unused.
+
+`RUNNING`
+
+Sandbox environment will continue to run after snapshot is taken.
+
+`PAUSE`
+
+Sandbox environment will be paused after snapshot is taken.
+
+## SandboxEnvironmentSpec
+
+The specification of a SandboxEnvironment.
+
+Fields
+
+Union field `sandbox_environment_category` . The supported sandbox runtime environment categories. `sandbox_environment_category` can be only one of the following:
+
+`code_execution_environment`
+
+`  CodeExecutionEnvironment  `
+
+Optional. The code execution environment.
+
+## CodeExecutionEnvironment
+
+The code execution environment with customized settings.
+
+Fields
+
+`machine_config`
+
+`  MachineConfig  `
+
+The machine config of the code execution environment.
+
+`code_language`
+
+`  Language  `
+
+The coding language supported in this environment.
+
+## Language
+
+The coding language supported by the code execution environment.
+
+Enums
+
+`LANGUAGE_UNSPECIFIED`
+
+The default value. This value is unused.
+
+`LANGUAGE_PYTHON`
+
+The coding language is Python.
+
+`LANGUAGE_JAVASCRIPT`
+
+The coding language is JavaScript.
+
+## MachineConfig
+
+The machine config of the code execution environment.
+
+Enums
+
+`MACHINE_CONFIG_UNSPECIFIED`
+
+The default value: milligcu 2000, memory 1.5Gib
+
+`MACHINE_CONFIG_VCPU4_RAM4GIB`
+
+The default value: milligcu 4000, memory 4 Gib
+
+## SandboxEnvironmentTemplate
+
+The specification of a SandboxEnvironmentTemplate. A SandboxEnvironmentTemplate defines a template for creating SandboxEnvironments.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name of the SandboxEnvironmentTemplate. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironmentTemplates/{sandbox_environment_template}`
+
+`display_name`
+
+`string`
+
+Required. The display name of the SandboxEnvironmentTemplate.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. The timestamp when this SandboxEnvironmentTemplate was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. The timestamp when this SandboxEnvironmentTemplate was most recently updated.
+
+`state`
+
+`  State  `
+
+Output only. The state of the sandbox environment template.
+
+`egress_control_config`
+
+`  EgressControlConfig  `
+
+Optional. The configuration for egress control of this template.
+
+Union field `sandbox_environment_category` . The supported sandbox environment template categories. `sandbox_environment_category` can be only one of the following:
+
+`custom_container_environment`
+
+`  CustomContainerEnvironment  `
+
+The sandbox environment for custom container workloads.
+
+`default_container_environment`
+
+`  DefaultContainerEnvironment  `
+
+The sandbox environment for default container workloads.
+
+## CustomContainerEnvironment
+
+The customized sandbox runtime environment for BYOC.
+
+Fields
+
+`custom_container_spec`
+
+`  CustomContainerSpec  `
+
+The specification of the custom container environment.
+
+`ports[]`
+
+`  NetworkPort  `
+
+Ports to expose from the container.
+
+`resources`
+
+`  ResourceRequirements  `
+
+Resource requests and limits for the container.
+
+## CustomContainerSpec
+
+Specification for deploying from a custom container image.
+
+Fields
+
+`image_uri`
+
+`string`
+
+Required. The Artifact Registry Docker image URI (e.g., us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag) of the container image that is to be run on each worker replica.
+
+## DefaultContainerEnvironment
+
+The default sandbox runtime environment for default container workloads.
+
+Fields
+
+`default_container_category`
+
+`  DefaultContainerCategory  `
+
+Required. The category of the default container image.
+
+`resources`
+
+`  ResourceRequirements  `
+
+Optional. Resource requests and limits for the default container.
+
+## DefaultContainerCategory
+
+The category of the default container image.
+
+Enums
+
+`DEFAULT_CONTAINER_CATEGORY_UNSPECIFIED`
+
+The default value. This value is unused.
+
+`DEFAULT_CONTAINER_CATEGORY_COMPUTER_USE`
+
+The default container image for Computer Use.
+
+## EgressControlConfig
+
+Configuration for egress control of sandbox instances.
+
+Fields
+
+`internet_access`
+
+`bool`
+
+Optional. Whether to allow internet access.
+
+## NetworkPort
+
+Represents a network port in a container.
+
+Fields
+
+`port`
+
+`int32`
+
+Optional. Port number to expose. This must be a valid port number, between 1 and 65535.
+
+`protocol`
+
+`  Protocol  `
+
+Optional. Protocol for port. Defaults to TCP if not specified.
+
+## Protocol
+
+The protocol for the port.
+
+Enums
+
+`PROTOCOL_UNSPECIFIED`
+
+Unspecified protocol. Defaults to TCP.
+
+`TCP`
+
+TCP protocol.
+
+`UDP`
+
+UDP protocol.
+
+## ResourceRequirements
+
+Message to define resource requests and limits (mirroring Kubernetes) for each sandbox instance created from this template.
+
+Fields
+
+`requests`
+
+`map<string, string>`
+
+Optional. The requested amounts of compute resources. Keys are resource names (e.g., "cpu", "memory"). Values are quantities (e.g., "250m", "512Mi").
+
+`limits`
+
+`map<string, string>`
+
+Optional. The maximum amounts of compute resources allowed. Keys are resource names (e.g., "cpu", "memory"). Values are quantities (e.g., "500m", "1Gi").
+
+## State
+
+Represents the state of a sandbox environment template.
+
+Enums
+
+`UNSPECIFIED`
+
+The default value. This value is unused.
+
+`PROVISIONING`
+
+Runtime resources are being allocated for the sandbox environment.
+
+`ACTIVE`
+
+Sandbox runtime is ready for serving.
+
+`DEPROVISIONING`
+
+Sandbox runtime is halted, performing tear down tasks.
+
+`DELETED`
+
+Sandbox has terminated with underlying runtime failure.
+
+`FAILED`
+
+Sandbox has failed to provision.
 
 ## SavedQuery
 
@@ -43766,6 +45226,36 @@ If the distribution is different per feature, set `  feature_noise_sigma  ` inst
 `  FeatureNoiseSigma  `
 
 This is similar to `  noise_sigma  ` , but provides additional flexibility. A separate noise sigma can be provided for each feature, which is useful if their distributions are different. No noise is added to features that are not set. If this field is unset, `  noise_sigma  ` will be used for all features.
+
+## SnapshotSandboxEnvironmentOperationMetadata
+
+Metadata associated with the \[SandboxEnvironmentService.SnapshotSandboxEnvironment\] operation.
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+The common part of the operation metadata.
+
+## SnapshotSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentService.SnapshotSandboxEnvironment  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to snapshot. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}` .
+
+`sandbox_environment_snapshot`
+
+`  SandboxEnvironmentSnapshot  `
+
+Required. The SandboxEnvironmentSnapshot to create.
 
 ## SpeakerVoiceConfig
 

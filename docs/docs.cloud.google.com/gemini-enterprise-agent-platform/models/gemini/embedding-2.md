@@ -52,6 +52,11 @@ videocam
 Video  
 Input only
 
+graph\_3
+
+Embeddings  
+Output only
+
 Token limits
 
 Maximum input tokens
@@ -62,13 +67,13 @@ Maximum output tokens
 
 N/A
 
-Maximum sequence length
-
-8,192 tokens
-
 Output dimensions
 
 Up to 3,072 (with MRL support)
+
+Maximum sequence length
+
+8,192 tokens
 
 Consumption options
 

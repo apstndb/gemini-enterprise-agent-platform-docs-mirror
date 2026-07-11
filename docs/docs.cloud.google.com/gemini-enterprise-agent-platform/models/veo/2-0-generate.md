@@ -77,10 +77,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 10
-
 Technical specifications
 
 **Video** videocam
@@ -105,6 +101,10 @@ Supported regions
 
   - United States: `us-central1`
   - Europe: `europe-west3`
+
+Quotas
+
+  - **Regional online prediction requests per base model per minute per base model** : 10 tokens per minute
 
 Versions
 

@@ -18,7 +18,7 @@ For typical model-based metrics use cases, your dataset needs to provide the fol
 | response                                                 | Your LLM inference response to be evaluated.                                              |
 | baseline\_model\_response (required by pairwise metrics) | The baseline LLM inference response to compare against `response` in pairwise evaluation. |
 
-If you use the [Gen AI Evaluation module](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/python/latest/vertexai.evaluation) of the [Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) , the Gen AI evaluation service can automatically generate the `response` and `baseline_model_response` with the model you specified.
+If you use the [Gen AI Evaluation module](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.evaluation) of the [Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) , the Gen AI evaluation service can automatically generate the `response` and `baseline_model_response` with the model you specified.
 
 For other evaluation use cases, you may need to provide more information:
 

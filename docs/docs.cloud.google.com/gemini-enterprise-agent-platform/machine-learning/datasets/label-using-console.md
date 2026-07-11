@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 For image data, you can import labeled or unlabeled data and add labels using the Google Cloud console. You can also delete or add new labels to existing labeled datasets.
 
-To learn how to import your data, see the *Prepare data* page of the data type and objective that you're working with on the [Training overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview#data) page. Continue with the respective *Create dataset* page for your data type and objective.
+To learn how to import your data, see the *Prepare data* page of the data type and objective that you're working with on the [Training overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#data) page. Continue with the respective *Create dataset* page for your data type and objective.
 
 After creating the dataset and importing the unlabeled data, you will be in **Browse** mode.  
   

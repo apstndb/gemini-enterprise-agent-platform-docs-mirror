@@ -93,4 +93,4 @@ To open a notebook tutorial in a Vertex AI Workbench instance:
 ## What's next
 
   - View the full list of [Gemini Enterprise Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/jupyter-notebooks) .
-  - Learn more about [model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview) .
+  - Learn more about [model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .

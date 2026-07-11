@@ -70,10 +70,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 50
-
 Technical specifications
 
 **Video** videocam
@@ -97,6 +93,10 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - United States: `us-central1`
+
+Quotas
+
+  - **Regional online prediction requests per base model per minute per base model** : 50 tokens per minute
 
 Versions
 
@@ -182,10 +182,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 50
-
 Technical specifications
 
 **Video** videocam
@@ -209,6 +205,10 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - United States: `us-central1`
+
+Quotas
+
+  - **Regional online prediction requests per base model per minute per base model** : 50 tokens per minute
 
 Versions
 
@@ -297,10 +297,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 50
-
 Technical specifications
 
 **Video** videocam
@@ -324,6 +320,10 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - United States: `us-central1`
+
+Quotas
+
+  - **Regional online prediction requests per base model per minute per base model** : 50 tokens per minute
 
 Versions
 
@@ -414,10 +414,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 10
-
 Technical specifications
 
 **Video** videocam
@@ -441,6 +437,10 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - United States: `us-central1`
+
+Quotas
+
+  - **Regional online prediction requests per base model per minute per base model** : 10 tokens per minute
 
 Versions
 
@@ -532,10 +532,6 @@ Consumption options
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Supported
 
-Quotas
-
-  - Regional online prediction requests per base model per minute per base model: 50
-
 Technical specifications
 
 **Video** videocam
@@ -559,6 +555,10 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - United States: `us-central1`
+
+Quotas
+
+  - **Regional online prediction requests per base model per minute per base model** : 50 tokens per minute
 
 Versions
 

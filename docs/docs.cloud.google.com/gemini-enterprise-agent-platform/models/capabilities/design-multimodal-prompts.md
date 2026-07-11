@@ -610,5 +610,5 @@ Specify a lower value for less random responses and a higher value for more rand
 
 ## What's next
 
-  - Try a quickstart tutorial using [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstart-ide) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+  - Try a quickstart tutorial using the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
   - To get started using the Gemini API, see the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .

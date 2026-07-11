@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 In previous steps in this tutorial, you prepared your data for training and created a script that Gemini Enterprise Agent Platform uses to train your model. You're now ready to use the Agent Platform SDK for Python to create a [`CustomTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomTrainingJob) .
 
-When you create a `CustomTrainingJob` , you define a training pipeline in the background. Gemini Enterprise Agent Platform uses the training pipeline and the code in your Python training script to train and create your model. For more information, see [Create training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/create-training-pipeline) .
+When you create a `CustomTrainingJob` , you define a training pipeline in the background. Gemini Enterprise Agent Platform uses the training pipeline and the code in your Python training script to train and create your model. For more information, see [Create training pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline) .
 
 ## Define your training pipeline
 

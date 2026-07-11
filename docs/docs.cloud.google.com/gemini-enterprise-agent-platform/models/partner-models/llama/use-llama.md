@@ -266,8 +266,6 @@ If you want to disable Llama Guard, modify the model safety setting. For more in
 
 For Llama models, you can use Vertex AI Studio to quickly prototype and test generative AI models in the Google Cloud console. As an example, you can use Vertex AI Studio to compare Llama model responses with other supported models such as Google's Gemini.
 
-For more information, see [Quickstart: Send text prompts to Gemini using Vertex AI Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstarts/quickstart) .
-
 ## Llama model region availability and quotas
 
 For Llama models, a quota applies for each region where the model is available. The quota is specified in queries per minute (QPM).

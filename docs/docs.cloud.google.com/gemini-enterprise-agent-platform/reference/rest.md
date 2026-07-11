@@ -1796,6 +1796,11 @@ Creates a reasoning engine.
 `DELETE /v1/{name}`  
 Deletes a reasoning engine.
 
+`  executeCode  `
+
+`POST /v1/{name}:executeCode`  
+Executes code statelessly.
+
 `  get  `
 
 `GET /v1/{name}`  
@@ -1834,6 +1839,93 @@ Queries using a reasoning engine.
 
 `POST /v1/{name}:streamQuery`  
 Streams queries using a reasoning engine.
+
+## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots)
+
+Methods
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  list  `
+
+`GET /v1/{parent}/sandboxEnvironmentSnapshots`  
+Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+
+## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironmentTemplates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates)
+
+Methods
+
+`  create  `
+
+`POST /v1/{parent}/sandboxEnvironmentTemplates`  
+Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes the specific `  SandboxEnvironmentTemplate  ` .
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets details of the specific `  SandboxEnvironmentTemplate  ` .
+
+`  list  `
+
+`GET /v1/{parent}/sandboxEnvironmentTemplates`  
+Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
+
+## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments)
+
+Methods
+
+`  create  `
+
+`POST /v1/{parent}/sandboxEnvironments`  
+Creates a `  SandboxEnvironment  ` in a given reasoning engine.
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes the specific `  SandboxEnvironment  ` .
+
+`  execute  `
+
+`POST /v1/{name}:execute`  
+Executes using a sandbox environment.
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets details of the specific `  SandboxEnvironment  ` .
+
+`  list  `
+
+`GET /v1/{parent}/sandboxEnvironments`  
+Lists `  SandboxEnvironment  ` s in a given reasoning engine.
+
+`  pause  `
+
+`POST /v1/{name}:pause`  
+Pauses the specific `  SandboxEnvironment  ` .
+
+`  resume  `
+
+`POST /v1/{name}:resume`  
+Resumes the specific `  SandboxEnvironment  ` .
+
+`  snapshot  `
+
+`POST /v1/{name}:snapshot`  
+Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sessions)
 
@@ -4420,6 +4512,11 @@ Creates a reasoning engine.
 `DELETE /v1beta1/{name}`  
 Deletes a reasoning engine.
 
+`  executeCode  `
+
+`POST /v1beta1/{name}:executeCode`  
+Executes code statelessly.
+
 `  get  `
 
 `GET /v1beta1/{name}`  
@@ -4561,6 +4658,93 @@ Queries using a reasoning engine.
 
 `POST /v1beta1/{name}:streamQuery`  
 Streams queries using a reasoning engine.
+
+## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentSnapshots)
+
+Methods
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  list  `
+
+`GET /v1beta1/{parent}/sandboxEnvironmentSnapshots`  
+Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+
+## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironmentTemplates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironmentTemplates)
+
+Methods
+
+`  create  `
+
+`POST /v1beta1/{parent}/sandboxEnvironmentTemplates`  
+Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes the specific `  SandboxEnvironmentTemplate  ` .
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets details of the specific `  SandboxEnvironmentTemplate  ` .
+
+`  list  `
+
+`GET /v1beta1/{parent}/sandboxEnvironmentTemplates`  
+Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
+
+## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments)
+
+Methods
+
+`  create  `
+
+`POST /v1beta1/{parent}/sandboxEnvironments`  
+Creates a `  SandboxEnvironment  ` in a given reasoning engine.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes the specific `  SandboxEnvironment  ` .
+
+`  execute  `
+
+`POST /v1beta1/{name}:execute`  
+Executes using a sandbox environment.
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets details of the specific `  SandboxEnvironment  ` .
+
+`  list  `
+
+`GET /v1beta1/{parent}/sandboxEnvironments`  
+Lists `  SandboxEnvironment  ` s in a given reasoning engine.
+
+`  pause  `
+
+`POST /v1beta1/{name}:pause`  
+Pauses the specific `  SandboxEnvironment  ` .
+
+`  resume  `
+
+`POST /v1beta1/{name}:resume`  
+Resumes the specific `  SandboxEnvironment  ` .
+
+`  snapshot  `
+
+`POST /v1beta1/{name}:snapshot`  
+Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sessions)
 

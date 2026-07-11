@@ -85,7 +85,7 @@ For more information on how to call AutoSxS, see [Perform model evaluation](http
 
 ### Prompt parameters
 
-Many language models take prompt parameters as inputs instead of a single prompt string. For example, [`chat-bison`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api-chat#request_body) takes several prompt parameters ( *messages, examples, context* ), which make up pieces of the prompt. However, [`text-bison`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/text-embeddings-api) has only one prompt parameter, named **prompt** , which contains the entire prompt.
+Many language models take prompt parameters as inputs instead of a single prompt string. For example, `chat-bison` takes several prompt parameters ( *messages, examples, context* ), which make up pieces of the prompt. However, `text-bison` has only one prompt parameter, named **prompt** , which contains the entire prompt.
 
 We outline how you can flexibly specify model prompt parameters at inference and evaluation time. AutoSxS gives you the flexibility to call language models with varying expected inputs through templated prompt parameters.
 

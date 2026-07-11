@@ -6,7 +6,7 @@ description: Learn how to use the Gen AI Evaluation module of the Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-You can use the [Gen AI Evaluation module](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/python/latest/vertexai.evaluation) of the [Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to programmatically evaluate your generative language models and applications with the Gen AI evaluation service API. This page shows you how to run evaluations with the Vertex AI SDK. Note that evaluations at scale are only available using the REST API.
+You can use the [Gen AI Evaluation module](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.evaluation) of the [Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to programmatically evaluate your generative language models and applications with the Gen AI evaluation service API. This page shows you how to run evaluations with the Vertex AI SDK. Note that evaluations at scale are only available using the REST API.
 
 ## Before you begin
 
@@ -45,7 +45,7 @@ After you install the Agent Platform SDK for Python, you need to authenticate. T
 
 ### Understanding service accounts
 
-The [service account](https://docs.cloud.google.com/iam/docs/principals-overview#service-account) is used by the Gen AI evaluation service to get predictions from the [Gemini API in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/quickstarts/quickstart-multimodal) for model-based evaluation metrics. This service account is automatically provisioned on the first request to the Gen AI evaluation service.
+The [service account](https://docs.cloud.google.com/iam/docs/principals-overview#service-account) is used by the Gen AI evaluation service to get predictions from the [Gemini API in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) for model-based evaluation metrics. This service account is automatically provisioned on the first request to the Gen AI evaluation service.
 
 | Name                                    | Description                                                             | Email address                                                       | Role                                     |
 | --------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------- |

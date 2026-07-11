@@ -34,7 +34,7 @@ Terraform resource
 
 Terraform configuration samples
 
-[Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/introduction)
+[Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction)
 
 [`google_workbench_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance)
 

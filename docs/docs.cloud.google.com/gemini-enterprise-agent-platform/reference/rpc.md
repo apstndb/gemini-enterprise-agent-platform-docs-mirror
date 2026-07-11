@@ -1156,6 +1156,78 @@ Lists reasoning engines in a location.
 
 Updates a reasoning engine.
 
+## `        google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService       `
+
+Methods
+
+`  ExecuteCode  `
+
+Executes code statelessly.
+
+`  ExecuteSandboxEnvironment  `
+
+Executes using a sandbox environment.
+
+## `        google.cloud.aiplatform.v1.SandboxEnvironmentService       `
+
+Methods
+
+`  CreateSandboxEnvironment  `
+
+Creates a `  SandboxEnvironment  ` in a given reasoning engine.
+
+`  CreateSandboxEnvironmentTemplate  `
+
+Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
+
+`  DeleteSandboxEnvironment  `
+
+Deletes the specific `  SandboxEnvironment  ` .
+
+`  DeleteSandboxEnvironmentSnapshot  `
+
+Deletes the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  DeleteSandboxEnvironmentTemplate  `
+
+Deletes the specific `  SandboxEnvironmentTemplate  ` .
+
+`  GetSandboxEnvironment  `
+
+Gets details of the specific `  SandboxEnvironment  ` .
+
+`  GetSandboxEnvironmentSnapshot  `
+
+Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  GetSandboxEnvironmentTemplate  `
+
+Gets details of the specific `  SandboxEnvironmentTemplate  ` .
+
+`  ListSandboxEnvironmentSnapshots  `
+
+Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+
+`  ListSandboxEnvironmentTemplates  `
+
+Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
+
+`  ListSandboxEnvironments  `
+
+Lists `  SandboxEnvironment  ` s in a given reasoning engine.
+
+`  PauseSandboxEnvironment  `
+
+Pauses the specific `  SandboxEnvironment  ` .
+
+`  ResumeSandboxEnvironment  `
+
+Resumes the specific `  SandboxEnvironment  ` .
+
+`  SnapshotSandboxEnvironment  `
+
+Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
+
 ## `        google.cloud.aiplatform.v1.ScheduleService       `
 
 Methods
@@ -3046,6 +3118,78 @@ Lists reasoning engines in a location.
 `  UpdateReasoningEngine  `
 
 Updates a reasoning engine.
+
+## `        google.cloud.aiplatform.v1beta1.SandboxEnvironmentExecutionService       `
+
+Methods
+
+`  ExecuteCode  `
+
+Executes code statelessly.
+
+`  ExecuteSandboxEnvironment  `
+
+Executes using a sandbox environment.
+
+## `        google.cloud.aiplatform.v1beta1.SandboxEnvironmentService       `
+
+Methods
+
+`  CreateSandboxEnvironment  `
+
+Creates a `  SandboxEnvironment  ` in a given reasoning engine.
+
+`  CreateSandboxEnvironmentTemplate  `
+
+Creates a `  SandboxEnvironmentTemplate  ` in a given reasoning engine.
+
+`  DeleteSandboxEnvironment  `
+
+Deletes the specific `  SandboxEnvironment  ` .
+
+`  DeleteSandboxEnvironmentSnapshot  `
+
+Deletes the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  DeleteSandboxEnvironmentTemplate  `
+
+Deletes the specific `  SandboxEnvironmentTemplate  ` .
+
+`  GetSandboxEnvironment  `
+
+Gets details of the specific `  SandboxEnvironment  ` .
+
+`  GetSandboxEnvironmentSnapshot  `
+
+Gets details of the specific `  SandboxEnvironmentSnapshot  ` .
+
+`  GetSandboxEnvironmentTemplate  `
+
+Gets details of the specific `  SandboxEnvironmentTemplate  ` .
+
+`  ListSandboxEnvironmentSnapshots  `
+
+Lists `  SandboxEnvironmentSnapshot  ` s in a given reasoning engine.
+
+`  ListSandboxEnvironmentTemplates  `
+
+Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
+
+`  ListSandboxEnvironments  `
+
+Lists `  SandboxEnvironment  ` s in a given reasoning engine.
+
+`  PauseSandboxEnvironment  `
+
+Pauses the specific `  SandboxEnvironment  ` .
+
+`  ResumeSandboxEnvironment  `
+
+Resumes the specific `  SandboxEnvironment  ` .
+
+`  SnapshotSandboxEnvironment  `
+
+Snapshots the specific `  SandboxEnvironment  ` resource and creates a `  SandboxEnvironmentSnapshot  ` resource.
 
 ## `        google.cloud.aiplatform.v1beta1.ScheduleService       `
 

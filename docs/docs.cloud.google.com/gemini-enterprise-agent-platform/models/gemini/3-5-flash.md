@@ -152,7 +152,7 @@ Supported regions
   - Europe: `europe-west2`
   - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
-**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency)**
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - Multi-region: `us` , `eu`
   - Europe: `europe-west2`

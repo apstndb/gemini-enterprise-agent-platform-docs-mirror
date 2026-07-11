@@ -397,6 +397,6 @@ For more information on how to request a quota increase, see [View and edit the 
 
 ## What's next
 
-  - To learn more about RagManagedDb, see [Understanding RagManagedDb](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/understanding-ragmanageddb) .
+  - To learn more about RagManagedDb, see [Deployment modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/deployment-modes) .
   - To import files and folders from Google Drive or Cloud Storage, see [Import RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/import) .
   - To list RAG files, see [List RAG files example](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora.ragFiles/list) .

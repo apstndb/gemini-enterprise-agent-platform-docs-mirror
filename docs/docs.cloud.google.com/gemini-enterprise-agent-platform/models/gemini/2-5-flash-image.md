@@ -146,7 +146,7 @@ Supported regions
   - United States: `us-central1` , `us-east1` , `us-east4` , `us-east5` , `us-south1` , `us-west1` , `us-west4`
   - Europe: `europe-central2` , `europe-north1` , `europe-southwest1` , `europe-west1` , `europe-west4` , `europe-west8`
 
-**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency)**
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - United States: `Multi-region`
   - Europe: `Multi-region`

@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/change-machine-type
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/change-machine-type
-title: Change machine type and configure GPUs of a Agent Platform Workbench instance
+title: Change machine type and configure GPUs of an Agent Platform Workbench instance
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
@@ -36,9 +36,9 @@ It's good practice to make regular backups of your instance's persistent disk da
 
 ## Change the machine type and configure GPUs
 
-> **Note:** To change the machine type or GPUs for a Agent Platform Workbench instance, you must [shut down the Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/shut-down) .
+> **Note:** To change the machine type or GPUs for an Agent Platform Workbench instance, you must [shut down the Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/shut-down) .
 
-To change the machine type or configure the GPUs on a Agent Platform Workbench instance, complete the following steps.
+To change the machine type or configure the GPUs on an Agent Platform Workbench instance, complete the following steps.
 
 1.  In the Google Cloud console, go to the **Instances** page.
 
@@ -54,7 +54,7 @@ To change the machine type or configure the GPUs on a Agent Platform Workbench i
 
 6.  If you haven't already installed the required GPU drivers on your instance, select **Install NVIDIA GPU driver automatically for me** to install the drivers automatically on next startup.
 
-7.  After Gemini Enterprise Agent Platform Workbench has finished updating the machine type and GPU configuration, you can start your Agent Platform Workbench instance.
+7.  After Agent Platform Workbench has finished updating the machine type and GPU configuration, you can start your Agent Platform Workbench instance.
 
 ## What's next
 

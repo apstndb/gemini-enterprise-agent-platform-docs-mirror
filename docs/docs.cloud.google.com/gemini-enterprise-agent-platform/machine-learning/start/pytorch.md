@@ -16,11 +16,11 @@ This page explains Gemini Enterprise Agent Platform's PyTorch integration and pr
 
 ## Run code in notebooks
 
-Agent Platform provides two options for running your code in notebooks, Colab Enterprise and Vertex AI Workbench. To learn more about these options, see [choose a notebook solution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/notebook-solution) .
+Agent Platform provides two options for running your code in notebooks, Colab Enterprise and Gemini Enterprise Agent Platform Workbench. To learn more about these options, see [Choose a notebook solution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution) .
 
 ## Prebuilt containers for training
 
-Gemini Enterprise Agent Platform provides prebuilt Docker container images for model training. These containers are organized by machine learning frameworks and framework versions and include common dependencies that you might want to use in your training code. To learn about which PyTorch versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/pre-built-containers#pytorch) .
+Gemini Enterprise Agent Platform provides prebuilt Docker container images for model training. These containers are organized by machine learning frameworks and framework versions and include common dependencies that you might want to use in your training code. To learn about which PyTorch versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers#pytorch) .
 
 ## Prebuilt containers for serving inferences
 
@@ -28,13 +28,13 @@ Gemini Enterprise Agent Platform provides prebuilt Docker container images for s
 
 ## Distributed training
 
-You can run distributed training of PyTorch models on Gemini Enterprise Agent Platform. For multi-worker training, you can use Reduction Server to optimize performance even further for all-reduce collective operations. To learn more about distributed training on Gemini Enterprise Agent Platform, see [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/distributed-training) .
+You can run distributed training of PyTorch models on Gemini Enterprise Agent Platform. For multi-worker training, you can use Reduction Server to optimize performance even further for all-reduce collective operations. To learn more about distributed training on Gemini Enterprise Agent Platform, see [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) .
 
 ## Resources for using PyTorch on Gemini Enterprise Agent Platform
 
 To learn more and start using PyTorch in Gemini Enterprise Agent Platform, see the following resources:
 
-  - [How to train and tune PyTorch models on Gemini Enterprise Agent Platform](https://cloud.google.com/blog/topics/developers-practitioners/pytorch-google-cloud-how-train-and-tune-pytorch-models-vertex-ai) : Learn how to use [Gemini Enterprise Agent Platform Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/overview) to build and train a sentiment text classification model using PyTorch and [Gemini Enterprise Agent Platform Hyperparameter Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/using-hyperparameter-tuning) to tune hyperparameters of PyTorch models.
+  - [How to train and tune PyTorch models on Gemini Enterprise Agent Platform](https://cloud.google.com/blog/topics/developers-practitioners/pytorch-google-cloud-how-train-and-tune-pytorch-models-vertex-ai) : Learn how to use [Gemini Enterprise Agent Platform Training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) to build and train a sentiment text classification model using PyTorch and [Gemini Enterprise Agent Platform Hyperparameter Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-hyperparameter-tuning) to tune hyperparameters of PyTorch models.
   - [How to deploy PyTorch models on Gemini Enterprise Agent Platform](https://cloud.google.com/blog/topics/developers-practitioners/pytorch-google-cloud-how-deploy-pytorch-models-vertex-ai) : Walk through the deployment of a Pytorch model using [TorchServe](https://pytorch.org/serve/) as a custom container, by deploying the model artifacts to a [Vertex AI Inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) service.
   - [Orchestrating PyTorch ML Workflows on Agent Platform Pipelines](https://cloud.google.com/blog/topics/developers-practitioners/orchestrating-pytorch-ml-workflows-vertex-ai-pipelines) : See how to build and orchestrate ML pipelines for training and deploying PyTorch models on Google Cloud Gemini Enterprise Agent Platform using [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pipelines/introduction) .
   - [Scalable ML Workflows using PyTorch on Kubeflow Pipelines and Vertex Pipelines](https://cloud.google.com/blog/topics/developers-practitioners/scalable-ml-workflows-using-pytorch-kubeflow-pipelines-and-vertex-pipelines) : Take a look at examples of [PyTorch](https://pytorch.org/) -based ML workflows on OSS [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/) , (part of the Kubeflow project) and [Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pipelines) . We share [new PyTorch built-in components](https://github.com/kubeflow/pipelines/tree/master/components/PyTorch/pytorch-kfp-components) added to the Kubeflow Pipelines.

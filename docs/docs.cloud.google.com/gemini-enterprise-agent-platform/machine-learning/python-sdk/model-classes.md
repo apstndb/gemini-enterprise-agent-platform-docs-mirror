@@ -6,7 +6,7 @@ description: Learn about the model class, which represents a trained model that 
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes the [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model) class to work with a model that you train and then use for predictions. The SDK also includes the [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation) class to evaluate metrics on trained AutoML models. For more information about models, see [Train and use your own models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training-overview) .
+The Vertex AI SDK includes the [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model) class to work with a model that you train and then use for predictions. The SDK also includes the [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation) class to evaluate metrics on trained AutoML models. For more information about models, see [Train and use your own models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .
 
 ### [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model)
 

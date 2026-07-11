@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This document describes how to authenticate to Gemini Enterprise Agent Platform programmatically. How you authenticate to Gemini Enterprise Agent Platform depends on the interface you use to access the API and the environment where your code is running.
 
-For information about using the Agent Platform API, see [API usage overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference) . If you're trying to authenticate to Gemini Enterprise Agent Platform Workbench, see [Authenticate to Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/authentication) .
+For information about using the Agent Platform API, see [APIs and reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/apis) . If you're trying to authenticate to Gemini Enterprise Agent Platform Workbench, see [Authenticate to Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/authentication) .
 
 For more information about Google Cloud authentication, see the [Authentication methods](https://docs.cloud.google.com/docs/authentication) .
 

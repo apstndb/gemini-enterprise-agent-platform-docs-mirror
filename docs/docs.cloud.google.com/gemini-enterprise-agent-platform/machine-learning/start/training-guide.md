@@ -98,7 +98,7 @@ As you build out more complicated workflows, it's likely that you'll use the [Ag
     
     ![specify training container](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/start/images/custom_training/choose_container.png)
 
-5.  Under **Compute and pricing** , specify the hardware for the training job. For single node training, you only need to configure Worker Pool 0. If you're interested in running distributed training, you'll need to understand the other worker pools, and you can learn more on [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/distributed-training) .
+5.  Under **Compute and pricing** , specify the hardware for the training job. For single node training, you only need to configure Worker Pool 0. If you're interested in running distributed training, you'll need to understand the other worker pools, and you can learn more on [Distributed training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training) .
     
     ![training compute](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/start/images/custom_training/training_compute.png)
 

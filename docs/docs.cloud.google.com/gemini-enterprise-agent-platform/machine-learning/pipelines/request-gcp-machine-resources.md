@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 You can run your Python component on Gemini Enterprise Agent Platform Pipelines by using Google Cloud-specific machine resources offered by Gemini Enterprise Agent Platform custom training.
 
-You can use the [`create_custom_training_job_from_component`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/custom_job.html#v1.custom_job.create_custom_training_job_from_component) method from the [Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list) to transform a Python component into a Gemini Enterprise Agent Platform custom training job. [Learn how to create a custom job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/create-custom-job) .
+You can use the [`create_custom_training_job_from_component`](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.22.0/api/v1/custom_job.html#v1.custom_job.create_custom_training_job_from_component) method from the [Google Cloud Pipeline Components](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/gcpc-list) to transform a Python component into a Gemini Enterprise Agent Platform custom training job. [Learn how to create a custom job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-job) .
 
 ## Create a custom training job from a component using Gemini Enterprise Agent Platform Pipelines
 

@@ -12,22 +12,38 @@ Multilingual E5 Small is part of the E5 family of text embedding models. This sm
   - **Text Clustering** : Grouping similar pieces of text based on their semantic meaning.
   - **Informative Response Generation** : Following instructions to provide summaries, explanations, or answers to factual queries.
 
-[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
+[View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
 
 Model ID
 
 `multilingual-e5-small-maas`
 
-Launch stage
+Modalities
 
-GA
+description
 
-Supported inputs & outputs
+Text  
+Input only
 
-  - Inputs:
-    Text
-  - Outputs:
-    Embeddings
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Not supported
+
+graph\_3
+
+Embeddings  
+Output only
 
 Output dimensions
 
@@ -37,60 +53,49 @@ Number of layers
 
 12
 
-Max sequence length
+Maximum sequence length
 
 512 tokens
 
-Supported languages
-
-See [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) .
-
 Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Not supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Supported
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Pay as you go](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#pay-as-you-go)
+Supported regions
 
-Not supported
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - [Provisioned throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
+  - United States: `us-central1`
+  - Europe: `europe-west4`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us` , `eu`
+
+Quotas
+
+  - **`us-central1`** : 25,200 tokens per minute
+  - **`europe-west4`** : 25,200 tokens per minute
 
 Versions
 
 `multilingual-e5-small`
 
-  - **Launch stage:** GA
-  - **Release date:** September 19, 2025
+  - Launch stage: GA
+  - Release date: September 19, 2025
 
-Supported regions
+Supported languages
 
-Model availability
+See [Supported languages](https://huggingface.co/intfloat/multilingual-e5-small#supported-languages) .
 
-United States
+Pricing
 
-  - `us-central1`
-
-Europe
-
-  - `europe-west4`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Europe
-
-  - `Multi-region`
-
-Quota
-
-us-central1:
-
-  - TPM: 25,200
-
-europe-west4:
-
-  - TPM: 25,200
+See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .

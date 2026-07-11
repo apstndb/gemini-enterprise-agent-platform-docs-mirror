@@ -155,7 +155,7 @@ Supported regions
   - Asia Pacific: `asia-northeast1` , `asia-northeast3` , `asia-south1` , `asia-southeast1` , `australia-southeast1`
   - Global: `global`
 
-**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency)**
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - United States: `Multi-region`
   - Canada: `northamerica-northeast1`

@@ -27,7 +27,7 @@ Gemini Enterprise Agent Platform libraries are only supported on Gemini Enterpri
 <tbody>
 <tr class="odd">
 <td><a href="https://ai.google.dev/gemini-api/docs/libraries#python"><strong>Python</strong></a></td>
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/python/latest"><code dir="ltr" translate="no">google-cloud-aiplatform</code></a><br />
+<td><a href="https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform"><code dir="ltr" translate="no">google-cloud-aiplatform</code></a><br />
 GenerativeModel Module Deprecated in May 2026</td>
 <td><a href="https://github.com/googleapis/python-genai"><code dir="ltr" translate="no">google-genai</code></a></td>
 </tr>

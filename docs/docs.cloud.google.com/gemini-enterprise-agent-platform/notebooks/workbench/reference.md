@@ -14,7 +14,7 @@ You can access the API via REST, gRPC, or one of the provided client libraries (
 
 ### Client libraries
 
-Google provides [client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/reference/libraries) for many popular languages to access this API. If your desired programming language is supported by the client libraries, you should use this option.
+Google provides [client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/libraries) for many popular languages to access this API. If your desired programming language is supported by the client libraries, you should use this option.
 
 <table>
 <colgroup>
@@ -41,7 +41,7 @@ Efficient <a href="https://developers.google.com/protocol-buffers" class="extern
 
 ### REST
 
-This API supports [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) . See the [REST reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/reference/rest) for this API. Also see [How to call Google APIs: REST edition](https://googleapis.github.io/HowToREST) .
+This API supports [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) . See the [REST reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) for this API. Also see [How to call Google APIs: REST edition](https://googleapis.github.io/HowToREST) .
 
 <table>
 <colgroup>
@@ -69,7 +69,7 @@ REST streaming is not supported by this API.</td>
 
 ### gRPC
 
-This API supports [gRPC](https://grpc.io/) . See the [RPC reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/workbench/reference/rpc) for this API, which provides a generic description of the types, methods, and fields generated for a gRPC library. Also see [How to call Google APIs: RPC edition](https://googleapis.github.io/HowToRPC.html) .
+This API supports [gRPC](https://grpc.io/) . See the [RPC reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc) for this API, which provides a generic description of the types, methods, and fields generated for a gRPC library. Also see [How to call Google APIs: RPC edition](https://googleapis.github.io/HowToRPC.html) .
 
 <table>
 <colgroup>

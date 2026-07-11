@@ -1769,7 +1769,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Tier is a project-level setting available under the `RagEngineConfig` resource and impacts RAG corpora using `RagManagedDb` . To get the tier configuration, use `GetRagEngineConfig` . To update the tier configuration, use `UpdateRagEngineConfig` .
 
-For more information on managing your tier configuration, see [Manage tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/ragmanageddb-overview#manage_tiers) .
+For more information on tiers and tier configuration, see [Deployment modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/deployment-modes) .
 
 ### Get project configuration
 

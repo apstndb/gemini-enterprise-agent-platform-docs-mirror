@@ -35,7 +35,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Use Cloud Storage FUSE](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/cloud-storage-file-system)
+  - [Use Cloud Storage FUSE](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/cloud-storage-file-system)
 
 ## Network File System (NFS) share
 
@@ -53,7 +53,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Use NFS shares](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/train-nfs-share)
+  - [Use NFS shares](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share)
 
 ## Managed dataset
 
@@ -71,7 +71,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 
 ### Learn more
 
-  - [Use managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/training/using-managed-datasets)
+  - [Use managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-managed-datasets)
 
 ## BigQuery
 
