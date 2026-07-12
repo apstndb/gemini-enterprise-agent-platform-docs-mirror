@@ -4,13 +4,15 @@
 seeds = [
     "https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview",
     "https://docs.cloud.google.com/gemini-enterprise-agent-platform",
+    "https://cloud.google.com/gemini-enterprise/agents",
+    "https://cloud.google.com/gemini-enterprise/faq",
 ]
 
 # Path prefixes to mirror. The Agent Registry pages live outside the
 # gemini-enterprise-agent-platform/ path but are part of the same product.
 prefixes = [
-    "/gemini-enterprise-agent-platform/",
-    "/agent-registry/",
+    "docs.cloud.google.com/gemini-enterprise-agent-platform/",
+    "docs.cloud.google.com/agent-registry/",
 ]
 
 # Recursive discovery from Markdown content

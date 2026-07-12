@@ -1,6 +1,10 @@
 # Gemini Enterprise Agent Platform Documentation Mirror
 
-A local Markdown mirror of the [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/) documentation, automatically updated via GitHub Actions.
+A local Markdown mirror of the [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/) documentation and its separate Google Cloud product pages, automatically updated via GitHub Actions.
+
+The Developer Knowledge API treats `docs.cloud.google.com` and `cloud.google.com` as distinct corpora. This mirror stores the Agent Platform documentation, Agent Registry documentation, and Gemini Enterprise product pages under their original hostnames.
+
+The product-page seeds require `gcp-docs-mirror-tools` newer than v0.2.9 and become active when the workflow's `TOOL_VERSION` is bumped.
 
 ## Setup Instructions
 
