@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions
 title: Control access to Memory Bank with IAM Conditions
-description: Learn how to use IAM Conditions to control access to Agent Platform Vertex AI Agent Engine Memory Bank resources.
+description: Learn how to use IAM Conditions to control access to Agent Platform Agent Runtime Memory Bank resources.
 data_source: docs.cloud.google.com
 ---
 

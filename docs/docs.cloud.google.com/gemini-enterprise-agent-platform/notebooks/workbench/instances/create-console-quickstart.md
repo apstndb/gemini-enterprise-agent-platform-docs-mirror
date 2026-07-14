@@ -93,4 +93,4 @@ If you used an existing Google Cloud project, then delete the resources you crea
 ## What's next
 
 1.  Read the [Introduction to Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction) .
-2.  To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/jupyter-notebooks) .
+2.  To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .

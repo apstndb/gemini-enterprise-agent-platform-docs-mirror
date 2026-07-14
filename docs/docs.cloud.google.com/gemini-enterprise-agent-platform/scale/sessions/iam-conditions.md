@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions
 title: Control access to Sessions with IAM Conditions
-description: Learn how to use IAM Conditions to control access to Vertex AI Agent Engine Sessions resources based on user ID.
+description: Learn how to use IAM Conditions to control access to Agent Runtime Sessions resources based on user ID.
 data_source: docs.cloud.google.com
 ---
 
-By default, sessions Identity and Access Management permissions are at the project-level. This document describes how to use IAM Conditions to control more granular access to Vertex AI Agent Engine Sessions resources.
+By default, sessions Identity and Access Management permissions are at the project-level. This document describes how to use IAM Conditions to control more granular access to Agent Runtime Sessions resources.
 
 ## Overview
 
@@ -33,17 +33,17 @@ To set up conditional Identity and Access Management policies for sessions and s
 
   - **Grant IAM roles** : Ensure you have the required roles that contain the necessary permissions you need to perform the tasks in this document.
     
-    To get the permissions that you need to apply IAM Conditions to Vertex AI Agent Engine Session resources , ask your administrator to grant you the following IAM roles:
+    To get the permissions that you need to apply IAM Conditions to Agent Runtime Session resources , ask your administrator to grant you the following IAM roles:
     
       - For projects: Project IAM Admin (\`roles/resourcemanager.projectIamAdmin\`)
     
     For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
     
-    These predefined roles contain the permissions required to apply IAM Conditions to Vertex AI Agent Engine Session resources . To see the exact permissions that are required, expand the **Required permissions** section:
+    These predefined roles contain the permissions required to apply IAM Conditions to Agent Runtime Session resources . To see the exact permissions that are required, expand the **Required permissions** section:
     
     #### Required permissions
     
-    The following permissions are required to apply IAM Conditions to Vertex AI Agent Engine Session resources :
+    The following permissions are required to apply IAM Conditions to Agent Runtime Session resources :
     
       - Set conditional IAM access at the project level: \`resourcemanager.projects.setIamPolicy\`
     

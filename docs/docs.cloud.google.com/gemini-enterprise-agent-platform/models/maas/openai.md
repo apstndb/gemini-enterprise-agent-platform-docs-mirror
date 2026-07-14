@@ -57,23 +57,15 @@ OpenAI models are available in the following regions:
 <tbody>
 <tr class="odd">
 <td>gpt-oss 120B</td>
-<td><code dir="ltr" translate="no">global</code>
-<ul>
-<li>Max output: 131,072</li>
-<li>Context length: 131,072</li>
-</ul>
-<code dir="ltr" translate="no">us-central1</code>
-<ul>
-<li>Max output: 131,072</li>
-<li>Context length: 131,072</li>
+<td><ul>
+<li><code dir="ltr" translate="no">{'id': 'global', 'max_output': '131,072', 'context_length': '131,072'}</code></li>
+<li><code dir="ltr" translate="no">{'id': 'us-central1', 'max_output': '131,072', 'context_length': '131,072'}</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>gpt-oss 20B</td>
-<td><code dir="ltr" translate="no">us-central1</code>
-<ul>
-<li>Max output: 32,768</li>
-<li>Context length: 131,072</li>
+<td><ul>
+<li><code dir="ltr" translate="no">{'id': 'us-central1', 'max_output': '32,768', 'context_length': '131,072'}</code></li>
 </ul></td>
 </tr>
 </tbody>

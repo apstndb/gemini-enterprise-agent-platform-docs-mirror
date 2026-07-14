@@ -453,7 +453,8 @@ For end-to-end demonstrations on how to set up and use Agent Gateway, see the fo
 
   - **[Govern agentic workloads with Agent Platform](https://codelabs.developers.google.com/cloudnet-agent-gateway)** : Learn how to deploy a governed ADK agent on Agent Runtime.
   - **[Agent Gateway egress from Agent Runtime to Google Cloud MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-gmcp)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to a Google Cloud MCP servers.
-  - **[Agent Gateway egress from Agent Runtime to external MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-gmcp)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to external MCP servers.
+  - **[Agent Gateway egress from Agent Runtime to external MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-emcp)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to external MCP servers.
+  - **[Agent Gateway egress from Agent Runtime to VPC network](https://codelabs.developers.google.com/agw-cuj-arun-egress-vpc)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to destinations in a VPC network.
 
 ## What's next
 

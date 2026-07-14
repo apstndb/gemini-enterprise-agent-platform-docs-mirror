@@ -6,7 +6,7 @@ description: Call Agent Platform open model APIs. Implement streaming and non-st
 data_source: docs.cloud.google.com
 ---
 
-Many open models on Gemini Enterprise Agent Platform offer fully managed and serverless models as APIs using the Gemini Enterprise Agent Platform [Chat Completions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints.chat/completions) . For these models, there's no need to provision or manage infrastructure.
+Many open models on Gemini Enterprise Agent Platform offer fully managed and serverless models as APIs using the Gemini Enterprise Agent Platform [Chat Completions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.chat/completions) . For these models, there's no need to provision or manage infrastructure.
 
 You can stream your responses to reduce the end-user latency perception. A streamed response uses *server-sent events* (SSE) to incrementally stream the response.
 

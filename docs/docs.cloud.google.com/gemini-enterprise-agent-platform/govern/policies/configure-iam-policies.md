@@ -122,7 +122,7 @@ To create an agent-to-registry egress policy by using the gcloud CLI, do the fol
     
       - `  AGENT_PRINCIPAL  ` : the principal for the source agent identity, formatted as follows:
         
-          - Vertex AI Agent Engine and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+          - Agent Runtime and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
           - DIY agents: ` principal://iam.googleapis.com/projects/ PROJECT_NUMBER /locations/global/workloadIdentityPools/ AGENT_SERVICE_ACCOUNT_IDENTIFIER  ` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
     
       - `  CONDITION  ` :
@@ -220,7 +220,7 @@ To define an agent-to-agent egress policy by using the Google Cloud console, do 
     Replace the following:
     
       - `  AGENT_PRINCIPAL  ` : the principal for the source agent identity, formatted as follows:
-          - Vertex AI Agent Engine and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+          - Agent Runtime and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
           - DIY agents: ` principal://iam.googleapis.com/projects/ PROJECT_NUMBER /locations/global/workloadIdentityPools/ AGENT_SERVICE_ACCOUNT_IDENTIFIER  ` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
 
 2.  Bind the IAM policy to IAP.
@@ -312,7 +312,7 @@ To create an agent-to-MCP server egress policy using the gcloud CLI, do the foll
     
       - `  AGENT_PRINCIPAL  ` : the principal for the source agent identity, formatted as follows:
         
-          - Vertex AI Agent Engine and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+          - Agent Runtime and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
           - DIY agents: ` principal://iam.googleapis.com/projects/ PROJECT_NUMBER /locations/global/workloadIdentityPools/ AGENT_SERVICE_ACCOUNT_IDENTIFIER  ` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
     
       - `  CONDITION  ` :
@@ -436,7 +436,7 @@ To define an agent-to-endpoint egress policy by using the Google Cloud console, 
     Replace the following:
     
       - `  AGENT_PRINCIPAL  ` : the principal for the source agent identity, formatted as follows:
-          - Vertex AI Agent Engine and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+          - Agent Runtime and Gemini Enterprise agents: ` principal:// TRUST_DOMAIN / AGENT_UNIQUE_IDENTIFIER  ` —for example, `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
           - DIY agents: ` principal://iam.googleapis.com/projects/ PROJECT_NUMBER /locations/global/workloadIdentityPools/ AGENT_SERVICE_ACCOUNT_IDENTIFIER  ` —for example, `principal://iam.googleapis.com/projects/1234567890/locations/global/workloadIdentityPools/my-agent-identity/subject/ns/default/sa/my-agent`
 
 2.  Bind the IAM policy to IAP.

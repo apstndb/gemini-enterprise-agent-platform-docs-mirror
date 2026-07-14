@@ -10,72 +10,73 @@ MiniMax M2 is a model from MiniMax that's designed for agentic and code-related 
 
 ## Managed API (MaaS) specifications
 
-[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/minimaxai/model-garden/minimax-m2-maas)
-
 Model ID
 
 `minimax-m2-maas`
 
-Launch stage
+Modalities
 
-GA
+description
 
-Supported inputs & outputs
+Text  
+Input and output
 
-  - Inputs:
-    Text , Documents
-  - Outputs:
-    Text
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 
-Supported
-
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output)
-
-Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction)
+  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
+    Supported
+  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
+    Supported
+  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
+    Not supported
 
 Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
+Supported regions
 
-Not supported
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+  - Global: `global`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us`
+
+Quotas
+
+  - **`global`** : 196,608 maximum output, 196,608 context length
 
 Versions
 
 `minimax-m2-maas`
 
-  - **Launch stage:** GA
-  - **Release date:** November 4, 2025
-
-Supported regions
-
-Model availability
-
-Global
-
-  - `global`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Limits
-
-global:
-
-  - Max output: 196,608
-  - Context length: 196,608
+  - Launch stage: GA
+  - Release date: November 4, 2025
 
 Pricing
 

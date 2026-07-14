@@ -30,7 +30,7 @@ To learn more about image sample requirements, see the [Image understanding](htt
 
 The `fileUri` for your dataset can be the URI for a file in a Cloud Storage bucket, or it can be a publicly available HTTP or HTTPS URL.
 
-The [`mediaResolution` field of the `GenerationConfig` object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/GenerationConfig#MediaResolution) is used to control the tradeoff between the quality of the media file being sent for tuning and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced tuned model behavior, but it will also use more tokens. This doesn't affect the image dimensions sent to the model. When not specified, the default resolution is `MEDIA_RESOLUTION_HIGH` .
+The [`mediaResolution` field of the `GenerationConfig` object](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs#MediaResolution) is used to control the tradeoff between the quality of the media file being sent for tuning and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced tuned model behavior, but it will also use more tokens. This doesn't affect the image dimensions sent to the model. When not specified, the default resolution is `MEDIA_RESOLUTION_HIGH` .
 
 ### `mediaResolution` for Gemini versions 3 and earlier
 

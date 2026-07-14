@@ -32,10 +32,6 @@ Gemini Enterprise Agent Platform supports batch predictions for the following mo
 
 **DeepSeek:**
 
-  - [DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)
-  - [DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)
-  - [DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)
-
 **Embedding models:**
 
   - [Multilingual E5 (small)](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)

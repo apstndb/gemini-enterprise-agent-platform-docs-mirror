@@ -10,71 +10,73 @@ DeepSeek-V3.1 is a hybrid model that supports both thinking mode and non-thinkin
 
 ## Managed API (MaaS) specifications
 
-[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)
-
 Model ID
 
 `deepseek-v3.1-maas`
 
-Launch stage
+Modalities
 
-GA
+description
 
-Supported inputs & outputs
+Text  
+Input and output
 
-  - Inputs:
-    Text , Documents
-  - Outputs:
-    Text
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 
-Supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output)
-
-Not supported
+  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
+    Supported
+  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
+    Supported
+  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
+    Not supported
 
 Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Not supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
+Supported regions
 
-Not supported
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
+  - United States: `us-central1`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us`
+
+Quotas
+
+  - **`us-central1`** : 32,768 maximum output, 163,840 context length
 
 Versions
 
 `deepseek-v3.1-maas`
 
-  - **Launch stage:** GA
-  - **Release date:** August 28, 2025
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Limits
-
-us-central1:
-
-  - Max output: 32,768
-  - Context length: 163,840
+  - Launch stage: GA
+  - Release date: August 28, 2025
 
 Pricing
 

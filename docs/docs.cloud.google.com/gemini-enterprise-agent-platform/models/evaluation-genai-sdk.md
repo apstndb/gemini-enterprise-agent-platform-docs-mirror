@@ -70,7 +70,7 @@ Generate model responses for your dataset using `run_inference()` :
 
 The following image displays the evaluation dataset with prompts and their corresponding generated responses:
 
-![A table showing an evaluation dataset with columns for prompts and responses.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/evaluation-dataset.png)
+![A table showing an evaluation dataset with columns for prompts and responses.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/evaluation-dataset.png)
 
 ## Run the evaluation
 
@@ -86,7 +86,7 @@ Run `evaluate()` to evaluate the model responses:
 
 The following image displays an evaluation report, which shows summary metrics and detailed results for each prompt-response pair.
 
-![An evaluation report displaying summary metrics alongside detailed results for each prompt-response pair.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/images/eval-report2.png)
+![An evaluation report displaying summary metrics alongside detailed results for each prompt-response pair.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/eval-report2.png)
 
 ## Clean up
 

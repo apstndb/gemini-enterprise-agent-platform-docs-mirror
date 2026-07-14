@@ -85,6 +85,12 @@ Codelab
 
 Learn about Agent Gateway egress governance for AI agents accessing external MCP servers.
 
+Codelab
+
+### [Codelab: Agent Gateway egress from Agent Runtime to VPC networks](https://codelabs.developers.google.com/agw-cuj-arun-egress-vpc)
+
+Learn about Agent Gateway egress governance for AI agents accessing destinations in a VPC network.
+
 Overview
 
 ### [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)

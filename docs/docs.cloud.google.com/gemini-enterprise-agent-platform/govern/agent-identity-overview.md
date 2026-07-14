@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview
 title: Agent Identity overview
-description: Overview of Agent Identity for Vertex AI Agent Engine.
+description: Overview of Agent Identity for Agent Runtime.
 data_source: docs.cloud.google.com
 ---
 
@@ -85,7 +85,7 @@ When an agent identity is used in an IAM allow policy, the principal identifier 
 
 Examples:
 
-  - **Vertex AI Agent Engine:** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+  - **Agent Runtime:** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
   - **Gemini Enterprise:** `principal://agents.global.org-123456789012.system.id.goog/resources/discoveryengine/projects/9876543210/locations/global/collections/default_collection/engines/my-test-agent`
 
 The identifiers use the following:
@@ -150,5 +150,5 @@ Agent Identity improves security over standard service accounts.
 
 ## What's next
 
-  - Learn more about [using agent identity with Vertex AI Agent Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) .
+  - Learn more about [using agent identity with Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) .
   - Learn more about [managing agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents) .

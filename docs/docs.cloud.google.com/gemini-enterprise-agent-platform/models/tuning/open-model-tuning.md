@@ -71,6 +71,13 @@ Supported student models:
 
 ## Supported regions
 
+Global endpoint ( `global` ) is **strongly recommended** for launching tuning jobs; it will select a supported region with available capacity and launch a tuning job. Note the following considerations when launching a job from the global endpoint:
+
+  - When you create a global tuning job, a corresponding regional tuning job (in the selected region) will be created. **You will only be charged quota and billed against a single tuning job.**
+  - Sub-resources (like tensorboard experiments or models) will be created in the target region that was selected. The location can be be extracted from the full resource name and queried using the Vertex AI SDK.
+
+Region-specific tuning jobs are still available for users with more advanced needs (such as all resources scoped to a single region):
+
   - Iowa ( `us-central1` )
   - Netherlands ( `europe-west4` )
   - Oregon ( `us-west1` )

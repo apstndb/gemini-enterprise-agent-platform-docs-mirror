@@ -22,7 +22,7 @@ Securing your workloads on Gemini Enterprise Agent Platform is a shared responsi
 
   - Ensuring that you properly configured your services to use the latest version.
 
-For more information, see [Shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/shared-responsibility) .
+For more information, see [Shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/shared-responsibility) .
 
 ## Support policy for framework versions
 

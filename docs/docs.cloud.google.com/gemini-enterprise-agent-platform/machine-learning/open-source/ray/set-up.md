@@ -46,7 +46,7 @@ Before you begin with Ray on Agent Platform, follow these steps to set up your G
 
 ## Secure your clusters
 
-Follow [Ray best practices and guidelines](https://docs.ray.io/en/latest/ray-security/index.html#best-practices) , including running trusted code on trusted networks, to secure your Ray workloads. Deployment of ray.io in your cloud instances falls under the model of [shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/shared-responsibility) .
+Follow [Ray best practices and guidelines](https://docs.ray.io/en/latest/ray-security/index.html#best-practices) , including running trusted code on trusted networks, to secure your Ray workloads. Deployment of ray.io in your cloud instances falls under the model of [shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/shared-responsibility) .
 
 For more information about Google Cloud best practices, see the [GCP-2024-020 security bulletin](https://docs.cloud.google.com/support/bulletins#gcp-2024-020) .
 

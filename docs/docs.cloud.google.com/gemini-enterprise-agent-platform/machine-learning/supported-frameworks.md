@@ -6619,4 +6619,4 @@ The latest version of the Google Cloud Pipeline Components SDK will drop support
 
 ## What's next
 
-  - [Learn more about the Gemini Enterprise Agent Platform shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/shared-responsibility) .
+  - [Learn more about the Gemini Enterprise Agent Platform shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/shared-responsibility) .

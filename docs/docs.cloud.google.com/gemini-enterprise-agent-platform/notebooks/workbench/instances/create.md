@@ -322,7 +322,7 @@ If you encounter a problem when you create an instance, see [Troubleshooting Age
 
 ## What's next
 
-  - To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/jupyter-notebooks) .
+  - To use a notebook to help you get started using Gemini Enterprise Agent Platform and other Google Cloud services, see [Agent Platform notebook tutorials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks) .
   - [Create an instance with Confidential Computing enabled](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-confidential-computing) .
   - To check on the health status of your Agent Platform Workbench instance, see [Monitor health status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/monitor-health) .
   - For a Terraform solution for simplified Agent Platform networking setup, see [Simplified Cloud Networking Configuration Solutions](https://github.com/GoogleCloudPlatform/cloudnetworking-config-solutions) .

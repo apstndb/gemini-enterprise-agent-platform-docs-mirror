@@ -29,11 +29,11 @@ With the introduction of Gemini Enterprise Agent Platform, some Vertex AI produc
 | RAG Engine on Gemini Enterprise Agent Platform                                                | RAG Engine on Gemini Enterprise Agent Platform                                   |
 | Vertex AI Vector Search                                                                       | Vector Search on Gemini Enterprise Agent Platform                                |
 | Vertex AI Vector Search 2.0                                                                   | Agent Retrieval on Gemini Enterprise Agent Platform                              |
-| Vertex AI Agent Engine                                                                        | Agent Runtime on Gemini Enterprise Agent Platform                                |
+| Agent Runtime                                                                                 | Agent Runtime on Gemini Enterprise Agent Platform                                |
 | Vertex AI Studio App Builder                                                                  | App Builder in Agent Studio on Gemini Enterprise Agent Platform                  |
-| Vertex AI Agent Engine Memory Bank                                                            | Gemini Enterprise Agent Platform Memory Bank                                     |
-| Vertex AI Agent Engine Sessions                                                               | Gemini Enterprise Agent Platform Sessions                                        |
-| Vertex AI Agent Engine Code Execution                                                         | Gemini Enterprise Agent Platform Code Execution                                  |
+| Agent Runtime Memory Bank                                                                     | Gemini Enterprise Agent Platform Memory Bank                                     |
+| Agent Runtime Sessions                                                                        | Gemini Enterprise Agent Platform Sessions                                        |
+| Agent Runtime Code Execution                                                                  | Gemini Enterprise Agent Platform Code Execution                                  |
 | Grounding with Google X in Vertex AI                                                          | Grounding with Google X in Gemini Enterprise Agent Platform                      |
 | Grounding with Google X in Vertex AI Search                                                   | Grounding with Google X in Agent Search on Gemini Enterprise Agent Platform      |
 | Grounding with Google X in Vertex AI Studio                                                   | Grounding with Google X in Agent Studio on Gemini Enterprise Agent Platform      |

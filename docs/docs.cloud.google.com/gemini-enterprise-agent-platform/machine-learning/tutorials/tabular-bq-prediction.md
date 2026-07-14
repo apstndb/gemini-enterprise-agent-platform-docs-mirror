@@ -16,17 +16,17 @@ The goal of this tutorial is to walk you through every step required to create p
 
 ## Tutorial steps
 
-1.  [Prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/prerequisites) - Create your Google Cloud account and project.
+1.  [Prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites) - Create your Google Cloud account and project.
 
-2.  [Create a notebook](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/create-notebook) - Create and prepare a Jupyter notebook and its environment. You use the notebook to run code that creates your dataset, creates and trains your model, and generates your predictions.
+2.  [Create a notebook](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-notebook) - Create and prepare a Jupyter notebook and its environment. You use the notebook to run code that creates your dataset, creates and trains your model, and generates your predictions.
 
-3.  [Create a dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/create-dataset) - Download a publicly available BigQuery dataset, then use it to create a Gemini Enterprise Agent Platform tabular dataset. The dataset contains the data you use to train your model.
+3.  [Create a dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-dataset) - Download a publicly available BigQuery dataset, then use it to create a Gemini Enterprise Agent Platform tabular dataset. The dataset contains the data you use to train your model.
 
-4.  [Create a training script](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/create-training-script) - Create a Python script that you pass to your training job. The script runs when the training job trains and creates your model.
+4.  [Create a training script](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-training-script) - Create a Python script that you pass to your training job. The script runs when the training job trains and creates your model.
 
-5.  [Train a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/train-and-deploy-model) - Use your tabular dataset to train and deploy a model. You use the model to create your predictions.
+5.  [Train a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/train-and-deploy-model) - Use your tabular dataset to train and deploy a model. You use the model to create your predictions.
 
-6.  [Make predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/make-prediction) - Use your model to create predictions. This section also walks you through deleting resources you create while running this tutorial so you don't incur unnecessary charges.
+6.  [Make predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/make-prediction) - Use your model to create predictions. This section also walks you through deleting resources you create while running this tutorial so you don't incur unnecessary charges.
 
 ## What you accomplish
 

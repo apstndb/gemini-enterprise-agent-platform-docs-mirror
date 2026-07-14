@@ -48,10 +48,8 @@ Google models are available in the following regions:
 <tbody>
 <tr class="odd">
 <td>Gemma 4 26B A4B IT</td>
-<td><code dir="ltr" translate="no">global</code>
-<ul>
-<li>Max output: 128,000</li>
-<li>Context length: 262,144</li>
+<td><ul>
+<li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
 </tr>
 </tbody>

@@ -73,34 +73,26 @@ DeepSeek models are available in the following regions:
 <tbody>
 <tr class="odd">
 <td>DeepSeek-OCR</td>
-<td><code dir="ltr" translate="no">us-central1</code>
-<ul>
-<li>Max output: 8,192</li>
-<li>Context length: 8,192</li>
+<td><ul>
+<li><code dir="ltr" translate="no">us-central1</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>DeepSeek-V3.2</td>
-<td><code dir="ltr" translate="no">global</code>
-<ul>
-<li>Max output: 65,536</li>
-<li>Context length: 163,840</li>
+<td><ul>
+<li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>DeepSeek-V3.1</td>
-<td><code dir="ltr" translate="no">us-central1</code>
-<ul>
-<li>Max output: 32,768</li>
-<li>Context length: 163,840</li>
+<td><ul>
+<li><code dir="ltr" translate="no">us-central1</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>DeepSeek R1 (0528)</td>
-<td><code dir="ltr" translate="no">us-central1</code>
-<ul>
-<li>Max output: 32,768</li>
-<li>Context length: 163,840</li>
+<td><ul>
+<li><code dir="ltr" translate="no">us-central1</code></li>
 </ul></td>
 </tr>
 </tbody>

@@ -1653,18 +1653,6 @@ Global
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1682,9 +1670,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1731,18 +1716,6 @@ European Union multi-region
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1760,9 +1733,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1824,18 +1794,6 @@ Dallas
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1853,9 +1811,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1902,18 +1857,6 @@ São Paulo
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1931,9 +1874,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -2004,18 +1944,6 @@ Paris
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -2033,9 +1961,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -2097,18 +2022,6 @@ Seoul
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -2126,9 +2039,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -2178,18 +2088,6 @@ Dammam
 
 Deepseek models
 
-[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
-`(deepseek-ocr-maas)`
-
-[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
-`(deepseek-v3.2-maas)`
-
-[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
-`(deepseek-v3.1-maas)`
-
-[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
-`(deepseek-r1-0528-maas)`
-
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -2207,9 +2105,6 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
-
-[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
-`(kimi-k2-thinking-maas)`
 
 Llama models
 

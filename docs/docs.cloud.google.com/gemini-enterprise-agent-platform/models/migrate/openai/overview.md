@@ -236,7 +236,7 @@ If not specified, no tags will be returned around the model's thoughts. If prese
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">tools</code></td>
-<td>Specify tools similar to `GenerateContent`. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Tool"><code dir="ltr" translate="no">Tool</code></a> .</td>
+<td>Specify tools similar to `GenerateContent`. For more information, see <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#Tool"><code dir="ltr" translate="no">Tool</code></a> .</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr" translate="no">media_resolution</code></td>

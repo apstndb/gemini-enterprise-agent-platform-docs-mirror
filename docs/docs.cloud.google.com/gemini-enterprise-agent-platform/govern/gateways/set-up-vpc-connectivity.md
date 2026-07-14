@@ -101,6 +101,12 @@ Codelab
 
 Learn how to govern agentic workloads with Agent Gateway on Gemini Enterprise Agent Platform.
 
+Codelab
+
+### [Codelab: Agent Gateway egress from Agent Runtime to VPC networks](https://codelabs.developers.google.com/agw-cuj-arun-egress-vpc)
+
+Learn about Agent Gateway egress governance for AI agents accessing destinations in a VPC network.
+
 Guide
 
 ### [Delegate authorization for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization)

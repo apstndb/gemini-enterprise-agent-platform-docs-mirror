@@ -52,10 +52,8 @@ MiniMax models are available in the following regions:
 <tbody>
 <tr class="odd">
 <td>MiniMax M2</td>
-<td><code dir="ltr" translate="no">global</code>
-<ul>
-<li>Max output: 196,608</li>
-<li>Context length: 196,608</li>
+<td><ul>
+<li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
 </tr>
 </tbody>

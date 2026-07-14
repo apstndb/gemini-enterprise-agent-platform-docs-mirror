@@ -68,7 +68,7 @@ However you choose them, it's important to understand the implications. Every hy
 
 ### Hyperparameter data types
 
-In a [ParameterSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/StudySpec#ParameterSpec) object, you specify the hyperparameter data type as an instance of a parameter value specification. The following table lists the supported parameter value specifications.
+In a [ParameterSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ParameterSpec) object, you specify the hyperparameter data type as an instance of a parameter value specification. The following table lists the supported parameter value specifications.
 
 | Type                   | Data type     | Value ranges            | Value data                        |
 | ---------------------- | ------------- | ----------------------- | --------------------------------- |
@@ -79,7 +79,7 @@ In a [ParameterSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 ### Scale hyperparameters
 
-In a [`ParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/StudySpec#ParameterSpec) object, you can specify that scaling should be performed on this hyperparameter. Scaling is recommended for the DOUBLE and INTEGER data types. The available [scaling types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/StudySpec#scaletype) are:
+In a [`ParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ParameterSpec) object, you can specify that scaling should be performed on this hyperparameter. Scaling is recommended for the DOUBLE and INTEGER data types. The available [scaling types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ScaleType) are:
 
   - `SCALE_TYPE_UNSPECIFIED` : No scaling is applied to this hyperparameter.
   - `UNIT_LINEAR_SCALE` : Scales the feasible space linearly 0 through 1.
@@ -88,7 +88,7 @@ In a [`ParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-pla
 
 ### Conditional hyperparameters
 
-The [`ConditionalParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/StudySpec#conditionalparameterspec) object lets you add hyperparameters to a trial when the value of its parent hyperparameter matches a condition that you specify.
+The [`ConditionalParameterSpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec#ConditionalParameterSpec) object lets you add hyperparameters to a trial when the value of its parent hyperparameter matches a condition that you specify.
 
 For example, you could define a hyperparameter tuning job with the goal of finding an optimal model using either linear regression or a deep neural network (DNN). To let your tuning job specify the training method, you define a categorical hyperparameter named `training_method` with the following options: `LINEAR_REGRESSION` and `DNN` . When the `training_method` is `LINEAR_REGRESSION` , your tuning job must specify a hyperparameter for the *learning rate* . When the `training_method` is `DNN` , your tuning job must specify parameters for the *learning rate* and the *number of hidden layers* .
 
@@ -103,7 +103,7 @@ Conditional hyperparameters let you define the hyperparameters for your tuning j
 
 ## Search algorithms
 
-You can specify a search algorithm in the [`StudySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/StudySpec) object. If you don't specify an algorithm, your job uses the default Agent Platform algorithm. The default algorithm applies Bayesian optimization to arrive at the optimal solution with a more effective search over the parameter space.
+You can specify a search algorithm in the [`StudySpec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/StudySpec) object. If you don't specify an algorithm, your job uses the default Agent Platform algorithm. The default algorithm applies Bayesian optimization to arrive at the optimal solution with a more effective search over the parameter space.
 
 Available values:
 

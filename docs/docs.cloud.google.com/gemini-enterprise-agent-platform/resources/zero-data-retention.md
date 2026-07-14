@@ -10,7 +10,7 @@ Google was the first in the industry to publish an [AI/ML Privacy Commitment](ht
 
 ## Training restriction
 
-As outlined in Section 17 "Training Restriction" in the [Service Terms section of Service Specific Terms](https://cloud.google.com/terms/service-terms) , Google won't use your data to train or fine-tune any AI/ML models without your prior permission or instruction. This applies to all managed models on Gemini Enterprise Agent Platform, including GA and pre-GA models.
+As outlined in "Training Restriction" in the [Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms) , Google won't use your data to train or fine-tune any AI/ML models without your prior permission or instruction. This applies to all managed models on Gemini Enterprise Agent Platform, including GA and pre-GA models.
 
 ## Customer data retention and achieving zero data retention
 

@@ -38,9 +38,9 @@ Replace the following:
   - PROJECT\_ID : Your project ID.
   - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
 
-## Create a Vertex AI Agent Engine instance
+## Create a Agent Runtime instance
 
-To access Agent Platform Sessions, you first need use an Vertex AI Agent Engine instance. You don't need to deploy any code to start using Sessions. If you've used Agent Engine before, creating a Vertex AI Agent Engine instance only takes a few seconds without code deployment. It may take longer if this is the first time you're using Agent Engine.
+To access Agent Platform Sessions, you first need use an Agent Runtime instance. You don't need to deploy any code to start using Sessions. If you've used Agent Engine before, creating a Agent Runtime instance only takes a few seconds without code deployment. It may take longer if this is the first time you're using Agent Engine.
 
 ### Google Cloud Project
 
@@ -135,7 +135,7 @@ Replace the following:
 
   - USER\_ID : Choose your own user ID with a character limit of 128. For example, `user-123` .
 
-  - AGENT\_ENGINE\_ID : The resource ID of a Vertex AI Agent Engine instance.
+  - AGENT\_ENGINE\_ID : The resource ID of a Agent Runtime instance.
 
   - For deployed agents, the resource ID is listed as the `GOOGLE_CLOUD_AGENT_ENGINE_ID` environment variable
 
@@ -350,7 +350,7 @@ Replace the following:
 
 ## Clean up
 
-To clean up all resources used in this project, you can delete the Vertex AI Agent Engine instance along with its child resources:
+To clean up all resources used in this project, you can delete the Agent Runtime instance along with its child resources:
 
     agent_engine.delete(force=True)
 

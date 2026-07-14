@@ -10,71 +10,73 @@ DeepSeek-OCR is a comprehensive Optical Character Recognition (OCR) model that a
 
 ## Managed API (MaaS) specifications
 
-[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)
-
 Model ID
 
 `deepseek-ocr-maas`
 
-Launch stage
+Modalities
 
-GA
+description
 
-Supported inputs & outputs
+Text  
+Input and output
 
-  - Inputs:
-    Text , Documents , Images
-  - Outputs:
-    Text
+photo
+
+Image  
+Input only
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 
-Supported
-
-Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction)
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output)
+  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
+    Not supported
+  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
+    Not supported
+  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
+    Not supported
 
 Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
+Supported regions
 
-Not supported
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+  - United States: `us-central1`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us`
+
+Quotas
+
+  - **`us-central1`** : 8,192 maximum output, 8,192 context length
 
 Versions
 
 `DeepSeek-OCR`
 
-  - **Launch stage:** GA
-  - **Release date:** October 23, 2025
-
-Supported regions
-
-Model availability
-
-United States
-
-  - `us-central1`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Limits
-
-us-central1:
-
-  - Max output: 8,192
-  - Context length: 8,192
+  - Launch stage: GA
+  - Release date: October 23, 2025
 
 Pricing
 

@@ -52,10 +52,8 @@ Kimi models are available in the following regions:
 <tbody>
 <tr class="odd">
 <td>Kimi K2 Thinking</td>
-<td><code dir="ltr" translate="no">global</code>
-<ul>
-<li>Max output: 262,144</li>
-<li>Context length: 262,144</li>
+<td><ul>
+<li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
 </tr>
 </tbody>

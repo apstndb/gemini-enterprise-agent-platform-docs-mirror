@@ -38,7 +38,7 @@ Run the following code to create your training pipeline. The [`CustomTrainingJob
 
 In the previous step you created a [`CustomTrainingJob`](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomTrainingJob) named `job` . To create and train your model, call the `run` method on your `CustomTrainingJob` object and pass it the following parameters:
 
-  - `dataset` - The [tabular dataset you created earlier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/tutorials/tabular-bq-prediction/create-dataset#create-tabular-dataset) in this tutorial. This parameter can be a tabular, image, video, or text dataset.
+  - `dataset` - The [tabular dataset you created earlier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-dataset#create-tabular-dataset) in this tutorial. This parameter can be a tabular, image, video, or text dataset.
 
   - `model_display_name` - A name for your model.
 
