@@ -10,11 +10,11 @@ Mistral AI models on Gemini Enterprise Agent Platform offer fully managed and se
 
 You can stream your responses to reduce the end-user latency perception. A streamed response uses server-sent events (SSE) to incrementally stream the response.
 
-You pay for Mistral AI models as you use them (pay as you go). For pay-as-you-go pricing, see Mistral AI model pricing on the Gemini Enterprise Agent Platform [pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#partner-models)
+You pay for Mistral AI models as you use them (pay as you go). For pay-as-you-go pricing, see Mistral AI model pricing on the Gemini Enterprise Agent Platform [pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models)
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#partner-models)
+[](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models)
 
-[page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#partner-models) .
+[page](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models) .
 
 > To see an example of getting started with Mistral AI models on Agent Platform, run the "Getting Started with Mistral AI Models" notebook in one of the following environments:
 > 

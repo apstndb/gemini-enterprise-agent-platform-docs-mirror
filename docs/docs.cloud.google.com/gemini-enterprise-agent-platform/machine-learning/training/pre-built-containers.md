@@ -10,7 +10,7 @@ Gemini Enterprise Agent Platform provides Docker container images that you run a
 
 This document lists the prebuilt containers for training, and it describes how to use them with a [Python training application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container) .
 
-Gemini Enterprise Agent Platform supports each framework version based on a schedule to minimize security vulnerabilities. Review the [Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/framework-support-policy) to understand the implications of the end-of-support and end-of-availability dates.
+Gemini Enterprise Agent Platform supports each framework version based on a schedule to minimize security vulnerabilities. Review the [Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/framework-support-policy) to understand the implications of the end-of-support and end-of-availability dates.
 
 ## Available container images
 

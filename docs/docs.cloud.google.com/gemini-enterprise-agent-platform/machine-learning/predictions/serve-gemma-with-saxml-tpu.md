@@ -230,7 +230,7 @@ Replace the following:
 
 ## Cleaning up
 
-To avoid incurring further [Gemini Enterprise Agent Platform charges](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) and [Artifact Registry charges](https://cloud.google.com/artifact-registry/pricing) , delete the Google Cloud resources that you created during this tutorial:
+To avoid incurring further [Gemini Enterprise Agent Platform charges](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) and [Artifact Registry charges](https://cloud.google.com/artifact-registry/pricing) , delete the Google Cloud resources that you created during this tutorial:
 
 1.  To undeploy model from endpoint and delete the endpoint, run the following command in your shell:
     

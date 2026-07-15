@@ -380,7 +380,7 @@ In some cases, you might want to purposefully make your job run longer in order 
         traceback.print_exc()
         time.sleep(60 * 60)  # 1 hour
 
-However, note that you incur [Vertex AI Training charges](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) as long as the job keeps running.
+However, note that you incur [Vertex AI Training charges](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) as long as the job keeps running.
 
 ### Check permissions issues
 

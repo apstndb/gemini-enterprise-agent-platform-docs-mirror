@@ -95,7 +95,7 @@ When you're ready, we recommend that you delete the Google Cloud resources you c
 
 ### Delete your Vertex AI Workbench instance
 
-You can keep your Vertex AI Workbench instance to use for future work. If you keep it, make sure you are aware of its cost. For more information, see [Vertex AI Workbench pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#notebooks) .
+You can keep your Vertex AI Workbench instance to use for future work. If you keep it, make sure you are aware of its cost. For more information, see [Vertex AI Workbench pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#notebooks) .
 
 If you want to delete the Vertex AI Workbench instance, do the following:
 

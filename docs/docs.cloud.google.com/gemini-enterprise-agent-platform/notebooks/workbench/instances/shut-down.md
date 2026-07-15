@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 To stop any processing for a Agent Platform Workbench instance, you can shut down the instance.
 
-You incur costs for running an instance, in addition to other potential costs (see [Pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#notebooks) ). To stop incurring costs for running an instance, shut down the instance. You continue to incur other potential costs.
+You incur costs for running an instance, in addition to other potential costs (see [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#notebooks) ). To stop incurring costs for running an instance, shut down the instance. You continue to incur other potential costs.
 
 To shut down a Agent Platform Workbench instance, complete the following steps:
 

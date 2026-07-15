@@ -613,7 +613,7 @@ Before using any of the request data, make the following replacements:
 
   - `videoSegmentConfig` ( START\_SECOND , END\_SECOND , INTERVAL\_SECONDS ). Optional. The specific video segments (in seconds) the embeddings are generated for.
     
-    > The value you set for `videoSegmentConfig.intervalSec` affects the pricing tier you are charged at. For more information, see the [video embedding modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) section and [pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) page.
+    > The value you set for `videoSegmentConfig.intervalSec` affects the pricing tier you are charged at. For more information, see the [video embedding modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) section and [pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) page.
     
     For example:
     
@@ -625,9 +625,9 @@ Before using any of the request data, make the following replacements:
         }
         [...]
     
-    Using this config specifies video data from 10 seconds to 60 seconds and generates embeddings for the following 10 second video intervals: \[10, 20), \[20, 30), \[30, 40), \[40, 50), \[50, 60). This video interval ( `"intervalSec": 10` ) falls in the [Standard video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and you are charged at the [Standard mode pricing rate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+    Using this config specifies video data from 10 seconds to 60 seconds and generates embeddings for the following 10 second video intervals: \[10, 20), \[20, 30), \[30, 40), \[40, 50), \[50, 60). This video interval ( `"intervalSec": 10` ) falls in the [Standard video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and you are charged at the [Standard mode pricing rate](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
     
-    If you omit `videoSegmentConfig` , the service uses the following default values: `"videoSegmentConfig": { "startOffsetSec": 0, "endOffsetSec": 120, "intervalSec": 16 }` . This video interval ( `"intervalSec": 16` ) falls in the [Essential video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and the user is charged at the [Essential mode pricing rate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+    If you omit `videoSegmentConfig` , the service uses the following default values: `"videoSegmentConfig": { "startOffsetSec": 0, "endOffsetSec": 120, "intervalSec": 16 }` . This video interval ( `"intervalSec": 16` ) falls in the [Essential video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and the user is charged at the [Essential mode pricing rate](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 HTTP method and URL:
 
@@ -959,7 +959,7 @@ Before using any of the request data, make the following replacements:
 
   - `videoSegmentConfig` ( START\_SECOND , END\_SECOND , INTERVAL\_SECONDS ). Optional. The specific video segments (in seconds) the embeddings are generated for.
     
-    > The value you set for `videoSegmentConfig.intervalSec` affects the pricing tier you are charged at. For more information, see the [video embedding modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) section and [pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) page.
+    > The value you set for `videoSegmentConfig.intervalSec` affects the pricing tier you are charged at. For more information, see the [video embedding modes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) section and [pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) page.
     
     For example:
     
@@ -971,9 +971,9 @@ Before using any of the request data, make the following replacements:
           }
           [...]
     
-    Using this config specifies video data from 10 seconds to 60 seconds and generates embeddings for the following 10 second video intervals: \[10, 20), \[20, 30), \[30, 40), \[40, 50), \[50, 60). This video interval ( `"intervalSec": 10` ) falls in the [Standard video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and the you are charged at the [Standard mode pricing rate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+    Using this config specifies video data from 10 seconds to 60 seconds and generates embeddings for the following 10 second video intervals: \[10, 20), \[20, 30), \[30, 40), \[40, 50), \[50, 60). This video interval ( `"intervalSec": 10` ) falls in the [Standard video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and the you are charged at the [Standard mode pricing rate](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
     
-    If you omit `videoSegmentConfig` , the service uses the following default values: `"videoSegmentConfig": { "startOffsetSec": 0, "endOffsetSec": 120, "intervalSec": 16 }` . This video interval ( `"intervalSec": 16` ) falls in the [Essential video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and the user is charged at the [Essential mode pricing rate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+    If you omit `videoSegmentConfig` , the service uses the following default values: `"videoSegmentConfig": { "startOffsetSec": 0, "endOffsetSec": 120, "intervalSec": 16 }` . This video interval ( `"intervalSec": 16` ) falls in the [Essential video embedding mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings#video-modes) , and the user is charged at the [Essential mode pricing rate](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 HTTP method and URL:
 

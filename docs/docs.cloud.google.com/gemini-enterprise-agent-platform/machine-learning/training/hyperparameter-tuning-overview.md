@@ -64,7 +64,7 @@ When you configure a hyperparameter tuning job, you define each hyperparameter t
 
 There is little universal advice to give about how to choose which hyperparameters you should tune. If you have experience with the machine learning technique that you're using, you may have insight into how its hyperparameters behave. You may also be able to find advice from machine learning communities.
 
-However you choose them, it's important to understand the implications. Every hyperparameter that you choose to tune has the potential to increase the number of trials required for a successful tuning job. When you run a hyperparameter tuning job on Agent Platform, [the amount you're charged is based on the duration of the trials initiated by your hyperparameter tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) . A careful choice of hyperparameters to tune can reduce the time and cost of your hyperparameter tuning job.
+However you choose them, it's important to understand the implications. Every hyperparameter that you choose to tune has the potential to increase the number of trials required for a successful tuning job. When you run a hyperparameter tuning job on Agent Platform, [the amount you're charged is based on the duration of the trials initiated by your hyperparameter tuning job](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) . A careful choice of hyperparameters to tune can reduce the time and cost of your hyperparameter tuning job.
 
 ### Hyperparameter data types
 

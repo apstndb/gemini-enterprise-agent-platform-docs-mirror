@@ -1906,7 +1906,7 @@ If the model proposes the invocation of a function that would send an order, upd
 
 ## Pricing
 
-The pricing for function calling is based on the number of characters within the text inputs and outputs. To learn more, see [Gemini Enterprise Agent Platform pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+The pricing for function calling is based on the number of characters within the text inputs and outputs. To learn more, see [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 Here, text input (prompt) refers to the user prompt for the current conversation turn, the function declarations for the current conversation turn, and the history of the conversation. The history of the conversation includes the queries, the function calls, and the function responses of previous conversation turns. Gemini Enterprise Agent Platform truncates the history of the conversation at 32,000 characters.
 

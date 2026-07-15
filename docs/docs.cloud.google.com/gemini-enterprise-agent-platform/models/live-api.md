@@ -76,19 +76,6 @@ The following models support Gemini Live API. Select the appropriate model based
 <li>Tool use</li>
 </ul></td>
 </tr>
-<tr class="even">
-<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api"><code dir="ltr" translate="no">gemini-live-2.5-flash-preview-native-audio-09-2025</code></a></td>
-<td>Public preview</td>
-<td>Cost-efficiency in real-time voice agents.</td>
-<td><ul>
-<li>Native audio</li>
-<li>Audio transcriptions</li>
-<li>Voice activity detection</li>
-<li>Affective dialog</li>
-<li>Proactive audio</li>
-<li>Tool use</li>
-</ul></td>
-</tr>
 </tbody>
 </table>
 

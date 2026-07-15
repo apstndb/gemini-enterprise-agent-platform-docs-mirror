@@ -35,7 +35,7 @@ OAuth 2.0 (3-legged) ( [Preview](https://cloud.google.com/products#product-launc
 
 External tools and services
 
-When an agent acts on behalf of a specific user (for example, to access a user's Jira tasks or GitHub repositories). You configure a 3-legged OAuth auth provider in Agent Identity auth manager to manage user consent and tokens. For more information, see [Authenticate using 3-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-3lo) .
+When an agent acts on behalf of a specific user (for example, to access a user's Jira tasks or GitHub repositories). You configure a 3-legged OAuth auth provider in Agent Identity auth manager to manage user consent and tokens. For more information, see [Authenticate using 3-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-3lo-v2) .
 
 **Agent's own authority**
 
@@ -49,19 +49,19 @@ OAuth 2.0 (2-legged) ( [Preview](https://cloud.google.com/products#product-launc
 
 External tools and services
 
-Recommended for machine-to-machine authentication with external services that support OAuth. You configure a 2-legged OAuth auth provider in Agent Identity auth manager to handle client credentials and access tokens. For more information, see [Authenticate using 2-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-2lo) .
+Recommended for machine-to-machine authentication with external services that support OAuth. You configure a 2-legged OAuth auth provider in Agent Identity auth manager to handle client credentials and access tokens. For more information, see [Authenticate using 2-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-2lo-v2) .
 
 API key ( [Preview](https://cloud.google.com/products#product-launch-stages) )
 
 External tools and services
 
-For external services that require a cryptographic key or password for authentication. You configure an API key auth provider in Agent Identity auth manager to help securely store and manage the keys. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key) .
+For external services that require a cryptographic key or password for authentication. You configure an API key auth provider in Agent Identity auth manager to help securely store and manage the keys. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .
 
 HTTP basic auth
 
 External tools and services
 
-Uses plaintext passwords. This method is **not recommended** . You can store passwords similar to API key. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key) .
+Uses plaintext passwords. This method is **not recommended** . You can store passwords similar to API key. For more information, see [Authenticate using API key with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2) .
 
 ## Core components
 

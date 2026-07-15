@@ -10,7 +10,7 @@ You can use a managed dataset to provide the source data used to train AutoML an
 
 ## Permissions and access control
 
-When you use data from a Cloud Storage bucket to create a dataset, Agent Platform requires permissions to access the data. Agent Platform uses a special Google-managed service account known as a Service Agent to securely access your data. For more information on the roles required and how the Service Agent works, see [Access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/access-control#service-agents) .
+When you use data from a Cloud Storage bucket to create a dataset, Agent Platform requires permissions to access the data. Agent Platform uses a special Google-managed service account known as a Service Agent to securely access your data. For more information on the roles required and how the Service Agent works, see [Access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) .
 
 ## Create a managed dataset for AutoML models
 

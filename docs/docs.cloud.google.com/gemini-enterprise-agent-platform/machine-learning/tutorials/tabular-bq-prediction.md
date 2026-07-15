@@ -46,7 +46,7 @@ This tutorial walks you through how to use the Agent Platform SDK for Python to 
 
 This tutorial uses billable resources associated with the Gemini Enterprise Agent Platform, BigQuery, and Cloud Storage Google Cloud services. If you're new to Google Cloud, you might be able to use one or more of these services at no cost. Gemini Enterprise Agent Platform offers $300 in free credits to new customers, and Cloud Storage and BigQuery have [free tiers](https://cloud.google.com/free) . For more information, see the following:
 
-  - [Gemini Enterprise Agent Platform pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) and [Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features#free-trial)
+  - [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) and [Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features#free-trial)
   - [BigQuery pricing](https://cloud.google.com/bigquery/pricing) and [BigQuery free tier usage](https://cloud.google.com/free/docs/free-cloud-features#bigquery)
   - [Cloud Storage pricing](https://cloud.google.com/storage/pricing) and [Cloud Storage free tier usage](https://cloud.google.com/free/docs/free-cloud-features#storage)
   - [Google Cloud pricing calculator](https://cloud.google.com/products/calculator)

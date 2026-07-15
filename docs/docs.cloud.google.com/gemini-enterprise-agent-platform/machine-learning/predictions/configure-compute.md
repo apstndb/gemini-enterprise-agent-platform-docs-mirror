@@ -12,7 +12,7 @@ Agent Platform allocates *nodes* to handle online and batch inferences. When you
 
   - Number of virtual CPUs (vCPUs) per node
   - Amount of memory per node
-  - [Pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing)
+  - [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing)
 
 By selecting a machine type with more computing resources, you can serve inferences with lower latency or handle more inference requests at the same time.
 
@@ -470,7 +470,7 @@ Machine type
 
 2, 4
 
-Optional GPUs incur [additional costs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+Optional GPUs incur [additional costs](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 ## Coschedule multiple replicas on a single VM
 

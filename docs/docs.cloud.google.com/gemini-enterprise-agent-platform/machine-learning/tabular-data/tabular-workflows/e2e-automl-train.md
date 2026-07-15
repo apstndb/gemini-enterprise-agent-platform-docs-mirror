@@ -276,4 +276,4 @@ Regression models are best for:
 
   - Learn about [online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions) for classification and regression models.
   - Learn about [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) for classification and regression models.
-  - Learn about [pricing for model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#tabular-data) .
+  - Learn about [pricing for model training](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#tabular-data) .

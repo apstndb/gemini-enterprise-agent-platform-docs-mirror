@@ -56,7 +56,7 @@ Quota is enforced on the number of concurrent tuning jobs. Every project comes w
 
 ## Pricing
 
-Pricing for Gemini preference tuning can be found here: [Gemini Enterprise Agent Platform pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#model-tuning) .
+Pricing for Gemini preference tuning can be found here: [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#model-tuning) .
 
 For pricing purposes, the number of tokens for each tuning example is calculated by multiplying the number of tokens in the prompt by 2, and then adding the number of completion tokens.
 

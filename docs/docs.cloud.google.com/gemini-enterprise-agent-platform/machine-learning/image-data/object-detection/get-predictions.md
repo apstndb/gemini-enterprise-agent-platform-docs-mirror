@@ -48,13 +48,13 @@ Use one of the following methods to deploy a model:
     
     2.  Enter the **Number of compute nodes** you want to provide for your model.
         
-        This is the number of nodes available to this model at all times. You are charged for the nodes, even without inference traffic. See the [pricing page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+        This is the number of nodes available to this model at all times. You are charged for the nodes, even without inference traffic. See the [pricing page](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
     
     3.  Learn how to [change the default settings for inference logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/online-prediction-logging#enabling-and-disabling) .
     
     4.  ***Classification** models only (optional)* : In the **Explainability options** section, select check\_box **Enable feature attributions for this model** to enable [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview) . Accept existing [visualization settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/visualization-settings-automl-icn) or choose new values and click **Done** .
         
-        Deploying AutoML image classification models with Vertex Explainable AI configured and performing inferences with explanations is optional. Enabling Vertex Explainable AI at deployment time incurs additional costs based on the deployed node count and deployment time. See [Pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) for more information.
+        Deploying AutoML image classification models with Vertex Explainable AI configured and performing inferences with explanations is optional. Enabling Vertex Explainable AI at deployment time incurs additional costs based on the deployed node count and deployment time. See [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) for more information.
     
     5.  Click **Done** for your model, and when all the **Traffic split** percentages are correct, click **Continue** .
         

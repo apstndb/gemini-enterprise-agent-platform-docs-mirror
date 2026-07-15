@@ -14,7 +14,7 @@ The following roles and permissions are required to use open models:
 
   - You must have the Consumer Procurement Entitlement Manager Identity and Access Management (IAM) role. Anyone who's been granted this role can enable open models in Model Garden.
 
-  - You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/gemini-enterprise-agent-platform/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions) .
+  - You must have the `aiplatform.endpoints.predict` permission. This permission is included in the Agent Platform User IAM role. For more information, see [Gemini Enterprise Agent Platform User](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#aiplatform.user) and [Access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/access-control#permissions) .
 
 ### Console
 

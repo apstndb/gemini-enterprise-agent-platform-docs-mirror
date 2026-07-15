@@ -6,7 +6,7 @@ description: Learn about the different compute resources that you can use for Ge
 data_source: docs.cloud.google.com
 ---
 
-When you perform serverless training, your training code runs on one or more virtual machine (VM) instances. You can configure what types of VM to use for training: using VMs with more compute resources can speed up training and let you work with larger datasets, but they can also incur greater [training costs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+When you perform serverless training, your training code runs on one or more virtual machine (VM) instances. You can configure what types of VM to use for training: using VMs with more compute resources can speed up training and let you work with larger datasets, but they can also incur greater [training costs](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 In some cases, you can additionally use GPUs to accelerate training. GPUs incur additional costs.
 
@@ -168,7 +168,7 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
 
 \* Machine types marked with asterisks in the preceding list must be used with certain GPUs or TPUs. See the following sections of this guide.
 
-To learn about the technical specifications of each machine type, read the [Compute Engine documentation about machine types](https://docs.cloud.google.com/compute/docs/machine-resource) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+To learn about the technical specifications of each machine type, read the [Compute Engine documentation about machine types](https://docs.cloud.google.com/compute/docs/machine-resource) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 The following examples highlight where you specify a machine type when you create a `CustomJob` :
 
@@ -390,7 +390,7 @@ Agent Platform supports the following types of GPU for serverless training:
 
 <sup>+</sup> Requires obtaining capacity using [shared reservations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations) .
 
-To learn more about the technical specification for each type of GPU, read the [Compute Engine short documentation about GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpus-list) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) .
+To learn more about the technical specification for each type of GPU, read the [Compute Engine short documentation about GPUs for compute workloads](https://docs.cloud.google.com/compute/docs/gpus#gpus-list) . To learn about the cost of using each machine type for serverless training, read [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 
 In your `WorkerPoolSpec` , specify the type of GPU that you want to use in the [`machineSpec.acceleratorType` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) and number of GPUs that you want each VM in the worker pool to use in the [`machineSpec.acceleratorCount` field](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/MachineSpec) . However, your choices for these fields must meet the following restrictions:
 
@@ -1091,7 +1091,7 @@ You can optionally customize the boot disks for your training VMs. All VMs in a 
     
     You might want to increase the boot disk size if your training code writes a lot of temporary data to disk. Note that any data you write to the boot disk is temporary, and you can't retrieve it after training completes.
 
-Changing the type and size of your boot disks affects [custom training pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing#training) .
+Changing the type and size of your boot disks affects [custom training pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#training) .
 
 The following examples highlight where you can specify boot disk options when you create a `CustomJob` :
 

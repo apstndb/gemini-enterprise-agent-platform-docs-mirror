@@ -16,7 +16,7 @@ This page lists the supported frameworks and their constituent packages for the 
 
   - [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#pipelines)
 
-For an in-depth explanation of the framework support policy, see [Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/framework-support-policy) .
+For an in-depth explanation of the framework support policy, see [Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/framework-support-policy) .
 
 ## Supported frameworks for custom training
 
@@ -6568,7 +6568,7 @@ Other <a href="https://docs.cloud.google.com/deep-learning-containers/docs/overv
 
   - [Google Cloud Pipeline Components (GCPC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#gcpc_framework)
 
-Since these frameworks are periodically updated to patch bugs and vulnerabilities, it's recommended that you always use the latest patch version and stay within the end of support date. Customer support is not provided if a version is beyond the end of support date. For more information, see [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/framework-support-policy) .
+Since these frameworks are periodically updated to patch bugs and vulnerabilities, it's recommended that you always use the latest patch version and stay within the end of support date. Customer support is not provided if a version is beyond the end of support date. For more information, see [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/framework-support-policy) .
 
 In general, follow these guidelines while using pipeline templates:
 

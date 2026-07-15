@@ -22,9 +22,6 @@ Gemini Enterprise Agent Platform supports batch predictions for the following mo
 
 **OpenAI gpt-oss:**
 
-  - [gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)
-  - [gpt-oss 20B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-20b-maas)
-
 **Qwen:**
 
   - [Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)

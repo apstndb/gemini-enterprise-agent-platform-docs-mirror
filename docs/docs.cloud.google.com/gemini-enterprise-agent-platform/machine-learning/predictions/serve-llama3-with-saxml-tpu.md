@@ -253,7 +253,7 @@ To get online inferences from the Gemini Enterprise Agent Platform endpoint, run
 
 ## Clean up
 
-To avoid incurring further [Gemini Enterprise Agent Platform charges](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pricing) , delete the Google Cloud resources that you created during this tutorial:
+To avoid incurring further [Gemini Enterprise Agent Platform charges](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) , delete the Google Cloud resources that you created during this tutorial:
 
 1.  To undeploy the model from the endpoint and delete the endpoint, run the following commands:
     

@@ -66,7 +66,8 @@ Capabilities
   - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)  
     Supported
   - [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)  
-    Not supported
+    RAG Engine  
+    Supported
   - [Chat completions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview)  
     Supported
   - [Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)  
