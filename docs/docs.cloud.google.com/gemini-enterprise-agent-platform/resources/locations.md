@@ -1658,7 +1658,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1721,7 +1721,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1799,7 +1799,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1862,7 +1862,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1949,7 +1949,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models
@@ -2027,7 +2027,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models
@@ -2093,7 +2093,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
 `(glm-5-maas)`
 
 OpenAI models

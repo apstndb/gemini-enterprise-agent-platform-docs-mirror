@@ -393,7 +393,7 @@ To configure optimized TensorFlow runtime to run models without optimization, se
 The optimized TensorFlow runtime has the following limitations:
 
   - The optimized TensorFlow runtime is not compatible with older NVIDIA GPUs such as Tesla P4 and Tesla P100.
-  - The optimized TensorFlow runtime supports only [*sampled Shapley*](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview#sampled-shapley) explainability at this time.
+  - The optimized TensorFlow runtime supports only [*sampled Shapley*](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview#sampled-shapley) explainability at this time.
 
 ## Pricing
 

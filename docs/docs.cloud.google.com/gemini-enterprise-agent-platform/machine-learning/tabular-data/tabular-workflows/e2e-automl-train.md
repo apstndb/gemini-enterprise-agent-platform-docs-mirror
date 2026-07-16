@@ -122,7 +122,7 @@ To train a model by using the Google Cloud console, perform the following steps:
     
     2.  Review your column list and exclude any columns from training that should not be used to train the model.
     
-    3.  Review the transformations selected for your included features, along with whether invalid data is allowed, and make any required updates. Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#transformations) and [invalid data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) .
+    3.  Review the transformations selected for your included features, along with whether invalid data is allowed, and make any required updates. Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#transformations) and [invalid data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#null-values) .
     
     4.  If you chose to skip the architecture search in the **Training method** page, provide the path to the [hyperparameter tuning result](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-train#previous-result) from a previous pipeline run.
     

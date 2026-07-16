@@ -17,7 +17,7 @@ data_source: docs.cloud.google.com
 
 Veo 2 is our stable line of video generation models. This page documents the capabilities and features of Veo 2.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -124,9 +124,5 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 For Veo pricing information, see the [Veo](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#veo) section of the [Cost of building and deploying AI models in Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.

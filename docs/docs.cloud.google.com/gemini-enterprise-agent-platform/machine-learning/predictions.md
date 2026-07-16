@@ -43,8 +43,8 @@ Other than that, the workflow for AutoML models is similar, but varies slightly 
 
 Learn how to get inferences from the following types of image AutoML models:
 
-  - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/get-predictions)
-  - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/get-predictions)
+  - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/get-predictions)
+  - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions)
 
 ### Tabular
 

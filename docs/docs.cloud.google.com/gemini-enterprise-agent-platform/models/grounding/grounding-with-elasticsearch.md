@@ -268,7 +268,7 @@ To send a text prompt and ground it with Elasticsearch, send a POST request to t
       }
     ```
 
-For more information on other API fields such as system instructions and multi-turn chats, see [Generative AI beginner's guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/learn/overview) .
+For more information on other API fields such as system instructions and multi-turn chats, see [Generative AI beginner's guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/beginners-guide) .
 
 #### Send the API request
 

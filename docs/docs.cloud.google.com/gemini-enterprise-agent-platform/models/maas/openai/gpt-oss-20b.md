@@ -12,6 +12,8 @@ The 20B model delivers similar results to OpenAI o3-mini on common benchmarks an
 
 ## Managed API (MaaS) specifications
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `gpt-oss-20b-maas`
@@ -79,10 +81,6 @@ Versions
 
   - Launch stage: GA
   - Release date: August 13, 2025
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## Deploy as a self-deployed model
 

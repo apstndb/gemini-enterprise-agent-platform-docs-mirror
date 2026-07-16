@@ -37,7 +37,7 @@ This guide covers the following tasks:
     
     **Roles required to enable APIs**
     
-    To enable APIs, you need the Service Usage Admin IAM role ( `roles/serviceusage.serviceUsageAdmin` ), which contains the `serviceusage.services.enable` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+    To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role ( `roles/owner` ). Otherwise, you can get this permission through the Service Usage Admin role ( `roles/serviceusage.serviceUsageAdmin` ). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
   - Optionally, you can use [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) . If you use Shared VPC, you usually use Agent Platform in a separate Google Cloud project than your VPC host project. Enable the Compute Engine API and Service Networking APIs in both projects. Learn how to [provision Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc) .
 

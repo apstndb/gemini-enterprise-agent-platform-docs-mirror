@@ -32,6 +32,12 @@ Fields
 
 Required. The publisher model config.
 
+`updateMask` ` string ( FieldMask  ` format)
+
+Optional. The fields of `publisherModelConfig` to overwrite. If empty, the entire config is replaced. If set, only the listed fields are overwritten and the others are left unchanged; this lets you update one setting (for example `inferenceEventLoggingConfig` ) without clearing its siblings.
+
+This is a comma-separated list of fully qualified names of fields. Example: `"user.displayName,photo"` .
+
 ### Response body
 
 If successful, the response body contains an instance of `  Operation  ` .

@@ -101,7 +101,7 @@ To set your project ID, do the following:
 
 This tutorial uses the `us-central1` region. To set your region, do the following:
 
-1.  Run the following code to set the `region` variable that's used by Gemini Enterprise Agent Platform to `us-central1` . This command doesn't generate output. For more information, see [Choose your location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#choosing_your_location) .
+1.  Run the following code to set the `region` variable that's used by Gemini Enterprise Agent Platform to `us-central1` . This command doesn't generate output. For more information, see [Choose your location](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/general/locations#choosing_your_location) .
     
         region = "us-central1"  # @param {type: "string"}
 

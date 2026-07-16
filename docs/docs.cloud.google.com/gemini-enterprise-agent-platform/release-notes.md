@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 15, 2026
+
+Feature
+
+**Memory Bank memory profiles are generally available (GA)**
+
+Memory profiles in Memory Bank are generally available (GA). Memory profiles allow you to generate structured profiles, which are data structures with static schemas populated and updated using LLMs. By defining a fixed schema, you ensure your agents have immediate, low-latency access to evolving information without the need for expensive search operations during a session.
+
+For details, see [Memory profiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/profiles) .
+
 ## July 09, 2026
 
 Feature

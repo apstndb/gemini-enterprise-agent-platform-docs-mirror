@@ -6,10 +6,6 @@ description: Learn about how to rerank searche results in Agent Retrieval (forme
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Agent Retrieval (formerly Vector Search 2.0) provides *VertexRanker* for semantic reranking, which is powered by the [Ranking API](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) .
 
 After Agent Retrieval retrieves and fuses candidate results (using Reciprocal Rank Fusion (RRF)), VertexRanker rescores the merged candidates against your natural-language query using a dedicated semantic model. This improves the relevance of the top-k results, especially for queries where search alone misses nuance. Reranking happens server-side with calls to `BatchSearchDataObjects` . No additional client-side wiring or additional round trips are needed.
@@ -24,11 +20,11 @@ The following table lists ranker configuration fields.
 | :--------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `combine.ranker.rrf.weights`                                     | Yes      | The weights for the RRF fusion of the underlying search results.                                                                                                |
 | `combine.ranker.vertex_ranker.model`                             | Yes      | The ranking model name. Only `semantic-ranker-fast@latest` is supported.                                                                                        |
-| `combine.ranker.vertex_ranker.top_n`                             | Yes      | The maximum number of candidates from the fused list to send to the ranker. Valid values are from `1` to `200` .                                                |
+| `combine.ranker.vertex_ranker.top_n`                             | Yes      | The maximum number of candidates from the fused list to send to the ranker. Valid values are from `1` to `1000` .                                               |
 | `combine.ranker.vertex_ranker.text_record_spec.query`            | Yes      | The natural language query used by the ranker to score records.                                                                                                 |
 | `combine.ranker.vertex_ranker.text_record_spec.title_template`   | Yes      | The template string, for example, `{title}` , specifying how to extract (construct) the title for each records. Use dot-paths to specify data fields.           |
 | `combine.ranker.vertex_ranker.text_record_spec.content_template` | Yes      | The template string, for example, `{body.text}` , specifying how to extract (construct) the main content for each record. Use dot-paths to specify data fields. |
-| `combine.top_k`                                                  | Optional | The final number of results to return after reranking. This must be less than or equal to `vertex_ranker.top_n` and less than or equal to 200.                  |
+| `combine.top_k`                                                  | Optional | The final number of results to return after reranking. This must be less than or equal to `vertex_ranker.top_n` and less than or equal to 1000.                 |
 
 The following example demonstrates the body of a request.
 
@@ -56,9 +52,23 @@ The following example demonstrates the body of a request.
 
 Templates use dot-paths to Data Object data fields, for example, `{title}` or `{nested.field}` . These fields must exist in the Collection schema, otherwise the request is rejected during validation. If a Data Object is missing the provided field, the server transparently refetches the full record from storage so the template can still be populated.
 
-## Quota
+## Quota and pricing
 
-**Free during preview** : VertexRanker traffic is provided at no extra cost up to **300 queries per minute (QPM)** for each underlying searches are fused. Requests above the 300 QPM ceiling are rejected by the ranker and provided as a warning. The call still returns the fused (RRF) results so search remains available. The maximum number of records sent to the ranker per request is 200 (top\_n must be in the range \[1, 200\] and top\_k is less than or equal to `top_n` ).
+VertexRanker on Agent Retrieval uses a **free-tier allowance with usage-based overage billing** . Each project receives a free allowance of ranking usage per 30-day period. Usage within this allowance incurs no cost. Standard [Ranking API pricing](https://docs.cloud.google.com/generative-ai-app-builder/pricing#ranking-api) applies to the consumer project for any usage beyond this allowance.
+
+The following table lists the quota values.
+
+| Item                            | Value                                                                      |
+| :------------------------------ | :------------------------------------------------------------------------- |
+| Free-tier allowance             | 80,000 ranking units per consumer project per 30-day period.               |
+| Overage                         | Billed at standard Ranking API pricing on the consumer project.            |
+| Maximum records per rerank call | 1000 ( `top_n` must be in the range `[1, 1000]` and `top_k` \<= `top_n` ). |
+
+Reaching the free-tier allowance doesn't fail your requests. After the 80,000 ranking unit allowance is consumed, subsequent VertexRanker usage continues to succeed and is billed as overage. The allowance resets 30 days from the time of your first usage.
+
+Ranking units are computed from the number of records sent to the ranker and the size of their title and content templates, using the same accounting as the standalone [Ranking API](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) . See [Ranking API pricing](https://docs.cloud.google.com/generative-ai-app-builder/pricing#ranking-api) for full details.
+
+Before you can use VertexRanker, the Discovery Engine must be enabled on the consumer project. For more information, see [Failure conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/query-search/reranking#failure-conditions) .
 
 ## Failure handling and warnings
 
@@ -92,8 +102,8 @@ The following table lists warning codes, the typical causes generating the warni
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code dir="ltr" translate="no">RESOURCE_EXHAUSTED</code></td>
-<td style="text-align: left;">Exceeded the 300 QPM free quota on the consumer project.</td>
-<td style="text-align: left;"><code dir="ltr" translate="no">&lt;Quota exceeded message from SuperQuota&gt;; RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
+<td style="text-align: left;">Exceeded a Ranking API quota on the consumer project. Note: exceeding the 80,000 ranking unit allowance does not cause this warning; overage is billed instead.</td>
+<td style="text-align: left;"><code dir="ltr" translate="no">&lt;Quota exceeded message&gt;; RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code dir="ltr" translate="no">DEADLINE_EXCEEDED</code></td>
@@ -109,7 +119,7 @@ Otherwise: <code dir="ltr" translate="no">"Reranking is temporarily unavailable.
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code dir="ltr" translate="no">FAILED_PRECONDITION</code></td>
-<td style="text-align: left;">Any <code dir="ltr" translate="no">FAILED_PRECONDITION</code> returned by the Ranking API or SuperQuota, excluding <code dir="ltr" translate="no">"Discovery Engine API is not enabled"</code> .</td>
+<td style="text-align: left;">Any <code dir="ltr" translate="no">FAILED_PRECONDITION</code> returned by the Ranking API.</td>
 <td style="text-align: left;"><code dir="ltr" translate="no">RankService.Rank call failed for consumer project &lt;N&gt; with request query: &lt;query&gt; and &lt;model&gt;: semantic-ranker-fast@latest number of records: &lt;N&gt;</code></td>
 </tr>
 <tr class="odd">

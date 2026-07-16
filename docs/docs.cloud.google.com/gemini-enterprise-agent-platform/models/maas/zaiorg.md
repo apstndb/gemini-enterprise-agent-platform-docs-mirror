@@ -54,13 +54,13 @@ GLM models are available in the following regions:
 <tr class="odd">
 <td>GLM 4.7</td>
 <td><ul>
-<li><code dir="ltr" translate="no">{'id': 'global', 'max_output': '128,000', 'context_length': '200,000'}</code></li>
+<li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>GLM 5</td>
 <td><ul>
-<li><code dir="ltr" translate="no">{'id': 'global', 'max_output': '128,000', 'context_length': '200,000'}</code></li>
+<li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
 </tr>
 </tbody>

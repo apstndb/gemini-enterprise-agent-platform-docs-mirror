@@ -74,7 +74,7 @@ Output only. The resource name of the TrainingPipeline that uploaded this Model,
 
 `containerSpec` ` object ( ModelContainerSpec  ` )
 
-Input only. The specification of the container that is to be used when deploying this Model. The specification is ingested upon `  ModelService.UploadModel  ` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
+The specification of the container that is to be used when deploying this Model. The specification is ingested upon `  ModelService.UploadModel  ` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
 
 `artifactUri` `string`
 

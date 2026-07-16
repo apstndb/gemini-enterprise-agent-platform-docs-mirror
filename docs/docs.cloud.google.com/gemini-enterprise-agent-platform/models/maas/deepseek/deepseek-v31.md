@@ -10,6 +10,8 @@ DeepSeek-V3.1 is a hybrid model that supports both thinking mode and non-thinkin
 
 ## Managed API (MaaS) specifications
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `deepseek-v3.1-maas`
@@ -77,10 +79,6 @@ Versions
 
   - Launch stage: GA
   - Release date: August 28, 2025
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## Deploy as a self-deployed model
 

@@ -179,7 +179,7 @@ The following code provides a helper function for populating the `transformation
     
     transformations = generate_transformation(auto_column_names=features)
 
-To learn more about transformations, see [Data types and transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) .
+To learn more about transformations, see [Data types and transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) .
 
 **Workflow customization options**
 

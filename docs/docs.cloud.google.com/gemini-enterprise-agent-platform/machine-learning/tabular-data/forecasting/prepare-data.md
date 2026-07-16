@@ -56,7 +56,7 @@ Your BigQuery URI (specifying the location of your training data) must conform t
 
 The URI cannot contain any other special characters.
 
-For information about BigQuery data types and how they map into Agent Platform, see [BigQuery tables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#bq) . For more information about using BigQuery external data sources, see [Introduction to external data sources](https://docs.cloud.google.com/bigquery/external-data-sources) .
+For information about BigQuery data types and how they map into Agent Platform, see [BigQuery tables](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#bq) . For more information about using BigQuery external data sources, see [Introduction to external data sources](https://docs.cloud.google.com/bigquery/external-data-sources) .
 
 ### CSV
 
@@ -74,7 +74,7 @@ CSV files can be in Cloud Storage, or on your local computer. They must conform 
 
 You don't need to specify a schema for your CSV data. Agent Platform automatically infers the schema for your table when you import your data, and uses the header row for column names.
 
-For more information about CSV file format and data types, see [CSV files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#csv) .
+For more information about CSV file format and data types, see [CSV files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#csv) .
 
 If you import your data from Cloud Storage, it must be in a bucket that meets the following requirements:
 
@@ -105,4 +105,4 @@ Custom weighting schemes are used only for training the model; they do not affec
 
   - [Create your dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/create-dataset) .
   - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular) .
-  - Learn how [Agent Platform works with different types of tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) .
+  - Learn how [Agent Platform works with different types of tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) .

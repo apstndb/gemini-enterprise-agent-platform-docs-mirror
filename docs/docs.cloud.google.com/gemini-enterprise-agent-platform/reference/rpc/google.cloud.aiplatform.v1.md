@@ -75,6 +75,8 @@ data_source: docs.cloud.google.com
   - `  AsyncRetrieveContextsRequest  ` (message)
   - `  AsyncRetrieveContextsResponse  ` (message)
   - `  Attribution  ` (message)
+  - `  AudioResponseFormat  ` (message)
+  - `  AudioResponseFormat.MimeType  ` (enum)
   - `  AugmentPromptRequest  ` (message)
   - `  AugmentPromptRequest.Model  ` (message)
   - `  AugmentPromptResponse  ` (message)
@@ -628,6 +630,10 @@ data_source: docs.cloud.google.com
   - `  ImageConfig  ` (message)
   - `  ImageConfig.ImageOutputOptions  ` (message)
   - `  ImageConfig.PersonGeneration  ` (enum)
+  - `  ImageResponseFormat  ` (message)
+  - `  ImageResponseFormat.AspectRatio  ` (enum)
+  - `  ImageResponseFormat.ImageSize  ` (enum)
+  - `  ImageResponseFormat.MimeType  ` (enum)
   - `  ImportDataConfig  ` (message)
   - `  ImportDataOperationMetadata  ` (message)
   - `  ImportDataRequest  ` (message)
@@ -1114,6 +1120,8 @@ data_source: docs.cloud.google.com
   - `  ResourceRuntime  ` (message)
   - `  ResourceRuntimeSpec  ` (message)
   - `  ResourcesConsumed  ` (message)
+  - `  ResponseFormat  ` (message)
+  - `  ResponseFormat.DeliveryMode  ` (enum)
   - `  RestoreDatasetVersionOperationMetadata  ` (message)
   - `  RestoreDatasetVersionRequest  ` (message)
   - `  ResumeModelDeploymentMonitoringJobRequest  ` (message)
@@ -1294,6 +1302,8 @@ data_source: docs.cloud.google.com
   - `  TensorboardTimeSeries  ` (message)
   - `  TensorboardTimeSeries.Metadata  ` (message)
   - `  TensorboardTimeSeries.ValueType  ` (enum)
+  - `  TextResponseFormat  ` (message)
+  - `  TextResponseFormat.MimeType  ` (enum)
   - `  ThresholdConfig  ` (message)
   - `  TimeSeriesData  ` (message)
   - `  TimeSeriesDataPoint  ` (message)
@@ -1456,6 +1466,8 @@ data_source: docs.cloud.google.com
   - `  VertexRagStore  ` (message)
   - `  VertexRagStore.RagResource  ` (message)
   - `  VideoMetadata  ` (message)
+  - `  VideoResponseFormat  ` (message)
+  - `  VideoResponseFormat.AspectRatio  ` (enum)
   - `  VoiceConfig  ` (message)
   - `  WorkerPoolSpec  ` (message)
   - `  WriteFeatureValuesPayload  ` (message)
@@ -14931,6 +14943,70 @@ See [this introduction](https://docs.cloud.google.com/vertex-ai/docs/explainable
 
 Output only. Name of the explain output. Specified as the key in `  ExplanationMetadata.outputs  ` .
 
+## AudioResponseFormat
+
+Configuration for audio-specific output formatting.
+
+Fields
+
+`delivery`
+
+`  DeliveryMode  `
+
+Optional. Delivery mode for the generated content.
+
+`mime_type`
+
+`  MimeType  `
+
+Optional. The MIME type of the audio output.
+
+`sample_rate`
+
+`int32`
+
+Optional. Sample rate for the generated audio in Hertz.
+
+`bit_rate`
+
+`int32`
+
+Optional. Bit rate in bits per second (bps). Only applicable for compressed formats (MP3, Opus).
+
+## MimeType
+
+Supported MIME types for audio output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`AUDIO_MP3`
+
+MP3 audio format.
+
+`AUDIO_OGG_OPUS`
+
+OGG Opus audio format.
+
+`AUDIO_L16`
+
+Raw PCM (L16) audio format.
+
+`AUDIO_WAV`
+
+WAV audio format.
+
+`AUDIO_ALAW`
+
+A-law audio format.
+
+`AUDIO_MULAW`
+
+Mu-law audio format.
+
 ## AugmentPromptRequest
 
 Request message for AugmentPrompt.
@@ -21010,6 +21086,12 @@ Fields
 
 Required. The resource name of the SemanticGovernancePolicyEngine to deprovision. Format: projects/{project}/locations/{location}/semanticGovernancePolicyEngine
 
+`force`
+
+`bool`
+
+Optional. If true, the operation bypass checks on current state and force the deprovisioning operation.
+
 ## DestinationFeatureSetting
 
 Fields
@@ -26258,6 +26340,12 @@ Output only. The self-link or name of the Private Service Connect endpoint forwa
 
 Output only. The fully qualified record name of the created A-record in Cloud DNS.
 
+`allowed_projects[]`
+
+`string`
+
+Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: project ID or number.
+
 ## State
 
 State of the Gateway configuration.
@@ -26753,6 +26841,12 @@ Optional. The modalities of the response. The model will generate a response tha
 `  ThinkingConfig  `
 
 Optional. Configuration for thinking features. An error will be returned if this field is set for models that don't support thinking.
+
+`response_format[]`
+
+`  ResponseFormat  `
+
+Optional. New response format field for the model to configure output formatting and delivery.
 
 `temperature`
 
@@ -28126,6 +28220,12 @@ Optional. The web search queries that were used to generate the content. This fi
 
 Optional. The image search queries that were used to generate the content. This field is populated only when the grounding source is Google Search with the Image Search search\_type enabled.
 
+`retrieval_queries[]`
+
+`string`
+
+Optional. The queries that were executed by the retrieval tools. This field is populated only when the grounding source is a retrieval tool, such as Agent Platform Search.
+
 `grounding_chunks[]`
 
 `  GroundingChunk  `
@@ -28478,6 +28578,142 @@ Allows the model to generate images of adults, but not children.
 `ALLOW_NONE`
 
 Prevents the model from generating images of people.
+
+## ImageResponseFormat
+
+Configuration for image-specific output formatting.
+
+Fields
+
+`delivery`
+
+`  DeliveryMode  `
+
+Optional. Delivery mode for the generated content.
+
+`mime_type`
+
+`  MimeType  `
+
+Optional. The MIME type of the image output.
+
+`aspect_ratio`
+
+`  AspectRatio  `
+
+Optional. The aspect ratio for the image output.
+
+`image_size`
+
+`  ImageSize  `
+
+Optional. The size of the image output.
+
+## AspectRatio
+
+Supported aspect ratios for image output.
+
+Enums
+
+`ASPECT_RATIO_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`ASPECT_RATIO_ONE_BY_ONE`
+
+1:1 aspect ratio.
+
+`ASPECT_RATIO_TWO_BY_THREE`
+
+2:3 aspect ratio.
+
+`ASPECT_RATIO_THREE_BY_TWO`
+
+3:2 aspect ratio.
+
+`ASPECT_RATIO_THREE_BY_FOUR`
+
+3:4 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_THREE`
+
+4:3 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_FIVE`
+
+4:5 aspect ratio.
+
+`ASPECT_RATIO_FIVE_BY_FOUR`
+
+5:4 aspect ratio.
+
+`ASPECT_RATIO_NINE_BY_SIXTEEN`
+
+9:16 aspect ratio.
+
+`ASPECT_RATIO_SIXTEEN_BY_NINE`
+
+16:9 aspect ratio.
+
+`ASPECT_RATIO_TWENTY_ONE_BY_NINE`
+
+21:9 aspect ratio.
+
+`ASPECT_RATIO_ONE_BY_EIGHT`
+
+1:8 aspect ratio.
+
+`ASPECT_RATIO_EIGHT_BY_ONE`
+
+8:1 aspect ratio.
+
+`ASPECT_RATIO_ONE_BY_FOUR`
+
+1:4 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_ONE`
+
+4:1 aspect ratio.
+
+## ImageSize
+
+Supported image sizes for image output.
+
+Enums
+
+`IMAGE_SIZE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`IMAGE_SIZE_FIVE_TWELVE`
+
+512px image size.
+
+`IMAGE_SIZE_ONE_K`
+
+1K image size.
+
+`IMAGE_SIZE_TWO_K`
+
+2K image size.
+
+`IMAGE_SIZE_FOUR_K`
+
+4K image size.
+
+## MimeType
+
+Supported MIME types for image output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`IMAGE_JPEG`
+
+JPEG image format.
 
 ## ImportDataConfig
 
@@ -34404,7 +34640,7 @@ Optional. This field is populated if the model is produced by a pipeline job.
 
 `  ModelContainerSpec  `
 
-Input only. The specification of the container that is to be used when deploying this Model. The specification is ingested upon `  ModelService.UploadModel  ` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
+The specification of the container that is to be used when deploying this Model. The specification is ingested upon `  ModelService.UploadModel  ` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
 
 `artifact_uri`
 
@@ -35992,7 +36228,13 @@ Required. The name of the IndexEndpoint resource into which to deploy an Index. 
 
 `  DeployedIndex  `
 
-Required. The DeployedIndex to be updated within the IndexEndpoint. Currently, the updatable fields are `  DeployedIndex.automatic_resources  ` and `  DeployedIndex.dedicated_resources  `
+Required. The DeployedIndex to be updated within the IndexEndpoint. Currently, the updatable fields are `  DeployedIndex.automatic_resources  ` , `  DeployedIndex.dedicated_resources  ` , `  DeployedIndex.enable_access_logging  ` and `  DeployedIndex.deployed_index_auth_config  ` .
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. The update mask applies to the resource. The supported paths are `automatic_resources` , `dedicated_resources` , `enable_access_logging` and `deployed_index_auth_config` . When omitted, the service will perform a full update of all fields. See `  google.protobuf.FieldMask  ` .
 
 ## MutateDeployedIndexResponse
 
@@ -42061,6 +42303,12 @@ Fields
 
 Required. The Artifact Registry Docker image URI (e.g., us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag) of the container image that is to be run on each worker replica.
 
+`port`
+
+`int32`
+
+Optional. The port the container listens on. Defaults to 8080 if unset.
+
 ## DeploymentSpec
 
 The specification of a Reasoning Engine deployment.
@@ -42633,6 +42881,56 @@ Fields
 `double`
 
 Output only. The number of replica hours used. Note that many replicas may run in parallel, and additionally any given work may be queued for some time. Therefore this value is not strictly related to wall time.
+
+## ResponseFormat
+
+Configuration for the model to configure output formatting and delivery.
+
+Fields
+
+Union field `format` . The format of the output content. `format` can be only one of the following:
+
+`text`
+
+`  TextResponseFormat  `
+
+Text output format.
+
+`audio`
+
+`  AudioResponseFormat  `
+
+Audio output format.
+
+`image`
+
+`  ImageResponseFormat  `
+
+Image output format.
+
+`video`
+
+`  VideoResponseFormat  `
+
+Video output format.
+
+## DeliveryMode
+
+The delivery mode for the output content.
+
+Enums
+
+`DELIVERY_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`INLINE`
+
+Generated bytes are returned inline in the response.
+
+`URI`
+
+Generated content is stored and a URI is returned.
 
 ## RestoreDatasetVersionOperationMetadata
 
@@ -47587,6 +47885,42 @@ Used for TensorboardTimeSeries that is a list of tensors. E.g. histograms of wei
 
 Used for TensorboardTimeSeries that is a list of blob sequences. E.g. set of sample images with labels over epochs/time.
 
+## TextResponseFormat
+
+Configuration for text-specific output formatting.
+
+Fields
+
+`mime_type`
+
+`  MimeType  `
+
+Optional. The IANA standard MIME type of the response.
+
+`schema`
+
+`  Value  `
+
+Optional. The JSON schema that the output should conform to. Only applicable when mime\_type is APPLICATION\_JSON.
+
+## MimeType
+
+Supported MIME types for text output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`APPLICATION_JSON`
+
+JSON output format.
+
+`TEXT_PLAIN`
+
+Plain text output format.
+
 ## ThresholdConfig
 
 The config for feature monitoring threshold.
@@ -50757,6 +51091,54 @@ Optional. The end offset of the video.
 `double`
 
 Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0\].
+
+## VideoResponseFormat
+
+Configuration for video-specific output formatting.
+
+Fields
+
+`delivery`
+
+`  DeliveryMode  `
+
+Optional. Delivery mode for the generated content.
+
+`gcs_uri`
+
+`string`
+
+Optional. The Google Cloud Storage URI to store the video output. Required for Vertex if delivery is URI.
+
+`aspect_ratio`
+
+`  AspectRatio  `
+
+The aspect ratio for the video output.
+
+`duration`
+
+`  Duration  `
+
+Optional. The duration for the video output.
+
+## AspectRatio
+
+Supported aspect ratios for video output.
+
+Enums
+
+`ASPECT_RATIO_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`ASPECT_RATIO_SIXTEEN_BY_NINE`
+
+16:9 aspect ratio.
+
+`ASPECT_RATIO_NINE_BY_SIXTEEN`
+
+9:16 aspect ratio.
 
 ## VoiceConfig
 

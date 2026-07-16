@@ -28,7 +28,7 @@ For those building with a mix of bash and custom tools, Gemini 3.1 Pro supports 
 
 Pricing for `gemini-3.1-pro-preview-customtools` is identical to Gemini 3.1 Pro. Provisioned Throughput (PT) is not supported on `gemini-3.1-pro-preview-customtools` .
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-pro-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.1-pro-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-pro-preview)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3.1-pro-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.1-pro-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.1-pro-preview) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -184,9 +184,5 @@ Versions
 
   - Launch stage: Public preview
   - Release date: February 23, 2026
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 <sup>\*</sup> Provisioned Throughput (PT) is not supported for this endpoint.

@@ -40,7 +40,7 @@ Terraform configuration samples
 
 [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/workbench/main.tf)
 
-[Agent Platform managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/overview)
+[Agent Platform managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview)
 
 [`google_vertex_ai_dataset`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_dataset)
 

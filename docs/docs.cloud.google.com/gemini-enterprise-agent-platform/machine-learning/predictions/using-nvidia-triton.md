@@ -132,7 +132,7 @@ Run the following command in your shell to create Artifact Registry repository:
         --location=LOCATION_ID \
         --description="NVIDIA Triton Docker repository"
 
-Replace LOCATION\_ID with the region where Artifact Registry stores your container image. Later, you must create a Gemini Enterprise Agent Platform model resource on a locational endpoint that matches this region, so choose [a region where Gemini Enterprise Agent Platform has a locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#feature-availability) , such as `us-central1` .
+Replace LOCATION\_ID with the region where Artifact Registry stores your container image. Later, you must create a Gemini Enterprise Agent Platform model resource on a locational endpoint that matches this region, so choose [a region where Gemini Enterprise Agent Platform has a locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/general/locations#feature-availability) , such as `us-central1` .
 
 After completing the operation, the command prints the following output:
 

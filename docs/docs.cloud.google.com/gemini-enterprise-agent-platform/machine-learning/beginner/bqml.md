@@ -39,7 +39,7 @@ You can also import a model trained on another platform like BigQuery ML or XGBo
 
 You can register custom-trained models to the [Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) . You can also import models trained outside of Gemini Enterprise Agent Platform and register them to Model Registry. You don't need to register AutoML models; they are registered automatically at creation time.
 
-From the registry, you can manage model versions, deploy to endpoints for online predictions, perform model evaluations, monitor deployments with Gemini Enterprise Agent Platform Model Monitoring, and use [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/explainable-ai/overview) .
+From the registry, you can manage model versions, deploy to endpoints for online predictions, perform model evaluations, monitor deployments with Gemini Enterprise Agent Platform Model Monitoring, and use [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) .
 
 **Available languages:**
 

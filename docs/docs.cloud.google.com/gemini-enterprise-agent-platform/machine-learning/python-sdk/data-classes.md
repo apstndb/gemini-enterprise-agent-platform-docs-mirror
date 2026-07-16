@@ -68,9 +68,9 @@ Use this class to work with a managed image dataset. To create a managed image d
 
 Use image data for the following objectives:
 
-  - Single-label classification. For more information, see [Prepare image training data for single-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data#single-label-classification) .
-  - Multi-label classification. For more information, see [Prepare image training data for multi-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data#multi-label-classification) .
-  - Object detection. For more information, see [Prepare image training data for object detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/object-detection/prepare-data) .
+  - Single-label classification. For more information, see [Prepare image training data for single-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data#single-label-classification) .
+  - Multi-label classification. For more information, see [Prepare image training data for multi-label classification](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data#multi-label-classification) .
+  - Object detection. For more information, see [Prepare image training data for object detection](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/prepare-data) .
 
 The following code shows you how to create image dataset by importing a CSV data source file and a YAML schema file. The schema file you use depends on whether your image dataset is used for single-label classification, multi-label classification, or object detection.
 

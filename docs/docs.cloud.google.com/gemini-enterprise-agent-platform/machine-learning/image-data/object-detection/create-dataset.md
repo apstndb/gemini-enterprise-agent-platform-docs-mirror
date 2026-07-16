@@ -308,7 +308,7 @@ Before using any of the request data, make the following replacements:
   - LOCATION : Region where the dataset is located. For example, `us-central1` .
   - PROJECT\_ID : .
   - DATASET\_ID : ID of the dataset.
-  - IMPORT\_FILE\_URI : Path to the CSV or [JSON Lines](https://jsonlines.org/) file in Cloud Storage that lists data items stored in Cloud Storage to use for model training; for import file formats and limitations, see [Preparing image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/prepare-image) .
+  - IMPORT\_FILE\_URI : Path to the CSV or [JSON Lines](https://jsonlines.org/) file in Cloud Storage that lists data items stored in Cloud Storage to use for model training; for import file formats and limitations, see [Preparing image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/prepare-image) .
 
 HTTP method and URL:
 

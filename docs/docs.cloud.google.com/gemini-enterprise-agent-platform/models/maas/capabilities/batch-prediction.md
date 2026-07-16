@@ -24,9 +24,6 @@ Gemini Enterprise Agent Platform supports batch predictions for the following mo
 
 **Qwen:**
 
-  - [Qwen3 Coder](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-coder-480b-a35b-instruct-maas)
-  - [Qwen3 235B](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-235b-a22b-instruct-2507-maas)
-
 **DeepSeek:**
 
 **Embedding models:**

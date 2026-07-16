@@ -1,6 +1,1 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AspectRatio
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AudioResponseFormat
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/DeliveryMode
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ImageSize
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MimeType
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/resume

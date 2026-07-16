@@ -63,7 +63,7 @@ A [service endpoint](https://cloud.google.com/apis/design/glossary#api_service_e
   - `https://us-west4-aiplatform.googleapis.com`
   - `https://us-east5-aiplatform.googleapis.com`
 
-See [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/locations#feature-availability) for the supported features for each region.
+See [Feature availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) for the supported machine learning features for each region.
 
 ## REST Resource: [reasoningEngines.v1.projects.locations.reasoningEngines.api](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/reasoningEngines.v1.projects.locations.reasoningEngines.api)
 

@@ -176,7 +176,7 @@ In this course, you'll use text embeddings for tasks like classification and sem
 
 ### Related products
 
-[**Gemini Enterprise Agent Platform Embeddings**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/generative-ai/embeddings) Provides an overview of Embeddings API. Text and multimodal embedding use cases, along with links to additional resources and related Google Cloud services.
+[**Gemini Enterprise Agent Platform Embeddings**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings) Provides an overview of Embeddings API. Text and multimodal embedding use cases, along with links to additional resources and related Google Cloud services.
 
 [**Agent Search ranking API**](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) The ranking API reranks documents based on relevance to a query using a pre-trained language model, providing precise scores. It's ideal for improving search results from various sources including Vector Search.
 

@@ -828,7 +828,7 @@ To make an online inference, submit one or more test items to a model for analys
             "material":"cotton",
             "tag_array": ["abc","def"]
         
-        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -859,7 +859,7 @@ Before using any of the request data, make the following replacements:
         "material":"cotton",
         "tag_array": ["abc","def"]
     
-    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID : Output by the `predict` method, and accepted as input by the `explain` method. The ID of the model used to generate the inference. If you need to request explanations for a previously requested inference, and you have more than one model deployed, you can use this ID to ensure that the explanations are returned for the same model that provided the previous inference.
 
@@ -1109,7 +1109,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
             "sq_ft":5392,
             "code": "90331"
         
-        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -1140,7 +1140,7 @@ Before using any of the request data, make the following replacements:
         "sq_ft":5392,
         "code": "90331"
     
-    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID : Output by the `predict` method, and accepted as input by the `explain` method. The ID of the model used to generate the inference. If you need to request explanations for a previously requested inference, and you have more than one model deployed, you can use this ID to ensure that the explanations are returned for the same model that provided the previous inference.
 
@@ -1415,7 +1415,7 @@ If you used the pre-filled prediction values, the local feature importance value
             "material":"cotton",
             "tag_array": ["abc","def"]
         
-        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
+        A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#format-for-prediction) for details.
 
 2.  Run the following command:
     
@@ -1457,7 +1457,7 @@ Before using any of the request data, make the following replacements:
         "material":"cotton",
         "tag_array": ["abc","def"]
     
-    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#format-for-prediction) for details.
+    A value must be provided for every feature included in training. The format of the data used for inference must match the format used for training. Refer to [Data format for inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#format-for-prediction) for details.
 
   - DEPLOYED\_MODEL\_ID (optional): The ID of the deployed model for which you want to get explanations. The ID is included in the `predict` method's response. If you need to request explanations for a particular model and you have more than one model deployed to the same endpoint, you can use this ID to ensure that the explanations are returned for that particular model.
 
@@ -1632,5 +1632,5 @@ The `instanceOutputValue` of `1795.1246466281819` is the predicted value. The `b
 
 ## What's next
 
-  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/export/export-model-tabular) .
+  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .
   - Learn about [pricing for online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .

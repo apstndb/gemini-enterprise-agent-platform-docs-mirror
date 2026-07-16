@@ -56,7 +56,7 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `displayName` `string`
 
-Optional. Human-readable name for the `OnlineEvaluator` .
+Optional. Human-readable name for the OnlineEvaluator.
 
 The name doesn't have to be unique.
 

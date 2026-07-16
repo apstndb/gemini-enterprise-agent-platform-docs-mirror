@@ -12,76 +12,75 @@ The Instruct version is tuned for reliable, direct answers in chat and agent app
 
 ## Managed API (MaaS) specifications
 
-[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/qwen/model-garden/qwen3-next-80b-a3b-instruct-maas)
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
 `qwen3-next-80b-a3b-instruct-maas`
 
-Launch stage
+Modalities
 
-GA
+description
 
-Supported inputs & outputs
+Text  
+Input and output
 
-  - Inputs:
-    Text , Code
-  - Outputs:
-    Text , Code
+photo
+
+Image  
+Not supported
+
+mic
+
+Audio  
+Not supported
+
+videocam
+
+Video  
+Not supported
 
 Capabilities
 
-Supported
-
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/function-calling)
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/structured-output)
-
-Not supported
-
-  - [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction)
+  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
+    Supported
+  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
+    Supported
+  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
+    Not supported
 
 Consumption options
 
-Supported
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)  
+    Supported
+  - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
+    Not supported
+  - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
+    Standard PayGo  
+    Supported
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
+    Not supported
 
-  - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput)
+Supported regions
 
-Not supported
+**[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)
+  - Global: `global`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us`
+
+Quotas
+
+  - **`global`** : 262,144 maximum output, 262,144 context length
 
 Versions
 
 `Qwen3-Next Instruct`
 
-  - **Launch stage:** GA
-  - **Release date:** September 15, 2025
-
-Supported regions
-
-Model availability
-
-Global
-
-  - `global`
-
-ML processing
-
-United States
-
-  - `Multi-region`
-
-Limits
-
-global:
-
-  - Max output: 262,144
-  - Context length: 262,144
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
+  - Launch stage: GA
+  - Release date: September 15, 2025
 
 ## Deploy as a self-deployed model
 

@@ -19,7 +19,7 @@ Veo 3 is our latest line of video generation models. This page documents the cap
 
 ## 3.0 Generate 001
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -123,14 +123,10 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## 3.0 Fast Generate 001
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -234,10 +230,6 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 > **Caution:** The following table describes the video generation preview endpoints that will be deprecated and removed on April 2, 2026. Migrate any workflows using preview models to the recommended GA endpoints.
 > 
@@ -257,7 +249,7 @@ See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generati
 
 ## 3.0 Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -351,10 +343,6 @@ Versions
   - Release date: May 20, 2025
   - Deprecation date: April 2, 2026
 
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
-
 > **Caution:** The following table describes the video generation preview endpoints that will be deprecated and removed on April 2, 2026. Migrate any workflows using preview models to the recommended GA endpoints.
 > 
 > | Discontinued endpoints          | Recommended endpoint migration |
@@ -373,7 +361,7 @@ See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generati
 
 ## 3.0 Fast Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -465,9 +453,5 @@ Versions
   - Launch stage: Preview
   - Release date: July 07, 2025
   - Deprecation date: April 2, 2026
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 For Veo pricing information, see the [Veo](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#veo) section of the [Cost of building and deploying AI models in Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.

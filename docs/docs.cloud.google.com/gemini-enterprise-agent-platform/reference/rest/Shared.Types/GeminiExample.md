@@ -918,6 +918,10 @@ Optional. Configuration for thinking features. An error will be returned if this
 
 Optional. Config for model selection.
 
+`responseFormat[]` ` object ( ResponseFormat  ` )
+
+Optional. New response format field for the model to configure output formatting and delivery.
+
 `temperature` `number`
 
 Optional. Controls the randomness of the output. A higher temperature results in more creative and diverse responses, while a lower temperature makes the output more predictable and focused. The valid range is (0.0, 2.0\].
@@ -1019,7 +1023,7 @@ Optional. Config for image generation features. Deprecated: Use `responseFormat.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;modelConfig&quot;: {object (ModelConfig)},&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;topK&quot;: number,&quot;candidateCount&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;responseLogprobs&quot;: boolean,&quot;logprobs&quot;: integer,&quot;presencePenalty&quot;: number,&quot;frequencyPenalty&quot;: number,&quot;seed&quot;: integer,&quot;responseSchema&quot;: {object (Schema)},&quot;responseJsonSchema&quot;: value,&quot;routingConfig&quot;: {object (RoutingConfig)},&quot;audioTimestamp&quot;: boolean,&quot;mediaResolution&quot;: enum (MediaResolution),&quot;speechConfig&quot;: {object (SpeechConfig)},&quot;enableAffectiveDialog&quot;: boolean,&quot;imageConfig&quot;: {object (ImageConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;modelConfig&quot;: {object (ModelConfig)},&quot;responseFormat&quot;: [{object (ResponseFormat)}],&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;topK&quot;: number,&quot;candidateCount&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;responseLogprobs&quot;: boolean,&quot;logprobs&quot;: integer,&quot;presencePenalty&quot;: number,&quot;frequencyPenalty&quot;: number,&quot;seed&quot;: integer,&quot;responseSchema&quot;: {object (Schema)},&quot;responseJsonSchema&quot;: value,&quot;routingConfig&quot;: {object (RoutingConfig)},&quot;audioTimestamp&quot;: boolean,&quot;mediaResolution&quot;: enum (MediaResolution),&quot;speechConfig&quot;: {object (SpeechConfig)},&quot;enableAffectiveDialog&quot;: boolean,&quot;imageConfig&quot;: {object (ImageConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1436,6 +1440,156 @@ Optional. The compression quality of the output image.
   &quot;mimeType&quot;: string,
   &quot;compressionQuality&quot;: integer
 }</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ResponseFormat
+
+Configuration for the model to configure output formatting and delivery.
+
+Fields
+
+`format` `Union type`
+
+The format of the output content. `format` can be only one of the following:
+
+`text` ` object ( TextResponseFormat  ` )
+
+Text output format.
+
+`audio` ` object ( AudioResponseFormat  ` )
+
+Audio output format.
+
+`image` ` object ( ImageResponseFormat  ` )
+
+Image output format.
+
+`video` ` object ( VideoResponseFormat  ` )
+
+Video output format.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// format&quot;text&quot;: {object (TextResponseFormat)},&quot;audio&quot;: {object (AudioResponseFormat)},&quot;image&quot;: {object (ImageResponseFormat)},&quot;video&quot;: {object (VideoResponseFormat)}// Union type}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## TextResponseFormat
+
+Configuration for text-specific output formatting.
+
+Fields
+
+`mimeType` `enum ( MimeType` )
+
+Optional. The IANA standard MIME type of the response.
+
+`schema` ` value ( Value  ` format)
+
+Optional. The JSON schema that the output should conform to. Only applicable when mimeType is APPLICATION\_JSON.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),&quot;schema&quot;: value}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ImageResponseFormat
+
+Configuration for image-specific output formatting.
+
+Fields
+
+`delivery` ` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+`mimeType` `enum ( MimeType` )
+
+Optional. The MIME type of the image output.
+
+`aspectRatio` ` enum ( AspectRatio  ` )
+
+Optional. The aspect ratio for the image output.
+
+`imageSize` ` enum ( ImageSize  ` )
+
+Optional. The size of the image output.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;mimeType&quot;: enum (MimeType),&quot;aspectRatio&quot;: enum (AspectRatio),&quot;imageSize&quot;: enum (ImageSize)}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## VideoResponseFormat
+
+Configuration for video-specific output formatting.
+
+Fields
+
+`delivery` ` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+`gcsUri` `string`
+
+Optional. The Google Cloud Storage URI to store the video output. Required for Vertex if delivery is URI.
+
+`aspectRatio` `enum ( AspectRatio` )
+
+The aspect ratio for the video output.
+
+`duration` ` string ( Duration  ` format)
+
+Optional. The duration for the video output.
+
+A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;duration&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>

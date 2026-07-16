@@ -427,6 +427,10 @@ Required. Represents the OpenAPI schema of the structured memories. The schema `
 
 Optional. Represents the type of the structured memories associated with the schema. If not set, then `STRUCTURED_PROFILE` will be used.
 
+`jsonSchema` ` value ( Value  ` format)
+
+Optional. Represents the JSON Schema of the structured memories.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -438,7 +442,7 @@ Optional. Represents the type of the structured memories associated with the sch
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;schema&quot;: {object (Schema)},&quot;memoryType&quot;: enum (MemoryType)}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;schema&quot;: {object (Schema)},&quot;memoryType&quot;: enum (MemoryType),&quot;jsonSchema&quot;: value}</code></pre></td>
 </tr>
 </tbody>
 </table>

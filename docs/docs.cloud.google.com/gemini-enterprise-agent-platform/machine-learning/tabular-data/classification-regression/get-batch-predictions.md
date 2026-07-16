@@ -634,4 +634,4 @@ For examples of feature attribution queries and to learn more, see [Feature Attr
 
 ## What's next
 
-  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/export/export-model-tabular) .
+  - Learn how to [export your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-model-tabular) .

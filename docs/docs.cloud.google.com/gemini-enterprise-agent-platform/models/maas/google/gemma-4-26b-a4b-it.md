@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 Gemma 4 26B A4B IT is a multimodal model from Google handling text and image input (with audio supported on small models) and generating text output.
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `gemma-4-26b-a4b-it-maas`
@@ -75,7 +77,3 @@ Versions
 
   - Launch stage: Experimental
   - Release date: April 3, 2026
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .

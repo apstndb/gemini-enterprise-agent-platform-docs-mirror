@@ -26,7 +26,13 @@ Required. The resource name of the SemanticGovernancePolicyEngine to deprovision
 
 ### Request body
 
-The request body must be empty.
+The request body contains data with the following structure:
+
+Fields
+
+`force` `boolean`
+
+Optional. If true, the operation bypass checks on current state and force the deprovisioning operation.
 
 ### Response body
 

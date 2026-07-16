@@ -591,6 +591,10 @@ Optional. The modalities of the response. The model will generate a response tha
 
 Optional. Configuration for thinking features. An error will be returned if this field is set for models that don't support thinking.
 
+`responseFormat[]` ` object ( ResponseFormat  ` )
+
+Optional. New response format field for the model to configure output formatting and delivery.
+
 `temperature` `number`
 
 Optional. Controls the randomness of the output. A higher temperature results in more creative and diverse responses, while a lower temperature makes the output more predictable and focused. The valid range is (0.0, 2.0\].
@@ -692,7 +696,7 @@ Optional. Config for image generation features. Deprecated: Use `responseFormat.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;topK&quot;: number,&quot;candidateCount&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;responseLogprobs&quot;: boolean,&quot;logprobs&quot;: integer,&quot;presencePenalty&quot;: number,&quot;frequencyPenalty&quot;: number,&quot;seed&quot;: integer,&quot;responseSchema&quot;: {object (Schema)},&quot;responseJsonSchema&quot;: value,&quot;routingConfig&quot;: {object (RoutingConfig)},&quot;audioTimestamp&quot;: boolean,&quot;mediaResolution&quot;: enum (MediaResolution),&quot;speechConfig&quot;: {object (SpeechConfig)},&quot;enableAffectiveDialog&quot;: boolean,&quot;imageConfig&quot;: {object (ImageConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;responseFormat&quot;: [{object (ResponseFormat)}],&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;topK&quot;: number,&quot;candidateCount&quot;: integer,&quot;maxOutputTokens&quot;: integer,&quot;responseLogprobs&quot;: boolean,&quot;logprobs&quot;: integer,&quot;presencePenalty&quot;: number,&quot;frequencyPenalty&quot;: number,&quot;seed&quot;: integer,&quot;responseSchema&quot;: {object (Schema)},&quot;responseJsonSchema&quot;: value,&quot;routingConfig&quot;: {object (RoutingConfig)},&quot;audioTimestamp&quot;: boolean,&quot;mediaResolution&quot;: enum (MediaResolution),&quot;speechConfig&quot;: {object (SpeechConfig)},&quot;enableAffectiveDialog&quot;: boolean,&quot;imageConfig&quot;: {object (ImageConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1204,6 +1208,388 @@ Allows the model to generate images of adults, but not children.
 `ALLOW_NONE`
 
 Prevents the model from generating images of people.
+
+## ResponseFormat
+
+Configuration for the model to configure output formatting and delivery.
+
+Fields
+
+`format` `Union type`
+
+The format of the output content. `format` can be only one of the following:
+
+`text` ` object ( TextResponseFormat  ` )
+
+Text output format.
+
+`audio` ` object ( AudioResponseFormat  ` )
+
+Audio output format.
+
+`image` ` object ( ImageResponseFormat  ` )
+
+Image output format.
+
+`video` ` object ( VideoResponseFormat  ` )
+
+Video output format.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// format&quot;text&quot;: {object (TextResponseFormat)},&quot;audio&quot;: {object (AudioResponseFormat)},&quot;image&quot;: {object (ImageResponseFormat)},&quot;video&quot;: {object (VideoResponseFormat)}// Union type}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## TextResponseFormat
+
+Configuration for text-specific output formatting.
+
+Fields
+
+`mimeType` ` enum ( MimeType  ` )
+
+Optional. The IANA standard MIME type of the response.
+
+`schema` ` value ( Value  ` format)
+
+Optional. The JSON schema that the output should conform to. Only applicable when mimeType is APPLICATION\_JSON.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),&quot;schema&quot;: value}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## MimeType
+
+Supported MIME types for text output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`APPLICATION_JSON`
+
+JSON output format.
+
+`TEXT_PLAIN`
+
+Plain text output format.
+
+## AudioResponseFormat
+
+Configuration for audio-specific output formatting.
+
+Fields
+
+`delivery` ` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+`mimeType` ` enum ( MimeType  ` )
+
+Optional. The MIME type of the audio output.
+
+`sampleRate` `integer`
+
+Optional. Sample rate for the generated audio in Hertz.
+
+`bitRate` `integer`
+
+Optional. Bit rate in bits per second (bps). Only applicable for compressed formats (MP3, Opus).
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;mimeType&quot;: enum (MimeType),&quot;sampleRate&quot;: integer,&quot;bitRate&quot;: integer}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## MimeType
+
+Supported MIME types for audio output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`AUDIO_MP3`
+
+MP3 audio format.
+
+`AUDIO_OGG_OPUS`
+
+OGG Opus audio format.
+
+`AUDIO_L16`
+
+Raw PCM (L16) audio format.
+
+`AUDIO_WAV`
+
+WAV audio format.
+
+`AUDIO_ALAW`
+
+A-law audio format.
+
+`AUDIO_MULAW`
+
+Mu-law audio format.
+
+## DeliveryMode
+
+The delivery mode for the output content.
+
+Enums
+
+`DELIVERY_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`INLINE`
+
+Generated bytes are returned inline in the response.
+
+`URI`
+
+Generated content is stored and a URI is returned.
+
+## ImageResponseFormat
+
+Configuration for image-specific output formatting.
+
+Fields
+
+`delivery` ` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+`mimeType` ` enum ( MimeType  ` )
+
+Optional. The MIME type of the image output.
+
+`aspectRatio` ` enum ( AspectRatio  ` )
+
+Optional. The aspect ratio for the image output.
+
+`imageSize` ` enum ( ImageSize  ` )
+
+Optional. The size of the image output.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;mimeType&quot;: enum (MimeType),&quot;aspectRatio&quot;: enum (AspectRatio),&quot;imageSize&quot;: enum (ImageSize)}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## MimeType
+
+Supported MIME types for image output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`IMAGE_JPEG`
+
+JPEG image format.
+
+## AspectRatio
+
+Supported aspect ratios for image output.
+
+Enums
+
+`ASPECT_RATIO_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`ASPECT_RATIO_ONE_BY_ONE`
+
+1:1 aspect ratio.
+
+`ASPECT_RATIO_TWO_BY_THREE`
+
+2:3 aspect ratio.
+
+`ASPECT_RATIO_THREE_BY_TWO`
+
+3:2 aspect ratio.
+
+`ASPECT_RATIO_THREE_BY_FOUR`
+
+3:4 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_THREE`
+
+4:3 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_FIVE`
+
+4:5 aspect ratio.
+
+`ASPECT_RATIO_FIVE_BY_FOUR`
+
+5:4 aspect ratio.
+
+`ASPECT_RATIO_NINE_BY_SIXTEEN`
+
+9:16 aspect ratio.
+
+`ASPECT_RATIO_SIXTEEN_BY_NINE`
+
+16:9 aspect ratio.
+
+`ASPECT_RATIO_TWENTY_ONE_BY_NINE`
+
+21:9 aspect ratio.
+
+`ASPECT_RATIO_ONE_BY_EIGHT`
+
+1:8 aspect ratio.
+
+`ASPECT_RATIO_EIGHT_BY_ONE`
+
+8:1 aspect ratio.
+
+`ASPECT_RATIO_ONE_BY_FOUR`
+
+1:4 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_ONE`
+
+4:1 aspect ratio.
+
+## ImageSize
+
+Supported image sizes for image output.
+
+Enums
+
+`IMAGE_SIZE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`IMAGE_SIZE_FIVE_TWELVE`
+
+512px image size.
+
+`IMAGE_SIZE_ONE_K`
+
+1K image size.
+
+`IMAGE_SIZE_TWO_K`
+
+2K image size.
+
+`IMAGE_SIZE_FOUR_K`
+
+4K image size.
+
+## VideoResponseFormat
+
+Configuration for video-specific output formatting.
+
+Fields
+
+`delivery` ` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+`gcsUri` `string`
+
+Optional. The Google Cloud Storage URI to store the video output. Required for Vertex if delivery is URI.
+
+`aspectRatio` ` enum ( AspectRatio  ` )
+
+The aspect ratio for the video output.
+
+`duration` ` string ( Duration  ` format)
+
+Optional. The duration for the video output.
+
+A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;duration&quot;: string}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## AspectRatio
+
+Supported aspect ratios for video output.
+
+Enums
+
+`ASPECT_RATIO_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`ASPECT_RATIO_SIXTEEN_BY_NINE`
+
+16:9 aspect ratio.
+
+`ASPECT_RATIO_NINE_BY_SIXTEEN`
+
+9:16 aspect ratio.
 
 ## EvaluationParserConfig
 

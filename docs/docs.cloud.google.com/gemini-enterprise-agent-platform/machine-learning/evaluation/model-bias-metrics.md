@@ -10,9 +10,9 @@ data_source: docs.cloud.google.com
 > 
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-This page describes model evaluation metrics you can use to detect *model bias* , which can appear in the model prediction output after you train the model. For the examples and notation on this page, we use a hypothetical college application dataset that we describe in detail in [Introduction to model evaluation for fairness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/intro-evaluation-fairness) .
+This page describes model evaluation metrics you can use to detect *model bias* , which can appear in the model prediction output after you train the model. For the examples and notation on this page, we use a hypothetical college application dataset that we describe in detail in [Introduction to model evaluation for fairness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/intro-evaluation-fairness) .
 
-For descriptions of metrics that are generated from pre-training data, see [Data bias metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/data-bias-metrics) .
+For descriptions of metrics that are generated from pre-training data, see [Data bias metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/data-bias-metrics) .
 
 ## Overview
 
@@ -56,7 +56,7 @@ The positive value of the Accuracy Difference indicates that the model is more a
 
 Difference in Positive Proportions in Predicted Labels (DPPPL) measures whether the model has a tendency to make disproportionately more positive predictions for one slice over the other. DPPPL calculates the difference in Positive Proportions in Predicted Labels, where Positive Proportions in Predicted Labels is (Predicted positive outcomes/Total number of instances) for a slice:
 
-> **Note:** This metric is analogous to the [data bias metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/evaluation/data-bias-metrics) of *Difference in Positive Proportions in True Labels* , which focuses on labeled positive outcomes instead of predicted positive outcomes.
+> **Note:** This metric is analogous to the [data bias metric](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/data-bias-metrics) of *Difference in Positive Proportions in True Labels* , which focuses on labeled positive outcomes instead of predicted positive outcomes.
 
 $$ \\frac{tp\_1 + fp\_1}{n\_1} - \\frac{tp\_2 + fp\_2}{n\_2} $$
 

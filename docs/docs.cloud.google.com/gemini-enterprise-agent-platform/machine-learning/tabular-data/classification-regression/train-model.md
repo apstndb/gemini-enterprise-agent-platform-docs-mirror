@@ -63,7 +63,7 @@ Before you train a model, you must complete the following:
     
     9.  Review the transformations selected for your included features, along with whether invalid data is allowed, and make any required updates.
         
-        Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#transformations) and [invalid data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) .
+        Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#transformations) and [invalid data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#null-values) .
     
     10. If you want to specify a weight column, or change your optimization objective from the default, open the **Advanced options** and make your selections.
         

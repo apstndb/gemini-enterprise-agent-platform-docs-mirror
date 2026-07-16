@@ -207,7 +207,7 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
     
     3.  Click **Select** .
         
-        The file thumbnail displays in the **Prompt** pane. The total number of tokens also displays. If your prompt data exceeds the [token limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/learn/models#gemini-models) , the tokens are truncated and aren't included in processing your data.
+        The file thumbnail displays in the **Prompt** pane. The total number of tokens also displays. If your prompt data exceeds the [token limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#gemini-models) , the tokens are truncated and aren't included in processing your data.
 
 6.  Enter your text prompt in the **Prompt** pane.
 
@@ -717,7 +717,7 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
     
     3.  Click **Select** .
         
-        The file thumbnail displays in the **Prompt** pane. The total number of tokens also displays. If your prompt data exceeds the [token limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/learn/models#gemini-models) , the tokens are truncated and aren't included in processing your data.
+        The file thumbnail displays in the **Prompt** pane. The total number of tokens also displays. If your prompt data exceeds the [token limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#gemini-models) , the tokens are truncated and aren't included in processing your data.
 
 6.  Enter your text prompt in the **Prompt** pane.
 

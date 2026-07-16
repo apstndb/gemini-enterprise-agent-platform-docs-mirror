@@ -12,7 +12,7 @@ When you export a `Dataset` , Agent Platform creates one or more [JSON Lines](ht
 
 You can export image `Dataset` resources. You cannot export tabular `Dataset` resources.
 
-Exporting a `Dataset` doesn't create additional copies of the image data that your `Dataset` is based on. The JSON Lines files created by the export processes include the original Cloud Storage URIs for your data that you specified when you [imported that data into the `Dataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/create-dataset-api#import-data) .
+Exporting a `Dataset` doesn't create additional copies of the image data that your `Dataset` is based on. The JSON Lines files created by the export processes include the original Cloud Storage URIs for your data that you specified when you [imported that data into the `Dataset`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-dataset-api#import-data) .
 
 ## Export a `Dataset` using the Google Cloud console or the API
 
@@ -24,7 +24,7 @@ You can use the Google Cloud console or the Agent Platform API to export a `Data
 
 2.  In the **Region** drop-down list, select the location where the `Dataset` is stored.
 
-3.  Find the row of the `Dataset` . You can export metadata and annotations for all [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/create-annotation-set) or for a specific annotation set:
+3.  Find the row of the `Dataset` . You can export metadata and annotations for all [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) or for a specific annotation set:
     
       - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** then click **View more more\_vert** and then click **Export dataset** .
         
@@ -112,7 +112,7 @@ Before using any of the request data, make the following replacements:
 
   - EXPORT\_DIRECTORY : Cloud Storage URI (beginning with `gs://` ) of a directory where you want Agent Platform to save the exported JSON Lines files. This must be in a Cloud Storage bucket that you have access to, but the directory does not need to exist yet.
 
-  - FILTER : A filter string that determines which [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/create-annotation-set) get exported.
+  - FILTER : A filter string that determines which [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) get exported.
     
       - **If you want to export metadata and annotations for all of the `Dataset` 's annotation sets,** replace FILTER with an empty string (or omit the `annotationsFilter` field from the request body entirely). This tells Agent Platform to create a set of JSON Lines files for each annotation set.
     
@@ -189,15 +189,15 @@ Some requests start long-running operations that require time to complete. These
 
 Within the export directory that you specified in the previous section, Agent Platform creates a new directory labeled with the `Dataset` 's display name and a timestamp; for example, `export-data- DATASET_DISPLAY_NAME -2021-02-17T00:54:58.734772Z` . Within this directory, you can find a subdirectory for each annotation set that you exported.
 
-For each annotation set, you can find one or more JSON Lines files. Each row of each JSON Lines file represents a data item from the annotation set. Each data item may contain metadata and annotations that you specified when you imported the data to Agent Platform, as well as metadata and annotations that you added after importing the data. For example, if you [requested data labeling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-labeling-job) for your `Dataset` or if you manually added labels or annotations to the `Dataset` in the Google Cloud console, then this information is included in the exported files.
+For each annotation set, you can find one or more JSON Lines files. Each row of each JSON Lines file represents a data item from the annotation set. Each data item may contain metadata and annotations that you specified when you imported the data to Agent Platform, as well as metadata and annotations that you added after importing the data. For example, if you [requested data labeling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-labeling-job) for your `Dataset` or if you manually added labels or annotations to the `Dataset` in the Google Cloud console, then this information is included in the exported files.
 
 If you export multiple annotation sets, the same data items might appear in multiple JSON Lines files. For example, if you export an image `Dataset` with multiple annotation sets, one JSON Lines file might contain a data item with a single-label classification annotation; another JSON Lines file for a different annotation set might contain the same data item, but with an object detection annotation instead.
 
-The format of the exported files matches the format of the JSON Lines import files that you can use to [import data intoAgent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/create-dataset-api#import-data) . This format depends on the data type (image or tabular) and objective (such as object tracking, entity extraction, or classification). For example, if you export an annotation set for single-label image classification, then each line of each JSON Lines file is formatted according to the [`gs://google-cloud-aiplatform/schema/dataset/ioformat/image_classification_single_label_io_format_1.0.0.yaml` schema file](https://storage.cloud.google.com/google-cloud-aiplatform/schema/dataset/ioformat/image_classification_single_label_io_format_1.0.0.yaml) , as described in [Preparing image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/image-data/classification/prepare-data) .
+The format of the exported files matches the format of the JSON Lines import files that you can use to [import data intoAgent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-dataset-api#import-data) . This format depends on the data type (image or tabular) and objective (such as object tracking, entity extraction, or classification). For example, if you export an annotation set for single-label image classification, then each line of each JSON Lines file is formatted according to the [`gs://google-cloud-aiplatform/schema/dataset/ioformat/image_classification_single_label_io_format_1.0.0.yaml` schema file](https://storage.cloud.google.com/google-cloud-aiplatform/schema/dataset/ioformat/image_classification_single_label_io_format_1.0.0.yaml) , as described in [Preparing image data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data) .
 
 > **Note:** If you export a dataset with *no* annotations, verify the fields established by the export before attempting to import the data for a specific objective. For example, if you export an image dataset with no annotations, the exported JSON lines file contains an empty `classificationAnnotations` array. This field is only applicable to specific objectives and their corresponding YAML schema files. For more information, see [prepare training data page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .
 
 ## What's next
 
-  - Learn how to [label data using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/label-using-console) .
+  - Learn how to [label data using the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/label-using-console) .
   - Read more about [working with datasets in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .

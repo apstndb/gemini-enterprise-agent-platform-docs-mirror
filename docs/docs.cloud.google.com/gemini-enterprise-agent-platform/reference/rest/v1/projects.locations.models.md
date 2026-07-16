@@ -78,7 +78,7 @@ Optional. This field is populated if the model is produced by a pipeline job.
 
 `containerSpec` ` object ( ModelContainerSpec  ` )
 
-Input only. The specification of the container that is to be used when deploying this Model. The specification is ingested upon `  ModelService.UploadModel  ` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
+The specification of the container that is to be used when deploying this Model. The specification is ingested upon `  ModelService.UploadModel  ` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
 
 `artifactUri` `string`
 

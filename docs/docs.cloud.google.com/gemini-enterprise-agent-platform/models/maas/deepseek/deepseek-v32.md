@@ -10,6 +10,8 @@ DeepSeek-V3.2 is a model that harmonizes high computational efficiency with supe
 
 ## Managed API (MaaS) specifications
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `deepseek-v3.2-maas`
@@ -77,10 +79,6 @@ Versions
 
   - Launch stage: GA
   - Release date: December 10, 2025
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## Deploy as a self-deployed model
 

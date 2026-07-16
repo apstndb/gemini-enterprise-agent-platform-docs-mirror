@@ -303,7 +303,7 @@ Other configurations, such as the N1 series, let you optionally add GPUs to acce
 To add optional GPU accelerators, you must account for several requirements:
 
   - You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
-  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#accelerators) .
+  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/general/locations#accelerators) .
   - You can only use one type of GPU for your `DeployedModel` resource or `BatchPredictionJob` , and there are limitations on the number of GPUs you can add depending on which machine type you are using. The following table describes these limitations.
 
 The following table shows the optional GPUs that are available for online inference and how many of each type of GPU you can use with each Compute Engine machine type:

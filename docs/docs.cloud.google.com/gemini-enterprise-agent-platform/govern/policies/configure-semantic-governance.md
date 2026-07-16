@@ -78,19 +78,26 @@ After you complete the provisioning, you must [connect the SGP engine to Agent G
 
 #### Google-managed binding
 
+### REST
+
     curl -X PATCH \
         "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine?updateMask=SemanticGovernancePolicyEngine" \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
-        -d '{
-          "gatewayConfigs": {
+        -d '{ "gatewayConfigs": {
             "GATEWAY_NAME": {
-              "network": "projects/PROJECT_ID/global/networks/default",
-              "subnetwork": "projects/PROJECT_ID/regions/LOCATION/subnetworks/default",
-              "dnsZoneName": "DNS_NAME"
+              "network": "NETWORK_NAME",
+                "subnetwork": "SUBNETWORK_NAME",
+                "dnsZoneName": "DNS_NAME" }
             }
-          }
-        }'
+          }'
+
+### gcloud
+
+    gcloud beta ai semantic-governance-policy-engine update \
+    --location=LOCATION \
+    --project=PROJECT_ID \
+    --gateway-config="name='GATEWAY_NAME',network=NETWORK_NAME,subnetwork=SUBNETWORK_NAME,dns-zone-name=DNS_NAME"
 
 > **Note:** When you specify the `gatewayConfig` parameter, all subsequent updates must include existing gateways to keep and new gateways to add. Exclude gateways that you want to remove.
 
@@ -99,13 +106,24 @@ Replace:
   - `GATEWAY_NAME` with a unique gateway name.
   - `DNS_NAME` with the name of the DNS to use.
 
+> Format for the network name is \`projects/PROJECT\_ID/global/networks/NETWORK\_NAME\` and format of the subnetwork name is \`projects/PROJECT\_ID/regions/LOCATION/subnetworks/SUBNET\_NAME\`
+
 #### Self-managed binding
 
-    curl -X PATCH \
-        "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine?updateMask=SemanticGovernancePolicyEngine" \
+### REST
+
+    curl  -X PATCH "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine" \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
-        -d '{}'
+        -d '{
+          "name": "projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine"
+        }'
+
+### gcloud
+
+    gcloud beta ai semantic-governance-policy-engine update \
+        --location=LOCATION \
+        --project=PROJECT_ID
 
 This command returns a long-running operation. You can poll the operation status by replacing `  OPERATION  ` with the `name` value from the response:
 
@@ -481,9 +499,20 @@ Alternatively, use the following `curl` command:
 
 #### De-provision an SGP engine
 
+### REST
+
+    curl  -X POST "https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine:deprovision" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "Content-Type: application/json" \
+        -d '{}'
+
+### gcloud
+
     gcloud beta ai semantic-governance-policy-engine deprovision \
-      --location=LOCATION \
-      --project=PROJECT_ID
+        --location=LOCATION \
+        --project=PROJECT_ID
+
+> If you receive a failed precondition error and you would still like to continue with deprovisioning, you can force deprovisioning and bypass the current state by providing the \`{ "force":true }\` to the REST call as the request body or \`--force=true\` option in the gcloud command.
 
 #### Disconnect SGP from Agent Gateway
 

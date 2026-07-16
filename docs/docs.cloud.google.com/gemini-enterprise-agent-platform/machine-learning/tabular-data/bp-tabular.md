@@ -103,7 +103,7 @@ If your data uses special characters or numbers to represent null values, includ
 
 ### Avoid missing values where possible
 
-Check your data for missing values, and correct them if possible. Otherwise, you can leave the value blank, and it is treated as a [null value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) .
+Check your data for missing values, and correct them if possible. Otherwise, you can leave the value blank, and it is treated as a [null value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#null-values) .
 
 ### Use spaces to separate text
 
@@ -155,7 +155,7 @@ At least 50 times as many rows as the number of columns.
 
 ### Leave all other preprocessing and transformations to Agent Platform
 
-Unless otherwise noted, let Agent Platform do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Agent Platform transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#transformations) .
+Unless otherwise noted, let Agent Platform do the feature engineering for you when you train an AutoML model. AutoML does best when it has access to your underlying data. For a list of all the transformations AutoML performs by transformation type, see [Agent Platform transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#transformations) .
 
 ## Best practices for tabular forecasting models
 
@@ -165,7 +165,7 @@ Training data for forecasting models has some special considerations.
 
 When you train a forecasting model, you specify the data *granularity* , or the time interval between the training data rows. It can be hourly, daily, weekly, monthly, or yearly. In addition, it can be every 1, 5, 10, 15, or 30 minutes.
 
-The data granularity must be consistent throughout the training data, and all batch inference data. If you specify a daily granularity, and there are 2 days between two training data rows, Agent Platform treats the interim day as [missing data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#null-values) , which can degrade model performance. Multiple rows in the same time series with the same timestamp (as determined by the granularity) are considered a validation error at training time.
+The data granularity must be consistent throughout the training data, and all batch inference data. If you specify a daily granularity, and there are 2 days between two training data rows, Agent Platform treats the interim day as [missing data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#null-values) , which can degrade model performance. Multiple rows in the same time series with the same timestamp (as determined by the granularity) are considered a validation error at training time.
 
 Generally, your data collection practices determine your data granularity.
 

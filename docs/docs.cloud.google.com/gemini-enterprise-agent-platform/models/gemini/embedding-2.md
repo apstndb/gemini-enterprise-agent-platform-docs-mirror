@@ -22,7 +22,7 @@ Gemini Embedding 2 introduces several features to optimize embedding quality and
 
 For more information on how to use Gemini Embedding 2, see [Get multimodal embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings) .
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=gemini-embedding-2) [Deploy example app](https://console.cloud.google.com/vertex-ai/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-embedding-2)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=gemini-embedding-2) [Deploy example app](https://console.cloud.google.com/vertex-ai/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-embedding-2) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
@@ -146,7 +146,3 @@ Versions
 
   - Launch stage: Public preview
   - Release date: March 10, 2026
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .

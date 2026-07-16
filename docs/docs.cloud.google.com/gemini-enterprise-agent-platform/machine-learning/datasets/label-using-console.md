@@ -12,7 +12,7 @@ To learn how to import your data, see the *Prepare data* page of the data type a
 
 After creating the dataset and importing the unlabeled data, you will be in **Browse** mode.  
   
-![browse mode](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/datasets/images/browse-mode.png)
+![browse mode](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/datasets/images/browse-mode.png)
 
 ## How to add labels
 

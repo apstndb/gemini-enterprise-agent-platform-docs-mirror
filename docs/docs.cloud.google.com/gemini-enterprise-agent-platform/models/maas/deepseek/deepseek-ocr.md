@@ -10,6 +10,8 @@ DeepSeek-OCR is a comprehensive Optical Character Recognition (OCR) model that a
 
 ## Managed API (MaaS) specifications
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `deepseek-ocr-maas`
@@ -77,10 +79,6 @@ Versions
 
   - Launch stage: GA
   - Release date: October 23, 2025
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## Deploy as a self-deployed model
 

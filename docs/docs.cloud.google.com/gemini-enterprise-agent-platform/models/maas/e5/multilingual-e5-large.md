@@ -12,7 +12,7 @@ Multilingual E5 Large is part of the E5 family of text embedding models. This la
   - **Text Clustering** : Grouping similar pieces of text based on their semantic meaning.
   - **Informative Response Generation** : Following instructions to provide summaries, explanations, or answers to factual queries.
 
-[View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas)
+[View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/intfloat/model-garden/multilingual-e5-large-instruct-maas) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -95,7 +95,3 @@ Versions
 Supported languages
 
 See [Supported languages](https://huggingface.co/intfloat/multilingual-e5-large#supported-languages) .
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .

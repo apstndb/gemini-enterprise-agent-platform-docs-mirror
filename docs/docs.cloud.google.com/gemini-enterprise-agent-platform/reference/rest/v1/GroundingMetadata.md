@@ -20,6 +20,10 @@ Optional. The web search queries that were used to generate the content. This fi
 
 Optional. The image search queries that were used to generate the content. This field is populated only when the grounding source is Google Search with the Image Search searchType enabled.
 
+`retrievalQueries[]` `string`
+
+Optional. The queries that were executed by the retrieval tools. This field is populated only when the grounding source is a retrieval tool, such as Agent Platform Search.
+
 `groundingChunks[]` ` object ( GroundingChunk  ` )
 
 A list of supporting references retrieved from the grounding source. This field is populated when the grounding source is Google Search, Agent Platform Search, or Google Maps.
@@ -59,7 +63,7 @@ A token that can be used to render a Google Maps widget with the contextual data
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;webSearchQueries&quot;: [string],&quot;imageSearchQueries&quot;: [string],&quot;groundingChunks&quot;: [{object (GroundingChunk)}],&quot;groundingSupports&quot;: [{object (GroundingSupport)}],&quot;sourceFlaggingUris&quot;: [{object (SourceFlaggingUri)}],&quot;searchEntryPoint&quot;: {object (SearchEntryPoint)},&quot;retrievalMetadata&quot;: {object (RetrievalMetadata)},&quot;googleMapsWidgetContextToken&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;webSearchQueries&quot;: [string],&quot;imageSearchQueries&quot;: [string],&quot;retrievalQueries&quot;: [string],&quot;groundingChunks&quot;: [{object (GroundingChunk)}],&quot;groundingSupports&quot;: [{object (GroundingSupport)}],&quot;sourceFlaggingUris&quot;: [{object (SourceFlaggingUri)}],&quot;searchEntryPoint&quot;: {object (SearchEntryPoint)},&quot;retrievalMetadata&quot;: {object (RetrievalMetadata)},&quot;googleMapsWidgetContextToken&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>

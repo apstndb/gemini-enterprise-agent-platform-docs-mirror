@@ -99,7 +99,7 @@ The following diagram shows the architecture and workflow for Ray on Agent Platf
 
 ## Terminology
 
-For a full list of terms see the [Agent Platform glossary for predictive AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/glossary) .
+For a full list of terms see the [Agent Platform glossary for predictive AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/glossary) .
 
   - ##### autoscaling
     

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page describes how to use Gemini Enterprise Agent Platform to export your AutoML tabular model to Cloud Storage, download the model to an on-premises server or a server hosted by another cloud provider, and then use Docker to make the model available for predictions.
 
-For information about exporting image and video Edge models, see [Export AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/export/export-edge-model) .
+For information about exporting image and video Edge models, see [Export AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-edge-model) .
 
 After exporting your tabular model, if you want to import it back into Agent Platform, see [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
 

@@ -420,6 +420,10 @@ Fields
 
 Required. The Artifact Registry Docker image URI (e.g., us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag) of the container image that is to be run on each worker replica.
 
+`port` `integer`
+
+Optional. The port the container listens on. Defaults to 8080 if unset.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -432,7 +436,8 @@ Required. The Artifact Registry Docker image URI (e.g., us-central1-docker.pkg.d
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;imageUri&quot;: string
+  &quot;imageUri&quot;: string,
+  &quot;port&quot;: integer
 }</code></pre></td>
 </tr>
 </tbody>

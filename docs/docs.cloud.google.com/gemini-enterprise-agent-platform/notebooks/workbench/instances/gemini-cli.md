@@ -114,7 +114,7 @@ To help you get ideas for how to use the Gemini CLI, see the following sample pr
 
 You can control access to the Gemini CLI in Agent Platform Workbench by using the following methods:
 
-  - An administrator can set up an organization policy to restrict usage of specific Gemini models at an organization, folder, or project level. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/control-model-access) . The Gemini CLI continues to appear in JupyterLab, but the CLI doesn't respond to prompts.
+  - An administrator can set up an organization policy to restrict usage of specific Gemini models at an organization, folder, or project level. See [Control access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) . The Gemini CLI continues to appear in JupyterLab, but the CLI doesn't respond to prompts.
 
   - By not granting the `aiplatform.endpoints.predict` permission, an administrator can block some identities from being able to use Gemini endpoints for inference.
 

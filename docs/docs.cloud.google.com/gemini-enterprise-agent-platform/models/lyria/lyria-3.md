@@ -14,7 +14,7 @@ Lyria is a music generation model from Google. This page documents the capabilit
 
 ## 3 Pro Preview
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/studio/media/music)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/studio/media/music) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -103,13 +103,9 @@ Versions
   - Launch stage: Preview
   - Release date: 2026-03-25
 
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
-
 ## 3 Clip Preview
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/studio/media/music)
+[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/studio/media/music) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -197,9 +193,5 @@ Versions
 
   - Launch stage: Preview
   - Release date: 2026-03-25
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 For Lyria pricing information, see the [Lyria](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria) section of the [Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#lyria-models) page.

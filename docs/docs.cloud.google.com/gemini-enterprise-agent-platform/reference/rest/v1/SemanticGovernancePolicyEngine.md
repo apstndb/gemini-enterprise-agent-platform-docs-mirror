@@ -128,6 +128,10 @@ Output only. The self-link or name of the Private service Connect endpoint forwa
 
 Output only. The fully qualified record name of the created A-record in Cloud DNS.
 
+`allowedProjects[]` `string`
+
+Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: project id or number.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -139,7 +143,7 @@ Output only. The fully qualified record name of the created A-record in Cloud DN
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;network&quot;: string,&quot;subnetwork&quot;: string,&quot;dnsZoneName&quot;: string,&quot;state&quot;: enum (State),&quot;ipAddress&quot;: string,&quot;pscEndpoint&quot;: string,&quot;dnsRecord&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;network&quot;: string,&quot;subnetwork&quot;: string,&quot;dnsZoneName&quot;: string,&quot;state&quot;: enum (State),&quot;ipAddress&quot;: string,&quot;pscEndpoint&quot;: string,&quot;dnsRecord&quot;: string,&quot;allowedProjects&quot;: [string]}</code></pre></td>
 </tr>
 </tbody>
 </table>

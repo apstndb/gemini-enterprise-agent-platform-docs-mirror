@@ -10,6 +10,8 @@ Kimi K2 Thinking is an open-source model that operates as a "thinking agent," re
 
 ## Managed API (MaaS) specifications
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `kimi-k2-thinking-maas`
@@ -77,10 +79,6 @@ Versions
 
   - Launch stage: GA
   - Release date: Nov 13, 2025
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## Deploy as a self-deployed model
 

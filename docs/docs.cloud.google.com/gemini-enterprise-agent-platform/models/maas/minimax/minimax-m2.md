@@ -10,6 +10,8 @@ MiniMax M2 is a model from MiniMax that's designed for agentic and code-related 
 
 ## Managed API (MaaS) specifications
 
+[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+
 Model ID
 
 `minimax-m2-maas`
@@ -77,10 +79,6 @@ Versions
 
   - Launch stage: GA
   - Release date: November 4, 2025
-
-Pricing
-
-See [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 
 ## Deploy as a self-deployed model
 

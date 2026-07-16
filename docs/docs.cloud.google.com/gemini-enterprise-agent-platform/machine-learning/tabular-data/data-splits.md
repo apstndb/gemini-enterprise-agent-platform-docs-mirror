@@ -104,7 +104,7 @@ With only the test set specified:
     "UNASSIGNED","Roger","Rogers","123-45-6789"
     "UNASSIGNED","Sarah","Smith","333-33-3333"
 
-The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
+The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
 
 If the value of the data split column is `UNASSIGNED` , Agent Platform automatically assigns that row to the training or validation set.
 
@@ -120,7 +120,7 @@ Agent Platform treats each row as an independent and identically distributed tra
 
 If you specify a Time column, include a value for the Time column for every row in your dataset. Make sure that the Time column has enough distinct values, so that the validation and test sets are non-empty. Usually, at least 20 distinct values should be sufficient.
 
-The data in the Time column must conform to one of the formats supported by the [timestamp transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#timestamp) . However, the Time column can have any supported [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) , because the transformation only affects how that column is used in training; transformations do not affect data split.
+The data in the Time column must conform to one of the formats supported by the [timestamp transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#timestamp) . However, the Time column can have any supported [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) , because the transformation only affects how that column is used in training; transformations do not affect data split.
 
 You can also specify the percentages of the training data that get assigned to each set.
 
@@ -177,7 +177,7 @@ For example:
     "TRAIN","sku_id_2","2020-09-22","3"
     "VALIDATE","sku_id_2","2020-09-23","45"
 
-The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
+The data split column can have any valid column name; its [transformation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) type can be Categorical, Text, or Auto.
 
 Designate a column as a data split column during model training.
 

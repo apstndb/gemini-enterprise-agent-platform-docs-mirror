@@ -87,7 +87,7 @@ Before you train a forecast model, complete the following:
     
     3.  Review the transformations selected for your included features and make any required updates.
         
-        Rows containing data that is invalid for the selected transformation are excluded from training. Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/datasets/data-types-tabular#transformations) .
+        Rows containing data that is invalid for the selected transformation are excluded from training. Learn more about [transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular#transformations) .
     
     4.  For each column you included for training, specify the **Feature type** for how that feature relates to its time series, and whether it is available at forecast time. Learn more about [feature type and availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-parameters#feature-type) .
     

@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Batch predictions lets you send multiple prompts that aren't latency sensitive to an [Anthropic Claude model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-claude) . Compared to online predictions, where you send one input prompt for each request, you can batch a large number of input prompts in a single request.
+Batch predictions lets you send multiple prompts that aren't latency sensitive to an [Anthropic Claude model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude) . Compared to online predictions, where you send one input prompt for each request, you can batch a large number of input prompts in a single request.
 
 ## Supported Anthropic Claude models
 
@@ -32,7 +32,7 @@ By default, the number of concurrent batch requests that you can make in a singl
 
 ## Prepare input
 
-Before you begin, prepare your input dataset in a BigQuery table or as a JSONL file in Cloud Storage. The input for both sources must follow the [Anthropic Claude API Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-claude) JSON format, as shown in the following example:
+Before you begin, prepare your input dataset in a BigQuery table or as a JSONL file in Cloud Storage. The input for both sources must follow the [Anthropic Claude API Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude) JSON format, as shown in the following example:
 
     {
       "custom_id": "request-1",
@@ -47,10 +47,10 @@ Before you begin, prepare your input dataset in a BigQuery table or as a JSONL f
 
 Your BigQuery input table must adhere to the following schema:
 
-| Column name | Description                                                                                                                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| custom\_id  | An ID for each request to match the input with the output.                                                                                                                                      |
-| request     | The request body, which is your input prompt and must follow the [Anthropic Claude API Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-claude) |
+| Column name | Description                                                                                                                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| custom\_id  | An ID for each request to match the input with the output.                                                                                                                                             |
+| request     | The request body, which is your input prompt and must follow the [Anthropic Claude API Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude) |
 
   - Your input table can have other columns, which are ignored by the batch job.
   - Batch prediction jobs reserve two column names for the batch prediction output: `response(JSON)` and `status` . Don't use these columns in the input table.
@@ -120,7 +120,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-claude#regions) ).
+  - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
   - INPUT\_URI : The BigQuery table where your batch prediction input is located such as `bq://myproject.mydataset.input_table` .
@@ -263,7 +263,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-claude#regions) ).
+  - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
   - PROJECT\_ID : .
   - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
   - INPUT\_URIS : A comma-separated list of the Cloud Storage locations of your JSONL batch prediction input such as `gs://bucketname/path/to/jsonl` .
