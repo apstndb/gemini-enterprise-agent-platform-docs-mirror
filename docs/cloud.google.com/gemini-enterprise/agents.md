@@ -6,7 +6,7 @@ description: Create, deploy, and govern your AI agents on one secure platform. U
 data_source: cloud.google.com
 ---
 
-![gemini icon](https://www.gstatic.com/bricks/image/2749e067-d58f-40af-ac4e-a26164b2eab4.png)
+![Gemini icon](https://www.gstatic.com/bricks/image/www_gstatic_com_images_branding_productlogos_gemini_2026_ios_v1_192px_svg.svg)
 
 # Create, deploy, and govern AI agents on our single, secure platform
 
@@ -18,9 +18,9 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 **Slash research time from weeks to hours with** [**Deep Research**](https://docs.cloud.google.com/gemini/enterprise/docs/research-assistant). This agent reasons, plans, and performs hundreds of searches across the web and enterprise access-controlled data, then generates a comprehensive report of its findings.
 
-**Turn complex spreadsheets into actionable insights with** [**Data Insights**](https://docs.cloud.google.com/gemini/enterprise/docs/data-agent).\* This agent (in preview) provides insights from your BigQuery data without requiring prior SQL knowledge, freeing up data analysts to focus on more complex tasks.
+**Accelerate team knowledge sharing with** [**Gemini Notebook for enterprise.**](https://docs.cloud.google.com/gemini/enterprise/docs/access-notebooklm) This agent is an AI-powered research and writing tool that helps you summarize and extract information across dense and complex sources.
 
-**Accelerate team knowledge sharing with** [**NotebookLM Enterprise**](https://docs.cloud.google.com/gemini/enterprise/docs/access-notebooklm).\* This agent is an AI-powered research and writing tool that helps you summarize and extract information across dense and complex sources.
+**Turn complex spreadsheets into actionable insights with** [**Data Insights**](https://docs.cloud.google.com/gemini/enterprise/docs/data-agent).\* This agent (in preview) provides insights from your BigQuery data without requiring prior SQL knowledge, freeing up data analysts to focus on more complex tasks.
 
 **Help developers complete common tasks with** [**Gemini Code Assist**](https://codeassist.google/).\* This specialized agent helps developers perform coding tasks across the software development lifecycle.
 

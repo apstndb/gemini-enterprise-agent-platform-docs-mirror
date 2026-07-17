@@ -12,6 +12,38 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators) , or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly.
 
+## July 13, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image releases are available:
+
+  - **20260712-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed broken cupy installation.
+  - **M144 ( `workbench-instances` - Debian 11)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
+
+## July 06, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260701-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
+      - Fixed an issue where long-running requests (for example, streaming or long-poll connections) could be terminated after about 60 seconds.
+
 ## June 30, 2026
 
 v2
@@ -24,6 +56,152 @@ You can build [custom containers](https://docs.cloud.google.com/gemini-enterpris
 
   - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-2606:latest`
   - `us-docker.pkg.dev/workbench-images/gcr.io/workbench-container-slim-2606:latest`
+
+## June 29, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260628-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Installed TensorFlow and PyTorch packages to the default kernel.
+
+## June 24, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260624-1604-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed an issue where notebook kernels could become unavailable if the Dataproc plugin failed to load.
+
+## June 23, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image releases are available:
+
+  - **20260622-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed a duplicate "Python 3 (ipykernel)" kernel appearing in the launcher.
+  - **M143 ( `workbench-instances` - Debian 11)**
+      - Installed latest packages from upstream dependencies.
+
+## June 01, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260531-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+
+## May 28, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **M142 ( `workbench-instances` - Debian 11)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed pip availability in the base environment.
+      - Hardened JupyterLab authentication configuration.
+
+## May 25, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260524-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed a Python 3.12 compatibility issue in the JupyterLab server configuration.
+      - Hardened JupyterLab authentication configuration.
+
+## May 11, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260510-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+
+## May 04, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260503-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Improved metadata server resolution reliability on Debian 12 by using the recommended metadata.google.internal name.
+
+## April 27, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image release is available:
+
+  - **20260426-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+
+## April 20, 2026
+
+v2
+
+Feature
+
+**Agent Platform Workbench image release**
+
+The following Agent Platform Workbench instances image releases are available:
+
+  - **20260419-2130-rc0 ( `workbench-instances-2603` - Debian 12)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed intermittent connectivity failures caused by proxy TLS certificate rotation.
+      - The post-startup script now re-runs after an instance auto-upgrade.
+  - **M141 ( `workbench-instances` - Debian 11)**
+      - Installed latest packages from upstream dependencies.
+      - Fixed intermittent connectivity failures caused by proxy TLS certificate rotation.
+      - The post-startup script now re-runs after an instance auto-upgrade.
 
 ## March 30, 2026
 
@@ -49,6 +227,7 @@ Released the new 26.03 image version under the following image family `workbench
   - **Python Upgrade** : Python 3.12 as the default version.
   - **New Versioning Scheme** : Transitioned to a date-based versioning format (e.g., v26.03) to provide better historical context for image updates. For more information on new versioning schema see the [latest documentation](https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-image-versions)
   - **Micromamba CLI** : Installed by default
+  - **JupyterLab Environments** : Supports only JupyterLab 4.
 
 ## February 20, 2026
 

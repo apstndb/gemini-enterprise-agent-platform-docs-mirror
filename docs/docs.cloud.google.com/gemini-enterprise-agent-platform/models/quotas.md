@@ -83,13 +83,13 @@ To view and edit the quotas in the Google Cloud console, do the following:
 
 The following quotas apply to [Semantic Governance Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) for a given project in each region:
 
-| Description                                                                            | Quota | Metric                                                                |
-| -------------------------------------------------------------------------------------- | ----- | --------------------------------------------------------------------- |
-| Get or list Semantic Governance Policy (SGP) policy resources per minute               | 600   | `aiplatform.googleapis.com/semantic_governance/policy_read_requests`  |
-| Create, update, or delete Semantic Governance Policy (SGP) policy resources per minute | 60    | `aiplatform.googleapis.com/semantic_governance/policy_write_requests` |
-| Get Semantic Governance Policy engine resources per minute                             | 600   | `aiplatform.googleapis.com/semantic_governance/engine_read_requests`  |
-| Update or deprovision Semantic Governance Policy engine resources per minute           | 60    | `aiplatform.googleapis.com/semantic_governance/engine_write_requests` |
-| Number of Semantic Governance Policy resources per project per location.               | 1,000 | `aiplatform.googleapis.com/semantic_governance/policy_count`          |
+| Description                                                                  | Quota | Metric                                                                |
+| ---------------------------------------------------------------------------- | ----- | --------------------------------------------------------------------- |
+| Get or list Semantic governance policy resources per minute                  | 600   | `aiplatform.googleapis.com/semantic_governance/policy_read_requests`  |
+| Create, update, or delete Semantic governance policy resources per minute    | 60    | `aiplatform.googleapis.com/semantic_governance/policy_write_requests` |
+| Get Semantic governance policy engine resources per minute                   | 600   | `aiplatform.googleapis.com/semantic_governance/engine_read_requests`  |
+| Update or deprovision Semantic governance policy engine resources per minute | 60    | `aiplatform.googleapis.com/semantic_governance/engine_write_requests` |
+| Number of Semantic governance policy resources per project per location.     | 1,000 | `aiplatform.googleapis.com/semantic_governance/policy_count`          |
 
 ### View and edit the quotas in the Google Cloud console
 

@@ -318,7 +318,7 @@ To stream responses from an agent in a session, use the [`AdkApp.async_stream_qu
 
     async for event in adk_app.async_stream_query(
         user_id="USER_ID",
-        session_id="SESSION_ID",  # Optional
+        #session_id="SESSION_ID",  # Optional
         message="What is the exchange rate from US dollars to SEK today?",
     ):
       print(event)
@@ -345,7 +345,7 @@ To stream responses from an agent in a session, use the [`AdkApp.async_stream_qu
             "class_method": "async_stream_query",
             "input": {
                 "user_id": "USER_ID",
-                "session_id": "SESSION_ID",
+                #"session_id": "SESSION_ID",
                 "message": "What is the exchange rate from US dollars to SEK today?",
             },
         }),
@@ -361,12 +361,12 @@ To stream responses from an agent in a session, use the [`AdkApp.async_stream_qu
       "class_method": "async_stream_query",
       "input": {
         "user_id": "USER_ID",
-        "session_id": "SESSION_ID",
+        #"session_id": "SESSION_ID",
         "message": "What is the exchange rate from US dollars to SEK today?",
       }
     }'
 
-> **Note:** the `session_id=` argument is optional. If it is not specified, a new session is automatically created and used for serving that query.
+> **Note:** the `session_id=` argument is optional. If it is not specified, a new session is automatically created and used for serving that query. If the provided session ID doesn't exist, an empty response is returned. We recommend you leave this out if you are only checking whether an agent is reachable.
 
 If you are using the Agent Platform SDK, you should receive a continuation of the conversation like the following sequence of dictionaries:
 

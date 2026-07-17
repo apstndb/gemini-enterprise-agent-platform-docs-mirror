@@ -29,39 +29,38 @@ The following table lists the models that will be available for at least 12 mont
 
 ### Gemini image models
 
-| Model ID                 | Release date    | Retirement date       |
-| ------------------------ | --------------- | --------------------- |
-| `gemini-3.1-flash-image` | May 28, 2026    | May 28, 2027 or later |
-| `gemini-3-pro-image`     | May 28, 2026    | May 28, 2027 or later |
-| `gemini-2.5-flash-image` | October 2, 2025 | October 2, 2026       |
+| Model ID                 | Release date    | Retirement date       | Replacement model |
+| ------------------------ | --------------- | --------------------- | ----------------- |
+| `gemini-3.1-flash-image` | May 28, 2026    | May 28, 2027 or later |                   |
+| `gemini-3-pro-image`     | May 28, 2026    | May 28, 2027 or later |                   |
+| `gemini-2.5-flash-image` | October 2, 2025 | October 2, 2026       |                   |
 
 ### Veo models
 
-| Model ID                    | Release date      | Retirement date              |
-| --------------------------- | ----------------- | ---------------------------- |
-| `veo-3.1-generate-001`      | November 17, 2025 | No retirement date announced |
-| `veo-3.1-fast-generate-001` | November 17, 2025 | No retirement date announced |
-| `veo-3.0-generate-001`      | July 29, 2025     | No retirement date announced |
-| `veo-3.0-fast-generate-001` | July 29, 2025     | No retirement date announced |
-| `veo-2.0-generate-001`      | May 27, 2025      | No retirement date announced |
+| Model ID                    | Release date      | Retirement date              | Replacement model |
+| --------------------------- | ----------------- | ---------------------------- | ----------------- |
+| `veo-3.1-fast-generate-001` | November 17, 2025 | No retirement date announced |                   |
+| `veo-3.0-generate-001`      | July 29, 2025     | No retirement date announced |                   |
+| `veo-3.0-fast-generate-001` | July 29, 2025     | No retirement date announced |                   |
+| `veo-2.0-generate-001`      | May 27, 2025      | No retirement date announced |                   |
 
 ### Embeddings models
 
-| Model ID                          | Release date      | Retirement date             |
-| --------------------------------- | ----------------- | --------------------------- |
-| `gemini-embedding-001`            | May 20, 2025      | No sooner than May 20, 2028 |
-| `text-embedding-005`              | November 18, 2024 | April 1, 2027               |
-| `text-embedding-004`              | May 14, 2024      | April 1, 2027               |
-| `text-multilingual-embedding-002` | May 14, 2024      | April 1, 2027               |
-| `multimodalembedding@001`         | February 12, 2024 | April 1, 2027               |
+| Model ID                          | Release date      | Retirement date             | Replacement model |
+| --------------------------------- | ----------------- | --------------------------- | ----------------- |
+| `gemini-embedding-001`            | May 20, 2025      | No sooner than May 20, 2028 |                   |
+| `text-embedding-005`              | November 18, 2024 | April 1, 2027               |                   |
+| `text-embedding-004`              | May 14, 2024      | April 1, 2027               |                   |
+| `text-multilingual-embedding-002` | May 14, 2024      | April 1, 2027               |                   |
+| `multimodalembedding@001`         | February 12, 2024 | April 1, 2027               |                   |
 
 ### Models available for shorter availability periods
 
 Short-term availability models retire 45 days after a replacement model is released. The following table lists models available for shorter terms:
 
-| Model ID                      | Release date  | Retirement date | Replacement model |
-| ----------------------------- | ------------- | --------------- | ----------------- |
-| `gemini-3.1-flash-lite-image` | June 30, 2026 |                 |                   |
+| Model ID                      | Release date  | Retirement date              | Replacement model |
+| ----------------------------- | ------------- | ---------------------------- | ----------------- |
+| `gemini-3.1-flash-lite-image` | June 30, 2026 | No retirement date announced |                   |
 
 ### Retired models
 

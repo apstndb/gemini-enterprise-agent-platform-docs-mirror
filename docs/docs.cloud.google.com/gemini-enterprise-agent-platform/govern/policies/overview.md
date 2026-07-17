@@ -14,7 +14,7 @@ By using the **Policies** page, you can do the following:
 
   - [Use Identity and Access Management (IAM) policies to govern agentic communication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview) .
 
-  - [Use Semantic Governance Policies to govern traffic between agents and MCP servers and other tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
+  - [Use Semantic governance policies to govern traffic between agents and MCP servers and other tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
 
 ## Use IAM policies to govern agentic communication
 
@@ -22,9 +22,9 @@ You can create IAM allow and deny policies that Agent Gateway uses to securely g
 
 For detailed information about IAM policies for Agent Gateway, see [IAM policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview) . To create an IAM policy, see [Create IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
 
-## Use Semantic Governance Policies
+## Use Semantic governance policies
 
-Semantic Governance Policy (SGP) is a natural language-based security and compliance layer that ensures an AI agent's tool invocations strictly align with both user intent and organizational business constraints. While security mechanisms like IAM are static, SGP handles the non-deterministic nature of Large Language Models (LLMs) by allowing administrators to define security and business rules using Natural Language Constraints (NLC).
+Semantic governance policy is a natural language-based security and compliance layer that ensures an AI agent's tool invocations strictly align with both user intent and organizational business constraints. While security mechanisms like IAM are static, Semantic governance policy handles the non-deterministic nature of Large Language Models (LLMs) by allowing administrators to define security and business rules using Natural Language Constraints (NLC).
 
 To learn more about Semantic Governance Policies, see [Semantic governance policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) . To configure Semantic Governance Policies, see [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
 

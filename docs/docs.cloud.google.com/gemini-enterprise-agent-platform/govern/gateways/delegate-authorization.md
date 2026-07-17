@@ -405,7 +405,13 @@ The following example uses IAP as a centralized request authorization system and
             --source=authz-policy-content-authz.yaml \
             --location=LOCATION
 
-When an authorization extension is associated with a `CONTENT_AUTHZ` profile, it receives all `ext_proc` events, including request and response headers, body, and trailers. If your `ext_proc` -based authorization extension is capable of handling both request-time authorization and content-based authorization, we recommend configuring a single `CUSTOM` authorization policy with the `CONTENT_AUTHZ` policy profile. This policy should point to your versatile authorization extension. This approach enables both types of authorization through a single extension and `ext_proc` connection, which can improve latency compared to using separate extensions for `REQUEST_AUTHZ` and `CONTENT_AUTHZ` profiles.
+When an authorization extension is associated with a `CONTENT_AUTHZ` profile, it receives all `ext_proc` events, including request and response headers, body, and trailers. If your `ext_proc` -based authorization extension is capable of handling both request-time authorization and content-based authorization, we recommend configuring a single `CUSTOM` authorization policy with the `CONTENT_AUTHZ` policy profile. This policy should point to your versatile authorization extension. This approach enables both types of authorization through a single extension and `ext_proc` connection, which can improve latency profiles.
+
+### Delegate authorization to Semantic governance policies
+
+You can configure an authorization extension to delegate intent-gating and natural-language constraint decisions for authorization policies to the Semantic governance policy engine ( `semanticGovernancePolicyEngine` ).
+
+To learn how to provision the policy engine and create the required `CONTENT_AUTHZ` authorization policy and authorization extension binding on your gateway, see [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) .
 
 ### Authorization based on MCP protocol attributes
 

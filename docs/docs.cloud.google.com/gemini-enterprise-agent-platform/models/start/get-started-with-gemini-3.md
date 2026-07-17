@@ -6,10 +6,6 @@ description: Get started with Gemini 3 in Gemini Enterprise Agent Platform using
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . You can process personal data for this product or feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 > To see an example of Gemini 3 Pro, run the "Intro to Gemini 3.1 Pro" notebook in one of the following environments:
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_pro.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_3_1_pro.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_gemini_3_1_pro.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_pro.ipynb)
@@ -30,7 +26,7 @@ Gemini 3 API features require Gen AI SDK for Python version 1.51.0 or later.
 
 Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Platform
 
-Replace the `GOOGLE_CLOUD_PROJECT` value with your Google Cloud Project ID. The Gemini 3.1 Pro Preview model `gemini-3.1-pro-preview` and Gemini 3 Flash Preview model `gemini-3-flash-preview` are only available on **global** endpoints:
+Replace the `GOOGLE_CLOUD_PROJECT` value with your Google Cloud Project ID. The Gemini 3.1 Pro model `gemini-3.1-pro-preview` and the Gemini 3 Flash model `gemini-3-flash-preview` are only available on **global** endpoints:
 
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
@@ -120,7 +116,7 @@ This table summarizes the core new features and parameters available, along with
 <tr class="odd">
 <td style="text-align: left;">Model: <code dir="ltr" translate="no">gemini-3.1-pro-preview</code></td>
 <td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Model card</a><br />
-<a href="https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-1-pro-preview">Model Garden</a></td>
+<a href="https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3.1-pro-preview">Model Garden</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Thinking level</td>

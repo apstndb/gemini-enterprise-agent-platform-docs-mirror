@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices
-title: Best practices for authoring constraints
-description: Learn best practices for authoring effective Natural Language Constraints (NLC) to secure AI agents in Semantic Governance Policies (SGP).
+title: Best practices for using Semantic governance policies
+description: Learn best practices for authorizing tools and authoring effective natural language constraints when using Semantic governance policies.
 data_source: docs.cloud.google.com
 ---
 
@@ -14,11 +14,11 @@ data_source: docs.cloud.google.com
 > 
 > Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-> **Note:** Semantic Governance Policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
+> **Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
 > **Note:** This feature does not support VPC-SC.
 
-Effective governance relies on accurate, clear, and complete descriptions of tools and their parameters. Agentic systems, including agents themselves and governance layers like SGP, require more detail than a human would to understand the applicability of available tools.
+Effective governance relies on accurate, clear, and complete descriptions of tools and their parameters. Agentic systems, including agents themselves and governance layers like Semantic governance policies, require more detail than a human would to understand the applicability of available tools.
 
 ## Optimize tool descriptions
 
@@ -38,6 +38,38 @@ The Semantic Governance system enforces these length limits for descriptions:
 | **Parameter**    | A parameter used within a tool or function call                                      | 300 characters  |
 
 If the Semantic Governance runtime receives a description that exceeds any of these limits, it truncates the description to the stated limit, and logs a message.
+
+## When Semantic governance policy intervenes
+
+Semantic governance policy operates specifically as a runtime security check on **proposed tool calls** . It does not intercept, block, or modify standard conversational dialogue between the user and the agent's LLM during brainstorming, planning, or reasoning across multiple turns. The policy engine ( `Conseca` ) intercepts and evaluates requests only at the moment the model proposes invoking a tool to execute an action.
+
+### Scenario 1: Conversational refinement versus tool execution (Denied tool call)
+
+Consider an agent that has an `initiate_marketing_campaign` tool and is governed by the following constraint:
+
+  - **Constraint:** *"Disallow creating or initiating any marketing campaigns without explicit manager approval."*
+
+<!-- end list -->
+
+1.  **Conversational planning:** A user asks the agent, *"Help me design a multi-channel marketing campaign for our new fall product launch."* The LLM converses freely with the user across multiple turns, outlining strategies, drafting email copy, and refining target demographics. The policy engine does **not** block or deny these turns because the model is engaging in conversational reasoning rather than proposing an action.
+
+2.  **Tool invocation:** When the strategy is finalized, the user says, *"Looks great, initiate the marketing campaign now."* The LLM responds by generating a proposed tool call:
+    
+        initiate_marketing_campaign(campaign_name="Fall Launch", budget=50000)
+
+3.  **Policy intervention and denial:** The Agent Gateway intercepts this proposed tool call and routes it to the policy engine ( `Conseca` ). The policy engine evaluates the action against the constraint, determines that no manager approval exists within the session history, and issues a `DENY` verdict. The tool call is blocked before it executes, and a structured denial rationale is returned to the agent.
+
+### Scenario 2: Compliant tool execution (Allowed tool call)
+
+Consider the same marketing agent after proper supervisory authorization is documented:
+
+1.  **Approval provided:** The user specifies, *"My manager, VP of Corporate Marketing (jordan@example.com), reviewed the brief and approved our $50,000 budget for the Fall Launch campaign. Please initiate it."*
+
+2.  **Tool invocation:** The LLM proposes invoking the action:
+    
+        initiate_marketing_campaign(campaign_name="Fall Launch", budget=50000, approval="jordan@example.com")
+
+3.  **Policy evaluation and approval:** The policy engine intercepts the tool call, verifies within the conversation turn history that manager approval is documented, and issues an `ALLOW` verdict. The Agent Gateway forwards the call to the underlying tool endpoint, allowing the action to proceed normally.
 
 ## Examples of effective constraints
 
@@ -86,4 +118,5 @@ When authoring constraints, follow these guidelines:
 ## What's next
 
   - Learn about governing skills in [Governing Agent Skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills) .
+  - Learn how to bind policies to gateway egress in [Delegate authorization to Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-sgp) .
   - Configure policies in [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) .
