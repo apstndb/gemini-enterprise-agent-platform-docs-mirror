@@ -215,6 +215,95 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
       - `  REGION  ` : the region where the agent is deployed
       - `  RESOURCE_ID  ` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
 
+## Configure custom container (BYOC) agents for Agent Gateway
+
+If you want to route outbound traffic through an Agent-to-Anywhere (egress) Agent Gateway for an agent deployed with a custom container image ( [Bring Your Own Container / BYOC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) ), you must bake the gateway's root certificate authority (CA) certificate into the custom container image's trust store.
+
+Because Agent Gateway performs TLS decryption and inspection on outbound agent communications, non-BYOC (source-based) agent deployments automatically inject the CA's certificate during image creation. For custom container images, you must explicitly retrieve the gateway's CA certificate, install it into the system CA trust store inside your `Dockerfile` , and set the certificate bundle environment variables required by Python SDKs, HTTP client libraries, and gRPC.
+
+To configure a BYOC container image for Agent Gateway egress, perform the following steps:
+
+1.  Retrieve the root certificates from the Agent Gateway resource.
+    
+    Export the CA root certificate PEM string directly from the `agentGatewayCard.rootCertificates` field of your Agent Gateway resource:
+    
+        export AGW_CERT=$(gcloud network-services agent-gateways describe AGENT_GATEWAY_NAME \
+           --location=REGION \
+           --project=PROJECT_ID \
+           --format="value[delimiter=\\n](agentGatewayCard.rootCertificates)")
+    
+    Alternatively, you can use the REST API to retrieve the gateway resource:
+    
+        curl -s -X GET \
+           -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+           "https://networkservices.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_NAME" \
+           | jq -r '.agentGatewayCard.rootCertificates[]'
+    
+    Replace the following:
+    
+      - `  AGENT_GATEWAY_NAME  ` : the name of your egress Agent Gateway
+      - `  REGION  ` : the region where the gateway is deployed
+      - `  PROJECT_ID  ` : the project ID
+
+2.  Update your `Dockerfile` to trust the CA certificate.
+    
+    Add the `AGENT_GATEWAY_ROOT_CERTIFICATES` build argument to your `Dockerfile` . The build commands split the certificates into separate files, install them using `update-ca-certificates` , and set environment variables so OpenSSL, Python HTTP client libraries ( `requests` , `httpx` ), and gRPC recognize the custom CA:
+    
+    > **Note:** The following example assumes a Debian or Ubuntu-based container image. If you are using a different Linux distribution (such as RHEL, CentOS, or Alpine), the commands to update the CA store (such as `update-ca-certificates` versus `update-ca-trust` ), the directories for certificate files, and the system certificate bundle paths may differ. Adjust these commands and paths according to your distribution's documentation.
+    
+        # Install root certificates under root user
+        USER root
+        
+        ARG AGENT_GATEWAY_ROOT_CERTIFICATES
+        RUN if [ -n "$AGENT_GATEWAY_ROOT_CERTIFICATES" ]; then \
+             echo "Installing Agent Gateway root certificates..."; \
+             printf "%b" "$AGENT_GATEWAY_ROOT_CERTIFICATES" | awk 'BEGIN {c=0} /BEGIN CERTIFICATE/ {c++} c > 0 { print > "/usr/local/share/ca-certificates/agw-" c ".crt" }'; \
+             update-ca-certificates; \
+           fi
+        
+        # Configure SSL/TLS trust paths for Python HTTP libraries, OpenSSL, and gRPC
+        ENV GRPC_DEFAULT_SSL_ROOTS_FILE_PATH=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+        ENV REQUESTS_CA_BUNDLE=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+        ENV SSL_CERT_FILE=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+        ENV AGENT_GATEWAY_ROOT_CERT_302034098528=${AGENT_GATEWAY_ROOT_CERTIFICATES:+/etc/ssl/certs/ca-certificates.crt}
+        
+        # Switch back to application execution user
+        USER 1000
+
+3.  Build the container image using Cloud Build.
+    
+    Create a `cloudbuild.yaml` file to pass the root certificate string to Cloud Build using substitutions:
+    
+        steps:
+        - name: 'gcr.io/cloud-builders/docker'
+          args:
+          - 'build'
+          - '--build-arg'
+          - 'AGENT_GATEWAY_ROOT_CERTIFICATES=${_AGW_CERT}'
+          - '-t'
+          - '$_IMAGE_URI'
+          - '.'
+        
+        images:
+        - '$_IMAGE_URI'
+    
+    Submit the container image build to Cloud Build:
+    
+        export IMAGE_URI="REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/IMAGE_NAME:latest"
+        
+        gcloud builds submit \
+           --project=PROJECT_ID \
+           --region=REGION \
+           --config=cloudbuild.yaml \
+           --substitutions=_IMAGE_URI="$IMAGE_URI",_AGW_CERT="$AGW_CERT" \
+           .
+    
+    Replace `  REPOSITORY_NAME  ` and `  IMAGE_NAME  ` with your Artifact Registry repository and image names.
+
+4.  Deploy your containerized agent.
+    
+    Specify the built container image URI along with your Agent Gateway configuration in your deployment request (using `agent_gateway_config` under `spec.deploymentSpec` or using SDK deployment calls).
+
 ## Restrict Agent Runtime to approved Agent Gateways
 
 You can create custom organization policy constraints to define the set of eligible Agent Gateway resources that can be used while deploying agents.

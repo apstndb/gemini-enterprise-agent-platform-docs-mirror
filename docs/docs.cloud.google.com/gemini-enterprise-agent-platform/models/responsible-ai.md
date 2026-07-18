@@ -45,6 +45,17 @@ We recommend taking the following steps:
 3.  Configure safety filters if required.
 4.  Solicit user feedback and monitor content.
 
+### Mitigate risks from rendered model output (Markdown and HTML)
+
+If your application automatically renders model output, such as Markdown or HTML, in a browser or UI, you may be vulnerable to indirect prompt injection and data exfiltration.
+
+To protect your users, do the following:
+
+  - **Sanitize output** : Use a strict HTML sanitizer (such as DOMPurify) to strip malicious artifacts before rendering.
+  - **Enforce CSP** : Use Content Security Policy (CSP) headers to block external image loading ( `img-src` ) and untrusted script execution ( `script-src` ).
+  - **Control image loading** : Disable automatic rendering of external images or require user consent.
+  - **Harden links** : Automatically append `rel="noopener noreferrer"` to generated links.
+
 ## Abuse monitoring
 
 Google Cloud has created processes that may be utilized to help detect potential abuse and violations of our terms relating to the use of Generative AI Services. You can learn more about these processes, as well as the more rigorous requirements specifically for models or features designated as "Advanced AI", in our [abuse monitoring documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring) .

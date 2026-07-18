@@ -96,6 +96,12 @@ You can also view egress traffic logs, including `403` denials, by using the bui
   - **Cause:** Agent Gateway does not validate self-signed certificate chains.
   - **Mitigation:** Use either publicly trusted CA certificates or use destinations without CA certificates.
 
+### Agent deployed with custom container (BYOC) fails to connect to Agent Gateway
+
+  - **Symptom:** The [BYOC](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) agent fails to establish connections when routed through Agent Gateway. Logs might show TLS handshake or certificate verification errors.
+  - **Cause:** The agent's custom container does not trust the Agent Gateway's certificate authority.
+  - **Fix:** Ensure you have added the Agent Gateway's root certificate to your container's CA store. See [Configure custom container (BYOC) agents for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#configure-byoc) .
+
 ## Debugging workflow
 
 If any of the conditions described in the [Egress request flow section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#request-flow) are missing, your requests might get blocked.

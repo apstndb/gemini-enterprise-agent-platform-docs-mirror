@@ -29,6 +29,14 @@ The following Agent Platform Workbench instances image releases are available:
       - Installed latest packages from upstream dependencies.
       - Fixed a race condition that could cause JupyterLab to be unreachable (HTTP 524) on GPU instances.
 
+v2
+
+Feature
+
+**Secure Boot is compatible with GPUs**
+
+You can now enable Secure Boot on Agent Platform Workbench instances that have a GPU attached. Secure Boot with GPUs is supported on the `workbench-instances-2603` VM image and the `workbench-container-2606` custom container, which include a Secure Boot-signed NVIDIA GPU driver so the driver loads under Secure Boot. For more information, see [Create an instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .
+
 ## July 06, 2026
 
 v2

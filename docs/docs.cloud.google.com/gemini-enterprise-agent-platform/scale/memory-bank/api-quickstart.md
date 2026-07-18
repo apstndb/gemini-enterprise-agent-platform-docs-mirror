@@ -45,14 +45,14 @@ After setting up Agent Platform Sessions, you can create sessions and append eve
         import vertexai
         
         client = vertexai.Client(
-        project="PROJECT_ID",
-        location="LOCATION"
+          project="PROJECT_ID",
+          location="LOCATION"
         )
         
         session = client.agent_engines.sessions.create(
-        # The name can be fetched using `sessions.api_resource.name`.
-        name="SESSIONS_NAME",
-        user_id="USER_ID"
+          # The name can be fetched using `sessions.api_resource.name`.
+          name="SESSIONS_NAME",
+          user_id="USER_ID"
         )
     
     Replace the following:
@@ -70,16 +70,16 @@ After setting up Agent Platform Sessions, you can create sessions and append eve
         import datetime
         
         client.agent_engines.sessions.events.append(
-        name=session.response.name,
-        author="user",  # Required by Sessions.
-        invocation_id="1",  # Required by Sessions.
-        timestamp=datetime.datetime.now(tz=datetime.timezone.utc),  # Required by Sessions.
-        config={
-          "content": {
-            "role": "user",
-            "parts": [{"text": "hello"}]
+          name=session.response.name,
+          author="user",  # Required by Sessions.
+          invocation_id="1",  # Required by Sessions.
+          timestamp=datetime.datetime.now(tz=datetime.timezone.utc),  # Required by Sessions.
+          config={
+            "content": {
+              "role": "user",
+              "parts": [{"text": "hello"}]
+            }
           }
-        }
         )
 
 3.  To generate memories from your conversation history, trigger a memory generation request for the session:

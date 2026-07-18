@@ -36,7 +36,7 @@ The samples on this page let you author examples based on LLM output. Authoring 
 
   - By authoring examples based on unexpected LLM behavior, you can directly correct failure cases.
 
-  - You can author examples based on responses from well-performing models to improve the behavior of other models. For example, if Gemini 1.5 Pro provides better responses than Gemini 1.5 Flash but with higher latency, you can author examples using those responses to achieve a similar performance at lower latencies using Gemini 1.5 Flash.
+  - You can author examples based on responses from well-performing models to improve the behavior of other models.
 
 ## Use examples to improve function calling performance
 

@@ -130,7 +130,7 @@ The Gemini API provides two "harm block" methods:
   - **SEVERITY** : This method uses both probability and severity scores.
   - **PROBABILITY** : This method uses the probability score only.
 
-The default method is `SEVERITY` . For models older than `gemini-1.5-flash` and `gemini-1.5-pro` , the default method is `PROBABILITY` . To learn more, see [`HarmBlockMethod` API reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.types.SafetySetting.HarmBlockMethod) .
+The default method is `SEVERITY` .
 
 The Gemini API provides the following "harm block" thresholds:
 

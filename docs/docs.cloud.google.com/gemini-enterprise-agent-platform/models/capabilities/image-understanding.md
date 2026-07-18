@@ -428,7 +428,7 @@ Then execute the following command to send your REST request:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-1.5-flash:generateContent"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
 
 #### PowerShell
 
@@ -465,7 +465,7 @@ Then execute the following command to send your REST request:
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-1.5-flash:generateContent" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following.
 
@@ -603,7 +603,7 @@ Then execute the following command to send your REST request:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-1.5-flash:generateContent"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
 
 #### PowerShell
 
@@ -640,7 +640,7 @@ Then execute the following command to send your REST request:
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-1.5-flash:generateContent" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following.
 

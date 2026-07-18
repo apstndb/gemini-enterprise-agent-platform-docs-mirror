@@ -135,6 +135,12 @@ Replace the following:
 
 ### List memories
 
+Use `ListMemories` to fetch all memories in your Memory Bank.
+
+    pager = client.agent_engines.memories.list(name=memory_bank.api_resource.name)
+    for page in pager:
+      print(page)
+
 ## Filter memories
 
 This section describes how to use filters to restrict which memories are fetched. You can filter on:

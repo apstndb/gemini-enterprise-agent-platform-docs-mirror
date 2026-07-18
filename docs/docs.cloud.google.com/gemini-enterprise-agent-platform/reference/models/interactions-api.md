@@ -381,6 +381,48 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
       }
     }
 
+## Listing created interactions
+
+get https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions
+
+Retrieves a list of interactions.
+
+  - [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions.PATH_PARAMETERS)
+  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#listInteractions.response)
+
+### Path / Query Parameters
+
+page\_size integer (optional)
+
+The maximum number of interactions to return (per page).
+
+*If unspecified, defaults to 10. The maximum allowed value is 500.*
+
+page\_token string (optional)
+
+A page token, received from a previous `ListInteractions` call.
+
+### Response
+
+Returns a response containing a list of [InteractionMetadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:InteractionMetadata) resources and a `next_page_token` .
+
+### List Interactions
+
+    curl -X GET \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions?page_size=10&page_token=page-token-67890"
+
+### Response
+
+    {
+      "interaction_metadatas": [
+        {
+          "id": "interaction-12345"
+        }
+      ],
+      "next_page_token": "page-token-67890"
+    }
+
 ## Retrieving an interaction
 
 get https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}
@@ -492,6 +534,16 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
     data: [DONE]
 
 ## Resources
+
+### InteractionMetadata
+
+The metadata for an interaction. Note: Only the id field is currently supported; other fields are not yet supported.
+
+#### Fields
+
+id string (optional)
+
+The unique identifier of the interaction.
 
 ### Interaction
 

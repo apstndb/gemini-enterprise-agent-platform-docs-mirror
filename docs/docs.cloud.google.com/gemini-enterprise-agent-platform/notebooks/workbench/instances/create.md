@@ -59,6 +59,8 @@ You can create a Agent Platform Workbench instance by using the Google Cloud con
           - **Secure Boot**
           - **Virtual Trusted Platform Module (vTPM)**
           - **Integrity monitoring**
+        
+        > **Note:** **Secure Boot** is compatible with GPUs on the latest releases of `workbench-instances-YYMM` VM images and `workbench-container-YYMM` custom containers.
     
       - **Idle shutdown** : Optional.
         

@@ -69,7 +69,7 @@ Regional endpoint availability varies by model. For details on each model, see o
 
 Pricing varies between each Gemini model. Our [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) lists costs for all modalities (text, code, images, speech, etc.) per model.
 
-> **Note:** Gemini 2 and later models are priced per token for inputs and outputs. Gemini 1.5 models are priced per character.
+> **Note:** Gemini 2 and later models are priced per token for inputs and outputs.
 
 ### Purchase or change Provisioned Throughput orders
 

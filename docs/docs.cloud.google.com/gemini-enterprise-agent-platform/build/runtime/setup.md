@@ -279,6 +279,8 @@ To deploy your agent with a custom container, complete the following high-level 
 2.  [Set up the identity and permissions for your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#identity-and-permissions) .
 3.  Grant the Artifact Registry Reader role to Agent Runtime [default service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#default-service-agent) .
 
+> **Important:** If you plan to route your BYOC agent's traffic through Agent Gateway, you must configure your custom container image to trust the gateway's root certificate authority (CA). For instructions, see [Configure custom container (BYOC) agents for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#configure-byoc) .
+
 ### Build and push your container image
 
 To build and push your container image, follow the instructions in [Build and push a Docker image with Cloud Build](https://docs.cloud.google.com/build/docs/build-push-docker-image) .

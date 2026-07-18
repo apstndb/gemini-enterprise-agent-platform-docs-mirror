@@ -71,7 +71,7 @@ To enable OpenTelemetry for `AdkApp` , set the following environment variables w
 
 Note the following:
 
-  - `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY` enables the agent traces, logs, and metrics (see [View metrics for an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/monitoring#view-metrics) ), but doesn't include prompts and response data.
+  - `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY` enables the agent traces and logs, but doesn't include prompts and response data.
 
   - `OTEL_SEMCONV_STABILITY_OPT_IN` enables use of the latest generative AI semantic conventions.
 
