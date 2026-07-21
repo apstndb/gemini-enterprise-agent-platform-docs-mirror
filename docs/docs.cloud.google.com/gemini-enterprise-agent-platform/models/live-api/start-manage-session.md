@@ -48,7 +48,7 @@ gcloud auth application-default login
       
 ```
 
-For more information on setting up authentication, see our [quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/quickstart?usertype=adc) .
+For more information on setting up authentication, see our [quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start?usertype=adc) .
 
 ``` 
 import asyncio

@@ -8,9 +8,47 @@ data_source: docs.cloud.google.com
 
 Getting batch responses is a way to efficiently send large numbers of non-latency-sensitive embedding requests. Unlike online responses, where you are limited to one input request at a time, you can send many embedding requests in a single batch request. Similar to how batch inference is done for [tabular data in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions) , you determine your output location, add your input, and your responses are asynchronously populated into your output location.
 
-## Text embeddings models that support batch inferences
+## Gemini Embedding batch prediction (preview)
 
-All stable versions of text embedding models support batch inferences with the exception of Gemini embeddings (gemini-embedding-001). Stable versions are fully supported for production environments. To view the full list of embedding models, see [Embedding model and versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#embedding_models_and_versions) .
+Gemini Embedding Batch Inference (Preview) introduces an updated schema for input and output. Each batch job supports up to 1,000,000 rows, and each project supports up to 10,000 concurrent batch jobs in the queue.
+
+For endpoints and available locations, see [Locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+
+### JSONL input examples
+
+> **Note:** The `"key"` field is not mandatory, but it is strongly recommended to add this field and assign a unique ID for each row.
+
+#### Gemini Embedding 001
+
+The `gemini-embedding-001` model supports a task type and title configuration for each row.
+
+    {"key": "id_1", "request": {"content": {"parts": [{"text": "Hello World"}]}}, "embed_content_config":{"output_dimensionality": 768, "title": "some_title", "task_type": "RETRIEVAL_DOCUMENT"}}
+    {"key": "id_2", "request": {"content": {"parts": [{"text": "Hello World again"}]}}, "embed_content_config":{"output_dimensionality": 768, "title": "some_title_2", "task_type": "RETRIEVAL_DOCUMENT"}}
+
+#### Gemini Embedding 2
+
+The `gemini-embedding-2` model expects the task type and title to be inlined directly within the prompt.
+
+    {"key": "id_1", "request": {"content": {"parts": [{"text": "hello world again"}]}}, "embed_content_config":{"output_dimensionality": 768}}
+    {"key": "id_2", "request": {"content": {"parts": [{"fileData": {"fileUri": "gs://cloud-samples-data/generative-ai/image/benchmark.jpeg", "mimeType": "image/jpeg"}}]}}, "embed_content_config":{"output_dimensionality": 768}}
+
+### JSONL output example
+
+    {"key": "id_1", "request": {...}, "response": {"tokenCount": "2", "embedding": {"values": [-0.015, 0.024, ...]}}}
+    {"key": "id_2", "request": {...}, "response": {"tokenCount": "3", "embedding": {"values": [-0.075, 0.031, ...]}}}
+
+### Additional resources
+
+  - For available configuration options on `gemini-embedding-001` , see the [Text Embeddings Guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .
+  - For available configuration options on `gemini-embedding-2` , see the [Multimodal Embeddings Guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-multimodal-embeddings) .
+
+To learn more about using batch inference for Gemini embedding models, refer to the [Batch Prediction API Reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/batch-prediction-api) .
+
+## Legacy Embedding batch prediction
+
+### Text embeddings models that support batch inferences
+
+All stable versions of legacy text embedding models support batch inferences and are fully supported for production environments. To view the full list of embedding models, see [Embedding model and versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#embedding_models_and_versions) .
 
 ## Prepare your inputs
 

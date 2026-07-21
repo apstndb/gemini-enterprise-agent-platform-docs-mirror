@@ -170,10 +170,6 @@ Supported regions
   - Global: `global`
   - Multi-region: `us` , `eu`
 
-Knowledge cutoff date
-
-January 2025
-
 Versions
 
 `gemini-3.5-flash`

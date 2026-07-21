@@ -155,10 +155,6 @@ Supported regions
   - United States: `Multi-region`
   - Europe: `Multi-region`
 
-Knowledge cutoff date
-
-January 2025
-
 Versions
 
 `gemini-3.1-flash-lite`

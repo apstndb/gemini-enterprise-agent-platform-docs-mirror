@@ -6,7 +6,7 @@ description: Transition your generative AI application to the latest Gemini mode
 data_source: docs.cloud.google.com
 ---
 
-This guide explains how to update your application to the latest Gemini version. This guide assumes your application already uses an older Gemini version. To learn how to start using Gemini in Gemini Enterprise Agent Platform, see the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/quickstart) .
+This guide explains how to update your application to the latest Gemini version. This guide assumes your application already uses an older Gemini version. To learn how to start using Gemini in Gemini Enterprise Agent Platform, see [Get started with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
 
 This guide doesn't cover how to switch your application from the Agent Platform SDK to the current Google Gen AI SDK. For that information, see our [Agent Platform SDK migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/genai-vertexai-sdk) .
 
@@ -281,7 +281,7 @@ If you require assistance, Google Cloud offers support packages to meet your nee
 
 Guide
 
-### [Get started with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/quickstart)
+### [Get started with Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start)
 
 Learn the basics of using the Google Gen AI SDK to send queries to Gemini models with Agent Platform.
 

@@ -10,6 +10,18 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 20, 2026
+
+Security
+
+**Security update for Server-Side Request Forgery (SSRF) in Agent Studio**
+
+This release fixes a Server-Side Request Forgery (SSRF) vulnerability in the auto-generated `/api-proxy` backend endpoint for web applications created before July 1, 2026, using Agent Studio.
+
+If you downloaded, generated, or deployed web application code from Agent Studio before July 1, 2026, regenerate the app from Agent Studio and deploy the new version. For more information, see [Quickstart: Deploy your Agent Studio prompt as a web application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt)
+
+The updated backend code includes strict domain allowlist validation, ensuring that destination hostnames for the `/api-proxy` endpoint end with allowed Google Cloud domains, such as `*-aiplatform.clients6.google.com`
+
 ## July 15, 2026
 
 Feature

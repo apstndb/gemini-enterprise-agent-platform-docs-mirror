@@ -16,7 +16,7 @@ This guide provides a consolidated, practical path to get started with Gemini 3 
 
 ## Quickstart
 
-Before you begin, you must authenticate to Gemini Enterprise Agent Platform using an API key or application default credentials (ADC). See [authentication methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/quickstart?usertype=adc) for more information.
+Before you begin, you must authenticate to Gemini Enterprise Agent Platform using an API key or application default credentials (ADC). See [authentication methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start?usertype=adc#choose_your_authentication_method) for more information.
 
 #### Install the Google Gen AI SDK
 

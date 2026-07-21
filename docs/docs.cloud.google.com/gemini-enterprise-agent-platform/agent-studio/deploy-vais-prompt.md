@@ -65,13 +65,13 @@ Navigate to the [create prompt page](https://console.cloud.google.com/agent-plat
 
 In the **Manage prompt variables** dialog, enter a variable name and give it a value. Then click **Apply** .
 
-![Manage prompt variables dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/images/_deploy/02-prompt-variable-dialog.png)
+![Manage prompt variables dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/02-prompt-variable-dialog.png)
 
 In the prompt input box, compose the prompt using the variable and then adjust other parameters. For example, you can enable **Grounding with Google Search** , and has "Always get current weather from the web" as the system instructions.
 
 ## Deploy your prompt as a web application
 
-To deploy your prompt as a web application, click the **Build with code** button on the top right corner. Then click **Deploy as app.**
+To deploy your prompt as a web application, click rocket\_launch , and then click **Deploy as app** .
 
 ![Click build with code button and click deploy as app](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/04-click-build-with-code-button.png)
 

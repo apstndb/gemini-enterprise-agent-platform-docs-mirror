@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-This page provides information on downloading and installing the latest libraries for the Gemini API. If you're new to the Gemini API, get started with the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/quickstart) .
+This page provides information on downloading and installing the latest libraries for the Gemini API. If you're new to the Gemini API, get started with the [API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
 
 ## Important note about google-genai libraries
 

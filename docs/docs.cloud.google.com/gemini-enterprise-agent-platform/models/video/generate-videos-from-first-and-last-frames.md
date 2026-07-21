@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames
-title: Generate videos with Veo on Gemini Enterprise Agent Platform using first and last video frames
+title: Generate videos using first and last video frames
 description: Generate Veo on Gemini Enterprise Agent Platform videos with a first and last frame that you specify. Use the {{dynamic_data.site_values.cloud_name_short}} console, or send a request to the Agent Platform API.
 data_source: docs.cloud.google.com
 ---
@@ -329,14 +329,14 @@ For more information about the Veo API, see the following:
 
 ## What's next
 
-  - [Veo on Gemini Enterprise Agent Platform prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
+  - [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
 
-  - [Best practices for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
+  - [Best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
+  - [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
+  - [Generate videos from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
 
-  - [Extend Veo on Gemini Enterprise Agent Platform-generate videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
 
-  - [Understand responsible AI and usage guidelines for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)
+  - [Understand responsible AI and usage guidelines for video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)

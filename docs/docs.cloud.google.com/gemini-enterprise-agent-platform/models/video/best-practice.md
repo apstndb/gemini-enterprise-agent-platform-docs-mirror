@@ -1,14 +1,14 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice
-title: Best practices for Veo on Gemini Enterprise Agent Platform
-description: Learn best practices for using Veo on Gemini Enterprise Agent Platform
+title: Best practices for generating videos
+description: Learn best practices for generating videos on Gemini Enterprise Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-Veo helps you generate videos using text prompts. This guide provides best practices to help you start generating high-quality Veo videos.
+This guide provides best practices to help you generate high-quality Gemini Omni and Veo videos.
 
-For more information about writing effective prompts, see [Veo on Gemini Enterprise Agent Platform video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide) .
+For more information about writing effective prompts, see [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide) .
 
 ## Use clear and specific prompts
 
@@ -50,29 +50,29 @@ For short videos, dedicate each prompt to a single, focused moment. Trying to ch
     
       - **Clip 3** : "inside a shadowy warehouse, a detective stands opposite a silhouetted figure, creating a tense atmosphere"
 
-## Enhance your workflow with Gemini
+## Enhance your workflow with Gemini Omni
 
-Gemini can be a powerful partner throughout your entire video creation process, from ideation to evaluation.
+Gemini Omni can be a powerful partner throughout your entire video creation process, from ideation to evaluation.
 
-**Before Creation: Use Gemini as an expert prompter**
+**Before video creation: use Gemini Omni as an expert prompter**
 
-Instead of starting from scratch, you can ask Gemini to act as an expert prompter. Have it refine your basic ideas into detailed, Veo-ready prompts. For example, you can give it an instruction such as the following:
+Instead of starting from scratch, you can ask Gemini Omni to act as an expert prompter. Have it refine your basic ideas into detailed, prompts. For example, you can give it an instruction such as the following:
 
     "Act as an expert prompter for a generative AI video generation model. Look at
     this image, and write a prompt that INSTRUCTION. Ensure your
     prompt is comprehensive and detailed."
 
-Replace `  INSTRUCTION  ` with further instructions to the Veo model.
+Replace `  INSTRUCTION  ` with further instructions to the model.
 
-**After Creation: Use Gemini as a "Second pair of eyes"**
+**After video creation: use Gemini Omni as a "second pair of eyes"**
 
-After your video is generated, Gemini can evaluate the final output, check it against company or brand guidelines, and flag any potentially problematic areas that may require human review.
+After your video is generated, Gemini Omni can evaluate the final output, check it against company or brand guidelines, and flag any potentially problematic areas that may require human review.
 
 ## Achieve character and voice consistency
 
-**Create a detailed character description** : Your character description is the foundation for consistency. To ensure reusability and voice consistency, give your character a name and a specific voice style. Then, build out the description with a rich set of unchangeable features: physical build and age, hair color and style, facial structure, eye color and shape, and any defining marks. You can use Gemini to generate an exhaustive verbal description of your character's facial features.
+**Create a detailed character description** : Your character description is the foundation for consistency. To ensure reusability and voice consistency, give your character a name and a specific voice style. Then, build out the description with a rich set of unchangeable features: physical build and age, hair color and style, facial structure, eye color and shape, and any defining marks. You can use Gemini Omni to generate an exhaustive verbal description of your character's facial features.
 
-**Apply the description consistently** : Copy and paste the entire, unchanged character description into your prompt for every new scene or action. Only modify the parts that describe the new action or setting. To improve your workflow, you can also use Gemini as a scene generator. Provide Gemini with your final character description and ask it to generate multiple scene prompts for you.
+**Apply the description consistently** : Copy and paste the entire, unchanged character description into your prompt for every new scene or action. Only modify the parts that describe the new action or setting. To improve your workflow, you can also use Gemini Omni as a scene generator. Provide Gemini Omni with your final character description and ask it to generate multiple scene prompts for you.
 
 **Use the same seed parameter** : To ensure consistent visual, stylistic, and voice output across multiple scenes, use the same seed parameter.
 
@@ -128,7 +128,7 @@ The following sections are best practices that are important when using image-to
 
 ### Use a high-quality source image
 
-When using the image-to-video feature, the quality of your source image is important. Veo uses the source image as the basis for everything that follows, including character detail, lighting, and overall artistic style.
+When using the image-to-video feature, the quality of your source image is important. Gemini Omni and Veo use the source image as the basis for everything that follows, including character detail, lighting, and overall artistic style.
 
 A sharp, clear, and well-composed photograph yields a more coherent and higher-quality video. Think of your source image as the first frame of your film: the stronger the start, the better the finish.
 
@@ -191,7 +191,7 @@ The following table summarizes the best practices recommended in this document:
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice#use-clear-and-specific-prompts">Use clear and specific prompts</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice#avoid-quotation-marks">Avoid quotation marks</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice#focus-short-videos-on-a-single-scene">Focus short videos on a single scene</a></li>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice#enhance-workflow-with-gemini">Enhance your workflow with Gemini</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice#enhance-workflow-with-gemini">Enhance your workflow with Gemini Omni</a></li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -215,14 +215,14 @@ The following table summarizes the best practices recommended in this document:
 
 ## What's next
 
-  - [Veo on Gemini Enterprise Agent Platform prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
+  - [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
+  - [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
+  - [Generate videos from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
 
-  - [Generate videos with Veo on Gemini Enterprise Agent Platform using first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
+  - [Generate videos using first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
 
-  - [Extend Veo on Gemini Enterprise Agent Platform-generate videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
 
-  - [Understand responsible AI and usage guidelines for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)
+  - [Understand responsible AI and usage guidelines for video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)

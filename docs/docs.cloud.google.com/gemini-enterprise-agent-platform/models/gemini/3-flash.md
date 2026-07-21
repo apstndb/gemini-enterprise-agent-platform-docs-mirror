@@ -154,10 +154,6 @@ Supported regions
 
   - Global: `global`
 
-Knowledge cutoff date
-
-January 2025
-
 Versions
 
 `gemini-3-flash-preview`

@@ -163,10 +163,6 @@ Supported regions
   - Europe: `Multi-region` , `europe-west2` , `europe-west3` , `europe-west9`
   - Asia Pacific: `asia-northeast1` , `asia-northeast3` , `asia-south1` , `asia-southeast1` , `australia-southeast1`
 
-Knowledge cutoff date
-
-January 2025
-
 Versions
 
 `gemini-2.5-flash`

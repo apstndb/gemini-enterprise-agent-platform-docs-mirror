@@ -151,10 +151,6 @@ Supported regions
   - United States: `Multi-region`
   - Europe: `Multi-region`
 
-Knowledge cutoff date
-
-June 2024
-
 Versions
 
 `gemini-2.5-flash-image`

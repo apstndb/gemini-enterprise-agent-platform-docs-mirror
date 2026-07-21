@@ -12,8 +12,8 @@ Gemini Enterprise Agent Platform provides a suite of advanced features for the G
 
 Model and capability availability support depends on the endpoint you use:
 
-  - **Standard regional endpoints** : Supported for all versions of the Gemini family.
-  - **Jurisdictional multi-region endpoint** s: These are designed exclusively for the Gemini 3 family and future versions. Older models (like Gemini 2.5 and earlier) are not supported on these endpoints.
+  - **Standard regional endpoints** : For the complete list of models available on standard regional endpoints, see [Deployment and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+  - **Jurisdictional multi-region endpoints** : These are designed exclusively for the Gemini 3 family and future versions. Older models (like Gemini 2.5 and earlier) are not supported on these endpoints.
   - **Global endpoints** : Most models are supported on global endpoints. For the complete list of models available on global endpoint, see [Deployment and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
 For more information on the different kinds of available endpoints, see [Deployment and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
@@ -39,24 +39,24 @@ The following sections cover the endpoint support for the following model aspect
 
 Model availability covers whether or not a particular model can be used on a specific kind of endpoint. The following table covers which model families are supported for each type of endpoint. For per-model information, see [Locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
-For workloads requiring strictly jurisdictional ML processing, you must use the Gemini 3.x family. Models older than Gemini 3 are not supported on jurisdictional multi-region endpoints and will continue to be served using standard regional endpoints.
+In case of multi-region endpoints, for workloads requiring strictly jurisdictional ML processing, you must use the Gemini 3 or newer family. Models older than Gemini 3 are not supported on jurisdictional multi-region endpoints and will continue to be served using standard regional endpoints.
 
-| Model family               | Standard regional endpoints | Jurisdictional multi-region endpoints | Global endpoint |
-| -------------------------- | --------------------------- | ------------------------------------- | --------------- |
-| Gemini 3.x (Pro and Flash) |                             |                                       |                 |
-| Gemini 2 (all versions)    |                             |                                       |                 |
+| Model family               | Standard regional endpoints (US and EU) | Jurisdictional multi-region endpoints |
+| -------------------------- | --------------------------------------- | ------------------------------------- |
+| Gemini 3.x (Pro and Flash) |                                         |                                       |
+| Gemini 2 (all versions)    |                                         |                                       |
 
 ### Capabilities, consumption options, and features
 
-The following table covers the availability of different model capabilities across locational endpoints and jurisdictional multi-region endpoints for Gemini 3.x models and higher. If a capability or feature is not explicitly listed as supported, localized ML processing is not guaranteed.
+The following table covers the availability of different model capabilities across locational endpoints and jurisdictional multi-region endpoints. If a capability or feature is not explicitly listed as supported, localized ML processing is not guaranteed.
 
 Capability, feature, or consumption option
 
-Standard regional endpoints
+Standard regional endpoints (outside US and EU)
+
+Standard regional endpoints (US and EU)
 
 Jurisdictional multi-region endpoints
-
-Global endpoint
 
 Capabilities, tools, and features
 
@@ -75,6 +75,8 @@ Capabilities, tools, and features
 [Grounding with Agent Platform Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search)
 
 [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search)
+
+[Long context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/long-context)
 
 [Model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning)
 
@@ -104,7 +106,13 @@ Consumption options
 
 [Single Zone PT (SZPT)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt)
 
+N/A
+
+N/A
+
 Platform features
+
+[Private Google Access](https://docs.cloud.google.com/vpc/docs/configure-private-google-access)
 
 [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls)
 
@@ -119,7 +127,6 @@ The following features are either out of scope or involve global infrastructure 
   - **UI console (Agent Studio)** : Not supported
   - **Gemini Live API** : Not supported
   - **Evaluation service (SxS)** : No plan
-  - **Priority PayGo and Flex PayGo** : No plan
 
 ## What's next
 
