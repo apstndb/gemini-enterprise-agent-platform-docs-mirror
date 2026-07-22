@@ -6,6 +6,8 @@ description: Understand DeepSeek-OCR, a comprehensive OCR model for complex docu
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `deepseek-ocr-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 DeepSeek-OCR is a comprehensive Optical Character Recognition (OCR) model that analyzes and understands complex documents. It excels at challenging OCR tasks, including recognizing mathematical formulas and processing text that is curved, rotated, or overlapping.
 
 ## Managed API (MaaS) specifications

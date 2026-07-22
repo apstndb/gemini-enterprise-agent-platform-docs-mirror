@@ -6,6 +6,8 @@ description: Explore GLM 4.7, designed for core or vibe coding, tool use, and co
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `glm-4.7-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 GLM 4.7 is a model from GLM for core or vibe coding, tool use, and complex reasoning.
 
 [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)

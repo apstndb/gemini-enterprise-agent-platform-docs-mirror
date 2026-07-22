@@ -22,6 +22,8 @@ Priority PayGo is ideal for business critical workloads with fluctuating or unpr
 
 The following models support Priority PayGo in the `global` endpoint only. Priority PayGo doesn't support regional or multi-regional endpoints.
 
+  - [`gemini-3.6-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+  - [`gemini-3.5-flash-lite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [`gemini-3.5-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [`gemini-3.1-flash-lite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [`gemini-3.1-pro-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro)
@@ -32,7 +34,7 @@ The following models support Priority PayGo in the `global` endpoint only. Prior
 
 ## Use Priority PayGo
 
-To send requests to the Gemini API in Gemini Enterprise Agent Platform using Priority PayGo, you must include the `X-Vertex-AI-LLM-Shared-Request-Type` header in your request. You can use Priority PayGo in two ways:
+To send requests to the Gemini API using Priority PayGo, you must include the `X-Vertex-AI-LLM-Shared-Request-Type` header in your request. You can use Priority PayGo in two ways:
 
   - Use Provisioned Throughput quota (if available) and spill over to Priority PayGo.
 

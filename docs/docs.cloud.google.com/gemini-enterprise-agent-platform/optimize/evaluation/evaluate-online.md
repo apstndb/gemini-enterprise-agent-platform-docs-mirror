@@ -6,10 +6,6 @@ description: How to run continuous online agent evaluations in Gemini Enterprise
 data_source: docs.cloud.google.com
 ---
 
-> **Preview - Agent evaluation on Gemini Enterprise Agent Platform**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) as well as the [Generative AI Service Specific Terms](https://cloud.google.com/terms/service-terms#20) . This feature allows customers to evaluate AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Online monitoring lets you continuously assess the quality of your agents in production. This proactive approach helps you identify **quality drift** —an observable decrease in agent performance over time—caused by changes in user behavior or external data. By configuring **Online Monitors** , you can asynchronously score live traces using both predefined and custom metrics, ensuring your agent remains reliable and aligned with your performance standards.
 
 ## Before you begin

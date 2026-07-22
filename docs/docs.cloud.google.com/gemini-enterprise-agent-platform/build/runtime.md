@@ -169,14 +169,14 @@ Agent Runtime supports several features to help you meet enterprise security req
 
 The following table shows which enterprise security features are supported for each Agent Platform service:
 
-| Security feature                 | Agent Runtime | Sessions | Memory Bank | Example Store | Code Execution |
-| :------------------------------- | :------------ | :------- | :---------- | :------------ | :------------- |
-| VPC Service Controls             | Yes           | Yes      | Yes         | No            | Yes            |
-| Customer-managed encryption keys | Yes           | Yes      | Yes         | No            | Yes            |
-| Data residency (DRZ) at rest     | Yes           | Yes      | Yes         | No            | Yes            |
-| HIPAA                            | Yes           | Yes      | Yes         | Yes           | Yes            |
-| Access Transparency              | Yes           | Yes      | Yes         | No            | No             |
-| Access Approval                  | Yes           | Yes      | Yes         | No            | No             |
+| Security feature                 | Agent Runtime | Agent evaluation | Sessions | Memory Bank | Example Store | Code Execution |
+| :------------------------------- | :------------ | :--------------- | :------- | :---------- | :------------ | :------------- |
+| VPC Service Controls             | Yes           | No               | Yes      | Yes         | No            | Yes            |
+| Customer-managed encryption keys | Yes           | No               | Yes      | Yes         | No            | Yes            |
+| Data residency (DRZ) at rest     | Yes           | No               | Yes      | Yes         | No            | Yes            |
+| HIPAA                            | Yes           | Yes              | Yes      | Yes         | Yes           | Yes            |
+| Access Transparency              | Yes           | No               | Yes      | Yes         | No            | No             |
+| Access Approval                  | Yes           | No               | Yes      | Yes         | No            | No             |
 
 > **Note:** Agent Platform Memory Bank uses Generative AI models to generate memories. [Machine learning (ML) processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency) occurs within the specific region or multi-region of the [model endpoint used by Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) .
 

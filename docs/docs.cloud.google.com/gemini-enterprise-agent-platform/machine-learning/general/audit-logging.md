@@ -155,6 +155,10 @@ ragCorpora.delete<br />
 ragEngineConfigs.update<br />
 sandboxEnvironments.create<br />
 sandboxEnvironments.delete<br />
+sandboxEnvironments.snapshot<br />
+sandboxEnvironmentSnapshots.delete<br />
+sandboxEnvironmentTemplates.create<br />
+sandboxEnvironmentTemplates.delete<br />
 schedules.create<br />
 schedules.delete<br />
 schedules.update<br />
@@ -264,6 +268,10 @@ ragCorpora.list<br />
 ragEngineConfigs.get<br />
 sandboxEnvironments.get<br />
 sandboxEnvironments.list<br />
+sandboxEnvironmentSnapshots.get<br />
+sandboxEnvironmentSnapshots.list<br />
+sandboxEnvironmentTemplates.get<br />
+sandboxEnvironmentTemplates.list<br />
 schedules.get<br />
 schedules.list<br />
 specialistPools.get<br />

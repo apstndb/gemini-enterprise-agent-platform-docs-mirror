@@ -8,25 +8,25 @@ data_source: docs.cloud.google.com
 
 ## Featured Gemini models
 
-3.5 Flash
+3.6 Flash
 
-Designed to deliver strong agentic capabilities (near-Pro level) at substantial speed and value.
+Enhanced efficiency and practical reasoning, helping you build and iterate with greater ease
 
-  - Pro-level coding proficiency and parallel agentic execution
-  - Features a 1 million token context window
-  - Near-Pro intelligence at Flash-tier cost and speed
+  - Greater token efficiency
+  - More reliable code generation
+  - Stronger multimodal reasoning
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
+[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
 
-3.1 Flash-Lite
+3.5 Flash-Lite
 
-Our most cost-efficient model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic
+Our fast, budget-friendly way to power your everyday applications
 
   - Optimized for low latency and high-volume traffic
-  - Improved response quality and instruction following
-  - Improved audio input quality for ASR tasks
+  - Capable tool orchestration
+  - Precise document understanding
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 
 3.1 Flash Image 🍌
 
@@ -39,6 +39,10 @@ Turn ideas into production-ready assets
 [](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
 
 ## Generally available Gemini models
+
+spark [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) Optimized for complex, multi-step workflows, improved code generation, and improved multimodal reasoning—all while using fewer tokens.
+
+performance\_auto [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) Create lightweight agentic workflows at top speeds and minimal cost.
 
 🍌 [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
 

@@ -28,6 +28,12 @@ Customer data is retained in Gemini Enterprise Agent Platform for Models as a Se
 
 This applies to all managed models on Gemini Enterprise Agent Platform, including GA and pre-GA models.
 
+## Agent products
+
+To achieve zero data retention for agent products, customers must adhere to the following conditions and retention schedules for each product:
+
+  - **CodeMender session data** — To enable resumption of long-running find and fix scans, CodeMender stores session state in Spanner. While a scan is in progress, session data — including target source code snippets, diffs, configuration, and analysis checkpoints — is stored encrypted for up to seven (7) days from session creation. When a session reaches a terminal state, source code and related content are cleared within seconds; the remaining session record is deleted automatically at the seven-day TTL. Customers can delete a session (removing all associated data) before the TTL expires.
+
 ## Google models
 
 To achieve zero data retention for Google trained models, customers must take additional specific actions within each of these areas:

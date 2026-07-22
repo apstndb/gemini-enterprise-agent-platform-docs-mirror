@@ -6,6 +6,8 @@ description: Explore Minimax M2, an agentic model for code-related and end-to-en
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `minimax-m2-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 MiniMax M2 is a model from MiniMax that's designed for agentic and code-related tasks. It is built for end-to-end development workflows and has strong capabilities in planning and executing complex tool-calling tasks. The model is optimized to provide a balance of performance, cost, and inference speed.
 
 ## Managed API (MaaS) specifications

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag
 title: Use RagManagedDb with RAG Engine on Gemini Enterprise Agent Platform
-description: Configure `RagManagedDb` for vector database management, retrieval strategies (KNN, ANN), and Customer-Managed Encryption Keys (CMEK).
+description: Configure RagManagedDb for vector database management, retrieval strategies (KNN, ANN), and Customer-Managed Encryption Keys (CMEK).
 data_source: docs.cloud.google.com
 ---
 

@@ -98,6 +98,23 @@ To learn what capabilities support data residency, see [Supported capabilities](
 </thead>
 <tbody>
 <tr class="odd">
+<td>Gemini 3.5 Flash-Lite<br />
+( <code dir="ltr" translate="no">gemini-3.5-flash-lite</code> )</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Gemini 3.5 Flash<br />
 ( <code dir="ltr" translate="no">gemini-3.5-flash</code> )</td>
 <td></td>
@@ -114,7 +131,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini 3.1 Flash-Lite<br />
 ( <code dir="ltr" translate="no">gemini-3.1-flash-lite</code> )</td>
 <td></td>
@@ -131,7 +148,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini 2.5 Flash Live API Native Audio<br />
 ( <code dir="ltr" translate="no">gemini-live-2.5-flash-native-audio</code> )</td>
 <td></td>
@@ -148,7 +165,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini 2.5 Flash, 128k<br />
 ( <code dir="ltr" translate="no">gemini-2.5-flash</code> )</td>
 <td></td>
@@ -165,7 +182,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini 2.5 Flash, 1M<br />
 ( <code dir="ltr" translate="no">gemini-2.5-flash</code> )</td>
 <td></td>
@@ -182,7 +199,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini 2.5 Flash Image<br />
 ( <code dir="ltr" translate="no">gemini-2.5-flash-image</code> )</td>
 <td></td>
@@ -199,7 +216,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini 2.5 Flash-Lite<br />
 ( <code dir="ltr" translate="no">gemini-2.5-flash-lite</code> )</td>
 <td></td>
@@ -216,7 +233,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini 2.5 Pro, 1M<br />
 ( <code dir="ltr" translate="no">gemini-2.5-pro</code> )</td>
 <td></td>
@@ -233,7 +250,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini 2.5 Pro, 64k<br />
 ( <code dir="ltr" translate="no">gemini-2.5-pro</code> )</td>
 <td></td>
@@ -250,7 +267,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Tuning for Gemini 2.5 Flash<br />
 ( <code dir="ltr" translate="no">gemini-2.5-flash</code> )</td>
 <td></td>
@@ -267,7 +284,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Tuning for Gemini 2.5 Flash-Lite<br />
 ( <code dir="ltr" translate="no">gemini-2.5-flash-lite</code> )</td>
 <td></td>
@@ -284,7 +301,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Tuning for Gemini 2.5 Pro<br />
 ( <code dir="ltr" translate="no">gemini-2.5-pro</code> )</td>
 <td></td>
@@ -301,7 +318,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini Embedding<br />
 ( <code dir="ltr" translate="no">gemini-embedding-001</code> )</td>
 <td></td>
@@ -318,7 +335,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini Embedding 2<br />
 ( <code dir="ltr" translate="no">gemini-embedding-2</code> )</td>
 <td></td>
@@ -335,7 +352,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chirp 2: Transcription<br />
 ( <code dir="ltr" translate="no">chirp_2</code> )</td>
 <td></td>
@@ -352,7 +369,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chirp 3: Transcription<br />
 ( <code dir="ltr" translate="no">chirp_3</code> )</td>
 <td></td>
@@ -369,7 +386,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chirp 3: HD Voices</td>
 <td></td>
 <td></td>
@@ -385,7 +402,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chirp 3: Instant Custom Voice</td>
 <td></td>
 <td></td>
@@ -401,7 +418,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Embeddings for Multimodal</td>
 <td></td>
 <td></td>
@@ -417,7 +434,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Embeddings for Text<br />
 ( <code dir="ltr" translate="no">text-embedding-004</code> )</td>
 <td></td>
@@ -434,7 +451,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Embeddings for Text<br />
 ( <code dir="ltr" translate="no">text-embedding-005</code> )</td>
 <td></td>
@@ -451,7 +468,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Embeddings for Text<br />
 ( <code dir="ltr" translate="no">text-multilingual-embedding-002</code> )</td>
 <td></td>

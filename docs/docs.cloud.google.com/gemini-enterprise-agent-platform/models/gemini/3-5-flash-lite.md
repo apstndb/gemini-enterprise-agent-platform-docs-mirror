@@ -1,22 +1,33 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro
-title: Gemini 2.5 Pro
-description: Learn about Gemini 2.5 Pro, our most advanced reasoning Gemini model.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite
+title: Gemini 3.5 Flash-Lite
+description: Learn about Gemini 3.5 Flash-Lite, our low-latency, minimal cost model optimized for coding tasks, precise document understanding, and lightweight agentic workflows.
 data_source: docs.cloud.google.com
 ---
 
-Gemini 2.5 Pro is our most advanced reasoning Gemini model, capable of solving complex problems. Gemini 2.5 Pro can comprehend vast datasets and challenging problems from different information sources, including text, audio, images, video, and even entire code repositories.
+Gemini 3.5 Flash-Lite is the latest in our cost-effective Flash-Lite line of models. It's optimized for simple coding tasks, precise document understanding, and lightweight agentic workflows that require fast inference at minimal cost. 3.5 Flash-Lite is a suitable replacement model for Gemini 2.5 Flash and less complex Gemini 3 Flash workloads.
 
-For even more detailed technical information on Gemini 2.5 Pro (such as performance benchmarks, information on our training datasets, efforts on sustainability, intended usage and limitations, and our approach to ethics and safety), see our [technical report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) on our Gemini 2.5 models.
+When using 3.5 Flash-Lite, you can use different thinking levels to optimize for quality, speed, and token output:
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-2.5-pro) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-2.5-pro) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-2.5-pro) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+  - **Use `thinking_level.MINIMAL` for latency-sensitive or simpler classification and extraction tasks** : 3.5 Flash-Lite defaults to minimal thinking, which optimizes for speed and cost efficiency. This is ideal for high-throughput classification, routing, or JSON extraction tasks.
+  - **Use `thinking_level.MEDIUM` or `thinking_level.HIGH` for subagents** : If you're using 3.5 Flash-Lite as an autonomous subagent that writes code, runs terminal commands, or calls external APIs, set the thinking level to medium or high. Using the minimal thinking level can cause premature tool termination on multi-step tasks.
+
+3.5 Flash-Lite includes the following potentially breaking changes when compared to previous Gemini models:
+
+  - **Custom values for parameters like temperature, top-K, and top-P aren't supported.** If you set a custom value for these parameters, that value will be ignored.
+  - **Custom values for frequency and presence penalty parameters aren't supported.** Setting a custom value for these parameters will throw an error.
+  - API requests where the last input turn has a role of `Model` aren't supported. The following kinds of requests will return an error:
+      - When using the Interactions API: Requests where the last object in the `input` array has `"type": "model_output"` .
+      - When using the GenerateContent API: Requests where the last object in the `contents` array has `"role": "model"` .
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.5-flash-lite) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.5-flash-lite) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
-`gemini-2.5-pro`
+`gemini-3.5-flash-lite`
 
 Modalities
 
@@ -70,15 +81,14 @@ Capabilities
   - [Chat completions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview)  
     Supported
   - [Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models)  
-    Supervised fine-tuning, continuous tuning, tuning checkpoints  
-    Supported
+    Not supported
   - [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)  
     Supported
 
 Tools
 
   - [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview)  
-    Google Search, Parallel Web Search, Exa Web Search  
+    Google Search, Google Maps  
     Supported
   - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)  
     Supported
@@ -94,14 +104,10 @@ Consumption options
   - [Batch inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)  
     Supported
   - [Pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/consumption-options)  
-    Priority PayGo  
+    Standard PayGo, Flex PayGo, Priority PayGo  
     Supported
   - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas)  
     Not supported
-
-Input size limit
-
-500 MB
 
 Technical specifications
 
@@ -110,6 +116,7 @@ Technical specifications
   - Maximum images per prompt: 3,000
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB
   - Maximum file size per file from Google Cloud Storage: 30 MB
+  - Maximum number of output images per prompt: 10
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
@@ -134,34 +141,45 @@ Technical specifications
 
   - Maximum audio length per prompt: Approximately 8.4 hours, or up to 1 million tokens
   - Maximum number of audio files per prompt: 1
-  - Speech understanding for: Audio summarization, transcription, and translation
   - Supported MIME types:
     `audio/x-aac` , `audio/flac` , `audio/mp3` , `audio/m4a` , `audio/mpeg` , `audio/mpga` , `audio/mp4` , `audio/ogg` , `audio/pcm` , `audio/wav` , `audio/webm`
 
 **Parameter defaults** tune
 
-  - Temperature: 0.0-2.0 (default 1.0)
-  - topP: 0.0-1.0 (default 0.95)
-  - topK: 64 (fixed)
-  - candidateCount: 1–8 (default 1)
+  - Temperature: 1.0
+  - topP: 0.95
+  - topK: 64
+  - Frequency penalty: 0
+  - Presence penalty: 0
 
 Supported regions
 
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - Global: `global`
-  - United States: `us-central1` , `us-east1` , `us-east4` , `us-east5` , `us-south1` , `us-west1` , `us-west4`
-  - Canada: `northamerica-northeast1`
-  - Europe: `europe-central2` , `europe-north1` , `europe-southwest1` , `europe-west1` , `europe-west4` , `europe-west8` , `europe-west9`
-  - Asia Pacific: `asia-northeast1`
+  - Multi-region: `us` , `eu`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us` , `eu`
+
+**[Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models)**
+
+  - Global: `global`
+  - Multi-region: `us` , `eu`
+
+**[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**
+
+  - Global: `global`
+  - Multi-region: `us` , `eu`
 
 Versions
 
-`gemini-2.5-pro`
+`gemini-3.5-flash-lite`
 
   - Launch stage: GA
-  - Release date: June 17, 2025
-  - Retirement date: October 16, 2026
+  - Release date: July 21, 2026
+  - Retirement date: July 21, 2027 or later
 
 Security controls
 
@@ -179,28 +197,7 @@ Security controls
   - VPC-SC
   - AXT
 
-**Tuning**
-
-  - Data residency
-  - CMEK
-  - VPC-SC
-  - AXT
-
 **Context caching**
-
-  - Data residency
-  - CMEK
-  - VPC-SC
-  - AXT
-
-**RAG Engine**
-
-  - Data residency
-  - CMEK
-  - VPC-SC
-  - AXT
-
-**Grounding with Google Search and Grounding with Google Maps**
 
   - Data residency
   - CMEK

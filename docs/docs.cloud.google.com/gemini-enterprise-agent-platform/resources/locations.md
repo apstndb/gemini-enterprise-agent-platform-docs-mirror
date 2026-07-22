@@ -145,6 +145,8 @@ Selecting a global endpoint for your requests can improve overall availability w
 
 Usage of the global endpoint is supported for the following Google models in specified regions. For details about which models support the global endpoint, see the **Global** tab in the [Google model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models) .
 
+  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) (Preview)
   - [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
   - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
@@ -176,6 +178,8 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 | Model                                                                                                                                                 | Latest supported model version   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`               |
+| [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)                                  | `gemini-3.5-flash-lite`          |
 | [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) | `gemini-3.1-flash-lite-image`    |
 | [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)                                        | `gemini-3-pro-image`             |
 | [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)                                | `gemini-3.1-flash-image`         |
@@ -200,6 +204,12 @@ Global
 (global)
 
 Gemini models
+
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
 
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
@@ -326,6 +336,12 @@ European Union multi-region
 (eu)
 
 Gemini models
+
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
 
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
@@ -468,6 +484,12 @@ Dallas
 
 Gemini models
 
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
+
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
 
@@ -593,6 +615,12 @@ São Paulo
 (southamerica-east1)
 
 Gemini models
+
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
 
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
@@ -744,6 +772,12 @@ Paris
 
 Gemini models
 
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
+
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
 
@@ -885,6 +919,12 @@ Seoul
 
 Gemini models
 
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
+
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
 
@@ -1013,6 +1053,12 @@ Dammam
 (me-central2)
 
 Gemini models
+
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
+`(gemini-3.6-flash)`
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)  
+`(gemini-3.5-flash-lite)`
 
 [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview  
 `(gemini-omni-flash-preview)`
@@ -1658,7 +1704,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1721,7 +1767,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1799,7 +1845,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1862,7 +1908,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
@@ -1949,7 +1995,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
@@ -2027,7 +2073,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models
@@ -2093,7 +2139,7 @@ ZAI.org models
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
 `(glm-4.7-maas)`
 
-[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas) experimental  
+[GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
 OpenAI models

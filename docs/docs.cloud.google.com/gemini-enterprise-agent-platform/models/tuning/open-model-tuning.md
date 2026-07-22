@@ -33,6 +33,10 @@ Distillation provides smaller gains on tasks where the student model already per
 
 #### Supervised fine-tuning supported models
 
+  - Gemma 4 E2B IT ( `google/gemma4@gemma-4-e2b-it` )
+  - Gemma 4 E4B IT ( `google/gemma4@gemma-4-e4b-it` )
+  - Gemma 4 26B A4B IT ( `google/gemma4@gemma-4-26b-a4b-it` )
+  - Gemma 4 31B IT ( `google/gemma4@gemma-4-31b-it` )
   - Gemma 3 1B IT ( `google/gemma3@gemma-3-1b-it` )
   - Gemma 3 4B IT ( `google/gemma3@gemma-3-4b-it` )
   - Gemma 3 12B IT ( `google/gemma3@gemma-3-12b-it` )
@@ -91,6 +95,62 @@ Model
 Specification
 
 Value
+
+Gemma 4 E2B IT
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Gemma 4 E4B IT
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Gemma 4 26B A4B IT
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
+
+Gemma 4 31B IT
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
 
 Gemma 3 1B IT
 

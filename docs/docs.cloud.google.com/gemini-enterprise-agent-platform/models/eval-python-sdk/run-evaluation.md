@@ -69,11 +69,11 @@ Use the `EvalTask` class to run evaluations for the following use cases:
     
       - [Define metrics from scratch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#metrics-freeform)
     
-      - [Evaluate a translation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#translation) (preview)
+      - [Evaluate a translation model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#translation)
 
   - [Computation-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#metrics-computation)
 
-  - [Run evaluations at scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#batch-eval) (preview)
+  - [Run evaluations at scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#batch-eval)
 
   - [Additional metric customization](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/run-evaluation#metrics-custom)
 
@@ -233,10 +233,6 @@ For more flexibility in customizing the metric prompt template, you can define a
 
 ## Evaluate a translation model
 
-> **Preview**
-> 
-> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 To evaluate your translation model, you can specify [BLEU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#text-gen) , [MetricX](https://github.com/google-research/metricx) , or [COMET](https://huggingface.co/Unbabel/wmt22-comet-da) as evaluation metrics when using the Vertex AI SDK.
 
     #Prepare the dataset for evaluation.
@@ -289,10 +285,6 @@ You can use [computation-based metrics](https://docs.cloud.google.com/gemini-ent
     )
 
 ## Run evaluations at scale
-
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 If you have large evaluation datasets or periodically run evaluations in a production environment, you can use the `EvaluateDataset` API in the Gen AI evaluation service to run evaluations at scale.
 

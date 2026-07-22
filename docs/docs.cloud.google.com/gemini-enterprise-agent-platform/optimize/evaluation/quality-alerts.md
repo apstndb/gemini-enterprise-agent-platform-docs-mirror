@@ -6,10 +6,6 @@ description: Learn how to configure quality alerts to proactively detect quality
 data_source: docs.cloud.google.com
 ---
 
-> **Preview - Agent evaluation on Gemini Enterprise Agent Platform**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) as well as the [Generative AI Service Specific Terms](https://cloud.google.com/terms/service-terms#20) . This feature allows customers to evaluate AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Quality alerts notify you when your agent's performance drops below a defined threshold. You can use these alerts to detect **quality drift** —an observable decrease in agent performance over time. This decrease can occur even if the underlying model remains the same, often driven by changes in real-world user behavior, evolving data patterns, or subtle interactions in complex prompt chains.
 
 > **Why use quality alerts?**

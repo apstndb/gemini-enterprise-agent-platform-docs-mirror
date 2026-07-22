@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `qwen3-235b-a22b-instruct-2507-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 Qwen3 235B is a large 235B parameter model. The model is distinguished by its "hybrid thinking" capability, which allows users to dynamically switch between a methodical, step-by-step "thinking" mode for complex tasks like mathematical reasoning and coding, and a rapid "non-thinking" mode for general-purpose conversation. Its large context window makes it suitable for use cases requiring deep reasoning and long-form comprehension.
 
 ## Managed API (MaaS) specifications

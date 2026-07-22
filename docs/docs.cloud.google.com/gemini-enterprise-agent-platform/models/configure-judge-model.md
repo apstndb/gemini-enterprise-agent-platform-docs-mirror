@@ -6,10 +6,6 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Model-based metrics provide various approaches to customize and help you generate evaluation metrics based on your criteria and use cases. This page describes how to configure your judge model for your ideal use case.
 
 For the basic evaluation workflow, see the [Gen AI evaluation service quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-quickstart) . The *Advanced judge model customization series* includes the following pages:

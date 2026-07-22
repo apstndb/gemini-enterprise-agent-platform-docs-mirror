@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `qwen3-next-80b-a3b-thinking-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 Qwen3-Next-80B Thinking is a language model from the Qwen3-Next family of models. It is specialized for complex problem-solving and deep reasoning. Its "thinking" mode generates a visible, step-by-step reasoning process alongside the final answer, making it ideal for tasks requiring transparent logic, like mathematical proofs, intricate code debugging, or multi-step agent planning.
 
 ## Managed API (MaaS) specifications

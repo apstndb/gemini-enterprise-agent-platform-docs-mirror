@@ -10,6 +10,31 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 21, 2026
+
+Deprecated
+
+**Open model endpoint deprecations**
+
+The following open model endpoints are deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
+  - `deepseek-ocr-maas`
+  - `deepseek-r1-0528-maas`
+  - `deepseek-v3.2-maas`
+  - `deepseek-v3.1-maas`
+  - `glm-5-maas`
+  - `glm-4.7-maas`
+  - `gpt-oss-20b-maas`
+  - `kimi-k2-thinking-maas`
+  - `llama-3.3-70b-instruct-maas`
+  - `minimax-m2-maas`
+  - `multilingual-e5-large-instruct-maas`
+  - `multilingual-e5-small-maas`
+  - `qwen3-235b-a22b-instruct-2507-maas`
+  - `qwen3-coder-480b-a35b-instruct-maas`
+  - `qwen3-next-80b-a3b-instruct-maas`
+  - `qwen3-next-80b-a3b-thinking-maas`
+
 ## July 20, 2026
 
 Security

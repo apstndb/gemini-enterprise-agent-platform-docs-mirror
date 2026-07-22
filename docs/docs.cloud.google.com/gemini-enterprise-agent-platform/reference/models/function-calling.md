@@ -18,6 +18,8 @@ For more conceptual documentation on function calling, see [Introduction to func
 
 #### Click to expand supported models
 
+  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
@@ -1079,170 +1081,117 @@ The `functionCallingConfig` ensures that the model output is always a specific f
      "fmt"
      "io"
     
-     "cloud.google.com/go/vertexai/genai"
+     genai "google.golang.org/genai"
     )
     
-    // functionCallsChat opens a chat session and sends 4 messages to the model:
-    // - convert a first text question into a structured function call request
-    // - convert the first structured function call response into natural language
-    // - convert a second text question into a structured function call request
-    // - convert the second structured function call response into natural language
-    func functionCallsChat(w io.Writer, projectID, location, modelName string) error {
-     // location := "us-central1"
-     // modelName := "gemini-2.0-flash-001"
+    func generateWithFuncCallConfig(w io.Writer) error {
      ctx := context.Background()
-     client, err := genai.NewClient(ctx, projectID, location)
+    
+     client, err := genai.NewClient(ctx, &genai.ClientConfig{
+         HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+     })
      if err != nil {
-         return fmt.Errorf("unable to create client: %w", err)
+         return fmt.Errorf("failed to create genai client: %w", err)
      }
-     defer client.Close()
     
-     model := client.GenerativeModel(modelName)
-    
-     // Build an OpenAPI schema, in memory
-     paramsProduct := &genai.Schema{
-         Type: genai.TypeObject,
-         Properties: map[string]*genai.Schema{
-             "productName": {
-                 Type:        genai.TypeString,
-                 Description: "Product name",
+     getAlbumSalesFunc := &genai.FunctionDeclaration{
+         Name:        "get_album_sales",
+         Description: "Gets the number of albums sold",
+         Parameters: &genai.Schema{
+             Type: genai.TypeObject,
+             Properties: map[string]*genai.Schema{
+                 "albums": {
+                     Type:        genai.TypeArray,
+                     Description: "List of albums",
+                     Items: &genai.Schema{
+                         Type:        genai.TypeObject,
+                         Description: "Album and its sales",
+                         Properties: map[string]*genai.Schema{
+                             "album_name": {
+                                 Type:        genai.TypeString,
+                                 Description: "Name of the music album",
+                             },
+                             "copies_sold": {
+                                 Type:        genai.TypeInteger,
+                                 Description: "Number of copies sold",
+                             },
+                         },
+                     },
+                 },
              },
          },
      }
-     fundeclProductInfo := &genai.FunctionDeclaration{
-         Name:        "getProductSku",
-         Description: "Get the SKU for a product",
-         Parameters:  paramsProduct,
-     }
-     paramsStore := &genai.Schema{
-         Type: genai.TypeObject,
-         Properties: map[string]*genai.Schema{
-             "location": {
-                 Type:        genai.TypeString,
-                 Description: "Location",
+    
+     config := &genai.GenerateContentConfig{
+         Tools: []*genai.Tool{
+             {
+                 FunctionDeclarations: []*genai.FunctionDeclaration{getAlbumSalesFunc},
              },
          },
-     }
-     fundeclStoreLocation := &genai.FunctionDeclaration{
-         Name:        "getStoreLocation",
-         Description: "Get the location of the closest store",
-         Parameters:  paramsStore,
-     }
-     model.Tools = []*genai.Tool{
-         {FunctionDeclarations: []*genai.FunctionDeclaration{
-             fundeclProductInfo,
-             fundeclStoreLocation,
-         }},
-     }
-     model.SetTemperature(0.0)
-    
-     chat := model.StartChat()
-    
-     // Send a prompt for the first conversation turn that should invoke the getProductSku function
-     prompt := "Do you have the Pixel 8 Pro in stock?"
-     fmt.Fprintf(w, "Question: %s\n", prompt)
-     resp, err := chat.SendMessage(ctx, genai.Text(prompt))
-     if err != nil {
-         return err
-     }
-     if len(resp.Candidates) == 0 ||
-         len(resp.Candidates[0].Content.Parts) == 0 {
-         return errors.New("empty response from model")
-     }
-    
-     // The model has returned a function call to the declared function `getProductSku`
-     // with a value for the argument `productName`.
-     jsondata, err := json.MarshalIndent(resp.Candidates[0].Content.Parts[0], "\t", "  ")
-     if err != nil {
-         return fmt.Errorf("json.MarshalIndent: %w", err)
-     }
-     fmt.Fprintf(w, "function call generated by the model:\n\t%s\n", string(jsondata))
-    
-     // Create a function call response, to simulate the result of a call to a
-     // real service
-     funresp := &genai.FunctionResponse{
-         Name: "getProductSku",
-         Response: map[string]any{
-             "sku":      "GA04834-US",
-             "in_stock": "yes",
+         ToolConfig: &genai.ToolConfig{
+             FunctionCallingConfig: &genai.FunctionCallingConfig{
+                 Mode: genai.FunctionCallingConfigModeAuto,
+             },
          },
-     }
-     jsondata, err = json.MarshalIndent(funresp, "\t", "  ")
-     if err != nil {
-         return fmt.Errorf("json.MarshalIndent: %w", err)
-     }
-     fmt.Fprintf(w, "function call response sent to the model:\n\t%s\n\n", string(jsondata))
-    
-     // And provide the function call response to the model
-     resp, err = chat.SendMessage(ctx, funresp)
-     if err != nil {
-         return err
-     }
-     if len(resp.Candidates) == 0 ||
-         len(resp.Candidates[0].Content.Parts) == 0 {
-         return errors.New("empty response from model")
+         Temperature: genai.Ptr(float32(0.0)),
      }
     
-     // The model has taken the function call response as input, and has
-     // reformulated the response to the user.
-     jsondata, err = json.MarshalIndent(resp.Candidates[0].Content.Parts[0], "\t", "  ")
-     if err != nil {
-         return fmt.Errorf("json.MarshalIndent: %w", err)
-     }
-     fmt.Fprintf(w, "Answer generated by the model:\n\t%s\n\n", string(jsondata))
+     promptText := `At Stellar Sounds, a music label, 2024 was a rollercoaster. 
+                 "Echoes of the Night," a debut synth-pop album, surprisingly sold 350,000 copies, 
+                 while veteran rock band "Crimson Tide's" latest, "Reckless Hearts," lagged at 120,000. 
     
-     // Send a prompt for the second conversation turn that should invoke the getStoreLocation function
-     prompt2 := "Is there a store in Mountain View, CA that I can visit to try it out?"
-     fmt.Fprintf(w, "Question: %s\n", prompt)
+                 Their up-and-coming indie artist, "Luna Bloom's" EP, "Whispers of Dawn," secured 75,000 sales. 
+                 The biggest disappointment was the highly-anticipated rap album "Street Symphony" 
+                 only reaching 100,000 units. 
     
-     resp, err = chat.SendMessage(ctx, genai.Text(prompt2))
+                 Overall, Stellar Sounds moved over 645,000 units this year, revealing unexpected 
+                 trends in music consumption.`
+    
+     modelName := "gemini-2.5-flash"
+    
+     resp, err := client.Models.GenerateContent(ctx, modelName, genai.Text(promptText), config)
      if err != nil {
-         return err
-     }
-     if len(resp.Candidates) == 0 ||
-         len(resp.Candidates[0].Content.Parts) == 0 {
-         return errors.New("empty response from model")
+         return fmt.Errorf("failed to generate content: %w", err)
      }
     
-     // The model has returned a function call to the declared function `getStoreLocation`
-     // with a value for the argument `store`.
-     jsondata, err = json.MarshalIndent(resp.Candidates[0].Content.Parts[0], "\t", "  ")
-     if err != nil {
-         return fmt.Errorf("json.MarshalIndent: %w", err)
-     }
-     fmt.Fprintf(w, "function call generated by the model:\n\t%s\n", string(jsondata))
-    
-     // Create a function call response, to simulate the result of a call to a
-     // real service
-     funresp = &genai.FunctionResponse{
-         Name: "getStoreLocation",
-         Response: map[string]any{
-             "store": "2000 N Shoreline Blvd, Mountain View, CA 94043, US",
-         },
-     }
-     jsondata, err = json.MarshalIndent(funresp, "\t", "  ")
-     if err != nil {
-         return fmt.Errorf("json.MarshalIndent: %w", err)
-     }
-     fmt.Fprintf(w, "function call response sent to the model:\n\t%s\n\n", string(jsondata))
-    
-     // And provide the function call response to the model
-     resp, err = chat.SendMessage(ctx, funresp)
-     if err != nil {
-         return err
-     }
-     if len(resp.Candidates) == 0 ||
-         len(resp.Candidates[0].Content.Parts) == 0 {
-         return errors.New("empty response from model")
+     funcCalls := resp.FunctionCalls()
+     if len(funcCalls) == 0 {
+         return errors.New("no function calls were generated")
      }
     
-     // The model has taken the function call response as input, and has
-     // reformulated the response to the user.
-     jsondata, err = json.MarshalIndent(resp.Candidates[0].Content.Parts[0], "\t", "  ")
-     if err != nil {
-         return fmt.Errorf("json.MarshalIndent: %w", err)
+     for _, fc := range funcCalls {
+         fmt.Fprintf(w, "Function Call Detected: %s\n", fc.Name)
+    
+         jsondata, err := json.MarshalIndent(fc.Args, "", " ")
+         if err != nil {
+             return fmt.Errorf("failed to marshal function call args: %w", err)
+         }
+    
+         fmt.Fprintln(w, jsondata)
+         // Example response
+         // {
+         //  "albums": [
+         //   {
+         //    "album_name": "Echoes of the Night",
+         //    "copies_sold": 350000
+         //   },
+         //   {
+         //    "album_name": "Reckless Hearts",
+         //    "copies_sold": 120000
+         //   },
+         //   {
+         //    "album_name": "Whispers of Dawn",
+         //    "copies_sold": 75000
+         //   },
+         //   {
+         //    "album_name": "Street Symphony",
+         //    "copies_sold": 100000
+         //   }
+         //  ]
+         // }
+    
      }
-     fmt.Fprintf(w, "Answer generated by the model:\n\t%s\n\n", string(jsondata))
+    
      return nil
     }
 

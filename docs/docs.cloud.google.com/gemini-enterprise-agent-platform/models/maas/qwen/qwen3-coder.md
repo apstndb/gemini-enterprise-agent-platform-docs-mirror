@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `qwen3-coder-480b-a35b-instruct-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 Qwen3 Coder is a large-scale, open-weight model developed for advanced software development tasks. The model's key feature is its large context window, allowing it to process and understand large codebases comprehensively.
 
 ## Managed API (MaaS) specifications

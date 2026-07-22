@@ -6,6 +6,8 @@ description: Explore Kimi K2 Thinking, a thinking model that excels at complex p
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `kimi-k2-thinking-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 Kimi K2 Thinking is an open-source model that operates as a "thinking agent," reasoning step-by-step while using tools to achieve state-of-the-art performance on various benchmarks. It is capable of executing up to 200-300 sequential tool calls without human intervention, allowing it to solve complex problems across a wide range of tasks. The model uses Quantization-Aware Training (QAT) to support INT4 inference, which provides a roughly 2x improvement in generation speed.
 
 ## Managed API (MaaS) specifications

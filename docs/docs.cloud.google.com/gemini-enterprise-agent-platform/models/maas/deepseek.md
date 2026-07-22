@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** All DeepSeek Model as a Service (MaaS) endpoints are either deprecated or retired. You can either [self-deploy your model from Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) or migrate your workloads to alternative managed endpoints before the retirement date. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 DeepSeek models are available for use as managed APIs and self-deployed models on Gemini Enterprise Agent Platform. You can stream your responses to reduce the end-user latency perception. A streamed response uses *server-sent events* (SSE) to incrementally stream the response.
 
 ## Managed DeepSeek models

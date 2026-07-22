@@ -34,6 +34,46 @@ To find out how many tokens your workload requires, refer to the [SDK tokenizer]
 
 **Burndown rates**
 
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+
+Latest supported version: `gemini-3.6-flash`
+
+675
+
+Tokens
+
+1
+
+1 input text token = 1 token  
+1 input image token = 1 token  
+1 input video token = 1 token  
+1 input audio token = 1 token  
+1 input text caching token = 0.1 tokens  
+1 input image caching token = 0.1 tokens  
+1 input video caching token = 0.1 tokens  
+1 input audio caching token = 0.1 tokens  
+1 output text response token = 5 tokens  
+
+[Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+
+Latest supported version: `gemini-3.5-flash-lite`
+
+3,360
+
+Tokens
+
+1
+
+1 input text token = 1 token  
+1 input image token = 1 token  
+1 input video token = 1 token  
+1 input audio token = 1 token  
+1 input text caching token = 0.1 tokens  
+1 input image caching token = 0.1 tokens  
+1 input video caching token = 0.1 tokens  
+1 input audio caching token = 0.1 tokens  
+1 output text response token = 9 tokens  
+
 [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
 
 Latest supported version: `gemini-3.1-flash-lite-image`
@@ -895,6 +935,8 @@ The following table lists the Google models for which Provisioned Throughput sup
 
 | Model                                                                                                                                                 | Latest supported model version   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`               |
+| [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)                                  | `gemini-3.5-flash-lite`          |
 | [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) | `gemini-3.1-flash-lite-image`    |
 | [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)                                        | `gemini-3-pro-image`             |
 | [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)                                | `gemini-3.1-flash-image`         |

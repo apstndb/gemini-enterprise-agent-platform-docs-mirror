@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models
-title: Model deprecations (MaaS)
+title: Partner model deprecations
 description: Get deprecation and shutdown details for partner models offered through Model as a Service (MaaS).
 data_source: docs.cloud.google.com
 ---

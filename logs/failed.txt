@@ -1,10 +1,1 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/fix-and-patch
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/import-findings
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/manage-sessions
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/scan-and-verify
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/resume
+404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er

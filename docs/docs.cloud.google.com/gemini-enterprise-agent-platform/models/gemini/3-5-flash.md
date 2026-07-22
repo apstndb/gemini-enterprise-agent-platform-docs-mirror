@@ -50,7 +50,7 @@ Context window
 
 Maximum output tokens
 
-65,535 (default)
+65,536
 
 Capabilities
 

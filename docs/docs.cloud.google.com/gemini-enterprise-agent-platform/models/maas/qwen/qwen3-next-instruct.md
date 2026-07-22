@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `qwen3-next-80b-a3b-instruct-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 Qwen3-Next-80B Instruct is a language model from the Qwen3-Next family of models. It is designed for following specific commands and handling long pieces of text. It uses a smart design called Mixture-of-Experts (MoE), which activates a subset of available parameters to process information, which makes it faster and more cost-effective to run than other models of its size.
 
 The Instruct version is tuned for reliable, direct answers in chat and agent applications and its large context window allows it to maintain an entire conversation or large document in memory.

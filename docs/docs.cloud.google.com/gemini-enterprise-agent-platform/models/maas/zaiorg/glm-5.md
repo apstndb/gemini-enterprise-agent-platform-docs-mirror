@@ -6,6 +6,8 @@ description: Explore GLM 5, targeting complex systems engineering and long-horiz
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `glm-5-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 GLM 5 is a model from GLM targeting complex systems engineering and long-horizon agentic tasks.
 
 [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)

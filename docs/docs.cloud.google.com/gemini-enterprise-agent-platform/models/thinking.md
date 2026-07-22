@@ -20,6 +20,8 @@ Thinking is supported in the following models:
 
 #### Click to expand supported models
 
+  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
   - [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
   - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
@@ -196,17 +198,19 @@ Gemini 3 models introduce the `thinking_level` parameter, which simplifies think
 
 The following table summarizes which `thinking_level` values are supported by each model, and the default `thinking_level` for each model:
 
-| Model                    | Supported `thinking_level` values     | Default   |
-| ------------------------ | ------------------------------------- | --------- |
-| `Gemini 3.5 Flash`       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
-| `Gemini 3.1 Pro`         | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
-| `Gemini 3.1 Flash-Lite`  | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
-| `Gemini 3.1 Flash Image` | `MINIMAL` , `HIGH`                    | `MINIMAL` |
-| `Gemini 3 Flash`         | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `HIGH`    |
-| `Gemini 3 Pro`           | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
-| `Gemini 3 Pro Image`     | `HIGH`                                | `HIGH`    |
+| Model                  | Supported `thinking_level` values     | Default   |
+| ---------------------- | ------------------------------------- | --------- |
+| Gemini 3.6 Flash       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
+| Gemini 3.5 Flash       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
+| Gemini 3.5 Flash-Lite  | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
+| Gemini 3.1 Flash-Lite  | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
+| Gemini 3.1 Flash Image | `MINIMAL` , `HIGH`                    | `MINIMAL` |
+| Gemini 3 Flash         | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `HIGH`    |
+| Gemini 3.1 Pro         | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
+| Gemini 3 Pro           | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
+| Gemini 3 Pro Image     | `HIGH`                                | `HIGH`    |
 
-  - `MINIMAL` : **(Gemini 3 Flash, Gemini 3.1 Flash Image, and Gemini 3.1 Flash-Lite only)** Constrains the model to use as few tokens as possible for thinking and is best used for low-complexity tasks that wouldn't benefit from extensive reasoning. This is the default level for Gemini 3.1 Flash-Lite. `MINIMAL` is as close as possible to a zero budget for thinking but still requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) . If thought signatures aren't provided in your request, the model returns a `400` error. For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .
+  - `MINIMAL` : Constrains the model to use as few tokens as possible for thinking and is best used for low-complexity tasks that wouldn't benefit from extensive reasoning. This is the default level for Gemini 3.1 Flash-Lite. `MINIMAL` is as close as possible to a zero budget for thinking but still requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) . If thought signatures aren't provided in your request, the model returns a `400` error. For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .
     
         from google import genai
         from google.genai import types
@@ -242,7 +246,7 @@ The following table summarizes which `thinking_level` values are supported by ea
         )
         print(response.text)
 
-  - `MEDIUM` : **(Gemini 3 Flash, Gemini 3.1 Pro, and Gemini 3.1 Flash-Lite only)** Offers a balanced approach suitable for tasks of moderate complexity that benefit from reasoning but don't require deep, multi-step planning. It provides more reasoning capability than `LOW` while maintaining lower latency than `HIGH` :
+  - `MEDIUM` : Offers a balanced approach suitable for tasks of moderate complexity that benefit from reasoning but don't require deep, multi-step planning. It provides more reasoning capability than `LOW` while maintaining lower latency than `HIGH` :
     
         from google import genai
         from google.genai import types

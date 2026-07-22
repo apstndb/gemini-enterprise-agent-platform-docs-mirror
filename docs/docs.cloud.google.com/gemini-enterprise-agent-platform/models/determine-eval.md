@@ -6,10 +6,6 @@ description: 'Understand Gen AI evaluation service metrics: rubric-based, comput
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 After you create an evaluation dataset, the next step is to define the metrics used to measure model performance. Generative AI models can create applications for a wide range of tasks, and the Gen AI evaluation service uses a test-driven framework that transforms evaluation from subjective ratings into objective, actionable results.
 
 For more information about the metric types, see the [Evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview#metrics) section on the Gen AI evaluation service overview page.

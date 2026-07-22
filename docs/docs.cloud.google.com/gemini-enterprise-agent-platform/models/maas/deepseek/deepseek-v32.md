@@ -6,6 +6,8 @@ description: Learn about DeepSeek-V3.2, a powerful large language model availabl
 data_source: docs.cloud.google.com
 ---
 
+> **Caution:** As of July 21, 2026, the `deepseek-v3.2-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
+
 DeepSeek-V3.2 is a model that harmonizes high computational efficiency with superior reasoning and agent performance. DeepSeek's approach is built upon three key technical breakthroughs: DeepSeek Sparse Attention (DSA), scalable reinforcement learning framework, and large scale agentic task synthesis pipeline.
 
 ## Managed API (MaaS) specifications
