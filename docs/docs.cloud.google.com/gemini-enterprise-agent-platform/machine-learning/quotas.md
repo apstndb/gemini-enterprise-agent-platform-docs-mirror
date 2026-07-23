@@ -7569,8 +7569,6 @@ The following limits apply:
 | Concurrent `ImportRagFiles` requests                 |  3 RPM | `VertexRagService concurrent import requests per region` |
 | Maximum number of files per `ImportRagFiles` request | 10,000 | `VertexRagService import rag files requests per region`  |
 
-For more rate limits and quotas, see [Generative AI on Gemini Enterprise Agent Platform rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas) .
-
 | Service                     |  Quota | Metric                                                            |
 | --------------------------- | -----: | ----------------------------------------------------------------- |
 | `AsyncRetrieveContexts` API | 60 RPM | `VertexRagService async retrieval requests per minute per region` |
@@ -7632,11 +7630,11 @@ The following quotas apply to Generative AI on Gemini Enterprise Agent Platform 
 
 Requests for `gemini-embedding-001` are subject to regional quotas, while requests for `gemini-embedding-2` are subject to global quotas.
 
-| Base model                      | Quota      | Metric                                                                                  |
-| ------------------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| base\_model: gemini-embedding   | 5,000,000  | `aiplatform.googleapis.com/embed_content_input_tokens_per_minute_per_base_model`        |
-| base\_model: gemini-embedding-2 | 10,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
-| base\_model: gemini-embedding-2 | 40,000     | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
+| Base model                      | Quota       | Metric                                                                                  |
+| ------------------------------- | ----------- | --------------------------------------------------------------------------------------- |
+| base\_model: gemini-embedding   | 100,000,000 | `aiplatform.googleapis.com/embed_content_input_tokens_per_minute_per_base_model`        |
+| base\_model: gemini-embedding-2 | 200,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
+| base\_model: gemini-embedding-2 | 60,000      | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
 
 Requests for `gemini-embedding-001` using the `predict` API are also subject to the following quotas:
 

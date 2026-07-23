@@ -73,9 +73,191 @@ If you prefer to manage your Parallel billing and API access separately, you can
 
 ## Ground Gemini responses with Parallel
 
-Request grounded responses from Gemini by using the REST API as follows. For best performance, we recommend using default settings for optional parameters unless you strictly require non-default values.
+Request grounded responses from Gemini by using Agent Studio in the Google Cloud console, the Google Gen AI SDK, or the REST API. For best performance, we recommend using default settings for optional parameters unless you strictly require non-default values.
 
 If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), verify that the billing account used for your subscription is active in your Google Cloud project.
+
+Before you run the samples, complete the [prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#before-you-begin) , including [subscribing on Google Cloud Marketplace](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#subscribe-on-marketplace) or providing a Parallel API key.
+
+Each SDK sample reads your project and location from the environment variables shown in its tab. In the sample code, replace `MODEL_ID` with a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) ID, such as `gemini-2.5-flash` .
+
+### Console
+
+To ground Gemini responses with Parallel Web Search by using Agent Studio on Gemini Enterprise Agent Platform, follow these steps:
+
+1.  In the Google Cloud console, go to the **Agent Studio** page.
+
+2.  In the side panel, under **Model settings** , in the **Grounding** section, turn on the **Partners** toggle ( **Search results from grounding partners** ).
+
+3.  Select **Parallel Web Search** as the grounding partner, and then click **Apply** . To use Parallel Web Search, you must first [subscribe to it on Google Cloud Marketplace](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#subscribe-on-marketplace) .
+
+4.  Enter your prompt in the text box and submit it.
+
+Your prompt responses now use Grounding with Parallel Web Search.
+
+### Python
+
+#### Install
+
+    pip install --upgrade google-genai
+
+To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
+
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+    from google import genai
+    from google.genai import types
+    
+    client = genai.Client()
+    
+    response = client.models.generate_content(
+        model="MODEL_ID",
+        contents="Who won the 2025 Las Vegas F1 Grand Prix?",
+        config=types.GenerateContentConfig(
+            tools=[
+                types.Tool(
+                    parallel_ai_search=types.ToolParallelAiSearch(
+                        # Optional. Omit api_key if you subscribed to Grounding with
+                        # Parallel Web Search on Google Cloud Marketplace. Otherwise,
+                        # provide your Parallel API key.
+                        # api_key="API_KEY",
+                        # Optional. Customize the search. See the REST tab for the
+                        # full list of supported parameters. Keys inside custom_configs
+                        # are Parallel.ai Search API params (snake_case).
+                        custom_configs={
+                            "mode": "basic",
+                            "max_results": 10,
+                            "source_policy": {"include_domains": ["wikipedia.org"]},
+                        },
+                    )
+                )
+            ],
+        ),
+    )
+    
+    print(response.text)
+    # Example response:
+    # Max Verstappen won the 2025 Las Vegas F1 Grand Prix ...
+    
+    # The grounding metadata contains the web sources used to ground the response.
+    print(response.candidates[0].grounding_metadata.grounding_chunks)
+
+To customize the search, set the `custom_configs` field of `ToolParallelAiSearch` . This field accepts the same optional parameters that are described in the **REST** tab, such as `source_policy` , `excerpts` , `max_results` , and `mode` .
+
+### Java
+
+Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
+
+To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
+
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+    import com.google.genai.Client;
+    import com.google.genai.types.GenerateContentConfig;
+    import com.google.genai.types.GenerateContentResponse;
+    import com.google.genai.types.Tool;
+    import com.google.genai.types.ToolParallelAiSearch;
+    import java.util.List;
+    import java.util.Map;
+    
+    public class ParallelGroundingSample {
+      public static void main(String[] args) {
+        try (Client client = Client.builder().build()) {
+    
+          GenerateContentConfig config =
+              GenerateContentConfig.builder()
+                  .tools(
+                      // Omit apiKey if you subscribed to Grounding with Parallel Web
+                      // Search on Google Cloud Marketplace. Otherwise, set apiKey to
+                      // your Parallel API key.
+                      Tool.builder()
+                          .parallelAiSearch(
+                              ToolParallelAiSearch.builder()
+                                  // Optional. Customize the search. See the REST tab
+                                  // for the full list of supported parameters. Keys
+                                  // inside customConfigs are Parallel.ai Search API
+                                  // params (snake_case).
+                                  .customConfigs(
+                                      Map.of(
+                                          "mode", "basic",
+                                          "max_results", 10,
+                                          "source_policy",
+                                          Map.of(
+                                              "include_domains",
+                                              List.of("wikipedia.org"))))
+                                  .build())
+                          .build())
+                  .build();
+    
+          GenerateContentResponse response =
+              client.models.generateContent(
+                  "MODEL_ID", "Who won the 2025 Las Vegas F1 Grand Prix?", config);
+    
+          System.out.println(response.text());
+        }
+      }
+    }
+
+To customize the search, set the `customConfigs` field of `ToolParallelAiSearch` . This field accepts the same optional parameters that are described in the **REST** tab, such as `source_policy` , `excerpts` , `max_results` , and `mode` .
+
+### Node.js
+
+#### Install
+
+    npm install @google/genai
+
+To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
+
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+    import {GoogleGenAI} from '@google/genai';
+    
+    const ai = new GoogleGenAI({});
+    
+    const response = await ai.models.generateContent({
+      model: 'MODEL_ID',
+      contents: 'Who won the 2025 Las Vegas F1 Grand Prix?',
+      config: {
+        tools: [
+          // Omit apiKey if you subscribed to Grounding with Parallel Web Search on
+          // Google Cloud Marketplace. Otherwise, set apiKey to your Parallel API key.
+          {
+            parallelAiSearch: {
+              // Optional. Customize the search. See the REST tab for the full
+              // list of supported parameters. Keys inside customConfigs are
+              // Parallel.ai Search API params (snake_case).
+              customConfigs: {
+                mode: 'basic',
+                max_results: 10,
+                source_policy: {include_domains: ['wikipedia.org']},
+              },
+            },
+          },
+        ],
+      },
+    });
+    
+    console.log(response.text);
+
+To customize the search, set the `customConfigs` field of the `parallelAiSearch` tool. This field accepts the same optional parameters that are described in the **REST** tab, such as `source_policy` , `excerpts` , `max_results` , and `mode` .
 
 ### REST
 

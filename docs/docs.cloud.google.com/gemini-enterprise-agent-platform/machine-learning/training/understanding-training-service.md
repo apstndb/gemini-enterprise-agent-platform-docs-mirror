@@ -14,7 +14,7 @@ This section explains how Agent Platform handles worker VMs through the lifecycl
 
 ### Queue a new job
 
-When you create a `CustomJob` or `HyperparameterTuningJob` , the job might remain in the [`JOB_STATE_QUEUED` state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/JobState) for some time before Agent Platform runs it. This period is usually brief, but if your Google Cloud project does not have sufficient remaining [custom training quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#training) for your job, then Agent Platform keeps the job queued until you have sufficient quotas.
+When you create a `CustomJob` or `HyperparameterTuningJob` , the job might remain in the [`JOB_STATE_QUEUED` state](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/JobState) for some time before Agent Platform runs it. This period is usually brief, but if your Google Cloud project does not have sufficient remaining [custom training quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas#training) for your job, then Agent Platform keeps the job queued until you have sufficient quotas.
 
 ### Start workers in parallel
 

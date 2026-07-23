@@ -415,7 +415,7 @@ A single evaluation request for a model-based metric results in multiple underly
 
 If you're using the default judge model of `gemini-2.0-flash` or newer models, we recommend that you use [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) to manage your quota.
 
-For models older than `gemini-2.0-flash` , use the following instructions to increase the [judge model RPM quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#quotas_by_region_and_model) :
+For models older than `gemini-2.0-flash` , use the following instructions to increase the [judge model RPM quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#eval-quotas) :
 
 1.  In the Google Cloud console, go to the IAM & Admin **Quotas** page.  
 

@@ -688,15 +688,13 @@ Consider the following features and constraints when when migrating:
 
 ## FAQ
 
-1.  **What is the knowledge cutoff for Gemini 3?** Gemini 3 has a knowledge cutoff of January 2025.
+1.  **Which region is** `gemini-3.1-pro-preview` **available on Google Cloud?** Global.
 
-2.  **Which region is** `gemini-3.1-pro-preview` **available on Google Cloud?** Global.
+2.  **What are the context window limits?** Gemini 3 models support a 1 million token input context window and up to 64k tokens of output.
 
-3.  **What are the context window limits?** Gemini 3 models support a 1 million token input context window and up to 64k tokens of output.
+3.  Does `gemini-3.1-pro-preview` support image output? No.
 
-4.  Does `gemini-3.1-pro-preview` support image output? No.
-
-5.  Does `gemini-3.1-pro-preview` support [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) ? No.
+4.  Does `gemini-3.1-pro-preview` support [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api) ? No.
 
 ## What's next
 

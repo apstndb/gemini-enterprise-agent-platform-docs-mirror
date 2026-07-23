@@ -25,6 +25,8 @@ data_source: docs.cloud.google.com
   - `  VideoGenerationModelResult  ` (message)
   - `  VideoObjectTrackingPredictionResult  ` (message)
   - `  VideoObjectTrackingPredictionResult.Frame  ` (message)
+  - `  VirtualTryOnModelResult  ` (message)
+  - `  VirtualTryOnModelResult.Image  ` (message)
   - `  VisionEmbeddingModelResult  ` (message)
   - `  VisionEmbeddingModelResult.VideoEmbedding  ` (message)
 
@@ -477,6 +479,52 @@ The topmost coordinate of the bounding box.
 `  FloatValue  `
 
 The bottommost coordinate of the bounding box.
+
+## VirtualTryOnModelResult
+
+Represents the output of a Virtual Try-On prediction.
+
+Fields
+
+`images[]`
+
+`  Image  `
+
+A list of generated images. The number of images returned is equal to the `sample_count` parameter provided in the request.
+
+## Image
+
+Contains a generated image or information about why the image was filtered out.
+
+Fields
+
+`mime_type`
+
+`string`
+
+The MIME type of the generated image.
+
+Supported values are: \* `image/png` \* `image/jpeg`
+
+Union field `data` . The generated image data or filtering reason. `data` can be only one of the following:
+
+`bytes_base64_encoded`
+
+`string`
+
+The generated image encoded as a base64 encoded bytes string.
+
+`gcs_uri`
+
+`string`
+
+The Google Cloud Storage URI where the generated image is stored.
+
+`rai_filtered_reason`
+
+`string`
+
+The reason why the generated image was filtered out by Responsible AI checks. If this field is present, no image is returned.
 
 ## VisionEmbeddingModelResult
 

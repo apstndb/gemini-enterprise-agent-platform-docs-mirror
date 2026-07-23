@@ -244,7 +244,7 @@ Because the offline store is provisioned by BigQuery, data retention limits or q
 
 ## Quotas and limits
 
-Agent Platform Feature Store enforces quotas and limits to help you manage resources by setting usage limits, and to protect the community of Google Cloud users by preventing unforeseen spikes in usage. To efficiently use Agent Platform Feature Store resources without hitting these constraints, review the [Agent Platform Feature Store quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#feature_store) .
+Agent Platform Feature Store enforces quotas and limits to help you manage resources by setting usage limits, and to protect the community of Google Cloud users by preventing unforeseen spikes in usage. To efficiently use Agent Platform Feature Store resources without hitting these constraints, review the [Agent Platform Feature Store quotas and limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas#feature_store) .
 
 ## Pricing
 

@@ -30,6 +30,8 @@ This page describes how to route Agent Runtime traffic through Agent Gateway. Ag
 
   - In Client-to-Agent (ingress) mode, Agent Gateway can only govern Agent Runtime's `query` and `streamQuery` methods. To protect other unsupported methods (such as `asyncQuery` ), you can apply Model Armor templates directly from your application or agent. See [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses) or this codelab on [Building a secure agent system with Model Armor](https://codelabs.developers.google.com/secure-agent-modelarmor) .
 
+  - VPC Service Controls are not supported with Agent Gateway.
+
 ## Route Agent Runtime traffic through Agent Gateway
 
 To route Agent Runtime traffic through Agent Gateway, perform the following steps:

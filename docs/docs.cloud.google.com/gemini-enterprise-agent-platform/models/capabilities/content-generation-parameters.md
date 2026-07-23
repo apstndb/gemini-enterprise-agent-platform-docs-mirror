@@ -48,11 +48,11 @@ The parameters in this section allow you to control the likelihood of tokens bei
 
 ### Frequency penalty
 
-Positive values penalize tokens that repeatedly appear in the generated text, decreasing the probability of repeating content. The minimum value is `-2.0` . The maximum value is up to, but not including, `2.0` . For more information, see [`frequencyPenalty`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#frequencyPenalty) .
+Positive values penalize tokens that repeatedly appear in the generated text, decreasing the probability of repeating content. The minimum value is `-2.0` . The maximum value is up to, but not including, `2.0` . For more information, see [`frequencyPenalty` in the `GenerationConfig` documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GenerationConfig) .
 
 ### Presence penalty
 
-Positive values penalize tokens that already appear in the generated text, increasing the probability of generating more diverse content. The minimum value is `-2.0` . The maximum value is up to, but not including, `2.0` . For more information, see [`presencePenalty`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#presencePenalty) .
+Positive values penalize tokens that already appear in the generated text, increasing the probability of generating more diverse content. The minimum value is `-2.0` . The maximum value is up to, but not including, `2.0` . For more information, see [`presencePenalty` in the `GenerationConfig` documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GenerationConfig) .
 
 ## Advanced parameters
 

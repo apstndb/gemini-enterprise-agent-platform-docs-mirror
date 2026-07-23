@@ -176,3 +176,9 @@ Guide
 ### [Evaluate your agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents)
 
 Create and deploy a basic agent and use the Gen AI evaluation service to evaluate the agent
+
+Resource
+
+### [Gemini Enterprise Agent Ready](https://developers.google.com/program/gear)
+
+Go from prototyping with Gemini to deploying secure, enterprise-grade agents with hands-on training and guidance from Google experts.

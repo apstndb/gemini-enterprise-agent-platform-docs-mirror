@@ -11,11 +11,13 @@ data_source: docs.cloud.google.com
   - `  ImageClassificationPredictionParams  ` (message)
   - `  ImageObjectDetectionPredictionParams  ` (message)
   - `  ImageSegmentationPredictionParams  ` (message)
+  - `  OutputOptions  ` (message)
   - `  TextEmbeddingPredictionParams  ` (message)
   - `  VideoActionRecognitionPredictionParams  ` (message)
   - `  VideoClassificationPredictionParams  ` (message)
   - `  VideoGenerationModelParams  ` (message)
   - `  VideoObjectTrackingPredictionParams  ` (message)
+  - `  VirtualTryOnModelParams  ` (message)
   - `  VisionEmbeddingModelParams  ` (message)
 
 ## ImageClassificationPredictionParams
@@ -65,6 +67,33 @@ Fields
 `float`
 
 When the model predicts category of pixels of the image, it will only provide predictions for pixels that it is at least this much confident about. All other pixels will be classified as background. Default value is 0.5.
+
+## OutputOptions
+
+Configuration options for the output image.
+
+Fields
+
+`mime_type`
+
+`string`
+
+The MIME type of the output image.
+
+The following values are supported:
+
+  - `image/jpeg`
+  - `image/png`
+
+If not set, defaults to `image/png` .
+
+`compression_quality`
+
+`int32`
+
+Specifies the compression quality for JPEG images. Accepted values are in the range \[0, 100\].
+
+If not set, defaults to `75` .
 
 ## TextEmbeddingPredictionParams
 
@@ -263,6 +292,93 @@ The model only returns up to that many top, by confidence score, predictions per
 `float`
 
 Only bounding boxes with shortest edge at least that long as a relative value of video frame size are returned. Default value is 0.0.
+
+## VirtualTryOnModelParams
+
+Represents the parameters for a Virtual Try-On prediction request.
+
+Fields
+
+`output_options`
+
+`  OutputOptions  `
+
+Options for configuring the output image format.
+
+`sample_count`
+
+`int32`
+
+The number of images to generate. Accepted values are in the range \[1,4\].
+
+If not set, defaults to `1` .
+
+`storage_uri`
+
+`string`
+
+The Google Cloud Storage location where the generated images are stored.
+
+`seed`
+
+`int32`
+
+The random seed for image generation. This avoids randomness in generating the output images.
+
+If a `  seed  ` value is provided, `  add_watermark  ` must be set to `false` .
+
+`base_steps`
+
+`int32`
+
+The number of diffusion steps to run. The higher the number of steps, the higher the quality of the generated image, but the greater the latency.
+
+If not set, defaults to `32` .
+
+`safety_setting`
+
+`string`
+
+Safety filter level for generated images. The filter blocks images that contain objectionable content.
+
+The following values are supported:
+
+  - `block-low-and-above` : Strongest filtering level, most strict blocking.
+  - `block-medium-and-above` : Block some problematic content prompts and responses.
+  - `block-only-high` : Reduces the number of requests blocked due to safety filters. May increase objectionable content in generated images.
+  - `block-none` : Block very few problematic prompts and responses. Access to this feature is restricted.
+
+If not set, defaults to `block_medium_and_above` .
+
+`person_generation`
+
+`string`
+
+Controls whether or not faces or people are included in generated images.
+
+The following values are supported:
+
+  - `dont-allow` : Disallow the inclusion of faces or people in generated images.
+  - `allow-adult` : Allow generation of adults only.
+  - `allow-all` : Allow generation of people of all ages.
+
+If not set, defaults to `allow-adult` .
+
+`add_watermark`
+
+`bool`
+
+Whether to add a watermark to the generated images.
+
+If not set, defaults to `true` .
+
+`enhance_prompt`
+
+`bool`
+
+Whether to enhance the user-provided prompt internally for models that support it.
+
+If not set, defaults to `true` .
 
 ## VisionEmbeddingModelParams
 

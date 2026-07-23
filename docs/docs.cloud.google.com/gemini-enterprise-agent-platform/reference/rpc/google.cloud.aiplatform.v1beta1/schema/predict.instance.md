@@ -24,6 +24,12 @@ data_source: docs.cloud.google.com
   - `  VideoGenerationModelInstance.ReferenceImage  ` (message)
   - `  VideoGenerationModelInstance.Video  ` (message)
   - `  VideoObjectTrackingPredictionInstance  ` (message)
+  - `  VirtualTryOnModelInstance  ` (message)
+  - `  VirtualTryOnModelInstance.Image  ` (message)
+  - `  VirtualTryOnModelInstance.PersonImage  ` (message)
+  - `  VirtualTryOnModelInstance.ProductImage  ` (message)
+  - `  VirtualTryOnModelInstance.ProductImageConfig  ` (message)
+  - `  VirtualTryOnModelInstance.ProductImageConfig.MaskMode  ` (enum)
   - `  VisionEmbeddingModelInstance  ` (message)
   - `  VisionEmbeddingModelInstance.Image  ` (message)
   - `  VisionEmbeddingModelInstance.Video  ` (message)
@@ -448,6 +454,142 @@ The beginning, inclusive, of the video's time segment on which to perform the pr
 `string`
 
 The end, exclusive, of the video's time segment on which to perform the prediction. Expressed as a number of seconds as measured from the start of the video, with "s" appended at the end. Fractions are allowed, up to a microsecond precision, and "inf" or "Infinity" is allowed, which means the end of the video.
+
+## VirtualTryOnModelInstance
+
+Media generation input format for the Virtual Try On model.
+
+Fields
+
+`prompt`
+
+`string`
+
+The text prompt describing the desired image.
+
+`product_images[]`
+
+`  ProductImage  `
+
+Required. A single product image to try on the person.
+
+`person_image`
+
+`  PersonImage  `
+
+The image of the person to virtually try-on clothing.
+
+## Image
+
+Represents the input image and metadata for virtual try-on.
+
+Fields
+
+`mime_type`
+
+`string`
+
+The MIME type of the image. The following values are supported: - image/jpeg - image/png
+
+Union field `data` . Image content for virtual try-on. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location. `data` can be only one of the following:
+
+`bytes_base64_encoded`
+
+`string`
+
+The base64-encoded bytes of the image.
+
+`gcs_uri`
+
+`string`
+
+The Google Cloud Storage URI of the image. The URI must be in `gs://` format.
+
+## PersonImage
+
+An image of a person. The model generates a virtual try-on image with the supplied image of the person wearing the garments from `product_images` .
+
+Fields
+
+`image`
+
+`  Image  `
+
+Required. An image of a person to try-on the clothing product. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location.
+
+## ProductImage
+
+A ProductImage is used to provide the product image and its associated configuration options for Virtual Try On.
+
+Fields
+
+`image`
+
+`  Image  `
+
+Required. An image of a product to virtually try on a person. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location.
+
+`mask_image`
+
+`  Image  `
+
+(Optional) The mask image associated with this product. If provided, the mask image is used to guide the image editing.
+
+`product_image_config`
+
+`  ProductImageConfig  `
+
+The configuration for the product image.
+
+## ProductImageConfig
+
+Configuration for the product image.
+
+Fields
+
+`mask_mode`
+
+`  MaskMode  `
+
+Mode used to control the segmentation logic.
+
+`dilation`
+
+`float`
+
+(Optional) Factor for dilating the mask. Valid values are in \[0.0, 1.0\]. If unset, dilation defaults to `0` .
+
+`product_description`
+
+`string`
+
+(Optional) A text description of the product.
+
+## MaskMode
+
+The mode for generating a mask for the product image if `  ProductImage.mask_image  ` is not provided. A mask is an image that specifies the region of the garment to be worn.
+
+Enums
+
+`MASK_MODE_DEFAULT`
+
+If unspecified, the service uses a default mode for mask generation.
+
+`MASK_MODE_USER_PROVIDED`
+
+Use the mask provided in `  ProductImage.mask_image  ` . No mask generation is performed.
+
+`MASK_MODE_DETECTION_BOX`
+
+Generate a mask from detected bounding boxes in `  ProductImage.image  ` .
+
+`MASK_MODE_CLOTHING_AREA`
+
+Generate a mask by segmenting the clothing area in `  ProductImage.image  ` .
+
+`MASK_MODE_PARSED_PERSON`
+
+Generate a mask by segmenting the person and clothing in `  ProductImage.image  ` .
 
 ## VisionEmbeddingModelInstance
 
