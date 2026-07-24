@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction
 title: Introduction to Agent Platform Workbench
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about Agent Platform Workbench, a Jupyter notebook-based development environment for the entire data science workflow
 data_source: docs.cloud.google.com
 ---
 

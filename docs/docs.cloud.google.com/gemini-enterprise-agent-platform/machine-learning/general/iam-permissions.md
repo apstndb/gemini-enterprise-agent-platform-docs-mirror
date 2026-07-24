@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions
 title: Gemini Enterprise Agent Platform IAM permissions
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about the required permissions for specific Agent Platform operations.
 data_source: docs.cloud.google.com
 ---
 

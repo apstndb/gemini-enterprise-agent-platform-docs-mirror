@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/add-environment
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/add-environment
 title: Add a conda environment to a Agent Platform Workbench instance
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to add a conda environment to a Agent Platform Workbench instance
 data_source: docs.cloud.google.com
 ---
 

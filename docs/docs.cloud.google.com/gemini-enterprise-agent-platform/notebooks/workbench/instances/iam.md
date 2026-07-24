@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam
 title: Agent Platform Workbench instances access control
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Grant a principal access to a Agent Platform Workbench instance and JupyterLab interface
 data_source: docs.cloud.google.com
 ---
 

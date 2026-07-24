@@ -62,8 +62,6 @@ The LLM parser calls Gemini models to parse your documents. This creates additio
 
 For example, you have 1,000 PDF files, and each PDF file has 50 pages. The average PDF page has 500 tokens, and we need an additional 100 tokens for prompting. The average output is 100 tokens.
 
-Gemini 2.0 Flash-Lite is used in your configuration for parsing, and it costs $0.075 for 1M input tokens and $0.3 for output text tokens.
-
 > **Note:** This example is for an educational purpose on how to estimate your cost. It doesn't reflect the real cost you pay for every indexing request using the LLM parser.
 
     cost = 1,000 * 50 * (600 * 0.075 / 1M + 100 * 0.3 / 1M) = 3.75

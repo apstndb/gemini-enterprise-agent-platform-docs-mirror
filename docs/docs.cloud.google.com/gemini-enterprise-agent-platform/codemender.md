@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/codemender
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender
 title: CodeMender overview
-description: Learn about CodeMender, an AI code security agent that can autonomously find, verify, and fix deep vulnerabilities in your codebase.
+description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
@@ -54,6 +54,32 @@ CodeMender supports the following models:
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 
 To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender#specifying-the-model) .
+
+## Track token usage
+
+CodeMender surfaces token consumption in two places: a live status line while a command runs, and a one-line summary when a command completes successfully. Counts cover input, output, and total tokens for the current session.
+
+### Live status line
+
+While `cm find` , `cm fix` , `cm verify` , or `cm session resume` is running, pass the `--compact` flag to display a rolling status line that updates as the agent works:
+
+    cm find ./src/auth/ --compact
+
+The status line reports cumulative session totals:
+
+    Tokens: 40k in / 12k out / 60k total
+
+Resumed sessions continue counting from where the prior run left off. The `total` count may include the model's internal reasoning tokens, so it can exceed `in + out` .
+
+### Exit summary
+
+When a command finishes successfully and at least one tool step was executed, CodeMender prints a one-line summary with elapsed time and token totals:
+
+    ✅ Completed 14 tool steps in 3m 42s | Tokens: 40k in / 12k out / 60k total
+
+### Billed token usage
+
+To view cumulative billed token usage and cost trends across your Google Cloud project, see [View your billing reports and cost trends](https://docs.cloud.google.com/billing/docs/how-to/reports) in Cloud Billing.
 
 ## Security and data privacy
 

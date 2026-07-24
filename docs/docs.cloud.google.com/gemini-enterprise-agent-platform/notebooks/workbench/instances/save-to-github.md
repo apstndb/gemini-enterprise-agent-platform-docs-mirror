@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/save-to-github
 title: Save a notebook to GitHub
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Save a notebook file to GitHub in a Agent Platform Workbench instance.
 data_source: docs.cloud.google.com
 ---
 

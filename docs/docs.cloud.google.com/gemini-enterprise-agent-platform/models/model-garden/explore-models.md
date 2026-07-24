@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models
 title: Overview of Model Garden
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Jumpstart your ML project with a single place to discover, customize, and deploy a wide variety of models from Google and Google partners. Model Garden provides a collection of pre-trained models and assets that you can use to build and deploy your own AI applications.
 data_source: docs.cloud.google.com
 ---
 

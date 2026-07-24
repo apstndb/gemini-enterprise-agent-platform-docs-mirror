@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/service-perimeter
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/service-perimeter
 title: Use a Agent Platform Workbench instance within a service perimeter
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to make a Agent Platform Workbench instance more secure by using a service perimeter
 data_source: docs.cloud.google.com
 ---
 

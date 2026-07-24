@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/quickstart
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/quickstart
 title: Test model capabilities in Model Garden
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Test model parameters and output by using demo playgrounds in Model Garden.
 data_source: docs.cloud.google.com
 ---
 

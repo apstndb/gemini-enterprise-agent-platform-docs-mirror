@@ -648,13 +648,19 @@ Specify the appropriate response type to avoid unintended behaviors. For example
 
 `text/plain` isn't supported for use with `responseSchema` .
 
+> **Caution:** Setting `responseMimeType` to `application/json` (JSON mode) without specifying a [`responseSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#responseSchema) acts only as a strong hint to the model and doesn't ensure 100% valid JSON. Because JSON mode lacks strict schema enforcement, type checking, and relationship constraints, complex payloads can occasionally result in trailing characters or malformed outputs.
+> 
+> To ensure 100% valid JSON objects, requests must include **both** a `responseSchema` and `responseMimeType: "application/json"` . As a best practice, if your use case prevents you from pre-defining a schema, implement a client-side JSON validator with a retry mechanism.
+
 `responseSchema`
 
 Optional: [schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Schema)
 
 The schema that generated candidate text must follow. For more information, see [Control generated output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) .
 
-To use this parameter, you must specify a supported mime type other than `text/plain` for the `responseMimeType` parameter.
+To use this parameter, you must specify a supported MIME type other than `text/plain` for the [`responseMimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#responseMimeType) parameter.
+
+To ensure 100% valid JSON objects, requests must include both a `responseSchema` and `responseMimeType` set to `application/json` .
 
 `seed`
 

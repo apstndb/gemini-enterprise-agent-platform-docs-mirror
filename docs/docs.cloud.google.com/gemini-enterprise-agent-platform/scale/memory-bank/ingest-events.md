@@ -38,12 +38,14 @@ Multiple ingestion calls to the same stream return the same LRO until memory gen
 
 If no trigger conditions are met, all pending events in a stream are automatically flushed out 24 hours after the last event is ingested. This limit ensures Memory Bank processes all events, including ones that have been abandoned.
 
-The `generation_trigger_config` determines when the collected events are flushed and processed for memory generation. You can use one of the following trigger conditions:
+The `generation_trigger_config` determines when the collected events are flushed and processed for memory generation. You can configure the following trigger conditions:
 
   - **Event count** ( `event_count` ): Generation triggers once the number of unique events accumulated reaches the limit.
   - **Inactive time** ( `idle_duration` , in seconds with minute granularity, meaning you must specify a multiple of 60): Generation is triggered when the stream hasn't received new events after the specified duration (for example, `"300s"` ).
   - **Fixed interval** ( `fixed_interval` , in seconds with minute granularity, meaning you must specify a multiple of 60): Generation executes on a fixed rhythm, polling for delta events after every specified duration (for example, `"300s"` ).
   - **Force flush** ( `force_flush` ): Flush all the pending events immediately.
+
+You can combine an event-count rule with a time-based rule in the same `generation_rule` . For example, you can set `event_count` together with `idle_duration` . When more than one condition is configured, generation is triggered as soon as any one of them is met, whichever occurs first. The two time-based conditions are mutually exclusive: a single rule can specify either `idle_duration` or `fixed_interval` , but not both. The `force_flush` field is independent of these rules and always flushes pending events immediately.
 
 The API uses the `event_id` to deduplicate data automatically. By providing a unique ID for each event, only new events are added to the buffer.
 
@@ -163,6 +165,63 @@ This example triggers generation when the stream has not received a new event fo
         ),
         generation_trigger_config=types.MemoryGenerationTriggerConfig(
             generation_rule=types.MemoryGenerationTriggerConfigGenerationTriggerRule(
+                idle_duration="300s"
+            )
+        ),
+        scope={"user_id": "123"}
+    )
+
+#### Example: Combine event-based and time-based triggers
+
+This example configures two trigger conditions in the same request. Generation runs when either 10 unique events accumulate or the stream is idle for 5 minutes ( `300s` ), whichever occurs first.
+
+### Dictionary
+
+    client.agent_engines.memories.ingest_events(
+        name=memory_bank.api_resource.name,
+        stream_id="my-custom-stream",
+        direct_contents_source={
+            "events": [
+                {
+                    "content": {
+                        "role": "user",
+                        "parts": [{"text": "Let's keep this conversation going."}]
+                    },
+                    "event_id": "event-3" # Optional, used for deduplication.
+                }
+            ]
+        },
+        generation_trigger_config={
+            "generation_rule": {
+                "event_count": 10,
+                "idle_duration": "300s"
+            }
+        },
+        scope={"user_id": "123"}
+    )
+
+### Class-based
+
+    from google import genai
+    from agentplatform import types
+    
+    client.agent_engines.memories.ingest_events(
+        name=memory_bank.api_resource.name,
+        stream_id="my-custom-stream",
+        direct_contents_source=types.IngestionDirectContentsSource(
+            events=[
+                types.IngestionDirectContentsSourceEvent(
+                    content=genai.types.Content(
+                        role="user",
+                        parts=[genai.types.Part.from_text(text="Let's keep this conversation going.")]
+                    ),
+                    event_id="event-3" # Optional, used for deduplication.
+                )
+            ]
+        ),
+        generation_trigger_config=types.MemoryGenerationTriggerConfig(
+            generation_rule=types.MemoryGenerationTriggerConfigGenerationTriggerRule(
+                event_count=10,
                 idle_duration="300s"
             )
         ),

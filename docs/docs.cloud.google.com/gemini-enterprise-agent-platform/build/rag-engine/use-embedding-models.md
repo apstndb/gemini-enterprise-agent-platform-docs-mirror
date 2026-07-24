@@ -51,7 +51,7 @@ Embedding models are used to create a corpus and used for search and retrieval d
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">text-embedding-004</code></td>
-<td></td>
+<td><code dir="ltr" translate="no">text-embedding-004</code> is accessed directly through the embedding API and isn't available in Model Garden.</td>
 </tr>
 <tr class="odd">
 <td><code dir="ltr" translate="no">text-multilingual-embedding-002</code></td>

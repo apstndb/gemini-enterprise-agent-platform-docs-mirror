@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-mlops
 title: MLOps on Gemini Enterprise Agent Platform
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Gemini Enterprise Agent Platform MLOps tools help you coordinate steps of your ML workflow and improve your models through predictive model monitoring, alerting, diagnosis, and actionable explanations. All the tools are modular, so you can integrate them into your existing systems as needed.
 data_source: docs.cloud.google.com
 ---
 

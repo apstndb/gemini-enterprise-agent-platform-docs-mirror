@@ -1,1 +1,2 @@
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er

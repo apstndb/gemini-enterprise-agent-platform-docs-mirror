@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cloud-storage
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cloud-storage
 title: Access Cloud Storage buckets and files in JupyterLab in a Agent Platform Workbench instance.
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to access Cloud Storage buckets and files in JupyterLab in a Agent Platform Workbench instance
 data_source: docs.cloud.google.com
 ---
 

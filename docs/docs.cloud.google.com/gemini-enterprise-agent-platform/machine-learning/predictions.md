@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions
 title: Overview of getting inferences on Agent Platform
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Get online and batch inferences using Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 

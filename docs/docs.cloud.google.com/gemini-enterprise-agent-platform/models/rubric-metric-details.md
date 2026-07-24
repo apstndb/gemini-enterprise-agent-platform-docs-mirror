@@ -6,7 +6,7 @@ description: Understand Agent Platform's managed rubric-based metrics for test-d
 data_source: docs.cloud.google.com
 ---
 
-This page provides a full list of managed rubric-based metrics offered by the Gen AI evaluation service, which you can use in the GenAI Client in Vertex AI SDK.
+This page provides a full list of managed rubric-based metrics offered by the Gen AI evaluation service, which you can use in the GenAI Client in Agent Platform SDK.
 
 For more information about test-driven evaluation, see [Define your evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval) .
 
@@ -27,7 +27,7 @@ Each managed rubric-based metric has a versioning number. The metric uses the la
 
 ## Backward compatibility
 
-For metrics offered as a [Metric prompt templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/metrics-templates) , you can still access the pointwise metrics through the GenAI Client in Vertex AI SDK through the same approach. Pairwise metrics are not supported by the GenAI Client in Vertex AI SDK, but see [Run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) to compare two models in the same evaluation.
+For metrics offered as a [Metric prompt templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/metrics-templates) , you can still access the pointwise metrics through the GenAI Client in Agent Platform SDK through the same approach. Pairwise metrics are not supported by the GenAI Client in Agent Platform SDK, but see [Run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) to compare two models in the same evaluation.
 
     from vertexai import types
     

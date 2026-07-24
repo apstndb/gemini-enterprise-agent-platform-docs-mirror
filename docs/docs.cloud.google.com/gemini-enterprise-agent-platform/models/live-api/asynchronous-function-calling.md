@@ -152,7 +152,7 @@ If you omit the `scheduling` field, Gemini Live API uses its original method for
 
 The following Python example shows how to format and send a `function_response` with `scheduling="WHEN_IDLE"` to wait for a natural pause in conversation before announcing results:
 
-    aearcync def background_flight_search(call_id, args, session):
+    async def background_flight_search(call_id, args, session):
         # 1. Simulate a slow API call taking 5 seconds
         await asyncio.sleep(5)
         flight_data = ["Air Canada AC758: $350", "WestJet WS12: $290"]

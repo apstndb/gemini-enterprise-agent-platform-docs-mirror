@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions
 title: Get online inferences from a custom trained model
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Get online and batch inferences using Agent Platform
 data_source: docs.cloud.google.com
 ---
 

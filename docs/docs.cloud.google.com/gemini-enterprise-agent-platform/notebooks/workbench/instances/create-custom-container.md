@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container
 title: Create a Agent Platform Workbench instance using a custom container
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Create a Gemini Enterprise Agent Platform Workbench instance based on a custom container.
 data_source: docs.cloud.google.com
 ---
 

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-model-garden
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-model-garden
 title: Get batch predictions from a self-deployed Model Garden model
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Get batch predictions from a self-deployed Model Garden model using Agent Platform
 data_source: docs.cloud.google.com
 ---
 

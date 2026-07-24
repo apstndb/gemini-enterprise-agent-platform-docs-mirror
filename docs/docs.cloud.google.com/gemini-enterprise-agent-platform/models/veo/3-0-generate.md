@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate
 title: Veo&nbsp;3
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about Veo&nbsp;3, Google's newest line of video generation models.
 data_source: docs.cloud.google.com
 ---
 

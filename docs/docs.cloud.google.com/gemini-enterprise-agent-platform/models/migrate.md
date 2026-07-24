@@ -121,23 +121,23 @@ The following sections goes over these changes in further detail.
 
 #### Upgrade to the Google Gen AI SDK
 
-If your Gemini 1.x application uses the Vertex AI SDK, switch to the Gen AI SDK. See our [Vertex AI SDK migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/genai-vertexai-sdk) for details, including code examples for making similar calls with the Gen AI SDK. Vertex AI SDK releases after June 2026 won't support Gemini, and new Gemini features are only available in the Gen AI SDK.
+If your Gemini 1.x application uses the Vertex AI SDK, switch to the Google Gen AI SDK. See our [Vertex AI SDK migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/genai-vertexai-sdk) for details, including code examples for making similar calls with the Google Gen AI SDK. Vertex AI SDK releases after June 2026 won't support Gemini, and new Gemini features are only available in the Google Gen AI SDK.
 
 We strongly recommend updating to the `google-genai` SDK version `2.0.0` or later to take advantage of all new features in Gemini 3.5 Flash and later models.
 
-If you're new to the Gen AI SDK, see the [Getting started with Google Generative AI using the Gen AI SDK](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/sdk/intro_genai_sdk.ipynb) notebook.
+If you're new to the Google Gen AI SDK, see the [Getting started with Google Generative AI using the Google Gen AI SDK](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/sdk/intro_genai_sdk.ipynb) notebook.
 
 #### Change your Gemini calls
 
 Update your prediction code to use one of the latest Gemini models. At a minimum, this means changing the model endpoint name.
 
-The exact code changes will vary based on how you built your application, especially whether you used the Gen AI SDK or the Vertex AI SDK.
+The exact code changes will vary based on how you built your application, especially whether you used the Google Gen AI SDK or the Vertex AI SDK.
 
 After making code changes, run code regression tests and other software tests to ensure your code functions as expected. This step checks whether the code functions, but not the quality of model responses.
 
 #### Fix breaking code changes
 
-  - **Dynamic retrieval** : Switch to using [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#dynamic-retrieval) . This feature requires the [Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) and isn't supported by the Vertex AI SDK.
+  - **Dynamic retrieval** : Switch to using [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#dynamic-retrieval) . This feature requires the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) and isn't supported by the Vertex AI SDK.
   - Content filters: Note the [default content filter settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters#how_to_configure_content_filters) . Change your code if it relies on a default that has changed.
   - [**`Top-K` token sampling parameter**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#top-k) : Models after `gemini-1.0-pro-vision` don't support changing the `Top-K` parameter.
   - **Thinking** : Gemini 3 Pro and later models use the `thinking_level` parameter instead of `thinking_budget` . For more information, see [Control model thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking#budget) .
@@ -263,7 +263,7 @@ If you experience an overuse of tool calls: 1. **Reduce the thinking level** ( `
 
 As you migrate, apply these tips to achieve optimal performance from your chosen Gemini model:
 
-  - For all `Gemini 3` models, sampling parameters ( `temperature` , `top_p` , and `top_k` ) are deprecated. The model manages its own sampling for optimal results. Google recommends removing these parameters from all requests.
+  - For all Gemini 3 models, sampling parameters ( `temperature` , `top_p` , and `top_k` ) are deprecated. The model manages its own sampling for optimal results. Google recommends removing these parameters from all requests.
   - Check your [system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) , [prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , and [few-shot learning examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/few-shot-examples) for any inconsistencies, contradictions, or irrelevant instructions and examples.
   - Test a more powerful model. For example, if you evaluated a Flash-Lite model, try a Flash or Pro model instead.
   - Review automated evaluation results to ensure they match human judgment, especially results using a [judge model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluate-judge-model) . Ensure your judge model instructions are clear, consistent, and unambiguous.

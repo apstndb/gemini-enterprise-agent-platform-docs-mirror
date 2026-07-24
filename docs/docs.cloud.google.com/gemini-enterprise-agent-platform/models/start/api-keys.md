@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys
 title: Get a Google Cloud API key
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to get a {{dynamic_data.site_values.cloud_name}} API key.
 data_source: docs.cloud.google.com
 ---
 

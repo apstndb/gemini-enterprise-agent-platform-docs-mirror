@@ -116,7 +116,7 @@ Platform features
 
 [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls)
 
-[Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use)
+[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use)
 
 For instructions on disabling unsupported capabilities in Gemini Enterprise Agent Platform, see [organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) .
 

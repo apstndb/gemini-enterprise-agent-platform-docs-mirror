@@ -70,7 +70,7 @@ You can enable the model to use code execution by adding it to the `tools` list 
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -128,7 +128,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -215,7 +215,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -283,7 +283,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -364,18 +364,7 @@ Before using any of the request data, make the following replacements:
       - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
       - `generateContent` : The response is returned after it's fully generated.
 
-  - `  LOCATION  ` : The region to process the request. Available options include the following:
-    
-    **Click to expand a partial list of available regions**
-    
-      - `us-central1`
-      - `us-west4`
-      - `northamerica-northeast1`
-      - `us-east4`
-      - `us-west1`
-      - `asia-northeast3`
-      - `asia-southeast1`
-      - `asia-northeast1`
+  - `  LOCATION  ` : The region to process the request.
 
   - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 

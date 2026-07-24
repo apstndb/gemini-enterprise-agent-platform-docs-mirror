@@ -28,10 +28,8 @@ Thinking is supported in the following models:
   - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
@@ -68,7 +66,7 @@ Gemini returns a response after the response is generated. Depending on the comp
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -137,7 +135,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -236,7 +234,7 @@ The following table summarizes which `thinking_level` values are supported by ea
         client = genai.Client()
         
         response = client.models.generate_content(
-            model="gemini-3.1-pro-preview",
+            model="Gemini 3.5 Flash",
             contents="How does AI work?",
             config=types.GenerateContentConfig(
                 thinking_config=types.ThinkingConfig(
@@ -272,7 +270,7 @@ The following table summarizes which `thinking_level` values are supported by ea
         client = genai.Client()
         
         response = client.models.generate_content(
-            model="gemini-3.1-pro-preview",
+            model="Gemini 3.5 Flash",
             contents="Find the race condition in this multi-threaded C++ snippet: [code here]",
             config=types.GenerateContentConfig(
                 thinking_config=types.ThinkingConfig(
@@ -318,7 +316,7 @@ If you use the `thinking_level` parameter with a model earlier than Gemini 3, th
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -370,7 +368,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -432,7 +430,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -513,7 +511,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -602,7 +600,7 @@ Thought summaries are enabled by default in Agent Studio. You can see the model'
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -676,7 +674,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -767,7 +765,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -895,7 +893,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -1005,7 +1003,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 Thought signatures are encrypted representations of the model's internal thought process that preserve the Gemini reasoning state during multi-turn conversations, especially when using [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .
 
-To ensure the model maintains full context across multiple turns of a conversation, you must return the thought signatures from previous responses in your subsequent requests, regardless of the thinking level used. If you are using the official Google Gen AI SDK (Python, Node.js, Go, or Java) and using the standard chat history features or appending the full model response to the history, thought signatures are handled automatically.
+To ensure the model maintains full context across multiple turns of a conversation, you must return the thought signatures from previous responses in your subsequent requests, regardless of the thinking level used. If you are using the official Google Google Gen AI SDK (Python, Node.js, Go, or Java) and using the standard chat history features or appending the full model response to the history, thought signatures are handled automatically.
 
 For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .
 

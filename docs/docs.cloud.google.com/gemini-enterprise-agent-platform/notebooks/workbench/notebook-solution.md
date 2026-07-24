@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution
 title: Choose a notebook solution
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: 'Learn about Agent Platform''s notebook environment options: Colab Enterprise and Agent Platform Workbench.'
 data_source: docs.cloud.google.com
 ---
 

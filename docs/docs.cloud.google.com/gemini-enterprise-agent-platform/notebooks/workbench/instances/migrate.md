@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/migrate
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/migrate
 title: Migrate data to a new Agent Platform Workbench instance
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Migrate data and files from an existing Agent Platform Workbench instance to a new one
 data_source: docs.cloud.google.com
 ---
 

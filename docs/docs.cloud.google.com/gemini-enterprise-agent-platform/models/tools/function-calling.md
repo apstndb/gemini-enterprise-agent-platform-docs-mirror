@@ -258,7 +258,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
       {
         functionResponse: {
           name: 'get_current_weather',
-          response: {name: 'get_current_weather', content: {weather: 'super nice'}},
+          response: {weather: 'super nice'},
         },
       },
     ];

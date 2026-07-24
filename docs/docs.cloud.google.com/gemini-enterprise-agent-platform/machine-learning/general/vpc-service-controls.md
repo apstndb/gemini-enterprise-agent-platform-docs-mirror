@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls
 title: VPC Service Controls with Gemini Enterprise Agent Platform
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn about how VPC Service Controls can help you mitigate the risk of data exfiltration from Agent Platform
 data_source: docs.cloud.google.com
 ---
 

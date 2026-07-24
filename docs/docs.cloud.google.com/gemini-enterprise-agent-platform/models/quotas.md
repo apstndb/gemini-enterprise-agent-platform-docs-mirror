@@ -184,7 +184,7 @@ Learn about Standard PayGo, a Agent Platform consumption option lets you pay onl
 
 Resource
 
-### [Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/models/quotas)
+### [Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas)
 
 Quotas and system limits related to Agent Platform, excluding product-specific quotas and system limits.
 

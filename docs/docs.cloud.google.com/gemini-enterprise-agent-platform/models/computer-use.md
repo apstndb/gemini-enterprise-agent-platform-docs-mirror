@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use
-title: Computer Use model and tool
+title: Computer use model and tool
 description: Learn about the Gemini Computer Use tool to automate browser tasks with UI actions like clicks and keyboard inputs, including how it works, supported actions, and safety considerations.
 data_source: docs.cloud.google.com
 ---
@@ -10,15 +10,15 @@ data_source: docs.cloud.google.com
 > 
 > This tool is a feature subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . This feature is an "Agentic AI Service" and all terms applicable to Agentic AI Services in the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) , as well as the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) , apply to use of this product. Customer agrees not to automatically bypass or circumvent any safety responses requiring end user human confirmation.
 > 
-> Pre-GA products and features are available "as is" and might have limited support. The Computer Use model and tool may be prone to errors and security vulnerabilities. Actions suggested by the Computer Use model and tool may not be appropriate nor safe; in addition, if adversarial input is present, the suggested action can be malicious. Customers should closely supervise during important tasks, and not use the Computer Use model and tool for tasks involving critical decisions, sensitive data, or actions where serious errors cannot be corrected. We encourage you to review the safety best practices outlined in this document.
+> Pre-GA products and features are available "as is" and might have limited support. The Computer use model and tool may be prone to errors and security vulnerabilities. Actions suggested by the Computer use model and tool may not be appropriate nor safe; in addition, if adversarial input is present, the suggested action can be malicious. Customers should closely supervise during important tasks, and not use the Computer use model and tool for tasks involving critical decisions, sensitive data, or actions where serious errors cannot be corrected. We encourage you to review the safety best practices outlined in this document.
 
 > To see an example of Intro to Computer Use with Gemini, run the "Introduction to Computer Use with Gemini" notebook in one of the following environments:
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/computer-use/intro_computer_use.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fcomputer-use%2Fintro_computer_use.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fcomputer-use%2Fintro_computer_use.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/computer-use/intro_computer_use.ipynb)
 
-The Gemini Computer Use model and tool lets you enable your applications to interact with and automate tasks in the browser. Using screenshots, the Computer Use model and tool can infer information about a computer screen, and perform actions by generating specific UI actions like mouse clicks and keyboard inputs. Similar to function calling, you need to write the client-side application code to receive the Computer Use model and tool function call and execute the corresponding actions.
+The Gemini Computer use model and tool lets you enable your applications to interact with and automate tasks in the browser. Using screenshots, the Computer use model and tool can infer information about a computer screen, and perform actions by generating specific UI actions like mouse clicks and keyboard inputs. Similar to function calling, you need to write the client-side application code to receive the Computer use model and tool function call and execute the corresponding actions.
 
-With the Computer Use model and tool, you can build agents that can:
+With the Computer use model and tool, you can build agents that can:
 
   - Automate repetitive data entry or form filling on websites.
   - Navigate websites to gather information.
@@ -26,38 +26,35 @@ With the Computer Use model and tool, you can build agents that can:
 
 This guide covers:
 
-  - [How the Computer Use model and tool works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#how-it-works)
-  - [How to enable the Computer Use model and tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#enable-computer-use)
+  - [How the Computer use model and tool works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#how-it-works)
+  - [How to enable the Computer use model and tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#enable-computer-use)
   - How to [send requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#send-requests) , [receive responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#receive-responses) , and [build agent loops](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#build-an-agent-loop)
   - [What computer actions are supported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions)
   - [Safety and security support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#safety-and-security)
   - [Preview pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#pricing)
 
-This guide assumes you're using the Gen AI SDK for Python and are familiar with the [Playwright API](https://playwright.dev/) .
+This guide assumes you're using the Google Gen AI SDK for Python and are familiar with the [Playwright API](https://playwright.dev/) .
 
-The Computer Use model and tool is not supported in the other SDK languages or the Google Cloud console during this preview.
+The Computer use model and tool is not supported in the other SDK languages or the Google Cloud console during this preview.
 
-Additionally, you can [view the reference implementation for the Computer Use model and tool in GitHub](https://github.com/google/computer-use-preview/tree/main) .
+Additionally, you can [view the reference implementation for the Computer use model and tool in GitHub](https://github.com/google/computer-use-preview/tree/main) .
 
 ## Supported models
 
-The Computer Use model and tool is supported when using the following models:
+The Computer use model and tool is supported when using the following models:
 
 #### Click to expand supported models
 
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
+## How the Computer use model and tool works
 
-## How the Computer Use model and tool works
+Instead of generating text responses, the Computer use model and tool determines when to take specific UI actions like mouse clicks, and returns the necessary parameters to execute these actions. You need to write the client-side application code to receive the Computer use model and tool `function_call` and execute the corresponding actions.
 
-Instead of generating text responses, the Computer Use model and tool determines when to take specific UI actions like mouse clicks, and returns the necessary parameters to execute these actions. You need to write the client-side application code to receive the Computer Use model and tool `function_call` and execute the corresponding actions.
-
-Computer Use model and tool interactions follow an agentic loop process:
+Computer use model and tool interactions follow an agentic loop process:
 
 1.  **Send a request to the model**
     
-      - Add the Computer Use model and tool and optionally any additional tools to your API request.
-      - Prompt the Computer Use model and tool with the user's request and a screenshot representing the current state of the GUI.
+      - Add the Computer use model and tool and optionally any additional tools to your API request.
+      - Prompt the Computer use model and tool with the user's request and a screenshot representing the current state of the GUI.
 
 2.  **Receive the model response**
     
@@ -74,18 +71,18 @@ Computer Use model and tool interactions follow an agentic loop process:
 
 4.  **Capture the new environment state**
     
-      - If the action has been executed, your client captures a new screenshot of the GUI and the current URL to send back to the Computer Use model and tool as part of a `function_response` .
+      - If the action has been executed, your client captures a new screenshot of the GUI and the current URL to send back to the Computer use model and tool as part of a `function_response` .
       - If an action was blocked by the safety system or denied confirmation by the user, your application might send a different form of feedback to the model or end the interaction.
 
-A new request is sent to the model with the updated state. The process repeats from step 2, with the Computer Use model and tool using the new screenshot (if provided) and the ongoing goal to suggest the next action. The loop continues until the task is completed, an error occurs, or the process is terminated (for example, if a response is blocked by safety filters or user decision).
+A new request is sent to the model with the updated state. The process repeats from step 2, with the Computer use model and tool using the new screenshot (if provided) and the ongoing goal to suggest the next action. The loop continues until the task is completed, an error occurs, or the process is terminated (for example, if a response is blocked by safety filters or user decision).
 
-The following diagram illustrates how the Computer Use model and tool works:
+The following diagram illustrates how the Computer use model and tool works:
 
 ![Computer Use tool overview](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/gemini/computer-use/computer_use.png)
 
-## Enable the Computer Use model and tool
+## Enable the Computer use model and tool
 
-To enable the Computer Use model and tool, use `gemini-3-flash-preview` or `gemini-3.5-flash` as your model, and add the Computer Use model and tool to your list of enabled tools:
+To enable the Computer use model and tool, use `gemini-3-flash-preview` or `gemini-3.5-flash` as your model, and add the Computer use model and tool to your list of enabled tools:
 
 ### Python
 
@@ -96,7 +93,7 @@ from google.genai.types import Content, Part, FunctionResponse
 
 client = genai.Client()
 
-# Add Computer Use model and tool to the list of tools
+# Add Computer use model and tool to the list of tools
 generate_content_config = genai.types.GenerateContentConfig(
     tools=[
         types.Tool(
@@ -107,7 +104,7 @@ generate_content_config = genai.types.GenerateContentConfig(
             ]
           )
 
-# Example request using the Computer Use model and tool
+# Example request using the Computer use model and tool
 contents = [
     Content(
         role="user",
@@ -127,16 +124,16 @@ response = client.models.generate_content(
 
 ## Send a request
 
-After configuring the Computer Use model and tool, send a prompt to the model that includes the user's goal and an initial screenshot of the GUI.
+After configuring the Computer use model and tool, send a prompt to the model that includes the user's goal and an initial screenshot of the GUI.
 
-> **Note:** The Computer Use model and tool is only compatible with `gemini-3-flash-preview` or `gemini-3.5-flash` .
+> **Note:** The Computer use model and tool is only compatible with `gemini-3-flash-preview` or `gemini-3.5-flash` .
 
 You can also optionally add the following:
 
   - **Excluded actions:** If there are any actions from the list of [supported UI actions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#supported-actions) that you don't want the model to take, specify these actions in the `excluded_predefined_functions` .
-  - **User-defined functions:** In addition to the Computer Use model and tool, you may want to include custom user-defined functions.
+  - **User-defined functions:** In addition to the Computer use model and tool, you may want to include custom user-defined functions.
 
-The following sample code enables the Computer Use model and tool and sends the request to the model:
+The following sample code enables the Computer use model and tool and sends the request to the model:
 
 ### Python
 
@@ -150,7 +147,7 @@ client = genai.Client()
 # Specify predefined functions to exclude (optional)
 excluded_functions = ["drag_and_drop"]
 
-# Configuration for the Computer Use model and tool with browser environment
+# Configuration for the Computer use model and tool with browser environment
 generate_content_config = genai.types.GenerateContentConfig(
     tools=[
         # 1. Computer Use tool with browser environment
@@ -195,13 +192,13 @@ print(response.text)
       
 ```
 
-You can also include custom user-defined functions to extend the functionality of the model. See [Use Computer Use model and tool for mobile use cases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#mobile) for information on how you can configure computer use for mobile use cases by adding actions such as `open_app` , `long_press_at` , and `go_home` while excluding browser-specific actions.
+You can also include custom user-defined functions to extend the functionality of the model. See [Use Computer use model and tool for mobile use cases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#mobile) for information on how you can configure computer use for mobile use cases by adding actions such as `open_app` , `long_press_at` , and `go_home` while excluding browser-specific actions.
 
 > **Note:** `gemini-3-flash-preview` has not been fully optimized for mobile, which may have impact on performance.
 
 ## Receive responses
 
-The model responds with one or more `FunctionCalls` if it determines UI actions or user-defined functions are needed to complete the task. Your application code needs to parse these actions, execute them, and collect the results. The Computer Use model and tool supports parallel function calling, meaning the model can return multiple independent actions in a single turn.
+The model responds with one or more `FunctionCalls` if it determines UI actions or user-defined functions are needed to complete the task. Your application code needs to parse these actions, execute them, and collect the results. The Computer use model and tool supports parallel function calling, meaning the model can return multiple independent actions in a single turn.
 
     {
       "content": {
@@ -495,9 +492,9 @@ if __name__ == "__main__":
 
 ## Gemini 3.5 Flash or later and mobile or desktop use cases
 
-Computer Use model and tool supports setting mobile ( `ENVIRONMENT_MOBILE` ), desktop ( `ENVIRONMENT_DESKTOP` ), or browser ( `ENVIRONMENT_BROWSER` ) environments. The default is `ENVIRONMENT_BROWSER` .
+Computer use model and tool supports setting mobile ( `ENVIRONMENT_MOBILE` ), desktop ( `ENVIRONMENT_DESKTOP` ), or browser ( `ENVIRONMENT_BROWSER` ) environments. The default is `ENVIRONMENT_BROWSER` .
 
-The following examples demonstrate how to configure the execution environment for the Computer Use model and tool with Gemini 3.5 Flash or later.
+The following examples demonstrate how to configure the execution environment for the Computer use model and tool with Gemini 3.5 Flash or later.
 
 ### REST API
 
@@ -721,7 +718,7 @@ The following example for Gemini 3 Flash demonstrates how to define custom funct
 
 ## Supported actions
 
-The Computer Use model and tool enables the model to request the following actions using a `FunctionCall` . Your client-side code must implement the execution logic for these actions. See the reference implementation for examples. The following table are supported actions for the browser environment. Gemini 3 Flash and Gemini 3.5 Flash have different `FunctionCall` name sets.
+The Computer use model and tool enables the model to request the following actions using a `FunctionCall` . Your client-side code must implement the execution logic for these actions. See the reference implementation for examples. The following table are supported actions for the browser environment. Gemini 3 Flash and Gemini 3.5 Flash have different `FunctionCall` name sets.
 
 ### Gemini 3.5 Flash
 
@@ -1113,11 +1110,11 @@ magnitude_in_pixels: int (0-999, Optional, default 300)</td>
 
 ## Safety and security
 
-This section describes the safeguards that the Computer Use model and tool has in place to improve user control and improve safety. It also describes best practices to mitigate potential new risks that the tool might present.
+This section describes the safeguards that the Computer use model and tool has in place to improve user control and improve safety. It also describes best practices to mitigate potential new risks that the tool might present.
 
 ### Acknowledge safety decision
 
-Depending on the action, the response from the Computer Use model and tool might include a `safety_decision` from an internal safety system. This decision verifies the action proposed by the tool for safety.
+Depending on the action, the response from the Computer use model and tool might include a `safety_decision` from an internal safety system. This decision verifies the action proposed by the tool for safety.
 
     {
       "content": {
@@ -1197,9 +1194,9 @@ If the user confirms, you must include the safety acknowledgement in your `Funct
 
 ### Prompt injection detection
 
-Computer Use model and tool for Gemini 3.5 Flash or later supports an advanced safety mechanism to detect prompt injection attacks. When enabled, this feature checks if an included screenshot has the potential to introduce a prompt injection attack. You can set this feature in the Computer Use model and tool configuration. The default is `false` .
+Computer use model and tool for Gemini 3.5 Flash or later supports an advanced safety mechanism to detect prompt injection attacks. When enabled, this feature checks if an included screenshot has the potential to introduce a prompt injection attack. You can set this feature in the Computer use model and tool configuration. The default is `false` .
 
-The following examples demonstrate enabling the Computer Use model and tool configuration to enable prompt injection detection:
+The following examples demonstrate enabling the Computer use model and tool configuration to enable prompt injection detection:
 
 ### REST API
 
@@ -1309,7 +1306,7 @@ The following example requires [python-genai](https://googleapis.github.io/pytho
 
 ### Safety best practices
 
-The Computer Use model and tool is a novel tool and presents new risks that developers should be mindful of:
+The Computer use model and tool is a novel tool and presents new risks that developers should be mindful of:
 
   - **Untrusted content & scams:** As the model tries to achieve the user's goal, it may rely on untrustworthy sources of information and instructions from the screen. For example, if the user's goal is to purchase a Pixel phone and the model encounters a "Free-Pixel if you complete a survey" scam, there is some chance that the model will complete the survey.
   - **Occasional unintended actions:** The model can misinterpret a user's goal or webpage content, causing it to take incorrect actions like clicking the wrong button or filling the wrong form. This can lead to failed tasks or data exfiltration.
@@ -1422,4 +1419,4 @@ To address these risks, you should implement the following safety measures and b
 
 ## Pricing
 
-The Computer Use model and tool is priced at the same rates as [Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) and uses the same SKUs. To split Computer Use model and tool costs, use custom metadata labels. For more information about using custom metadata labels for cost monitoring, see [Custom metadata labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls) .
+The Computer use model and tool is priced at the same rates as [Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) and uses the same SKUs. To split Computer use model and tool costs, use custom metadata labels. For more information about using custom metadata labels for cost monitoring, see [Custom metadata labels](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/add-labels-to-api-calls) .

@@ -68,10 +68,6 @@ audio\_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.c
 
 preview [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) Generate video from text or reference assets, or edit existing videos.
 
-preview [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image-preview) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
-
-preview [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) Our latest reasoning-first model optimized for complex agentic workflows and coding. Features adaptive thinking, a 1M token context window, and integrated grounding for sophisticated multimodal problem solving.
-
 preview [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) Our best model for complex multimodal understanding, designed to tackle the most challenging agentic problems with strong coding and state-of-the-art reasoning capabilities.
 
 preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.

@@ -29,8 +29,6 @@ The following Gemini models support image editing:
   - [`gemini-3.1-flash-lite-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
   - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [`gemini-3.1-flash-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview
-  - [`gemini-3-pro-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview
   - [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
 For more information about model capabilities, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .
@@ -58,7 +56,7 @@ Gemini generates an edited version of the provided image based on your descripti
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -94,7 +92,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -181,7 +179,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -279,7 +277,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -404,8 +402,6 @@ The following Gemini models support multi-turn editing:
   - [`gemini-3.1-flash-lite-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
   - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [`gemini-3.1-flash-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) preview
-  - [`gemini-3-pro-image-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image-preview) preview
   - [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
 We recommend limiting the entire request file size to 50MB maximum.
@@ -416,7 +412,7 @@ To test out multi-turn image editing, see the following notebooks:
 
   - [Gemini 3.1 Flash Image Generation in Agent Platform](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_flash_image_gen.ipynb)
 
-  - [Gemini 3.1 Flash Lite Image Generation in Agent Platform](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_flash_lite_image_gen.ipynb)
+  - [Gemini 3.1 Flash-Lite Image Generation in Agent Platform](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_flash_lite_image_gen.ipynb)
 
 To see code samples related to multi-turn image creation and editing using Gemini 3 Pro Image, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures#multi-turn-image-editing) .
 

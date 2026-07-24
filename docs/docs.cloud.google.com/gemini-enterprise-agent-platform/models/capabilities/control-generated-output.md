@@ -47,6 +47,10 @@ For Open Models, follow this [user guide](https://docs.cloud.google.com/gemini-e
 
 One use case for applying a response schema is to ensure that a model's response produces valid JSON and conforms to your schema. Generative model outputs can have some degree of variability, so including a response schema ensures that you always receive valid JSON. Consequently, your downstream tasks can reliably expect valid JSON input from generated responses.
 
+> **Caution:** Setting `response_mime_type` to `application/json` (JSON mode) without specifying a `response_schema` acts only as a strong hint to the model and doesn't ensure 100% valid JSON. Because JSON mode lacks strict schema enforcement, type checking, and relationship constraints, complex payloads can occasionally result in trailing characters or malformed outputs.
+> 
+> To ensure 100% valid JSON objects, requests must include **both** a `response_schema` and `response_mime_type: "application/json"` . As a best practice, if your use case prevents you from pre-defining a schema, implement a client-side JSON validator with a retry mechanism.
+
 Another example is to constrain how a model can respond. For example, you can have a model annotate text with user-defined labels, not with labels that the model produces. This constraint is useful when you expect a specific set of labels such as `positive` or `negative` and don't want to receive a mixture of other labels that the model might generate like `good` , `positive` , `negative` , or `bad` .
 
 ## Considerations
@@ -57,7 +61,11 @@ The following considerations discuss potential limitations if you plan on using 
 
   - The size of your response schema counts towards the input token limit.
 
-  - Only certain output formats are supported, such as `application/json` or `text/x.enum` . For more information, see the `responseMimeType` parameter in the [Gemini API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) .
+  - Only certain output formats are supported, such as `application/json` or `text/x.enum` . Regarding JSON output:
+    
+      - Setting `response_mime_type` to `application/json` without specifying a `response_schema` acts only as a strong hint and carries a small risk of generating malformed JSON.
+      - To ensure 100% valid JSON objects, requests must include both a `response_schema` and `response_mime_type` set to `application/json` .
+      - As a best practice, if your use case prevents you from pre-defining a schema, implement a client-side JSON validator with a retry mechanism.
 
   - Structured output supports a subset of the [Agent Platform schema reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Schema) . For more information, see [Supported schema fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#fields) .
 

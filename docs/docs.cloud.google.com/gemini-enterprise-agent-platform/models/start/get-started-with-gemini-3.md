@@ -18,13 +18,13 @@ This guide provides a consolidated, practical path to get started with Gemini 3 
 
 Before you begin, you must authenticate to Gemini Enterprise Agent Platform using an API key or application default credentials (ADC). See [authentication methods](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start?usertype=adc#choose_your_authentication_method) for more information.
 
-#### Install the Google Gen AI SDK
+#### Install the Google Google Gen AI SDK
 
-Gemini 3 API features require Gen AI SDK for Python version 1.51.0 or later.
+Gemini 3 API features require Google Gen AI SDK for Python version 1.51.0 or later.
 
     pip install --upgrade google-genai
 
-Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Platform
+Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Agent Platform
 
 Replace the `GOOGLE_CLOUD_PROJECT` value with your Google Cloud Project ID. The Gemini 3.1 Pro model `gemini-3.1-pro-preview` and the Gemini 3 Flash model `gemini-3-flash-preview` are only available on **global** endpoints:
 
@@ -44,7 +44,7 @@ For fast, low-latency responses:
     client = genai.Client()
     
     response = client.models.generate_content(
-       model="gemini-3.1-pro-preview",
+       model="gemini-3.6-flash",
        contents="How does AI work?",
        config=types.GenerateContentConfig(
            thinking_config=types.ThinkingConfig(
@@ -79,7 +79,7 @@ For slower, high-reasoning tasks:
     """
     
     response = client.models.generate_content(
-      model="gemini-3.1-pro-preview",
+      model="gemini-3.6-flash",
       contents=prompt,
       config=types.GenerateContentConfig(
           thinking_config=types.ThinkingConfig(
@@ -159,7 +159,7 @@ The `thinking_level` parameter lets you specify a thinking budget for the model'
 
 > **Note:** You cannot use both `thinking_level` and the legacy `thinking_budget` parameter in the same request. Doing so will return a `400` error. The `thinking_level` parameter is optional. If omitted, the model will use its default setting ( `HIGH` ).
 
-#### Gen AI SDK example
+#### Google Gen AI SDK example
 
     from google import genai
     from google.genai import types
@@ -167,7 +167,7 @@ The `thinking_level` parameter lets you specify a thinking budget for the model'
     client = genai.Client()
     
     response = client.models.generate_content(
-       model="gemini-3.1-pro-preview",
+       model="gemini-3.6-flash",
        contents="Find the race condition in this multi-threaded C++ snippet: [code here]",
        config=types.GenerateContentConfig(
            thinking_config=types.ThinkingConfig(
@@ -204,7 +204,7 @@ For users utilizing the OpenAI compatibility layer, standard parameters are auto
     """
     
     response = client.chat.completions.create(
-        model="gemini-3.1-pro-preview",
+        model="gemini-3.6-flash",
         reasoning_effort="medium", # Map to thinking_level high.
         messages=[{"role": "user", "content": prompt}],
     )
@@ -250,7 +250,7 @@ You can set `media_resolution` per individual media part:
     client = genai.Client()
     
     response = client.models.generate_content(
-      model="gemini-3.1-pro-preview",
+      model="gemini-3.6-flash",
       contents=[
           types.Part(
               file_data=types.FileData(
@@ -285,7 +285,7 @@ You can also set `media_resolution` globally (using `GenerateContentConfig` ):
     client = genai.Client()
     
     response = client.models.generate_content(
-      model="gemini-3.1-pro-preview",
+      model="gemini-3.6-flash",
       contents=[
           types.Part(
               file_data=types.FileData(
@@ -327,15 +327,15 @@ Gemini 3 models and Gemini 3 Flash enforce stricter validation and updated handl
 
 #### How to handle thought signatures?
 
-There are two primary ways to handle thought signatures: automatically using the Gen AI SDKs or OpenAI API, or manually if you are interacting with the API directly.
+There are two primary ways to handle thought signatures: automatically using the Google Gen AI SDKs or OpenAI API, or manually if you are interacting with the API directly.
 
 ##### Automated handling (recommended)
 
-If you are using the Google Gen AI SDKs (Python, Node.js, Go, Java) or OpenAI Chat Completions API, and utilizing the standard chat history features or appending the full model response, `thought_signatures` are handled automatically. You don't need to make any changes to your code.
+If you are using the Google Google Gen AI SDKs (Python, Node.js, Go, Java) or OpenAI Chat Completions API, and utilizing the standard chat history features or appending the full model response, `thought_signatures` are handled automatically. You don't need to make any changes to your code.
 
 ###### Manual function calling example
 
-When using the Gen AI SDK, thought signatures are handled automatically by appending the full model response in sequential model requests:
+When using the Google Gen AI SDK, thought signatures are handled automatically by appending the full model response in sequential model requests:
 
     from google import genai
     from google.genai import types
@@ -357,7 +357,7 @@ When using the Gen AI SDK, thought signatures are handled automatically by appen
     # 2. Send a message that triggers the tool
     prompt = "What's the weather like in London?"
     response = client.models.generate_content(
-       model="gemini-3.1-pro-preview",
+       model="gemini-3.6-flash",
        contents=prompt,
        config=types.GenerateContentConfig(
            tools=[get_weather_tool],
@@ -396,7 +396,7 @@ When using the Gen AI SDK, thought signatures are handled automatically by appen
     ]
     
     response_2 = client.models.generate_content(
-       model="gemini-3.1-pro-preview",
+       model="gemini-3.6-flash",
        contents=history,
        config=types.GenerateContentConfig(
             tools=[get_weather_tool],
@@ -409,7 +409,7 @@ When using the Gen AI SDK, thought signatures are handled automatically by appen
 
 ###### Automatic function calling example
 
-When using the Gen AI SDK in automatic function calling, thought signatures are handled automatically:
+When using the Google Gen AI SDK in automatic function calling, thought signatures are handled automatically:
 
     from google import genai
     from google.genai import types
@@ -429,7 +429,7 @@ When using the Gen AI SDK in automatic function calling, thought signatures are 
     client = genai.Client()
     
     response = client.models.generate_content(
-        model="gemini-3.1-pro-preview",
+        model="gemini-3.6-flash",
         contents="What's the temperature in Boston?",
         config=types.GenerateContentConfig(
                 tools=[get_current_temperature],
@@ -460,7 +460,7 @@ When using OpenAI Chat Completions API, thought signatures are handled automatic
     )
     
     response2 = client.chat.completions.create(
-        model="gemini-3.1-pro-preview",
+        model="gemini-3.6-flash",
         messages=messages,
         tools=tools,
         extra_body={
@@ -517,7 +517,7 @@ Multimodal function calling allows users to have function responses containing m
     # 2. Send a message that triggers the tool
     prompt = "Show me the green shirt I ordered last month."
     response_1 = client.models.generate_content(
-        model="gemini-3.1-pro-preview",
+        model="gemini-3.6-flash",
         contents=[prompt],
         config=types.GenerateContentConfig(
             tools=[tool_config],
@@ -563,7 +563,7 @@ Multimodal function calling allows users to have function responses containing m
     ]
     
     response_2 = client.models.generate_content(
-      model="gemini-3.1-pro-preview",
+      model="gemini-3.6-flash",
       contents=history,
       config=types.GenerateContentConfig(
           tools=[tool_config],
@@ -595,7 +595,7 @@ You can use streaming partial function call arguments to improve streaming exper
     
     
     for chunk in client.models.generate_content_stream(
-       model="gemini-3.1-pro-preview",
+       model="gemini-3.6-flash",
        contents="What's the weather in London and New York?",
        config=types.GenerateContentConfig(
            tools=[get_weather_tool],
