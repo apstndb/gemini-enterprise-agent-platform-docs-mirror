@@ -85,6 +85,7 @@ To install, run the following command:
 
 ## What's next
 
-  - [Manage evaluation cases](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/manage-eval-cases)
+  - [Simulate agent behavior](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-simulated)
   - [Run evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents)
+  - [Manage evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/manage-metrics)
   - [View evaluation results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/view-results)

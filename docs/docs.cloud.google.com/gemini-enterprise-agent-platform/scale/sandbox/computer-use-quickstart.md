@@ -83,16 +83,21 @@ Create a sandbox template that you'll use when you create a Computer Use sandbox
 
 Create a sandbox environment from the template.
 
-    # Create a sandbox environment referencing the template
+> **Note:** By default, sandboxes expire after 2 hours. You can customize the sandbox lifetime by setting the `ttl` field when creating a sandbox.
+
+    # Create a sandbox environment referencing the template.
+    # To customize the lifetime, set `ttl` to a duration string in seconds (for example, "3600s" for 1 hour).
     create_operation = client.agent_engines.sandboxes.create(
         name=agent_instance_name,
         config={
             "sandbox_environment_template": template_name,
             "display_name": 'DISPLAY_NAME',
+            "ttl": "3600s",  # Optional. Overrides the default 2-hour sandbox lifetime.
         }
     )
     sandbox = create_operation.response
     print(f"Created sandbox environment: {sandbox.name}")
+    print(f"Sandbox will expire at: {sandbox.expire_time}")
 
 ## Generate an access token
 

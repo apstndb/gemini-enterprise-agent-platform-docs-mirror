@@ -112,7 +112,7 @@ Versions
 
   - Launch stage: GA
   - Release date: May 27, 2025
-  - Deprecation date: June 30, 2026
+  - Retirement date: June 30, 2026
 
 Security controls
 

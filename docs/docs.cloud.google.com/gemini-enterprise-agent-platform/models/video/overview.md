@@ -40,7 +40,7 @@ For more information about writing effective text prompts for video generation, 
 
 ## Locations
 
-For more information about where Google models are available, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations-genai) .
+For more information about where Google models are available, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
 ## Responsible AI
 

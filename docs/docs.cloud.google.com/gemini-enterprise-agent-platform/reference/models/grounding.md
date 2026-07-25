@@ -14,6 +14,8 @@ With Gemini Enterprise Agent Platform, you can ground model outputs in the follo
   - Ground with Google Maps - ground a model with geospatial data from Google Maps.
   - Ground to your data - ground a model with your data from Agent Search as a data store.
 
+> **Important:** The Gemini API doesn't support combining search tools (such as `googleSearch` ) with non-search tools (such as the `retrieval` tool for Gemini Enterprise Agent Platform RAG Engine or custom function declarations) in the same `generateContent` request. Multiple tools are supported in a single request only when they are all search tools.
+
 For more information about grounding, see [Grounding overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) .
 
 ## Supported models

@@ -10,7 +10,29 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 24, 2026
+
+Feature
+
+**Anthropic's Claude Opus 5**
+
+[Claude Opus 5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5) is available in Model Garden.
+
 ## July 21, 2026
+
+Feature
+
+**Gemini 3.6 Flash and 3.5 Flash-Lite are generally available (GA)**
+
+[Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) and [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) are now generally available (GA) and available for production use. These models are designed to improve upon their predecessors' capabilities, including improved token usage and improved document understanding. See the linked model information pages for more information.
+
+This release includes some potentially breaking changes from previous Flash and Flash-Lite models:
+
+  - **Sampling parameters** : Custom values for temperature, top-K, and top-P are not supported and will be ignored if set.
+  - **Penalty parameters** : Custom values for frequency and presence penalty parameters are not supported. Setting these will result in an API error.
+  - **API turn structure** : API requests where the last input turn has a role of `Model` are no longer supported and will return an error:
+      - **Interactions API** : Requests where the last object in the input array has `"type": "model_output"` will fail.
+      - **GenerateContent API** : Requests where the last object in the contents array has `"role": "model"` will fail.
 
 Deprecated
 
@@ -46,6 +68,14 @@ This release fixes a Server-Side Request Forgery (SSRF) vulnerability in the aut
 If you downloaded, generated, or deployed web application code from Agent Studio before July 1, 2026, regenerate the app from Agent Studio and deploy the new version. For more information, see [Quickstart: Deploy your Agent Studio prompt as a web application](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt)
 
 The updated backend code includes strict domain allowlist validation, ensuring that destination hostnames for the `/api-proxy` endpoint end with allowed Google Cloud domains, such as `*-aiplatform.clients6.google.com`
+
+## July 17, 2026
+
+Breaking
+
+**Gemini 3.1 Flash Image Preview and 3 Pro Image Preview are retired**
+
+The Nano Banana preview models `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` have been retired and are no longer accessible. Update your code to use either `gemini-3.1-flash-image` or `gemini-3-flash-image` instead.
 
 ## July 15, 2026
 

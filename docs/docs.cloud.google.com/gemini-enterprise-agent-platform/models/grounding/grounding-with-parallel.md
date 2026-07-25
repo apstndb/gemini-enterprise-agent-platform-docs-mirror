@@ -6,10 +6,6 @@ description: Implement Gemini model grounding with Parallel's web search API. Ac
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 [Parallel Web Systems](https://Parallel.ai) offers a search API that provides access to publicly available web data that's optimized for use by large language models for grounding. This page explains how to ground Gemini responses by using Parallel.
 
 Grounding with Parallel on Gemini Enterprise Agent Platform is a Separate Offering (as defined in your Google Cloud Agreement) that connects Gemini models to public web data provided by [Parallel Web Systems' search API](https://Parallel.ai) . This service gives Gemini access to live information from billions of web pages to ensure more up-to-date and factual responses.
@@ -51,15 +47,11 @@ Grounding with Parallel web search is supported by the following models:
 
 To use Grounding with Parallel Web Search, you must set up your access. You have two options:
 
-  - Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) ( [Preview](https://cloud.google.com/products#product-launch-stages) ) for a streamlined integration within your existing cloud environment. A [Zero Data Retention offering](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) is also available for sensitive workloads. To use ZDR, you must be subscribed to the ZDR offering *and* set the corresponding `enable_zero_data_retention` flag in your API requests.
+  - Subscribe directly to Grounding with Parallel Web Search on [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) for a streamlined integration within your existing cloud environment. A [Zero Data Retention offering](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) is also available for sensitive workloads. To use ZDR, you must be subscribed to the ZDR offering *and* set the corresponding `enable_zero_data_retention` flag in your API requests.
 
   - Use an existing Parallel API key.
 
 ### Subscribe on Google Cloud Marketplace (recommended)
-
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Integrating through Google Cloud Marketplace lets you manage your Grounding with Parallel Web Search service directly within Google Cloud. To get started, subscribe to the Grounding with Parallel Web Search service on Google Cloud Marketplace, accept the terms of service, and review the pricing.
 
@@ -75,7 +67,7 @@ If you prefer to manage your Parallel billing and API access separately, you can
 
 Request grounded responses from Gemini by using Agent Studio in the Google Cloud console, the Google Gen AI SDK, or the REST API. For best performance, we recommend using default settings for optional parameters unless you strictly require non-default values.
 
-If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), verify that the billing account used for your subscription is active in your Google Cloud project.
+If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace , verify that the billing account used for your subscription is active in your Google Cloud project.
 
 Before you run the samples, complete the [prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#before-you-begin) , including [subscribing on Google Cloud Marketplace](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#subscribe-on-marketplace) or providing a Parallel API key.
 
@@ -267,7 +259,7 @@ Before using any of the request data, make the following replacements:
   - PROJECT\_ID : Your Google Cloud project ID.
   - MODEL\_ID : The ID of the model to use.
   - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel Web Search. If you specify an API key and are also subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), the API key takes precedence.
+  - API\_KEY : Your API key for Parallel Web Search. If you specify an API key and are also subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace, the API key takes precedence.
   - ENABLE\_ZERO\_DATA\_RETENTION : Optional: Switch to the [ZDR version of Parallel Web Search](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) to enable Zero Data Retention on sensitive workloads. Set to `true` to use the ZDR offering for your request. You *must* be subscribed to the ZDR-specific offering for these requests to succeed. If not specified, it defaults to the [standard version](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) . The ZDR version is only available via Google Cloud Marketplace.
   - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
   - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
@@ -441,7 +433,7 @@ You should receive a JSON response similar to the following.
 
 The default quota is 200 prompts per minute. To request an increase to your rate limits, provide your use case and requirements to the appropriate contact:
 
-  - **If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ):** Contact your Google account team.
+  - **If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace:** Contact your Google account team.
 
   - **If you provide your own API key:** Contact <support@parallel.ai> and your Google account team.
 
@@ -461,6 +453,6 @@ The use of Grounding with Parallel Web Search incurs the following charges:
 
   - **Pricing for the use of the Parallel Web Search API:**
     
-      - If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace ( [Preview](https://cloud.google.com/products#product-launch-stages) ), see the [Parallel pricing](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) section on Google Cloud Marketplace for more information.
+      - If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace, see the [Parallel pricing](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) section on Google Cloud Marketplace for more information.
     
       - If you provide your own API key, see the [Parallel website](https://parallel.ai/pricing) for more information.

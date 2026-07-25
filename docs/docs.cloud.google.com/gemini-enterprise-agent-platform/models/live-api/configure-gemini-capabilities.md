@@ -28,6 +28,8 @@ Several tools are compatible with various versions of Gemini Live API-supported 
 
 To enable a particular tool for usage in returned responses, include the name of the tool in the `tools` list when you initialize the model. The following sections provide examples of how to use each of the built-in tools in your code.
 
+**Important:** The Gemini API doesn't support combining search tools (such as `googleSearch` ) with non-search tools (such as function calling or the Gemini Enterprise Agent Platform RAG Engine `retrieval` tool) in the same setup request. Multiple tools are supported only when they are all search tools.
+
 ### Function calling
 
 Use [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) when you want the model to interact with external systems or APIs that you manage. Use this for tasks like checking a database, sending an email, or interacting with a custom API.

@@ -10,7 +10,7 @@ The following tables show the models that support Provisioned Throughput, the th
 
 ## Google models
 
-> **Caution:** As of June 1, 2026, `gemini-2.0-flash` and `gemini-2.0-flash-lite` are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
+> **Caution:** As of June 1, 2026, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
 
 Provisioned Throughput only supports models that you call directly from your project using the specific model ID and not a model alias. To use Provisioned Throughput to make API calls to a model, you must use the specific model version ID (for example, `gemini-2.0-flash-001` ) and not a [model version alias](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias) .
 
@@ -476,6 +476,17 @@ The following table shows the throughput, purchase increment, and burndown rates
 </thead>
 <tbody>
 <tr class="odd">
+<td>Anthropic's Claude Opus 5 on Google Cloud</td>
+<td>210</td>
+<td>1</td>
+<td>1</td>
+<td>1 input token = 1 token<br />
+1 output token = 5 tokens<br />
+1 cache write 5m token = 1.25 tokens<br />
+1 cache write 1h token = 2 tokens<br />
+1 cache hit token = 0.1 token</td>
+</tr>
+<tr class="even">
 <td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
@@ -486,7 +497,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Fable 5 on Google Cloud</td>
 <td>105</td>
 <td>1</td>
@@ -497,7 +508,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4.8 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
@@ -508,7 +519,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
@@ -519,7 +530,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Sonnet 4.6 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
@@ -530,7 +541,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.6 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
@@ -541,7 +552,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4.5 on Google Cloud</td>
 <td>210</td>
 <td>35</td>
@@ -552,7 +563,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Sonnet 4.5 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
@@ -571,7 +582,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 4 tokens<br />
 1 cache hit token = 0.2 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4.1 on Google Cloud</td>
 <td>70</td>
 <td>35</td>
@@ -582,7 +593,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Haiku 4.5 on Google Cloud</td>
 <td>1,050</td>
 <td>8</td>
@@ -594,7 +605,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4 on Google Cloud</td>
 <td>70</td>
 <td>35</td>
@@ -605,7 +616,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Sonnet 4 on Google Cloud</td>
 <td>350</td>
 <td>25</td>
@@ -624,7 +635,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 4 tokens<br />
 1 cache hit token = 0.2 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3.7 Sonnet on Google Cloud (deprecated)</td>
 <td>350</td>
 <td>25</td>
@@ -634,7 +645,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 5m token = 1.25 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3.5 Sonnet v2 on Google Cloud (deprecated)</td>
 <td>350</td>
 <td>25</td>
@@ -644,7 +655,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 5m token = 1.25 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3.5 Haiku on Google Cloud (deprecated)</td>
 <td>2,000</td>
 <td>10</td>
@@ -655,7 +666,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3 Opus on Google Cloud</td>
 <td>70</td>
 <td>35</td>
@@ -665,7 +676,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 5m token = 1.25 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3 Haiku on Google Cloud (deprecated)</td>
 <td>4,200</td>
 <td>5</td>
@@ -676,7 +687,7 @@ The following table shows the throughput, purchase increment, and burndown rates
 1 cache write 1h token = 2 tokens<br />
 1 cache hit token = 0.1 token</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3.5 Sonnet on Google Cloud (deprecated)</td>
 <td>350</td>
 <td>25</td>

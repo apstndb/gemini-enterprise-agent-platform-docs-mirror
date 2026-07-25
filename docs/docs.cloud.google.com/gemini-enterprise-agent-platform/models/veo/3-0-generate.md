@@ -111,7 +111,7 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Deprecation date: June 30, 2026
+  - Retirement date: June 30, 2026
 
 Security controls
 
@@ -218,7 +218,7 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Deprecation date: June 30, 2026
+  - Retirement date: June 30, 2026
 
 Security controls
 
@@ -341,7 +341,7 @@ Versions
 
   - Launch stage: Preview
   - Release date: May 20, 2025
-  - Deprecation date: April 2, 2026
+  - Retirement date: April 2, 2026
 
 > **Caution:** The following table describes the video generation preview endpoints that will be deprecated and removed on April 2, 2026. Migrate any workflows using preview models to the recommended GA endpoints.
 > 
@@ -452,6 +452,6 @@ Versions
 
   - Launch stage: Preview
   - Release date: July 07, 2025
-  - Deprecation date: April 2, 2026
+  - Retirement date: April 2, 2026
 
 For Veo pricing information, see the [Veo](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#veo) section of the [Cost of building and deploying AI models in Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.

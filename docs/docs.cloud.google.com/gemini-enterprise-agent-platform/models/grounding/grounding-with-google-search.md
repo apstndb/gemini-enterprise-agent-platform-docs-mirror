@@ -53,6 +53,8 @@ Use the following instructions to ground a model with publicly available web dat
 
   - Grounding with Google Search has a limit of one million queries per day. If you require more queries, contact [Google Cloud support](https://cloud.google.com/support-hub) for assistance.
 
+  - **Tool combinations:** The Gemini API doesn't support combining search tools (such as `googleSearch` ) with non-search tools (such as function calling or the Gemini Enterprise Agent Platform RAG Engine `retrieval` tool) in the same `generateContent` request. Multiple tools are supported only when they are all search tools.
+
 > **Important:** If you receive Search Suggestions with a response, that response is a *grounded result* subject to the Grounding with Search terms in the [Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms) . For more information about using Google Search Suggestions, see [Use Search Suggestions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search#use-google-search-suggestions) .
 
 Search results can be customized for a specific geographic location of the end user by using the latitude and longitude coordinates. For more information, see the [Grounding API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/grounding) .

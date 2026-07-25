@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This guide explains how to update your application to the latest Gemini version. This guide assumes your application already uses an older Gemini version. To learn how to start using Gemini in Gemini Enterprise Agent Platform, see [Get started with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
 
-This guide doesn't cover how to switch your application from the Agent Platform SDK to the current Google Gen AI SDK. For that information, see our [Agent Platform SDK migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/genai-vertexai-sdk) .
+This guide doesn't cover how to switch your application from the Vertex AI SDK to the current Google Gen AI SDK. For that information, see our [Vertex AI SDK migration guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk) .
 
 ## What changes should I expect?
 
@@ -121,7 +121,7 @@ The following sections goes over these changes in further detail.
 
 #### Upgrade to the Google Gen AI SDK
 
-If your Gemini 1.x application uses the Vertex AI SDK, switch to the Google Gen AI SDK. See our [Vertex AI SDK migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/genai-vertexai-sdk) for details, including code examples for making similar calls with the Google Gen AI SDK. Vertex AI SDK releases after June 2026 won't support Gemini, and new Gemini features are only available in the Google Gen AI SDK.
+If your Gemini 1.x application uses the Vertex AI SDK, switch to the Google Gen AI SDK. See our [Vertex AI SDK migration guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk) for details, including code examples for making similar calls with the Google Gen AI SDK. Vertex AI SDK releases after June 2026 won't support Gemini, and new Gemini features are only available in the Google Gen AI SDK.
 
 We strongly recommend updating to the `google-genai` SDK version `2.0.0` or later to take advantage of all new features in Gemini 3.5 Flash and later models.
 
@@ -305,6 +305,6 @@ Overview of how to use open models such as Gemma, Llama, DeepSeek, and more in A
 
 Resource
 
-### [Frequently asked questions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/faq)
+### [Frequently asked questions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/faq)
 
 Frequently asked questions about using Gemini with Agent Platform.

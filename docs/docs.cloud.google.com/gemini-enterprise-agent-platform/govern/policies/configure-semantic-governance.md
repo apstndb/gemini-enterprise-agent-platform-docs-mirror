@@ -250,7 +250,7 @@ Replace the following:
   - `  PSC_SERVICE_ATTACHMENT  ` : the `pscServiceAttachment` value saved from the provisioning response.
   - `  SGP_DNS_HOSTNAME  ` : a hostname under your private DNS zone, in the format `  LOCATION . DNS_ZONE_SUFFIX  ` , where `  DNS_ZONE_SUFFIX  ` is the DNS name you specified when creating your private DNS zone. For example, if your location is `us-west1` and your DNS zone suffix is `internal.example.com` , use `us-west1.internal.example.com` .
 
-**5. Configure VPC connectivity on Agent Gateway {:\#configure-vpc-connectivity}**
+**5. Configure VPC connectivity on Agent Gateway**
 
 After creating the network resources, you must register the network attachment and DNS peering on your Agent Gateway so that it can reach the policy engine over the private network.
 

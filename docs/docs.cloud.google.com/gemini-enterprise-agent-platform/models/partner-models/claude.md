@@ -24,6 +24,19 @@ The following models are available from Anthropic to use in Gemini Enterprise Ag
 
 Anthropic's Claude models support Agent Platform request-response logging. Enable 30-day request-response logging of your prompt and completion activity to track any model misuse by your users. For more information, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+### Claude Opus 5 on Google Cloud
+
+Claude Opus 5 on Google Cloud is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.
+
+**Retirement Date:** Not sooner than January 24, 2027.
+
+  - **Long-running agents** : Claude Opus 5 on Google Cloud powers long-running agents and autonomous workflows, handling multi-stage projects and complex tasks with minimal oversight.
+  - **Coding** : Claude Opus 5 on Google Cloud delivers state-of-the-art performance for ambitious coding projects, large migrations, complex implementations, and multi-day autonomous sessions.
+  - **Enterprise workflows** : Claude Opus 5 on Google Cloud handles complex, multi-stage knowledge work with minimal oversight, from deep research and analysis to finished deliverables.
+  - **Financial analysis** : Claude Opus 5 on Google Cloud brings deeper reasoning and best-in-class vision to financial workflows, reading dense filings, charts, and tables nested in PDFs at high fidelity.
+  - **Vision** : Claude Opus 5 on Google Cloud understands diagrams, charts, and tables nested in files and PDFs, improving document-heavy work in finance, legal, analytics, and architecture.
+  - **Computer use** : Claude Opus 5 on Google Cloud is our most capable computer use model, pairing improved vision with deep reasoning for multi-step tasks across multiple applications.
+
 ### Claude Sonnet 5 on Google Cloud
 
 Claude Sonnet 5 on Google Cloud is our most capable Sonnet model yet, built for coding, agents, and professional work at scale.

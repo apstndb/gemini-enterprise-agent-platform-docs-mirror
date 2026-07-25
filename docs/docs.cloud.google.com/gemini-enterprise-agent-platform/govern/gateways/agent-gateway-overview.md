@@ -155,6 +155,13 @@ For MCP traffic only, Agent Gateway can parse request data to extract attributes
   - Each Agent Gateway instance can govern up to 5,000 resources registered in Agent Registry.
   - Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#limitations) associated with authorization policies.
 
+## API and gcloud reference
+
+For details about the methods available for Agent Gateway, see the following reference topics:
+
+  - gcloud reference: [`gcloud network-services agent-gateways`](https://docs.cloud.google.com/sdk/gcloud/reference/network-services/agent-gateways)
+  - REST API reference: [agentGateways](https://docs.cloud.google.com/service-mesh/docs/reference/network-services/rest/v1/projects.locations.agentGateways)
+
 ## What's next
 
 Codelab
