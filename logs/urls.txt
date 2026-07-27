@@ -1124,7 +1124,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workben
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.longrunning	2026-06-09T17:56:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.rpc	2026-06-09T17:56:40Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rpc/google.type	2026-06-09T17:57:15Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes	2026-07-18T06:45:48Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes	2026-07-27T03:39:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize	2026-07-23T23:47:56Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation	2026-07-24T20:50:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents	2026-07-23T23:47:56Z
@@ -2847,7 +2847,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/goo
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.rpc	2026-06-09T17:56:54Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type	2026-06-09T17:56:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp	2026-07-23T23:49:30Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-07-24T18:11:47Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-07-27T03:39:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources	2026-07-23T23:49:03Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations	2026-07-23T23:47:56Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas	2026-07-23T23:50:00Z
