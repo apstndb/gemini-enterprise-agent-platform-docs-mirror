@@ -1145,6 +1145,8 @@ Anthropic models
 
 Claude Sonnet 5 on Google Cloud
 
+Claude Opus 5 on Google Cloud
+
 Claude Fable 5 on Google Cloud
 
 Claude Opus 4.8 on Google Cloud
@@ -1208,6 +1210,8 @@ European Union multi-region
 Anthropic models
 
 Claude Sonnet 5 on Google Cloud
+
+Claude Opus 5 on Google Cloud
 
 Claude Fable 5 on Google Cloud
 
@@ -1288,6 +1292,8 @@ Anthropic models
 
 Claude Sonnet 5 on Google Cloud
 
+Claude Opus 5 on Google Cloud
+
 Claude Fable 5 on Google Cloud
 
 Claude Opus 4.8 on Google Cloud
@@ -1351,6 +1357,8 @@ São Paulo
 Anthropic models
 
 Claude Sonnet 5 on Google Cloud
+
+Claude Opus 5 on Google Cloud
 
 Claude Fable 5 on Google Cloud
 
@@ -1440,6 +1448,8 @@ Anthropic models
 
 Claude Sonnet 5 on Google Cloud
 
+Claude Opus 5 on Google Cloud
+
 Claude Fable 5 on Google Cloud
 
 Claude Opus 4.8 on Google Cloud
@@ -1519,6 +1529,8 @@ Anthropic models
 
 Claude Sonnet 5 on Google Cloud
 
+Claude Opus 5 on Google Cloud
+
 Claude Fable 5 on Google Cloud
 
 Claude Opus 4.8 on Google Cloud
@@ -1585,6 +1597,8 @@ Dammam
 Anthropic models
 
 Claude Sonnet 5 on Google Cloud
+
+Claude Opus 5 on Google Cloud
 
 Claude Fable 5 on Google Cloud
 

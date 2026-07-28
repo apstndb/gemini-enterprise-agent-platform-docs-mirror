@@ -20,7 +20,7 @@ Make sure your environment is set up by following the steps in [Set up your envi
 
 Specify the model you want to use:
 
-    model = "gemini-2.0-flash"
+    model = "gemini-3.5-flash"
 
 Optional: Configure the safety settings of the model. To learn more about the options available for safety settings in Gemini, see [Configure safety attributes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/configure-safety-filters) . The following is an example of how you can configure the safety settings:
 
@@ -191,7 +191,7 @@ Finally, use it in [`LangchainAgent`](https://docs.cloud.google.com/python/docs/
     from vertexai import agent_engines
     
     agent = agent_engines.LangchainAgent(
-        model="google/gemini-2.0-flash",  # Or "meta/llama3-405b-instruct-maas"
+        model="google/gemini-3.5-flash",  # Or "meta/llama3-405b-instruct-maas"
         model_builder=model_builder,        # Required.
         model_kwargs={
             "temperature": 0,               # Optional.
@@ -480,7 +480,7 @@ With Gemini, you can place constraints on tool usage. For example, instead of al
     from vertexai.preview.generative_models import ToolConfig
     
     agent = agent_engines.LangchainAgent(
-        model="gemini-2.0-flash",
+        model="gemini-3.5-flash",
         tools=[search_arxiv, get_exchange_rate],
         model_tool_kwargs={
             "tool_config": {  # Specify the tool configuration here.

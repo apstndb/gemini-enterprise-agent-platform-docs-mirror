@@ -26,7 +26,7 @@ Make sure your environment is set up by following the steps in [Set up your envi
 
 Specify the model you want to use:
 
-    model = "gemini-2.0-flash"
+    model = "gemini-3.5-flash"
 
 Define the runnable name to use:
 
@@ -40,7 +40,7 @@ Optional: Configure the model:
         "config_list": [{
             "project_id":       initializer.global_config.project,
             "location":         initializer.global_config.location,
-            "model":            "gemini-2.0-flash",
+            "model":            "gemini-3.5-flash",
             "api_type":         "google",
         }]
     }
@@ -90,12 +90,12 @@ The response is a Python dictionary similar to the following example:
        'name': 'Exchange Rate Agent'}],
      'summary': 'I do not have access to real-time information, including currency exchange rates. To get the most up-to-date exchange rate from US dollars to Swedish Krona (SEK), I recommend using a reliable online currency converter or checking with your bank. \n',
      'cost': {'usage_including_cached_inference': {'total_cost': 5.2875e-06,
-       'gemini-2.0-flash': {'cost': 5.2875e-06,
+       'gemini-3.5-flash': {'cost': 5.2875e-06,
         'prompt_tokens': 34,
         'completion_tokens': 62,
         'total_tokens': 96}},
       'usage_excluding_cached_inference': {'total_cost': 5.2875e-06,
-       'gemini-2.0-flash': {'cost': 5.2875e-06,
+       'gemini-3.5-flash': {'cost': 5.2875e-06,
         'prompt_tokens': 34,
         'completion_tokens': 62,
         'total_tokens': 96}}},
@@ -167,7 +167,7 @@ First, define a `llm_config` :
     
     llm_config = {
         "config_list": [{
-            "model": "google/gemini-2.0-flash",  # Required.
+            "model": "google/gemini-3.5-flash",  # Required.
             "api_type": "openai",                    # Required.
             "base_url": base_url,                    # Required.
             "api_key": creds.token,                  # Required.
@@ -179,7 +179,7 @@ Finally, use it in [`AG2Agent`](https://docs.cloud.google.com/python/docs/refere
     from vertexai import agent_engines
     
     agent = agent_engines.AG2Agent(
-        model="google/gemini-2.0-flash",  # Or "meta/llama3-405b-instruct-maas".
+        model="google/gemini-3.5-flash",  # Or "meta/llama3-405b-instruct-maas".
         runnable_name=runnable_name,          # Required.
         llm_config=llm_config,                # Optional.
     )
@@ -286,12 +286,12 @@ The response is a dictionary that's similar to the following:
        'name': 'Get Exchange Rate Agent'}],
      'summary': 'The current exchange rate is 1 USD to 10.6509 SEK. \n',
      'cost': {'usage_including_cached_inference': {'total_cost': 0.0002790625,
-       'gemini-2.0-flash': {'cost': 0.0002790625,
+       'gemini-3.5-flash': {'cost': 0.0002790625,
         'prompt_tokens': 757,
         'completion_tokens': 34,
         'total_tokens': 791}},
       'usage_excluding_cached_inference': {'total_cost': 0.0002790625,
-       'gemini-2.0-flash': {'cost': 0.0002790625,
+       'gemini-3.5-flash': {'cost': 0.0002790625,
         'prompt_tokens': 757,
         'completion_tokens': 34,
         'total_tokens': 791}}},

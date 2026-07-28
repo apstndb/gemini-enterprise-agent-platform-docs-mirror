@@ -232,7 +232,7 @@ Learn how to set up your environment by selecting one of the following tabs:
       <artifactId>google-cloud-vertexai</artifactId>
       <version>0.4.0</version>
     </dependency>
-              
+                
     ```
     
     ### Gradle without BOM
@@ -310,7 +310,7 @@ Learn how to set up your environment by selecting one of the following tabs:
 2.  Configure environment variables by entering the following. Replace `PROJECT_ID` with the ID of your Google Cloud project.
     
     ``` 
-    MODEL_ID="gemini-2.0-flash-001"
+    MODEL_ID="gemini-3.5-flash"
     PROJECT_ID="PROJECT_ID"
         
     ```
@@ -1351,7 +1351,7 @@ Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
   - LOCATION : The region to process the request.
-  - MODEL\_ID : LLM model for content generation. Example: `gemini-2.5-flash`
+  - MODEL\_ID : LLM model for content generation. Example: `gemini-3.5-flash`
   - GENERATION\_METHOD : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`
   - INPUT\_PROMPT : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
   - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .

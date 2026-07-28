@@ -6,7 +6,11 @@ description: Learn how to create and manage skills in Skill Registry using the R
 data_source: docs.cloud.google.com
 ---
 
-> **Preview:** This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . When you use this feature with AI Agents, the terms applicable to AI Agents in the Agreement apply. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) .
+> **Preview**
+> 
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+> **Note:** You can centrally manage and govern standalone skills within [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . For details, see [Register skills](https://docs.cloud.google.com/agent-registry/register-skills) .
 
 > To see an example of creating and managing skills in Skill Registry, run the "Intro to Skill Registry" notebook in one of the following environments:
 > 

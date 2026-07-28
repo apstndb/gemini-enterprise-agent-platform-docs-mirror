@@ -45,8 +45,6 @@ Choose a model and query its resource requirements. The required resources appea
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
   - PUBLISHER : The model publisher, for example, `meta` , `google` , `mistral-ai` , or `deepseek-ai` .
@@ -95,8 +93,6 @@ Make a batch prediction against a self-deployed Model Garden model by using inpu
 Specify your BigQuery input table, model, and output location. The batch prediction job and your table must be in the same region.
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -209,8 +205,6 @@ You should receive a JSON response similar to the following.
 Specify your JSONL file's Cloud Storage location, model, and output location.
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -325,8 +319,6 @@ You should receive a JSON response similar to the following.
 Get the state of your batch prediction job to check whether it has completed successfully. The job length depends on the number of input items that you submitted.
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 

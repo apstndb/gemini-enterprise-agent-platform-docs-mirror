@@ -139,7 +139,7 @@ To learn how to install the generative AI SDK, see [Install a library](https://a
     from google.genai.types import (Content, LiveConnectConfig, HttpOptions, Modality, Part,)
     from IPython import display
     
-    MODEL="gemini-2.0-flash-exp"
+    MODEL="gemini-live-2.5-flash-native-audio"
     
     client = genai.Client(
       vertexai=True,

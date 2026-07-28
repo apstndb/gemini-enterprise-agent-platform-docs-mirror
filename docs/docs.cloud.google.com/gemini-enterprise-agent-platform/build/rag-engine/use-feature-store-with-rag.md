@@ -517,7 +517,7 @@ Call the Agent Platform `GenerateContent` API to use Gemini models to generate c
 ### REST
 
     # TODO(developer): Update and uncomment the following lines:
-    # MODEL_ID=gemini-2.0-flash
+    # MODEL_ID=gemini-2.5-flash
     # GENERATE_CONTENT_PROMPT="your-generate-content-prompt"
     
     # GenerateContent with contexts retrieved from the FeatureStoreOnline index

@@ -19,6 +19,7 @@ When using the Agent Platform SDK, the code for querying an agent is the same re
 | [AG2 (formerly AutoGen)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-ag2-agent)     | AG2 provides multi-agent conversation framework as a high-level abstraction for building LLM workflows.                                                                   |
 | [LlamaIndex](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-llamaindex-agent) (preview) | LlamaIndex's query pipeline offers a high-level interface for creating Retrieval-Augmented Generation (RAG) workflows.                                                    |
 | [Custom](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent)                   | Agents that were developed and deployed without the use of a framework-specific template.                                                                                 |
+| [Runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract)           | HTTP API specification for custom container-based agents.                                                                                                                 |
 
 ## Use agents served on localhost
 
@@ -44,7 +45,7 @@ where
   - `  RESOURCE_ID  ` is the ID of the deployed agent as a [`reasoningEngine` resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines)
   - `  API_PATH  ` is the path of the corresponding API endpoint
 
-This endpoint is equivalent to replacing the localhost base URL with the deployed agent base URL.
+This endpoint is equivalent to replacing the localhost base URL with the deployed agent base URL. If you are deploying a custom container, the API endpoints and request and response structures are defined by the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
 
 To give a few examples, if you deployed the [ADK API server](https://adk.dev/runtime/api-server) from a [Dockerfile](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-dockerfile) or [Container Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-container-image) , invoke the [API endpoints](https://adk.dev/runtime/api-server/#api-endpoints) as follows:
 

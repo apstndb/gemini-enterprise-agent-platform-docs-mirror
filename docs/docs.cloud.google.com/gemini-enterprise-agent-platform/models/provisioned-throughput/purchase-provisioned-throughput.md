@@ -175,7 +175,7 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
               - **Input audio tokens per query**
               - **Output text tokens per query**
         
-          - For the [Veo 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate-001) and [Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-fast-generate-001) models, enter the following:
+          - For the [Veo 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001) and [Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001) models, enter the following:
             
               - **Frequency** —Specify how often outputs are generated, in seconds. This isn't the latency.
               - **Output video seconds per query** —Enter the total requested video seconds. For example, 12 seconds represents the sum of `3x4` or `2x6` video seconds.

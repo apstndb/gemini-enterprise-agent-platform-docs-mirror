@@ -10,7 +10,7 @@ The following tables show the models that support Provisioned Throughput, the th
 
 ## Google models
 
-> **Caution:** As of June 1, 2026, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
+> **Caution:** As of June 1, 2026, `gemini-2.0-flash` and `gemini-2.0-flash-lite` are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
 
 Provisioned Throughput only supports models that you call directly from your project using the specific model ID and not a model alias. To use Provisioned Throughput to make API calls to a model, you must use the specific model version ID (for example, `gemini-2.0-flash-001` ) and not a [model version alias](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias) .
 
@@ -397,7 +397,7 @@ Video + Audio seconds (4k)
 
 1 (4k) output video + audio second = 4 (720p) output video seconds
 
-[Veo 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate-001)
+[Veo 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)
 
 Latest supported version: `veo-3.0-generate-001`
 
@@ -415,7 +415,7 @@ Video+audio seconds
 
 1 output video+audio second = 2 output video seconds
 
-[Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-fast-generate-001)
+[Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)
 
 Latest supported version: `veo-3.0-fast-generate-001`
 

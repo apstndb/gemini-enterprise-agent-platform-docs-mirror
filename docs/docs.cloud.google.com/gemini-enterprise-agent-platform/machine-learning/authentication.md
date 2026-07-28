@@ -22,7 +22,7 @@ Agent Platform supports programmatic access. You can access the API in the follo
 
 ### Client libraries
 
-The [Agent Platform client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/start/client-libraries) provide high-level language support for authenticating to Agent Platform programmatically. To authenticate calls to Google Cloud APIs, client libraries support [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) ; the libraries look for credentials in a set of defined locations and use those credentials to authenticate requests to the API. With ADC, you can make credentials available to your application in a variety of environments, such as local development or production, without needing to modify your application code.
+The [Agent Platform client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/client-libraries) provide high-level language support for authenticating to Agent Platform programmatically. To authenticate calls to Google Cloud APIs, client libraries support [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) ; the libraries look for credentials in a set of defined locations and use those credentials to authenticate requests to the API. With ADC, you can make credentials available to your application in a variety of environments, such as local development or production, without needing to modify your application code.
 
 ### Google Cloud CLI
 
@@ -53,7 +53,7 @@ How you set up authentication depends on the environment where your code is runn
 
 The following options for setting up authentication are the most commonly used. For more options and information about authentication, see [Authentication methods](https://docs.cloud.google.com/docs/authentication) .
 
-Before you complete these instructions, you must complete the basic setup for Agent Platform, as described in [Set up a project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/start/cloud-environment) .
+Before you complete these instructions, you must complete the basic setup for Agent Platform, as described in [Set up a project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/cloud-environment) .
 
 ### For a local development environment
 
@@ -203,7 +203,7 @@ The preferred method to set up authentication from outside of Google Cloud is to
 
 After you authenticate to Agent Platform, you must be authorized to access Google Cloud resources. Agent Platform uses Identity and Access Management (IAM) for authorization.
 
-For more information about the roles for Agent Platform, see [Gemini Enterprise Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/general/access-control) . For more information about IAM and authorization, see [IAM overview](https://docs.cloud.google.com/iam/docs/overview) .
+For more information about the roles for Agent Platform, see [Gemini Enterprise Agent Platform access control with IAM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/access-control) . For more information about IAM and authorization, see [IAM overview](https://docs.cloud.google.com/iam/docs/overview) .
 
 ## What's next
 

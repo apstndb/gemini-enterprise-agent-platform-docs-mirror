@@ -6,7 +6,11 @@ description: Overview of Skill Registry, a secure, private, and low-latency repo
 data_source: docs.cloud.google.com
 ---
 
-> **Preview:** This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the Service Specific Terms. When you use this feature with AI Agents, the terms applicable to AI Agents in the Agreement apply. Pre-GA features are available "as is" and might have limited support. For more information, see the launch stage descriptions.
+> **Preview**
+> 
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+> **Note:** You can centrally manage and govern standalone skills within [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . For details, see [Register skills](https://docs.cloud.google.com/agent-registry/register-skills) .
 
 Skill Registry serves as a secure, private, and low-latency repository for managing agent skills. Each skill is a self-contained package, including structural instructions, executable code, and documentation, designed to extend an agent's capabilities.
 

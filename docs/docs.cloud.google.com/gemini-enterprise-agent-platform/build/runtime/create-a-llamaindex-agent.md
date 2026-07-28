@@ -26,7 +26,7 @@ Define and configure a model for your LlamaIndex Query Pipeline agent to use:
 
 1.  Specify the model you want to use:
     
-        model = "gemini-2.0-flash"
+        model = "gemini-3.5-flash"
 
 2.  Optional: Specify [model parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding#set_model_parameters) :
     
@@ -217,7 +217,7 @@ You can use `OpenAILike` with Gemini's `ChatCompletions` API.
         from vertexai.preview import reasoning_engines
         
         agent = reasoning_engines.LlamaIndexQueryPipelineAgent(
-            model="google/gemini-2.0-flash",  # Or "meta/llama3-405b-instruct-maas"
+            model="google/gemini-3.5-flash",  # Or "meta/llama3-405b-instruct-maas"
             model_builder=model_builder,        # Required.
             model_kwargs={
                 "temperature": 0,               # Optional.
@@ -695,7 +695,7 @@ To provide [tool-calling behavior](https://docs.llamaindex.ai/en/stable/module_g
           return QueryPipeline(modules = {"agent": agent})
         
         agent = reasoning_engines.LlamaIndexQueryPipelineAgent(
-          model="gemini-2.0-flash",
+          model="gemini-3.5-flash",
           runnable_kwargs={"tools": [get_exchange_rate]},
           runnable_builder=runnable_with_tools_builder,
         )

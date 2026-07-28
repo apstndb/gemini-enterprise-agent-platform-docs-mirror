@@ -6,6 +6,8 @@ description: Interact with a deployed custom agent. Obtain an agent instance, en
 data_source: docs.cloud.google.com
 ---
 
+> **Note:** This page is for custom agents deployed from a Python class template (pickled). If you are deploying custom containers or using a Dockerfile, see the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+
 ## Before you begin
 
 This tutorial assumes that you have read and followed the instructions in:

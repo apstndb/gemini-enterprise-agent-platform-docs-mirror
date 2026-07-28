@@ -105,7 +105,7 @@ To help you manage your AI security posture, the **Security** tab includes the f
 
   - **Compliance** : Help verify that your AI deployments adhere to industry security standards. Available at the project level for projects with Security Command Center Premium or Enterprise, this widget monitors your environment against predefined security frameworks (including the expanded AI Essentials) and provides a high-level view of your current compliance status, helping you maintain audit readiness and security hygiene.
 
-  - **Content violations** : Monitor and manage content-related security issues across your AI environment. This widget aggregates findings for content violations, providing visibility into the volume and types of policy breaches that are detected in your organization.
+  - **Content violations** : Monitor and manage content-related security issues across your AI environment. This widget aggregates findings for content violations, providing visibility into the volume and types of policy breaches that are detected in your organization or project.
     
     To help you identify potential surges or patterns in malicious activity, this widget includes **Violations over time** (Preview), which shows a historical view of content violation trends.
 

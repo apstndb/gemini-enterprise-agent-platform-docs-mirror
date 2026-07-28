@@ -50,6 +50,19 @@ The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/gemi
 | A2A Agent get requests like `getTask` and `getCard` per minute                       | 600   | `aiplatform.googleapis.com/a2a_agent_get_requests`                             |
 | Concurrent live bidirectional connections using the `BidiStreamQuery` API per minute | 10    | `aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests` |
 
+## Multimodal input quotas
+
+The following quotas apply to multimodal input for `generateContent` and `streamGenerateContent` requests for a given project in each region. Each quota is enforced per base model and resolution. The same limits apply to requests served by the global endpoint, using the corresponding `..._global` metric.
+
+| Description                                                                            | Quota       | Metric                                                                                       |
+| -------------------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------- |
+| Generate content requests with image input per minute per base model and resolution    | 34,000,000  | `aiplatform.googleapis.com/generate_content_image_input_per_base_model_id_and_resolution`    |
+| Generate content requests with video input per minute per base model and resolution    | 192,000,000 | `aiplatform.googleapis.com/generate_content_video_input_per_base_model_id_and_resolution`    |
+| Generate content requests with audio input per minute per base model and resolution    | 11,000,000  | `aiplatform.googleapis.com/generate_content_audio_input_per_base_model_id_and_resolution`    |
+| Generate content requests with document input per minute per base model and resolution | 1,200,000   | `aiplatform.googleapis.com/generate_content_document_input_per_base_model_id_and_resolution` |
+
+To request a higher limit for these quotas, contact your Google Cloud account team; they can't be increased from the Google Cloud console.
+
 ## Batch inference
 
 The quotas and limits for batch inference jobs are the same across all regions.  

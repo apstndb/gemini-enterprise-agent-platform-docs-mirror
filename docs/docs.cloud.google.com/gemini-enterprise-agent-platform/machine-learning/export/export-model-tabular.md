@@ -52,7 +52,7 @@ Before you can complete this task, you must have completed the following tasks:
 
 4.  Select or create a Cloud Storage folder in the desired location.
     
-    The bucket must meet the [bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/general/locations#buckets) .
+    The bucket must meet the [bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#buckets) .
     
     You cannot export a model to a top-level bucket. You must use at least one level of folder.
     

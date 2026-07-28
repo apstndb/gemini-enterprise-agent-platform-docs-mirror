@@ -609,3 +609,7 @@ Save the request body in a file named `request.json` , and execute the following
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
         -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID/runtimeRevisions/REVISION_ID" | Select-Object -Expand Content
+
+## Limitations
+
+  - Agent Gateway isn't supported for Agent Runtime agents that are using [revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) . You won't be able to use versioning-related features such as traffic split configuration and per-revision querying if an Agent Gateway is attached to an agent's configuration.

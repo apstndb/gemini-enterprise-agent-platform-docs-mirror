@@ -32,6 +32,8 @@ This page describes how to route Agent Runtime traffic through Agent Gateway. Ag
 
   - VPC Service Controls are not supported with Agent Gateway.
 
+  - Agent Gateway isn't supported for Agent Runtime agents that are using [revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) . You won't be able to use versioning-related features such as traffic split configuration and per-revision querying if an Agent Gateway is attached to an agent's configuration.
+
 ## Route Agent Runtime traffic through Agent Gateway
 
 To route Agent Runtime traffic through Agent Gateway, perform the following steps:

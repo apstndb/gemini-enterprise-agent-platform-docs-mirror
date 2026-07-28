@@ -109,7 +109,7 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
       "displayName": "my-cloud-storage-batch-inference-job",
-      "model": "publishers/google/models/gemini-2.5-flash",
+      "model": "publishers/google/models/gemini-3.5-flash",
       "inputConfig": {
         "instancesFormat": "jsonl",
         "gcsSource": {
@@ -140,7 +140,7 @@ The response includes a unique identifier for the batch job. You can poll for th
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -248,7 +248,7 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/batchPredictionJobs/BATCH_JOB_ID",
       "displayName": "my-cloud-storage-batch-prediction-job",
-      "model": "publishers/google/models/gemini-2.5-flash",
+      "model": "publishers/google/models/gemini-3.5-flash",
       ...
       "state": "JOB_STATE_PENDING",
       "completionStats": {
@@ -268,7 +268,7 @@ You should receive a JSON response similar to the following.
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.

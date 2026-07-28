@@ -75,9 +75,9 @@ To configure Model Armor on a gateway, follow these steps:
 
 3.  Set up Agent Gateway in the same region where the Model Armor templates are stored. For the [Client-to-Agent (ingress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-client-to-agent) , specify the Model Armor templates that you created for ingress traffic. For the [Agent-to-Anywhere (egress) gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) , specify the Model Armor templates that you created for egress traffic. You can use the same template for both traffic flows.
 
-4.  Grant the required IAM roles to the appropriate service accounts:
+4.  Grant the required IAM roles to the appropriate service agents:
     
-      - **Client-to-Agent (ingress)** : Grant the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#service-agent) service account the following roles:
+      - **Client-to-Agent (ingress)** : Grant the [AI Platform Reasoning Engine Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access#service-agent) service agent the following roles:
         
           - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) role in the project that contains the AI agent.
         
@@ -98,7 +98,7 @@ To configure Model Armor on a gateway, follow these steps:
           - `  AGENT_RUNTIME_PROJECT_NUMBER  ` : The project number of the project where you created the agent.
           - `  MODEL_ARMOR_PROJECT_ID  ` : The project ID of the project that contains the Model Armor template.
     
-      - **Agent-to-Anywhere (egress)** : Grant the Agent Gateway service account the following roles:
+      - **Agent-to-Anywhere (egress)** : Grant the Service Extensions service agent the following roles:
         
           - The Model Armor Callout User ( `roles/modelarmor.calloutUser` ) and Service Usage Consumer ( `roles/serviceusage.serviceUsageConsumer` ) roles in the project that contains the gateway.
           - The Model Armor User ( `roles/modelarmor.user` ) role in the project that contains the Model Armor template.

@@ -10,21 +10,20 @@ In Agent Retrieval (formerly Vector Search 2.0), Collections store data as indiv
 
 ## Data validation
 
-Every Data Object that Agent Retrieval ingests is checked against a fixed set of rules. If any rule fails for a record, that record is rejected and emitted to the error sink with `code = INVALID_ARGUMENT` ; later checks do *not* run for that record. To avoid the "fix one error, re-ingest, hit the next error" loop, validate your dataset against **all** of the data validation rules before kicking off an ingestion or index build.
+Agent Retrieval (formerly Vector Search 2.0) validates every Data Object before storing it. Validation happens in two contexts that enforce the same core rules but differ in how failures are reported:
 
-The pipeline applies the validations in this order:
+| Context                    | Applies to                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Behavior on failure                                                                                                                                                                                                                     |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Data Object validation** | Individual and batch writes: [`create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#create) , [`batchCreate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#batch-create) , [`update`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#update) , and [`batchUpdate`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#batch-update) | The request fails immediately with `INVALID_ARGUMENT` . Batch writes are atomic: if any record is invalid, no record in the request is written.                                                                                         |
+| **Import validation**      | [`import`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#import) from Cloud Storage                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Each record is validated independently. An invalid record is written to the error sink with `code = INVALID_ARGUMENT` and skipped, and the rest of the import continues. Once a record fails a check, later checks do *not* run for it. |
 
-| Stage                            | What it checks                                                                                                                       |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 1\. Parsing                      | JSON is well-formed; required top-level fields exist; field types are correct                                                        |
-| 2\. ID validations               | The `id` field is present and matches the documented ID format                                                                       |
-| 3\. Data field schema            | The `data` payload conforms to the JSON Schema declared in the Collection's `CollectionConfig`                                       |
-| 4\. Embedding validations        | Each dense/sparse vector matches the Collection's vector schema (name, type, dimension, finite values, sparse parity and uniqueness) |
-| 5\. Searchable-fields population | Fields marked searchable in the schema can be successfully extracted from `data`                                                     |
+Both contexts enforce the same core rules: [ID rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#id-rules) , [data field rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#data-field-rules) (when the Collection declares a `dataSchema` ), and [embedding rules](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#embedding-rules) . Import additionally [parses each record](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#parsing-import-only) and [extracts searchable fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#searchable-fields-import-only) , because its input is raw files rather than structured API requests.
 
-### 1\. Parsing validations
+To avoid a "fix one error, re-ingest, hit the next error" loop, validate your dataset against **all** of the rules that follow before you start an import or an index build.
 
-Parsing validations run first, while turning each input line into an internal Data Object. They apply to both supported JSON shapes, the **default** format (with a top-level `vectors` / `data` object) and the **v1** format (with `embedding` , `sparse_embedding` , `restricts` , or `numeric_restricts` ). The format is auto-detected per record.
+### Parsing (import only)
+
+Parsing applies only to [import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#import) , which turns each raw input line or record into an internal Data Object. Individual and batch API writes skip this step because their input is already structured. Parsing handles both supported JSON shapes: the **default** format (with a top-level `vectors` / `data` object) and the **v1** format (with `embedding` , `sparse_embedding` , `restricts` , or `numeric_restricts` ). The format is auto-detected per record.
 
   - **JSON must be parseable.** Each line must parse as a JSON object. A line whose top-level keys match neither the default nor v1 format is rejected with `Unknown JSON format for string: <line>` .
   - **`id` is required.** Every record must contain a non-null `id` . Otherwise: `'id' field is missing or null` .
@@ -41,44 +40,34 @@ Parsing validations run first, while turning each input line into an internal Da
 
 Most "first failure" issues come from this stage. Common errors include a stringified number in an embedding array, a missing `id` , or `values` / `indices` of different lengths.
 
-### 2\. ID validations
+### ID rules
 
-Data Object IDs must comply with [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) . In practice this means:
-
-  - **1-63 characters long.**
-  - **Lowercase letters, digits, and hyphens ( `-` ) only.** No uppercase, no underscores, no spaces, no symbols, no Unicode.
-  - **Must start with a lowercase letter** ( `a-z` ).
-  - **Must end with a lowercase letter or a digit** (no trailing `-` ).
-
-Regular expression: `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`
+A Data Object ID must be **between 1 and 63 characters long** . Length is the only constraint Agent Retrieval enforces on an ID; all characters are accepted.
 
 The following table shows common examples:
 
-| ID               | Valid? | Why                                                                       |
-| ---------------- | ------ | ------------------------------------------------------------------------- |
-| `doc-123`        | Yes    | Starts with a letter, only lowercase + digits + hyphen, ends with a digit |
-| `a`              | Yes    | A single lowercase letter is the minimum                                  |
-| `product-sku-42` | Yes    | All rules satisfied                                                       |
-| `Doc-123`        | No     | Uppercase `D` not allowed                                                 |
-| `123-doc`        | No     | Must start with a **letter** , not a digit                                |
-| `doc_123`        | No     | Underscore not allowed                                                    |
-| `doc-123-`       | No     | Cannot end with a hyphen                                                  |
-| `my doc`         | No     | Spaces not allowed                                                        |
-| 64+ characters   | No     | Maximum length is 63                                                      |
+| ID                    | Valid? | Why                                                |
+| --------------------- | ------ | -------------------------------------------------- |
+| `movie-789`           | Yes    | Between 1 and 63 characters                        |
+| `a`                   | Yes    | A single character is the minimum                  |
+| `Doc_123`             | Yes    | Uppercase letters and underscores are allowed      |
+| `my doc`              | Yes    | Any character is accepted, within the length limit |
+| *(empty string)*      | No     | At least one character is required                 |
+| 64 characters or more | No     | The maximum length is 63                           |
 
-This shape is the DNS label rule (the part between dots in a hostname like `my-service.example.com` ). It is reused here so that IDs round-trip safely through URLs, filenames, logs, and CLIs without escaping.
+> **Note:** Agent Retrieval does not enforce the [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) (DNS label) format on Data Object IDs. Even so, restricting IDs to lowercase letters, digits, and hyphens -- matching the pattern `[a-z]([-a-z0-9]{0,61}[a-z0-9])?` -- remains a good practice, because IDs in that form round-trip safely through URLs, filenames, logs, and CLIs without escaping.
 
-### 3\. Data field validations (JSON Schema)
+### Data field rules (JSON Schema)
 
-The data field validation stage runs only if the Collection has a `dataSchema` declared in its `CollectionConfig` . If no schema is configured, this stage is skipped.
+Data field validation runs only if the Collection declares a `dataSchema` in its `CollectionConfig` . If no schema is configured, this check is skipped.
 
   - **Schema compliance.** The Data Object's `data` payload is serialized to JSON and validated against the configured JSON Schema (Draft 7). The validator reports **one error per schema violation** , so a record with three bad fields produces three error messages.
       - Message: `DataObject with id <id> failed schema validation: <error>` .
   - **Schema processing errors.** If the schema validator itself throws (for example, unsupported draft features), the record is rejected with `DataObject with id <id> failed schema validation processing: <exception>` .
 
-### 4\. Embedding field validations
+### Embedding rules
 
-The embedding field validation stage iterates first over dense vectors and then sparse vectors. A single shared set of seen vector names spans **both** lists, so a name cannot be used twice -- even across the dense and sparse boundary.
+Embedding validation iterates first over dense vectors and then sparse vectors. A single shared set of seen vector names spans **both** lists, so a name cannot be used twice -- even across the dense and sparse boundary.
 
 #### Shared rules (apply to both dense and sparse)
 
@@ -105,9 +94,9 @@ The embedding field validation stage iterates first over dense vectors and then 
 | **Unique indices** within the same sparse vector.                    | `... field '<name>': sparse embedding contains duplicate index <i> (each index must appear at most once)`                  |
 | **All values must be finite.**                                       | `... field '<name>': sparse embedding contains non-finite value <v> at position <p> (NaN/Infinity values are not allowed)` |
 
-### 5\. Searchable-fields population
+### Searchable-field extraction (import only)
 
-After embedding validation succeeds, the pipeline walks the `data` payload using the Collection's `dataSchema` and copies fields that the schema declares (string, integer/number, boolean, array of string, and nested objects) into a searchable-fields index. Two failure modes here will also reject a record:
+During [import](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects#import) , after embedding validation succeeds, the pipeline walks the `data` payload using the Collection's `dataSchema` and copies fields that the schema declares (string, integer/number, boolean, array of string, and nested objects) into a searchable-fields index. Two failure modes here will also reject a record:
 
   - A path that should be a struct contains a scalar (for example, the schema says `author.name` is a string but `author` is itself a string in the document).
   - An array-of-strings field contains a non-string element.
@@ -119,7 +108,7 @@ These typically indicate that the document's shape has drifted from the declared
 Before kicking off an ingestion or index build, validate the entire dataset against the following rules. This is the same set of checks the pipeline applies, ordered so a single client-side pass surfaces every issue:
 
 1.  **Format** -- every line parses as JSON and matches either the default or v1 shape.
-2.  **IDs** -- match the RFC 1035 regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?` and are unique across the dataset.
+2.  **IDs** -- are between 1 and 63 characters long and unique across the dataset.
 3.  **Embeddings present** -- at least one vector per record; vector names are listed in your `CollectionConfig` vector schema with the correct dense or sparse type.
 4.  **Dense vectors** -- correct dimension; no `NaN` , `+Inf` , or `-Inf` values.
 5.  **Sparse vectors** -- `values.length == indices.length` ; all indexes greater or equal to 0 and unique. Non-finite values are not allowed.
@@ -1315,7 +1304,9 @@ Folder `gs://your-bucket/path/to/your-data/` can contain one or more files each 
   - Vector Search JSON: Use this format only when you are migrating an existing Vector Search (Vector Search 1.0) JSON dataset and want to reuse it as-is.
   - Vector Search AVRO: Use this format only when you are migrating an existing Vector Search (Vector Search 1.0) AVRO dataset and want to reuse it as-is.
 
-The following provides an example of the JSONL with the required properties.
+### JSONL
+
+The following example shows the JSONL format with the required properties. Each line in the input file is a single Data Object with the top-level `id` , `data` , and `vectors` properties.
 
     {
       "id": "movie-789",

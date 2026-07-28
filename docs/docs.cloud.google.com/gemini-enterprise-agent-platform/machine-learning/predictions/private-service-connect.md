@@ -602,7 +602,7 @@ Following are the high-level deployment steps:
 1.  Create a certificate in one of the following ways:
     
       - **Generate a self-signed certificate (or use your CA) for a custom domain.** Custom domains don't need to follow a specific format.
-      - **Use [Certificate Manager](https://docs.cloud.google.com/certificate-manager/docs/overview) for a Google-managed certificate.** Google-managed certificates have limitations on the length of supported domain names. For more information, see [Domain name length limitations for Google-managed certificates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/docs/quotas#domain_name_length_limitations_for_google-managed_certificates) .
+      - **Use [Certificate Manager](https://docs.cloud.google.com/certificate-manager/docs/overview) for a Google-managed certificate.** Google-managed certificates have limitations on the length of supported domain names. For more information, see [Domain name length limitations for Google-managed certificates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#domain_name_length_limitations_for_google-managed_certificates) .
 
 2.  Deploy a regional Application Load Balancer (HTTPS):
     

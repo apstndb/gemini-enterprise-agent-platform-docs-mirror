@@ -35,14 +35,14 @@ Gemini Enterprise Agent Platform implements Google Cloud security controls to he
 <td style="text-align: center;">✔</td>
 </tr>
 <tr class="even">
-<td>Gemini Enterprise Agent Platform RAG Engine</td>
+<td>RAG Engine</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">✔</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
-<td>Gemini Enterprise Agent Platform Vector Search 2</td>
+<td>Vector Search</td>
 <td style="text-align: center;">✔</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">✔</td>
