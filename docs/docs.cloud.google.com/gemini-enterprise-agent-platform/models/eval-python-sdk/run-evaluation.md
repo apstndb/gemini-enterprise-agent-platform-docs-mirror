@@ -413,23 +413,7 @@ A single evaluation request for a model-based metric results in multiple underly
 
   - **High user concurrency:** If you anticipate a large number of users simultaneously requesting model-based evaluations and model inference within your project, a higher model RPM limit is crucial to prevent bottlenecks and maintain responsiveness.
 
-If you're using the default judge model of `gemini-2.0-flash` or newer models, we recommend that you use [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) to manage your quota.
-
-For models older than `gemini-2.0-flash` , use the following instructions to increase the [judge model RPM quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#eval-quotas) :
-
-1.  In the Google Cloud console, go to the IAM & Admin **Quotas** page.  
-
-2.  In the **Filter** field, specify the **Dimension** (model identifier) and the **Metric** (quota identifier for Gemini models): `base_model:gemini-2.0-flash` and `Metric:aiplatform.googleapis.com/generate_content_requests_per_minute_per_project_per_base_model` .
-
-3.  For the quota that you want to increase, click the **more actions** menu more\_vert button.
-
-4.  In the drop-down menu, click **Edit quota** . The **Quota changes** panel opens.
-
-5.  Under **Edit quota** , enter a new quota value.
-
-6.  Click **Submit request** .
-
-7.  A Quota Increase Request (QIR) is confirmed by email and typically takes two business days to process.
+If you're using the default judge model of `Gemini 2.5 Flash` or newer models, we recommend that you use [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) to manage your quota.
 
 To run an evaluation using a new quota, set the `evaluation_service_qps` parameter as follows:
 

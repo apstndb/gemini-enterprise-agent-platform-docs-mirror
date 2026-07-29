@@ -59,7 +59,8 @@ Capabilities
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
     Not supported
   - [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)  
-    Not supported
+    Implicit context caching  
+    Supported
   - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)  
     Supported
   - [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)  
@@ -71,7 +72,7 @@ Capabilities
   - [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)  
     Not supported
   - [Image generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation)  
-    Image generation  
+    Image generation, Image generation from video input  
     Supported
   - [Edit images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images)  
     Edit images, Multi-turn image editing  
@@ -115,7 +116,7 @@ Technical specifications
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB
   - Maximum file size per file from Google Cloud Storage: 30 MB
   - Maximum number of output images per prompt: Limited to 32,768 output tokens
-  - Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9, 9:16
+  - Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21
   - Supported resolutions: 1K, 2K, 4K (Preview)
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
@@ -130,9 +131,8 @@ Technical specifications
 
 **Parameter defaults** tune
 
-  - Temperature: 0.0-2.0
+  - Temperature: 0.0-2.0 (default 1.0)
   - topP: 0.0-1.0 (default 0.95)
-  - topK: 64 (fixed)
   - candidateCount: 1
 
 Supported regions
@@ -159,6 +159,13 @@ Security controls
   - AXT
 
 **Batch inference**
+
+  - Data residency
+  - CMEK
+  - VPC-SC
+  - AXT
+
+**Context caching**
 
   - Data residency
   - CMEK

@@ -220,6 +220,32 @@ Claude Sonnet 5 on Google Cloud
 
 1,000,000
 
+Claude Opus 5 on Google Cloud
+
+`Multi-region`
+
+  - QPM: 1,000
+  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,000,000
+
+1,000,000
+
+`Multi-region`
+
+  - QPM: 1,000
+  - Input TPM: 10,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 1,000,000
+
+1,000,000
+
+`global endpoint`
+
+  - QPM: 2,000
+  - Input TPM: 20,000,000 [uncached and cache write](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#input)
+  - Output TPM: 2,000,000
+
+1,000,000
+
 Claude Fable 5 on Google Cloud
 
 `Multi-region`

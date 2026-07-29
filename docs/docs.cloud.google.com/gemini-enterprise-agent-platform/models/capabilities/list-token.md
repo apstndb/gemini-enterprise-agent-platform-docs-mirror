@@ -53,7 +53,7 @@ The following code sample shows you how to get a list of tokens and token IDs fo
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -84,7 +84,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -173,7 +173,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -213,7 +213,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -290,7 +290,7 @@ The following code sample shows you how to get the token count of a prompt. Both
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -325,7 +325,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -390,7 +390,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -430,7 +430,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -495,7 +495,7 @@ To count just the tokens, use `count_tokens` :
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -521,7 +521,7 @@ To count the tokens and get their token IDs, use `compute_tokens` instead:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.

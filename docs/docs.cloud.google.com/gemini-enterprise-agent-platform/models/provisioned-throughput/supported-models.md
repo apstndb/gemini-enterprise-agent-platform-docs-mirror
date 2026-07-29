@@ -10,13 +10,11 @@ The following tables show the models that support Provisioned Throughput, the th
 
 ## Google models
 
-> **Caution:** As of June 1, 2026, `gemini-2.0-flash` and `gemini-2.0-flash-lite` are discontinued and are no longer available. This includes both model serving and Provisioned Throughput. Use Gemini 3.1 Flash-Lite, Gemma 4, or more recent Gemini releases.
-
 Provisioned Throughput only supports models that you call directly from your project using the specific model ID and not a model alias. To use Provisioned Throughput to make API calls to a model, you must use the specific model version ID (for example, `gemini-2.0-flash-001` ) and not a [model version alias](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/model-alias) .
 
 While Provisioned Throughput assures capacity for your model requests, it doesn't include or bypass quotas for other tools that you might use, such as [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) . Depending on the size of your workload, you might need to request additional quota for these tools separately.
 
-Moreover, Provisioned Throughput doesn't support models that are called by other Gemini Enterprise Agent Platform products, such as Vertex AI Agents and Agent Search. For example, if you make API calls to Gemini 2.0 Flash while using Agent Search, your Provisioned Throughput order for Gemini 2.0 Flash won't guarantee the calls made by Agent Search.
+Moreover, Provisioned Throughput doesn't support models that are called by other Gemini Enterprise Agent Platform products, such as Vertex AI Agents and Agent Search. For example, if you make API calls to Gemini 3.5 Flash while using Agent Search, your Provisioned Throughput order for Gemini 3.5 Flash won't guarantee the calls made by Agent Search.
 
 Provisioned Throughput doesn't support [batch prediction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini) calls.
 

@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-This tutorial demonstrates how you can iteratively create few-shot examples and dynamically retrieve them from Example Store to correct the behavior of an LLM. In this tutorial, you use the `gemini-2.0-flash` model. You'll do the following:
+This tutorial demonstrates how you can iteratively create few-shot examples and dynamically retrieve them from Example Store to correct the behavior of an LLM. You'll do the following:
 
   - Create an Example Store instance ( [`ExampleStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/quickstart#create_an_example_store_instance) ).
 
@@ -123,7 +123,7 @@ Perform the following steps to author and upload examples to the Example Store i
           parts=[genai_types.Part(text="What is the weather like in Boston?")],
         )
         response = client.models.generate_content(
-          model="gemini-2.0-flash",
+          model="gemini-3.5-flash",
           user_content,
           config=genai_types.GenerateContentConfig(
             tools=[
@@ -330,7 +330,7 @@ Use the following code sample to search for examples that are relevant to the on
     prompt = ExampleStorePrompt().get_prompt(examples.get("results", []))
     
     model_response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-3.5-flash",
         contents="How do I get to LAX?",
         config=genai_types.GenerateContentConfig(
           system_instruction=prompt,

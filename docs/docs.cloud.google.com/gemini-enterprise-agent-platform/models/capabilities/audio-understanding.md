@@ -173,13 +173,11 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
           <li>**Output token limit**: Use the slider or textbox to enter a value for
             the max output limit.
         
-            
-        Maximum number of tokens that can be generated in the response. A token is
-        approximately four characters. 100 tokens correspond to roughly 60-80 words.
+            <p>Maximum number of tokens that can be generated in the response. A token is
+            approximately four characters. 100 tokens correspond to roughly 60-80 words.</p>
         
-        Specify a lower value for shorter responses and a higher value for potentially longer
-        responses.
-        </li>
+            <p>Specify a lower value for shorter responses and a higher value for potentially longer
+            responses.</p></li>
           <li>**Add stop sequence**: Optional. Enter a stop sequence, which is a
             series of characters that includes spaces. If the model encounters a
             stop sequence, the response generation stops. The stop sequence isn't
@@ -231,7 +229,7 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -268,7 +266,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -341,7 +339,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -395,7 +393,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -456,7 +454,7 @@ Before using any of the request data, make the following replacements:
 
   - `  FILE_URI  ` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
     
-      - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request. For `gemini-2.0-flash` and `gemini-2.0-flash-lite` , the size limit is 2 GB.
+      - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
       - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
       - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
     
@@ -464,7 +462,7 @@ Before using any of the request data, make the following replacements:
     
     If you don't have an audio file in Cloud Storage, then you can use the following publicly available file: `gs://cloud-samples-data/generative-ai/audio/pixel.mp3` with a mime type of `audio/mp3` . To listen to this audio, [open the sample MP3](https://storage.googleapis.com/cloud-samples-data/generative-ai/audio/pixel.mp3) file.
 
-  - `  MIME_TYPE  ` : The media type of the file specified in the `data` or `fileUri` fields. Acceptable values include the following:
+  - `  MIME_TYPE  ` : The media type of the file specified in the `fileUri` fields. Acceptable values include the following:
     
     **Click to expand MIME types**
     
@@ -524,7 +522,7 @@ Then execute the following command to send your REST request:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-2.0-flash:generateContent"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
 
 #### PowerShell
 
@@ -561,7 +559,7 @@ Then execute the following command to send your REST request:
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-2.0-flash:generateContent" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following.
 
@@ -621,7 +619,7 @@ You should receive a JSON response similar to the following.
 Note the following in the URL for this sample:
 
   - Use the [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/generateContent) method to request that the response is returned after it's fully generated. To reduce the perception of latency to a human audience, stream the response as it's being generated by using the [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent) method.
-  - The multimodal model ID is located at the end of the URL before the method (for example, `gemini-2.5-flash` ). This sample might support other models as well.
+  - The multimodal model ID is located at the end of the URL before the method (for example, `gemini-3.5-flash` ). This sample might support other models as well.
   - When you use a regional API endpoint (for example, `us-central1` ), the region from the endpoint URL determines where the request is processed. Any conflicting location in the resource path is ignored.
 
 ### Audio transcription
@@ -683,13 +681,11 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
           <li>**Output token limit**: Use the slider or textbox to enter a value for
             the max output limit.
         
-            
-        Maximum number of tokens that can be generated in the response. A token is
-        approximately four characters. 100 tokens correspond to roughly 60-80 words.
+            <p>Maximum number of tokens that can be generated in the response. A token is
+            approximately four characters. 100 tokens correspond to roughly 60-80 words.</p>
         
-        Specify a lower value for shorter responses and a higher value for potentially longer
-        responses.
-        </li>
+            <p>Specify a lower value for shorter responses and a higher value for potentially longer
+            responses.</p></li>
           <li>**Add stop sequence**: Optional. Enter a stop sequence, which is a
             series of characters that includes spaces. If the model encounters a
             stop sequence, the response generation stops. The stop sequence isn't
@@ -741,7 +737,7 @@ To send a multimodal prompt by using the Google Cloud console, do the following:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -783,7 +779,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -848,7 +844,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -909,7 +905,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -979,7 +975,7 @@ Before using any of the request data, make the following replacements:
 
   - `  FILE_URI  ` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
     
-      - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request. For `gemini-2.0-flash` and `gemini-2.0-flash-lite` , the size limit is 2 GB.
+      - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
       - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
       - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
     
@@ -1050,7 +1046,7 @@ Then execute the following command to send your REST request:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-2.0-flash:generateContent"
+         "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent"
 
 #### PowerShell
 
@@ -1090,7 +1086,7 @@ Then execute the following command to send your REST request:
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-2.0-flash:generateContent" | Select-Object -Expand Content
+        -Uri "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following.
 
@@ -1164,12 +1160,12 @@ You should receive a JSON response similar to the following.
 Note the following in the URL for this sample:
 
   - Use the [`generateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/generateContent) method to request that the response is returned after it's fully generated. To reduce the perception of latency to a human audience, stream the response as it's being generated by using the [`streamGenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent) method.
-  - The multimodal model ID is located at the end of the URL before the method (for example, `gemini-2.5-flash` ). This sample might support other models as well.
+  - The multimodal model ID is located at the end of the URL before the method (for example, `gemini-3.5-flash` ). This sample might support other models as well.
   - When you use a regional API endpoint (for example, `us-central1` ), the region from the endpoint URL determines where the request is processed. Any conflicting location in the resource path is ignored.
 
 ## Set optional model parameters
 
-Each model has a set of optional parameters that you can set. For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters) .
+Each model has a set of optional parameters that you can set. For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) .
 
 ## Limitations
 

@@ -76,8 +76,6 @@ Specify your BigQuery input table, model, and output location. The batch predict
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
   - LOCATION : A region that supports the model.
@@ -177,8 +175,6 @@ You should receive a JSON response similar to the following.
 Specify your JSONL file's Cloud Storage location, model, and output location.
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -281,8 +277,6 @@ You should receive a JSON response similar to the following.
 Get the state of your batch prediction job to check whether it has completed successfully. The job length depends on the number input items that you submitted.
 
 ### REST
-
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 

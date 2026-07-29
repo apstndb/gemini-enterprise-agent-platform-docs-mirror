@@ -50,7 +50,7 @@ The following examples show how to create a context cache.
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -109,7 +109,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -207,7 +207,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -289,7 +289,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -436,7 +436,7 @@ You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash-001",
+      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash",
       "createTime": "2024-06-04T01:11:50.808236Z",
       "updateTime": "2024-06-04T01:11:50.808236Z",
       "expireTime": "2024-06-04T02:11:50.794542Z"
@@ -445,7 +445,7 @@ You should receive a JSON response similar to the following:
 ### Example curl command
 
     LOCATION="us-central1"
-    MODEL_ID="gemini-2.5-flash"
+    MODEL_ID="gemini-3.5-flash"
     PROJECT_ID="test-project"
     MIME_TYPE="video/mp4"
     CACHED_CONTENT_URI="gs://path-to-bucket/video-file-name.mp4"
@@ -483,7 +483,7 @@ Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
   - LOCATION : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
-  - MODEL\_ID : gemini-2.0-flash-001.
+  - MODEL\_ID : gemini-2.0-flash.
   - CACHE\_DISPLAY\_NAME : A meaningful display name to describe and to help you identify each context cache.
   - MIME\_TYPE : The MIME type of the content to cache.
   - CACHED\_CONTENT\_URI : The Cloud Storage URI of the content to cache.
@@ -496,7 +496,7 @@ HTTP method and URL:
 Request JSON body:
 
     {
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.0-flash-001",
+      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.0-flash",
       "displayName": "CACHE_DISPLAY_NAME",
       "contents": [{
         "role": "user",
@@ -547,7 +547,7 @@ You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash-001",
+      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash",
       "createTime": "2024-06-04T01:11:50.808236Z",
       "updateTime": "2024-06-04T01:11:50.808236Z",
       "expireTime": "2024-06-04T02:11:50.794542Z"
@@ -556,7 +556,7 @@ You should receive a JSON response similar to the following:
 ### Example curl command
 
     LOCATION="us-central1"
-    MODEL_ID="gemini-2.5-flash"
+    MODEL_ID="gemini-3.5-flash"
     PROJECT_ID="test-project"
     MIME_TYPE="video/mp4"
     CACHED_CONTENT_URI="gs://path-to-bucket/video-file-name.mp4"
@@ -596,7 +596,7 @@ You should receive a JSON response similar to the following:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Platform:
+Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Agent Platform:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -636,7 +636,7 @@ Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Pla
     ]
     
     content_cache = client.caches.create(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         config=CreateCachedContentConfig(
             contents=contents,
             system_instruction=system_instruction,
@@ -651,11 +651,11 @@ Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Pla
 
 ### GenAI SDK for Go
 
-Learn how to install or update the [Gen AI SDK for Go](https://docs.cloud.google.com/sdks/overview) .
+Learn how to install or update the [Google Gen AI SDK for Go](https://docs.cloud.google.com/sdks/overview) .
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Platform:
+Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Agent Platform:
 
     import (
         "context"
@@ -677,7 +677,7 @@ Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Pla
             return "", fmt.Errorf("failed to create genai client: %w", err)
         }
     
-        modelName := "gemini-2.5-flash"
+        modelName := "gemini-3.5-flash"
     
         systemInstruction := "You are an expert researcher. You always stick to the facts " +
             "in the sources provided, and never make up new facts. " +

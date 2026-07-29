@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fresponsible-ai%2Fgemini_safety_ratings.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/responsible-ai/gemini_safety_ratings.ipynb)
 
-Google's generative AI models, like Gemini 2.5 Flash, are designed to prioritize safety. However, they can still generate harmful responses, especially when they're explicitly prompted. To further enhance safety and minimize misuse, you can configure content filters to block potentially harmful responses.
+Google's generative AI models are designed to prioritize safety. However, they can still generate harmful responses, especially when they're explicitly prompted. To further enhance safety and minimize misuse, you can configure content filters to block potentially harmful responses.
 
 This page is for the safety filters of the Gemini text generation models. For information about safety filters and responsible AI for other Google models, see the following documentation:
 
@@ -138,7 +138,7 @@ The Gemini API provides the following "harm block" thresholds:
   - **`BLOCK_MEDIUM_AND_ABOVE`** : Block when the probability score or the severity score is `MEDIUM` or `HIGH` .
   - **`BLOCK_ONLY_HIGH`** : Block when the probability score or the severity score is `HIGH` .
   - **`HARM_BLOCK_THRESHOLD_UNSPECIFIED`** : Block using the default threshold.
-  - **`OFF`** : No automated response blocking and no metadata is returned. For `gemini-2.5-flash` and subsequent models, `OFF` is the default value.
+  - **`OFF`** : No automated response blocking and no metadata is returned. For `gemini-3.5-flash` and subsequent models, `OFF` is the default value.
   - **`BLOCK_NONE`** : The `BLOCK_NONE` setting removes automated response blocking. Instead, you can configure your own content guidelines with the returned scores. This is a restricted field that isn't available to all users in [GA](https://cloud.google.com/products/#product-launch-stages) model versions.
 
 For example, the following Python code demonstrates how you can set the harm block threshold to `BLOCK_ONLY_HIGH` for the dangerous content category:
@@ -231,7 +231,7 @@ The following examples demonstrate how you can configure the content filter usin
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -338,7 +338,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -445,26 +445,13 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 ### REST
 
-After you set up your environment, you can use REST to test a text prompt. The following sample sends a request to the publisher model endpoint.
-
 Before using any of the request data, make the following replacements:
 
-  - LOCATION : The region to process the request. Available options include the following:
-    
-    **Click to expand a partial list of available regions**
-    
-      - `us-central1`
-      - `us-west4`
-      - `northamerica-northeast1`
-      - `us-east4`
-      - `us-west1`
-      - `asia-northeast3`
-      - `asia-southeast1`
-      - `asia-northeast1`
+  - LOCATION : The region to process the request.
 
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 
-  - MODEL\_ID : The model ID of the multimodal model that you want to use, like `gemini-2.5-flash` .
+  - MODEL\_ID : The model ID of the multimodal model that you want to use, like `gemini-3.5-flash` .
 
   - ROLE : The role in a conversation associated with the content. Specifying a role is required even in singleturn use cases. Acceptable values include the following:
     
@@ -619,7 +606,7 @@ You should receive a JSON response similar to the following.
 #### Example curl command
 
     LOCATION="us-central1"
-    MODEL_ID="gemini-2.5-flash"
+    MODEL_ID="gemini-3.5-flash"
     PROJECT_ID="test-project"
     
     curl \
@@ -660,7 +647,7 @@ You should receive a JSON response similar to the following.
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -767,7 +754,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -953,7 +940,7 @@ To learn about the metadata of the citation filter, see the [Citation API refere
 
 ## Best practices
 
-While content filters help prevent unsafe content, they might occasionally block benign content or miss harmful content. Advanced models like Gemini 2.5 Flash are designed to generate safe responses even without filters. Test different filter settings to find the right balance between safety and allowing appropriate content.
+While content filters help prevent unsafe content, they might occasionally block benign content or miss harmful content. Advanced models like Gemini 3.5 Flash are designed to generate safe responses even without filters. Test different filter settings to find the right balance between safety and allowing appropriate content.
 
 ## What's next
 

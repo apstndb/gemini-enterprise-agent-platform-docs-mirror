@@ -348,7 +348,7 @@ Parameters
 
 The URI or URL of the file to include in the prompt. Acceptable values include the following:
 
-  - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request. For `gemini-2.0-flash` and `gemini-2.0-flash-lite` , the size limit is 2 GB.
+  - **Cloud Storage bucket URI:** The object must either be publicly readable or reside in the same Google Cloud project that's sending the request.
   - **HTTP URL:** The file URL must be publicly readable. You can specify one video file, one audio file, and up to 10 image files per request. Audio files, video files, and documents can't exceed 15 MB.
   - **YouTube video URL:** The YouTube video must be either owned by the account that you used to sign in to the Google Cloud console or be public. Only one YouTube video URL is supported per request.
 
@@ -566,8 +566,6 @@ If specified, nucleus sampling is used.
 Specify a lower value for less random responses and a higher value for more random responses.
 
   - Range: `0.0 - 1.0`
-  - Default for `gemini-2.0-flash-lite` : `0.95`
-  - Default for `gemini-2.0-flash` : `0.95`
 
 `topK`
 
@@ -583,8 +581,8 @@ The number of response variations to return. For each request, you're charged fo
 
 Specifying multiple candidates is a Preview feature that works with `generateContent` ( `streamGenerateContent` is not supported). The following models are supported:
 
-  - `gemini-2.0-flash-lite` : `1` - `8` , default: `1`
-  - `gemini-2.0-flash` : `1` - `8` , default: `1`
+  - `Gemini 2.0 Flash-Lite` : `1` - `8` , default: `1`
+  - `Gemini 2.0 Flash` : `1` - `8` , default: `1`
 
 `maxOutputTokens`
 
@@ -791,7 +789,7 @@ Controls how input media is processed. `LOW` reduces tokens per image/video, pos
 <tbody>
 <tr class="odd">
 <td><code dir="ltr" translate="no">modelVersion</code></td>
-<td>The model and version used for generation. For example: <code dir="ltr" translate="no">gemini-2.0-flash-lite-001</code> .</td>
+<td>The model and version used for generation. For example: <code dir="ltr" translate="no">gemini-3.5-flash</code> .</td>
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">text</code></td>
@@ -898,7 +896,7 @@ Controls how input media is processed. `LOW` reduces tokens per image/video, pos
 </tbody>
 </table>
 
-> **Note:** For billing purposes, tokens consumed by document inputs to Gemini 3 Pro and later models are counted as image tokens.
+> **Note:** For billing purposes, tokens consumed by document inputs to Gemini 3 and later models are counted as image tokens.
 
 ## Examples
 
@@ -906,7 +904,7 @@ Controls how input media is processed. `LOW` reduces tokens per image/video, pos
 
 Generate a text response from a text input.
 
-### Gen AI SDK for Python
+### Google Gen AI SDK for Python
 
     from google import genai
     from google.genai.types import HttpOptions
@@ -999,7 +997,7 @@ You can call the Inference API by using the OpenAI library. For more information
 
 Generate a text response from a multimodal input, such as text and an image.
 
-### Gen AI SDK for Python
+### Google Gen AI SDK for Python
 
     from google import genai
     from google.genai.types import HttpOptions, Part
@@ -1113,7 +1111,7 @@ You can call the Inference API by using the OpenAI library. For more information
 
 Generate a streaming model response from a text input.
 
-### Gen AI SDK for Python
+### Google Gen AI SDK for Python
 
     from google import genai
     from google.genai.types import HttpOptions
@@ -1204,12 +1202,6 @@ You can call the Inference API by using the OpenAI library. For more information
     
         return nil
     }
-
-## Model versions
-
-To use the [auto-updated version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#auto-updated-version) , specify the model name without the trailing version number, for example `gemini-2.0-flash` instead of `gemini-2.0-flash-001` .
-
-For more information, see [Gemini model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#gemini-model-versions) .
 
 ## What's next
 

@@ -197,7 +197,7 @@ You should receive a JSON response similar to the following.
     "https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/tuningJobs" \
     -d \
     $'{
-       "preTunedModel": "gemini-2.5-flash",
+       "preTunedModel": "gemini-3.5-flash",
        "supervisedTuningSpec" : {
           "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
           "validationDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl"

@@ -258,14 +258,13 @@ You can configure custom authorization extensions to delegate decisions to custo
 
 When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryption to communicate with endpoints on port 443. However, the extension doesn't validate the server certificate. Therefore, for better security, you must ensure that the resolved endpoints are within the VPC network. Also ensure that you have DNS peering set up between the Agent Gateway project and your VPC network.
 
-1.  To configure an authorization extension with an authorization policy for a specific FQDN, such as `mycustomauthz.internal.net` , specify it as the value for `service` in the extension YAML file as the following example shows. This example assumes that you have deployed a server in your VPC network implementing the `ext_authz` protocol.
+1.  To configure an authorization extension with an authorization policy for a specific FQDN, such as `mycustomauthz.internal.net` , specify it as the value for `service` in the extension YAML file as the following example shows. This example assumes that you have deployed a server in your VPC network implementing the [`ext_proc`](https://docs.cloud.google.com/service-extensions/docs/callouts-overview#ext_proc) protocol in `FULL_DUPLEX_STREAMED` body processing mode.
     
         cat >custom-authz-extension.yaml <<EOF
         name: my-custom-authz-ext
         service: mycustomauthz.internal.net
         failOpen: true
         timeout: 1s
-        wireFormat: EXT_AUTHZ_GRPC
         EOF
 
 2.  Create the authorization extension to point to the custom service.
@@ -281,13 +280,13 @@ When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryp
       name: authz-with-extension
       target:
         resources:
-        - "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
-      policyProfile: REQUEST_AUTHZ
+          - "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
+      policyProfile: CONTENT_AUTHZ
       action: CUSTOM
       customProvider:
-      authzExtension:
-        resources:
-        - projects/PROJECT_ID/locations/LOCATION/authzExtensions/custom-authz-extension
+        authzExtension:
+          resources:
+            - "projects/PROJECT_ID/locations/LOCATION/authzExtensions/custom-authz-extension"
       EOF
     ```
 
@@ -297,7 +296,7 @@ When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryp
         --source=authz-policy.yaml \
         --location=LOCATION
 
-Note that when an authorization extension is associated with an authorization policy using the `REQUEST_AUTHZ` profile as demonstrated in this example, the gateway invokes the extension only when request headers arrive. The request body, response headers, and response body are not visible to the authorization extension.
+Note that when an authorization extension is associated with an authorization policy using the `CONTENT_AUTHZ` profile as demonstrated in this example, the gateway invokes the extension for request and response payloads (headers and bodies), allowing deep content inspection, prompt guardrails, and data sanitization for your agent traffic. By default, `CONTENT_AUTHZ` policies use the Envoy `ext_proc` protocol in `FULL_DUPLEX_STREAMED` mode to process body events.
 
 ### Combine IAP authorization with Model Armor guardrails
 

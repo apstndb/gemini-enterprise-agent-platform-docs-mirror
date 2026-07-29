@@ -27,7 +27,7 @@ To learn more, see the [Python SDK reference](https://googleapis.github.io/pytho
 
     pip install --upgrade google-genai
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -89,7 +89,7 @@ The Google Gen AI SDK for Go is available on go.dev and GitHub:
 
     go get google.golang.org/genai
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -150,7 +150,7 @@ The Google Gen AI SDK for TypeScript and JavaScript is available on npm and GitH
 
     npm install @google/genai
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -225,7 +225,7 @@ The Google Gen AI SDK for Java is available on Maven Central and GitHub:
       </dependency>
     </dependencies>
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -334,7 +334,7 @@ The Google Gen AI SDK for .NET is available on NuGet and GitHub:
 
     dotnet add package Google.GenAI
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.

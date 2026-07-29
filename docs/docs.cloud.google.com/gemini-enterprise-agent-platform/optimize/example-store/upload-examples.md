@@ -131,7 +131,7 @@ Replace the following:
 
   - EXAMPLE\_QUERY : The user request or query to the LLM or agent.
 
-  - MODEL\_NAME : The model name. For example, `gemini-2.0-flash` .
+  - MODEL\_NAME : The model name. For example, `gemini-3.5-flash` .
 
   - FUNCTION\_OR\_FUNCTION\_DECLARATION : The function or function declaration to use in the request. See [the GenAI SDK documentation for Function Calling](https://googleapis.github.io/python-genai/#function-calling) for help in defining a function as a tool.
 

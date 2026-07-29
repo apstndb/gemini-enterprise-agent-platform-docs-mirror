@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/translate/translate-text
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translate/translate-text
 title: Translate text
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Allows programmatic integration with Google Translate.
 data_source: docs.cloud.google.com
 ---
 
-For translation tasks, Generative AI on Gemini Enterprise Agent Platform offers two specialized translation models from the Cloud Translation API:
+For translation tasks, Generative AI on Cloud Translation offers two specialized translation models from the Cloud Translation API:
 
   - **Translation LLM** - Google's newest highest quality LLM-style translation offering. Achieves the highest quality translation while serving at reasonable latencies (\~3x faster than Gemini 2.0 Flash).
 
@@ -21,11 +21,11 @@ For translation tasks, Generative AI on Gemini Enterprise Agent Platform offers 
 
 | Feature              | Translation LLM (Powered by Gemini)                                                                                                                                                                                                                                                                                                            | NMT model                                                                                                                                                                                                                                                                                     |
 | :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Description          | A translation-specialized Large Language Model powered by Gemini, fine-tuned for translation. Available with Generative AI on Gemini Enterprise Agent Platform and the Cloud Translation - Advanced API.                                                                                                                                       | Google's Neural Machine Translation model, available through Cloud Translation - Advanced and Cloud Translation - Basic APIs . Optimized for simplicity and scale.                                                                                                                            |
+| Description          | A translation-specialized Large Language Model powered by Gemini, fine-tuned for translation. Available with Generative AI on Cloud Translation and the Cloud Translation - Advanced API.                                                                                                                                                      | Google's Neural Machine Translation model, available through Cloud Translation - Advanced and Cloud Translation - Basic APIs . Optimized for simplicity and scale.                                                                                                                            |
 | Quality              | **Highest quality** translation. Outperforms NMT, Gemini 2.0 Flash, and Gemini 2.5 Pro in quality. More likely to rewrite sentences for natural flow. Shows significant error reduction.                                                                                                                                                       | Medium to high quality depending on the language pair. Among the best-performing real-time NMT models for many language-domain combinations.                                                                                                                                                  |
 | Latency              | Latency is significantly better than Gemini 2.0 Flash, but still slower than NMT.                                                                                                                                                                                                                                                              | **Fastest Real Time Translation** . Low latency, suitable for chat and real-time applications. Achieves latencies up to 20x faster than Gemini 2.0 Flash                                                                                                                                      |
 | Language support     | Supported languages include Arabic, Chinese, Czech, Dutch, English, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Thai, Turkish, Ukrainian, and Vietnamese. Refer to [supported languages](https://docs.cloud.google.com/translate/docs/languages#adaptive_translation) for a full list. | Supports languages include Cantonese, Fijian, and Balinese. Translations from any language to any other language in the supported list are possible. Refer to [supported languages](https://docs.cloud.google.com/translate/docs/languages#neural_machine_translation_model) for a full list. |
-| Customization        | Support for - **Advanced Glossaries** , **Supervised Fine-tuning** on Gemini Enterprise Agent Platform for domain/customer-specific adaptations, **Adaptive translation** for real-time style customization with a few examples.                                                                                                               | Support for - **Glossaries** to control terminology, and training **Custom Models** with AutoML Translation in Cloud Translation - Advanced API.                                                                                                                                              |
+| Customization        | Support for - **Advanced Glossaries** , **Supervised Fine-tuning** on Cloud Translation for domain/customer-specific adaptations, **Adaptive translation** for real-time style customization with a few examples.                                                                                                                              | Support for - **Glossaries** to control terminology, and training **Custom Models** with AutoML Translation in Cloud Translation - Advanced API.                                                                                                                                              |
 | Translation features | HTML translation                                                                                                                                                                                                                                                                                                                               | HTML, Batch, and Formatted document translation                                                                                                                                                                                                                                               |
 | API Integration      | Cloud Translation - Advanced API, Gemini Enterprise API                                                                                                                                                                                                                                                                                        | Cloud Translation - Basic API, Cloud Translation - Advanced API, Gemini Enterprise API                                                                                                                                                                                                        |
 
@@ -35,7 +35,7 @@ This section shows you how to use Vertex AI Studio to rapidly translate text fro
 
 ### Console
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
+1.  In the Cloud Translation section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
 
 2.  In the **Run settings** pane, select a translation model in the **Model** field.
 
@@ -57,7 +57,7 @@ Select the model to use for your translations.
 
 ### Translation LLM
 
-Use the Agent Platform API and Translation LLM to translate text.
+Use the Cloud Translation API and Translation LLM to translate text.
 
 ### REST
 
@@ -138,9 +138,9 @@ You should receive a JSON response similar to the following:
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Cloud Translation quickstart using client libraries](https://docs.cloud.google.com/translate/docs/quickstart-client-libraries) . For more information, see the [Cloud Translation Node.js API reference documentation](https://googleapis.dev/nodejs/translate/latest/index.html) .
 
-To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
 ``` 
 async function translate() {
@@ -165,9 +165,9 @@ async function translate() {
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Python setup instructions in the [Cloud Translation quickstart using client libraries](https://docs.cloud.google.com/translate/docs/quickstart-client-libraries) . For more information, see the [Cloud Translation Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/translate/latest) .
 
-To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
 ``` 
 from google.cloud import aiplatform
@@ -264,9 +264,9 @@ You should receive a JSON response similar to the following:
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Cloud Translation quickstart using client libraries](https://docs.cloud.google.com/translate/docs/quickstart-client-libraries) . For more information, see the [Cloud Translation Node.js API reference documentation](https://googleapis.dev/nodejs/translate/latest/index.html) .
 
-To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
     /**
      * TODO(developer): Uncomment these variables before running the sample
@@ -308,9 +308,9 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Python setup instructions in the [Cloud Translation quickstart using client libraries](https://docs.cloud.google.com/translate/docs/quickstart-client-libraries) . For more information, see the [Cloud Translation Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/translate/latest) .
 
-To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
     import os
     
@@ -375,7 +375,7 @@ To get the most accurate results, include specific examples from a wide variety 
 
 ### Console
 
-1.  In the Agent Platform section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
+1.  In the Cloud Translation section of the Google Cloud console, go to the **Translate text** page in **Vertex AI Studio** .
 
 2.  In the **Run settings** pane, configure your translation settings.
     
@@ -393,7 +393,7 @@ To get the most accurate results, include specific examples from a wide variety 
 
 5.  Click **Submit** .
     
-    Agent Platform automatically selects your specified number of reference sentences that are most similar to your input. The translation model identifies patterns from your examples and then applies those patterns when generating a response.
+    Cloud Translation automatically selects your specified number of reference sentences that are most similar to your input. The translation model identifies patterns from your examples and then applies those patterns when generating a response.
     
     The output limit per request is 3,000 characters. Any text beyond this limit is dropped.
 
@@ -499,9 +499,9 @@ You should receive a JSON response similar to the following:
 
 ### Node.js
 
-Before trying this sample, follow the Node.js setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Node.js setup instructions in the [Cloud Translation quickstart using client libraries](https://docs.cloud.google.com/translate/docs/quickstart-client-libraries) . For more information, see the [Cloud Translation Node.js API reference documentation](https://googleapis.dev/nodejs/translate/latest/index.html) .
 
-To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
 ``` 
 async function translate() {
@@ -537,9 +537,9 @@ async function translate() {
 
 ### Python
 
-Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+Before trying this sample, follow the Python setup instructions in the [Cloud Translation quickstart using client libraries](https://docs.cloud.google.com/translate/docs/quickstart-client-libraries) . For more information, see the [Cloud Translation Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/translate/latest) .
 
-To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+To authenticate to Cloud Translation, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
 ``` 
 from google.cloud import aiplatform

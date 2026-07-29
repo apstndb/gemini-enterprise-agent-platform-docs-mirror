@@ -133,7 +133,7 @@ To enable tracing for `LlamaIndexQueryPipelineAgent` , specify `enable_tracing=T
           return QueryPipeline(modules = {"agent": agent})
     
       agent = reasoning_engines.LlamaIndexQueryPipelineAgent(
-          model="gemini-2.0-flash",
+          model="gemini-3.5-flash",
           runnable_kwargs={"tools": [get_exchange_rate]},
           runnable_builder=runnable_with_tools_builder,
           enable_tracing=True,        # Optional

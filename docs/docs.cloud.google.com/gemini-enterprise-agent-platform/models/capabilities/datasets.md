@@ -320,7 +320,7 @@ Call `assess_tuning_validity()` . By default, the dataset's attached read config
     # Validation for tuning
     validation = client.datasets.assess_tuning_validity(
         dataset_name=my_dataset.name,
-        model_name="gemini-2.5-flash",
+        model_name="gemini-3.5-flash",
         dataset_usage="SFT_TRAINING"
     )
     
@@ -337,7 +337,7 @@ Call the `assess` method and provide a [`TuningValidationAssessmentConfig`](http
     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:assess" \
     -d '{
       "tuningValidationAssessmentConfig": {
-        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-2.5-flash",
+        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-3.5-flash",
         "datasetUsage": "SFT_TRAINING"
       }
     }'
@@ -353,7 +353,7 @@ Call `assess_tuning_resources()` .
     # Resource estimation for tuning.
     tuning_resources = client.datasets.assess_tuning_resources(
         dataset_name=my_dataset.name,
-        model_name="gemini-2.5-flash"
+        model_name="gemini-3.5-flash"
     )
     
     print(tuning_resources)
@@ -369,7 +369,7 @@ Call the `assess` method and provide a [`TuningResourceUsageAssessmentConfig`](h
     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:assess" \
     -d '{
       "tuningResourceUsageAssessmentConfig": {
-        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-2.5-flash"
+        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-3.5-flash"
       }
     }'
 
@@ -385,7 +385,7 @@ Use the Google Gen AI SDK to start a tuning job, passing the resource name of th
     genai_client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
     tuning_job = genai_client.tunings.tune(
-      base_model="gemini-2.5-flash",
+      base_model="gemini-3.5-flash",
       # Pass the resource name of the Multimodal Dataset, not the dataset object
       training_dataset={
           "vertex_dataset_resource": my_multimodal_dataset.name
@@ -419,7 +419,7 @@ Call `assess_batch_prediction_validity()` . By default, the dataset's attached r
     # Validation for batch prediction
     validation = client.datasets.assess_batch_prediction_validity(
         dataset_name=my_dataset.name,
-        model_name="gemini-2.5-flash"
+        model_name="gemini-3.5-flash"
     )
     
     # Inspect validation result
@@ -435,7 +435,7 @@ Call the `assess` method and provide a [`batchPredictionValidationAssessmentConf
     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:assess" \
     -d '{
       "batchPredictionValidationAssessmentConfig": {
-        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-2.5-flash",
+        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-3.5-flash",
       }
     }'
 
@@ -449,7 +449,7 @@ Call `assess_batch_prediction_resources()` .
 
     batch_prediction_resources = client.datasets.assess_batch_prediction_resources(
         dataset_name=my_dataset.name,
-        model_name="gemini-2.5-flash"
+        model_name="gemini-3.5-flash"
     )
     
     print(batch_prediction_resources)
@@ -465,7 +465,7 @@ Call the `assess` method and provide a [`batchPredictionResourceUsageAssessmentC
     "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID:assess" \
     -d '{
       "batchPredictionResourceUsageAssessmentConfig": {
-        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-2.5-flash"
+        "modelName": "projects/PROJECT_ID/locations/LOCATION/models/gemini-3.5-flash"
       }
     }'
 
@@ -488,7 +488,7 @@ You can use your multimodal dataset to do batch prediction by passing the BigQue
     genai_client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
     job = genai_client.batches.create(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         src=f"bq://{table_id}",
     )
 

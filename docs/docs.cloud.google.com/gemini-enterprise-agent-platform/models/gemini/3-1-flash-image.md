@@ -59,7 +59,8 @@ Capabilities
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
     Not supported
   - [Context caching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)  
-    Not supported
+    Implicit context caching  
+    Supported
   - [Count Tokens](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count)  
     Supported
   - [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview)  
@@ -84,8 +85,7 @@ Capabilities
 Tools
 
   - [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview)  
-    Google Search  
-    Supported
+    Not supported
   - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)  
     Not supported
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
@@ -158,6 +158,13 @@ Security controls
   - AXT
 
 **Batch inference**
+
+  - Data residency
+  - CMEK
+  - VPC-SC
+  - AXT
+
+**Context caching**
 
   - Data residency
   - CMEK

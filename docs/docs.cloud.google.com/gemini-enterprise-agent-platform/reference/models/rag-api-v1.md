@@ -684,7 +684,7 @@ Optional: `string`
 
 The model name used for ranking.
 
-Example: `gemini-2.5-flash`
+Example: `gemini-3.5-flash`
 
 #### Prediction parameters
 
@@ -1652,7 +1652,7 @@ Before using any of the request data, make the following replacements:
 
   - **PROJECT\_ID** : Your project ID.
   - **LOCATION** : The region to process the request.
-  - **MODEL\_ID** : LLM model for content generation. Example: `gemini-2.5-flash` .
+  - **MODEL\_ID** : LLM model for content generation. Example: `gemini-3.5-flash` .
   - **GENERATION\_METHOD** : LLM method for content generation. Options: `generateContent` , `streamGenerateContent` .
   - **INPUT\_PROMPT** : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
   - **RAG\_CORPUS\_RESOURCE** : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .

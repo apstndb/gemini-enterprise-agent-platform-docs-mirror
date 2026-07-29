@@ -38,15 +38,6 @@ Tuning audio models enhances their performance by tailoring them to specific nee
 | Maximum audio files per example  | 1          |
 | Maximum audio file size          | 100MB      |
 
-### Gemini 2.0 Flash  
-Gemini 2.0 Flash-Lite
-
-| Specification                    | Value      |
-| -------------------------------- | ---------- |
-| Maximum audio length per example | 60 minutes |
-| Maximum audio files per example  | 1          |
-| Maximum audio file size          | 100MB      |
-
 To learn more about audio sample requirements, see the [Audio understanding (speech only)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements) page.
 
 ## Dataset format

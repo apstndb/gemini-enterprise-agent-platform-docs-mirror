@@ -1259,7 +1259,7 @@ The retrieval configuration for the query.
 <td><p><code dir="ltr" translate="no">ranking.llm_ranker.model_name</code></p></td>
 <td><p>Optional: <code dir="ltr" translate="no">string</code></p>
 <p>The model name used for ranking.</p>
-<p>Example: <code dir="ltr" translate="no">gemini-2.5-flash</code></p></td>
+<p>Example: <code dir="ltr" translate="no">gemini-3.5-flash</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2495,7 +2495,7 @@ Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
   - LOCATION : The region to process the request.
-  - MODEL\_ID : LLM model for content generation. Example: `gemini-2.5-flash`
+  - MODEL\_ID : LLM model for content generation. Example: `gemini-3.5-flash`
   - GENERATION\_METHOD : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`
   - INPUT\_PROMPT : The text sent to the LLM for content generation. Try to use a prompt relevant to the uploaded rag Files.
   - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .

@@ -129,7 +129,7 @@ We will use the following agent (which forwards the input to the model and does 
 > **Note:** there isn't any known support for multi-modal outputs.
 
     agent = agent_engines.LangchainAgent(
-        model="gemini-2.0-flash",
+        model="gemini-3.5-flash",
         runnable_builder=lambda model, **kwargs: model,
     )
 

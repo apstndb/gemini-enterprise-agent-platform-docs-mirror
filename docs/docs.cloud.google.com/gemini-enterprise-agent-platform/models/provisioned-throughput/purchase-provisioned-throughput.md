@@ -32,7 +32,7 @@ To help you decide whether you want to purchase Provisioned Throughput, consider
     
     All changes are processed based on commercially reasonable efforts and are typically fulfilled within 10 business days of the initial request.
     
-    Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Google Gemini 2.0 Pro to Google Gemini 2.0 Flash, but you can't switch from Google Gemini 2.0 Flash to Anthropic's Claude 3.5 Sonnet v2.
+    Model changes are limited to a specific publisher. For example, you can switch the model assignment of Provisioned Throughput from Google Gemini 2.5 Flash to Google Gemini 2.5 Flash-Lite, but you can't switch from Google Gemini 2.5 Flash to Anthropic's Claude 3.5 Sonnet v2.
 
   - **By default, the overage is billed as pay-as-you-go.**
     
@@ -165,15 +165,6 @@ Follow these steps to purchase standard Provisioned Throughput. For assistance w
               - **Output audio tokens per query**
             
             > **Note:** For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLScxBeD4UJ8GbUfX4SXjj5a1XJ1K7Urwvb0iSGdGccNcFRBrpQ/viewform) . For more information about using Provisioned Throughput for Gemini 2.5 Flash with Gemini Live API, see [Provisioned Throughput for Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/live-api) .
-        
-          - For the [Gemini 2.0 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash) and [Gemini 2.0 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-0-flash-lite) models, enter the following:
-            
-              - **Estimated queries per second requiring assurance**
-              - **Input tokens per query**
-              - **Input image tokens per query**
-              - **Input video tokens per query**
-              - **Input audio tokens per query**
-              - **Output text tokens per query**
         
           - For the [Veo 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001) and [Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001) models, enter the following:
             

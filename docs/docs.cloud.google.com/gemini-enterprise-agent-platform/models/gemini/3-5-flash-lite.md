@@ -95,7 +95,7 @@ Tools
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
     Supported
   - [Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use) preview Preview feature  
-    Not supported
+    Supported
 
 Consumption options
 

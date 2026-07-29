@@ -50,11 +50,15 @@ Online prediction
 
 Batch
 
+Context caching
+
 **Gemini 3.1 Flash Image**
 
 Online prediction
 
 Batch
+
+Context caching
 
 **Gemini 3.5 Flash**
 

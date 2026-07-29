@@ -78,18 +78,7 @@ Before using any of the request data, make the following replacements:
       - `streamGenerateContent` : The response is streamed as it's being generated to reduce the perception of latency to a human audience.
       - `generateContent` : The response is returned after it's fully generated.
 
-  - `  LOCATION  ` : The region to process the request. Available options include the following:
-    
-    **Click to expand a partial list of available regions**
-    
-      - `us-central1`
-      - `us-west4`
-      - `northamerica-northeast1`
-      - `us-east4`
-      - `us-west1`
-      - `asia-northeast3`
-      - `asia-southeast1`
-      - `asia-northeast1`
+  - `  LOCATION  ` : The region to process the request.
 
   - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
 

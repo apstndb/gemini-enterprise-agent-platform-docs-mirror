@@ -109,3 +109,11 @@ If you want to integrate with some of our partners, these platforms have already
   - [LiveKit](https://docs.livekit.io/agents/integrations/google/#multimodal-live-api)
   - [Twilio](https://www.twilio.com/docs)
   - [Voximplant](https://voximplant.com/products/gemini-client)
+
+#### LiveKit & ADK reference architecture
+
+For advanced production-grade voice assistants requiring sophisticated session orchestration, routing, and multi-agent delegation, you can build a low-latency, bidirectional integration using **LiveKit (WebRTC)** with the **Gemini Live API** via the **Agent Development Kit (ADK)** .
+
+This architecture allows you to deploy an Orchestrator agent that handles initial customer interaction and dynamically routes requests to specialized sub-agents (for example, delegating context to a Flight Booking or Hotel Booking agent using `transferAgent` orchestration).
+
+To explore and deploy this reference design, see the official [reference codebase implementation on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/multimodal-live-api/livekit-adk) .

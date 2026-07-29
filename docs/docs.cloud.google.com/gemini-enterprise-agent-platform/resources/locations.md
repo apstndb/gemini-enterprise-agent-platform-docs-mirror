@@ -1652,8 +1652,6 @@ Grok 4.1 Fast (Reasoning)
 
 Grok 4.1 Fast (Non-reasoning)
 
-> **Note:** Support for Taiwan ( `asia-east1` ) is scheduled for deprecation on February 27, 2025.
-
 ## Google Cloud open model endpoint locations
 
 Google serves requests from the region that you specified. For some models, Google also offers a global endpoint to improve overall availability and reduce error rates. The global endpoint can have a separate set of quotas from the regional endpoint and doesn't support data residency requirements. For more information, see the "Regional and global endpoint" section in [Gemini Enterprise Agent Platform open models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models) .

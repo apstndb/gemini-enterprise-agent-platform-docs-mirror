@@ -87,7 +87,7 @@ To tune a text model with supervised fine-tuning by using the Google Cloud conso
     
     Your new model appears under the **Tuned Models** section on the **Tune and Distill page** . When the model is finished tuning, the **Status** says **Succeeded** .
 
-### Gen AI SDK
+### Google Gen AI SDK
 
 Install the Google Gen AI SDK:
 
@@ -95,7 +95,7 @@ Install the Google Gen AI SDK:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Gemini Enterprise Agent Platform:
+Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Agent Platform:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -339,7 +339,7 @@ You should receive a JSON response similar to the following.
     "https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/tuningJobs" \
     -d \
     $'{
-       "baseModel": "gemini-2.5-flash",
+       "baseModel": "gemini-3.5-flash",
        "supervisedTuningSpec" : {
           "training_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
           "validation_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl"

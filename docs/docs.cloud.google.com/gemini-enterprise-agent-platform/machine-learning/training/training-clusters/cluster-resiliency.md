@@ -70,42 +70,6 @@ Expected output:
     GPU 6: NVIDIA H100 80GB HBM3 (UUID: GPU-dddd09ee-c944-1098-9c4e-d96f8762ecb1)
     GPU 7: NVIDIA H100 80GB HBM3 (UUID: GPU-df52c109-0ac1-30cc-226b-85b1a8a6bc16)
 
-## Cluster health verification
-
-This section shows how to test your training cluster using the Cluster Health Scanner (CHS) tool, which is pre-installed on the training cluster image. The CHS tool checks the health of the cluster, running tests such as DCGM diagnostics and NCCL tests to verify that the cluster is ready to run your workloads.
-
-> **Important:** The compute nodes must have outbound internet access for the DCGM diagnostic and cluster validation tests to succeed. Ensure that either public IP addresses are enabled for the compute nodes ( `"enable_public_ips": "true"` ) or a Cloud NAT gateway is deployed in the cluster's network.
-
-From the login node of the cluster, you can run the following script to run tests using the CHS tool.
-
-> **Note:** This script is written for a cluster with two A3 Ultra nodes, but it can be modified to fit your cluster setup.
-
-    export CLUSTER_ID=<your_cluster_id>
-    export PARTITION=a3u
-    export MACHINE_TYPE=a3-ultragpu-8g
-    cd ~
-    /opt/cluster-health-scanner/deploy/slurm/cluster-validation.sh \
-    --nodelist=${CLUSTER_ID}-${PARTITION}-[0-1] \
-    --nodes=2 \
-    --partition=${PARTITION} \
-    --machine-type=${MACHINE_TYPE} \
-    --relative-exec-path=../../opt/cluster-health-scanner/deploy/slurm \
-    --results-dir=results
-
-A successful test run provides two sets of results:
-
-  - Summary Output: A brief summary is printed to the console, which should resemble the following example.
-  - Detailed Logs: For a complete report, see the detailed logs saved in the `~/results` directory.
-
-<!-- end list -->
-
-    Starting DCGM Diagnostics...
-    DCGM diagnostics passing on all nodes!
-    Starting NCCL all_reduce_perf...
-    CURR_NODES:  cluster-id-0
-    cluster-id-1
-    NCCL test passing on all nodes!
-
 ## Automated health checks and recovery
 
 To ensure node reliability, training clusters continuously monitors node health using the following suite of automated checks. Training clusters runs health checks during the Slurm prolog (before a job starts) and epilog (after a job completes).

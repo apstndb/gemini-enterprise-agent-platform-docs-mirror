@@ -94,18 +94,6 @@ Gemini 2.5 Flash-Lite
 | Maximum training dataset size            | 10M text-only examples or 300K multimodal examples                                                      |
 | Adapter size                             | Supported values are 1, 2, 4, and 8                                                                     |
 
-### Gemini 2.0 Flash  
-Gemini 2.0 Flash-Lite
-
-| Specification                            | Value                                                                                                   |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Maximum input and output training tokens | 131,072                                                                                                 |
-| Maximum input and output serving tokens  | Same as base Gemini model                                                                               |
-| Maximum validation dataset size          | 5000 examples or 30% of the number of training examples if there are more than 1000 validation examples |
-| Maximum training dataset file size       | 1GB for JSONL                                                                                           |
-| Maximum training dataset size            | 10M text-only examples or 300K multimodal examples                                                      |
-| Adapter size                             | Supported values are 1, 2, 4, and 8                                                                     |
-
 ## Known issues
 
   - Applying [controlled generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) when submitting inference requests to tuned Gemini models can result in decreased model quality due to data misalignment during tuning and inference time. During tuning, controlled generation isn't applied, so the tuned model isn't able to handle controlled generation well at inference time. Supervised fine-tuning effectively customizes the model to generate structured output. Therefore you don't need to apply controlled generation when making inference requests on tuned models.

@@ -10,9 +10,7 @@ This document describes how to configure synthesized speech responses and voice 
 
 ## Set the language and voice
 
-Native audio models like gemini-live-2.5-flash-native-audio can switch between languages naturally during conversation. You can also restrict the languages it speaks in by specifying it in the system instructions.
-
-For non-native-audio models like `gemini-live-2.5-flash` , you can configure the language in `speech_config.language_code` .
+Native audio models like `gemini-live-2.5-flash-native-audio` can switch between languages naturally during conversation. You can also restrict the languages it speaks in by specifying it in the system instructions.
 
 Voice is configured in the `voice_name` field for all models.
 

@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures
 title: Thought signatures
-description: Learn about thought signatures in Gemini Enterprise Agent Platform Generative AI, how they preserve model reasoning during multi-turn conversations, especially with function calling, and how to use them with the Gen AI SDK or REST API.
+description: Learn about thought signatures in Gemini Enterprise Agent Platform Generative AI, how they preserve model reasoning during multi-turn conversations, especially with function calling, and how to use them with the Google Gen AI SDK or REST API.
 data_source: docs.cloud.google.com
 ---
 
@@ -26,7 +26,7 @@ Gemini 3 models enforce stricter validation on thought signatures than previous 
 
 While Gemini 3 Pro Image doesn't enforce this validation, to ensure the model maintains full context across multiple turns of a conversation, you must still return the thought signatures from previous responses in your subsequent requests. Gemini 3 Pro Image doesn't return a `400` error if a thought signature isn't returned. For code samples related to multi-turn image editing using Gemini 3 Pro Image, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures#multi-turn-image-editing) .
 
-If you are using the official Google Gen AI SDK (Python, Node.js, Go, or Java) and using the standard chat history features or appending the full model response to the history, thought signatures are handled automatically.
+If you are using the official Google Google Gen AI SDK (Python, Node.js, Go, or Java) and using the standard chat history features or appending the full model response to the history, thought signatures are handled automatically.
 
 ## Why are they important?
 
@@ -48,9 +48,9 @@ In the context of function calling, it's important to understand the difference 
 
 The simplest way to handle thought signatures is to include all `Part` s from all previous messages in the conversation history when sending a new request, exactly as they were returned by the model.
 
-If you are not using one of the Google Gen AI SDKs, or you need to modify or trim conversation history, you must ensure that thought signatures are preserved and sent back to the model.
+If you are not using one of the Google Google Gen AI SDKs, or you need to modify or trim conversation history, you must ensure that thought signatures are preserved and sent back to the model.
 
-### When using the Google Gen AI SDK (recommended)
+### When using the Google Google Gen AI SDK (recommended)
 
 When using the chat history features of the SDKs or appending the model's `content` object from the previous response to the `contents` of the next request, signatures are handled automatically.
 
@@ -76,7 +76,7 @@ The following Python example shows automatic handling:
     # 2. Send a message that triggers the tool
     prompt = "What's the weather like in London?"
     response = client.models.generate_content(
-       model="gemini-2.5-flash",
+       model="gemini-3.5-flash",
        contents=prompt,
        config=GenerateContentConfig(
            tools=[get_weather_tool],
@@ -115,7 +115,7 @@ The following Python example shows automatic handling:
     ]
     
     response_2 = client.models.generate_content(
-       model="gemini-2.5-flash",
+       model="gemini-3.5-flash",
        contents=history,
        config=GenerateContentConfig(
            tools=[get_weather_tool],

@@ -410,7 +410,7 @@ Save the request body in a file named `request.json` , and execute the following
         }]
       }'
 
-### Gen AI SDK for Python
+### Google Gen AI SDK for Python
 
     from google import genai
     from google.genai.types import GenerateContentConfig, HttpOptions
@@ -912,7 +912,7 @@ The `functionCallingConfig` ensures that the model output is always a specific f
         }
       }'
 
-### Gen AI SDK for Python
+### Google Gen AI SDK for Python
 
     from google import genai
     from google.genai.types import (
