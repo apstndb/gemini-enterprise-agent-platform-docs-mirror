@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 > Pre-GA products are in various stages of internal testing and review. As such, customers should closely supervise the use of CodeMender, and not use CodeMender in situations where serious errors cannot be corrected. This product is made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 > 
-> When disabling human confirmation of write and tool execution actions (as described below), Customer is responsible for such modification under Section 20(j) (“Modifying, Disregarding, or Disabling Safety Filters”) of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
+> When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) (“Modifying, Disregarding, or Disabling Safety Filters”) of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
 
 The launch of advanced AI models has triggered widespread concern regarding code vulnerabilities. As attackers gain access to new capabilities for generating exploits, security teams are under immense time pressure to proactively find and fix vulnerabilities before they can be exploited.
 
@@ -55,6 +55,10 @@ CodeMender supports the following models:
 
 To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender#specifying-the-model) .
 
+## Supported regions
+
+CodeMender is globally available.
+
 ## Track token usage
 
 CodeMender surfaces token consumption in two places: a live status line while a command runs, and a one-line summary when a command completes successfully. Counts cover input, output, and total tokens for the current session.
@@ -80,6 +84,39 @@ When a command finishes successfully and at least one tool step was executed, Co
 ### Billed token usage
 
 To view cumulative billed token usage and cost trends across your Google Cloud project, see [View your billing reports and cost trends](https://docs.cloud.google.com/billing/docs/how-to/reports) in Cloud Billing.
+
+## Get started with the CLI
+
+Set up the CLI tool and initialize your workspace to start scanning.
+
+> **Warning:** CodeMender may modify files or execute commands on your system. It is highly recommended to run the CLI in a safe sandbox environment or isolated VM.
+
+### Prerequisites
+
+Before you initialize the CodeMender CLI, ensure your environment is prepared correctly:
+
+  - **[Set up Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#gcp-project-setup-iam-permissions) :** Set up your Google Cloud project with required APIs and IAM roles.
+  - **[Download the CodeMender CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#download-cli) :** Download and install the CodeMender CLI binary for your operating system.
+  - **[Configure Google Cloud credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configure-credentials) :** Configure Google Cloud Application Default Credentials (ADC) to authenticate the CLI.
+  - **Provision your source code:** Clone or copy the source code of the project you want to scan into your workspace.
+
+### Specifying the model
+
+By default, CodeMender uses Gemini 3.5 Flash. To override the default model, pass the `--model` flag with the corresponding model identifier:
+
+  - Gemini 3.5 Flash (default): `--model gemini-3.5-flash`
+  - Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`
+  - Gemini 3 Flash Preview: `--model gemini-3-flash-preview`
+
+The `--model` flag is supported by the following commands:
+
+  - `cm find`
+  - `cm verify`
+  - `cm fix`
+
+To specify a model when running any of these commands, use the following syntax:
+
+    cm COMMAND TARGET --model MODEL_NAME
 
 ## Security and data privacy
 
@@ -112,38 +149,6 @@ CodeMender is designed with a "Zero-Data-Access" approach regarding human visibi
   - **No operator visibility:** Even for production debugging and error tracking, Google operators are restricted and do not have visibility into customer source code context or transient session states.
   - **Strict isolation:** All data is logically isolated and access-controlled by organization and customer billing-project to protect tenant privacy within our shared infrastructure.
   - **VPC Service Controls (VPC-SC):** To further protect your environment, CodeMender's architecture fully supports VPC Service Controls (VPC-SC). This lets you define a secure security perimeter around your Google Cloud resources, helping to mitigate any data exfiltration risks while your localized data is sent to the cloud reasoning engine.
-
-## Get started with the CLI
-
-Set up the CLI tool and initialize your workspace to start scanning.
-
-> **Warning:** CodeMender may modify files or execute commands on your system. It is highly recommended to run the CLI in a safe sandbox environment or isolated VM.
-
-### Prerequisites
-
-Before you initialize the CodeMender CLI, ensure your environment is prepared correctly:
-
-  - **[Download the CodeMender CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#download-cli) :** Download and install the CodeMender CLI binary for your operating system.
-  - **[Configure Google Cloud credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configure-credentials) :** Configure Google Cloud Application Default Credentials (ADC) to authenticate the CLI.
-  - **Provision your source code:** Clone or copy the source code of the project you want to scan into your workspace.
-
-### Specifying the model
-
-By default, CodeMender uses Gemini 3.5 Flash. To override the default model, pass the `--model` flag with the corresponding model identifier:
-
-  - Gemini 3.5 Flash (default): `--model gemini-3.5-flash`
-  - Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`
-  - Gemini 3 Flash Preview: `--model gemini-3-flash-preview`
-
-The `--model` flag is supported by the following commands:
-
-  - `cm find`
-  - `cm verify`
-  - `cm fix`
-
-To specify a model when running any of these commands, use the following syntax:
-
-    cm COMMAND TARGET --model MODEL_NAME
 
 ## What's next
 

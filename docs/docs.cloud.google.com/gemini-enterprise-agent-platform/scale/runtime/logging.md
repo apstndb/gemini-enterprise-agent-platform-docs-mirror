@@ -14,7 +14,7 @@ To work with [Cloud Logging](https://docs.cloud.google.com/logging/docs) in agen
   - **Python logging** : The built-in Python logger can be integrated with Cloud Logging. Compared to writing to stdout or stderr, this supports structured logs and requires minimal set up.
   - **Cloud Logging client** : Users can write structured log, and has full control over the logger (such as, setting the `logName` and resource type).
 
-> **Note:** Cloud Logging is not supported for subresources of Agent Runtime, such as [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , and [Example Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/overview) .
+> **Note:** Cloud Logging is not supported for child resources of Agent Runtime, such as [Agent Platform Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , and [Example Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/overview) .
 
 ## Write logs for an agent
 

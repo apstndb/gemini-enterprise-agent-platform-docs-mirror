@@ -83,7 +83,7 @@ You should receive a JSON response similar to the following:
 
 ### Python
 
-Use the following sample to delete a failed or cancelled pipeline run by using the [`PipelineJob.delete`](https://docs.cloud.google.com/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_delete) method:
+Use the following sample to delete a failed or cancelled pipeline run by using the [`PipelineJob.delete`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_delete) method:
 
     from google.cloud import aiplatform
     aiplatform.init(project="PROJECT_ID", location="LOCATION")
@@ -190,7 +190,7 @@ You should receive a JSON response similar to the following:
 
 ### Python
 
-Use the following sample to delete multiple ongoing or scheduled pipeline runs by using the [`PipelineJob.batch_delete`](https://docs.cloud.google.com/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_batch_delete) method:
+Use the following sample to delete multiple ongoing or scheduled pipeline runs by using the [`PipelineJob.batch_delete`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob#google_cloud_aiplatform_PipelineJob_batch_delete) method:
 
     from google.cloud import aiplatform_v1
     from google.api_core.client_options import ClientOptions
@@ -198,14 +198,12 @@ Use the following sample to delete multiple ongoing or scheduled pipeline runs b
       "PIPELINE_RUN_ID_2",
     ]
     client_options = ClientOptions(api_endpoint=f"LOCATION-aiplatform.googleapis.com")
-    
     pipeline_job_client = aiplatform_v1.PipelineServiceClient(client_options=client_options)
     pipeline_resource_names_to_delete = []
     for run_id in pipeline_run_ids_to_delete:
       full_resource_name = f"projects/PROJECT_NUMBER/locations/LOCATION/pipelineJobs/{run_id}"
       pipeline_resource_names_to_delete.append(full_resource_name)
     parent = f"projects/PROJECT_ID/locations/LOCATION"
-    
     pipeline_job_client.batch_delete_pipeline_jobs(
       parent=parent,
       names=pipeline_resource_names_to_delete

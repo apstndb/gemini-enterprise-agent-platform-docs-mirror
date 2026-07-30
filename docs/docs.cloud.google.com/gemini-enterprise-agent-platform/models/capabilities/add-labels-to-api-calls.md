@@ -220,30 +220,33 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
-    import vertexai
+    import os
     
-    from vertexai.generative_models import GenerativeModel
+    from google import genai
     
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
+    LOCATION = os.getenv("LOCATION_ID")
+    GEMINI_MODEL = os.getenv("GEMINI_MODEL_ID", "gemini-2.5-flash")
     
-    model = GenerativeModel("gemini-2.0-flash-001")
     
-    prompt = "What is Generative AI?"
-    response = model.generate_content(
-        prompt,
-        # Example Labels
-        labels={
-            "team": "research",
-            "component": "frontend",
-            "environment": "production",
-        },
-    )
+    def generate_content() -> genai.types.GenerateContentResponse:
     
-    print(response.text)
-    # Example response:
-    # Generative AI is a type of Artificial Intelligence focused on **creating new content** based on existing data.
+        genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION)
+    
+        labels = {
+            "environment": "testing",
+            "feature": "genai",
+            "model": "gemini",
+        }
+    
+        config = genai.types.GenerateContentConfig(temperature=0.4, labels=labels)
+    
+        response = genai_client.models.generate_content(
+            model=GEMINI_MODEL, contents="What is Generative AI?", config=config
+        )
+    
+        print(response.text)
+        return response
 
 Google Cloud products report usage and cost data to Cloud Billing processes at varying intervals. As a result, you might see a delay between your use of Google Cloud services, and the usage and costs being available to view in Cloud Billing. Typically, your costs are available within a day, but can sometimes take more than 24 hours.
 

@@ -111,7 +111,7 @@ The current Vertex AI resources covered by CMEK are as follows. CMEK support for
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets">Dataset</a></td>
+<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.datasets">Dataset</a></td>
 <td style="text-align: left;">All user imported data (for example, text content) for <code dir="ltr" translate="no">DataItems</code> and <code dir="ltr" translate="no">Annotations</code> .<br />
 <br />
 User created content such as <code dir="ltr" translate="no">AnnotationSpecs, ColumnSpecs</code> .</td>
@@ -120,7 +120,7 @@ User created content such as <code dir="ltr" translate="no">AnnotationSpecs, Col
 <a href="https://docs.cloud.google.com/vertex-ai/docs/tabular-data/forecasting/create-dataset">Create a dataset for training forecast models</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes">Index</a></td>
+<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.indexes">Index</a></td>
 <td style="text-align: left;">All data files used for Vector Search indexes stored in Cloud Storage, Pub/Sub, and internal storage. Index and IndexEndpoint must be created with the same key.<br />
 <br />
 All indexes within a Collection must be created with the same key.</td>

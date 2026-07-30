@@ -13,6 +13,8 @@ After you build and deploy your agents, Gemini Enterprise Agent Platform provide
 
 ## Observability
 
+Understand agent behavior.
+
 Overview
 
 ### [Observability overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)
@@ -32,6 +34,8 @@ Guide
 Learn how to view agent relationships in Google Agent Platform.
 
 ## Evaluation
+
+Evaluate agent quality with the integrated Gen AI Evaluation service.
 
 Overview
 

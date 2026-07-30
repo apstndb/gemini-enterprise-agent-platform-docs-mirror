@@ -100,25 +100,21 @@ The following curl and Python code samples demonstrate how to import files from 
 
 If you want to get messages from a specific channel, change the `  CHANNEL_ID  ` .
 
-    API_KEY_SECRET_VERSION=SLACK_API_KEY_SECRET_VERSION
-    CHANNEL_ID=SLACK_CHANNEL_ID
-    PROJECT_ID=us-central1
-    
     curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
-    https://${ ENDPOINT }/v1beta1/projects/${ PROJECT_ID }/locations/${ PROJECT_ID }/ragCorpora/${ RAG_CORPUS_ID }/ragFiles:import \
+    https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
     -d '{
       "import_rag_files_config": {
         "slack_source": {
           "channels": [
             {
               "apiKeyConfig": {
-                "apiKeySecretVersion": "'"${ API_KEY_SECRET_VERSION }"'"
+                "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
               },
               "channels": [
                 {
-                  "channel_id": "'"${ CHANNEL_ID }"'"
+                  "channel_id": "CHANNEL_ID"
                 }
               ]
             }
@@ -151,7 +147,10 @@ If you want to get messages for a given range of time or from a specific channel
     )
 
     response = rag.import_files(
-        corpus_name="projects/my-project/locations/us-central1/ragCorpora/my-corpus-1",
+        corpus_name=(
+            "projects/PROJECT_ID/locations/"
+            "REGION/ragCorpora/RAG_CORPUS_ID"
+        ),
         source=source,
         chunk_size=512,
         chunk_overlap=100,
@@ -182,27 +181,20 @@ To import files from [Jira](https://www.atlassian.com/software/jira?referer=jira
 
 ### curl
 
-    EMAIL=JIRA_EMAIL
-    API_KEY_SECRET_VERSION=JIRA_API_KEY_SECRET_VERSION
-    SERVER_URI=JIRA_SERVER_URI
-    CUSTOM_QUERY=JIRA_CUSTOM_QUERY
-    PROJECT_ID=JIRA_PROJECT
-    REGION= "us-central1"
-    
     curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
-    https://${ ENDPOINT }/v1beta1/projects/${ PROJECT_ID }/locations/REGION>/ragCorpora/${ RAG_CORPUS_ID }/ragFiles:import \
+    https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
     -d '{
       "import_rag_files_config": {
         "jiraSource": {
           "jiraQueries": [{
-            "projects": ["'"${ PROJECT_ID }"'"],
-            "customQueries": ["'"${ CUSTOM_QUERY }"'"],
-            "email": "'"${ EMAIL }"'",
-            "serverUri": "'"${ SERVER_URI }"'",
+            "projects": ["JIRA_PROJECT"],
+            "customQueries": ["CUSTOM_QUERY"],
+            "email": "EMAIL",
+            "serverUri": "SERVER_URI",
             "apiKeyConfig": {
-              "apiKeySecretVersion": "'"${ API_KEY_SECRET_VERSION }"'"
+              "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
             }
           }]
         }
@@ -214,18 +206,21 @@ To import files from [Jira](https://www.atlassian.com/software/jira?referer=jira
 ``` 
     # Jira Example
     jira_query = rag.JiraQuery(
-        email="xxx@yyy.com",
-        jira_projects=["project1", "project2"],
-        custom_queries=["query1", "query2"],
-        api_key="api_key",
-        server_uri="server.atlassian.net"
+        email="EMAIL",
+        jira_projects=["JIRA_PROJECT"],
+        custom_queries=["CUSTOM_QUERY"],
+        api_key="API_KEY_SECRET_VERSION",
+        server_uri="SERVER_URI"
     )
     source = rag.JiraSource(
         queries=[jira_query],
     )
 
     response = rag.import_files(
-        corpus_name="projects/my-project/locations/REGION/ragCorpora/my-corpus-1",
+        corpus_name=(
+            "projects/PROJECT_ID/locations/"
+            "REGION/ragCorpora/RAG_CORPUS_ID"
+        ),
         source=source,
         chunk_size=512,
         chunk_overlap=100,
@@ -266,37 +261,56 @@ To import files from your SharePoint site into your corpus, do the following:
 
 3.  Grant **Secret Manager Secret Accessor** role to your project's RAG Engine service account.
 
-4.  Use *{YOUR\_ORG\_ID}.sharepoint.com* as the SHAREPOINT\_SITE\_NAME .
+4.  Use *{YOUR\_ORG\_ID}.sharepoint.com* as the `  SHAREPOINT_SITE_NAME  ` .
 
 5.  A drive name or drive ID in the SharePoint site must be specified in the request.
 
 6.  Optional: A folder path or folder ID on the drive can be specified. If the folder path or folder ID isn't specified, all of the folders and files on the drive are imported.
 
+#### Locate the Site ID
+
+1.  Open your browser and navigate to your target SharePoint site URL.
+
+2.  Append `/_api/site/id/` to the end of that URL.
+    
+    **Example:** `https://example-sp.sharepoint.com/sites/example-site/_api/site/id/`
+    
+    The page returns an XML payload. Note the string after the `Edm.Guid` . This is your **Site ID** .
+
+#### Locate the Drive ID
+
+With the Site ID you gathered, make an authenticated GET request using Microsoft Graph Explorer or your API client:
+
+    GET https://graph.microsoft.com/v1.0/sites/SITE_ID/drive
+
+Get the **SHAREPOINT\_DRIVE\_ID** . The value is listed in the `id` field in the JSON response.
+
+#### Locate a Specific Folder ID
+
+Use your Drive ID to list the children of the root directory:
+
+    GET https://graph.microsoft.com/v1.0/drives/SHAREPOINT_DRIVE_ID/root/children
+
+  - Find the object matching your selected folder name in the JSON response and copy its corresponding `id` string. This is your SHAREPOINT\_FOLDER\_ID .
+
 ### curl
 
-    CLIENT_ID=SHAREPOINT_CLIENT_ID
-    API_KEY_SECRET_VERSION=SHAREPOINT_API_KEY_SECRET_VERSION
-    TENANT_ID=SHAREPOINT_TENANT_ID
-    SITE_NAME=SHAREPOINT_SITE_NAME
-    FOLDER_PATH=SHAREPOINT_FOLDER_PATH
-    DRIVE_NAME=SHAREPOINT_DRIVE_NAME
-    
     curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
-    https://${ ENDPOINT }/v1beta1/projects/${ PROJECT_ID }/locations/REGION>/ragCorpora/${ RAG_CORPUS_ID }/ragFiles:import \
+    https://ENDPOINT/v1beta1/projects/PROJECT_ID/locations/REGION/ragCorpora/RAG_CORPUS_ID/ragFiles:import \
     -d '{
       "import_rag_files_config": {
         "sharePointSources": {
           "sharePointSource": [{
-            "clientId": "'"${ CLIENT_ID }"'",
+            "clientId": "CLIENT_ID",
             "apiKeyConfig": {
-              "apiKeySecretVersion": "'"${ API_KEY_SECRET_VERSION }"'"
+              "apiKeySecretVersion": "API_KEY_SECRET_VERSION"
             },
-            "tenantId": "'"${ TENANT_ID }"'",
-            "sharepointSiteName": "'"${ SITE_NAME }"'",
-            "sharepointFolderPath": "'"${ FOLDER_PATH }"'",
-            "driveName": "'"${ DRIVE_NAME }"'"
+            "tenantId": "SHAREPOINT_TENANT_ID",
+            "sharepointSiteName": "SHAREPOINT_SITE_NAME",
+            "sharepointFolderId": "SHAREPOINT_FOLDER_ID",
+            "driveId": "SHAREPOINT_DRIVE_ID"
           }]
         }
       }
@@ -307,30 +321,32 @@ To import files from your SharePoint site into your corpus, do the following:
 ``` 
     from vertexai.preview import rag
     from vertexai.preview.rag.utils import resources
+    import vertexai
 
-    CLIENT_ID="SHAREPOINT_CLIENT_ID"
-    API_KEY_SECRET_VERSION="SHAREPOINT_API_KEY_SECRET_VERSION"
-    TENANT_ID="SHAREPOINT_TENANT_ID"
-    SITE_NAME="SHAREPOINT_SITE_NAME"
-    FOLDER_PATH="SHAREPOINT_FOLDER_PATH"
-    DRIVE_NAME="SHAREPOINT_DRIVE_NAME"
+    vertexai.init(
+        project="PROJECT_ID",
+        location="REGION",
+    )
 
     # SharePoint Example.
     source = resources.SharePointSources(
         share_point_sources=[
             resources.SharePointSource(
-                client_id=CLIENT_ID,
-                client_secret=API_KEY_SECRET_VERSION,
-                tenant_id=TENANT_ID,
-                sharepoint_site_name=SITE_NAME,
-                sharepoint_folder_path=FOLDER_PATH,
-                drive_id=DRIVE_ID,
+                client_id="CLIENT_ID",
+                client_secret="API_KEY_SECRET_VERSION",
+                tenant_id="SHAREPOINT_TENANT_ID",
+                sharepoint_site_name="SHAREPOINT_SITE_NAME",
+                sharepoint_folder_id="SHAREPOINT_FOLDER_ID",
+                drive_id="SHAREPOINT_DRIVE_ID",
             )
         ]
     )
 
     response = rag.import_files(
-        corpus_name="projects/my-project/locations/REGION/ragCorpora/my-corpus-1",
+        corpus_name=(
+            "projects/PROJECT_ID/locations/"
+            "REGION/ragCorpora/RAG_CORPUS_ID"
+        ),
         source=source,
         chunk_size=512,
         chunk_overlap=100,

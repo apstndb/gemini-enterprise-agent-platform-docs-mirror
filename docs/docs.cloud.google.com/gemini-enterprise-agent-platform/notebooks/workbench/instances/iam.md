@@ -148,6 +148,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  listEffectiveTags</code></p>
@@ -664,6 +665,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  listEffectiveTags</code></p>
@@ -1182,6 +1184,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  listEffectiveTags</code></p>
@@ -1801,6 +1804,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.  globalForwardingRules.  setLabels</code></li>
 <li><code dir="ltr" translate="no">compute.  globalForwardingRules.  setTarget</code></li>
 <li><code dir="ltr" translate="no">compute.  globalForwardingRules.  update</code></li>
+<li><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></li>
+<li><code dir="ltr" translate="no">compute.  globalFrontendSettings.  update</code></li>
 <li><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  attachNetworkEndpoints</code></li>
 <li><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  create</code></li>
 <li><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  createTagBinding</code></li>
@@ -2814,6 +2819,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  listEffectiveTags</code></p>
@@ -3307,6 +3313,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  listEffectiveTags</code></p>
@@ -3883,6 +3890,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  globalForwardingRules.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  globalFrontendSettings.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">compute.  globalNetworkEndpointGroups.  attachNetworkEndpoints</code></li>

@@ -66,9 +66,9 @@ Here are two ways you can get started today:
 
 To learn more about purchasing the Standard, Plus or Frontline editions, please [contact Google Cloud sales](https://cloud.google.com/contact/gemini-enterprise). 
 
-#### Can I purchase NotebookLM Enterprise separately from Gemini Enterprise app?
+#### Can I purchase Gemini Notebook for enterprise separately from Gemini Enterprise app?
 
-Yes, you can purchase up to 5,000 licenses through a monthly or yearly subscription. Both monthly and yearly subscriptions can be set to renew automatically.
+Yes, you can purchase up to 5,000 licenses of Gemini Notebook Enterprise through a monthly or yearly subscription. Both monthly and yearly subscriptions can be set to renew automatically.
 
 If you need more than 5,000 licenses, please [contact](https://cloud.google.com/contact/gemini-enterprise) Google Cloud sales.
 

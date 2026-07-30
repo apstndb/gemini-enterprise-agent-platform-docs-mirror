@@ -77,8 +77,8 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         model=model_id,
         config=LiveConnectConfig(response_modalities=[Modality.TEXT]),
     ) as session:
-        text_input = "Hello? Gemini, ar>e you there?"
-        print(" ", text_input, "\n")
+        text_input = "Hello? Gemini, are you there?"
+        print("> ", text_input, "\n")
         await session.send_client_content(
             turns=Content(role="user", parts=[Part(text=text_input)])
         )
@@ -87,11 +87,11 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
         async for message in session.receive():
             if message.text:
-                response.append(mess>age.text)
+                response.append(message.text)
     
         print("".join(response))
     # Example output:
-    #   Hello? Gemini, are you there?
+    # >  Hello? Gemini, are you there?
     # Yes, I'm here. What would you like to talk about?
 
 ### Go
@@ -119,18 +119,18 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     // generateLiveWithText demonstrates using a live Gemini model
     // that performs live with text and handles responses.
     func generateLiveWithText(w io.Writer) error {
-        ctx := context.Background(&)
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
             return fmt.Errorf("failed to create genai client: %w", err)
         }
     
-        mod&elName := "gemini-2.0-flash-live-preview-04-09"
+        modelName := "gemini-2.0-flash-live-preview-04-09"
     
-        config := genai.LiveConnectConfig{
+        config := &genai.LiveConnectConfig{
             ResponseModalities: []genai.Modality{genai.ModalityText},
         }
     
@@ -141,9 +141,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         }
         defer session.Close()
     
-        // Prepare t>he input message
+        // Prepare the input message
         inputText := "Hello? Gemini, are you there?"
-        fmt.Fprintf(w, " %s\n\n", inputText)
+        fmt.Fprintf(w, "> %s\n\n", inputText)
     
         // Send text content to the model
         err = session.SendClientContent(genai.LiveClientContentInput{
@@ -166,13 +166,13 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
             chunk, err := session.Receive()
             if err != nil {
                 if err == io.EOF {
-    &&              break
+                    break
                 }
                 return fmt.Errorf("error receiving response: %w", err)
             }
     
-            if chunk.ServerContent != nil  chunk.ServerContent.ModelTurn != nil {
-                for _, part := range chunk.ServerCo>ntent.ModelTurn.Parts {
+            if chunk.ServerContent != nil && chunk.ServerContent.ModelTurn != nil {
+                for _, part := range chunk.ServerContent.ModelTurn.Parts {
                     if part.Text != "" {
                         response += part.Text
                     }
@@ -181,7 +181,11 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         }
     
         // Example output:
-        //    Hello?Geminiareyouthere?//Yes,I'm here. What would you like to talk about?fmt.Fprintln(w,response)returnnil}
+        //  >  Hello? Gemini are you there?
+        //  Yes, I'm here. What would you like to talk about?
+        fmt.Fprintln(w, response)
+        return nil
+    }
 
 ### Node.js
 
@@ -223,7 +227,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
       async function waitMessage() {
         while (responseQueue.length === 0) {
-     >     await new Promise(resolve = setTimeout(resolve, 100));
+          await new Promise(resolve => setTimeout(resolve, 100));
         }
         return responseQueue.shift();
       }
@@ -234,7 +238,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         while (!done) {
           const message = await waitMessage();
           turns.push(message);
-    &&      if (message.serverContent  message.serverContent.turnComplete) {
+          if (message.serverContent && message.serverContent.turnComplete) {
             done = true;
           }
         }
@@ -244,14 +248,14 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       const session = await client.live.connect({
         model: modelId,
         config: config,
-        cal>lbacks: {
-          onmessage: msg = responseQue>ue.push(msg),
-          onerror: e = console.error('Error:', e.message),
+        callbacks: {
+          onmessage: msg => responseQueue.push(msg),
+          onerror: e => console.error('Error:', e.message),
         },
       });
     
-      const textInput = 'Hel>lo? Gemini, are you there?';
-      console.log(' ', textInput, '\n');
+      const textInput = 'Hello? Gemini, are you there?';
+      console.log('> ', textInput, '\n');
     
       await session.sendClientContent({
         turns: [{role: 'user', parts: [{text: textInput}]}],
@@ -260,13 +264,16 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       const turns = await handleTurn();
       for (const turn of turns) {
         if (turn.text) {
-          conso>le.log('Received text:', turn.text);
+          console.log('Received text:', turn.text);
         }
       }
       // Example output:
-      // Hello? Gemini, are you there?
+      //> Hello? Gemini, are you there?
       // Received text: Yes
-      // Received text: I'm here. How can I help you today?  session.close();  return turns;}
+      // Received text: I'm here. How can I help you today?
+      session.close();
+      return turns;
+    }
 
 ### Java
 
@@ -313,33 +320,33 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
                 .httpOptions(HttpOptions.builder().apiVersion("v1beta1").build())
                 .build()) {
     
-          // Connects to the live s<erver.
-         > CompletableFutureAsyncSession sessionFuture =
+          // Connects to the live server.
+          CompletableFuture<AsyncSession> sessionFuture =
               client.async.live.connect(
                   modelId, LiveConnectConfig.builder().responseModalities(TEXT).build());
     
-          // Sends and receives messages from the live se<ssion.>
-          CompletableFutureString responseFuture =
-              sessionFuture.thenCo>mpose(
-                  session - {
+          // Sends and receives messages from the live session.
+          CompletableFuture<String> responseFuture =
+              sessionFuture.thenCompose(
+                  session -> {
                     // A future that completes when the model signals the end of its turn.
-       <    >         CompletableFutureVoid turnCo<>mplete = new CompletableFuture();
+                    CompletableFuture<Void> turnComplete = new CompletableFuture<>();
                     // A variable to concatenate the text response from the model.
                     StringBuilder modelResponse = new StringBuilder();
                     // Starts receiving messages from the live session.
-                    session.receive(>
-                        message - handleLiveServerMessage(message, turnComplete, modelResponse));
+                    session.receive(
+                        message -> handleLiveServerMessage(message, turnComplete, modelResponse));
                     // Sends content to the live session and waits for the turn to complete.
                     return sendContent(session)
-               >         .thenCompose(unused - turnComplete)
+                        .thenCompose(unused -> turnComplete)
                         .thenCompose(
-      >                      unused - sess>ion.close().thenApply(result - modelResponse.toString()));
+                            unused -> session.close().thenApply(result -> modelResponse.toString()));
                   });
     
           String response = responseFuture.join();
           System.out.println(response);
-        >  // Example output:
-          //  Hello? Gemini, are you there?
+          // Example output:
+          // > Hello? Gemini, are you there?
           //
           // Yes, I am here. How can I help you today?
           return response;
@@ -347,9 +354,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       }
     
       // Sends content to the live session.
-      pr<ivat>e static CompletableFutureVoid sendContent(AsyncSession session) {
-        String textInput = "Hello? Gemini, are y>ou there?";
-        System.out.printf(" %s\n", textInput);
+      private static CompletableFuture<Void> sendContent(AsyncSession session) {
+        String textInput = "Hello? Gemini, are you there?";
+        System.out.printf("> %s\n", textInput);
         return session.sendClientContent(
             LiveSendClientContentParameters.builder()
                 .turns(Content.builder().role("user").parts(Part.fromText(textInput)).build())
@@ -359,15 +366,19 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
       // Concatenates the output transcription from the model and signals
       // `turnComplete` when the model is done generating the response.
-      private static void handleLiveServe<rMes>sage(
-          LiveServerMessage message, CompletableFutureVoid turnComplete, StringBuilder response) {
+      private static void handleLiveServerMessage(
+          LiveServerMessage message, CompletableFuture<Void> turnComplete, StringBuilder response) {
         message
             .serverContent()
-            .flatMap(LiveServerContent::modelTurn)>
-            .flatMap(Con>tent::parts)
-            .ifPresent(parts - parts.forEach(part - part.text().ifPresent(response::append)));
+            .flatMap(LiveServerContent::modelTurn)
+            .flatMap(Content::parts)
+            .ifPresent(parts -> parts.forEach(part -> part.text().ifPresent(response::append)));
         // Checks if the model's turn is over.
-        if (message.serverContent().flatMap(LiveServerContent::turnComplete).orElse(false)){turnComplete.complete(null);}}}
+        if (message.serverContent().flatMap(LiveServerContent::turnComplete).orElse(false)) {
+          turnComplete.complete(null);
+        }
+      }
+    }
 
 ## Integration guide
 
@@ -585,7 +596,7 @@ See the following JSON representation of a `speechConfig` object:
     {
       "voiceConfig": {
         "prebuiltVoiceConfig": {
-          &quot;voiceName": "VOICE_NAME"
+          "voiceName": "VOICE_NAME"
         }
       }
     }

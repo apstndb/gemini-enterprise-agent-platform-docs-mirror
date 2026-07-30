@@ -185,7 +185,7 @@ To create an endpoint, see [Create a public endpoint by using the gcloud CLI or 
 
 ### Retrieve the endpoint ID
 
-To retrieve the endpoint ID, see [Deploy a model by using the gcloud CLI or Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/deploy-model-api#get_the_endpoint_id) . This step is the same as for a single-model deployment.
+To retrieve the endpoint ID, see [Deploy a model by using the gcloud CLI or Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#get_the_endpoint_id) . This step is the same as for a single-model deployment.
 
 ### Deploy the model in a deployment resource pool
 

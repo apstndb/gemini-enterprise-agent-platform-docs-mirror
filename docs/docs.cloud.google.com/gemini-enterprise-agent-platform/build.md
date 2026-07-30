@@ -6,6 +6,8 @@ description: Learn how to build AI agents with Gemini Enterprise Agent Platform,
 data_source: docs.cloud.google.com
 ---
 
+[Video](https://www.youtube.com/watch?v=eIBrvOUbufY)
+
 Gemini Enterprise Agent Platform offers the most comprehensive way to build agents, designed to meet you where you are.
 
 You can use Agent Development Kit (ADK)–an open-source framework for developing and deploying AI agents–or any other open-source framework of their choice. You can use Gemini models or any other model accessible through through Model Garden.

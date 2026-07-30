@@ -6,7 +6,7 @@ description: Learn about Gemini 3.1 Flash-Lite, our most cost effective model th
 data_source: docs.cloud.google.com
 ---
 
-Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic. It provides a significant quality increase over Gemini 2.0 Flash-Lite and Gemini 2.5 Flash-Lite models, matching Gemini 2.5 Flash performance across key capability areas:
+Gemini 3.1 Flash-Lite is our most cost-efficient Gemini model, optimized for low latency use cases for high-volume, cost-sensitive LLM traffic. It provides a significant quality increase over Gemini 2.5 Flash-Lite, matching Gemini 2.5 Flash performance across key capability areas:
 
   - **Improved response quality:** Aims to match 2.5 Flash performance.
   - **Improved instruction following:** Targeted improvements to serve as a reliable migration path for complex chatbot and instruction-heavy workflows.

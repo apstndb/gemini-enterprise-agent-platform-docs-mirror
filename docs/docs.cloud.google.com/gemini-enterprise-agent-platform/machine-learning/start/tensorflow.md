@@ -26,7 +26,7 @@ You can run distributed training of TensorFlow models on Gemini Enterprise Agent
 
 Similar to prebuilt containers for training, Gemini Enterprise Agent Platform provides prebuilt container images for serving inferences and explanations from TensorFlow models that you either created within or outside of Gemini Enterprise Agent Platform. These images provide HTTP inference servers that you can use to serve inferences with minimal configuration.
 
-To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/pre-built-containers#tensorflow) .
+To learn about which TensorFlow versions have prebuilt training containers and how to train models with a prebuilt training container, see [Prebuilt containers for custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#tensorflow) .
 
 ### Optimized TensorFlow runtime
 
@@ -34,7 +34,7 @@ To learn about which TensorFlow versions have prebuilt training containers and h
 > 
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-The [optimized TensorFlow runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/predictions/optimized-tensorflow-runtime) uses model optimizations and new proprietary Google technologies to improve the speed and lower the cost of inferences compared to Gemini Enterprise Agent Platform's standard prebuilt inference containers for TensorFlow.
+The [optimized TensorFlow runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/optimized-tensorflow-runtime) uses model optimizations and new proprietary Google technologies to improve the speed and lower the cost of inferences compared to Gemini Enterprise Agent Platform's standard prebuilt inference containers for TensorFlow.
 
 ## TensorFlow Cloud Profiler integration
 

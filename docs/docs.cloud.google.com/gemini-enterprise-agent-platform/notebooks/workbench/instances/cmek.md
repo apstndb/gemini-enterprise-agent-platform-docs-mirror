@@ -16,7 +16,7 @@ After you set up your resources with CMEKs, the experience of accessing your Age
 
 This page describes some specific benefits and limitations of using CMEK with Gemini Enterprise Agent Platform Workbench and shows how to configure a new Agent Platform Workbench instance to use CMEK.
 
-For more information about how to use CMEK for Gemini Enterprise Agent Platform, see the [Agent Platform CMEK page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/general/cmek) .
+For more information about how to use CMEK for Gemini Enterprise Agent Platform, see the [Agent Platform CMEK page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) .
 
 ## Benefits of CMEK
 

@@ -20,7 +20,7 @@ To get a list of the context caches associated with a Google Cloud project, you 
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -54,7 +54,7 @@ Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -124,7 +124,7 @@ Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-a
 
 To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -179,7 +179,7 @@ Set environment variables to use the Gen AI SDK with Vertex AI:
 
 To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
 
-Set environment variables to use the Gen AI SDK with Vertex AI:
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
     # with appropriate values for your project.
@@ -275,21 +275,21 @@ You should receive a JSON response similar to the following:
       "cachedContents": [
         {
           "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID_1",
-          "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash-001",
+          "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
           "createTime": "2024-05-31T19:04:35.380412Z",
           "updateTime": "2024-05-31T19:04:35.380412Z",
           "expireTime": "2024-05-31T20:04:35.349680Z"
         },
         {
           "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID_2",
-          "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash-001",
+          "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
           "createTime": "2024-05-30T21:14:39.880235Z",
           "updateTime": "2024-05-31T00:21:15.350969Z",
           "expireTime": "2024-05-31T01:21:15.348014Z"
         },
         {
           "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID_N",
-          "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash-001",
+          "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
           "createTime": "2024-05-30T21:14:39.880235Z",
           "updateTime": "2024-05-31T00:21:15.350969Z",
           "expireTime": "2024-05-31T01:21:15.348014Z"
@@ -315,29 +315,9 @@ The following shows you how to get information about one context cache.
 
 ### Go
 
-Before trying this sample, follow the Go setup instructions in the [Gemini Enterprise Agent Platform quickstart.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/client-libraries) For more information, see the [Gemini Enterprise Agent Platform Go SDK for Gemini reference documentation](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vertexai/latest) .
+Before trying this sample, follow the Go setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
-To authenticate to Gemini Enterprise Agent Platform, set up Application Default Credentials. For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
-
-### Streaming and non-streaming responses
-
-You can choose whether the model generates *streaming* responses or *non-streaming* responses. For streaming responses, you receive each response as soon as its output token is generated. For non-streaming responses, you receive all responses after all of the output tokens are generated.
-
-For a streaming response, use the [`GenerateContentStream`](https://pkg.go.dev/cloud.google.com/go/vertexai/genai#GenerativeModel.GenerateContentStream) method.
-
-```go
-  iter := model.GenerateContentStream(ctx, genai.Text("Tell me a story about a lumberjack and his giant ox. Keep it very short."))
-  
-```
-
-For a non-streaming response, use the [`GenerateContent`](https://pkg.go.dev/cloud.google.com/go/vertexai/genai#GenerativeModel.GenerateContent) method.
-
-```go
-  resp, err := model.GenerateContent(ctx, genai.Text("What is the average size of a swallow?"))
-  
-```
-
-### Sample code
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
     import (
      "context"
@@ -440,7 +420,7 @@ You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash-001",
+      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
       "createTime": "2024-05-31T19:04:35.380412Z",
       "updateTime": "2024-05-31T19:04:35.380412Z",
       "expireTime": "2024-05-31T20:04:35.349680Z"

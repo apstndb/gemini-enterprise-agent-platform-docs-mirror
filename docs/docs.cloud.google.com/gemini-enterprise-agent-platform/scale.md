@@ -17,6 +17,8 @@ Bringing AI agents into production requires a high-performance runtime and a sys
 
 ## Agent Runtime
 
+Deploy, operate, and scale agentic applications.
+
 ### Deploy and manage agents
 
 Guide
@@ -141,6 +143,8 @@ Learn to configure a Private Service Connect (PSC) interface to securely connect
 
 ## Sessions
 
+Store individual interactions between users and agents.
+
 Overview
 
 ### [Sessions overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions)
@@ -165,7 +169,29 @@ Guide
 
 Learn how to control access to sessions with IAM Conditions.
 
+## Feedback service
+
+Overview
+
+### [Feedback service overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service)
+
+Collect, manage, and trace user qualitative feedback alongside system events and telemetry.
+
+Guide
+
+### [Manage feedback using Python SDK or REST API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service/manage-with-sdk-or-api)
+
+Learn how to manage feedback entries and feedback context using the Python SDK or REST API.
+
+Guide
+
+### [View feedback in the console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service/view-with-ui)
+
+Learn how to view received end-user feedback next to trace events on the Traces tab of the .
+
 ## Memory Bank
+
+Store and retrieve information from sessions to personalize agent interactions
 
 ### Get started
 
@@ -233,6 +259,8 @@ Learn how to control access to Memory Bank with IAM Conditions.
 
 ## Code Execution
 
+Run code in a secure, isolated, and managed sandbox environment
+
 Overview
 
 ### [Code Execution overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview)
@@ -244,3 +272,18 @@ Quickstart
 ### [Code Execution quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-quickstart)
 
 Get started with Code Execution.
+
+## Enterprise security
+
+The following table shows which enterprise security features are supported for each Agent Platform service:
+
+| Security feature                                                                                                                                     | Agent Runtime | Agent evaluation | Sessions | Memory Bank | Example Store | Code Execution |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :--------------- | :------- | :---------- | :------------ | :------------- |
+| [VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)                 | Yes           | No               | Yes      | Yes         | No            | Yes            |
+| [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/\(/kms/docs/cmek\))                   | Yes           | No               | Yes      | Yes         | No            | Yes            |
+| [Data residency (DRZ)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) at rest                              | Yes           | No               | Yes      | Yes         | No            | Yes            |
+| [HIPAA](https://cloud.google.com/security/compliance/hipaa)                                                                                          | Yes           | Yes              | Yes      | Yes         | Yes           | Yes            |
+| [Access Transparency in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-transparency) | Yes           | No               | Yes      | Yes         | No            | No             |
+| Access Approval                                                                                                                                      | Yes           | No               | Yes      | Yes         | No            | No             |
+
+> **Note:** Agent Platform Memory Bank uses Generative AI models to generate memories. [Machine learning (ML) processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/data-residency) occurs within the specific region or multi-region of the [model endpoint used by Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) .

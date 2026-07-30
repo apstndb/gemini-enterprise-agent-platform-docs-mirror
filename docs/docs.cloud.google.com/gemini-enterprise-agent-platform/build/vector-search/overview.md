@@ -182,7 +182,7 @@ In this course, you'll use text embeddings for tasks like classification and sem
 
 [**Gemini Enterprise Agent Platform Feature Store**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/featurestore) Lets you manage and serve feature data using BigQuery as the data source. It provisions resources for online serving, acting as a metadata layer to serve the latest feature values directly from BigQuery. Feature Store allows for the instant retrieval of feature values for the items Vector Store returned for queries.
 
-[**Agent Platform Pipelines**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/pipelines/introduction) Agent Platform Pipelines enables the automation, monitoring, and governance of your ML systems in a serverless manner by orchestrating ML workflows with ML pipelines. You can run ML pipelines defined using Kubeflow Pipelines or the TensorFlow Extended (TFX) framework in batches. Pipelines allows for building automated pipelines to generate embeddings, create and update Vector Search indexes, and form an MLOps setup for production search and recommendation systems.
+[**Agent Platform Pipelines**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) Agent Platform Pipelines enables the automation, monitoring, and governance of your ML systems in a serverless manner by orchestrating ML workflows with ML pipelines. You can run ML pipelines defined using Kubeflow Pipelines or the TensorFlow Extended (TFX) framework in batches. Pipelines allows for building automated pipelines to generate embeddings, create and update Vector Search indexes, and form an MLOps setup for production search and recommendation systems.
 
 ### Deep dive resources
 

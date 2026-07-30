@@ -63,7 +63,8 @@ You can enable the system health report by using the Google Cloud console or the
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/general/locations#instances) .
+    
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
 
 5.  In the **System health** section, in **Reporting** , select **Report system health** .
 
@@ -183,7 +184,7 @@ You can enable reporting custom metrics to Cloud Monitoring by using the Google 
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/general/locations#instances) .
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
 
 5.  In the **System health** section, in **Reporting** , select **Report custom metrics to Cloud Monitoring** .
 
@@ -246,7 +247,7 @@ To install Monitoring on your Agent Platform Workbench instance, you can use the
 4.  In the **Create instance** dialog, in the **Details** section, provide the following information for your new instance:
     
       - **Name** : Provide a name for your new instance.
-      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/general/locations#instances) .
+      - **Region** and **Zone** : Select a region and zone for the new instance. For best network performance, select the region that is geographically closest to you. See the available [Agent Platform Workbench locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#workbench-locations) .
 
 5.  In the **System health** section, in **Reporting** , select **Install Cloud Monitoring** .
 

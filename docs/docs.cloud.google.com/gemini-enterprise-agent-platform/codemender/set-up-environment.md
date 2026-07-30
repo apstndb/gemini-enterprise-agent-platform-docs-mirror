@@ -21,7 +21,24 @@ CodeMender uses a **local-first execution model** :
 
 ## Environment setup
 
-To begin using CodeMender, download and install the CLI, configure your Google Cloud credentials, and initialize your workspace.
+To begin using CodeMender, set up your Google Cloud project, download and install the CLI, configure your credentials, and initialize your workspace.
+
+### Project setup and IAM permissions
+
+Before downloading the CLI and configuring credentials, ensure that the target Google Cloud project is set up correctly with the required APIs and permissions.
+
+#### Required APIs
+
+Ensure the following Google Cloud APIs are enabled in your project:
+
+1.  **Vertex AI API** ( `aiplatform.googleapis.com` ) — Powers the streaming and management of agent sessions.
+2.  **Cloud Resource Manager API** ( `cloudresourcemanager.googleapis.com` ) — Validates user authentication states and project metadata.
+
+#### Recommended predefined IAM role
+
+To run the CLI commands, users should be assigned the following IAM role:
+
+1.  **Vertex AI User** ( `roles/aiplatform.user` ) — Allows users to create, stream, and manage active sessions.
 
 ### Download and install CodeMender CLI
 
@@ -215,44 +232,53 @@ Use the --verify flag to test connectivity to the cloud-hosted reasoning engine 
 
 ### Configuration parameters ( `config.yaml` )
 
-CodeMender reads configuration settings from `~/.codemender/config.yaml` . You can customize the following sections:
+The primary goal of `config.yaml` is to **align CodeMender's agent behaviors with your local system's security, environment constraints, and performance needs** .
 
-#### Version control system (VCS) configuration
+Since the hosted AI agent executes local commands (like building code, running tests, or editing files) using your local daemon client, this configuration file acts as the boundary defining what the agent is and isn't allowed to do.
 
-Specify your project's version control system type under `vcs` . CodeMender supports Git, Mercurial, or custom VCS configurations:
+#### Usage
 
-### Git repositories
+  - **Location:** By default, the CLI looks for this file in your initialized workspace (usually `.codemender/config.yaml` or a global configuration directory like `~/.config/codemender/config.yaml` ).
+  - **Execution:** When you run commands such as `cm find` , `cm verify` , or `cm fix` , the local client reads this file to set up safety parameters, apply system bypasses, and specify which files or directories to ignore.
 
-    vcs:
-      type: "git"
+#### Core default settings
 
-### Mercurial repositories
+Here is what the core default parameters mean:
 
-    vcs:
-      type: "mercurial"
+  - **`human_confirmation: true` (or `require_confirmation: true` )**
+    
+      - **What it means:** By default, CodeMender **cannot** modify any file on your disk or execute shell commands without explicitly prompting you for a `[Y/n]` confirmation in the terminal.
+      - **Why it's default:** CodeMender may generate speculative patches or attempt to run exploit scripts to verify a vulnerability. Forcing human confirmation helps prevent accidental system changes or unauthorized code execution in your local environment.
+      - **Bypass:** For non-interactive CI/CD pipelines, this can be set to `false` .
 
-### Custom version control systems
+  - **`confirm_writes: false`**
+    
+      - **What it means:** Disables interactive prompts for file modifications, allowing the CodeMender agent to write security patches and modify source files directly to your local disk without waiting for human approval.
+      - **Why it's default:** By default, this safety guardrail is set to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
 
-Specify custom command mappings for non-standard VCS tools:
+  - **`include: [".py", ".java", ".go", ".js", ".ts", ".c", ".cc", ".cpp", ".h", ".rb", ".php"]`**
+    
+      - **What it means:** Defines the explicit list of file extensions that CodeMender is authorized to ingest and analyze when scanning your workspace. Any file in your repository with an extension not specified in this list is automatically skipped.
+      - **Why it's default:** By default, this list is restricted to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, it is highly recommended to manually expand this default list to include configuration files, script formats, and IaC files (for example, `.sh` , `.xml` , `.yaml` , `.properties` , `.json` ) so CodeMender doesn't silently ignore them.
 
-    vcs:
-      type: "custom"
-      commands:
-        status: "svn status"
-        diff:   "svn diff"
-        stage:  "echo 'no staging needed'"
-        reset:  "svn revert -R ."
+  - **`exclude_paths: ["node_modules", "vendor", "dist", "bin"]`**
+    
+      - **What it means:** CodeMender will completely skip these directories during workspace scanning and code analysis.
+      - **Why it's default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times.
 
-#### Build and regression testing command
+  - **`model: "gemini-3.5-flash"`**
+    
+      - **What it means:** The default intelligence engine powering the backend reasoning loops.
+      - **Why it's default:** `gemini-3.5-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
 
-Define the exact shell command that CodeMender uses to build your project and execute unit and regression tests:
+  - **`vcs: { type: "git" }`**
+    
+      - **What it means:** Defines the type of version control system used by your project through the `vcs` key. If left unconfigured, the tool attempts to automatically identify Git or Mercurial repositories. If `vcs` is set to `none` by default, the CLI outputs a warning but continues execution without VCS functionality. CodeMender relies on this setting to manage speculative security fixes, track codebase modifications, and integrate with your local repository.
+      - **Why it's default:** CodeMender supports Git, Mercurial, or custom VCS configurations. Git is the default as it is the industry standard for version control tracking, ensuring seamless diff integration and rollback safety.
 
-    build:
-      command: "make build && make test"
+  - **`build: { command: "make build && make test" }`**
+    
+      - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
+      - **Why it's default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in its secure environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
-#### Interactive execution confirmations
-
-Configure tool confirmation behavior to determine whether the CLI prompts for confirmation before running local commands or modifying files:
-
-    tools:
-      confirm_execution: true
+> **Summary recommendation:** Treat `config.yaml` as your agent policy document. In local development, keep the defaults ( `human_confirmation: true` and strict `exclude_paths` ) to safeguard your environment. Only toggle confirmation to `false` when running inside isolated, disposable sandbox virtual machines or secure CI/CD pipelines.

@@ -62,10 +62,10 @@ To verify an existing agent is eligible, confirm that its reasoning engine's `sp
 
 The Semantic governance policy engine and Semantic governance policies are supported in the following regional locations:
 
-| Geography    | Available regions                                                                                                             |
-| :----------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| **Americas** | `us-central1` , `us-east1` , `us-east4` , `us-east5` , `us-south1` , `us-west1` , `us-west4`                                  |
-| **Europe**   | `europe-central2` , `europe-north1` , `europe-southwest1` , `europe-west1` , `europe-west4` , `europe-west8` , `europe-west9` |
+| Geography    | Available regions                                                                          |
+| :----------- | :----------------------------------------------------------------------------------------- |
+| **Americas** | `us-central1` , `us-east1` , `us-east4` , `us-west1`                                       |
+| **Europe**   | `europe-central2` , `europe-southwest1` , `europe-west1` , `europe-west4` , `europe-west8` |
 
 ### Provisioning and enablement
 

@@ -7508,6 +7508,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. globalForwardingRules. listTagBindings`
 
+`compute. globalFrontendSettings. get`
+
 `compute. globalNetworkEndpointGroups.*`
 
   - `compute. globalNetworkEndpointGroups. attachNetworkEndpoints`

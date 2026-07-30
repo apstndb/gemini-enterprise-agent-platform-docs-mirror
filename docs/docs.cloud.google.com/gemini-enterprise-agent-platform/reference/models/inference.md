@@ -146,8 +146,6 @@ For single-turn queries, this is a single instance. For multi-turn queries, this
 
 Optional: `Content`
 
-Available for `gemini-2.0-flash` and `gemini-2.0-flash-lite` .
-
 Instructions for the model to steer it toward better performance. For example, "Answer as concisely as possible" or "Don't use technical terms in your response".
 
 The `text` strings count toward the token limit.
@@ -230,8 +228,6 @@ A text prompt or code snippet.
 Optional: `Blob`
 
 Inline data in raw bytes.
-
-For `gemini-2.0-flash-lite` and `gemini-2.0-flash` , you can specify up to 3000 images by using `inlineData` .
 
 `fileData`
 
@@ -316,7 +312,7 @@ The media type of the file specified in the `data` or `fileUri` fields. Acceptab
   - `video/mpegps`
   - `video/flv`
 
-For `gemini-2.0-flash-lite` and `gemini-2.0-flash` , the maximum length of an audio file is 8.4 hours and the maximum length of a video file (without audio) is one hour. For more information, see Gemini [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements) and [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements) requirements.
+For more information, see Gemini [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding#audio-requirements) and [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#video-requirements) requirements.
 
 Text files must be UTF-8 encoded. The contents of the text file count toward the token limit.
 
@@ -547,9 +543,7 @@ If the model returns a response that's too generic, too short, or the model give
 
 <span id="temperature-ranges"></span>
 
-  - Range for `gemini-2.0-flash-lite` : `0.0 - 2.0` (default: `1.0` )
-  - Range for `gemini-2.0-flash` : `0.0 - 2.0` (default: `1.0` )
-  - Range for `Gemini 3` : `0.0 - 2.0` (default: `1.0` )
+  - Range for Gemini 3 models versions 3.5 Flash and lower: `0.0 - 2.0` (default: `1.0` )
 
 > **Note:** Sampling parameters ( `temperature` , `topP` , and `topK` ) are deprecated for all `Gemini 3` models. It is recommended to omit these parameters and let the model manage sampling automatically.
 
@@ -579,10 +573,7 @@ Optional: `int`
 
 The number of response variations to return. For each request, you're charged for the output tokens of all candidates, but are only charged once for the input tokens.
 
-Specifying multiple candidates is a Preview feature that works with `generateContent` ( `streamGenerateContent` is not supported). The following models are supported:
-
-  - `Gemini 2.0 Flash-Lite` : `1` - `8` , default: `1`
-  - `Gemini 2.0 Flash` : `1` - `8` , default: `1`
+Specifying multiple candidates is a Preview feature that works with `generateContent` ( `streamGenerateContent` is not supported).
 
 `maxOutputTokens`
 
@@ -683,11 +674,6 @@ You must enable [`responseLogprobs`](https://docs.cloud.google.com/gemini-enterp
 `audioTimestamp`
 
 Optional: `boolean`
-
-Available for the following models:
-
-  - Gemini 2.0 Flash-Lite
-  - Gemini 2.0 Flash
 
 Enables timestamp understanding for audio-only files.
 

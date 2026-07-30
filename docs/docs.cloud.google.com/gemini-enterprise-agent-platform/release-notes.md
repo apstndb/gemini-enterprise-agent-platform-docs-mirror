@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## July 29, 2026
+
+Feature
+
+**Gemini Enterprise: Feedback service (Preview)**
+
+The Feedback service on Gemini Enterprise Agent Platform is available in Preview. The Feedback service lets you collect, analyze, and manage end-user qualitative feedback, such as thumbs-up and thumbs-down sentiments and feedback labels from interactions between your agents and users. You can also view feedback entries alongside traces in the console or export them to Cloud Trace to troubleshoot your agents.
+
+For more information, see [Feedback service overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/feedback-service) .
+
 ## July 24, 2026
 
 Feature

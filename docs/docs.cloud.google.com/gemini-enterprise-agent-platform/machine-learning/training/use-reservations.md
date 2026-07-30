@@ -91,7 +91,13 @@ Before using any of the request data, make the following replacements:
       - RESERVATION\_AFFINITY\_TYPE : Must be `ANY_RESERVATION` , `SPECIFIC_RESERVATION` , or `NO_RESERVATION` .
         
           - `ANY_RESERVATION` means that the VMs of your `customJob` can automatically consume any reservation with matching properties.
+            
+            > **Note:** To prioritize your reservations, Agent Platform routes your job to the specific zone where your matching reservations are located. If your reserved capacity in that zone is exhausted, Agent Platform attempts to provision on-demand resources only within that same zone. If the zone has insufficient on-demand capacity, your job might fail with an insufficient capacity (stockout) error. For more information, see [Handle common errors](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service#common-errors) .
+            > 
+            > To reduce the risk of stockouts in a single zone, we recommend that you distribute your reservations across multiple zones within the region. For example, instead of creating a 30-GPU reservation in one zone, you can create three 10-GPU reservations across zones `a` , `b` , and `c` . This approach allows Agent Platform to evaluate multiple zones for available capacity.
+        
           - `SPECIFIC_RESERVATION` means that the VMs of your `customJob` can consume only a reservation that the VMs specifically target by name.
+        
           - `NO_RESERVATION` means that the VMs of your `customJob` can't consume any reservation. Specifying `NO_RESERVATION` has the same effect as omitting a reservation affinity specification.
     
       - ZONE : the zone where the reservation was created.

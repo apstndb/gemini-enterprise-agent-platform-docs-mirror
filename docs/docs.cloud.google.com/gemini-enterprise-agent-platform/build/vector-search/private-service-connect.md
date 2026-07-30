@@ -37,15 +37,13 @@ You must enable Private Service Connect when you create your endpoint. This proc
     REGION=us-central1
     VERTEX_ENDPOINT=REGION-aiplatform.googleapis.com
     curl -H "Content-Type: application/json" \
-      -H "Authorization: Bearer `gcloud auth print-access-token`" \
+      -H "Authorization: Bearer `gcloud auth print-access-token`"; \
       https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT/locations/REGION/indexEndpoints \
-      -d '{
-         "displayName": "DISPLAY_NAME",
+      -d ';{
+         &quot;displayName": "DISPLAY_NAME",
          "privateServiceConnectConfig": {
            "enablePrivateServiceConnect": true,
-           "projectAllowlist": [ "VPC_PROJECT_1", "VPC_PROJECT_2", "VPC_PROJECT_N"]
-         }
-       }
+           "projectAllowlist": [ "VPC_PROJECT_1", "VPC_PROJECT_2", "VPC_PROJECT_N"]     }   }
 
 ### Console
 
@@ -142,15 +140,12 @@ For more information about service connection policies, go to [Configure service
     -H "Content-Type: application/json; charset=utf-8" "https://LOCATIONAL_ENDPOINT.googleapis.com/v1/projects/PROJECT_NUMBER/locations/REGION/indexEndpoints/INDEX_ENDPOINT_ID:deployIndex"
     -d '{
       "deployedIndex": {
-        "id": "DEPLOYED_INDEX_ID",
-        "index": "projects/PROJECT/locations/us-central1/indexes/INDEX_ID ",
+        "id";: "DEPLOYED_INDEX_ID";,
+        &quot;index": "projects/PROJECT/locations/us-central1/indexes/INDEX_ID ",
         "displayName": "DISPLAY_NAME",
         "psc_automation_configs": [
           { "project_id": "PROJECT_1", "network": "NETWORK_NAME_1" },
-          { "project_id": "PROJECT_2", "network": "NETWORK_NAME_2" },
-          { "project_id": "PROJECT_N", "network": "NETWORK_NAME_N" }]
-        }
-    }'
+          { "project_id": "PROJECT_2", "network": "NETWORK_NAME_2" },      { "project_id": "PROJECT_N", "network": "NETWORK_NAME_N" }]    }}'
 
 ### Console
 
@@ -354,14 +349,14 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
     resource "google_storage_bucket" "bucket" {
       name                        = "vertex-ai-index-bucket-${random_id.default.hex}"
       location                    = "us-central1"
-      uniform_bucket_level_access = true
+      uniform_bucket_level_<<access = true
     }
     
     # Create index content
     resource "google_storage_bucket_object" "data" {
       name    = "contents/data.json"
       bucket  = google_storage_bucket.bucket.name
-      content = <<EOF
+      content = EOF
     {"id": "42", "embedding": [0.5, 1.0], "restricts": [{"namespace": "class", "allow": ["cat", "pet"]},{"namespace": "category", "allow": ["feline"]}]}
     {"id": "43", "embedding": [0.6, 1.0], "restricts": [{"namespace": "class", "allow": ["dog", "pet"]},{"namespace": "category", "allow": ["canine"]}]}
     EOF
@@ -372,30 +367,7 @@ To learn how to apply or remove a Terraform configuration, see [Basic Terraform 
       display_name = "sample-index-batch-update"
       description  = "A sample index for batch update"
       labels = {
-        foo = "bar"
-      }
-    
-      metadata {
-        contents_delta_uri = "gs://${google_storage_bucket.bucket.name}/contents"
-        config {
-          dimensions                  = 2
-          approximate_neighbors_count = 150
-          distance_measure_type       = "DOT_PRODUCT_DISTANCE"
-          algorithm_config {
-            tree_ah_config {
-              leaf_node_embedding_count    = 500
-              leaf_nodes_to_search_percent = 7
-            }
-          }
-        }
-      }
-      index_update_method = "BATCH_UPDATE"
-    
-      timeouts {
-        create = "2h"
-        update = "1h"
-      }
-    }
+      foo = "bar"  }  metadata {    contents_delta_uri = "gs://${google_storage_bucket.bucket.name}/contents"    config {      dimensions                  = 2      approximate_neighbors_count = 150      distance_measure_type       = "DOT_PRODUCT_DISTANCE"      algorithm_config {        tree_ah_config {          leaf_node_embedding_count    = 500          leaf_nodes_to_search_percent = 7        }      }    }  }  index_update_method = "BATCH_UPDATE"  timeouts {    create = "2h"    update = "1h"  }}
 
 ### Python
 
@@ -436,9 +408,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
         # Deploy Index to Endpoint
         index_endpoint = index_endpoint.deploy_index(
             index=index, deployed_index_id=deployed_index_id
-        )
-    
-        print(index_endpoint.deployed_indexes)
+     )    print(index_endpoint.deployed_indexes)
 
 ### Console
 
