@@ -24,15 +24,15 @@ The [Agent Platform Workbench client libraries](https://docs.cloud.google.com/ge
 
 ### Google Cloud CLI
 
-When you use the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/workbench) to access Agent Platform Workbench, you [log in to the gcloud CLI](https://docs.cloud.google.com/sdk/docs/authorizing) with a user account, which provides the credentials used by the gcloud CLI commands.
+When you use the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud/reference/workbench) to access Agent Platform Workbench, you authenticate to Google Cloud as a principal, which provides the credentials used by the gcloud CLI commands.
 
 If your organization's security policies prevent user accounts from having the required permissions, you can use [service account impersonation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/authentication#sa-impersonation) .
 
-For more information, see [Authenticate for using the gcloud CLI](https://docs.cloud.google.com/docs/authentication/gcloud) . For more information about using the gcloud CLI with Agent Platform Workbench, see [the gcloud CLI reference pages](https://docs.cloud.google.com/sdk/gcloud/reference/workbench) .
+For more information, see [Authenticate for the gcloud CLI](https://docs.cloud.google.com/sdk/docs/authenticate) . For more information about using the gcloud CLI with Agent Platform Workbench, see [the gcloud CLI reference pages](https://docs.cloud.google.com/sdk/gcloud/reference/workbench) .
 
 ### REST
 
-You can authenticate to [the Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) by using your gcloud CLI credentials or by using [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . For more information about authentication for REST requests, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) . For information about the types of credentials, see [gcloud CLI credentials and ADC credentials](https://docs.cloud.google.com/docs/authentication/gcloud#gcloud-credentials) .
+You can authenticate to [the Notebooks API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/reference/rest) by using your [gcloud CLI credentials](https://docs.cloud.google.com/sdk/docs/authenticate) or by using [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) . For more information about authentication for REST requests, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) .
 
 ## Set up authentication for Agent Platform Workbench
 
@@ -102,7 +102,7 @@ Execute the following command:
         -Headers $headers `
         -Uri "https://iam.googleapis.com/v1/projects/PROJECT_ID/serviceAccounts" | Select-Object -Expand Content
 
-For more information about authenticating using REST and gRPC, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) . For information about the difference between your local ADC credentials and your gcloud CLI credentials, see [gcloud CLI authentication configuration and ADC configuration](https://docs.cloud.google.com/docs/authentication/gcloud#gcloud-credentials) .
+For more information about authenticating using REST and gRPC, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) . For information about the difference between your local ADC credentials and your gcloud CLI credentials, see [gcloud CLI authentication configuration and ADC configuration](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc#gcloud-credentials) .
 
 #### Service account impersonation
 

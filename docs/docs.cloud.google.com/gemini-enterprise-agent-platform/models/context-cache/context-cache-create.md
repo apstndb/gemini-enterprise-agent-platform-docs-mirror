@@ -436,7 +436,7 @@ You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash",
+      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
       "createTime": "2024-06-04T01:11:50.808236Z",
       "updateTime": "2024-06-04T01:11:50.808236Z",
       "expireTime": "2024-06-04T02:11:50.794542Z"
@@ -483,7 +483,7 @@ Before using any of the request data, make the following replacements:
 
   - PROJECT\_ID : .
   - LOCATION : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
-  - MODEL\_ID : gemini-2.0-flash.
+  - MODEL\_ID : gemini-3.5-flash.
   - CACHE\_DISPLAY\_NAME : A meaningful display name to describe and to help you identify each context cache.
   - MIME\_TYPE : The MIME type of the content to cache.
   - CACHED\_CONTENT\_URI : The Cloud Storage URI of the content to cache.
@@ -496,7 +496,7 @@ HTTP method and URL:
 Request JSON body:
 
     {
-      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-2.0-flash",
+      "model": "projects/PROJECT_ID/locations/LOCATION/publishers/google/models/gemini-3.5-flash",
       "displayName": "CACHE_DISPLAY_NAME",
       "contents": [{
         "role": "user",
@@ -547,7 +547,7 @@ You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_NUMBER/locations/us-central1/cachedContents/CACHE_ID",
-      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.0-flash",
+      "model": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-3.5-flash",
       "createTime": "2024-06-04T01:11:50.808236Z",
       "updateTime": "2024-06-04T01:11:50.808236Z",
       "expireTime": "2024-06-04T02:11:50.794542Z"

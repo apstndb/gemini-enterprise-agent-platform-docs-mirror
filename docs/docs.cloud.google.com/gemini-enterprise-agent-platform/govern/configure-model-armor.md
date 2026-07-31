@@ -47,7 +47,7 @@ If the outbound data violates your safety policies, Model Armor issues a `BLOCK`
 
 ## Before you begin
 
-Enable the Model Armor API.
+Enable the "Model Armor API.
 
 **Roles required to enable APIs**
 

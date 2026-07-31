@@ -18,7 +18,7 @@ You must [enable MCP servers](https://docs.cloud.google.com/mcp/enable-disable-m
 
 An MCP service endpoint is the network address and communication interface (usually a URL) of the MCP server that an AI application (the Host for the MCP client) uses to establish a secure, standardized connection. It is the point of contact for the LLM to request context, call a tool, or access a resource. Google MCP endpoints can be global or regional.
 
-The Agent Platform API MCP server has the following MCP endpoints:
+The Agent Platform API MCP server offers the following MCP toolset endpoints:
 
 #### Endpoints
 
@@ -28,6 +28,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://aiplatform.googleapis.com/mcp/endpoints
   - https://aiplatform.googleapis.com/mcp/models
   - https://aiplatform.googleapis.com/mcp/tuning
+  - https://aiplatform.googleapis.com/mcp/retrieval
+  - https://aiplatform.googleapis.com/mcp/ragdata
   - https://aiplatform.googleapis.com/mcp/evaluation
   - https://aiplatform.googleapis.com/mcp/prompts
   - https://africa-south1-aiplatform.googleapis.com/mcp/generate
@@ -36,6 +38,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://africa-south1-aiplatform.googleapis.com/mcp/endpoints
   - https://africa-south1-aiplatform.googleapis.com/mcp/models
   - https://africa-south1-aiplatform.googleapis.com/mcp/tuning
+  - https://africa-south1-aiplatform.googleapis.com/mcp/retrieval
+  - https://africa-south1-aiplatform.googleapis.com/mcp/ragdata
   - https://africa-south1-aiplatform.googleapis.com/mcp/evaluation
   - https://africa-south1-aiplatform.googleapis.com/mcp/prompts
   - https://asia-east1-aiplatform.googleapis.com/mcp/generate
@@ -44,6 +48,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-east1-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-east1-aiplatform.googleapis.com/mcp/models
   - https://asia-east1-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-east1-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-east1-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-east1-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-east1-aiplatform.googleapis.com/mcp/prompts
   - https://asia-east2-aiplatform.googleapis.com/mcp/generate
@@ -52,6 +58,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-east2-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-east2-aiplatform.googleapis.com/mcp/models
   - https://asia-east2-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-east2-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-east2-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-east2-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-east2-aiplatform.googleapis.com/mcp/prompts
   - https://asia-northeast1-aiplatform.googleapis.com/mcp/generate
@@ -60,6 +68,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-northeast1-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-northeast1-aiplatform.googleapis.com/mcp/models
   - https://asia-northeast1-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-northeast1-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-northeast1-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-northeast1-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-northeast1-aiplatform.googleapis.com/mcp/prompts
   - https://asia-northeast2-aiplatform.googleapis.com/mcp/generate
@@ -68,6 +78,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-northeast2-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-northeast2-aiplatform.googleapis.com/mcp/models
   - https://asia-northeast2-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-northeast2-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-northeast2-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-northeast2-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-northeast2-aiplatform.googleapis.com/mcp/prompts
   - https://asia-northeast3-aiplatform.googleapis.com/mcp/generate
@@ -76,6 +88,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-northeast3-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-northeast3-aiplatform.googleapis.com/mcp/models
   - https://asia-northeast3-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-northeast3-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-northeast3-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-northeast3-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-northeast3-aiplatform.googleapis.com/mcp/prompts
   - https://asia-south1-aiplatform.googleapis.com/mcp/generate
@@ -84,6 +98,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-south1-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-south1-aiplatform.googleapis.com/mcp/models
   - https://asia-south1-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-south1-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-south1-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-south1-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-south1-aiplatform.googleapis.com/mcp/prompts
   - https://asia-southeast1-aiplatform.googleapis.com/mcp/generate
@@ -92,6 +108,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-southeast1-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-southeast1-aiplatform.googleapis.com/mcp/models
   - https://asia-southeast1-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-southeast1-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-southeast1-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-southeast1-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-southeast1-aiplatform.googleapis.com/mcp/prompts
   - https://asia-southeast2-aiplatform.googleapis.com/mcp/generate
@@ -100,6 +118,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://asia-southeast2-aiplatform.googleapis.com/mcp/endpoints
   - https://asia-southeast2-aiplatform.googleapis.com/mcp/models
   - https://asia-southeast2-aiplatform.googleapis.com/mcp/tuning
+  - https://asia-southeast2-aiplatform.googleapis.com/mcp/retrieval
+  - https://asia-southeast2-aiplatform.googleapis.com/mcp/ragdata
   - https://asia-southeast2-aiplatform.googleapis.com/mcp/evaluation
   - https://asia-southeast2-aiplatform.googleapis.com/mcp/prompts
   - https://australia-southeast1-aiplatform.googleapis.com/mcp/generate
@@ -108,6 +128,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://australia-southeast1-aiplatform.googleapis.com/mcp/endpoints
   - https://australia-southeast1-aiplatform.googleapis.com/mcp/models
   - https://australia-southeast1-aiplatform.googleapis.com/mcp/tuning
+  - https://australia-southeast1-aiplatform.googleapis.com/mcp/retrieval
+  - https://australia-southeast1-aiplatform.googleapis.com/mcp/ragdata
   - https://australia-southeast1-aiplatform.googleapis.com/mcp/evaluation
   - https://australia-southeast1-aiplatform.googleapis.com/mcp/prompts
   - https://australia-southeast2-aiplatform.googleapis.com/mcp/generate
@@ -116,6 +138,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://australia-southeast2-aiplatform.googleapis.com/mcp/endpoints
   - https://australia-southeast2-aiplatform.googleapis.com/mcp/models
   - https://australia-southeast2-aiplatform.googleapis.com/mcp/tuning
+  - https://australia-southeast2-aiplatform.googleapis.com/mcp/retrieval
+  - https://australia-southeast2-aiplatform.googleapis.com/mcp/ragdata
   - https://australia-southeast2-aiplatform.googleapis.com/mcp/evaluation
   - https://australia-southeast2-aiplatform.googleapis.com/mcp/prompts
   - https://europe-central2-aiplatform.googleapis.com/mcp/generate
@@ -124,6 +148,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-central2-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-central2-aiplatform.googleapis.com/mcp/models
   - https://europe-central2-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-central2-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-central2-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-central2-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-central2-aiplatform.googleapis.com/mcp/prompts
   - https://europe-north1-aiplatform.googleapis.com/mcp/generate
@@ -132,6 +158,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-north1-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-north1-aiplatform.googleapis.com/mcp/models
   - https://europe-north1-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-north1-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-north1-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-north1-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-north1-aiplatform.googleapis.com/mcp/prompts
   - https://europe-southwest1-aiplatform.googleapis.com/mcp/generate
@@ -140,6 +168,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-southwest1-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-southwest1-aiplatform.googleapis.com/mcp/models
   - https://europe-southwest1-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-southwest1-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-southwest1-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-southwest1-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-southwest1-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west1-aiplatform.googleapis.com/mcp/generate
@@ -148,6 +178,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west1-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west1-aiplatform.googleapis.com/mcp/models
   - https://europe-west1-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west1-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west1-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west1-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west1-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west2-aiplatform.googleapis.com/mcp/generate
@@ -156,6 +188,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west2-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west2-aiplatform.googleapis.com/mcp/models
   - https://europe-west2-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west2-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west2-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west2-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west2-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west3-aiplatform.googleapis.com/mcp/generate
@@ -164,6 +198,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west3-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west3-aiplatform.googleapis.com/mcp/models
   - https://europe-west3-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west3-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west3-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west3-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west3-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west4-aiplatform.googleapis.com/mcp/generate
@@ -172,6 +208,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west4-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west4-aiplatform.googleapis.com/mcp/models
   - https://europe-west4-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west4-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west4-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west4-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west4-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west6-aiplatform.googleapis.com/mcp/generate
@@ -180,6 +218,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west6-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west6-aiplatform.googleapis.com/mcp/models
   - https://europe-west6-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west6-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west6-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west6-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west6-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west8-aiplatform.googleapis.com/mcp/generate
@@ -188,6 +228,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west8-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west8-aiplatform.googleapis.com/mcp/models
   - https://europe-west8-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west8-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west8-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west8-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west8-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west9-aiplatform.googleapis.com/mcp/generate
@@ -196,6 +238,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west9-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west9-aiplatform.googleapis.com/mcp/models
   - https://europe-west9-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west9-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west9-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west9-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west9-aiplatform.googleapis.com/mcp/prompts
   - https://europe-west12-aiplatform.googleapis.com/mcp/generate
@@ -204,6 +248,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://europe-west12-aiplatform.googleapis.com/mcp/endpoints
   - https://europe-west12-aiplatform.googleapis.com/mcp/models
   - https://europe-west12-aiplatform.googleapis.com/mcp/tuning
+  - https://europe-west12-aiplatform.googleapis.com/mcp/retrieval
+  - https://europe-west12-aiplatform.googleapis.com/mcp/ragdata
   - https://europe-west12-aiplatform.googleapis.com/mcp/evaluation
   - https://europe-west12-aiplatform.googleapis.com/mcp/prompts
   - https://me-central1-aiplatform.googleapis.com/mcp/generate
@@ -212,6 +258,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://me-central1-aiplatform.googleapis.com/mcp/endpoints
   - https://me-central1-aiplatform.googleapis.com/mcp/models
   - https://me-central1-aiplatform.googleapis.com/mcp/tuning
+  - https://me-central1-aiplatform.googleapis.com/mcp/retrieval
+  - https://me-central1-aiplatform.googleapis.com/mcp/ragdata
   - https://me-central1-aiplatform.googleapis.com/mcp/evaluation
   - https://me-central1-aiplatform.googleapis.com/mcp/prompts
   - https://me-central2-aiplatform.googleapis.com/mcp/generate
@@ -220,6 +268,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://me-central2-aiplatform.googleapis.com/mcp/endpoints
   - https://me-central2-aiplatform.googleapis.com/mcp/models
   - https://me-central2-aiplatform.googleapis.com/mcp/tuning
+  - https://me-central2-aiplatform.googleapis.com/mcp/retrieval
+  - https://me-central2-aiplatform.googleapis.com/mcp/ragdata
   - https://me-central2-aiplatform.googleapis.com/mcp/evaluation
   - https://me-central2-aiplatform.googleapis.com/mcp/prompts
   - https://me-west1-aiplatform.googleapis.com/mcp/generate
@@ -228,6 +278,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://me-west1-aiplatform.googleapis.com/mcp/endpoints
   - https://me-west1-aiplatform.googleapis.com/mcp/models
   - https://me-west1-aiplatform.googleapis.com/mcp/tuning
+  - https://me-west1-aiplatform.googleapis.com/mcp/retrieval
+  - https://me-west1-aiplatform.googleapis.com/mcp/ragdata
   - https://me-west1-aiplatform.googleapis.com/mcp/evaluation
   - https://me-west1-aiplatform.googleapis.com/mcp/prompts
   - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/generate
@@ -236,6 +288,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/endpoints
   - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/models
   - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/tuning
+  - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/retrieval
+  - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/ragdata
   - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/evaluation
   - https://northamerica-northeast1-aiplatform.googleapis.com/mcp/prompts
   - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/generate
@@ -244,6 +298,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/endpoints
   - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/models
   - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/tuning
+  - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/retrieval
+  - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/ragdata
   - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/evaluation
   - https://northamerica-northeast2-aiplatform.googleapis.com/mcp/prompts
   - https://southamerica-east1-aiplatform.googleapis.com/mcp/generate
@@ -252,6 +308,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://southamerica-east1-aiplatform.googleapis.com/mcp/endpoints
   - https://southamerica-east1-aiplatform.googleapis.com/mcp/models
   - https://southamerica-east1-aiplatform.googleapis.com/mcp/tuning
+  - https://southamerica-east1-aiplatform.googleapis.com/mcp/retrieval
+  - https://southamerica-east1-aiplatform.googleapis.com/mcp/ragdata
   - https://southamerica-east1-aiplatform.googleapis.com/mcp/evaluation
   - https://southamerica-east1-aiplatform.googleapis.com/mcp/prompts
   - https://southamerica-west1-aiplatform.googleapis.com/mcp/generate
@@ -260,6 +318,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://southamerica-west1-aiplatform.googleapis.com/mcp/endpoints
   - https://southamerica-west1-aiplatform.googleapis.com/mcp/models
   - https://southamerica-west1-aiplatform.googleapis.com/mcp/tuning
+  - https://southamerica-west1-aiplatform.googleapis.com/mcp/retrieval
+  - https://southamerica-west1-aiplatform.googleapis.com/mcp/ragdata
   - https://southamerica-west1-aiplatform.googleapis.com/mcp/evaluation
   - https://southamerica-west1-aiplatform.googleapis.com/mcp/prompts
   - https://us-central1-aiplatform.googleapis.com/mcp/generate
@@ -268,6 +328,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-central1-aiplatform.googleapis.com/mcp/endpoints
   - https://us-central1-aiplatform.googleapis.com/mcp/models
   - https://us-central1-aiplatform.googleapis.com/mcp/tuning
+  - https://us-central1-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-central1-aiplatform.googleapis.com/mcp/ragdata
   - https://us-central1-aiplatform.googleapis.com/mcp/evaluation
   - https://us-central1-aiplatform.googleapis.com/mcp/prompts
   - https://us-east1-aiplatform.googleapis.com/mcp/generate
@@ -276,6 +338,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-east1-aiplatform.googleapis.com/mcp/endpoints
   - https://us-east1-aiplatform.googleapis.com/mcp/models
   - https://us-east1-aiplatform.googleapis.com/mcp/tuning
+  - https://us-east1-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-east1-aiplatform.googleapis.com/mcp/ragdata
   - https://us-east1-aiplatform.googleapis.com/mcp/evaluation
   - https://us-east1-aiplatform.googleapis.com/mcp/prompts
   - https://us-east4-aiplatform.googleapis.com/mcp/generate
@@ -284,6 +348,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-east4-aiplatform.googleapis.com/mcp/endpoints
   - https://us-east4-aiplatform.googleapis.com/mcp/models
   - https://us-east4-aiplatform.googleapis.com/mcp/tuning
+  - https://us-east4-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-east4-aiplatform.googleapis.com/mcp/ragdata
   - https://us-east4-aiplatform.googleapis.com/mcp/evaluation
   - https://us-east4-aiplatform.googleapis.com/mcp/prompts
   - https://us-east5-aiplatform.googleapis.com/mcp/generate
@@ -292,6 +358,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-east5-aiplatform.googleapis.com/mcp/endpoints
   - https://us-east5-aiplatform.googleapis.com/mcp/models
   - https://us-east5-aiplatform.googleapis.com/mcp/tuning
+  - https://us-east5-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-east5-aiplatform.googleapis.com/mcp/ragdata
   - https://us-east5-aiplatform.googleapis.com/mcp/evaluation
   - https://us-east5-aiplatform.googleapis.com/mcp/prompts
   - https://us-south1-aiplatform.googleapis.com/mcp/generate
@@ -300,6 +368,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-south1-aiplatform.googleapis.com/mcp/endpoints
   - https://us-south1-aiplatform.googleapis.com/mcp/models
   - https://us-south1-aiplatform.googleapis.com/mcp/tuning
+  - https://us-south1-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-south1-aiplatform.googleapis.com/mcp/ragdata
   - https://us-south1-aiplatform.googleapis.com/mcp/evaluation
   - https://us-south1-aiplatform.googleapis.com/mcp/prompts
   - https://us-west1-aiplatform.googleapis.com/mcp/generate
@@ -308,6 +378,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-west1-aiplatform.googleapis.com/mcp/endpoints
   - https://us-west1-aiplatform.googleapis.com/mcp/models
   - https://us-west1-aiplatform.googleapis.com/mcp/tuning
+  - https://us-west1-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-west1-aiplatform.googleapis.com/mcp/ragdata
   - https://us-west1-aiplatform.googleapis.com/mcp/evaluation
   - https://us-west1-aiplatform.googleapis.com/mcp/prompts
   - https://us-west2-aiplatform.googleapis.com/mcp/generate
@@ -316,6 +388,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-west2-aiplatform.googleapis.com/mcp/endpoints
   - https://us-west2-aiplatform.googleapis.com/mcp/models
   - https://us-west2-aiplatform.googleapis.com/mcp/tuning
+  - https://us-west2-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-west2-aiplatform.googleapis.com/mcp/ragdata
   - https://us-west2-aiplatform.googleapis.com/mcp/evaluation
   - https://us-west2-aiplatform.googleapis.com/mcp/prompts
   - https://us-west3-aiplatform.googleapis.com/mcp/generate
@@ -324,6 +398,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-west3-aiplatform.googleapis.com/mcp/endpoints
   - https://us-west3-aiplatform.googleapis.com/mcp/models
   - https://us-west3-aiplatform.googleapis.com/mcp/tuning
+  - https://us-west3-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-west3-aiplatform.googleapis.com/mcp/ragdata
   - https://us-west3-aiplatform.googleapis.com/mcp/evaluation
   - https://us-west3-aiplatform.googleapis.com/mcp/prompts
   - https://us-west4-aiplatform.googleapis.com/mcp/generate
@@ -332,6 +408,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://us-west4-aiplatform.googleapis.com/mcp/endpoints
   - https://us-west4-aiplatform.googleapis.com/mcp/models
   - https://us-west4-aiplatform.googleapis.com/mcp/tuning
+  - https://us-west4-aiplatform.googleapis.com/mcp/retrieval
+  - https://us-west4-aiplatform.googleapis.com/mcp/ragdata
   - https://us-west4-aiplatform.googleapis.com/mcp/evaluation
   - https://us-west4-aiplatform.googleapis.com/mcp/prompts
   - https://aiplatform.eu.rep.googleapis.com/mcp/generate
@@ -340,6 +418,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://aiplatform.eu.rep.googleapis.com/mcp/endpoints
   - https://aiplatform.eu.rep.googleapis.com/mcp/models
   - https://aiplatform.eu.rep.googleapis.com/mcp/tuning
+  - https://aiplatform.eu.rep.googleapis.com/mcp/retrieval
+  - https://aiplatform.eu.rep.googleapis.com/mcp/ragdata
   - https://aiplatform.eu.rep.googleapis.com/mcp/evaluation
   - https://aiplatform.eu.rep.googleapis.com/mcp/prompts
   - https://aiplatform.us.rep.googleapis.com/mcp/generate
@@ -348,6 +428,8 @@ The Agent Platform API MCP server has the following MCP endpoints:
   - https://aiplatform.us.rep.googleapis.com/mcp/endpoints
   - https://aiplatform.us.rep.googleapis.com/mcp/models
   - https://aiplatform.us.rep.googleapis.com/mcp/tuning
+  - https://aiplatform.us.rep.googleapis.com/mcp/retrieval
+  - https://aiplatform.us.rep.googleapis.com/mcp/ragdata
   - https://aiplatform.us.rep.googleapis.com/mcp/evaluation
   - https://aiplatform.us.rep.googleapis.com/mcp/prompts
 
@@ -359,6 +441,8 @@ The Agent Platform API MCP server offers the following MCP toolset endpoints:
   - https://aiplatform.googleapis.com/mcp/endpoints
   - https://aiplatform.googleapis.com/mcp/models
   - https://aiplatform.googleapis.com/mcp/tuning
+  - https://aiplatform.googleapis.com/mcp/retrieval
+  - https://aiplatform.googleapis.com/mcp/ragdata
   - https://aiplatform.googleapis.com/mcp/evaluation
   - https://aiplatform.googleapis.com/mcp/prompts
 
@@ -468,6 +552,29 @@ Model Finetuning tools
   - [list\_tuning\_jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/list_tuning_jobs)
   - [get\_tuning\_job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/get_tuning_job)
   - [cancel\_tuning\_job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/cancel_tuning_job)
+  - [get\_operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/get_operation)
+
+/mcp/retrieval
+
+RAG retrieval tools
+
+`  `
+
+  - [retrieve\_contexts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/retrieve_contexts)
+  - [augment\_prompt](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/augment_prompt)
+  - [corroborate\_content](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/corroborate_content)
+  - [ask\_contexts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/ask_contexts)
+
+/mcp/ragdata
+
+RAG data management tools
+
+`  `
+
+  - [create\_rag\_corpus](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/create_rag_corpus)
+  - [list\_rag\_corpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/list_rag_corpora)
+  - [delete\_rag\_corpus](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/delete_rag_corpus)
+  - [import\_rag\_files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/import_rag_files)
   - [get\_operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/get_operation)
 
 /mcp/evaluation

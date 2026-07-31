@@ -302,7 +302,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
 If you've purchased Provisioned Throughput for a specific project, Google model, and region, and want to use it to send a request with an API key, then you must include the project ID, model, location, and API key as parameters in your request.
 
-For information about how to create a Google Cloud API key bound to a service account, see [Get a Google Cloud API key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys) . To learn how to send requests to the Gemini API using an API key, see the [Gemini API in Agent Platform quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk?usertype=apikey#make-first-request) .
+For information about how to create a Google Cloud API key bound to a service account, see [Get a Google Cloud API key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys) . To learn how to send requests to the Gemini API using an API key, see the [Connect to the Knowledge MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk?usertype=apikey#make-first-request) .
 
 For example, the following sample shows how to submit a request with an API key while using Provisioned Throughput:
 

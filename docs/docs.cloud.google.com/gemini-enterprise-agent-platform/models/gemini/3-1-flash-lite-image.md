@@ -81,6 +81,8 @@ Capabilities
     Supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
+  - [Virtual try-on](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/virtual-try-on)  
+    Not supported
 
 Tools
 
@@ -119,6 +121,14 @@ Technical specifications
   - Supported resolutions: 1K
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
+
+**Video** videocam
+
+  - Maximum number of input video files per prompt: 10
+  - Maximum YouTube URLs per prompt: 1
+  - Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Documents** description
 

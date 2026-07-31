@@ -103,6 +103,28 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="even">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image">Gemini 3.1 Flash Image</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum number of input video files per prompt: 10</li>
+<li>Maximum YouTube URLs per prompt: 1</li>
+<li>Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">video/x-flv</code></li>
+<li><code dir="ltr" translate="no">video/quicktime</code></li>
+<li><code dir="ltr" translate="no">video/mpeg</code></li>
+<li><code dir="ltr" translate="no">video/mpegs</code></li>
+<li><code dir="ltr" translate="no">video/mpg</code></li>
+<li><code dir="ltr" translate="no">video/mp4</code></li>
+<li><code dir="ltr" translate="no">video/webm</code></li>
+<li><code dir="ltr" translate="no">video/wmv</code></li>
+<li><code dir="ltr" translate="no">video/3gpp</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
 </ul></td>
 <td style="text-align: left;"><ul>

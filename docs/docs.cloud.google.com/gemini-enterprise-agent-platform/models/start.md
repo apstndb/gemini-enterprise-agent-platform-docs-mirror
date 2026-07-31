@@ -997,7 +997,7 @@ Now that you made your first API request, you might want to explore the followin
 
 Quickstart
 
-### [Develop with the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk)
+### [Connect to the Knowledge MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk)
 
 Learn how to accelerate development by connecting your AI tools to the Developer Knowledge MCP server.
 

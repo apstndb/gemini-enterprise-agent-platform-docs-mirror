@@ -133,7 +133,7 @@ The Schedule resource name if this job is triggered by one. Format: `projects/{p
 
 `jobState`
 
-`enum ( JobState` )
+` enum ( JobState  ` )
 
 Output only. The state of the NotebookExecutionJob.
 
@@ -243,7 +243,7 @@ Union field `runtime_environment` . Runtime environment for the notebook executi
 
 `workbenchRuntime`
 
-`object ( WorkbenchRuntime` )
+` object ( WorkbenchRuntime  ` )
 
 The Workbench runtime configuration to use for the notebook execution.
 
@@ -360,7 +360,7 @@ A base64-encoded string.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineSpec&quot;: {object (MachineSpec)},&quot;persistentDiskSpec&quot;: {object (PersistentDiskSpec)},&quot;networkSpec&quot;: {object (NetworkSpec)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;machineSpec&quot;: {object (MachineSpec)},&quot;persistentDiskSpec&quot;: {object (PersistentDiskSpec)},&quot;networkSpec&quot;: {object (NetworkSpec)},&quot;shieldedInstanceConfig&quot;: {object (ShieldedInstanceConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -384,6 +384,12 @@ The specification of a persistent disk to attach for the execution job.
 ` object ( NetworkSpec  ` )
 
 The network configuration to use for the execution job.
+
+`shieldedInstanceConfig`
+
+` object ( ShieldedInstanceConfig  ` )
+
+Optional. Shielded VM configuration (for example, Secure Boot) for the execution VM.
 
 ### MachineSpec
 
@@ -411,15 +417,15 @@ Fields
 
 Immutable. The type of the machine.
 
-See the [list of machine types supported for prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types)
+See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
 
-See the [list of machine types supported for custom training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types) .
+See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
 
 For `DeployedModel` this field is optional, and the default value is `n1-standard-2` . For `BatchPredictionJob` or as part of `WorkerPoolSpec` this field is required.
 
 `acceleratorType`
 
-`enum ( AcceleratorType` )
+` enum ( AcceleratorType  ` )
 
 Immutable. The type of accelerator(s) that may be attached to the machine as per `accelerator_count` .
 
@@ -429,9 +435,9 @@ Immutable. The type of accelerator(s) that may be attached to the machine as per
 
 The number of accelerators to attach to the machine.
 
-For accelerator optimized machine types ( <https://cloud.google.com/compute/docs/accelerator-optimized-machines> , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Vertex will co-schedule the replicas of the model into the same VM to save cost.
+For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost.
 
-For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Vertex will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
+For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
 
 When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM.
 
@@ -483,7 +489,7 @@ Fields
 
 `reservationAffinityType`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Required. Specifies the reservation affinity type.
 
@@ -526,7 +532,7 @@ Fields
 
 `string`
 
-Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk)
+Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput)
 
 `diskSizeGb`
 
@@ -575,6 +581,157 @@ The full name of the Google Compute Engine [network](https://cloud.google.com//c
 `string`
 
 The name of the subnet that this instance is in. Format: `projects/{project_id_or_number}/regions/{region}/subnetworks/{subnetwork_id}`
+
+### ShieldedInstanceConfig
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;enableSecureBoot&quot;: boolean,
+  &quot;enableVtpm&quot;: boolean,
+  &quot;enableIntegrityMonitoring&quot;: boolean
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`enableSecureBoot`
+
+`boolean`
+
+Optional. Whether the VM instance has Secure Boot enabled. Disabled by default.
+
+`enableVtpm`
+
+`boolean`
+
+Optional. Whether the VM instance has vTPM enabled.
+
+`enableIntegrityMonitoring`
+
+`boolean`
+
+Optional. Whether the VM instance has integrity monitoring enabled.
+
+### WorkbenchRuntime
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field image_environment can be only one of the following:&quot;vmImage&quot;: {object (VmImage)},&quot;customContainerImage&quot;: {object (ContainerImage)}// End of list of possible types for union field image_environment.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+Union field `image_environment` . The image environment to run the notebook execution in. Optional: if unset, the service defaults to a managed `workbench-instances-2603` VM image (Python 3.12). `image_environment` can be only one of the following:
+
+`vmImage`
+
+` object ( VmImage  ` )
+
+A specific Compute Engine VM image to run the notebook on.
+
+`customContainerImage`
+
+` object ( ContainerImage  ` )
+
+A user-provided container image. The notebook executes inside this container on a managed container-host (COS) VM.
+
+### VmImage
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;project&quot;: string,// Union field image can be only one of the following:&quot;name&quot;: string,&quot;family&quot;: string// End of list of possible types for union field image.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`project`
+
+`string`
+
+Required. The name of the Google Cloud project that this VM image belongs to. Format: `{project_id}` .
+
+Union field `image` . The reference to a Compute Engine VM image. `image` can be only one of the following:
+
+`name`
+
+`string`
+
+Use this VM image name to find the image.
+
+`family`
+
+`string`
+
+Use this VM image family to find the image; the newest image in this family is used.
+
+### ContainerImage
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;repository&quot;: string,
+  &quot;tag&quot;: string
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`repository`
+
+`string`
+
+Required. The path to the container image repository. For example: `gcr.io/{project_id}/{image_name}` .
+
+`tag`
+
+`string`
+
+Optional. The tag of the container image. If unset, defaults to `latest` .
 
 ### Duration
 
@@ -803,6 +960,164 @@ Fields
 Required. Resource name of the Cloud KMS key used to protect the resource.
 
 The Cloud KMS key must be in the same region as the resource. It must have the format `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}` .
+
+### AcceleratorType
+
+Represents a hardware accelerator type.
+
+Enums
+
+`ACCELERATOR_TYPE_UNSPECIFIED`
+
+Unspecified accelerator type, which means no accelerator.
+
+`NVIDIA_TESLA_K80`
+
+Deprecated: Nvidia Tesla K80 GPU has reached end of support, see <https://cloud.google.com/compute/docs/eol/k80-eol> .
+
+`NVIDIA_TESLA_P100`
+
+Nvidia Tesla P100 GPU.
+
+`NVIDIA_TESLA_V100`
+
+Nvidia Tesla V100 GPU.
+
+`NVIDIA_TESLA_P4`
+
+Nvidia Tesla P4 GPU.
+
+`NVIDIA_TESLA_T4`
+
+Nvidia Tesla T4 GPU.
+
+`NVIDIA_TESLA_A100`
+
+Nvidia Tesla A100 GPU.
+
+`NVIDIA_A100_80GB`
+
+Nvidia A100 80GB GPU.
+
+`NVIDIA_L4`
+
+Nvidia L4 GPU.
+
+`NVIDIA_H100_80GB`
+
+Nvidia H100 80Gb GPU.
+
+`NVIDIA_H100_MEGA_80GB`
+
+Nvidia H100 Mega 80Gb GPU.
+
+`NVIDIA_H200_141GB`
+
+Nvidia H200 141Gb GPU.
+
+`NVIDIA_B200`
+
+Nvidia B200 GPU.
+
+`NVIDIA_GB200`
+
+Nvidia GB200 GPU.
+
+`NVIDIA_RTX_PRO_6000`
+
+Nvidia RTX Pro 6000 GPU.
+
+`TPU_V2`
+
+TPU v2.
+
+`TPU_V3`
+
+TPU v3.
+
+`TPU_V4_POD`
+
+TPU v4.
+
+`TPU_V5_LITEPOD`
+
+TPU v5.
+
+### Type
+
+Identifies a type of reservation affinity.
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Default value. This should not be used.
+
+`NO_RESERVATION`
+
+Do not consume from any reserved capacity, only use on-demand.
+
+`ANY_RESERVATION`
+
+Consume any reservation available, falling back to on-demand.
+
+`SPECIFIC_RESERVATION`
+
+Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields.
+
+### JobState
+
+Describes the state of a job.
+
+Enums
+
+`JOB_STATE_UNSPECIFIED`
+
+The job state is unspecified.
+
+`JOB_STATE_QUEUED`
+
+The job has been just created or resumed and processing has not yet begun.
+
+`JOB_STATE_PENDING`
+
+The service is preparing to run the job.
+
+`JOB_STATE_RUNNING`
+
+The job is in progress.
+
+`JOB_STATE_SUCCEEDED`
+
+The job completed successfully.
+
+`JOB_STATE_FAILED`
+
+The job failed.
+
+`JOB_STATE_CANCELLING`
+
+The job is being cancelled. From this state the job may only go to either `JOB_STATE_SUCCEEDED` , `JOB_STATE_FAILED` or `JOB_STATE_CANCELLED` .
+
+`JOB_STATE_CANCELLED`
+
+The job has been cancelled.
+
+`JOB_STATE_PAUSED`
+
+The job has been stopped, and can be resumed.
+
+`JOB_STATE_EXPIRED`
+
+The job has expired.
+
+`JOB_STATE_UPDATING`
+
+The job is being updated. Only jobs in the `RUNNING` state can be updated. After updating, the job goes back to the `RUNNING` state.
+
+`JOB_STATE_PARTIALLY_SUCCEEDED`
+
+The job is partially succeeded, some results may be missing due to errors.
 
 ## Output Schema
 

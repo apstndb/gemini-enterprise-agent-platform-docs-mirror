@@ -320,7 +320,7 @@ A `Content` message must have at least one `Part` .
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;thought&quot;: boolean,&quot;thoughtSignature&quot;: string,&quot;mediaResolution&quot;: {object (MediaResolution)},// Union field data can be only one of the following:&quot;text&quot;: string,&quot;inlineData&quot;: {object (Blob)},&quot;fileData&quot;: {object (FileData)},&quot;functionCall&quot;: {object (FunctionCall)},&quot;functionResponse&quot;: {object (FunctionResponse)},&quot;executableCode&quot;: {object (ExecutableCode)},&quot;codeExecutionResult&quot;: {object (CodeExecutionResult)}// End of list of possible types for union field data.// Union field metadata can be only one of the following:&quot;videoMetadata&quot;: {object (VideoMetadata)}// End of list of possible types for union field metadata.}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;thought&quot;: boolean,&quot;thoughtSignature&quot;: string,&quot;mediaResolution&quot;: {object (MediaResolution)},&quot;audioTranscription&quot;: {object (AudioTranscription)},// Union field data can be only one of the following:&quot;text&quot;: string,&quot;inlineData&quot;: {object (Blob)},&quot;fileData&quot;: {object (FileData)},&quot;functionCall&quot;: {object (FunctionCall)},&quot;functionResponse&quot;: {object (FunctionResponse)},&quot;executableCode&quot;: {object (ExecutableCode)},&quot;codeExecutionResult&quot;: {object (CodeExecutionResult)}// End of list of possible types for union field data.// Union field metadata can be only one of the following:&quot;videoMetadata&quot;: {object (VideoMetadata)}// End of list of possible types for union field metadata.}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -346,6 +346,12 @@ A base64-encoded string.
 ` object ( MediaResolution  ` )
 
 per part media resolution. Media resolution for the input media.
+
+`audioTranscription`
+
+` object ( AudioTranscription  ` )
+
+Optional. Audio (input or output) transcription. This is only set when this Part contains audio data.
 
 Union field `data` .
 
@@ -786,7 +792,7 @@ This field is only returned in PromptMessage for prompt management. It is curren
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;language&quot;: enum (Language),&quot;code&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;language&quot;: enum (Language),&quot;code&quot;: string,// Union field _id can be only one of the following:&quot;id&quot;: string// End of list of possible types for union field _id.}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -795,7 +801,7 @@ Fields
 
 `language`
 
-`enum ( Language` )
+` enum ( Language  ` )
 
 Required. Programming language of the `code` .
 
@@ -804,6 +810,16 @@ Required. Programming language of the `code` .
 `string`
 
 Required. The code to be executed.
+
+Union field `_id` .
+
+`_id` can be only one of the following:
+
+`id`
+
+`string`
+
+Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id` .
 
 ### CodeExecutionResult
 
@@ -818,7 +834,7 @@ Required. The code to be executed.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outcome&quot;: enum (Outcome),&quot;output&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outcome&quot;: enum (Outcome),&quot;output&quot;: string,// Union field _id can be only one of the following:&quot;id&quot;: string// End of list of possible types for union field _id.}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -827,7 +843,7 @@ Fields
 
 `outcome`
 
-`enum ( Outcome` )
+` enum ( Outcome  ` )
 
 Required. Outcome of the code execution.
 
@@ -836,6 +852,16 @@ Required. Outcome of the code execution.
 `string`
 
 Optional. Contains stdout when code execution is successful, stderr or other description otherwise.
+
+Union field `_id` .
+
+`_id` can be only one of the following:
+
+`id`
+
+`string`
+
+Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.
 
 ### VideoMetadata
 
@@ -944,9 +970,93 @@ Union field `value` .
 
 `level`
 
-`enum ( Level` )
+` enum ( Level  ` )
 
 The tokenization quality used for given media.
+
+### AudioTranscription
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;text&quot;: string,&quot;speakerLabel&quot;: string,&quot;words&quot;: [{object (WordInfo)}]}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`text`
+
+`string`
+
+Required. The transcription text of this audio segment.
+
+`speakerLabel`
+
+`string`
+
+Optional. A label identifying the speaker of this audio segment (e.g. "spk\_1", "spk\_2"). Present when diarization is set.
+
+`words[]`
+
+` object ( WordInfo  ` )
+
+Optional. Detailed word-level transcriptions and timing details. Present when word\_timestamp is set.
+
+### WordInfo
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;word&quot;: string,
+  &quot;startOffset&quot;: string,
+  &quot;endOffset&quot;: string
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`word`
+
+`string`
+
+Required. Transcript of the word.
+
+`startOffset`
+
+` string ( Duration  ` format)
+
+Optional. Start offset in time of the word relative to the start of the audio.
+
+A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+`endOffset`
+
+` string ( Duration  ` format)
+
+Optional. End offset in time of the word relative to the start of the audio.
+
+A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
 ### Tool
 
@@ -961,7 +1071,7 @@ The tokenization quality used for given media.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionDeclarations&quot;: [{object (FunctionDeclaration)}],&quot;retrieval&quot;: {object (Retrieval)},&quot;googleSearch&quot;: {object (GoogleSearch)},&quot;googleSearchRetrieval&quot;: {object (GoogleSearchRetrieval)},&quot;googleMaps&quot;: {object (GoogleMaps)},&quot;enterpriseWebSearch&quot;: {object (EnterpriseWebSearch)},&quot;codeExecution&quot;: {object (CodeExecution)},&quot;urlContext&quot;: {object (UrlContext)},&quot;computerUse&quot;: {object (ComputerUse)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionDeclarations&quot;: [{object (FunctionDeclaration)}],&quot;retrieval&quot;: {object (Retrieval)},&quot;googleSearch&quot;: {object (GoogleSearch)},&quot;googleSearchRetrieval&quot;: {object (GoogleSearchRetrieval)},&quot;googleMaps&quot;: {object (GoogleMaps)},&quot;enterpriseWebSearch&quot;: {object (EnterpriseWebSearch)},&quot;parallelAiSearch&quot;: {object (ParallelAiSearch)},&quot;codeExecution&quot;: {object (CodeExecution)},&quot;urlContext&quot;: {object (UrlContext)},&quot;computerUse&quot;: {object (ComputerUse)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1005,6 +1115,12 @@ Optional. GoogleMaps tool type. Tool to support Google Maps in Model.
 ` object ( EnterpriseWebSearch  ` )
 
 Optional. Tool to support searching public web data, powered by Agent Platform Search and Sec4 compliance.
+
+`parallelAiSearch`
+
+` object ( ParallelAiSearch  ` )
+
+Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
 
 `codeExecution`
 
@@ -1117,7 +1233,7 @@ Fields
 
 `type`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Optional. Data type of the schema field.
 
@@ -1807,7 +1923,7 @@ Union field `_blocking_confidence` .
 
 `blockingConfidence`
 
-`enum ( PhishBlockThreshold` )
+` enum ( PhishBlockThreshold  ` )
 
 Optional. Sites with confidence level chosen & above this value will be blocked from the search results.
 
@@ -1859,7 +1975,7 @@ Fields
 
 `mode`
 
-`enum ( Mode` )
+` enum ( Mode  ` )
 
 The mode of the predictor to be used in dynamic retrieval.
 
@@ -1886,20 +2002,60 @@ Optional. The threshold to be used in dynamic retrieval. If not set, a system de
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;enableWidget&quot;: boolean
-}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;enableWidget&quot;: boolean,&quot;groundingTypes&quot;: {object (GroundingTypes)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 Fields
 
-`enableWidget`
+` enableWidget (deprecated)  `
 
 `boolean`
 
-Optional. If true, include the widget context token in the response.
+> This item is deprecated\!
+
+Optional. Deprecated: The Google Maps contextual widget behavior in Grounding with Google Maps is being deprecated; this field is planned for removal and no longer has any effect once removed.
+
+If true, include the widget context token in the response.
+
+`groundingTypes`
+
+` object ( GroundingTypes  ` )
+
+Optional. Specifies the types of Google Maps grounding to enable. Defaults to `places` when unset.
+
+### GroundingTypes
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;places&quot;: {object (Places)},&quot;routing&quot;: {object (Routing)}}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`places`
+
+`object ( Places` )
+
+Optional. Enables grounding with Google Maps Places. This is the default grounding type when no `GroundingTypes` are specified.
+
+`routing`
+
+`object ( Routing` )
+
+Optional. Enables grounding with Google Maps Routing APIs (ComputeRoutes and SearchAlongRoute).
 
 ### EnterpriseWebSearch
 
@@ -1933,9 +2089,46 @@ Union field `_blocking_confidence` .
 
 `blockingConfidence`
 
-`enum ( PhishBlockThreshold` )
+` enum ( PhishBlockThreshold  ` )
 
 Optional. Sites with confidence level chosen & above this value will be blocked from the search results.
+
+### ParallelAiSearch
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;apiKey&quot;: string,
+  &quot;customConfigs&quot;: {
+    object
+  }
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`apiKey`
+
+`string`
+
+Optional. The API key for ParallelAiSearch. If an API key is not provided, the system will attempt to verify access by checking for an active Parallel.ai subscription through the Google Cloud Marketplace. See <https://docs.parallel.ai/search/search-quickstart> for more details.
+
+`customConfigs`
+
+` object ( Struct  ` format)
+
+Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: <https://docs.parallel.ai/api-reference/search-beta/search> Currently only `source_policy` , `excerpts` , `max_results` , `mode` , `fetch_policy` can be set via this field. For example: { "source\_policy": { "include\_domains": \["google.com", "wikipedia.org"\], "exclude\_domains": \["example.com"\] }, "fetch\_policy": { "max\_age\_seconds": 3600 } }
 
 ### ComputerUse
 
@@ -1959,7 +2152,7 @@ Fields
 
 `environment`
 
-`enum ( Environment` )
+` enum ( Environment  ` )
 
 Required. The environment being operated.
 
@@ -1982,7 +2175,7 @@ Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;modelConfig&quot;: {object (ModelConfig)},// Union field _temperature can be only one of the following:&quot;temperature&quot;: number// End of list of possible types for union field _temperature.// Union field _top_p can be only one of the following:&quot;topP&quot;: number// End of list of possible types for union field _top_p.// Union field _top_k can be only one of the following:&quot;topK&quot;: number// End of list of possible types for union field _top_k.// Union field _candidate_count can be only one of the following:&quot;candidateCount&quot;: integer// End of list of possible types for union field _candidate_count.// Union field _max_output_tokens can be only one of the following:&quot;maxOutputTokens&quot;: integer// End of list of possible types for union field _max_output_tokens.// Union field _response_logprobs can be only one of the following:&quot;responseLogprobs&quot;: boolean// End of list of possible types for union field _response_logprobs.// Union field _logprobs can be only one of the following:&quot;logprobs&quot;: integer// End of list of possible types for union field _logprobs.// Union field _presence_penalty can be only one of the following:&quot;presencePenalty&quot;: number// End of list of possible types for union field _presence_penalty.// Union field _frequency_penalty can be only one of the following:&quot;frequencyPenalty&quot;: number// End of list of possible types for union field _frequency_penalty.// Union field _seed can be only one of the following:&quot;seed&quot;: integer// End of list of possible types for union field _seed.// Union field _response_schema can be only one of the following:&quot;responseSchema&quot;: {object (Schema)}// End of list of possible types for union field _response_schema.// Union field _response_json_schema can be only one of the following:&quot;responseJsonSchema&quot;: value// End of list of possible types for union field _response_json_schema.// Union field _routing_config can be only one of the following:&quot;routingConfig&quot;: {object (RoutingConfig)}// End of list of possible types for union field _routing_config.// Union field _audio_timestamp can be only one of the following:&quot;audioTimestamp&quot;: boolean// End of list of possible types for union field _audio_timestamp.// Union field _media_resolution can be only one of the following:&quot;mediaResolution&quot;: enum (MediaResolution)// End of list of possible types for union field _media_resolution.// Union field _speech_config can be only one of the following:&quot;speechConfig&quot;: {object (SpeechConfig)}// End of list of possible types for union field _speech_config.// Union field _enable_affective_dialog can be only one of the following:&quot;enableAffectiveDialog&quot;: boolean// End of list of possible types for union field _enable_affective_dialog.// Union field _image_config can be only one of the following:&quot;imageConfig&quot;: {object (ImageConfig)}// End of list of possible types for union field _image_config.}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;stopSequences&quot;: [string],&quot;responseMimeType&quot;: string,&quot;responseModalities&quot;: [enum (Modality)],&quot;thinkingConfig&quot;: {object (ThinkingConfig)},&quot;modelConfig&quot;: {object (ModelConfig)},&quot;responseFormat&quot;: [{object (ResponseFormat)}],// Union field _temperature can be only one of the following:&quot;temperature&quot;: number// End of list of possible types for union field _temperature.// Union field _top_p can be only one of the following:&quot;topP&quot;: number// End of list of possible types for union field _top_p.// Union field _top_k can be only one of the following:&quot;topK&quot;: number// End of list of possible types for union field _top_k.// Union field _candidate_count can be only one of the following:&quot;candidateCount&quot;: integer// End of list of possible types for union field _candidate_count.// Union field _max_output_tokens can be only one of the following:&quot;maxOutputTokens&quot;: integer// End of list of possible types for union field _max_output_tokens.// Union field _response_logprobs can be only one of the following:&quot;responseLogprobs&quot;: boolean// End of list of possible types for union field _response_logprobs.// Union field _logprobs can be only one of the following:&quot;logprobs&quot;: integer// End of list of possible types for union field _logprobs.// Union field _presence_penalty can be only one of the following:&quot;presencePenalty&quot;: number// End of list of possible types for union field _presence_penalty.// Union field _frequency_penalty can be only one of the following:&quot;frequencyPenalty&quot;: number// End of list of possible types for union field _frequency_penalty.// Union field _seed can be only one of the following:&quot;seed&quot;: integer// End of list of possible types for union field _seed.// Union field _response_schema can be only one of the following:&quot;responseSchema&quot;: {object (Schema)}// End of list of possible types for union field _response_schema.// Union field _response_json_schema can be only one of the following:&quot;responseJsonSchema&quot;: value// End of list of possible types for union field _response_json_schema.// Union field _routing_config can be only one of the following:&quot;routingConfig&quot;: {object (RoutingConfig)}// End of list of possible types for union field _routing_config.// Union field _audio_timestamp can be only one of the following:&quot;audioTimestamp&quot;: boolean// End of list of possible types for union field _audio_timestamp.// Union field _media_resolution can be only one of the following:&quot;mediaResolution&quot;: enum (MediaResolution)// End of list of possible types for union field _media_resolution.// Union field _speech_config can be only one of the following:&quot;speechConfig&quot;: {object (SpeechConfig)}// End of list of possible types for union field _speech_config.// Union field _enable_affective_dialog can be only one of the following:&quot;enableAffectiveDialog&quot;: boolean// End of list of possible types for union field _enable_affective_dialog.// Union field _image_config can be only one of the following:&quot;imageConfig&quot;: {object (ImageConfig)}// End of list of possible types for union field _image_config.// Union field _audio_transcription_config can be only one of the following:&quot;audioTranscriptionConfig&quot;: {object (AudioTranscriptionConfig)}// End of list of possible types for union field _audio_transcription_config.}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1995,15 +2188,17 @@ Fields
 
 Optional. A list of character sequences that will stop the model from generating further tokens. If a stop sequence is generated, the output will end at that point. This is useful for controlling the length and structure of the output. For example, you can use \["\\n", "\#\#\#"\] to stop generation at a new line or a specific marker.
 
-`responseMimeType`
+` responseMimeType (deprecated)  `
 
 `string`
 
-Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined.
+> This item is deprecated\!
+
+Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. Deprecated: Use `response_format` instead.
 
 `responseModalities[]`
 
-`enum ( Modality` )
+` enum ( Modality  ` )
 
 Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]` , the response will include both text and an image.
 
@@ -2020,6 +2215,12 @@ Optional. Configuration for thinking features. An error will be returned if this
 > Optional. The `model_config` field is deprecated and is not supported anymore. Use `routing_config` instead.
 
 Optional. Config for model selection.
+
+`responseFormat[]`
+
+` object ( ResponseFormat  ` )
+
+Optional. New response format field for the model to configure output formatting and delivery.
 
 Union field `_temperature` .
 
@@ -2135,23 +2336,27 @@ Union field `_response_schema` .
 
 `_response_schema` can be only one of the following:
 
-`responseSchema`
+` responseSchema (deprecated)  `
 
 ` object ( Schema  ` )
 
+> This item is deprecated\!
+
 Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object.
 
-When this field is set, you must also set the `response_mime_type` to `application/json` .
+When this field is set, you must also set the `response_mime_type` to `application/json` . Deprecated: Use `response_format` instead.
 
 Union field `_response_json_schema` .
 
 `_response_json_schema` can be only one of the following:
 
-`responseJsonSchema`
+` responseJsonSchema (deprecated)  `
 
 ` value ( Value  ` format)
 
-Optional. When this field is set, `response_schema` must be omitted and `response_mime_type` must be set to `application/json` .
+> This item is deprecated\!
+
+Optional. When this field is set, `response_schema` must be omitted and `response_mime_type` must be set to `application/json` . Deprecated: Use `response_format` instead.
 
 Union field `_routing_config` .
 
@@ -2179,7 +2384,7 @@ Union field `_media_resolution` .
 
 `mediaResolution`
 
-`enum ( MediaResolution` )
+` enum ( MediaResolution  ` )
 
 Optional. The token resolution at which input media content is sampled. This is used to control the trade-off between the quality of the response and the number of tokens used to represent the media. A higher resolution allows the model to perceive more detail, which can lead to a more nuanced response, but it will also use more tokens. This does not affect the image dimensions sent to the model.
 
@@ -2207,11 +2412,23 @@ Union field `_image_config` .
 
 `_image_config` can be only one of the following:
 
-`imageConfig`
+` imageConfig (deprecated)  `
 
 ` object ( ImageConfig  ` )
 
-Optional. Config for image generation features.
+> This item is deprecated\!
+
+Optional. Config for image generation features. Deprecated: Use `response_format.image` instead.
+
+Union field `_audio_transcription_config` .
+
+`_audio_transcription_config` can be only one of the following:
+
+`audioTranscriptionConfig`
+
+` object ( AudioTranscriptionConfig  ` )
+
+Optional. Config for audio transcription (speech recognition).
 
 ### RoutingConfig
 
@@ -2273,7 +2490,7 @@ Union field `_model_routing_preference` .
 
 `modelRoutingPreference`
 
-`enum ( ModelRoutingPreference` )
+` enum ( ModelRoutingPreference  ` )
 
 The model routing preference.
 
@@ -2550,7 +2767,7 @@ Union field `_thinking_level` .
 
 `thinkingLevel`
 
-`enum ( ThinkingLevel` )
+` enum ( ThinkingLevel  ` )
 
 Optional. The number of thoughts tokens that the model should generate.
 
@@ -2576,7 +2793,7 @@ Fields
 
 `featureSelectionPreference`
 
-`enum ( FeatureSelectionPreference` )
+` enum ( FeatureSelectionPreference  ` )
 
 Required. Feature selection preference.
 
@@ -2628,7 +2845,7 @@ Union field `_person_generation` .
 
 `personGeneration`
 
-`enum ( PersonGeneration` )
+` enum ( PersonGeneration  ` )
 
 Optional. Controls whether the model can generate people.
 
@@ -2681,6 +2898,854 @@ Union field `_compression_quality` .
 `integer`
 
 Optional. The compression quality of the output image.
+
+### ResponseFormat
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field format can be only one of the following:&quot;text&quot;: {object (TextResponseFormat)},&quot;audio&quot;: {object (AudioResponseFormat)},&quot;image&quot;: {object (ImageResponseFormat)},&quot;video&quot;: {object (VideoResponseFormat)}// End of list of possible types for union field format.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+Union field `format` . The format of the output content. `format` can be only one of the following:
+
+`text`
+
+` object ( TextResponseFormat  ` )
+
+Text output format.
+
+`audio`
+
+` object ( AudioResponseFormat  ` )
+
+Audio output format.
+
+`image`
+
+` object ( ImageResponseFormat  ` )
+
+Image output format.
+
+`video`
+
+` object ( VideoResponseFormat  ` )
+
+Video output format.
+
+### TextResponseFormat
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field _mime_type can be only one of the following:&quot;mimeType&quot;: enum (MimeType)// End of list of possible types for union field _mime_type.// Union field _schema can be only one of the following:&quot;schema&quot;: value// End of list of possible types for union field _schema.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+Union field `_mime_type` .
+
+`_mime_type` can be only one of the following:
+
+`mimeType`
+
+` enum ( MimeType  ` )
+
+Optional. The IANA standard MIME type of the response.
+
+Union field `_schema` .
+
+`_schema` can be only one of the following:
+
+`schema`
+
+` value ( Value  ` format)
+
+Optional. The JSON schema that the output should conform to. Only applicable when mime\_type is APPLICATION\_JSON.
+
+### AudioResponseFormat
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),// Union field _mime_type can be only one of the following:&quot;mimeType&quot;: enum (MimeType)// End of list of possible types for union field _mime_type.// Union field _sample_rate can be only one of the following:&quot;sampleRate&quot;: integer// End of list of possible types for union field _sample_rate.// Union field _bit_rate can be only one of the following:&quot;bitRate&quot;: integer// End of list of possible types for union field _bit_rate.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`delivery`
+
+` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+Union field `_mime_type` .
+
+`_mime_type` can be only one of the following:
+
+`mimeType`
+
+` enum ( MimeType  ` )
+
+Optional. The MIME type of the audio output.
+
+Union field `_sample_rate` .
+
+`_sample_rate` can be only one of the following:
+
+`sampleRate`
+
+`integer`
+
+Optional. Sample rate for the generated audio in Hertz.
+
+Union field `_bit_rate` .
+
+`_bit_rate` can be only one of the following:
+
+`bitRate`
+
+`integer`
+
+Optional. Bit rate in bits per second (bps). Only applicable for compressed formats (MP3, Opus).
+
+### ImageResponseFormat
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),// Union field _mime_type can be only one of the following:&quot;mimeType&quot;: enum (MimeType)// End of list of possible types for union field _mime_type.// Union field _aspect_ratio can be only one of the following:&quot;aspectRatio&quot;: enum (AspectRatio)// End of list of possible types for union field _aspect_ratio.// Union field _image_size can be only one of the following:&quot;imageSize&quot;: enum (ImageSize)// End of list of possible types for union field _image_size.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`delivery`
+
+` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+Union field `_mime_type` .
+
+`_mime_type` can be only one of the following:
+
+`mimeType`
+
+` enum ( MimeType  ` )
+
+Optional. The MIME type of the image output.
+
+Union field `_aspect_ratio` .
+
+`_aspect_ratio` can be only one of the following:
+
+`aspectRatio`
+
+` enum ( AspectRatio  ` )
+
+Optional. The aspect ratio for the image output.
+
+Union field `_image_size` .
+
+`_image_size` can be only one of the following:
+
+`imageSize`
+
+` enum ( ImageSize  ` )
+
+Optional. The size of the image output.
+
+### VideoResponseFormat
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),// Union field _duration can be only one of the following:&quot;duration&quot;: string// End of list of possible types for union field _duration.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`delivery`
+
+` enum ( DeliveryMode  ` )
+
+Optional. Delivery mode for the generated content.
+
+`gcsUri`
+
+`string`
+
+Optional. The Google Cloud Storage URI to store the video output. Required for Vertex if delivery is URI.
+
+`aspectRatio`
+
+` enum ( AspectRatio  ` )
+
+The aspect ratio for the video output.
+
+Union field `_duration` .
+
+`_duration` can be only one of the following:
+
+`duration`
+
+` string ( Duration  ` format)
+
+Optional. The duration for the video output.
+
+A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+### AudioTranscriptionConfig
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;adaptationPhrases&quot;: [string],&quot;customVocabulary&quot;: [string],&quot;wordTimestamp&quot;: boolean,&quot;diarization&quot;: boolean,// Union field language_config can be only one of the following:&quot;languageAuto&quot;: {object (LanguageAuto)},&quot;languageHints&quot;: {object (LanguageHints)}// End of list of possible types for union field language_config.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+` adaptationPhrases[] (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Optional. A list of phrases to bias the ASR model towards.
+
+`customVocabulary[]`
+
+`string`
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
+`wordTimestamp`
+
+`boolean`
+
+Optional. Configures word-level timestamp generation.
+
+`diarization`
+
+`boolean`
+
+Optional. Configures speaker diarization.
+
+Union field `language_config` . Required. Specifies how to handle the languages in the audio. `language_config` can be only one of the following:
+
+`languageAuto`
+
+`object ( LanguageAuto` )
+
+Optional. The model will detect the language automatically.
+
+`languageHints`
+
+` object ( LanguageHints  ` )
+
+Optional. Specifies one or more languages in the audio.
+
+### LanguageHints
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;languageCodes&quot;: [
+    string
+  ]
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`languageCodes[]`
+
+`string`
+
+Required. BCP-47 language codes. At least one must be specified.
+
+### NullValue
+
+Represents a JSON `null` .
+
+`NullValue` is a sentinel, using an enum with only one value to represent the null value for the `Value` type union.
+
+A field of type `NullValue` with any value other than `0` is considered invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value` set as a JSON `null` regardless of the integer value, and so will round trip to a `0` value.
+
+Enums
+
+`NULL_VALUE`
+
+Null value.
+
+### Language
+
+Supported programming languages for the generated code.
+
+Enums
+
+`LANGUAGE_UNSPECIFIED`
+
+Unspecified language. This value should not be used.
+
+`PYTHON`
+
+Python \>= 3.10, with numpy and simpy available.
+
+### Outcome
+
+Enumeration of possible outcomes of the code execution.
+
+Enums
+
+`OUTCOME_UNSPECIFIED`
+
+Unspecified status. This value should not be used.
+
+`OUTCOME_OK`
+
+Code execution completed successfully. `output` contains the stdout, if any.
+
+`OUTCOME_FAILED`
+
+Code execution failed. `output` contains the stderr and stdout, if any.
+
+`OUTCOME_DEADLINE_EXCEEDED`
+
+Code execution ran for too long, and was cancelled. There may or may not be a partial `output` present.
+
+### Level
+
+The media resolution level.
+
+Enums
+
+`MEDIA_RESOLUTION_UNSPECIFIED`
+
+Media resolution has not been set.
+
+`MEDIA_RESOLUTION_LOW`
+
+Media resolution set to low.
+
+`MEDIA_RESOLUTION_MEDIUM`
+
+Media resolution set to medium.
+
+`MEDIA_RESOLUTION_HIGH`
+
+Media resolution set to high.
+
+`MEDIA_RESOLUTION_ULTRA_HIGH`
+
+Media resolution set to ultra high. This is for image only.
+
+### Type
+
+Type contains the list of OpenAPI data types as defined by <https://swagger.io/docs/specification/data-models/data-types/>
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Not specified, should not be used.
+
+`STRING`
+
+OpenAPI string type
+
+`NUMBER`
+
+OpenAPI number type
+
+`INTEGER`
+
+OpenAPI integer type
+
+`BOOLEAN`
+
+OpenAPI boolean type
+
+`ARRAY`
+
+OpenAPI array type
+
+`OBJECT`
+
+OpenAPI object type
+
+`NULL`
+
+Null type
+
+### PhishBlockThreshold
+
+These are available confidence level user can set to block malicious urls with chosen confidence and above. For understanding different confidence of webrisk, please refer to <https://cloud.google.com/web-risk/docs/reference/rpc/google.cloud.webrisk.v1eap1#confidencelevel>
+
+Enums
+
+`PHISH_BLOCK_THRESHOLD_UNSPECIFIED`
+
+Defaults to unspecified.
+
+`BLOCK_LOW_AND_ABOVE`
+
+Blocks Low and above confidence URL that is risky.
+
+`BLOCK_MEDIUM_AND_ABOVE`
+
+Blocks Medium and above confidence URL that is risky.
+
+`BLOCK_HIGH_AND_ABOVE`
+
+Blocks High and above confidence URL that is risky.
+
+`BLOCK_HIGHER_AND_ABOVE`
+
+Blocks Higher and above confidence URL that is risky.
+
+`BLOCK_VERY_HIGH_AND_ABOVE`
+
+Blocks Very high and above confidence URL that is risky.
+
+`BLOCK_ONLY_EXTREMELY_HIGH`
+
+Blocks Extremely high confidence URL that is risky.
+
+### Mode
+
+The mode of the predictor to be used in dynamic retrieval.
+
+Enums
+
+`MODE_UNSPECIFIED`
+
+Always trigger retrieval.
+
+`MODE_DYNAMIC`
+
+Run retrieval only when system decides it is necessary.
+
+### Environment
+
+Represents the environment being operated, such as a web browser.
+
+Enums
+
+`ENVIRONMENT_UNSPECIFIED`
+
+Defaults to browser.
+
+`ENVIRONMENT_BROWSER`
+
+Operates in a web browser.
+
+### ModelRoutingPreference
+
+The model routing preference.
+
+Enums
+
+`UNKNOWN`
+
+Unspecified model routing preference.
+
+`PRIORITIZE_QUALITY`
+
+The model will be selected to prioritize the quality of the response.
+
+`BALANCED`
+
+The model will be selected to balance quality and cost.
+
+`PRIORITIZE_COST`
+
+The model will be selected to prioritize the cost of the request.
+
+### Modality
+
+The modalities of the response.
+
+Enums
+
+`MODALITY_UNSPECIFIED`
+
+Unspecified modality. Will be processed as text.
+
+`TEXT`
+
+Text modality.
+
+`IMAGE`
+
+Image modality.
+
+`AUDIO`
+
+Audio modality.
+
+`VIDEO`
+
+Video modality.
+
+### MediaResolution
+
+Media resolution for the input media.
+
+Enums
+
+`MEDIA_RESOLUTION_UNSPECIFIED`
+
+Media resolution has not been set.
+
+`MEDIA_RESOLUTION_LOW`
+
+Media resolution set to low (64 tokens).
+
+`MEDIA_RESOLUTION_MEDIUM`
+
+Media resolution set to medium (256 tokens).
+
+`MEDIA_RESOLUTION_HIGH`
+
+Media resolution set to high (zoomed reframing with 256 tokens).
+
+### ThinkingLevel
+
+The thinking level for the model.
+
+Enums
+
+`THINKING_LEVEL_UNSPECIFIED`
+
+Unspecified thinking level.
+
+`LOW`
+
+Low thinking level.
+
+`MEDIUM`
+
+Medium thinking level.
+
+`HIGH`
+
+High thinking level.
+
+`MINIMAL`
+
+MINIMAL thinking level.
+
+### FeatureSelectionPreference
+
+Options for feature selection preference.
+
+Enums
+
+`FEATURE_SELECTION_PREFERENCE_UNSPECIFIED`
+
+Unspecified feature selection preference.
+
+`PRIORITIZE_QUALITY`
+
+Prefer higher quality over lower cost.
+
+`BALANCED`
+
+Balanced feature selection preference.
+
+`PRIORITIZE_COST`
+
+Prefer lower cost over higher quality.
+
+### PersonGeneration
+
+Enum for controlling the generation of people in images.
+
+Enums
+
+`PERSON_GENERATION_UNSPECIFIED`
+
+The default behavior is unspecified. The model will decide whether to generate images of people.
+
+`ALLOW_ALL`
+
+Allows the model to generate images of people, including adults and children.
+
+`ALLOW_ADULT`
+
+Allows the model to generate images of adults, but not children.
+
+`ALLOW_NONE`
+
+Prevents the model from generating images of people.
+
+### MimeType
+
+Supported MIME types for text output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`APPLICATION_JSON`
+
+JSON output format.
+
+`TEXT_PLAIN`
+
+Plain text output format.
+
+### MimeType
+
+Supported MIME types for audio output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`AUDIO_MP3`
+
+MP3 audio format.
+
+`AUDIO_OGG_OPUS`
+
+OGG Opus audio format.
+
+`AUDIO_L16`
+
+Raw PCM (L16) audio format.
+
+`AUDIO_WAV`
+
+WAV audio format.
+
+`AUDIO_ALAW`
+
+A-law audio format.
+
+`AUDIO_MULAW`
+
+Mu-law audio format.
+
+### DeliveryMode
+
+The delivery mode for the output content.
+
+Enums
+
+`DELIVERY_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`INLINE`
+
+Generated bytes are returned inline in the response.
+
+`URI`
+
+Generated content is stored and a URI is returned.
+
+### MimeType
+
+Supported MIME types for image output.
+
+Enums
+
+`MIME_TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`IMAGE_JPEG`
+
+JPEG image format.
+
+### AspectRatio
+
+Supported aspect ratios for image output.
+
+Enums
+
+`ASPECT_RATIO_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`ASPECT_RATIO_ONE_BY_ONE`
+
+1:1 aspect ratio.
+
+`ASPECT_RATIO_TWO_BY_THREE`
+
+2:3 aspect ratio.
+
+`ASPECT_RATIO_THREE_BY_TWO`
+
+3:2 aspect ratio.
+
+`ASPECT_RATIO_THREE_BY_FOUR`
+
+3:4 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_THREE`
+
+4:3 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_FIVE`
+
+4:5 aspect ratio.
+
+`ASPECT_RATIO_FIVE_BY_FOUR`
+
+5:4 aspect ratio.
+
+`ASPECT_RATIO_NINE_BY_SIXTEEN`
+
+9:16 aspect ratio.
+
+`ASPECT_RATIO_SIXTEEN_BY_NINE`
+
+16:9 aspect ratio.
+
+`ASPECT_RATIO_TWENTY_ONE_BY_NINE`
+
+21:9 aspect ratio.
+
+`ASPECT_RATIO_ONE_BY_EIGHT`
+
+1:8 aspect ratio.
+
+`ASPECT_RATIO_EIGHT_BY_ONE`
+
+8:1 aspect ratio.
+
+`ASPECT_RATIO_ONE_BY_FOUR`
+
+1:4 aspect ratio.
+
+`ASPECT_RATIO_FOUR_BY_ONE`
+
+4:1 aspect ratio.
+
+### ImageSize
+
+Supported image sizes for image output.
+
+Enums
+
+`IMAGE_SIZE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`IMAGE_SIZE_FIVE_TWELVE`
+
+512px image size.
+
+`IMAGE_SIZE_ONE_K`
+
+1K image size.
+
+`IMAGE_SIZE_TWO_K`
+
+2K image size.
+
+`IMAGE_SIZE_FOUR_K`
+
+4K image size.
+
+### AspectRatio
+
+Supported aspect ratios for video output.
+
+Enums
+
+`ASPECT_RATIO_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`ASPECT_RATIO_SIXTEEN_BY_NINE`
+
+16:9 aspect ratio.
+
+`ASPECT_RATIO_NINE_BY_SIXTEEN`
+
+9:16 aspect ratio.
 
 ## Output Schema
 
@@ -2746,7 +3811,7 @@ Fields
 
 `modality`
 
-`enum ( Modality` )
+` enum ( Modality  ` )
 
 The modality that this token count applies to.
 
@@ -2755,6 +3820,36 @@ The modality that this token count applies to.
 `integer`
 
 The number of tokens counted for this modality.
+
+### Modality
+
+The modality of a `Part` of a `Content` message. A modality is the type of media, such as an image or a video. It is used to categorize the content of a `Part` for token counting purposes.
+
+Enums
+
+`MODALITY_UNSPECIFIED`
+
+When a modality is not specified, it is treated as `TEXT` .
+
+`TEXT`
+
+The `Part` contains plain text.
+
+`IMAGE`
+
+The `Part` contains an image.
+
+`VIDEO`
+
+The `Part` contains a video.
+
+`AUDIO`
+
+The `Part` contains audio.
+
+`DOCUMENT`
+
+The `Part` contains a document, such as a PDF.
 
 ### Tool Annotations
 

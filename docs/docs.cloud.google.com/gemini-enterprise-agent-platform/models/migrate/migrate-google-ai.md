@@ -200,4 +200,6 @@ To delete an API key:
 
 ## What's next
 
-  - Try a quickstart tutorial using [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart) or the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk) .
+  - Try a quickstart tutorial using [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart)
+
+  - [Connect to the Knowledge MCP server](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk) .

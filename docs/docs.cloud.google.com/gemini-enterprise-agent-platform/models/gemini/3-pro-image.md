@@ -81,6 +81,8 @@ Capabilities
     Supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
+  - [Virtual try-on](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/virtual-try-on)  
+    Not supported
 
 Tools
 

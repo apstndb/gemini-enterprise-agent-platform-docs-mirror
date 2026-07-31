@@ -79,7 +79,7 @@ For more information about using Provisioned Throughput for Gemini 2.5 Flash wit
 
 To estimate your Provisioned Throughput needs, use the [estimation tool in the Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#estimate-provisioned-throughput) . The following example illustrates the process of estimating the amount of Provisioned Throughput for your model. The region isn't considered in the estimation calculations.
 
-This table provides the burndown rates for `gemini-2.0-flash` that you can use to follow the example.
+This table provides the burndown rates for Gemini 3.6 Flash that you can use to follow the example.
 
 <table>
 <colgroup>
@@ -100,53 +100,49 @@ This table provides the burndown rates for `gemini-2.0-flash` that you can use t
 </thead>
 <tbody>
 <tr class="odd">
-<td>Gemini 2.0 Flash</td>
-<td>3,360</td>
+<td>Gemini 3.6 Flash</td>
+<td>675</td>
 <td>Tokens</td>
 <td>1</td>
 <td>1 input text token = 1 token<br />
 1 input image token = 1 token<br />
 1 input video token = 1 token<br />
-1 input audio token = 7 tokens<br />
-1 output text token = 4 tokens<br />
+1 input audio token = 1 token<br />
+1 input text caching token = 0.1 tokens<br />
+1 input image caching token = 0.1 tokens<br />
+1 input video caching token = 0.1 tokens<br />
+1 input audio caching token = 0.1 tokens<br />
+1 output text response token = 5 tokens<br />
 </td>
 </tr>
 </tbody>
 </table>
 
-1.  Gather your requirements.
+1.  **Gather your requirements.** In this example, your requirement is to verify that you can support 10 queries per second (QPS) of a query with an input of 1,000 text tokens and 500 audio tokens, to receive an output of 300 text response tokens using `gemini-3.6-flash` .
     
-    1.  In this example, your requirement is to verify that you can support 10 queries per second (QPS) of a query with an input of 1,000 text tokens and 500 audio tokens, to receive an output of 300 text tokens using `gemini-2.0-flash` .
-        
-        This step means that you understand your use case, because you have identified your model, the QPS, and the size of your inputs and outputs.
-    
-    2.  To calculate your throughput, refer to the [burndown rates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) for your selected model.
+    To calculate your throughput for your specific use case, use the [burndown rates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models#google-models) for your selected model.
 
-2.  Calculate your throughput.
+2.  **Calculate your throughput.** Multiply your inputs by the burndown rates to arrive at total input tokens:
     
-    1.  Multiply your inputs by the burndown rates to arrive at total input tokens:
-        
-        1,000\*(1 token per input text token) + 500\*(7 tokens per input audio token) = 4,500 burndown adjusted input tokens per query.
+    $\\text{1,000} \\times (\\text{1 token per input text token}) + \\text{500} \\times (\\text{1 token per input audio token}) = \\text{1,500}$ burndown adjusted input tokens per query.
     
-    2.  Multiply your outputs by the burndown rates to arrive at total output tokens:
-        
-        300\*(4 tokens per output text token) = 1,200 burndown adjusted output tokens per query
+    Multiply your outputs by the burndown rates to arrive at total output tokens:
     
-    3.  Add your totals together:
-        
-        4,500 burndown adjusted input tokens + 1,200 burndown adjusted output tokens = 5,700 total tokens per query
+    $\\text{300} \\times (\\text{5 tokens per output text response token}) = \\text{1,500}$ burndown adjusted output tokens per query.
     
-    4.  Multiply the total number of tokens by the QPS to arrive at total throughput per second:
-        
-        5,700 total tokens per query \* 10 QPS = 57,000 total tokens per second
+    Add your totals together:
+    
+    $\\text{1,500 burndown adjusted input tokens} + \\text{1,500 burndown adjusted output tokens} = \\text{3,000}$ total tokens per query.
+    
+    Multiply the total number of tokens by the QPS to arrive at total throughput per second:
+    
+    $\\text{3,000 total tokens per query} \\times \\text{10 QPS} = \\text{30,000}$ total tokens per second.
 
-3.  Calculate your GSUs.
+3.  **Calculate your needed GSUs.** The GSUs are the total tokens per second divided by the per-second throughput per GSU from the burndown table:
     
-    1.  The GSUs are the total tokens per second divided by per-second throughput per GSU from the burndown table.
-        
-        57,000 total tokens per second ÷ 3,360 per-second throughput per GSU = 16.96 GSUs
+    $\\text{30,000 total tokens per second} \\div \\text{675 per-second throughput per GSU} = \\text{44.44}$ GSUs.
     
-    2.  The minimum GSU purchase increment for `gemini-2.0-flash` is 1, so you'll need 17 GSUs to assure your workload.
+    The minimum GSU purchase increment for `gemini-3.6-flash` is **1** , so you'll need **45 GSUs** to assure your workload.
 
 ## What's next
 

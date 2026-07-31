@@ -138,7 +138,7 @@ You might also be able to get the required permissions through [custom roles](ht
         from vertexai import agent_engines
         
         agent = agent_engines.LanggraphAgent(
-            model="gemini-2.0-flash",
+            model="gemini-3.5-flash",
             tools=[get_exchange_rate],
             model_kwargs={
                 "temperature": 0.28,
@@ -152,7 +152,7 @@ You might also be able to get the required permissions through [custom roles](ht
         from vertexai import agent_engines
         
         agent = agent_engines.LangchainAgent(
-            model="gemini-2.0-flash",
+            model="gemini-3.5-flash",
             tools=[get_exchange_rate],
             model_kwargs={
                 "temperature": 0.28,
@@ -166,7 +166,7 @@ You might also be able to get the required permissions through [custom roles](ht
         from vertexai import agent_engines
         
         agent = agent_engines.AG2Agent(
-            model="gemini-2.0-flash",
+            model="gemini-3.5-flash",
             runnable_name="Get Exchange Rate Agent",
             tools=[get_exchange_rate],
         )
@@ -191,7 +191,7 @@ You might also be able to get the required permissions through [custom roles](ht
             return QueryPipeline(modules = {"agent": agent})
         
         agent = reasoning_engines.LlamaIndexQueryPipelineAgent(
-            model="gemini-2.0-flash",
+            model="gemini-3.5-flash",
             runnable_kwargs={"tools": [get_exchange_rate]},
             runnable_builder=runnable_with_tools_builder,
         )

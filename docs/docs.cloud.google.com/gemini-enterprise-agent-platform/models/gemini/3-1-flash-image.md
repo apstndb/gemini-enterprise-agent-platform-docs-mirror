@@ -81,6 +81,8 @@ Capabilities
     Supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
+  - [Virtual try-on](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/virtual-try-on)  
+    Not supported
 
 Tools
 
@@ -127,6 +129,14 @@ Technical specifications
   - Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
   - Supported MIME types:
     `application/pdf` , `text/plain`
+
+**Video** videocam
+
+  - Maximum number of input video files per prompt: 10
+  - Maximum YouTube URLs per prompt: 1
+  - Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).
+  - Supported MIME types:
+    `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
 **Parameter defaults** tune
 

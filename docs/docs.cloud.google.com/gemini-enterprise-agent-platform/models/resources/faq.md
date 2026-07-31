@@ -41,8 +41,6 @@ For the full list of locations that are supported for Gemini models, see [Locati
 
 ### What are the default quotas for Gemini?
 
-**Gemini 2.0 Flash** and **Gemini 2.0 Flash-Lite** use [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) and have no default quota.
-
 **Gemini 2.5 Pro** has a 10 queries per minute (QPM) limit.
 
 ## Monitoring

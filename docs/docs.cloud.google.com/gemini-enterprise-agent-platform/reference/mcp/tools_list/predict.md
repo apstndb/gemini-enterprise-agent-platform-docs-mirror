@@ -81,19 +81,32 @@ Fields
 
 `string`
 
-Required. The name of the Endpoint requested to serve the prediction. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+Required. The resource name of the publisher model or endpoint requested to serve the prediction. For Google models like Embedding or Veo, use the publisher model format. For tuned models or other models deployed to an Agent Platform endpoint, use the endpoint format.
+
+  - Publisher model format: `projects/{project}/locations/{location}/publishers/google/models/{model}`
+  - Endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
 
 `instances[]`
 
 ` value ( Value  ` format)
 
-Required. The instances that are the input to the prediction call. A DeployedModel may have an upper limit on the number of instances it supports per request, and when it is exceeded the prediction call errors in case of AutoML Models, or, in case of customer created Models, the behaviour is as documented by that Model. The schema of any single instance may be specified via Endpoint's DeployedModels' `Model's` `PredictSchemata's` `instance_schema_uri` .
+Required. The instances that are the input to the prediction call. A DeployedModel may have an upper limit on the number of instances it supports per request, and when it is exceeded the prediction call errors in case of AutoML Models, or, in case of customer created Models, the behavior is as documented by that Model. The schema of each instance depends on the type of request.
+
+  - For a generative AI request to a Text Embedding model, see `TextEmbeddingPredictionInstance`
+  - For a generative AI request to a Multimodal Embedding model, see `VisionEmbeddingModelInstance`
+  - For a video generation request to a Veo model, see `VideoGenerationModelInstance`
+  - For a traditional machine learning request to a deployed custom model, the schema of any single instance is defined by the model's `instanceSchemaUri` .
 
 `parameters`
 
 ` value ( Value  ` format)
 
-The parameters that govern the prediction. The schema of the parameters may be specified via Endpoint's DeployedModels' `Model's` `PredictSchemata's` `parameters_schema_uri` .
+The parameters that govern the prediction. The schema of the parameters depends on the type of request.
+
+  - For a generative AI request to a Text Embedding model, see `TextEmbeddingPredictionParams`
+  - For a generative AI request to a Multimodal Embedding model, see `VisionEmbeddingModelParams`
+  - For a video generation request to a Veo model, see `VideoGenerationModelParams`
+  - For a traditional machine learning request to a deployed custom model, the schema of the parameters is defined by the model's `parametersSchemaUri` .
 
 `labels`
 
@@ -286,6 +299,20 @@ Fields
 
 `string`
 
+### NullValue
+
+Represents a JSON `null` .
+
+`NullValue` is a sentinel, using an enum with only one value to represent the null value for the `Value` type union.
+
+A field of type `NullValue` with any value other than `0` is considered invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value` set as a JSON `null` regardless of the integer value, and so will round trip to a `0` value.
+
+Enums
+
+`NULL_VALUE`
+
+Null value.
+
 ## Output Schema
 
 Response message for `PredictionService.Predict` .
@@ -323,7 +350,12 @@ Fields
 
 ` value ( Value  ` format)
 
-The predictions that are the output of the predictions call. The schema of any single prediction may be specified via Endpoint's DeployedModels' `Model's` `PredictSchemata's` `prediction_schema_uri` .
+The predictions that are the output of the predictions call. The schema of each prediction depends on the type of request.
+
+  - For a generative AI request to a Text Embedding model, see `TextEmbeddingPredictionResult`
+  - For a generative AI request to a Multimodal Embedding model, see `VisionEmbeddingModelResult`
+  - For a video generation request to a Veo model, see `VideoGenerationModelResult`
+  - For a traditional machine learning request to a deployed custom model, the schema of each prediction is defined by the model's `predictionSchemaUri` .
 
 `deployedModelId`
 
@@ -506,6 +538,20 @@ Fields
 ` value ( Value  ` format)
 
 Repeated field of dynamically typed values.
+
+### NullValue
+
+Represents a JSON `null` .
+
+`NullValue` is a sentinel, using an enum with only one value to represent the null value for the `Value` type union.
+
+A field of type `NullValue` with any value other than `0` is considered invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value` set as a JSON `null` regardless of the integer value, and so will round trip to a `0` value.
+
+Enums
+
+`NULL_VALUE`
+
+Null value.
 
 ### Tool Annotations
 

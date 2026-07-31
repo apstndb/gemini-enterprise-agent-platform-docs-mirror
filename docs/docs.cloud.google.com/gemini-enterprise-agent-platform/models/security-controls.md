@@ -130,34 +130,6 @@ Grounding with Google Search and Grounding with Google Maps
 
 Online prediction
 
-**Gemini 2.0 Flash**
-
-Online prediction
-
-Batch
-
-Tuning
-
-Context caching
-
-RAG Engine
-
-Grounding with Google Search and Grounding with Google Maps
-
-**Gemini 2.0 Flash-Lite**
-
-Online prediction
-
-Batch
-
-Tuning
-
-RAG Engine
-
-Context caching
-
-Grounding with Google Search and Grounding with Google Maps
-
 **Gemini Embedding 2**
 
 Online prediction

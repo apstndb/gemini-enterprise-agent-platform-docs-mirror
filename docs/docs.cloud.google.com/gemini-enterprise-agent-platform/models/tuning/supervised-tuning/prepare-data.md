@@ -6,7 +6,7 @@ description: Learn how to prepare supervised fine-tuning datasets for Gemini mod
 data_source: docs.cloud.google.com
 ---
 
-This document describes how to define a supervised fine-tuning dataset for a Gemini model. You can tune [text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/text) , [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/image) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/audio) , [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/video) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/doc) data types.
+This document describes how to define a supervised fine-tuning dataset for a Gemini model. You can tune [text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/text) , [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/image) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/audio) , [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/video) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/document) data types.
 
 ## About supervised fine-tuning datasets
 

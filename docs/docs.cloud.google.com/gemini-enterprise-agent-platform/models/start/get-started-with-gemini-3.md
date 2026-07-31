@@ -699,7 +699,9 @@ Consider the following features and constraints when when migrating:
 ## What's next
 
   - Learn more about [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) .
-  - Learn prompting best practices with our [Gemini 3 prompting guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gemini-3-prompting-guide) .
+
   - Try the [Intro to Gemini 3 Pro](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_pro.ipynb) notebook tutorial.
+
   - Learn about [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .
+
   - Learn about [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) .

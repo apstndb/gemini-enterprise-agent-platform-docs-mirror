@@ -94,7 +94,7 @@ This is a comma-separated list of fully qualified names of fields. Example: `"us
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)},&quot;publisherModelConfig&quot;: {object (PublisherModelConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -254,6 +254,12 @@ Output only. Reserved for future use.
 ` object ( GenAiAdvancedFeaturesConfig  ` )
 
 Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models, advanced features like native RAG integration can be configured. Currently, only Model Garden models are supported.
+
+`publisherModelConfig`
+
+` object ( PublisherModelConfig  ` )
+
+Optional. Configuration for a Publisher Model. This message contains details about a publisher model used with this Endpoint, such as logging config or data sharing settings.
 
 ### DeployedModel
 
@@ -473,7 +479,7 @@ If traffic increases, it may dynamically be deployed onto more replicas, and as 
 
 Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use `min_replica_count` as the default value.
 
-The value of this field impacts the charge against Vertex CPU and GPU quotas. Specifically, you will be charged for (max\_replica\_count \* number of cores in the selected machine type) and (max\_replica\_count \* number of GPUs per replica in the selected machine type).
+The value of this field impacts the charge against Agent Platform CPU and GPU quotas. Specifically, you will be charged for (max\_replica\_count \* number of cores in the selected machine type) and (max\_replica\_count \* number of GPUs per replica in the selected machine type).
 
 `requiredReplicaCount`
 
@@ -543,15 +549,15 @@ Fields
 
 Immutable. The type of the machine.
 
-See the [list of machine types supported for prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types)
+See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
 
-See the [list of machine types supported for custom training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types) .
+See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
 
 For `  DeployedModel  ` this field is optional, and the default value is `n1-standard-2` . For `BatchPredictionJob` or as part of `WorkerPoolSpec` this field is required.
 
 `acceleratorType`
 
-`enum ( AcceleratorType` )
+` enum ( AcceleratorType  ` )
 
 Immutable. The type of accelerator(s) that may be attached to the machine as per `accelerator_count` .
 
@@ -561,9 +567,9 @@ Immutable. The type of accelerator(s) that may be attached to the machine as per
 
 The number of accelerators to attach to the machine.
 
-For accelerator optimized machine types ( <https://cloud.google.com/compute/docs/accelerator-optimized-machines> , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Vertex will co-schedule the replicas of the model into the same VM to save cost.
+For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost.
 
-For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Vertex will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
+For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
 
 When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM.
 
@@ -627,7 +633,7 @@ Fields
 
 `reservationAffinityType`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Required. Specifies the reservation affinity type.
 
@@ -891,7 +897,7 @@ Fields
 
 `deploymentType`
 
-`enum ( DeploymentType` )
+` enum ( DeploymentType  ` )
 
 Required. The kind of deployment.
 
@@ -1365,7 +1371,7 @@ Fields
 
 `dataFormat`
 
-`enum ( DataFormat` )
+` enum ( DataFormat  ` )
 
 The format in which instances are given, if not specified, assume it's JSONL format. Currently only JSONL format is supported.
 
@@ -1579,7 +1585,7 @@ Fields
 
 `modality`
 
-`enum ( Modality` )
+` enum ( Modality  ` )
 
 The modality of the uploaded model, which automatically configures the distance measurement and feature normalization for the underlying example index and queries. If your model does not precisely fit one of these types, it is okay to choose the closest type.
 
@@ -1589,7 +1595,7 @@ Union field `_query` .
 
 `query`
 
-`enum ( Query` )
+` enum ( Query  ` )
 
 Preset option controlling parameters for speed-precision trade-off when querying for examples. If omitted, defaults to `PRECISE` .
 
@@ -1721,7 +1727,7 @@ Name of the input tensor for this feature. Required and is only applicable to Ag
 
 `encoding`
 
-`enum ( Encoding` )
+` enum ( Encoding  ` )
 
 Defines how the feature is encoded into the input tensor. Defaults to IDENTITY.
 
@@ -1854,19 +1860,19 @@ Fields
 
 `type`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Type of the image visualization. Only applicable to `Integrated Gradients attribution` . OUTLINES shows regions of attribution, while PIXELS shows per-pixel attribution. Defaults to OUTLINES.
 
 `polarity`
 
-`enum ( Polarity` )
+` enum ( Polarity  ` )
 
 Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE.
 
 `colorMap`
 
-`enum ( ColorMap` )
+` enum ( ColorMap  ` )
 
 The color scheme used for the highlighted areas.
 
@@ -1888,7 +1894,7 @@ Excludes attributions below the specified percentile, from the highlighted areas
 
 `overlayType`
 
-`enum ( OverlayType` )
+` enum ( OverlayType  ` )
 
 How the original image is displayed in the visualization. Adjusting the overlay can help increase visual clarity if the original image makes it difficult to view the visualization. Defaults to NONE.
 
@@ -2466,7 +2472,7 @@ Output only. Forwarding rule created by the PSC service automation.
 
 `state`
 
-`enum ( PSCAutomationState` )
+` enum ( PSCAutomationState  ` )
 
 Output only. The state of the PSC service automation.
 
@@ -2649,6 +2655,38 @@ Fields
 `boolean`
 
 If true, enable Retrieval Augmented Generation in ChatCompletion request. Once enabled, the endpoint will be identified as GenAI endpoint and Arthedain router will be used.
+
+### PublisherModelConfig
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;loggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dataSharingEnabledProvider&quot;: enum (ModelProvider)}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`loggingConfig`
+
+` object ( PredictRequestResponseLoggingConfig  ` )
+
+Optional. The prediction request/response logging config.
+
+`dataSharingEnabledProvider`
+
+` enum ( ModelProvider  ` )
+
+Optional. The model provider (publisher) for which the customer has enabled data sharing. For publisher models that are configured to require data sharing, a prediction request is only allowed when the model's publisher matches this provider. Otherwise, the request is rejected.
 
 ### FieldMask
 
@@ -2680,6 +2718,377 @@ Fields
 
 The set of field mask paths.
 
+### AcceleratorType
+
+Represents a hardware accelerator type.
+
+Enums
+
+`ACCELERATOR_TYPE_UNSPECIFIED`
+
+Unspecified accelerator type, which means no accelerator.
+
+`NVIDIA_TESLA_K80`
+
+Deprecated: Nvidia Tesla K80 GPU has reached end of support, see <https://cloud.google.com/compute/docs/eol/k80-eol> .
+
+`NVIDIA_TESLA_P100`
+
+Nvidia Tesla P100 GPU.
+
+`NVIDIA_TESLA_V100`
+
+Nvidia Tesla V100 GPU.
+
+`NVIDIA_TESLA_P4`
+
+Nvidia Tesla P4 GPU.
+
+`NVIDIA_TESLA_T4`
+
+Nvidia Tesla T4 GPU.
+
+`NVIDIA_TESLA_A100`
+
+Nvidia Tesla A100 GPU.
+
+`NVIDIA_A100_80GB`
+
+Nvidia A100 80GB GPU.
+
+`NVIDIA_L4`
+
+Nvidia L4 GPU.
+
+`NVIDIA_H100_80GB`
+
+Nvidia H100 80Gb GPU.
+
+`NVIDIA_H100_MEGA_80GB`
+
+Nvidia H100 Mega 80Gb GPU.
+
+`NVIDIA_H200_141GB`
+
+Nvidia H200 141Gb GPU.
+
+`NVIDIA_B200`
+
+Nvidia B200 GPU.
+
+`NVIDIA_GB200`
+
+Nvidia GB200 GPU.
+
+`NVIDIA_RTX_PRO_6000`
+
+Nvidia RTX Pro 6000 GPU.
+
+`TPU_V2`
+
+TPU v2.
+
+`TPU_V3`
+
+TPU v3.
+
+`TPU_V4_POD`
+
+TPU v4.
+
+`TPU_V5_LITEPOD`
+
+TPU v5.
+
+### Type
+
+Identifies a type of reservation affinity.
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Default value. This should not be used.
+
+`NO_RESERVATION`
+
+Do not consume from any reserved capacity, only use on-demand.
+
+`ANY_RESERVATION`
+
+Consume any reservation available, falling back to on-demand.
+
+`SPECIFIC_RESERVATION`
+
+Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields.
+
+### DeploymentType
+
+The type of deployment.
+
+Enums
+
+`DEPLOYMENT_TYPE_UNSPECIFIED`
+
+Unspecified deployment type.
+
+`DEPLOYMENT_TYPE_EVAL`
+
+Eval deployment type.
+
+`DEPLOYMENT_TYPE_PROD`
+
+Prod deployment type.
+
+### DataFormat
+
+The format of the input example instances.
+
+Enums
+
+`DATA_FORMAT_UNSPECIFIED`
+
+Format unspecified, used when unset.
+
+`JSONL`
+
+Examples are stored in JSONL files.
+
+### NullValue
+
+Represents a JSON `null` .
+
+`NullValue` is a sentinel, using an enum with only one value to represent the null value for the `Value` type union.
+
+A field of type `NullValue` with any value other than `0` is considered invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value` set as a JSON `null` regardless of the integer value, and so will round trip to a `0` value.
+
+Enums
+
+`NULL_VALUE`
+
+Null value.
+
+### Query
+
+Preset option controlling parameters for query speed-precision trade-off
+
+Enums
+
+`PRECISE`
+
+More precise neighbors as a trade-off against slower response.
+
+`FAST`
+
+Faster response as a trade-off against less precise neighbors.
+
+### Modality
+
+Preset option controlling parameters for different modalities
+
+Enums
+
+`MODALITY_UNSPECIFIED`
+
+Should not be set. Added as a recommended best practice for enums
+
+`IMAGE`
+
+IMAGE modality
+
+`TEXT`
+
+TEXT modality
+
+`TABULAR`
+
+TABULAR modality
+
+### Encoding
+
+Defines how a feature is encoded. Defaults to IDENTITY.
+
+Enums
+
+`ENCODING_UNSPECIFIED`
+
+Default value. This is the same as IDENTITY.
+
+`IDENTITY`
+
+The tensor represents one feature.
+
+`BAG_OF_FEATURES`
+
+The tensor represents a bag of features where each index maps to a feature. `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [27, 6.0, 150]
+    index_feature_mapping = ["age", "height", "weight"]
+
+`BAG_OF_FEATURES_SPARSE`
+
+The tensor represents a bag of features where each index maps to a feature. Zero values in the tensor indicates feature being non-existent. `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [2, 0, 5, 0, 1]
+    index_feature_mapping = ["a", "b", "c", "d", "e"]
+
+`INDICATOR`
+
+The tensor is a list of binaries representing whether a feature exists or not (1 indicates existence). `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [1, 0, 1, 0, 1]
+    index_feature_mapping = ["a", "b", "c", "d", "e"]
+
+`COMBINED_EMBEDDING`
+
+The tensor is encoded into a 1-dimensional array represented by an encoded tensor. `InputMetadata.encoded_tensor_name` must be provided for this encoding. For example:
+
+    input = ["This", "is", "a", "test", "."]
+    encoded = [0.1, 0.2, 0.3, 0.4, 0.5]
+
+`CONCAT_EMBEDDING`
+
+Select this encoding when the input tensor is encoded into a 2-dimensional array represented by an encoded tensor. `InputMetadata.encoded_tensor_name` must be provided for this encoding. The first dimension of the encoded tensor's shape is the same as the input tensor's shape. For example:
+
+    input = ["This", "is", "a", "test", "."]
+    encoded = [[0.1, 0.2, 0.3, 0.4, 0.5],
+               [0.2, 0.1, 0.4, 0.3, 0.5],
+               [0.5, 0.1, 0.3, 0.5, 0.4],
+               [0.5, 0.3, 0.1, 0.2, 0.4],
+               [0.4, 0.3, 0.2, 0.5, 0.1]]
+
+### Type
+
+Type of the image visualization. Only applicable to `Integrated Gradients attribution` .
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Should not be used.
+
+`PIXELS`
+
+Shows which pixel contributed to the image prediction.
+
+`OUTLINES`
+
+Shows which region contributed to the image prediction by outlining the region.
+
+### Polarity
+
+Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE.
+
+Enums
+
+`POLARITY_UNSPECIFIED`
+
+Default value. This is the same as POSITIVE.
+
+`POSITIVE`
+
+Highlights the pixels/outlines that were most influential to the model's prediction.
+
+`NEGATIVE`
+
+Setting polarity to negative highlights areas that does not lead to the models's current prediction.
+
+`BOTH`
+
+Shows both positive and negative attributions.
+
+### ColorMap
+
+The color scheme used for highlighting areas.
+
+Enums
+
+`COLOR_MAP_UNSPECIFIED`
+
+Should not be used.
+
+`PINK_GREEN`
+
+Positive: green. Negative: pink.
+
+`VIRIDIS`
+
+Viridis color map: A perceptually uniform color mapping which is easier to see by those with colorblindness and progresses from yellow to green to blue. Positive: yellow. Negative: blue.
+
+`RED`
+
+Positive: red. Negative: red.
+
+`GREEN`
+
+Positive: green. Negative: green.
+
+`RED_GREEN`
+
+Positive: green. Negative: red.
+
+`PINK_WHITE_GREEN`
+
+PiYG palette.
+
+### OverlayType
+
+How the original image is displayed in the visualization.
+
+Enums
+
+`OVERLAY_TYPE_UNSPECIFIED`
+
+Default value. This is the same as NONE.
+
+`NONE`
+
+No overlay.
+
+`ORIGINAL`
+
+The attributions are shown on top of the original image.
+
+`GRAYSCALE`
+
+The attributions are shown on top of grayscaled version of the original image.
+
+`MASK_BLACK`
+
+The attributions are used as a mask to reveal predictive parts of the image and hide the un-predictive parts.
+
+### PSCAutomationState
+
+The state of the PSC service automation.
+
+Enums
+
+`PSC_AUTOMATION_STATE_UNSPECIFIED`
+
+Should not be used.
+
+`PSC_AUTOMATION_STATE_SUCCESSFUL`
+
+The PSC service automation is successful.
+
+`PSC_AUTOMATION_STATE_FAILED`
+
+The PSC service automation has failed.
+
+### ModelProvider
+
+A model provider (publisher) that prediction data may be shared with.
+
+Enums
+
+`MODEL_PROVIDER_UNSPECIFIED`
+
+Unspecified model provider.
+
+`ANTHROPIC`
+
+Anthropic.
+
 ## Output Schema
 
 Models are deployed into it, and afterwards Endpoint is called to obtain predictions and explanations.
@@ -2697,7 +3106,7 @@ Models are deployed into it, and afterwards Endpoint is called to obtain predict
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)},&quot;publisherModelConfig&quot;: {object (PublisherModelConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -2857,6 +3266,12 @@ Output only. Reserved for future use.
 ` object ( GenAiAdvancedFeaturesConfig  ` )
 
 Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models, advanced features like native RAG integration can be configured. Currently, only Model Garden models are supported.
+
+`publisherModelConfig`
+
+` object ( PublisherModelConfig  ` )
+
+Optional. Configuration for a Publisher Model. This message contains details about a publisher model used with this Endpoint, such as logging config or data sharing settings.
 
 ### DeployedModel
 
@@ -3076,7 +3491,7 @@ If traffic increases, it may dynamically be deployed onto more replicas, and as 
 
 Immutable. The maximum number of replicas that may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale to that many replicas is guaranteed (barring service outages). If traffic increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, will use `min_replica_count` as the default value.
 
-The value of this field impacts the charge against Vertex CPU and GPU quotas. Specifically, you will be charged for (max\_replica\_count \* number of cores in the selected machine type) and (max\_replica\_count \* number of GPUs per replica in the selected machine type).
+The value of this field impacts the charge against Agent Platform CPU and GPU quotas. Specifically, you will be charged for (max\_replica\_count \* number of cores in the selected machine type) and (max\_replica\_count \* number of GPUs per replica in the selected machine type).
 
 `requiredReplicaCount`
 
@@ -3146,15 +3561,15 @@ Fields
 
 Immutable. The type of the machine.
 
-See the [list of machine types supported for prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types)
+See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
 
-See the [list of machine types supported for custom training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types) .
+See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
 
 For `  DeployedModel  ` this field is optional, and the default value is `n1-standard-2` . For `BatchPredictionJob` or as part of `WorkerPoolSpec` this field is required.
 
 `acceleratorType`
 
-`enum ( AcceleratorType` )
+` enum ( AcceleratorType  ` )
 
 Immutable. The type of accelerator(s) that may be attached to the machine as per `accelerator_count` .
 
@@ -3164,9 +3579,9 @@ Immutable. The type of accelerator(s) that may be attached to the machine as per
 
 The number of accelerators to attach to the machine.
 
-For accelerator optimized machine types ( <https://cloud.google.com/compute/docs/accelerator-optimized-machines> , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Vertex will co-schedule the replicas of the model into the same VM to save cost.
+For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost.
 
-For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Vertex will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
+For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
 
 When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM.
 
@@ -3230,7 +3645,7 @@ Fields
 
 `reservationAffinityType`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Required. Specifies the reservation affinity type.
 
@@ -3494,7 +3909,7 @@ Fields
 
 `deploymentType`
 
-`enum ( DeploymentType` )
+` enum ( DeploymentType  ` )
 
 Required. The kind of deployment.
 
@@ -3968,7 +4383,7 @@ Fields
 
 `dataFormat`
 
-`enum ( DataFormat` )
+` enum ( DataFormat  ` )
 
 The format in which instances are given, if not specified, assume it's JSONL format. Currently only JSONL format is supported.
 
@@ -4182,7 +4597,7 @@ Fields
 
 `modality`
 
-`enum ( Modality` )
+` enum ( Modality  ` )
 
 The modality of the uploaded model, which automatically configures the distance measurement and feature normalization for the underlying example index and queries. If your model does not precisely fit one of these types, it is okay to choose the closest type.
 
@@ -4192,7 +4607,7 @@ Union field `_query` .
 
 `query`
 
-`enum ( Query` )
+` enum ( Query  ` )
 
 Preset option controlling parameters for speed-precision trade-off when querying for examples. If omitted, defaults to `PRECISE` .
 
@@ -4324,7 +4739,7 @@ Name of the input tensor for this feature. Required and is only applicable to Ag
 
 `encoding`
 
-`enum ( Encoding` )
+` enum ( Encoding  ` )
 
 Defines how the feature is encoded into the input tensor. Defaults to IDENTITY.
 
@@ -4457,19 +4872,19 @@ Fields
 
 `type`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Type of the image visualization. Only applicable to `Integrated Gradients attribution` . OUTLINES shows regions of attribution, while PIXELS shows per-pixel attribution. Defaults to OUTLINES.
 
 `polarity`
 
-`enum ( Polarity` )
+` enum ( Polarity  ` )
 
 Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE.
 
 `colorMap`
 
-`enum ( ColorMap` )
+` enum ( ColorMap  ` )
 
 The color scheme used for the highlighted areas.
 
@@ -4491,7 +4906,7 @@ Excludes attributions below the specified percentile, from the highlighted areas
 
 `overlayType`
 
-`enum ( OverlayType` )
+` enum ( OverlayType  ` )
 
 How the original image is displayed in the visualization. Adjusting the overlay can help increase visual clarity if the original image makes it difficult to view the visualization. Defaults to NONE.
 
@@ -5069,7 +5484,7 @@ Output only. Forwarding rule created by the PSC service automation.
 
 `state`
 
-`enum ( PSCAutomationState` )
+` enum ( PSCAutomationState  ` )
 
 Output only. The state of the PSC service automation.
 
@@ -5252,6 +5667,409 @@ Fields
 `boolean`
 
 If true, enable Retrieval Augmented Generation in ChatCompletion request. Once enabled, the endpoint will be identified as GenAI endpoint and Arthedain router will be used.
+
+### PublisherModelConfig
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;loggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dataSharingEnabledProvider&quot;: enum (ModelProvider)}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`loggingConfig`
+
+` object ( PredictRequestResponseLoggingConfig  ` )
+
+Optional. The prediction request/response logging config.
+
+`dataSharingEnabledProvider`
+
+` enum ( ModelProvider  ` )
+
+Optional. The model provider (publisher) for which the customer has enabled data sharing. For publisher models that are configured to require data sharing, a prediction request is only allowed when the model's publisher matches this provider. Otherwise, the request is rejected.
+
+### AcceleratorType
+
+Represents a hardware accelerator type.
+
+Enums
+
+`ACCELERATOR_TYPE_UNSPECIFIED`
+
+Unspecified accelerator type, which means no accelerator.
+
+`NVIDIA_TESLA_K80`
+
+Deprecated: Nvidia Tesla K80 GPU has reached end of support, see <https://cloud.google.com/compute/docs/eol/k80-eol> .
+
+`NVIDIA_TESLA_P100`
+
+Nvidia Tesla P100 GPU.
+
+`NVIDIA_TESLA_V100`
+
+Nvidia Tesla V100 GPU.
+
+`NVIDIA_TESLA_P4`
+
+Nvidia Tesla P4 GPU.
+
+`NVIDIA_TESLA_T4`
+
+Nvidia Tesla T4 GPU.
+
+`NVIDIA_TESLA_A100`
+
+Nvidia Tesla A100 GPU.
+
+`NVIDIA_A100_80GB`
+
+Nvidia A100 80GB GPU.
+
+`NVIDIA_L4`
+
+Nvidia L4 GPU.
+
+`NVIDIA_H100_80GB`
+
+Nvidia H100 80Gb GPU.
+
+`NVIDIA_H100_MEGA_80GB`
+
+Nvidia H100 Mega 80Gb GPU.
+
+`NVIDIA_H200_141GB`
+
+Nvidia H200 141Gb GPU.
+
+`NVIDIA_B200`
+
+Nvidia B200 GPU.
+
+`NVIDIA_GB200`
+
+Nvidia GB200 GPU.
+
+`NVIDIA_RTX_PRO_6000`
+
+Nvidia RTX Pro 6000 GPU.
+
+`TPU_V2`
+
+TPU v2.
+
+`TPU_V3`
+
+TPU v3.
+
+`TPU_V4_POD`
+
+TPU v4.
+
+`TPU_V5_LITEPOD`
+
+TPU v5.
+
+### Type
+
+Identifies a type of reservation affinity.
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Default value. This should not be used.
+
+`NO_RESERVATION`
+
+Do not consume from any reserved capacity, only use on-demand.
+
+`ANY_RESERVATION`
+
+Consume any reservation available, falling back to on-demand.
+
+`SPECIFIC_RESERVATION`
+
+Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields.
+
+### DeploymentType
+
+The type of deployment.
+
+Enums
+
+`DEPLOYMENT_TYPE_UNSPECIFIED`
+
+Unspecified deployment type.
+
+`DEPLOYMENT_TYPE_EVAL`
+
+Eval deployment type.
+
+`DEPLOYMENT_TYPE_PROD`
+
+Prod deployment type.
+
+### DataFormat
+
+The format of the input example instances.
+
+Enums
+
+`DATA_FORMAT_UNSPECIFIED`
+
+Format unspecified, used when unset.
+
+`JSONL`
+
+Examples are stored in JSONL files.
+
+### NullValue
+
+Represents a JSON `null` .
+
+`NullValue` is a sentinel, using an enum with only one value to represent the null value for the `Value` type union.
+
+A field of type `NullValue` with any value other than `0` is considered invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value` set as a JSON `null` regardless of the integer value, and so will round trip to a `0` value.
+
+Enums
+
+`NULL_VALUE`
+
+Null value.
+
+### Query
+
+Preset option controlling parameters for query speed-precision trade-off
+
+Enums
+
+`PRECISE`
+
+More precise neighbors as a trade-off against slower response.
+
+`FAST`
+
+Faster response as a trade-off against less precise neighbors.
+
+### Modality
+
+Preset option controlling parameters for different modalities
+
+Enums
+
+`MODALITY_UNSPECIFIED`
+
+Should not be set. Added as a recommended best practice for enums
+
+`IMAGE`
+
+IMAGE modality
+
+`TEXT`
+
+TEXT modality
+
+`TABULAR`
+
+TABULAR modality
+
+### Encoding
+
+Defines how a feature is encoded. Defaults to IDENTITY.
+
+Enums
+
+`ENCODING_UNSPECIFIED`
+
+Default value. This is the same as IDENTITY.
+
+`IDENTITY`
+
+The tensor represents one feature.
+
+`BAG_OF_FEATURES`
+
+The tensor represents a bag of features where each index maps to a feature. `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [27, 6.0, 150]
+    index_feature_mapping = ["age", "height", "weight"]
+
+`BAG_OF_FEATURES_SPARSE`
+
+The tensor represents a bag of features where each index maps to a feature. Zero values in the tensor indicates feature being non-existent. `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [2, 0, 5, 0, 1]
+    index_feature_mapping = ["a", "b", "c", "d", "e"]
+
+`INDICATOR`
+
+The tensor is a list of binaries representing whether a feature exists or not (1 indicates existence). `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [1, 0, 1, 0, 1]
+    index_feature_mapping = ["a", "b", "c", "d", "e"]
+
+`COMBINED_EMBEDDING`
+
+The tensor is encoded into a 1-dimensional array represented by an encoded tensor. `InputMetadata.encoded_tensor_name` must be provided for this encoding. For example:
+
+    input = ["This", "is", "a", "test", "."]
+    encoded = [0.1, 0.2, 0.3, 0.4, 0.5]
+
+`CONCAT_EMBEDDING`
+
+Select this encoding when the input tensor is encoded into a 2-dimensional array represented by an encoded tensor. `InputMetadata.encoded_tensor_name` must be provided for this encoding. The first dimension of the encoded tensor's shape is the same as the input tensor's shape. For example:
+
+    input = ["This", "is", "a", "test", "."]
+    encoded = [[0.1, 0.2, 0.3, 0.4, 0.5],
+               [0.2, 0.1, 0.4, 0.3, 0.5],
+               [0.5, 0.1, 0.3, 0.5, 0.4],
+               [0.5, 0.3, 0.1, 0.2, 0.4],
+               [0.4, 0.3, 0.2, 0.5, 0.1]]
+
+### Type
+
+Type of the image visualization. Only applicable to `Integrated Gradients attribution` .
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Should not be used.
+
+`PIXELS`
+
+Shows which pixel contributed to the image prediction.
+
+`OUTLINES`
+
+Shows which region contributed to the image prediction by outlining the region.
+
+### Polarity
+
+Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE.
+
+Enums
+
+`POLARITY_UNSPECIFIED`
+
+Default value. This is the same as POSITIVE.
+
+`POSITIVE`
+
+Highlights the pixels/outlines that were most influential to the model's prediction.
+
+`NEGATIVE`
+
+Setting polarity to negative highlights areas that does not lead to the models's current prediction.
+
+`BOTH`
+
+Shows both positive and negative attributions.
+
+### ColorMap
+
+The color scheme used for highlighting areas.
+
+Enums
+
+`COLOR_MAP_UNSPECIFIED`
+
+Should not be used.
+
+`PINK_GREEN`
+
+Positive: green. Negative: pink.
+
+`VIRIDIS`
+
+Viridis color map: A perceptually uniform color mapping which is easier to see by those with colorblindness and progresses from yellow to green to blue. Positive: yellow. Negative: blue.
+
+`RED`
+
+Positive: red. Negative: red.
+
+`GREEN`
+
+Positive: green. Negative: green.
+
+`RED_GREEN`
+
+Positive: green. Negative: red.
+
+`PINK_WHITE_GREEN`
+
+PiYG palette.
+
+### OverlayType
+
+How the original image is displayed in the visualization.
+
+Enums
+
+`OVERLAY_TYPE_UNSPECIFIED`
+
+Default value. This is the same as NONE.
+
+`NONE`
+
+No overlay.
+
+`ORIGINAL`
+
+The attributions are shown on top of the original image.
+
+`GRAYSCALE`
+
+The attributions are shown on top of grayscaled version of the original image.
+
+`MASK_BLACK`
+
+The attributions are used as a mask to reveal predictive parts of the image and hide the un-predictive parts.
+
+### PSCAutomationState
+
+The state of the PSC service automation.
+
+Enums
+
+`PSC_AUTOMATION_STATE_UNSPECIFIED`
+
+Should not be used.
+
+`PSC_AUTOMATION_STATE_SUCCESSFUL`
+
+The PSC service automation is successful.
+
+`PSC_AUTOMATION_STATE_FAILED`
+
+The PSC service automation has failed.
+
+### ModelProvider
+
+A model provider (publisher) that prediction data may be shared with.
+
+Enums
+
+`MODEL_PROVIDER_UNSPECIFIED`
+
+Unspecified model provider.
+
+`ANTHROPIC`
+
+Anthropic.
 
 ### Tool Annotations
 

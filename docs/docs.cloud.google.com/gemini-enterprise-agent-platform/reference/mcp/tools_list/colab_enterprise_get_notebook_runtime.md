@@ -141,7 +141,7 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `healthState`
 
-`enum ( HealthState` )
+` enum ( HealthState  ` )
 
 Output only. The health state of the NotebookRuntime.
 
@@ -167,7 +167,7 @@ The service account that the NotebookRuntime workload runs as.
 
 `runtimeState`
 
-`enum ( RuntimeState` )
+` enum ( RuntimeState  ` )
 
 Output only. The runtime (instance) state of the NotebookRuntime.
 
@@ -208,7 +208,7 @@ Output only. The VM os image version of NotebookRuntime.
 
 `notebookRuntimeType`
 
-`enum ( NotebookRuntimeType` )
+` enum ( NotebookRuntimeType  ` )
 
 Output only. The type of the notebook runtime.
 
@@ -398,15 +398,15 @@ Fields
 
 Immutable. The type of the machine.
 
-See the [list of machine types supported for prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types)
+See the [list of machine types supported for prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
 
-See the [list of machine types supported for custom training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types) .
+See the [list of machine types supported for custom training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types) .
 
 For `DeployedModel` this field is optional, and the default value is `n1-standard-2` . For `BatchPredictionJob` or as part of `WorkerPoolSpec` this field is required.
 
 `acceleratorType`
 
-`enum ( AcceleratorType` )
+` enum ( AcceleratorType  ` )
 
 Immutable. The type of accelerator(s) that may be attached to the machine as per `accelerator_count` .
 
@@ -416,9 +416,9 @@ Immutable. The type of accelerator(s) that may be attached to the machine as per
 
 The number of accelerators to attach to the machine.
 
-For accelerator optimized machine types ( <https://cloud.google.com/compute/docs/accelerator-optimized-machines> , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Vertex will co-schedule the replicas of the model into the same VM to save cost.
+For [accelerator optimized machine types](https://cloud.google.com/compute/docs/accelerator-optimized-machines) , One may set the accelerator\_count from 1 to N for machine with N GPUs. If accelerator\_count is less than or equal to N / 2, Agent Platform co-schedules the replicas of the model into the same VM to save cost.
 
-For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Vertex will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
+For example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set accelerator\_count to 1 to 8. If accelerator\_count is 1, 2, 3, or 4, Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the same VM to save cost.
 
 When co-scheduling, CPU, memory and storage on the VM will be distributed to replicas on the VM. For example, one can expect a co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of the CPU, memory and storage of the VM.
 
@@ -470,7 +470,7 @@ Fields
 
 `reservationAffinityType`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Required. Specifies the reservation affinity type.
 
@@ -513,7 +513,7 @@ Fields
 
 `string`
 
-Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk)
+Type of the disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced) "hyperdisk-extreme" (Hyperdisk Extreme) "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput" (Hyperdisk Throughput)
 
 `diskSizeGb`
 
@@ -846,7 +846,7 @@ Optional. Post startup script url to download. Example: `gs://bucket/script.sh`
 
 `postStartupScriptBehavior`
 
-`enum ( PostStartupScriptBehavior` )
+` enum ( PostStartupScriptBehavior  ` )
 
 Optional. Post startup script behavior that defines download and execution behavior.
 
@@ -879,6 +879,206 @@ Fields
 Required. Resource name of the Cloud KMS key used to protect the resource.
 
 The Cloud KMS key must be in the same region as the resource. It must have the format `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}` .
+
+### HealthState
+
+The substate of the NotebookRuntime to display health information.
+
+Enums
+
+`HEALTH_STATE_UNSPECIFIED`
+
+Unspecified health state.
+
+`HEALTHY`
+
+NotebookRuntime is in healthy state. Applies to ACTIVE state.
+
+`UNHEALTHY`
+
+NotebookRuntime is in unhealthy state. Applies to ACTIVE state.
+
+### RuntimeState
+
+The substate of the NotebookRuntime to display state of runtime. The resource of NotebookRuntime is in ACTIVE state for these sub state.
+
+Enums
+
+`RUNTIME_STATE_UNSPECIFIED`
+
+Unspecified runtime state.
+
+`RUNNING`
+
+NotebookRuntime is in running state.
+
+`BEING_STARTED`
+
+NotebookRuntime is in starting state. This is when the runtime is being started from a stopped state.
+
+`BEING_STOPPED`
+
+NotebookRuntime is in stopping state.
+
+`STOPPED`
+
+NotebookRuntime is in stopped state.
+
+`BEING_UPGRADED`
+
+NotebookRuntime is in upgrading state. It is in the middle of upgrading process.
+
+`ERROR`
+
+NotebookRuntime was unable to start/stop properly.
+
+`INVALID`
+
+NotebookRuntime is in invalid state. Cannot be recovered.
+
+### NotebookRuntimeType
+
+Represents a notebook runtime type.
+
+Enums
+
+`NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED`
+
+Unspecified notebook runtime type, NotebookRuntimeType will default to USER\_DEFINED.
+
+`USER_DEFINED`
+
+runtime or template with coustomized configurations from user.
+
+`ONE_CLICK`
+
+runtime or template with system defined configurations.
+
+### AcceleratorType
+
+Represents a hardware accelerator type.
+
+Enums
+
+`ACCELERATOR_TYPE_UNSPECIFIED`
+
+Unspecified accelerator type, which means no accelerator.
+
+`NVIDIA_TESLA_K80`
+
+Deprecated: Nvidia Tesla K80 GPU has reached end of support, see <https://cloud.google.com/compute/docs/eol/k80-eol> .
+
+`NVIDIA_TESLA_P100`
+
+Nvidia Tesla P100 GPU.
+
+`NVIDIA_TESLA_V100`
+
+Nvidia Tesla V100 GPU.
+
+`NVIDIA_TESLA_P4`
+
+Nvidia Tesla P4 GPU.
+
+`NVIDIA_TESLA_T4`
+
+Nvidia Tesla T4 GPU.
+
+`NVIDIA_TESLA_A100`
+
+Nvidia Tesla A100 GPU.
+
+`NVIDIA_A100_80GB`
+
+Nvidia A100 80GB GPU.
+
+`NVIDIA_L4`
+
+Nvidia L4 GPU.
+
+`NVIDIA_H100_80GB`
+
+Nvidia H100 80Gb GPU.
+
+`NVIDIA_H100_MEGA_80GB`
+
+Nvidia H100 Mega 80Gb GPU.
+
+`NVIDIA_H200_141GB`
+
+Nvidia H200 141Gb GPU.
+
+`NVIDIA_B200`
+
+Nvidia B200 GPU.
+
+`NVIDIA_GB200`
+
+Nvidia GB200 GPU.
+
+`NVIDIA_RTX_PRO_6000`
+
+Nvidia RTX Pro 6000 GPU.
+
+`TPU_V2`
+
+TPU v2.
+
+`TPU_V3`
+
+TPU v3.
+
+`TPU_V4_POD`
+
+TPU v4.
+
+`TPU_V5_LITEPOD`
+
+TPU v5.
+
+### Type
+
+Identifies a type of reservation affinity.
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Default value. This should not be used.
+
+`NO_RESERVATION`
+
+Do not consume from any reserved capacity, only use on-demand.
+
+`ANY_RESERVATION`
+
+Consume any reservation available, falling back to on-demand.
+
+`SPECIFIC_RESERVATION`
+
+Consume from a specific reservation. When chosen, the reservation must be identified via the `key` and `values` fields.
+
+### PostStartupScriptBehavior
+
+Represents a notebook runtime post startup script behavior.
+
+Enums
+
+`POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED`
+
+Unspecified post startup script behavior.
+
+`RUN_ONCE`
+
+Run post startup script after runtime is started.
+
+`RUN_EVERY_START`
+
+Run post startup script after runtime is stopped.
+
+`DOWNLOAD_AND_RUN_EVERY_START`
+
+Download and run post startup script every time runtime is started.
 
 ### Tool Annotations
 

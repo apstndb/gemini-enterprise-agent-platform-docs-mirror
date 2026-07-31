@@ -217,7 +217,7 @@ Optional. This field is populated if the model is produced by a pipeline job.
 
 ` object ( ModelContainerSpec  ` )
 
-Input only. The specification of the container that is to be used when deploying this Model. The specification is ingested upon `ModelService.UploadModel` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
+The specification of the container that is to be used when deploying this Model. The specification is ingested upon `ModelService.UploadModel` , and all binaries it contains are copied and stored internally by Agent Platform. Not required for AutoML Models.
 
 `artifactUri`
 
@@ -227,7 +227,7 @@ Immutable. The path to the directory containing the Model artifact and any of it
 
 `supportedDeploymentResourcesTypes[]`
 
-`enum ( DeploymentResourcesType` )
+` enum ( DeploymentResourcesType  ` )
 
 Output only. When this Model is deployed, its prediction resources are described by the `prediction_resources` field of the `Endpoint.deployed_models` object. Because not all Models support all resource configuration types, the configuration types this Model supports are listed here. If no configuration types are listed, the Model cannot be deployed to an `Endpoint` and does not support online predictions ( `PredictionService.Predict` or `PredictionService.Explain` ). Such a Model can serve predictions by using a `BatchPredictionJob` , if it has at least one entry each in `supported_input_storage_formats` and `supported_output_storage_formats` .
 
@@ -648,7 +648,7 @@ Output only. The ID of the export format. The possible format IDs are:
 
 `exportableContents[]`
 
-`enum ( ExportableContent` )
+` enum ( ExportableContent  ` )
 
 Output only. The content of this Model that may be exported.
 
@@ -1691,7 +1691,7 @@ Fields
 
 `dataFormat`
 
-`enum ( DataFormat` )
+` enum ( DataFormat  ` )
 
 The format in which instances are given, if not specified, assume it's JSONL format. Currently only JSONL format is supported.
 
@@ -1753,7 +1753,7 @@ Fields
 
 `modality`
 
-`enum ( Modality` )
+` enum ( Modality  ` )
 
 The modality of the uploaded model, which automatically configures the distance measurement and feature normalization for the underlying example index and queries. If your model does not precisely fit one of these types, it is okay to choose the closest type.
 
@@ -1763,7 +1763,7 @@ Union field `_query` .
 
 `query`
 
-`enum ( Query` )
+` enum ( Query  ` )
 
 Preset option controlling parameters for speed-precision trade-off when querying for examples. If omitted, defaults to `PRECISE` .
 
@@ -1895,7 +1895,7 @@ Name of the input tensor for this feature. Required and is only applicable to Ag
 
 `encoding`
 
-`enum ( Encoding` )
+` enum ( Encoding  ` )
 
 Defines how the feature is encoded into the input tensor. Defaults to IDENTITY.
 
@@ -2028,19 +2028,19 @@ Fields
 
 `type`
 
-`enum ( Type` )
+` enum ( Type  ` )
 
 Type of the image visualization. Only applicable to `Integrated Gradients attribution` . OUTLINES shows regions of attribution, while PIXELS shows per-pixel attribution. Defaults to OUTLINES.
 
 `polarity`
 
-`enum ( Polarity` )
+` enum ( Polarity  ` )
 
 Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE.
 
 `colorMap`
 
-`enum ( ColorMap` )
+` enum ( ColorMap  ` )
 
 The color scheme used for the highlighted areas.
 
@@ -2062,7 +2062,7 @@ Excludes attributions below the specified percentile, from the highlighted areas
 
 `overlayType`
 
-`enum ( OverlayType` )
+` enum ( OverlayType  ` )
 
 How the original image is displayed in the visualization. Adjusting the overlay can help increase visual clarity if the original image makes it difficult to view the visualization. Defaults to NONE.
 
@@ -2290,7 +2290,7 @@ Fields
 
 `sourceType`
 
-`enum ( ModelSourceType` )
+` enum ( ModelSourceType  ` )
 
 Type of the model source.
 
@@ -2475,6 +2475,301 @@ The epoch of the checkpoint.
 `string ( int64 format)`
 
 The step of the checkpoint.
+
+### NullValue
+
+Represents a JSON `null` .
+
+`NullValue` is a sentinel, using an enum with only one value to represent the null value for the `Value` type union.
+
+A field of type `NullValue` with any value other than `0` is considered invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value` set as a JSON `null` regardless of the integer value, and so will round trip to a `0` value.
+
+Enums
+
+`NULL_VALUE`
+
+Null value.
+
+### ExportableContent
+
+The Model content that can be exported.
+
+Enums
+
+`EXPORTABLE_CONTENT_UNSPECIFIED`
+
+Should not be used.
+
+`ARTIFACT`
+
+Model artifact and any of its supported files. Will be exported to the location specified by the `artifactDestination` field of the `ExportModelRequest.output_config` object.
+
+`IMAGE`
+
+The container image that is to be used when deploying this Model. Will be exported to the location specified by the `imageDestination` field of the `ExportModelRequest.output_config` object.
+
+### DeploymentResourcesType
+
+Identifies a type of Model's prediction resources.
+
+Enums
+
+`DEPLOYMENT_RESOURCES_TYPE_UNSPECIFIED`
+
+Should not be used.
+
+`DEDICATED_RESOURCES`
+
+Resources that are dedicated to the `DeployedModel` , and that need a higher degree of manual configuration.
+
+`AUTOMATIC_RESOURCES`
+
+Resources that to large degree are decided by Agent Platform, and require only a modest additional configuration.
+
+`SHARED_RESOURCES`
+
+Resources that can be shared by multiple `DeployedModels` . A pre-configured `DeploymentResourcePool` is required.
+
+### DataFormat
+
+The format of the input example instances.
+
+Enums
+
+`DATA_FORMAT_UNSPECIFIED`
+
+Format unspecified, used when unset.
+
+`JSONL`
+
+Examples are stored in JSONL files.
+
+### Query
+
+Preset option controlling parameters for query speed-precision trade-off
+
+Enums
+
+`PRECISE`
+
+More precise neighbors as a trade-off against slower response.
+
+`FAST`
+
+Faster response as a trade-off against less precise neighbors.
+
+### Modality
+
+Preset option controlling parameters for different modalities
+
+Enums
+
+`MODALITY_UNSPECIFIED`
+
+Should not be set. Added as a recommended best practice for enums
+
+`IMAGE`
+
+IMAGE modality
+
+`TEXT`
+
+TEXT modality
+
+`TABULAR`
+
+TABULAR modality
+
+### Encoding
+
+Defines how a feature is encoded. Defaults to IDENTITY.
+
+Enums
+
+`ENCODING_UNSPECIFIED`
+
+Default value. This is the same as IDENTITY.
+
+`IDENTITY`
+
+The tensor represents one feature.
+
+`BAG_OF_FEATURES`
+
+The tensor represents a bag of features where each index maps to a feature. `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [27, 6.0, 150]
+    index_feature_mapping = ["age", "height", "weight"]
+
+`BAG_OF_FEATURES_SPARSE`
+
+The tensor represents a bag of features where each index maps to a feature. Zero values in the tensor indicates feature being non-existent. `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [2, 0, 5, 0, 1]
+    index_feature_mapping = ["a", "b", "c", "d", "e"]
+
+`INDICATOR`
+
+The tensor is a list of binaries representing whether a feature exists or not (1 indicates existence). `InputMetadata.index_feature_mapping` must be provided for this encoding. For example:
+
+    input = [1, 0, 1, 0, 1]
+    index_feature_mapping = ["a", "b", "c", "d", "e"]
+
+`COMBINED_EMBEDDING`
+
+The tensor is encoded into a 1-dimensional array represented by an encoded tensor. `InputMetadata.encoded_tensor_name` must be provided for this encoding. For example:
+
+    input = ["This", "is", "a", "test", "."]
+    encoded = [0.1, 0.2, 0.3, 0.4, 0.5]
+
+`CONCAT_EMBEDDING`
+
+Select this encoding when the input tensor is encoded into a 2-dimensional array represented by an encoded tensor. `InputMetadata.encoded_tensor_name` must be provided for this encoding. The first dimension of the encoded tensor's shape is the same as the input tensor's shape. For example:
+
+    input = ["This", "is", "a", "test", "."]
+    encoded = [[0.1, 0.2, 0.3, 0.4, 0.5],
+               [0.2, 0.1, 0.4, 0.3, 0.5],
+               [0.5, 0.1, 0.3, 0.5, 0.4],
+               [0.5, 0.3, 0.1, 0.2, 0.4],
+               [0.4, 0.3, 0.2, 0.5, 0.1]]
+
+### Type
+
+Type of the image visualization. Only applicable to `Integrated Gradients attribution` .
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Should not be used.
+
+`PIXELS`
+
+Shows which pixel contributed to the image prediction.
+
+`OUTLINES`
+
+Shows which region contributed to the image prediction by outlining the region.
+
+### Polarity
+
+Whether to only highlight pixels with positive contributions, negative or both. Defaults to POSITIVE.
+
+Enums
+
+`POLARITY_UNSPECIFIED`
+
+Default value. This is the same as POSITIVE.
+
+`POSITIVE`
+
+Highlights the pixels/outlines that were most influential to the model's prediction.
+
+`NEGATIVE`
+
+Setting polarity to negative highlights areas that does not lead to the models's current prediction.
+
+`BOTH`
+
+Shows both positive and negative attributions.
+
+### ColorMap
+
+The color scheme used for highlighting areas.
+
+Enums
+
+`COLOR_MAP_UNSPECIFIED`
+
+Should not be used.
+
+`PINK_GREEN`
+
+Positive: green. Negative: pink.
+
+`VIRIDIS`
+
+Viridis color map: A perceptually uniform color mapping which is easier to see by those with colorblindness and progresses from yellow to green to blue. Positive: yellow. Negative: blue.
+
+`RED`
+
+Positive: red. Negative: red.
+
+`GREEN`
+
+Positive: green. Negative: green.
+
+`RED_GREEN`
+
+Positive: green. Negative: red.
+
+`PINK_WHITE_GREEN`
+
+PiYG palette.
+
+### OverlayType
+
+How the original image is displayed in the visualization.
+
+Enums
+
+`OVERLAY_TYPE_UNSPECIFIED`
+
+Default value. This is the same as NONE.
+
+`NONE`
+
+No overlay.
+
+`ORIGINAL`
+
+The attributions are shown on top of the original image.
+
+`GRAYSCALE`
+
+The attributions are shown on top of grayscaled version of the original image.
+
+`MASK_BLACK`
+
+The attributions are used as a mask to reveal predictive parts of the image and hide the un-predictive parts.
+
+### ModelSourceType
+
+Source of the model. Different from `objective` field, this `ModelSourceType` enum indicates the source from which the model was accessed or obtained, whereas the `objective` indicates the overall aim or function of this model.
+
+Enums
+
+`MODEL_SOURCE_TYPE_UNSPECIFIED`
+
+Should not be used.
+
+`AUTOML`
+
+The Model is uploaded by automl training pipeline.
+
+`CUSTOM`
+
+The Model is uploaded by user or custom training pipeline.
+
+`BQML`
+
+The Model is registered and sync'ed from BigQuery ML.
+
+`MODEL_GARDEN`
+
+The Model is saved or tuned from Model Garden.
+
+`GENIE`
+
+The Model is saved or tuned from Genie.
+
+`CUSTOM_TEXT_EMBEDDING`
+
+The Model is uploaded by text embedding finetuning pipeline.
+
+`MARKETPLACE`
+
+The Model is saved or tuned from Marketplace.
 
 ## Output Schema
 

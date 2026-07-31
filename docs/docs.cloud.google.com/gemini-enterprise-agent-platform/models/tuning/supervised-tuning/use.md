@@ -1106,7 +1106,7 @@ You can configure a model tuning job to collect and report model tuning and mode
 
 ### Model tuning metrics
 
-The model tuning job automatically collects the following tuning metrics for `Gemini 2.0 Flash` :
+The model tuning job automatically collects the following tuning metrics for the model:
 
   - `/train_total_loss` : Loss for the tuning dataset at a training step.
   - `/train_fraction_of_correct_next_step_preds` : The token accuracy at a training step. A single inference consists of a sequence of predicted tokens. This metric measures the accuracy of the predicted tokens when compared to the ground truth in the tuning dataset.
@@ -1114,7 +1114,7 @@ The model tuning job automatically collects the following tuning metrics for `Ge
 
 ### Model validation metrics
 
-You can configure a model tuning job to collect the following validation metrics for `Gemini 2.0 Flash` :
+You can configure a model tuning job to collect the following validation metrics for the model:
 
   - `/eval_total_loss` : Loss for the validation dataset at a validation step.
   - `/eval_fraction_of_correct_next_step_preds` : The token accuracy at an validation step. A single inference consists of a sequence of predicted tokens. This metric measures the accuracy of the predicted tokens when compared to the ground truth in the validation dataset.

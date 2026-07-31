@@ -1,7 +1,7 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk
-title: Develop Gemini API code with the Google Gen AI SDK
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/connect-to-the-knowledge-mcp-server
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/connect-to-the-knowledge-mcp-server
+title: Connect to the Knowledge MCP server
 description: Accelerate your development workflow with the Google Gen AI SDK, enhanced by the Google Developer Knowledge MCP server.
 data_source: docs.cloud.google.com
 ---

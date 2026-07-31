@@ -305,6 +305,18 @@ Tokens
 1 output text token = 4 tokens  
 1 output audio token = 24 tokens  
 
+[Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)
+
+Latest supported version: `virtual-try-on-001`
+
+0.02
+
+Images
+
+1
+
+1 images per second = 0.02 tokens  
+
 [Veo 3.1 Lite Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001-preview)
 
 Latest supported version: `veo-3.1-lite-generate-001`

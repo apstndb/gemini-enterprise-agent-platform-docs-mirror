@@ -325,7 +325,7 @@ This method can be used to update the request-response logging configuration for
     tuned_model = GenerativeModel(f"projects/{PROJECT_ID}/locations/{LOCATION}/endpoints/ENDPOINT_ID")
     
     # Set logging configuration
-    publisher_model.set_request_response_logging_config(
+    tuned_model.set_request_response_logging_config(
         enabled=True,
         sampling_rate=1.0,
         bigquery_destination=f"bq://{PROJECT_ID}.DATASET_NAME.TABLE_NAME",

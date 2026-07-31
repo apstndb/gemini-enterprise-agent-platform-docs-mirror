@@ -1,16 +1,20 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/embed_content
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/embed_content
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/corroborate_content
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/mcp/tools_list/corroborate_content
 title: 'MCP Tools Reference: aiplatform.googleapis.com'
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-## Tool: `embed_content`
+## Tool: `corroborate_content`
 
-Converts text or multimodal input into a high-dimensional vector representation (embedding), which is essential for tasks like semantic search, clustering, and Retrieval-Augmented Generation (RAG).
+Evaluates the factuality of a piece of content (typically an LLM-generated response) against a set of facts from a RAG Engine Corpus, returning a per-claim citation score and supporting facts. Use this after a generation step when the user wants to verify groundedness, surface hallucinations, or attach citations to model output.
 
-The following sample demonstrate how to use `curl` to invoke the `embed_content` MCP tool.
+Differs from `retrieve_contexts` and `augment_prompt` : those happen *before* generation; `corroborate_content` happens *after* , on text the model already produced. Format: 'projects/{project\_id}/locations/{region}'. CRITICAL: For {region}, use the region specified in the current context window. If no region is specified, prompt the user to provide one. Do not use 'global'.
+
+**Parameters** \* `parent` : The parent resource, of the form `projects/{project}/locations/{location}` . \* `content` : The input content to corroborate, in `Content` form. Only text is supported. \* `facts` : A list of facts to corroborate the content against. Typically obtained from a prior `retrieve_contexts` call. \* `parameters` : Optional per-request parameter overrides. \* `parameters.citation_threshold` : Only return claims whose citation score exceeds this threshold.
+
+The following sample demonstrate how to use `curl` to invoke the `corroborate_content` MCP tool.
 
 <table>
 <colgroup>
@@ -30,7 +34,7 @@ curl --location &#39;https://aiplatform.googleapis.com/mcp/generate&#39; \
 --data &#39;{
   &quot;method&quot;: &quot;tools/call&quot;,
   &quot;params&quot;: {
-    &quot;name&quot;: &quot;embed_content&quot;,
+    &quot;name&quot;: &quot;corroborate_content&quot;,
     &quot;arguments&quot;: {
       // provide these details according to the tool&#39;s MCP specification
     }
@@ -45,9 +49,9 @@ curl --location &#39;https://aiplatform.googleapis.com/mcp/generate&#39; \
 
 ## Input Schema
 
-Request message for `PredictionService.EmbedContent` .
+Request message for CorroborateContent.
 
-### EmbedContentRequest
+### CorroborateContentRequest
 
 <table>
 <colgroup>
@@ -60,22 +64,30 @@ Request message for `PredictionService.EmbedContent` .
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field _model can be only one of the following:&quot;model&quot;: string// End of list of possible types for union field _model.// Union field _content can be only one of the following:&quot;content&quot;: {object (Content)}// End of list of possible types for union field _content.// Union field _title can be only one of the following:&quot;title&quot;: string// End of list of possible types for union field _title.// Union field _task_type can be only one of the following:&quot;taskType&quot;: enum (EmbeddingTaskType)// End of list of possible types for union field _task_type.// Union field _output_dimensionality can be only one of the following:&quot;outputDimensionality&quot;: integer// End of list of possible types for union field _output_dimensionality.// Union field _auto_truncate can be only one of the following:&quot;autoTruncate&quot;: boolean// End of list of possible types for union field _auto_truncate.// Union field _embed_content_config can be only one of the following:&quot;embedContentConfig&quot;: {object (EmbedContentConfig)}// End of list of possible types for union field _embed_content_config.}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;parent&quot;: string,&quot;facts&quot;: [{object (Fact)}],&quot;parameters&quot;: {object (Parameters)},// Union field _content can be only one of the following:&quot;content&quot;: {object (Content)}// End of list of possible types for union field _content.}</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 Fields
 
-Union field `_model` .
-
-`_model` can be only one of the following:
-
-`model`
+`parent`
 
 `string`
 
-Required. The name of the publisher model requested to serve the prediction. Format: `projects/{project}/locations/{location}/publishers/*/models/*`
+Required. The resource name of the Location from which to corroborate text. The users must have permission to make a call in the project. Format: `projects/{project}/locations/{location}` .
+
+`facts[]`
+
+` object ( Fact  ` )
+
+Optional. Facts used to generate the text can also be used to corroborate the text.
+
+`parameters`
+
+` object ( Parameters  ` )
+
+Optional. Parameters that can be set to override default settings per request.
 
 Union field `_content` .
 
@@ -85,65 +97,7 @@ Union field `_content` .
 
 ` object ( Content  ` )
 
-Required. The content to be embedded.
-
-Union field `_title` .
-
-`_title` can be only one of the following:
-
-` title (deprecated)  `
-
-`string`
-
-> This item is deprecated\!
-
-Optional. Deprecated: Please use EmbedContentConfig.title instead. The title for the text.
-
-Union field `_task_type` .
-
-`_task_type` can be only one of the following:
-
-` taskType (deprecated)  `
-
-` enum ( EmbeddingTaskType  ` )
-
-> This item is deprecated\!
-
-Optional. Deprecated: Please use EmbedContentConfig.task\_type instead. The task type of the embedding.
-
-Union field `_output_dimensionality` .
-
-`_output_dimensionality` can be only one of the following:
-
-` outputDimensionality (deprecated)  `
-
-`integer`
-
-> This item is deprecated\!
-
-Optional. Deprecated: Please use EmbedContentConfig.output\_dimensionality instead. Reduced dimension for the output embedding. If set, excessive values in the output embedding are truncated from the end.
-
-Union field `_auto_truncate` .
-
-`_auto_truncate` can be only one of the following:
-
-` autoTruncate (deprecated)  `
-
-`boolean`
-
-> This item is deprecated\!
-
-Optional. Deprecated: Please use EmbedContentConfig.auto\_truncate instead. Whether to silently truncate the input content if it's longer than the maximum sequence length.
-
-Union field `_embed_content_config` .
-
-`_embed_content_config` can be only one of the following:
-
-`embedContentConfig`
-
-` object ( EmbedContentConfig  ` )
-
-Optional. Configuration for the EmbedContent request.
+Optional. Input content to corroborate, only text format is supported for now.
 
 ### Content
 
@@ -1084,7 +1038,7 @@ Optional. End offset in time of the word relative to the start of the audio.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
-### EmbedContentConfig
+### Fact
 
 <table>
 <colgroup>
@@ -1097,12 +1051,22 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field _title can be only one of the following:&quot;title&quot;: string// End of list of possible types for union field _title.// Union field _task_type can be only one of the following:&quot;taskType&quot;: enum (EmbeddingTaskType)// End of list of possible types for union field _task_type.// Union field _auto_truncate can be only one of the following:&quot;autoTruncate&quot;: boolean// End of list of possible types for union field _auto_truncate.// Union field _output_dimensionality can be only one of the following:&quot;outputDimensionality&quot;: integer// End of list of possible types for union field _output_dimensionality.// Union field _document_ocr can be only one of the following:&quot;documentOcr&quot;: boolean// End of list of possible types for union field _document_ocr.// Union field _audio_track_extraction can be only one of the following:&quot;audioTrackExtraction&quot;: boolean// End of list of possible types for union field _audio_track_extraction.}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field _query can be only one of the following:&quot;query&quot;: string// End of list of possible types for union field _query.// Union field _title can be only one of the following:&quot;title&quot;: string// End of list of possible types for union field _title.// Union field _uri can be only one of the following:&quot;uri&quot;: string// End of list of possible types for union field _uri.// Union field _summary can be only one of the following:&quot;summary&quot;: string// End of list of possible types for union field _summary.// Union field _vector_distance can be only one of the following:&quot;vectorDistance&quot;: number// End of list of possible types for union field _vector_distance.// Union field _score can be only one of the following:&quot;score&quot;: number// End of list of possible types for union field _score.// Union field _chunk can be only one of the following:&quot;chunk&quot;: {object (RagChunk)}// End of list of possible types for union field _chunk.}</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 Fields
+
+Union field `_query` .
+
+`_query` can be only one of the following:
+
+`query`
+
+`string`
+
+Query that is used to retrieve this fact.
 
 Union field `_title` .
 
@@ -1112,63 +1076,160 @@ Union field `_title` .
 
 `string`
 
-Optional. The title for the text.
+If present, it refers to the title of this fact.
 
-Only applicable to text-only embedding models.
+Union field `_uri` .
 
-Union field `_task_type` .
+`_uri` can be only one of the following:
 
-`_task_type` can be only one of the following:
+`uri`
 
-`taskType`
+`string`
 
-` enum ( EmbeddingTaskType  ` )
+If present, this uri links to the source of the fact.
 
-Optional. The task type of the embedding.
+Union field `_summary` .
 
-Only applicable to text-only embedding models.
+`_summary` can be only one of the following:
 
-Union field `_auto_truncate` .
+`summary`
 
-`_auto_truncate` can be only one of the following:
+`string`
 
-`autoTruncate`
+If present, the summary/snippet of the fact.
 
-`boolean`
+Union field `_vector_distance` .
 
-Optional. Whether to silently truncate the input content if it's longer than the maximum sequence length.
+`_vector_distance` can be only one of the following:
 
-Only applicable to text-only embedding models.
+` vectorDistance (deprecated)  `
 
-Union field `_output_dimensionality` .
+`number`
 
-`_output_dimensionality` can be only one of the following:
+> This item is deprecated\!
 
-`outputDimensionality`
+If present, the distance between the query vector and this fact vector.
+
+Union field `_score` .
+
+`_score` can be only one of the following:
+
+`score`
+
+`number`
+
+If present, according to the underlying Vector DB and the selected metric type, the score can be either the distance or the similarity between the query and the fact and its range depends on the metric type.
+
+For example, if the metric type is COSINE\_DISTANCE, it represents the distance between the query and the fact. The larger the distance, the less relevant the fact is to the query. The range is \[0, 2\], while 0 means the most relevant and 2 means the least relevant.
+
+Union field `_chunk` .
+
+`_chunk` can be only one of the following:
+
+`chunk`
+
+` object ( RagChunk  ` )
+
+If present, chunk properties.
+
+### RagChunk
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;text&quot;: string,// Union field _page_span can be only one of the following:&quot;pageSpan&quot;: {object (PageSpan)}// End of list of possible types for union field _page_span.}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`text`
+
+`string`
+
+The content of the chunk.
+
+Union field `_page_span` .
+
+`_page_span` can be only one of the following:
+
+`pageSpan`
+
+` object ( PageSpan  ` )
+
+If populated, represents where the chunk starts and ends in the document.
+
+### PageSpan
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;firstPage&quot;: integer,
+  &quot;lastPage&quot;: integer
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+Fields
+
+`firstPage`
 
 `integer`
 
-Optional. Reduced dimension for the output embedding. If set, excessive values in the output embedding are truncated from the end.
+Page where chunk starts in the document. Inclusive. 1-indexed.
 
-Union field `_document_ocr` .
+`lastPage`
 
-`_document_ocr` can be only one of the following:
+`integer`
 
-`documentOcr`
+Page where chunk ends in the document. Inclusive. 1-indexed.
 
-`boolean`
+### Parameters
 
-Optional. Whether to enable OCR for document content.
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;citationThreshold&quot;: number
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
 
-Union field `_audio_track_extraction` .
+Fields
 
-`_audio_track_extraction` can be only one of the following:
+`citationThreshold`
 
-`audioTrackExtraction`
+`number`
 
-`boolean`
-
-Optional. Whether to extract audio from video content.
+Optional. Only return claims with citation score larger than the threshold.
 
 ### NullValue
 
@@ -1246,91 +1307,11 @@ Media resolution set to high.
 
 Media resolution set to ultra high. This is for image only.
 
-### EmbeddingTaskType
-
-Represents a downstream task the embeddings will be used for.
-
-Enums
-
-`UNSPECIFIED`
-
-Unset value, which will default to one of the other enum values.
-
-`RETRIEVAL_QUERY`
-
-Specifies the given text is a query in a search/retrieval setting.
-
-`RETRIEVAL_DOCUMENT`
-
-Specifies the given text is a document from the corpus being searched.
-
-`SEMANTIC_SIMILARITY`
-
-Specifies the given text will be used for STS.
-
-`CLASSIFICATION`
-
-Specifies that the given text will be classified.
-
-`CLUSTERING`
-
-Specifies that the embeddings will be used for clustering.
-
-`QUESTION_ANSWERING`
-
-Specifies that the embeddings will be used for question answering.
-
-`FACT_VERIFICATION`
-
-Specifies that the embeddings will be used for fact verification.
-
-`CODE_RETRIEVAL_QUERY`
-
-Specifies that the embeddings will be used for code retrieval.
-
 ## Output Schema
 
-Response message for `PredictionService.EmbedContent` .
+Response message for CorroborateContent.
 
-### EmbedContentResponse
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;embedding&quot;: {object (Embedding)},&quot;usageMetadata&quot;: {object (UsageMetadata)},&quot;truncated&quot;: boolean}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-Fields
-
-`embedding`
-
-` object ( Embedding  ` )
-
-The embedding generated from the input content.
-
-`usageMetadata`
-
-` object ( UsageMetadata  ` )
-
-Usage metadata about the response(s).
-
-`truncated`
-
-`boolean`
-
-Whether the input content was truncated before generating the embedding.
-
-### Embedding
+### CorroborateContentResponse
 
 <table>
 <colgroup>
@@ -1343,110 +1324,30 @@ Whether the input content was truncated before generating the embedding.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;values&quot;: [
-    number
-  ]
-}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;claims&quot;: [{object (Claim)}],// Union field _corroboration_score can be only one of the following:&quot;corroborationScore&quot;: number// End of list of possible types for union field _corroboration_score.}</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 Fields
 
-`values[]`
+`claims[]`
+
+` object ( Claim  ` )
+
+Claims that are extracted from the input content and facts that support the claims.
+
+Union field `_corroboration_score` .
+
+`_corroboration_score` can be only one of the following:
+
+`corroborationScore`
 
 `number`
 
-Embedding vector values.
+Confidence score of corroborating content. Value is \[0,1\] with 1 is the most confidence.
 
-### UsageMetadata
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;promptTokenCount&quot;: integer,&quot;candidatesTokenCount&quot;: integer,&quot;totalTokenCount&quot;: integer,&quot;toolUsePromptTokenCount&quot;: integer,&quot;thoughtsTokenCount&quot;: integer,&quot;cachedContentTokenCount&quot;: integer,&quot;promptTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;cacheTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;candidatesTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;toolUsePromptTokensDetails&quot;: [{object (ModalityTokenCount)}],&quot;trafficType&quot;: enum (TrafficType)}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-Fields
-
-`promptTokenCount`
-
-`integer`
-
-The total number of tokens in the prompt. This includes any text, images, or other media provided in the request. When `cached_content` is set, this also includes the number of tokens in the cached content.
-
-`candidatesTokenCount`
-
-`integer`
-
-The total number of tokens in the generated candidates.
-
-`totalTokenCount`
-
-`integer`
-
-The total number of tokens for the entire request. This is the sum of `prompt_token_count` , `candidates_token_count` , `tool_use_prompt_token_count` , and `thoughts_token_count` .
-
-`toolUsePromptTokenCount`
-
-`integer`
-
-Output only. The number of tokens in the results from tool executions, which are provided back to the model as input, if applicable.
-
-`thoughtsTokenCount`
-
-`integer`
-
-Output only. The number of tokens that were part of the model's generated "thoughts" output, if applicable.
-
-`cachedContentTokenCount`
-
-`integer`
-
-Output only. The number of tokens in the cached content that was used for this request.
-
-`promptTokensDetails[]`
-
-` object ( ModalityTokenCount  ` )
-
-Output only. A detailed breakdown of the token count for each modality in the prompt.
-
-`cacheTokensDetails[]`
-
-` object ( ModalityTokenCount  ` )
-
-Output only. A detailed breakdown of the token count for each modality in the cached content.
-
-`candidatesTokensDetails[]`
-
-` object ( ModalityTokenCount  ` )
-
-Output only. A detailed breakdown of the token count for each modality in the generated candidates.
-
-`toolUsePromptTokensDetails[]`
-
-` object ( ModalityTokenCount  ` )
-
-Output only. A detailed breakdown by modality of the token counts from the results of tool executions, which are provided back to the model as input.
-
-`trafficType`
-
-` enum ( TrafficType  ` )
-
-Output only. The traffic type for this request.
-
-### ModalityTokenCount
+### Claim
 
 <table>
 <colgroup>
@@ -1459,80 +1360,48 @@ Output only. The traffic type for this request.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;modality&quot;: enum (Modality),&quot;tokenCount&quot;: integer}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;factIndexes&quot;: [integer],// Union field _start_index can be only one of the following:&quot;startIndex&quot;: integer// End of list of possible types for union field _start_index.// Union field _end_index can be only one of the following:&quot;endIndex&quot;: integer// End of list of possible types for union field _end_index.// Union field _score can be only one of the following:&quot;score&quot;: number// End of list of possible types for union field _score.}</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 Fields
 
-`modality`
-
-` enum ( Modality  ` )
-
-The modality that this token count applies to.
-
-`tokenCount`
+`factIndexes[]`
 
 `integer`
 
-The number of tokens counted for this modality.
+Indexes of the facts supporting this claim.
 
-### Modality
+Union field `_start_index` .
 
-The modality of a `Part` of a `Content` message. A modality is the type of media, such as an image or a video. It is used to categorize the content of a `Part` for token counting purposes.
+`_start_index` can be only one of the following:
 
-Enums
+`startIndex`
 
-`MODALITY_UNSPECIFIED`
+`integer`
 
-When a modality is not specified, it is treated as `TEXT` .
+Index in the input text where the claim starts (inclusive).
 
-`TEXT`
+Union field `_end_index` .
 
-The `Part` contains plain text.
+`_end_index` can be only one of the following:
 
-`IMAGE`
+`endIndex`
 
-The `Part` contains an image.
+`integer`
 
-`VIDEO`
+Index in the input text where the claim ends (exclusive).
 
-The `Part` contains a video.
+Union field `_score` .
 
-`AUDIO`
+`_score` can be only one of the following:
 
-The `Part` contains audio.
+`score`
 
-`DOCUMENT`
+`number`
 
-The `Part` contains a document, such as a PDF.
-
-### TrafficType
-
-The type of traffic that this request was processed with, indicating which quota gets consumed.
-
-Enums
-
-`TRAFFIC_TYPE_UNSPECIFIED`
-
-Unspecified request traffic type.
-
-`ON_DEMAND`
-
-Type for Pay-As-You-Go traffic.
-
-`ON_DEMAND_PRIORITY`
-
-Type for Priority Pay-As-You-Go traffic.
-
-`ON_DEMAND_FLEX`
-
-Type for Flex traffic.
-
-`PROVISIONED_THROUGHPUT`
-
-Type for Provisioned Throughput traffic.
+Confidence score of this corroboration.
 
 ### Tool Annotations
 

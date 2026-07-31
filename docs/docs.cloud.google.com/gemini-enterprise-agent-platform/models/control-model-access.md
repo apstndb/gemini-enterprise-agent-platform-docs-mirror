@@ -46,7 +46,7 @@ Replace the following:
   - `  MODEL_NAME  ` : the name of the model to allow or deny.
   - `  ACTION  ` : a [model action](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access#actions) to include with your policy.
 
-For example, to define a policy rule on predictions against the Gemini 2.0 Flash model, specify `publishers/google/models/gemini-2.0-flash:predict` .
+For example, to define a policy rule on predictions against the Gemini 3.5 Flash model, specify `publishers/google/models/gemini-3.5-flash:predict` .
 
 The fully qualified ID ( ` publishers/ PUBLISHER /models/ MODEL_NAME  ` ) is also known as the *model ID* . To find the model ID for a model, go to its model card in Model Garden. For links to model cards, see the list of models in [Explore AI models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
 
@@ -90,7 +90,7 @@ The following example denies actions on a specific set of models.
         values:
           deniedValues:
           - publishers/meta/models/llama3:deploy
-          - publishers/google/models/gemini-2.0-flash:tune
+          - publishers/google/models/gemini-3.5-flash:tune
           - publishers/hf-google/models/gemma-2b:deploy
 
 Replace ORGANIZATION\_ID with the ID of your Google Cloud organization. For more information, see [Getting an organization resource](https://docs.cloud.google.com/resource-manager/docs/creating-managing-organization#acquiring) .
@@ -105,7 +105,7 @@ The following example allows actions on a specific set of models.
         values:
           allowedValues:
           - publishers/meta/models/llama3:deploy
-          - publishers/google/models/gemini-2.0-flash:tune
+          - publishers/google/models/gemini-3.5-flash:tune
           - publishers/hf-google/models/gemma-2b:deploy
 
 ### Enable `web_search` for partner models

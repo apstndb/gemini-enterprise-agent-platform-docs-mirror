@@ -202,7 +202,7 @@ In this tutorial, you will learn how to use the Google Gen AI SDK for Python to 
 
 ## All Tutorials
 
-**Filter by:** Agent Engine Agents Batch Prediction Claude Code Execution Embeddings Evaluation Function Calling Gemini Gemma Grounding Hugging Face Image Generation LangChain LangGraph Live API LlamaIndex Model Garden Multimodal Orchestration Prompting RAG RAG Engine Search Security Speech Thinking Tuning Vector Search Veo Workspace
+**Filter by:** Agent Engine Agents Batch Prediction Claude Embeddings Evaluation Function Calling Gemini Gemma Grounding Hugging Face Image Generation LangChain LangGraph Live API LlamaIndex Model Garden Multimodal Orchestration Prompting RAG RAG Engine Search Security Speech Thinking Tuning Vector Search Veo Workspace
 
 <table>
 <colgroup>
@@ -819,84 +819,78 @@ Prompting</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Gemini
-Tuning</td>
-<td><p><strong>Supervised Fine Tuning with Gemini 2.0 Flash for Change Detection</strong></p></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Evaluation
 Gemini
 Model garden</td>
 <td><p><strong>Use Gen AI Evaluation SDK to Evaluate Models in Agent Platform Studio, Model Garden, and Model Registry</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Evaluation
 Gemini
 Rag</td>
 <td><p><strong>Evaluate Generated Answers from RAG using Rapid Evaluation and Dataflow ML with Agent Platform Pipelines</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Evaluation
 Gemini</td>
 <td><p><strong>Enhancing Quality and Explainability with Agent Platform Evaluation</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Evaluation
 Gemini</td>
 <td><p><strong>Evaluate and Compare Gen AI Model Settings</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Evaluation
 Gemini</td>
 <td><p><strong>Bring-Your-Own-Autorater using Custom Metrics</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Evaluation
 Gemini</td>
 <td><p><strong>Evaluate a Translation Model</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Evaluation
 Gemini
 Multimodal</td>
 <td><p><strong>Evaluating Multimodal Tasks</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Evaluation
 Gemini
 Langchain</td>
 <td><p><strong>Evaluate LangChain</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Evaluation
 Gemini
 Rag</td>
 <td><p><strong>Evaluate Generated Answers from RAG for QA with Gen AI Evaluation Service SDK</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Evaluation
 Gemini</td>
 <td><p><strong>Customize Model-based Metrics to Evaluate a Gen AI Model</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Evaluation
 Gemini
 Rag</td>
 <td><p><strong>Evaluate Generative Model Tool Use</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Prompting
 Rag
@@ -904,40 +898,40 @@ Security</td>
 <td><p><strong>Gen AI and LLM Security - ReAct and RAG Attacks &amp; Mitigations</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Security</td>
 <td><p><strong>Responsible AI with Gemini API in Agent Platform: Safety Ratings and Thresholds</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Batch prediction
 Gemini</td>
 <td><p><strong>Monitor Batch Prediction with Gemini API</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search</td>
 <td><p><strong>Agent Platform Search with Filters &amp; Metadata</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Search</td>
 <td><p><strong>Agent Platform Search - Querying Blended Data Apps and Summarization with Gemini</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Search</td>
 <td><p><strong>Create a Agent Platform Search Datastore and Search Engine</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Search</td>
 <td><p><strong>Building Search Applications with Agent Platform Search</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Langchain
 Rag
@@ -945,52 +939,40 @@ Search</td>
 <td><p><strong>Question Answering Over Documents</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Rag
 Search</td>
 <td><p><strong>Bulk Question Answering with Agent Platform Search</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Embeddings
 Search</td>
 <td><p><strong>Custom Embeddings with Agent Platform Search</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Claude
 Function calling
 Model garden</td>
 <td><p><strong>Multimodal Function Calling with Claude Models</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agents
 Search</td>
 <td><p><strong>Agent Platform Search and Conversation Data Store Status Checker</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>Agents
-Gemini</td>
-<td><p><strong>Building a Research Multi Agent System - a Design Pattern Overview with Gemini 2.0</strong></p></td>
-<td></td>
-</tr>
 <tr class="even">
-<td>Code execution
-Gemini</td>
-<td><p><strong>Intro to Generating and Executing Python Code with Gemini 2.0</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Agents
 Evaluation
 Gemini</td>
 <td><p><strong>Evaluating Agents - Evaluate a CrewAI agent with Agent Platform Gen AI Evaluation</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agents
 Evaluation
 Gemini
@@ -998,7 +980,7 @@ Langgraph</td>
 <td><p><strong>Evaluating Agents - Evaluate a LangGraph agent with Agent Platform Gen AI Evaluation</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini
 Live api
 Multimodal
@@ -1006,21 +988,21 @@ Rag</td>
 <td><p><strong>Interactive Loan Application Assistant (Financial Services)</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Rag
 Rag engine
 Search</td>
 <td><p><strong>Agent Platform RAG Engine with Agent Platform Search</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent engine
 Agents
 Evaluation</td>
 <td><p><strong>Evaluate a CrewAI agent on Agent Platform Agent Engine (Customized template)</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Agent engine
 Agents
 Evaluation
@@ -1028,7 +1010,7 @@ Langchain</td>
 <td><p><strong>Evaluating a LangChain Agent on Agent Platform Agent Engine (Prebuilt template)</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Agent engine
 Agents
 Evaluation
@@ -1036,13 +1018,13 @@ Langgraph</td>
 <td><p><strong>Evaluate a LangGraph agent on Agent Platform Agent Engine (Customized template)</strong></p></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gemini
 Search</td>
 <td><p><strong>Q&amp;A Chatbot with Agent Platform Search for summarized website results</strong></p></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gemini</td>
 <td><p><strong>Getting started with Gemini using Agent Platform in Express Mode</strong></p></td>
 <td></td>

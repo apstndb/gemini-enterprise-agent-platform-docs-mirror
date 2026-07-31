@@ -532,11 +532,9 @@ After Semantic governance policy is running, you can delete individual policies 
 
 To remove an individual policy without affecting the overall Semantic governance policy integration:
 
-    ```bash
     gcloud beta ai semantic-governance-policies delete POLICY_ID \
         --location=LOCATION \
         --project=PROJECT_ID
-    ```
 
 Alternatively, use the following `curl` command:
 
