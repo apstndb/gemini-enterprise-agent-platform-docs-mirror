@@ -176,7 +176,7 @@ The type of predicate. `predicate` can be only one of the following:
 
 `duration` ` object ( NumericPredicate  ` )
 
-Filter on the duration of a trace.
+Filter on the duration of a trace (in seconds).
 
 `totalTokenUsage` ` object ( NumericPredicate  ` )
 

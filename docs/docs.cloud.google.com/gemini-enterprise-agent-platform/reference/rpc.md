@@ -12,6 +12,24 @@ The Agent Platform API lets you manage Agent Platform resources in Google Cloud.
 
 The Service name `aiplatform.googleapis.com` is needed to create RPC client stubs.
 
+## `        genai.vertex.v1beta1.InteractionsHttpService       `
+
+Methods
+
+`  CancelInteractionHttp  `
+
+Cancels an interaction.
+
+`  CreateInteractionHttp  `
+
+`  GetInteractionHttp  `
+
+Gets an interaction.
+
+`  ListInteractionsHttp  `
+
+Lists interactions.
+
 ## `        google.cloud.aiplatform.v1.DataFoundryService       `
 
 Methods
@@ -1096,9 +1114,10 @@ Generate content with multimodal inputs with streaming support.
 
 Perform a streaming online prediction with an arbitrary HTTP payload.
 
-`  StreamingPredict  `
+`  StreamingPredict  `  
+**(deprecated)**
 
-Perform a streaming online prediction request for Vertex first-party products and frameworks.
+Deprecated: Renamed to `  PredictionService.StreamDirectPredict  ` .
 
 `  StreamingRawPredict  `
 
@@ -3043,9 +3062,10 @@ Generate content with multimodal inputs with streaming support.
 
 Perform a streaming online prediction with an arbitrary HTTP payload.
 
-`  StreamingPredict  `
+`  StreamingPredict  `  
+**(deprecated)**
 
-Perform a streaming online prediction request for Vertex first-party products and frameworks.
+Deprecated: Renamed to `  PredictionService.StreamDirectPredict  ` .
 
 `  StreamingRawPredict  `
 
@@ -3682,6 +3702,62 @@ Sets the access control policy on the specified resource.
 `  TestIamPermissions  `
 
 Returns permissions that a caller has on the specified resource.
+
+## `        google.learning.vertex.api.interactions.v1beta1.InteractionsService       `
+
+Methods
+
+`  CancelInteraction  `
+
+Cancels an interaction.
+
+`  CancelInteractionHttp  `
+
+Cancels an interaction.
+
+`  CreateInteraction  `
+
+Creates an interaction.
+
+`  CreateInteractionHttp  `
+
+Generates a set of responses from the model.
+
+`  CreateInteractionStream  `
+
+Creates an interaction and streams the response.
+
+`  DeleteInteraction  `
+
+Deletes an interaction.
+
+`  GetInteraction  `
+
+Fully typed proto, unary version of GetInteraction that returns Interaction proto.
+
+`  GetInteractionHttp  `
+
+Gets an interaction.
+
+`  GetInteractionStream  `
+
+Fully typed proto, streaming version of GetInteraction that returns Interaction proto.
+
+`  ListInteractions  `
+
+List interactions.
+
+`  ListInteractionsHttp  `
+
+List interactions.
+
+## `        google.learning.vertex.api.interactions.v1beta1.VoicesHttpService       `
+
+Methods
+
+## `        google.learning.vertex.api.interactions.v1beta1.VoicesService       `
+
+Methods
 
 ## `        google.longrunning.Operations       `
 

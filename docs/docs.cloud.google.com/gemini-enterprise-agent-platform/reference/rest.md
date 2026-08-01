@@ -2392,6 +2392,25 @@ Methods
 `GET /v1/{name}`  
 Gets a Model Garden publisher model.
 
+## REST Resource: [v1beta1.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/interactions)
+
+Methods
+
+`  cancel  `
+
+`POST /v1beta1/{name}:cancel`  
+Cancels an interaction.
+
+`  getPoll  `
+
+`GET /v1beta1/{name}:poll`  
+Fully typed proto, unary version of GetInteraction that returns Interaction proto.
+
+`  getStream  `
+
+`GET /v1beta1/{name}:stream`  
+Fully typed proto, streaming version of GetInteraction that returns Interaction proto.
+
 ## REST Resource: [v1beta1.media](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/media)
 
 Methods
@@ -3584,6 +3603,29 @@ Remove Datapoints from an Index.
 `POST /v1beta1/{index}:upsertDatapoints`  
 Add/update Datapoints into an Index.
 
+## REST Resource: [v1beta1.projects.locations.interactions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactions)
+
+Methods
+
+`  createStream  `
+
+`POST /v1beta1/projects/*/locations/*/interactions:createStream`  
+Creates an interaction and streams the response.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes an interaction.
+
+## REST Resource: [v1beta1.projects.locations.memoryBanks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks)
+
+Methods
+
+`  ingestEvents  `
+
+`POST /v1beta1/{parent}:ingestEvents`  
+Ingests events for a Memory Bank.
+
 ## REST Resource: [v1beta1.projects.locations.memoryBanks.memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks.memories)
 
 Methods
@@ -3622,6 +3664,11 @@ Update a Memory.
 
 `POST /v1beta1/{parent}/memories:retrieve`  
 Retrieve memories.
+
+`  retrieveProfiles  `
+
+`POST /v1beta1/{parent}/memories:retrieveProfiles`  
+Retrieves profiles.
 
 ## REST Resource: [v1beta1.projects.locations.metadataStores](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.metadataStores)
 
@@ -4361,6 +4408,20 @@ Generate content with multimodal inputs with streaming support.
 
 `POST /v1beta1/{endpoint}:streamRawPredict`  
 Perform a streaming online prediction with an arbitrary HTTP payload.
+
+## REST Resource: [v1beta1.projects.locations.publishers.v1.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.publishers.v1.responses)
+
+Methods
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes the response from the endpoint.
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets the response from the endpoint.
 
 ## REST Resource: [v1beta1.projects.locations.ragCorpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.ragCorpora)
 

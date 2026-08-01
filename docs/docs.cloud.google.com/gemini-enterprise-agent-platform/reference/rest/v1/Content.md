@@ -212,6 +212,10 @@ A predicted `  FunctionCall  ` returned from the model that contains a string re
 
 Fields
 
+`id` `string`
+
+Optional. The unique id of the function call. If populated, the client to execute the `functionCall` and return the response with the matching `id` .
+
 `name` `string`
 
 Optional. The name of the function to call. Matches `  FunctionDeclaration.name  ` .
@@ -239,7 +243,7 @@ Optional. Whether this is the last part of the FunctionCall. If true, another pa
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;args&quot;: {object},&quot;partialArgs&quot;: [{object (PartialArg)}],&quot;willContinue&quot;: boolean}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;name&quot;: string,&quot;args&quot;: {object},&quot;partialArgs&quot;: [{object (PartialArg)}],&quot;willContinue&quot;: boolean}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -310,6 +314,10 @@ The result output from a `  FunctionCall  ` that contains a string representing 
 
 Fields
 
+`id` `string`
+
+Optional. The id of the function call this response is for. Populated by the client to match the corresponding function call `id` .
+
 `name` `string`
 
 Required. The name of the function to call. Matches `  FunctionDeclaration.name  ` and `  FunctionCall.name  ` .
@@ -333,7 +341,7 @@ Optional. Ordered `Parts` that constitute a function response. Parts may have di
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;response&quot;: {object},&quot;parts&quot;: [{object (FunctionResponsePart)}]}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;name&quot;: string,&quot;response&quot;: {object},&quot;parts&quot;: [{object (FunctionResponsePart)}]}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -480,6 +488,10 @@ Required. Programming language of the `code` .
 
 Required. The code to be executed.
 
+`id` `string`
+
+Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id` .
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -491,7 +503,7 @@ Required. The code to be executed.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;language&quot;: enum (Language),&quot;code&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;language&quot;: enum (Language),&quot;code&quot;: string,&quot;id&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -526,6 +538,10 @@ Required. Outcome of the code execution.
 
 Optional. Contains stdout when code execution is successful, stderr or other description otherwise.
 
+`id` `string`
+
+Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -537,7 +553,7 @@ Optional. Contains stdout when code execution is successful, stderr or other des
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outcome&quot;: enum (Outcome),&quot;output&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outcome&quot;: enum (Outcome),&quot;output&quot;: string,&quot;id&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>

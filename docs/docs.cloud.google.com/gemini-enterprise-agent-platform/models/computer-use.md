@@ -725,173 +725,6 @@ The computer use tool enables the model to request the following actions using a
 
 ### Gemini 3.5 Flash
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command name</th>
-<th>Description</th>
-<th>Arguments (in Function Call)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>click</strong></td>
-<td>Left clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>double_click</strong></td>
-<td>Double clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>triple_click</strong></td>
-<td>Triple clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>middle_click</strong></td>
-<td>Middle clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>right_click</strong></td>
-<td>Right clicks at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>mouse_down</strong></td>
-<td>Presses and holds the mouse button at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>mouse_up</strong></td>
-<td>Releases the mouse button at the coordinate.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>move</strong></td>
-<td>Move the cursor to the specified position.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>type</strong></td>
-<td>Types text.</td>
-<td><code dir="ltr" translate="no">text</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">press_enter</code> : bool (Optional, default false)</td>
-</tr>
-<tr class="even">
-<td><strong>drag_and_drop</strong></td>
-<td>Drags item from start_y and start_x to end_y and end_x</td>
-<td><code dir="ltr" translate="no">start_y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">start_x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">end_y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">end_x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>wait</strong></td>
-<td>Wait for the specified number of seconds.</td>
-<td><code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">seconds</code> : int (Optional, default 1)</td>
-</tr>
-<tr class="even">
-<td><strong>press_key</strong></td>
-<td>Presses the specified key and releases it.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>key_down</strong></td>
-<td>Presses and holds the specified key.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>key_up</strong></td>
-<td>Releases the specified key.</td>
-<td><code dir="ltr" translate="no">key</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>hotkey</strong></td>
-<td>Presses the specified key combination.</td>
-<td><code dir="ltr" translate="no">keys</code> : List[str]<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>take_screenshot</strong></td>
-<td>Returns a screenshot of the current screen.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>scroll</strong></td>
-<td>Scrolls up, down, left, or right at a coordinate by a pixel distance.</td>
-<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
-<code dir="ltr" translate="no">x</code> : int (0-999)<br />
-<code dir="ltr" translate="no">direction</code> : str ("up", "down", "left", "right")<br />
-<code dir="ltr" translate="no">intent</code> : str<br />
-<code dir="ltr" translate="no">magnitude_in_pixels</code> : int (0-999, Optional, default 300)</td>
-</tr>
-<tr class="even">
-<td><strong>go_back</strong></td>
-<td>Navigates back to the previous webpage in the browser history.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="odd">
-<td><strong>navigate</strong></td>
-<td>Navigates directly to a specified URL.</td>
-<td><code dir="ltr" translate="no">url</code> : str<br />
-<code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-<tr class="even">
-<td><strong>go_forward</strong></td>
-<td>Navigates forward to the next webpage in the browser history.</td>
-<td><code dir="ltr" translate="no">intent</code> : str</td>
-</tr>
-</tbody>
-</table>
-
-### Gemini 3 Flash
-
-| Command Name           | Description                                                                                                                                                                       | Arguments (in Function Call)                                                                                                                             | Example Function Call                                                                                  |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **open\_web\_browser** | Opens the web browser.                                                                                                                                                            | None                                                                                                                                                     | `{"name": "open_web_browser", "args": {}}`                                                             |
-| **wait\_5\_seconds**   | Pauses execution for 5 seconds to allow dynamic content to load or animations to complete.                                                                                        | None                                                                                                                                                     | `{"name": "wait_5_seconds", "args": {}}`                                                               |
-| **go\_back**           | Navigates to the previous page in the browser's history.                                                                                                                          | None                                                                                                                                                     | `{"name": "go_back", "args": {}}`                                                                      |
-| **go\_forward**        | Navigates to the next page in the browser's history.                                                                                                                              | None                                                                                                                                                     | `{"name": "go_forward", "args": {}}`                                                                   |
-| **search**             | Navigates to the default search engine's homepage (for example, Google). Useful for starting a new search task.                                                                   | None                                                                                                                                                     | `{"name": "search", "args": {}}`                                                                       |
-| **navigate**           | Navigates the browser directly to the specified URL.                                                                                                                              | `url` : str                                                                                                                                              | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}`                                   |
-| **click\_at**          | Clicks at a specific coordinate on the webpage. The x and y values are based on a 1000x1000 grid and are scaled to the screen dimensions.                                         | `y` : int (0-999), `x` : int (0-999)                                                                                                                     | `{"name": "click_at", "args": {"y": 300, "x": 500}}`                                                   |
-| **hover\_at**          | 521963309 Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid.                                        | `y` : int (0-999) `x` : int (0-999)                                                                                                                      | `{"name": "hover_at", "args": {"y": 150, "x": 250}}`                                                   |
-| **type\_text\_at**     | Types text at a specific coordinate, defaults to clearing the field first and pressing ENTER after typing, but these can be disabled. x and y are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `text` : str, `press_enter` : bool (Optional, default True), `clear_before_typing` : bool (Optional, default True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination**   | Presses keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations.               | `keys` : str (for example, 'enter', 'control+c'. See API reference for full list of allowed keys)                                                        | `{"name": "key_combination", "args": {"keys": "Control+A"}}`                                           |
-| **scroll\_document**   | Scrolls the entire webpage "up", "down", "left", or "right".                                                                                                                      | `direction` : str ("up", "down", "left", or "right")                                                                                                     | `{"name": "scroll_document", "args": {"direction": "down"}}`                                           |
-| **scroll\_at**         | Scrolls a specific element or area at coordinate (x, y) in the specified direction by a certain magnitude. Coordinates and magnitude (default 800) are based on a 1000x1000 grid. | `y` : int (0-999), `x` : int (0-999), `direction` : str ("up", "down", "left", "right"), `magnitude` : int (0-999, Optional, default 800)                | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}`           |
-| **drag\_and\_drop**    | Drags an element from a starting coordinate (x, y) and drops it at a destination coordinate (destination\_x, destination\_y). All coordinates are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `destination_y` : int (0-999), `destination_x` : int (0-999)                                                       | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}`  |
-
 Gemini 3.5 Flash: You have access to different sets of function calls depending on the environment that you select:
 
 ### Mobile environment
@@ -911,67 +744,67 @@ Gemini 3.5 Flash: You have access to different sets of function calls depending 
 </thead>
 <tbody>
 <tr class="odd">
-<td>open_app</td>
+<td><code dir="ltr" translate="no">open_app</code></td>
 <td>Opens an application by its name.</td>
-<td>intent: str</td>
+<td><code dir="ltr" translate="no">intent:</code> str</td>
 </tr>
 <tr class="even">
-<td>click</td>
+<td><code dir="ltr" translate="no">click</code></td>
 <td>Left clicks at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>list_apps</td>
+<td><code dir="ltr" translate="no">list_apps</code></td>
 <td>Lists available applications on the device, returning their names and package names.</td>
-<td>intent: str</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>wait</td>
+<td><code dir="ltr" translate="no">wait</code></td>
 <td>Waits for the specified number of seconds.</td>
-<td>intent: str<br />
-seconds: int(Optional, default 1)</td>
+<td><code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">seconds</code> : int(Optional, default 1)</td>
 </tr>
 <tr class="odd">
-<td>go_back</td>
+<td><code dir="ltr" translate="no">go_back</code></td>
 <td>Navigates back to the previous webpage in the browser history.</td>
-<td>intent: str</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>type</td>
+<td><code dir="ltr" translate="no">type</code></td>
 <td>Types text.</td>
-<td>text: str<br />
-intent: str<br />
-press_enter: bool(Optional, default false)</td>
+<td><code dir="ltr" translate="no">text</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">press_enter</code> : bool(Optional, default false)</td>
 </tr>
 <tr class="odd">
-<td>drag_and_drop</td>
+<td><code dir="ltr" translate="no">drag_and_drop</code></td>
 <td>Drags item from start_y and start_x to end_y and end_x</td>
-<td>start_y: int (0-999)<br />
-start_x: int (0-999)<br />
-end_y: int (0-999)<br />
-end_x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">start_y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">start_x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">end_y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">end_x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>long_press</td>
+<td><code dir="ltr" translate="no">long_press</code></td>
 <td>Performs a long press at a specific y (0-999), x (0-999) coordinate on the screen.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str<br />
-seconds: int (Optional, default 2)</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">seconds</code> : int (Optional, default 2)</td>
 </tr>
 <tr class="odd">
-<td>press_key</td>
+<td><code dir="ltr" translate="no">press_key</code></td>
 <td>Presses the specified key and release it.</td>
-<td>key: str<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>take_screenshot</td>
+<td><code dir="ltr" translate="no">take_screenshot</code></td>
 <td>Returns a screenshot of the current screen.</td>
-<td>intent: str</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 </tbody>
 </table>
@@ -993,123 +826,141 @@ intent: str</td>
 </thead>
 <tbody>
 <tr class="odd">
-<td>click</td>
+<td><code dir="ltr" translate="no">click</code></td>
 <td>Left clicks at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>double_click</td>
+<td><code dir="ltr" translate="no">double_click</code></td>
 <td>Double clicks at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>triple_click</td>
+<td><code dir="ltr" translate="no">triple_click</code></td>
 <td>Triple clicks at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>middle_click</td>
+<td><code dir="ltr" translate="no">middle_click</code></td>
 <td>Middle clicks at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>right_click</td>
+<td><code dir="ltr" translate="no">right_click</code></td>
 <td>Right clicks at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>mouse_down</td>
+<td><code dir="ltr" translate="no">mouse_down</code></td>
 <td>Presses and holds the mouse button at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>mouse_up</td>
+<td><code dir="ltr" translate="no">mouse_up</code></td>
 <td>Releases the mouse button at the coordinate.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>move</td>
+<td><code dir="ltr" translate="no">move</code></td>
 <td>Move the cursor to the specified position.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>type</td>
+<td><code dir="ltr" translate="no">type</code></td>
 <td>Types text.</td>
-<td>text: str<br />
-intent: str<br />
-press_enter: bool(Optional, default false)</td>
+<td><code dir="ltr" translate="no">text</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">press_enter</code> : bool(Optional, default false)</td>
 </tr>
 <tr class="even">
-<td>drag_and_drop</td>
+<td><code dir="ltr" translate="no">drag_and_drop</code></td>
 <td>Drags item from start_y and start_x to end_y and end_x.</td>
-<td>start_y: int (0-999)<br />
-start_x: int (0-999)<br />
-end_y: int (0-999)<br />
-end_x: int (0-999)<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">start_y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">start_x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">end_y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">end_x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>wait</td>
+<td><code dir="ltr" translate="no">wait</code></td>
 <td>Wait for the specified number of seconds.</td>
-<td>intent: str<br />
-seconds: int(Optional, default 1)</td>
+<td><code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">seconds</code> : int(Optional, default 1)</td>
 </tr>
 <tr class="even">
-<td>press_key</td>
+<td><code dir="ltr" translate="no">press_key</code></td>
 <td>Presses the specified key and releases it.</td>
-<td>key: str<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>key_down</td>
+<td><code dir="ltr" translate="no">key_down</code></td>
 <td>Presses and holds the specified key.</td>
-<td>key: str<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>key_up</td>
+<td><code dir="ltr" translate="no">key_up</code></td>
 <td>Releases the specified key.</td>
-<td>key: str<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">key</code> : str<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>hotkey</td>
+<td><code dir="ltr" translate="no">hotkey</code></td>
 <td>Presses the specified key combination.</td>
-<td>keys: List[str]<br />
-intent: str</td>
+<td><code dir="ltr" translate="no">keys</code> : List[str]<br />
+<code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="even">
-<td>take_screenshot</td>
+<td><code dir="ltr" translate="no">take_screenshot</code></td>
 <td>Returns a screenshot of the current screen.</td>
-<td>intent: str</td>
+<td><code dir="ltr" translate="no">intent</code> : str</td>
 </tr>
 <tr class="odd">
-<td>scroll</td>
+<td><code dir="ltr" translate="no">scroll</code></td>
 <td>Scrolls up, down, left, or right at a coordinate by a pixel distance.</td>
-<td>y: int (0-999)<br />
-x: int (0-999)<br />
-direction: str ("up", "down", "left", "right")<br />
-intent: str<br />
-magnitude_in_pixels: int (0-999, Optional, default 300)</td>
+<td><code dir="ltr" translate="no">y</code> : int (0-999)<br />
+<code dir="ltr" translate="no">x</code> : int (0-999)<br />
+<code dir="ltr" translate="no">direction</code> : str ("up", "down", "left", "right")<br />
+<code dir="ltr" translate="no">intent</code> : str<br />
+<code dir="ltr" translate="no">magnitude_in_pixels</code> : int (0-999, Optional, default 300)</td>
 </tr>
 </tbody>
 </table>
+
+### Gemini 3 Flash
+
+| Command Name           | Description                                                                                                                                                                       | Arguments (in Function Call)                                                                                                                             | Example Function Call                                                                                  |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **open\_web\_browser** | Opens the web browser.                                                                                                                                                            | None                                                                                                                                                     | `{"name": "open_web_browser", "args": {}}`                                                             |
+| **wait\_5\_seconds**   | Pauses execution for 5 seconds to allow dynamic content to load or animations to complete.                                                                                        | None                                                                                                                                                     | `{"name": "wait_5_seconds", "args": {}}`                                                               |
+| **go\_back**           | Navigates to the previous page in the browser's history.                                                                                                                          | None                                                                                                                                                     | `{"name": "go_back", "args": {}}`                                                                      |
+| **go\_forward**        | Navigates to the next page in the browser's history.                                                                                                                              | None                                                                                                                                                     | `{"name": "go_forward", "args": {}}`                                                                   |
+| **search**             | Navigates to the default search engine's homepage (for example, Google). Useful for starting a new search task.                                                                   | None                                                                                                                                                     | `{"name": "search", "args": {}}`                                                                       |
+| **navigate**           | Navigates the browser directly to the specified URL.                                                                                                                              | `url` : str                                                                                                                                              | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}`                                   |
+| **click\_at**          | Clicks at a specific coordinate on the webpage. The x and y values are based on a 1000x1000 grid and are scaled to the screen dimensions.                                         | `y` : int (0-999), `x` : int (0-999)                                                                                                                     | `{"name": "click_at", "args": {"y": 300, "x": 500}}`                                                   |
+| **hover\_at**          | 521963309 Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid.                                        | `y` : int (0-999) `x` : int (0-999)                                                                                                                      | `{"name": "hover_at", "args": {"y": 150, "x": 250}}`                                                   |
+| **type\_text\_at**     | Types text at a specific coordinate, defaults to clearing the field first and pressing ENTER after typing, but these can be disabled. x and y are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `text` : str, `press_enter` : bool (Optional, default True), `clear_before_typing` : bool (Optional, default True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
+| **key\_combination**   | Presses keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations.               | `keys` : str (for example, 'enter', 'control+c'. See API reference for full list of allowed keys)                                                        | `{"name": "key_combination", "args": {"keys": "Control+A"}}`                                           |
+| **scroll\_document**   | Scrolls the entire webpage "up", "down", "left", or "right".                                                                                                                      | `direction` : str ("up", "down", "left", or "right")                                                                                                     | `{"name": "scroll_document", "args": {"direction": "down"}}`                                           |
+| **scroll\_at**         | Scrolls a specific element or area at coordinate (x, y) in the specified direction by a certain magnitude. Coordinates and magnitude (default 800) are based on a 1000x1000 grid. | `y` : int (0-999), `x` : int (0-999), `direction` : str ("up", "down", "left", "right"), `magnitude` : int (0-999, Optional, default 800)                | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}`           |
+| **drag\_and\_drop**    | Drags an element from a starting coordinate (x, y) and drops it at a destination coordinate (destination\_x, destination\_y). All coordinates are based on a 1000x1000 grid.      | `y` : int (0-999), `x` : int (0-999), `destination_y` : int (0-999), `destination_x` : int (0-999)                                                       | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}`  |
 
 ## Safety and security
 

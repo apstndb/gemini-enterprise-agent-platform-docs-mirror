@@ -107,7 +107,7 @@ Before you can ground LLM responses with Elasticsearch, you must complete the fo
 
 1.  **Activate the Agent Platform API** : Ensure that both the Agent Platform API is enabled for your Google Cloud project.
 
-2.  **Install and sign in to the Google Cloud CLI CLI** : Install and initialize the gcloud CLI [command-line tool](https://docs.cloud.google.com/sdk/docs/install) .
+2.  **Install and sign in to the Google Cloud CLI** : Install and initialize the gcloud CLI [command-line tool](https://docs.cloud.google.com/sdk/docs/install) .
 
 3.  **Elasticsearch setup** : Use an existing Elasticsearch cluster and index that you want to use for grounding. Obtain the following information from your Elasticsearch setup:
     

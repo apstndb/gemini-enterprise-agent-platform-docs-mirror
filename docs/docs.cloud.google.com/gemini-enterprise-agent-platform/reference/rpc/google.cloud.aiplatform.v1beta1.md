@@ -1572,6 +1572,7 @@ data_source: docs.cloud.google.com
   - `  SandboxEnvironmentTemplate.DefaultContainerEnvironment  ` (message)
   - `  SandboxEnvironmentTemplate.DefaultContainerEnvironment.DefaultContainerCategory  ` (enum)
   - `  SandboxEnvironmentTemplate.EgressControlConfig  ` (message)
+  - `  SandboxEnvironmentTemplate.EgressControlConfig.DnsPeeringConfig  ` (message)
   - `  SandboxEnvironmentTemplate.NetworkPort  ` (message)
   - `  SandboxEnvironmentTemplate.NetworkPort.Protocol  ` (enum)
   - `  SandboxEnvironmentTemplate.ResourceRequirements  ` (message)
@@ -13174,8 +13175,11 @@ A service for online predictions and explanations.
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc StreamingPredict(              StreamingPredictRequest            </code> ) returns ( <code dir="ltr" translate="no">             StreamingPredictResponse            </code> )</p>
-<p>Perform a streaming online prediction request for Vertex first-party products and frameworks.</p>
+<td><blockquote>
+<p>This item is deprecated!</p>
+</blockquote>
+<p><code dir="ltr" translate="no">rpc StreamingPredict(              StreamingPredictRequest            </code> ) returns ( <code dir="ltr" translate="no">             StreamingPredictResponse            </code> )</p>
+<p>Deprecated: Renamed to <code dir="ltr" translate="no">            PredictionService.StreamDirectPredict           </code> . Perform a streaming online prediction request for Vertex first-party products and frameworks.</p>
 <dl>
 <dt>Authorization scopes</dt>
 <dd><p>Requires one of the following OAuth scopes:</p>
@@ -21341,6 +21345,12 @@ Required. Outcome of the code execution.
 
 Optional. Contains stdout when code execution is successful, stderr or other description otherwise.
 
+`id`
+
+`string`
+
+Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.
+
 ## Outcome
 
 Enumeration of possible outcomes of the code execution.
@@ -29248,6 +29258,12 @@ Required. Programming language of the `code` .
 
 Required. The code to be executed.
 
+`id`
+
+`string`
+
+Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id` .
+
 ## Language
 
 Supported programming languages for the generated code.
@@ -34126,6 +34142,10 @@ Type for Priority Pay-As-You-Go traffic.
 `ON_DEMAND_FLEX`
 
 Type for Flex traffic.
+
+`ON_DEMAND_OFF_PEAK`
+
+Type for Off-Peak Pay-As-You-Go traffic.
 
 `PROVISIONED_THROUGHPUT`
 
@@ -48159,7 +48179,7 @@ Union field `predicate` . The type of predicate. `predicate` can be only one of 
 
 `  NumericPredicate  `
 
-Filter on the duration of a trace.
+Filter on the duration of a trace (in seconds).
 
 `total_token_usage`
 
@@ -54499,11 +54519,8 @@ Fields
 The prompt for an autorater to scorer the parsed sample response. This field supports the following placeholders that will be replaced before scoring:
 
   - `{{prompt}}`
-
   - `{{response}}`
-
   - `{{system_instruction}}`
-
   - `{{references.key}}`
 
 `autorater_config`
@@ -54923,6 +54940,12 @@ Fields
 `string`
 
 Output only. The user-requested auxiliary info for the reward function. This field is set only if the Cloud Run reward function configured by user returns a "user\_requested\_aux\_info". Refer to `  ReinforcementTuningCloudRunRewardScorer  ` for more details.
+
+`error_status`
+
+`  Status  `
+
+Output only. In case of an error for this reward, this field will be populated with a detailed error status.
 
 `reward`
 
@@ -57049,6 +57072,10 @@ The default value. This value is unused.
 
 The default container image for Computer Use.
 
+`DEFAULT_CONTAINER_CATEGORY_SHELL_SANDBOX`
+
+The default container image for Shell Sandbox.
+
 ## EgressControlConfig
 
 Configuration for egress control of sandbox instances.
@@ -57060,6 +57087,48 @@ Fields
 `bool`
 
 Optional. Whether to allow internet access.
+
+`network_attachment`
+
+`string`
+
+Optional. The name of the customer VPC NetworkAttachment used to draw a PSC interface IP into the customer VPC for sandbox egress.
+
+`dns_peering_configs[]`
+
+`  DnsPeeringConfig  `
+
+Optional. DNS peering configurations that allow sandbox egress to resolve customer-internal domains via the customer VPC.
+
+`customer_vpc_network`
+
+`string`
+
+Optional. The customer VPC network that sandbox egress is routed into.
+
+## DnsPeeringConfig
+
+Configuration for peering a customer's private DNS zone so that sandbox egress can resolve customer-internal domains via the customer VPC.
+
+Fields
+
+`domain`
+
+`string`
+
+Required. The DNS name suffix of the zone being peered to, e.g., "my-internal-domain.corp.". Must end with a dot.
+
+`target_project`
+
+`string`
+
+Required. The project ID hosting the Cloud DNS managed zone that contains the 'domain'. The Agent Platform Service Agent requires the dns.peer role on this project.
+
+`target_network`
+
+`string`
+
+Required. The VPC network name in the target\_project where the DNS zone specified by 'domain' is visible.
 
 ## NetworkPort
 
@@ -65353,6 +65422,10 @@ Type for Priority Pay-As-You-Go traffic.
 
 Type for Flex traffic.
 
+`ON_DEMAND_OFF_PEAK`
+
+Type for Off-Peak Pay-As-You-Go traffic.
+
 `PROVISIONED_THROUGHPUT`
 
 Type for Provisioned Throughput traffic.
@@ -65455,6 +65528,12 @@ Fields
 
 Output only. Deprecated: Use `  reward_info_details  ` instead. A map from reward name to the calculated reward for the reward function. This field will only be populated when a `  CompositeReinforcementTuningRewardConfig  ` is provided in the request. It will not be set for a `  SingleReinforcementTuningRewardConfig  ` .
 
+`error_status`
+
+`  Status  `
+
+Output only. In case of an error, this field will be populated with a detailed error message for overall rewards to help with debugging.
+
 `reward_info_details`
 
 ` map<string, ReinforcementTuningRewardInfo  ` \>
@@ -65467,11 +65546,13 @@ A map from reward name to reward info.
 
 Output only. The overall weighted reward. For a `  CompositeReinforcementTuningRewardConfig  ` , this is the weighted average of all rewards. For a `  SingleReinforcementTuningRewardConfig  ` , this will be the value of the single reward.
 
-`error`
+` error (deprecated)  `
 
 `string`
 
-Output only. In case of an error, this field will be populated with a detailed error message to help with debugging.
+> This item is deprecated\!
+
+Output only. Deprecated: Use `  error_status  ` instead. In case of an error, this field will be populated with a detailed error message to help with debugging.
 
 ## Value
 

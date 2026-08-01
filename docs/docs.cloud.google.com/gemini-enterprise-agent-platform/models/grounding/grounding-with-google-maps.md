@@ -42,8 +42,6 @@ This section lists the models that support Grounding with Google Maps.
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
   - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
 
-Gemini 3 Pro and Gemini 3 Pro Image are limited to 5,000 search queries per day.
-
 For more information about the Gemini models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview#gemini-models) .
 
 ## Use Grounding with Google Maps to ground your model's responses
@@ -128,7 +126,7 @@ Before using any of the request data, make the following replacements:
   - LONGITUDE : The longitude of the location. For example, a longitude of `-122.4194` represents San Francisco.
   - GROUNDING\_TYPES : The types of Google Maps grounding to enable. Currently supports `places` and `routing` .
       - `places` : Search for place information including establishments, prominent points of interest, and geographical locations.
-      - `routing` : Find directions and search along route. Routing is in Private Preview.
+      - `routing` : Find directions and search along route.
     If not specified, it defaults to `places` only.
 
 HTTP method and URL:
@@ -327,13 +325,9 @@ This code sample demonstrates a place source and a place answer source in the re
 
 ## Routing - Find Directions
 
-> **Private Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Grounding with Google Maps supports Find Directions capability. This feature lets your AI agents understand physical movement, real-time travel estimates, and the spatial relationships between locations. With Find Directions capability, your model can provide performance-optimized directions and accurate travel times that account for real-time conditions. This integration enables Grounding with Google Maps to filter places based on travel time, offer precise point-to-point directions, and calculate estimated commute times for specific modes of transportation.
 
-Find Directions capabilities are available as a Restricted [Preview](https://cloud.google.com/products#product-launch-stages) . To access this feature for your project, contact your Google Cloud account team to request addition to the allowlist. Alternatively, you can submit the [participation form](https://forms.gle/tMWmCTxKhXCqwXts5) to be considered. Google is accepting interest from a limited cohort of partners to pilot Find Directions as a new feature in Grounding with Google Maps.
+Find Directions isn't supported for Gemini 3.5 Flash-Lite and Gemini 3.6 Flash.
 
 ### Capabilities
 
@@ -391,17 +385,13 @@ The following is an example response for the prompt: "How long does it take to t
 
 ## Routing - Search Along Route
 
-> **Private Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Search Along Route allows your AI agents to discover points of interest that are geographically relevant and convenient to a user's planned journey. By grounding responses in Google Maps's routing and spatial search engines, your model can provide recommendations that minimize detours and understand the logistical flow of a road trip or commute.
 
-Search Along Route capabilities are available as a Restricted Preview. To access this feature for your project, please contact your Google Cloud account team to request addition to the allowlist. Alternatively, you can also [submit this form](https://forms.gle/tMWmCTxKhXCqwXts5) to be considered for participation. Note that at this time we are accepting interest from a limited cohort of partners only to pilot the Grounding with Google Maps Search Along Route tool.
+Search Along Route isn't supported for Gemini 3.5 Flash-Lite and Gemini 3.6 Flash.
 
 ### Capabilities
 
-Search Along Route allows your application to identify specific businesses, amenities, or attractions situated directly along a generated path between an origin and destination. Only the "Drive" travel mode is supported in the Preview.
+Search Along Route allows your application to identify specific businesses, amenities, or attractions situated directly along a generated path between an origin and destination. Only the "Drive" travel mode is supported.
 
 The following examples illustrate the types of questions the Search Along Route tool can handle.
 
@@ -595,6 +585,60 @@ The restrictions against caching in the Grounding with Google Maps Terms don't a
 ### Prohibited Territory
 
 Grounding with Google Maps has restrictions for certain content and activities to maintain a safe and reliable platform. Customer won't distribute or market a Customer Application that offers Grounding with Google Maps in a Prohibited Territory. For more information, see [Google Maps Platform Prohibited Territories](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories) . The list of Prohibited Territories may be updated from time to time.
+
+## Billing
+
+Grounding with Google Maps charges for each Google Maps query (see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) ).
+
+A customer-submitted request to Gemini may result in one or more queries to Google Maps. The following table shows a few examples:
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Example prompt</th>
+<th>Potential number of Google Maps queries</th>
+<th>Example query generation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sushi restaurants near the Hilton Hotel (1335 6th Ave in NYC).</td>
+<td>3 Place Search queries (Google Maps queries), assuming this prompt generates 3 fanout queries.</td>
+<td>3 fanout Place Search queries:<br />
+- Best sushi near Hilton Midtown Manhattan<br />
+- Sushi restaurants near 1335 6th Ave New York<br />
+- Japanese restaurants near 1335 6th Ave New York</td>
+</tr>
+<tr class="even">
+<td>How do I get to 200 W 44th St, New York from Hilton Hotel, 1335 6th Ave.</td>
+<td>1 Find Directions query (Google Maps query)</td>
+<td>1 Find Directions query:<br />
+- Directions from Hilton Hotel, 1335 6th Ave, New York, NY to 200 W 44th St, New York, NY 10036</td>
+</tr>
+<tr class="odd">
+<td>Distance from the Hilton Hotel (1335 6th Ave in NYC) to the airport.</td>
+<td>4 Google Maps queries (1 Place Search query + 3 Find Directions queries), assuming the place search returns 3 airports.</td>
+<td>1 fanout Place Search query:<br />
+- Airports near New York City<br />
+<br />
+3 Find Directions queries:<br />
+- Directions from 1335 6th Ave, New York, NY 10019, USA to John F. Kennedy International Airport, Queens, NY 11430, USA<br />
+- Directions from 1335 6th Ave, New York, NY 10019, USA to Newark Liberty International Airport, Newark, NJ 07114, USA<br />
+- Directions from 1335 6th Ave, New York, NY 10019, USA to LaGuardia</td>
+</tr>
+<tr class="even">
+<td>Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA.</td>
+<td>1 Search Along Route query (Google Maps query)</td>
+<td>1 Search Along Route query:<br />
+- Gas stations from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA</td>
+</tr>
+</tbody>
+</table>
 
 ## What's next
 

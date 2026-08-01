@@ -20,6 +20,10 @@ Required. Outcome of the code execution.
 
 Optional. Contains stdout when code execution is successful, stderr or other description otherwise.
 
+`id` `string`
+
+Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -31,7 +35,7 @@ Optional. Contains stdout when code execution is successful, stderr or other des
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outcome&quot;: enum (Outcome),&quot;output&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;outcome&quot;: enum (Outcome),&quot;output&quot;: string,&quot;id&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>

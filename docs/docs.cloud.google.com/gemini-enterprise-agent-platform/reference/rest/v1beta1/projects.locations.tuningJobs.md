@@ -896,11 +896,8 @@ Fields
 The prompt for an autorater to scorer the parsed sample response. This field supports the following placeholders that will be replaced before scoring:
 
   - `{{prompt}}`
-
   - `{{response}}`
-
   - `{{system_instruction}}`
-
   - `{{references.key}}`
 
 `autoraterConfig` ` object ( AutoraterConfig  ` )

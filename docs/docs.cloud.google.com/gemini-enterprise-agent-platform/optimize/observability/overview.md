@@ -23,14 +23,6 @@ For agent telemetry setup instructions and requirements, see the following resou
   - For MCP server telemetry, see [Use Cloud Trace to monitor MCP tool use](https://docs.cloud.google.com/mcp/monitor-mcp-tool-use-with-cloud-trace) .
   - For Model Armor telemetry, see [Configure Model Armor logging](https://docs.cloud.google.com/model-armor/configure-logging) .
 
-## Agent topology
-
-The multi-agent topology view provides a visual, system-wide map of your multi-agent system architecture. It displays the real-time relationships and traffic flows across all agents and MCP servers known to your Agent Registry. This aggregated view helps you understand complex dependencies and identify potential bottlenecks across your ecosystem.
-
-In addition to the multi-agent topology view, you can also view the specific inbound and outbound dependencies for a single agent. This single-agent topology view is based on trace data for the selected agent.
-
-For detailed instructions on navigating and interpreting agent topology graphs, see [View agent relationships and topology](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/topology) .
-
 ## Observability signals
 
 Gemini Enterprise Agent Platform provides observability through metrics, traces, and logs.
@@ -56,6 +48,6 @@ Adhering to these conventions is critical for agent tracing because it establish
 
 ## What's next
 
-  - [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/topology) as a topology graph.
+  - [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology) as a topology graph.
   - [View agent traces](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/traces) to debug agent behavior.
   - [Evaluate your agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents) .

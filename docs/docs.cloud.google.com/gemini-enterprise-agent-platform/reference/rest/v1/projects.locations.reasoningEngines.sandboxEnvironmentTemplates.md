@@ -261,6 +261,10 @@ The default value. This value is unused.
 
 The default container image for Computer Use.
 
+`DEFAULT_CONTAINER_CATEGORY_SHELL_SANDBOX`
+
+The default container image for Shell Sandbox.
+
 ## State
 
 Represents the state of a sandbox environment template.
@@ -301,6 +305,52 @@ Fields
 
 Optional. Whether to allow internet access.
 
+`networkAttachment` `string`
+
+Optional. The name of the customer VPC NetworkAttachment used to draw a PSC interface IP into the customer VPC for sandbox egress.
+
+`dnsPeeringConfigs[]` ` object ( DnsPeeringConfig  ` )
+
+Optional. DNS peering configurations that allow sandbox egress to resolve customer-internal domains via the customer VPC.
+
+`customerVpcNetwork` `string`
+
+Optional. The customer VPC network that sandbox egress is routed into.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;internetAccess&quot;: boolean,&quot;networkAttachment&quot;: string,&quot;dnsPeeringConfigs&quot;: [{object (DnsPeeringConfig)}],&quot;customerVpcNetwork&quot;: string}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## DnsPeeringConfig
+
+Configuration for peering a customer's private DNS zone so that sandbox egress can resolve customer-internal domains via the customer VPC.
+
+Fields
+
+`domain` `string`
+
+Required. The DNS name suffix of the zone being peered to, e.g., "my-internal-domain.corp.". Must end with a dot.
+
+`targetProject` `string`
+
+Required. The project id hosting the Cloud DNS managed zone that contains the 'domain'. The Agent Platform service Agent requires the dns.peer role on this project.
+
+`targetNetwork` `string`
+
+Required. The VPC network name in the targetProject where the DNS zone specified by 'domain' is visible.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -313,7 +363,9 @@ Optional. Whether to allow internet access.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;internetAccess&quot;: boolean
+  &quot;domain&quot;: string,
+  &quot;targetProject&quot;: string,
+  &quot;targetNetwork&quot;: string
 }</code></pre></td>
 </tr>
 </tbody>

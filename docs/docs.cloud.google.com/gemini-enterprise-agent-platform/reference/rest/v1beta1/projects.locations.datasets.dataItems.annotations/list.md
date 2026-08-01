@@ -58,7 +58,7 @@ If successful, the response body contains data with the following structure:
 
 Fields
 
-`annotations[]` ` object ( Annotation  ` )
+`annotations[]` `object ( Annotation` )
 
 A list of Annotations that matches the specified filter in the request.
 

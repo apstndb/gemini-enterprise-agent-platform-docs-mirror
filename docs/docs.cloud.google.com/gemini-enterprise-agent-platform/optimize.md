@@ -27,12 +27,6 @@ Guide
 
 Learn how to view agent traces in Google Agent Platform.
 
-Guide
-
-### [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/topology)
-
-Learn how to view agent relationships in Google Agent Platform.
-
 ## Evaluation
 
 Evaluate agent quality with the integrated Gen AI Evaluation service.

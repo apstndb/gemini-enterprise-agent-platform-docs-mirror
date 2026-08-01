@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Governance provides the framework for discovering, securing, and auditing AI agents and their underlying infrastructure at scale. As organizations deploy complex agentic workflows, the Govern section serves as the centralized command center for administrators and security teams to maintain oversight across four critical pillars:
 
-  - **Visibility:** Maintaining a unified Agent Registry to discover agents, endpoints, and Model Context Protocol (MCP) servers across the organization.
+  - **Visibility:** Maintaining a unified Agent Registry to discover agents, endpoints, and Model Context Protocol (MCP) servers across the organization. You can also view topology graphs of agent and MCP server traffic to understand agent relationships and complex dependencies.
   - **Identity and Access:** Defining Agent Identity and deploying Agent Gateways to ensure that every interaction—from the user to the model—is authenticated and policy-driven.
   - **Security and Compliance:** Implementing the AI Security Framework, managing metadata labels for organization, and maintaining a rigorous audit trail of data access and request-response logs.
   - **Operational Oversight:** Monitoring the performance, utilization, and health of models and infrastructure to ensure reliability and cost-efficiency.
@@ -32,6 +32,12 @@ Guide
 ### [Safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/safety)
 
 Ensure your agents are safe and reliable using Google Agent Platform.
+
+Guide
+
+### [View agent relationships](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology)
+
+View real-time relationships and traffic flows across all agents and MCP servers known to Agent Registry.
 
 ## Policies
 

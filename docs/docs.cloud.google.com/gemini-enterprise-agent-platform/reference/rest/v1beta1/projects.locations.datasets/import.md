@@ -48,7 +48,7 @@ Labels that will be applied to newly imported DataItems. If an identical DataIte
 
 `annotationLabels` `map (key: string, value: string)`
 
-Labels that will be applied to newly imported Annotations. If two Annotations are identical, one of them will be deduped. Two Annotations are considered identical if their `  payload  ` , `  payloadSchemaUri  ` and all of their `  labels  ` are the same. These labels will be overridden by Annotation labels specified inside index file referenced by `  importSchemaUri  ` , e.g. jsonl file.
+Labels that will be applied to newly imported Annotations. If two Annotations are identical, one of them will be deduped. Two Annotations are considered identical if their `payload` , `payloadSchemaUri` and all of their `labels` are the same. These labels will be overridden by Annotation labels specified inside index file referenced by `  importSchemaUri  ` , e.g. jsonl file.
 
 `importSchemaUri` `string`
 

@@ -1168,6 +1168,7 @@ data_source: docs.cloud.google.com
   - `  SandboxEnvironmentTemplate.DefaultContainerEnvironment  ` (message)
   - `  SandboxEnvironmentTemplate.DefaultContainerEnvironment.DefaultContainerCategory  ` (enum)
   - `  SandboxEnvironmentTemplate.EgressControlConfig  ` (message)
+  - `  SandboxEnvironmentTemplate.EgressControlConfig.DnsPeeringConfig  ` (message)
   - `  SandboxEnvironmentTemplate.NetworkPort  ` (message)
   - `  SandboxEnvironmentTemplate.NetworkPort.Protocol  ` (enum)
   - `  SandboxEnvironmentTemplate.ResourceRequirements  ` (message)
@@ -10199,8 +10200,11 @@ A service for online predictions and explanations.
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc StreamingPredict(              StreamingPredictRequest            </code> ) returns ( <code dir="ltr" translate="no">             StreamingPredictResponse            </code> )</p>
-<p>Perform a streaming online prediction request for Vertex first-party products and frameworks.</p>
+<td><blockquote>
+<p>This item is deprecated!</p>
+</blockquote>
+<p><code dir="ltr" translate="no">rpc StreamingPredict(              StreamingPredictRequest            </code> ) returns ( <code dir="ltr" translate="no">             StreamingPredictResponse            </code> )</p>
+<p>Deprecated: Renamed to <code dir="ltr" translate="no">            PredictionService.StreamDirectPredict           </code> . Perform a streaming online prediction request for Vertex first-party products and frameworks.</p>
 <dl>
 <dt>Authorization scopes</dt>
 <dd><p>Requires one of the following OAuth scopes:</p>
@@ -16786,6 +16790,12 @@ Required. Outcome of the code execution.
 
 Optional. Contains stdout when code execution is successful, stderr or other description otherwise.
 
+`id`
+
+`string`
+
+Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the corresponding `ExecutableCode` has an id.
+
 ## Outcome
 
 Enumeration of possible outcomes of the code execution.
@@ -22883,6 +22893,12 @@ Required. Programming language of the `code` .
 
 Required. The code to be executed.
 
+`id`
+
+`string`
+
+Optional. Unique identifier of the `ExecutableCode` part. The server returns the `CodeExecutionResult` with the matching `id` .
+
 ## Language
 
 Supported programming languages for the generated code.
@@ -26055,6 +26071,12 @@ A predicted `  FunctionCall  ` returned from the model that contains a string re
 
 Fields
 
+`id`
+
+`string`
+
+Optional. The unique id of the function call. If populated, the client to execute the `function_call` and return the response with the matching `id` .
+
 `name`
 
 `string`
@@ -26191,6 +26213,12 @@ This field is mutually exclusive with `response` .
 The result output from a `  FunctionCall  ` that contains a string representing the `  FunctionDeclaration.name  ` and a structured JSON object containing any output from the function is used as context to the model. This should contain the result of a `FunctionCall` made based on model prediction.
 
 Fields
+
+`id`
+
+`string`
+
+Optional. The id of the function call this response is for. Populated by the client to match the corresponding function call `id` .
 
 `name`
 
@@ -26697,6 +26725,10 @@ Type for Priority Pay-As-You-Go traffic.
 `ON_DEMAND_FLEX`
 
 Type for Flex traffic.
+
+`ON_DEMAND_OFF_PEAK`
+
+Type for Off-Peak Pay-As-You-Go traffic.
 
 `PROVISIONED_THROUGHPUT`
 
@@ -43934,6 +43966,10 @@ The default value. This value is unused.
 
 The default container image for Computer Use.
 
+`DEFAULT_CONTAINER_CATEGORY_SHELL_SANDBOX`
+
+The default container image for Shell Sandbox.
+
 ## EgressControlConfig
 
 Configuration for egress control of sandbox instances.
@@ -43945,6 +43981,48 @@ Fields
 `bool`
 
 Optional. Whether to allow internet access.
+
+`network_attachment`
+
+`string`
+
+Optional. The name of the customer VPC NetworkAttachment used to draw a PSC interface IP into the customer VPC for sandbox egress.
+
+`dns_peering_configs[]`
+
+`  DnsPeeringConfig  `
+
+Optional. DNS peering configurations that allow sandbox egress to resolve customer-internal domains via the customer VPC.
+
+`customer_vpc_network`
+
+`string`
+
+Optional. The customer VPC network that sandbox egress is routed into.
+
+## DnsPeeringConfig
+
+Configuration for peering a customer's private DNS zone so that sandbox egress can resolve customer-internal domains via the customer VPC.
+
+Fields
+
+`domain`
+
+`string`
+
+Required. The DNS name suffix of the zone being peered to, e.g., "my-internal-domain.corp.". Must end with a dot.
+
+`target_project`
+
+`string`
+
+Required. The project ID hosting the Cloud DNS managed zone that contains the 'domain'. The Agent Platform Service Agent requires the dns.peer role on this project.
+
+`target_network`
+
+`string`
+
+Required. The VPC network name in the target\_project where the DNS zone specified by 'domain' is visible.
 
 ## NetworkPort
 
@@ -50859,6 +50937,10 @@ Type for Priority Pay-As-You-Go traffic.
 `ON_DEMAND_FLEX`
 
 Type for Flex traffic.
+
+`ON_DEMAND_OFF_PEAK`
+
+Type for Off-Peak Pay-As-You-Go traffic.
 
 `PROVISIONED_THROUGHPUT`
 

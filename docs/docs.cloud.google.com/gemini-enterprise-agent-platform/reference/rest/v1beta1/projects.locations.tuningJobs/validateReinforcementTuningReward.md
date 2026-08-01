@@ -62,6 +62,10 @@ Fields
 
 Output only. Deprecated: Use `  rewardInfoDetails  ` instead. A map from reward name to the calculated reward for the reward function. This field will only be populated when a `  CompositeReinforcementTuningRewardConfig  ` is provided in the request. It will not be set for a `  SingleReinforcementTuningRewardConfig  ` .
 
+`errorStatus` ` object ( Status  ` )
+
+Output only. In case of an error, this field will be populated with a detailed error message for overall rewards to help with debugging.
+
 `rewardInfoDetails` ` map (key: string, value: object ( ReinforcementTuningRewardInfo  ` ))
 
 A map from reward name to reward info.
@@ -70,9 +74,11 @@ A map from reward name to reward info.
 
 Output only. The overall weighted reward. For a `  CompositeReinforcementTuningRewardConfig  ` , this is the weighted average of all rewards. For a `  SingleReinforcementTuningRewardConfig  ` , this will be the value of the single reward.
 
-`error` `string`
+` error (deprecated)  ` `string`
 
-Output only. In case of an error, this field will be populated with a detailed error message to help with debugging.
+> This item is deprecated\!
+
+Output only. Deprecated: Use `  errorStatus  ` instead. In case of an error, this field will be populated with a detailed error message to help with debugging.
 
 <table>
 <colgroup>
@@ -85,7 +91,7 @@ Output only. In case of an error, this field will be populated with a detailed e
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rewardDetails&quot;: {string: number,...},&quot;rewardInfoDetails&quot;: {string: {object (ReinforcementTuningRewardInfo)},...},&quot;overallReward&quot;: number,&quot;error&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rewardDetails&quot;: {string: number,...},&quot;errorStatus&quot;: {object (Status)},&quot;rewardInfoDetails&quot;: {string: {object (ReinforcementTuningRewardInfo)},...},&quot;overallReward&quot;: number,&quot;error&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -99,6 +105,10 @@ Fields
 `userRequestedAuxInfo` `string`
 
 Output only. The user-requested auxiliary info for the reward function. This field is set only if the Cloud Run reward function configured by user returns a "user\_requested\_aux\_info". Refer to `  ReinforcementTuningCloudRunRewardScorer  ` for more details.
+
+`errorStatus` ` object ( Status  ` )
+
+Output only. In case of an error for this reward, this field will be populated with a detailed error status.
 
 `reward` `number`
 
@@ -115,10 +125,7 @@ Output only. The calculated reward for the reward function.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;userRequestedAuxInfo&quot;: string,
-  &quot;reward&quot;: number
-}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;userRequestedAuxInfo&quot;: string,&quot;errorStatus&quot;: {object (Status)},&quot;reward&quot;: number}</code></pre></td>
 </tr>
 </tbody>
 </table>

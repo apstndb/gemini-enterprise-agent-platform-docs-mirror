@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/topology
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/topology
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology
 title: View agent relationships
 description: View agents and their relationships in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com

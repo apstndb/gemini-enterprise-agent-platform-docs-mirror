@@ -744,7 +744,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -756,7 +756,7 @@ Save the request body in a file named request.json, and run the following comman
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -869,7 +869,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -881,7 +881,7 @@ Save the request body in a file named request.json, and run the following comman
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -918,7 +918,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -928,7 +928,7 @@ Run the following command:
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -983,7 +983,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -993,7 +993,7 @@ Run the following command:
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1072,7 +1072,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1082,7 +1082,7 @@ Run the following command:
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1240,7 +1240,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -1252,7 +1252,7 @@ Save the request body in a file named request.json, and run the following comman
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -1357,7 +1357,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1367,7 +1367,7 @@ Run the following command:
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1425,7 +1425,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1435,7 +1435,7 @@ Run the following command:
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1489,7 +1489,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1499,7 +1499,7 @@ Run the following command:
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Run the following command:
 
@@ -1614,7 +1614,7 @@ Request JSON body:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -1626,7 +1626,7 @@ Save the request body in a file named request.json, and run the following comman
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and run the following command:
 
@@ -1691,7 +1691,7 @@ To send your request, choose one of these options:
 
 ### curl
 
-> **Note:** The following command assumes that you have signed in to the Google Cloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI CLI . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the Google Cloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` , or by using Cloud Shell, which automatically signs you into the gcloud CLI . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and execute the following command:
 
@@ -1703,7 +1703,7 @@ Save the request body in a file named request.json, and execute the following co
 
 ### Powershell
 
-> **Note:** The following command assumes that you have signed in to the gcloud CLI CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
+> **Note:** The following command assumes that you have signed in to the gcloud CLI with your user account by running gcloud CLI `init` or gcloud CLI `auth login` . You can check the active account by running gcloud CLI `auth list` .
 
 Save the request body in a file named request.json, and execute the following command:
 

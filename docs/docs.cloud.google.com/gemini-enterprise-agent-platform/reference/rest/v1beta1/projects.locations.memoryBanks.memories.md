@@ -172,3 +172,7 @@ Update a Memory.
 ### `            retrieve           `
 
 Retrieve memories.
+
+### `            retrieveProfiles           `
+
+Retrieves profiles.
