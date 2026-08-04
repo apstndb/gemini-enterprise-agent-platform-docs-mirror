@@ -26,6 +26,8 @@ Customer data is retained in Gemini Enterprise Agent Platform for Models as a Se
 
   - **Request-response logging** : This feature is disabled by default. It can be enabled using a configuration setting on a per-model, per-project basis. Enabling this logging causes certain requests and responses to the specified model to be written to a designated BigQuery table. To achieve zero data retention, do not enable this feature. For more information about this feature, including how to enable or disable it, or read the current configuration setting, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+  - **Interactions API** : When using the [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) with `store = true` , Google stores user data (such as prompts, responses, and conversation state) to enable multi-turn conversations and later retrieval. If you do not specify a value for `store` , it defaults to `true` for all models. To achieve zero data retention, explicitly set `store = false` in your API requests.
+
 This applies to all managed models on Gemini Enterprise Agent Platform, including GA and pre-GA models.
 
 ## Agent products

@@ -128,19 +128,15 @@ If you don't know your data store ID, follow these steps:
 
 ### Console
 
-To ground your model output to AI Applications by using Vertex AI Studio in the Google Cloud console, follow these steps:
+To ground your model output to AI Applications by using Agent Studio in the Google Cloud console, follow these steps:
 
-In the Google Cloud console, go to the **Vertex AI Studio** page.
+In the Google Cloud console, go to the **Agent Studio** page.
 
 To turn on grounding, follow these steps:
 
-Click **+ New** and **Chat** from the navigation menu.
+In the side panel, under **Model settings** , select your model.
 
-Expand the **Model settings** pane, and select your model.
-
-Optional: If **Structured output** or **Grounding: Google** toggle is on, turn the option off.
-
-Click the **Grounding: Your data** toggle. The **Customize Grounding** pane appears.
+Go to the **Grounding** section, and turn on the **Your data** toggle. The configuration pane appears.
 
 Select a grounding source option from the following table:
 

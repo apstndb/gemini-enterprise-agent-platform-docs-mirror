@@ -63,10 +63,8 @@ Search results can be customized for a specific geographic location of the end u
 To use Grounding with Google Search with the Agent Studio on Gemini Enterprise Agent Platform, follow these steps:
 
 1.  In the Google Cloud console, go to the **Agent Studio** page.
-2.  Click the **Freeform** tab.
-3.  In the side panel, click the **Ground model responses** toggle.
-4.  Click **Customize** and set Grounding with Google Search as the source.
-5.  Enter your prompt in the text box and click **Submit** .
+2.  In the side panel, under **Model settings** , go to the **Grounding** section, and turn on the **Google Search** toggle.
+3.  Enter your prompt in the text box and click **Submit** .
 
 Your prompt responses now use Grounding with Google Search.
 

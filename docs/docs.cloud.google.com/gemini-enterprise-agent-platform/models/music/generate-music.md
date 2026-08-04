@@ -195,6 +195,6 @@ You would then decode the `audioContent` (base64) to get the WAV audio file. Eac
 
   - Learn how to write effective prompts in the [Lyria music generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/music/music-gen-prompt-guide)
 
-  - Explore the [Lyria API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/model-reference/lyria-music-generation)
+  - Explore the [Lyria API reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/lyria-music-generation)
 
   - Discover other [Generative AI models on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)

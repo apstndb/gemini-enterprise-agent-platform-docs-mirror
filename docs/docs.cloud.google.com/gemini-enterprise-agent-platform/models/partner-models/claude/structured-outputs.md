@@ -21,14 +21,7 @@ For more information, see Anthropic's [Building with Claude: Structured Outputs]
 
 ## Supported Anthropic Claude models
 
-Gemini Enterprise Agent Platform supports structured outputs for the following Anthropic Claude models:
-
-  - Claude Opus 4.7
-  - Claude Sonnet 4.6
-  - Claude Opus 4.6
-  - (Coming soon) Claude Opus 4.5
-  - (Coming soon) Claude Sonnet 4.5
-  - (Coming soon) Claude Haiku 4.5
+Gemini Enterprise Agent Platform supports structured outputs for all Anthropic Claude 4.5 and later models.
 
 ## Control access to structured outputs
 

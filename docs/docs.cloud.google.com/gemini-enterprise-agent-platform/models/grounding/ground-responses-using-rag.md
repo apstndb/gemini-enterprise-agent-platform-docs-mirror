@@ -19,11 +19,11 @@ There are also services and component APIs that implement the RAG lifecycle, suc
 
 To ground responses using RAG Engine, you must create a prompt. Do the following:
 
-1.  In the Google Cloud console, go to the **Create prompt** page using Vertex AI Studio.
+1.  In the Google Cloud console, go to the **Agent Studio** page.
 
-2.  Select **Grounding: Your data** .
+2.  In the side panel, under **Model settings** , go to the **Grounding** section, and turn on the **Your data** toggle.
 
-3.  Select **RAG Engine** grounding source.
+3.  In the configuration pane, select **RAG Engine** as the grounding source.
 
 4.  From the **Corpus** list, select your corpus name.
 

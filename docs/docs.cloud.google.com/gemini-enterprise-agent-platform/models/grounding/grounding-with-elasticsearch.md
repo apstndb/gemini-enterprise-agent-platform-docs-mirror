@@ -123,11 +123,11 @@ Before you can ground LLM responses with Elasticsearch, you must complete the fo
 
 To ground with Elasticsearch in the Google Cloud console, do the following:
 
-1.  Go to Vertex AI Studio to the **Create prompt** page.
+1.  Go to the **Agent Studio** page.
 
-2.  In the **Settings** panel, to ground your data, click the **Grounding: Your data** toggle.
+2.  In the side panel, under **Model settings** , go to the **Grounding** section, and turn on the **Your data** toggle.
 
-3.  In the **Customize Grounding** pane, select **Elasticsearch** .
+3.  In the configuration pane, select **Elasticsearch** .
 
 4.  Enter the endpoint in the **Elasticsearch endpoint** field.
 
@@ -147,7 +147,7 @@ To ground with Elasticsearch in the Google Cloud console, do the following:
 
 ### Understand your response
 
-If your model prompt successfully grounds to Elasticsearch data stores using the Vertex AI Studio or the API, then the model's responses include metadata with citations and source content. If low-source relevance or incomplete information occurs within the model's response, then metadata might not be provided, and the prompt response won't be grounded.
+If your model prompt successfully grounds to Elasticsearch data stores using the Agent Studio or the API, then the model's responses include metadata with citations and source content. If low-source relevance or incomplete information occurs within the model's response, then metadata might not be provided, and the prompt response won't be grounded.
 
 ### Python
 

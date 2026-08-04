@@ -50,6 +50,7 @@ The following table lists the models that will be available for at least 12 mont
 
 | Model ID                          | Release date      | Retirement date             | Replacement model |
 | --------------------------------- | ----------------- | --------------------------- | ----------------- |
+| `gemini-embedding-2`              | April 22, 2026    |                             |                   |
 | `gemini-embedding-001`            | May 20, 2025      | No sooner than May 20, 2028 |                   |
 | `text-embedding-005`              | November 18, 2024 | April 1, 2027               |                   |
 | `text-embedding-004`              | May 14, 2024      | April 1, 2027               |                   |

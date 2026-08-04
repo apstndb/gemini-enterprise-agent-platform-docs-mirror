@@ -57,7 +57,7 @@ To orchestrate your ML workflow on Agent Platform Pipelines, you must first desc
 
 Before you run the following code sample, you must set up authentication.
 
-**How to set up authentication**
+### How to set up authentication
 
 To set up authentication, you must create a service account key, and set an environment variable for the path to the service account key.
 
@@ -135,7 +135,7 @@ To set up authentication, you must create a service account key, and set an envi
 
 The `kfp.dsl` package contains the domain-specific language (DSL) that you can use to define and interact with pipelines and components.
 
-Kubeflow pipeline components are factory functions that create pipeline steps. Each component describes the inputs, outputs, and implementation of the component. For example, in the code sample below, `ds_op` is a component.
+Kubeflow pipeline components are factory functions that create pipeline steps. Each component describes the inputs, outputs, and implementation of the component. For example, in the following code sample, `ds_op` is a component.
 
 Components are used to create pipeline steps. When a pipeline runs, steps are executed as the data they depend on becomes available. For example, a training component could take a CSV file as an input and use it to train a model.
 
@@ -163,7 +163,7 @@ Components are used to create pipeline steps. When a pipeline runs, steps are ex
         ds_op = ImageDatasetCreateOp(
             project=project_id,
             display_name="flowers",
-            gcs_source="gs://cloud-samples-data/vision/automl_classification/flowers/all_data_v3.csv",
+            gcs_source="gs://cloud-samples-data/vision/automl_classification/flowers/all_data_v2.csv",
             import_schema_uri=aiplatform.schema.dataset.ioformat.image.single_label_classification,
         )
     
@@ -270,7 +270,7 @@ This page shows you how to define and run a pipeline that consists of two tasks.
     > `docker --version`  
     > If the command is unavailable, then you need to install Docker.
 
-2.  Use the following code sample to define a simple pipeline:
+2.  Use the following code sample to define a starter pipeline:
     
         from kfp import dsl
         

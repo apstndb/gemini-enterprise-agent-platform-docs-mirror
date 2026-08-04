@@ -54,11 +54,11 @@ Search results can be customized for a specific geographic location by using the
 
 To use Grounding with Google Maps with Gemini Enterprise Agent Platform, follow these steps:
 
-1.  In the Google Cloud console, go to the **Vertex AI Studio** page.
+1.  In the Google Cloud console, go to the **Agent Studio** page.
 
-2.  In the **Tools** section, click **Grounding: Google** . A configuration pane appears.
+2.  In the side panel, under **Model settings** , go to the **Grounding** section, and click the edit icon for **Google Search, Google Maps** . A configuration pane appears.
 
-3.  To use Google Maps, click **Google Maps** toggle.
+3.  Turn on the **Google Maps** toggle.
 
 4.  Click **Apply** .
 

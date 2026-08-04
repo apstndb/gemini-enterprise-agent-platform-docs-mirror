@@ -26,6 +26,7 @@ On the pay-as-you-go quota framework, you have the following options for resolvi
   - Use the [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global-endpoint) instead of a regional endpoint whenever possible.
   - Implement a [retry strategy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/retry-strategy) by using truncated exponential backoff.
   - If your model uses quotas, you can submit a Quota Increase Request (QIR). If your model uses [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) , smoothing traffic and reducing large spikes can help.
+  - You may encounter `429` errors because of acceleration limits if your project has a sharp increase in usage. To avoid hitting acceleration limits, ramp up your traffic gradually and maintain consistent usage patterns.
   - Subscribe to Provisioned Throughput for a more consistent level of service. For more information, see [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) .
 
 ## Provisioned Throughput

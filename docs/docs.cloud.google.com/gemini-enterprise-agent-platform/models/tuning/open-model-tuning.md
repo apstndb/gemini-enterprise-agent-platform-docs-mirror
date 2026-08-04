@@ -41,7 +41,7 @@ Distillation provides smaller gains on tasks where the student model already per
   - Gemma 3 4B IT ( `google/gemma3@gemma-3-4b-it` )
   - Gemma 3 12B IT ( `google/gemma3@gemma-3-12b-it` )
   - Gemma 3 27B IT ( `google/gemma3@gemma-3-27b-it` )
-  - Medgemma 1.5 4B IT ( `google/medgemma@medgemma-4b-it` )
+  - Medgemma 1.5 4B IT ( `google/medgemma@medgemma-1.5-4b-it` )
   - Qwen 3.5 9B ( `qwen/qwen3-5@qwen3.5-9b` )
   - Qwen 3 4B ( `qwen/qwen3@qwen3-4b` )
   - Qwen 3 8B ( `qwen/qwen3@qwen3-8b` )
@@ -227,7 +227,6 @@ Qwen 3.5 9B
 
 Tuning modes
 
-Parameter-efficient fine-tuning  
 Full fine-tuning
 
 Maximum sequence length
