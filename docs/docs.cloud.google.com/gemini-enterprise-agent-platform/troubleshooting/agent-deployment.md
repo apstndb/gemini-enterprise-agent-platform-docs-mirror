@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This document describes how to resolve errors that you might encounter when [deploying an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) to Agent Runtime. It covers a variety of common issues, including serialization failures, permission errors, and VPC-SC boundary violations.
 
-> **Note:** To search and filter agent error logs, [use the Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface) , select `RESOURCE TYPE` to "Gemini Enterprise Agent Platform Reasoning Engine" and select the corresponding `RESOURCE CONTAINER` value (i.e. the project number) and `REASONING ENGINE ID` value.
+Note: To search and filter agent error logs, [use the Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface) , select `RESOURCE TYPE` to "Vertex AI Reasoning Engine" and select the corresponding `RESOURCE CONTAINER` value (i.e. the project number) and `REASONING ENGINE ID` value.
 
 ## Prebuilt Template errors
 

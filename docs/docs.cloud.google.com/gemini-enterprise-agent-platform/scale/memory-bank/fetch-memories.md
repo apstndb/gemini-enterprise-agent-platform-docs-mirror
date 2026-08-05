@@ -63,8 +63,9 @@ Returned memories are sorted from most similar (shortest Euclidean distance) to 
             "top_k": 3
         }
     )
-    # RetrieveMemories returns a pager. You can use `list` to retrieve all memories.
-    list(results)
+    # RetrieveMemories returns a pager. You can use `page` to retrieve memories.
+    
+    results.page
     
     """
     Returns:
@@ -99,14 +100,15 @@ Replace the following:
 
 If no similarity search parameters are provided, `RetrieveMemories` returns all memories that have the provided scope, regardless of their similarity with the current conversation.
 
+> **Warning:** Retrieving all memories without similarity search can return multiple pages. Calling `list()` on a `RetrieveMemories` response triggers automatic pagination across all pages. For large collections, use `response.page` directly to fetch items one page at a time and prevent unexpected calls.
+
     results = client.agent_engines.memories.retrieve(
         name=memory_bank.api_resource.name,
         scope=SCOPE
     )
-    # RetrieveMemories returns a pager. You can use `list` to retrieve all pages'
-    # memories.
+    # RetrieveMemories returns a pager. You can use `page` to retrieve up to 100 memories per page.
     
-    list(results)
+    results.page
     
     """
     Returns:
@@ -135,7 +137,9 @@ Replace the following:
 
 ### List memories
 
-Use `ListMemories` to fetch all memories in your Memory Bank.
+> **Warning:** Calling `list()` on a `ListMemories` response triggers automatic pagination across all pages. For large collections, use `response.page` directly to fetch items one page at a time and prevent unexpected calls.
+
+Use `ListMemories` to memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) instead. `ListMemories` is not recommended for low-latency retrieval.
 
     pager = client.agent_engines.memories.list(name=memory_bank.api_resource.name)
     for page in pager:

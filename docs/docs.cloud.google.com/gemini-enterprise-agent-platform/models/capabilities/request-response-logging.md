@@ -36,8 +36,6 @@ Select one of the following tabs for instructions on enabling request-response l
 
 For Anthropic models, only REST is supported for logging configuration. Enable logging configuration through the REST API by setting publisher to `anthropic` and setting the model name to one of the [supported Claude models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude) .
 
-To use request-response logging for Anthropic models, use a regional endpoint. The [global endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#global) and [multi-regional endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models#multi-region) don't support this feature.
-
 ### Python SDK
 
 This method can be used to create or update a `PublisherModelConfig` .
@@ -560,18 +558,24 @@ To send your request, choose one of these options:
 
 #### curl
 
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
 Save the request body in a file named `request.json` , and execute the following command:
 
     curl -X POST \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
          "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
 
 #### PowerShell
 
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{  }
+    $cred = gcloud auth print-access-token
+    $headers = @{ "Authorization" = "Bearer $cred" }
     
     Invoke-WebRequest `
         -Method POST `
@@ -609,17 +613,22 @@ To send your request, choose one of these options:
 
 #### curl
 
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
 Execute the following command:
 
     curl -X  \
-         -H "Authorization: Bearer TOKEN" \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
 
 #### PowerShell
 
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
 Execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    $cred = gcloud auth print-access-token
+    $headers = @{ "Authorization" = "Bearer $cred" }
     
     Invoke-WebRequest `
         -Method  `
@@ -666,19 +675,24 @@ To send your request, choose one of these options:
 
 #### curl
 
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs) , which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
 Save the request body in a file named `request.json` , and execute the following command:
 
     curl -X POST \
-         -H "Authorization: Bearer TOKEN" \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
          "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
 
 #### PowerShell
 
+> **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list) .
+
 Save the request body in a file named `request.json` , and execute the following command:
 
-    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    $cred = gcloud auth print-access-token
+    $headers = @{ "Authorization" = "Bearer $cred" }
     
     Invoke-WebRequest `
         -Method POST `

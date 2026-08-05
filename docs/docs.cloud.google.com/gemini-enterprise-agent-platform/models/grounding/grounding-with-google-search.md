@@ -640,7 +640,7 @@ The following shows example curl usage to ground a response to search:
     curl -X POST \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
       -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1/projects/PROJEC_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent -d '{
+      https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash:generateContent -d '{
         "contents": {
           "role": "user",
           "parts": {

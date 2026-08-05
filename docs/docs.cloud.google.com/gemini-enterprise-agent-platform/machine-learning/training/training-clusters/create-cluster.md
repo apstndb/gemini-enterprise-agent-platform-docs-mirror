@@ -500,6 +500,7 @@ The following parameters are used to define the node pools for both login and wo
   - BOOT\_DISK\_TYPE : The boot disk type for the login node (for example, `pd-standard` , `pd-ssd` ).
   - BOOT\_DISK\_SIZE\_GB : The boot disk size in GB for the login node.
   - LABELS : A set of key/value pairs to label the node pool.
+  - NODE\_IMAGE (corresponds to `node_image` inside a `node_pools` object): The VM image the node pool's nodes boot from, as a full image or image family resource path (for example, ` projects/ IMAGE_PROJECT /global/images/family/ IMAGE_FAMILY  ` ). If you omit it, the node pool uses the current default image for its machine type, which advances over time. Set it to keep the node pool on a specific image. Changing a node pool's image recreates its nodes.
 
 #### Additional storage settings
 

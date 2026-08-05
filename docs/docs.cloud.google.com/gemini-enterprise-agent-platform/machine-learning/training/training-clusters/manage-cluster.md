@@ -127,7 +127,7 @@ For example, to update the node count of a pool of a [CPU-only cluster](https://
   - `updateMode` (enum, optional): Specifies the update mode. Possible values are:
     
       - `UPDATE_MODE_UNSPECIFIED` : The default value, treated as `USER_AND_SERVICE` .
-      - `USER_ONLY` : Apply only user-specified field changes from the request. The service won't refresh service-managed fields, like startup, prolog, or epilog scripts.
+      - `USER_ONLY` : Apply only user-specified field changes from the request. The service won't refresh service-managed fields, like startup, prolog, or epilog scripts. Node images are an exception: a node pool that doesn't set `node_image` can still move to a newer default image and have its nodes recreated. See Node image selection.
       - `USER_AND_SERVICE` : Apply user-specified field changes and let the service refresh service-managed fields.
     
     We recommend using `USER_AND_SERVICE` to ensure your cluster is up-to-date.
@@ -140,6 +140,14 @@ The command below updates both the node pool configuration and the Slurm partiti
 **Important note on repeated fields**
 
 For repeated fields, such as `node_pools` , `prolog_bash_scripts` , and `epilog_bash_scripts` , the API only supports a full replacement operation. The user must provide the entire, expected list of items in the request payload to replace the existing list completely.
+
+**Node image selection**
+
+Because `node_pools` is replaced in full, a node pool in your update payload that omits `node_image` resolves to the current default image for its machine type. That default advances over time, so omitting `node_image` moves the node pool to the latest available image, which is often what you want: it picks up driver, security, and bug fixes.
+
+> **Caution:** Moving a node pool to a different image recreates its nodes. Compute nodes in the pool are drained and replaced, and the login nodes are recreated, which ends active SSH sessions and discards data stored on the login node's boot disk. This applies to `updateMode=USER_ONLY` as well. `USER_ONLY` does not refresh service-managed scripts, but it does not hold the node image either, so a `USER_ONLY` update that omits `node_image` can still move a node pool to a newer image and reboot its nodes. Because the image is resolved on every update, an unrelated change such as editing a label is enough to trigger this once a newer default image is available.
+
+To keep a node pool on a specific image across updates, set `node_image` to that image. If you read the current value from `Get` in order to send it back, note that a cluster that has never been updated reports an empty `node_image` .
 
 **Post-update behavior and cluster status**
 

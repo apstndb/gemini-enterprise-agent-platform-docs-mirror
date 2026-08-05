@@ -4081,7 +4081,16 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
+<td><p><code dir="ltr" translate="no">agentregistry.operations.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">agentregistry.  operations.  cancel</code></li>
+<li><code dir="ltr" translate="no">agentregistry.  operations.  delete</code></li>
+<li><code dir="ltr" translate="no">agentregistry.operations.get</code></li>
+<li><code dir="ltr" translate="no">agentregistry.operations.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">agentregistry.skills.create</code></p>
+<p><code dir="ltr" translate="no">agentregistry.skills.delete</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  agentAnomalyDetectionScopes.  delete</code></li>
@@ -5205,6 +5214,17 @@ Permissions
 Gives Vertex AI the permissions it needs to function.
 
 > **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents) .
+
+`agentregistry.operations.*`
+
+  - `agentregistry. operations. cancel`
+  - `agentregistry. operations. delete`
+  - `agentregistry.operations.get`
+  - `agentregistry.operations.list`
+
+`agentregistry.skills.create`
+
+`agentregistry.skills.delete`
 
 `aiplatform. agentAnomalyDetectionScopes.*`
 

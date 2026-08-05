@@ -44536,7 +44536,7 @@ Required. Immutable. URI of the Docker image to be used as the custom container 
 
 The container image is ingested upon `  ModelService.UploadModel  ` , stored internally, and this original path is afterwards not used.
 
-To learn about the requirements for the Docker image itself, see [Custom container requirements](https://cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements) .
+To learn about the requirements for the Docker image itself, see [Custom container requirements](https://cloud.google.com/vertex-ai/docs/predictions/custom-container-requirements#) .
 
 You can use the URI to one of Agent Platform's [pre-built container images for prediction](https://cloud.google.com/vertex-ai/docs/predictions/pre-built-containers) in this field.
 

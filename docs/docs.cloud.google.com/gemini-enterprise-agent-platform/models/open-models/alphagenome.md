@@ -66,22 +66,16 @@ For the complete API reference, parameter definitions, and detailed schemas, see
 
 Access to the deployed endpoint is managed using Google Cloud Identity and Access Management. Ensure the execution environment (such as a local terminal, VM, or Colab) is authenticated with credentials (either a service account or end-user credentials) that have the Agent Platform User ( `roles/aiplatform.user` ) role.
 
-    # Set your endpoint URL. AlphaGenome requires the `streamRawPredict` action.
-    # Ensure your URL ends with :streamRawPredict
-    export ENDPOINT_URL="https://<your-endpoint-url>:streamRawPredict"
-    
-    # (Optional) If you choose to impersonate a service account, set this variable
-    export SERVICE_ACCOUNT="your-service-account-email@your-project.iam.gserviceaccount.com"
-
 ### Usage
 
 ### Python
 
 #### Install the SDK
 
-Run the following commands to install the AlphaGenome Cloud SDK. Refer to the product welcome package for the wheel file location.
+Run the following commands to install the AlphaGenome Cloud SDK. Access to the SDK wheel file requires allowlisting. Refer to the product welcome package for the wheel file location.
 
     # Copy the SDK wheel file and install
+    # If using service account impersonation, append: --impersonate-service-account=$SERVICE_ACCOUNT
     gcloud storage cp "gs://alphagenome-whl/alphagenome_cloud_sdk-0.4.2.10-py3-none-any.whl" .
     pip install alphagenome_cloud_sdk-0.4.2.10-py3-none-any.whl
 
@@ -178,6 +172,12 @@ Use `score_variant` to compare the predicted expression of a reference (REF) seq
 
 Clients can query the deployed endpoint using standard REST client tools like curl:
 
+    # Set your base endpoint URL
+    export ENDPOINT_URL="https://<your-endpoint-url>"
+    
+    # (Optional) If you choose to impersonate a service account, set this variable
+    # export SERVICE_ACCOUNT="your-service-account-email@your-project.iam.gserviceaccount.com"
+    
     # Generate an OAuth2 access token using your current credentials
     # If using service account impersonation, append: --impersonate-service-account=$SERVICE_ACCOUNT
     export TOKEN=$(gcloud auth print-access-token)
@@ -186,15 +186,15 @@ Clients can query the deployed endpoint using standard REST client tools like cu
       -H "Authorization: Bearer $TOKEN" \
       -H "Content-Type: application/json" \
       -d '{
-        "model": "google/alpha-genome-001",
+        "model": "google/alpha-genome-002",
         "instances": [
           {
             "request_type": "predict_interval",
             "data": {
               "interval": {
                 "chromosome": "chr19",
-                "start": "41003816",
-                "end": "41005864",
+                "start": "40480552",
+                "end": "41529128",
                 "strand": "STRAND_UNSTRANDED"
               },
               "organism": "ORGANISM_HOMO_SAPIENS",
@@ -203,11 +203,13 @@ Clients can query the deployed endpoint using standard REST client tools like cu
           }
         ]
       }' \
-      $ENDPOINT_URL
+      ${ENDPOINT_URL}:streamRawPredict
+
+Note that AlphaGenome endpoints require the `streamRawPredict` action appended to the base endpoint URL.
 
 ## Pricing
 
-AlphaGenome is a paid model with a licensing fee. For information about AlphaGenome pricing, [contact a Google Cloud sales specialist](https://cloud.google.com/contact) or work with your Google Cloud account team.
+AlphaGenome requires a paid subscription. For information about AlphaGenome pricing, [contact a Google Cloud sales specialist](https://cloud.google.com/contact) or work with your Google Cloud account team.
 
 You are responsible for the cost of infrastructure used to host the model, including the Agent Platform endpoint and the GPU instances the model is deployed on. For more information, see [Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing) .
 

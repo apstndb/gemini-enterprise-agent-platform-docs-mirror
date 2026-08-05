@@ -30,9 +30,9 @@ Skip interactive approval prompts during the scan:
 
 ## Verify vulnerabilities
 
-> **Warning:** CodeMender may modify files or execute commands on your system. It is highly recommended to run the CLI in a safe sandbox environment or isolated VM.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. Because sandboxing is disabled by default, we highly recommend that you enable the built-in local process-level sandbox (using the `--sandbox` flag or `config.yaml` ) or run the CLI in an isolated VM or container to protect your host system.
 
-Once potential vulnerabilities are identified, ask CodeMender to verify exploitability. During verification, CodeMender generates and executes a proof-of-concept (PoC) exploit in your sandbox to confirm whether the issue is genuinely exploitable.
+Once potential vulnerabilities are identified, ask CodeMender to verify exploitability. During verification, CodeMender generates and executes a proof-of-concept (PoC) exploit (in the [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#execution-sandboxing) , if enabled) to confirm whether the issue is genuinely exploitable.
 
 Locate the `finding-id` from the output of `cm report` or `cm find` , then run:
 
@@ -47,6 +47,14 @@ Locate the `finding-id` from the output of `cm report` or `cm find` , then run:
   - **Skip PoC exploit execution ( `--skip-exploit-verification` )** : Perform static verification only without running active exploits:
     
         cm verify FINDING_ID --skip-exploit-verification
+
+  - **Enable sandboxing ( `--sandbox` )** : Run the command inside the built-in local process-level sandbox:
+    
+        cm verify FINDING_ID --sandbox
+
+  - **Bypass sandboxing ( `--unrestricted` )** : If sandboxing is enabled, temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
+    
+        cm verify FINDING_ID --unrestricted
 
   - **Auto-approve prompts ( `-y` )** : Skip confirmation prompts:
     

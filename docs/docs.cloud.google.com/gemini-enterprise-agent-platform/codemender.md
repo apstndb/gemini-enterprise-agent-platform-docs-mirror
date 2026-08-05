@@ -35,7 +35,7 @@ During all three stages, you can provide context to CodeMender to ensure it acco
 From a user perspective, the CodeMender system consists of two components:
 
   - **Agent** : A hosted multi-agent system that runs the core business logic and reasoning.
-  - **Client** : A client running on your machine, acting as both a CLI (to issue commands and view outputs) and a daemon (to execute commands on behalf of the agent, such as navigating the codebase and verifying vulnerabilities and patches).
+  - **Client** : A client running on your machine, acting as both a CLI (to issue commands and view outputs) and a daemon (to execute commands on behalf of the agent, with optional isolation inside a local process-level sandbox to safely compile code, run tests, and verify vulnerabilities).
 
 ## Supported languages and frameworks
 
@@ -89,7 +89,7 @@ To view cumulative billed token usage and cost trends across your Google Cloud p
 
 Set up the CLI tool and initialize your workspace to start scanning.
 
-> **Warning:** CodeMender may modify files or execute commands on your system. It is highly recommended to run the CLI in a safe sandbox environment or isolated VM.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. Because sandboxing is disabled by default, we highly recommend that you enable the built-in local process-level sandbox (using the `--sandbox` flag or `config.yaml` ) or run the CLI in an isolated VM or container to protect your host system.
 
 ### Prerequisites
 
@@ -99,6 +99,7 @@ Before you initialize the CodeMender CLI, ensure your environment is prepared co
   - **[Download the CodeMender CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#download-cli) :** Download and install the CodeMender CLI binary for your operating system.
   - **[Configure Google Cloud credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configure-credentials) :** Configure Google Cloud Application Default Credentials (ADC) to authenticate the CLI.
   - **Provision your source code:** Clone or copy the source code of the project you want to scan into your workspace.
+  - **[Configure Sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#sandbox-configuration) :** Define directory mounts, network access profiles, and security exceptions for the sandbox environment.
 
 ### Specifying the model
 
@@ -154,7 +155,7 @@ CodeMender is designed with a "Zero-Data-Access" approach regarding human visibi
 
 For detailed instructions, see the following guides:
 
-  - [Install CLI and configure credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment)
+  - [Install and configure the CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment)
   - [Scan and verify code vulnerabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/scan-and-verify)
   - [Import third-party security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/import-findings)
   - [Fix code vulnerabilities and manage diffs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/fix-and-patch)

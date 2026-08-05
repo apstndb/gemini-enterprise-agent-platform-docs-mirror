@@ -159,13 +159,11 @@ You can retrieve memories for your user and include them in your system instruct
 
 For more information about retrieving memories using a scope-based method, see [Fetch memories](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) .
 
-    # Retrieve all memories for User ID 123.
-    retrieved_memories = list(
-        client.agent_engines.memories.retrieve(
-            name=memory_bank.api_resource.name,
-            scope={"user_id": "123"}
-        )
-    )
+    # Retrieve memories for User ID 123.
+    retrieved_memories = client.agent_engines.memories.retrieve(
+        name=memory_bank.api_resource.name,
+        scope={"user_id": "123"}
+    ).page
 
 You can use `jinja` to convert your structured memories into a prompt:
 

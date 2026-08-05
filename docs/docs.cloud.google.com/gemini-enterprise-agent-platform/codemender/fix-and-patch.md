@@ -39,6 +39,14 @@ By default, CodeMender will prompt you to confirm each file modification before 
     
     **Note:** You can also disable interactive write prompts globally by setting `confirm_writes: false` in your `config.yaml` .
 
+  - **Enable sandboxing ( `--sandbox` )** : Run the command inside the built-in local process-level sandbox:
+    
+        cm fix FINDING_ID --sandbox
+
+  - **Bypass sandboxing ( `--unrestricted` )** : If sandboxing is enabled, temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
+    
+        cm fix FINDING_ID --unrestricted
+
   - **Bypass cache ( `--no-cache` )** : Force CodeMender to generate a fresh patch:
     
         cm fix FINDING_ID --no-cache

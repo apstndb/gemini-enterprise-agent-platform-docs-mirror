@@ -60,6 +60,7 @@ The public preview of *Deploy models with custom weights* is supported by the fo
 <li>Qwen2.5: 0.5B, 1.5B, 7B, 32B</li>
 <li>Qwen3: 0.6B, 1.7B, 4B, 8B, 32B, Qwen3-Coder-480B-A35B-Instruct, Qwen3-Next-80B-A3B-Instruct, Qwen3-Next-80B-A3B-Thinking, Qwen3-VL-8B-Instruct</li>
 <li>Qwen3.5: 9B</li>
+<li>Qwen3.6: 27B, 35B A3B</li>
 </ul></td>
 </tr>
 <tr class="even">
