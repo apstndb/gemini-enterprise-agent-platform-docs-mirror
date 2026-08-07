@@ -127,7 +127,7 @@ Depending on the number of input items that you've submitted, a batch generation
 
 ### REST
 
-To test a text prompt by using the Agent Platform API, send a POST request to the publisher model endpoint.
+You can use the REST API to get text embeddings in batch by sending a POST request to the publisher model endpoint.
 
 Before using any of the request data, make the following replacements:
 
@@ -220,15 +220,23 @@ You should receive a JSON response similar to the following:
       "modelMonitoringStatus": {}
     }
 
-The response includes a unique identifier for the batch job. You can poll for the status of the batch job using the BATCH\_JOB\_ID until the job `state` is `JOB_STATE_SUCCEEDED` . For example:
+\#\#\# Example curl command
 
-    curl \
-      -X GET \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-    https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/us-central1/batchPredictionJobs/BATCH_JOB_ID
+Replace the following variables in your command:
 
-> **Note:** You can run only one batch response job at a time. Custom Service accounts, live progress, CMEK, and VPC-SC reports aren't supported at this time.
+  - `PROJECT_ID` : Your Google Cloud project ID.
+
+  - `LOCATION` : The location to send your request.
+
+  - `GCS_SOURCE_BUCKET` : Your Cloud Storage source bucket URI.
+
+  - `GCS_OUTPUT_BUCKET` : Your Cloud Storage output bucket URI.
+    
+        curl -X POST \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d @request.json \
+            "https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/batchPredictionJobs"
 
 ### Python
 

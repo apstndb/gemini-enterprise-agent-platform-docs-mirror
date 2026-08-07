@@ -10,7 +10,7 @@ This page lists the supported locations for Google agents and agent infrastructu
 
 To see supported locations for generative AI models on Agent Platform, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
-Runtime, Sessions, Agent Platform Memory Bank, and Agent Gateway are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
+[Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) , [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , and Agent Gateway are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
 
 | Region                                       | Location          | Supported versions                                                              |
 | -------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ Runtime, Sessions, Agent Platform Memory Bank, and Agent Gateway are supported i
 
 <sup>\*</sup> Memory Bank is not supported in this region. <sup>†</sup> Agent Gateway is not supported in this region.
 
-For [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) (Preview), the following regions are supported.
+For [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , the following regions are supported.
 
 | Region        | Location | Supported versions              |
 | ------------- | -------- | ------------------------------- |
@@ -48,9 +48,11 @@ For [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platf
 
 ## Multi-regional and global endpoints
 
-Memory Bank and Sessions support multi-regional and global endpoints. For global requests, set your location to `global` . For multi-regional requests, set your location to `us` or `eu` .
+[Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) , and [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) support multi-regional endpoints. Memory Bank and Sessions also support global endpoints. For global requests, set your location to `global` . For multi-regional requests, set your location to `us` or `eu` .
 
 > **Note:** You can't use CMEK if your Memory Bank or Sessions is configured to use the global endpoint. Cloud Key Management Service requires encryption keys to reside within a fixed geographic data residency boundary. Because the global region lacks a physical geographic boundary, it is barred from encrypting localized regional or multi-regional resources.
+
+> **Note:** You can't use CMEK if your Runtime is configured to use a multi-regional endpoint.
 
 ### Supported agents
 

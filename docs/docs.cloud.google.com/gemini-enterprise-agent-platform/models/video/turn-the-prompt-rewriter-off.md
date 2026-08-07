@@ -26,6 +26,24 @@ For more information about writing effective text prompts for video generation, 
     
     When you use the Google Cloud console to access Google Cloud services and APIs, you don't need to set up authentication.
     
+    ### Python
+    
+    To use the Python samples on this page in a local development environment, install and initialize the gcloud CLI, and then set up Application Default Credentials with your user credentials.
+    
+    1.  [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+    
+    2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+    
+    3.  If you're using a local shell, then create local authentication credentials for your user account:
+        
+            gcloud auth application-default login
+        
+        You don't need to do this if you're using Cloud Shell.
+        
+        If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+    
+    For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) in the Google Cloud authentication documentation.
+    
     ### REST
     
     To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.

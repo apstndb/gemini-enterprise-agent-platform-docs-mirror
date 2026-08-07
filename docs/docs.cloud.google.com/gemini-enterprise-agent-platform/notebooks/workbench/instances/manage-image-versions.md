@@ -8,50 +8,31 @@ data_source: docs.cloud.google.com
 
 # Manage image versions
 
-This document describes how to manage image versions for Gemini Enterprise Agent Platform Workbench instances, including software stack details and instructions for creating and upgrading instances.
+This page describes how to manage image versions for Gemini Enterprise Agent Platform Workbench instances, including how to do the following:
 
-Reference the [Agent Platform Workbench release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes) to check what is supported with each image version.
+  - List the available image names
+  - Create an instance on a specific image name
+  - Upgrade or move an instance between image families
+
+To learn about the versioning scheme, image contents, and lifecycle, see [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) .
+
+To learn about what changed in each release, see [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) .
 
 ## VM images
 
-VM images on Agent Platform Workbench instances use two separate versioning schemes: major and minor.
+This section describes how to list available VM images, create an instance on a specific VM image, and upgrade an instance's VM image.
 
-  - **Major versions** : Agent Platform Workbench instances use calendar versioning ( `YY.MM` ) to mark major releases which introduce significant changes to the underlying image. These can include updates to support in frameworks, OS, and Python versioning. Once a new major version is released, users can expect the following:
-    
-      - New features will only be developed in the latest release track.
-      - Older release branches will continue to be updated at the same cadence but are expected to be phased out in the near future.
-    
-    The image family name reflects the release train (for example, `workbench-instances-YYMM` ).
+### List available VM images
 
-  - **Minor versions** : The minor version is a date-based tag that indicates the specific build of the image, following the format `YYYYMMDD-HHMM-rcX` . This includes point releases such as bug fixes and security patches applied to the latest release train.
-
-### Legacy release track
-
-**Image family:** `workbench-instances`
-
-  - **OS** : Debian 11
-  - **Python** : 3.11
-  - **Frameworks** : TensorFlow/PyTorch/Base (common ML packages)
-
-**Minor versioning** : The **legacy release** images will continue to be updated using milestone versioning incremented numerically (for example, `m140` ) to signify minor updates.
-
-### Retrieve image list
-
-VM images are stored in a private repository. To retrieve a list of available VM images and their supported configurations, you can use the `gcloud workbench instances get-config` command in the Google Cloud CLI or the `GetConfig` API.
+VM images are stored in a private repository. To list available VM images and their supported configurations, use `gcloud workbench instances get-config` or the `GetConfig` API.
 
 ### gcloud
 
-To retrieve the valid configurations for Agent Platform Workbench instances in a specific location, use the `gcloud workbench instances get-config` command.
-
     gcloud workbench instances get-config --location=LOCATION
 
-Replace the following:
-
-  - `  LOCATION  ` : the Google Cloud region (for example, `us-central1` ).
+Replace `  LOCATION  ` with the Google Cloud region, for example, `us-central1` .
 
 ### cURL
-
-To retrieve the configurations using the API, make a GET request to the `getConfig` endpoint.
 
     curl -X GET -H "Authorization: Bearer $(gcloud auth print-access-token)" \
       "https://notebooks.googleapis.com/v2/projects/PROJECT_ID/locations/LOCATION/instances:getConfig"
@@ -61,43 +42,42 @@ Replace the following:
   - `  PROJECT_ID  ` : your Google Cloud project ID.
   - `  LOCATION  ` : the region where you want to retrieve configurations.
 
-### Create instance with specific VM image
+### Create an instance with a specific VM image
 
-To create a Agent Platform Workbench instance with a specific VM image version, you can use the gcloud CLI or Terraform:
+To create an instance on a specific VM image, use gcloud CLI or Terraform. You can specify an image family to get its latest image name, or specify an image name to get the exact version.
 
 ### gcloud
-
-Specify the selected image family or image name using the `--vm-image-family` or `--vm-image-name` flag in `gcloud workbench instances create` .
 
     # Using an image family
     gcloud workbench instances create INSTANCE_NAME \
       --vm-image-project=cloud-notebooks-managed \
-      --vm-image-family=workbench-instances-2603 \
+      --vm-image-family=IMAGE_FAMILY \
       --location=LOCATION
     
     # Using a specific image name
     gcloud workbench instances create INSTANCE_NAME \
       --vm-image-project=cloud-notebooks-managed \
-      --vm-image-name=workbench-instances-2603-20240315-1800-rc0 \
+      --vm-image-name=IMAGE_NAME \
       --location=LOCATION
 
 Replace the following:
 
   - `  INSTANCE_NAME  ` : the name of your instance.
+
+  - `  IMAGE_FAMILY  ` : the VM image family from the [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) page.
+
   - `  LOCATION  ` : the region where you want to create the instance.
 
-For more information on creating an instance with a specific version, see [Create a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version#create_a_specific_version) .
+  - `  IMAGE_NAME  ` : a specific image name. To find available image names, see [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) or run `gcloud workbench instances get-config` . For more information, see [List available VM images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#retrieve-image-list) .
 
 ### Terraform
-
-In the Terraform configuration, set the `vm_image` block within the `google_workbench_instance` resource.
 
     resource "google_workbench_instance" "vm_instance" {
       # ... other configurations
       gce_setup {
         vm_image {
-          project      = "cloud-notebooks-managed"
-          family       = "workbench-instances-2603" # Or use name = "workbench-instances-2603-20240315-1800-rc0"
+          project = "cloud-notebooks-managed"
+          family  = "IMAGE_FAMILY" # Or specify image name to get an exact version
         }
       }
       # ...
@@ -105,9 +85,7 @@ In the Terraform configuration, set the `vm_image` block within the `google_work
 
 ### Upgrade a VM image
 
-Agent Platform Workbench instances support upgrading to the latest version of an image family. By default, an instance is upgraded to the latest image in its current image family. To upgrade across image families (for example, between major versions), see [Upgrade across image families](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#upgrade-across-image-families) . To use an older image, a new instance must be created.
-
-To upgrade a VM image to the latest version within its image family, you can use the gcloud CLI or Terraform:
+By default, an instance upgrades to the latest image name in its current image family. To use an older image name, create a new instance from a specific image name.
 
 ### gcloud
 
@@ -120,23 +98,24 @@ Replace the following:
 
 ### Terraform
 
-To upgrade an instance using Terraform, update the `family` or `name` in the `vm_image` block to the selected version and apply the configuration.
+In the Terraform configuration, set the `vm_image` block within the `google_workbench_instance` resource.
 
     resource "google_workbench_instance" "vm_instance" {
       # ... other configurations
       gce_setup {
         vm_image {
-          project      = "deeplearning-platform-release"
-          family       = "workbench-instances-2603" # Update to the latest family
+          project = "cloud-notebooks-managed"
+          family  = "workbench-instances-2603" # Or use name = "workbench-instances-2603-20240315-1800-rc0"
         }
       }
+      # ...
     }
 
-For more information on upgrading, see [Upgrade an instance's environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/upgrade) .
+For more information about creating an instance with a specific version, see [Create a specific version](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-specific-version#create_a_specific_version) .
 
-#### Upgrade across image families
+### Upgrade across image families
 
-To upgrade an instance to the latest image in a *different* image family (for example, to move from the legacy `workbench-instances` release track to the newer `workbench-instances-2603` release track), specify the target image family during the upgrade. This is the supported path for moving between major versions without recreating the instance.
+To change an instance to the latest image name in a different image family (for example, from `workbench-instances` to the newer `workbench-instances-2603` ), specify the target image family during the upgrade. This is the supported path for changing between major versions without recreating the instance.
 
 ### gcloud
 
@@ -150,14 +129,14 @@ Replace the following:
 
   - `  INSTANCE_NAME  ` : the name of your instance.
   - `  LOCATION  ` : the region where your instance is located.
-  - `  IMAGE_PROJECT  ` : the project that hosts the image family (for example, `deeplearning-platform-release` ).
+  - `  IMAGE_PROJECT  ` : the project that hosts the image family (for example, `cloud-notebooks-managed` ).
   - `  IMAGE_FAMILY  ` : the name of the target image family (for example, `workbench-instances-2603` ).
 
 For example, to upgrade an instance to the latest image in the `workbench-instances-2603` family:
 
     gcloud workbench instances upgrade example-instance \
       --location=us-central1 \
-      --image-family=projects/deeplearning-platform-release/global/images/family/workbench-instances-2603
+      --image-family=projects/cloud-notebooks-managed/global/images/family/workbench-instances-2603
 
 If the `--image-family` flag is omitted, the instance is upgraded to the latest image in its current image family.
 
@@ -175,18 +154,13 @@ Custom containers on Agent Platform Workbench instances follow a strictly sequen
 
 The container host uses Google's Container Optimized OS (COS). The version cannot be specified when creating a new Agent Platform Workbench custom container instance. Instead, new instances use the latest COS image as the container host. The underlying image follows the latest stable OS version from COS. See the [Container-Optimized OS release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes) .
 
-### Custom container base images
+## Custom container instances
 
-Custom containers are built on top of the following Google-provided base containers when using Agent Platform Workbench instances:
+This section covers creating and upgrading instances that use custom containers. To build a custom container, see [create an instance using a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) . For the base container images and their specifications, see [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) .
 
-  - Base Container: `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container:latest`
-  - Slim Container: `us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container-slim:latest`
+### Create an instance with a custom container
 
-The containers are tagged with their corresponding release tag, which can be observed in the Artifact Registry page.
-
-### Create instance with container images
-
-To create a Agent Platform Workbench instance using a custom container, the following methods can be used:
+To create an Agent Platform Workbench instance using a custom container, use gcloud CLI or Terraform.
 
 ### gcloud
 
@@ -194,34 +168,46 @@ To create a Agent Platform Workbench instance using a custom container, the foll
       --project=PROJECT_ID \
       --location=ZONE \
       --container-repository=REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/IMAGE_NAME \
-      --container-tag=latest
+      --container-tag=TAG
 
 Replace the following:
 
   - `  INSTANCE_NAME  ` : the name of your instance.
-  - `  PROJECT_ID  ` : your Google Cloud project ID.
+
+  - `  PROJECT_ID  ` : the Google Cloud project where you want to create the instance.
+
   - `  ZONE  ` : the zone where you want to create the instance (for example, `us-central1-a` ).
+
   - `  REGION  ` : the region for the Artifact Registry repository (for example, `us` ).
+
   - `  REPOSITORY_NAME  ` : the name of your Artifact Registry repository.
-  - `  IMAGE_NAME  ` : the name of your container image.
+
+  - `  IMAGE_NAME  ` : a specific image name. To find available image names, see [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) or run `gcloud workbench instances get-config` . For more information, see [List available VM images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#retrieve-image-list) .
+
+  - `  TAG  ` : the image tag, for example `latest` .
 
 ### Terraform
-
-Set the `container_image` block within the `google_workbench_instance` resource.
 
     resource "google_workbench_instance" "container_instance" {
       # ... other configurations
       gce_setup {
         container_image {
-          repository = "us-docker.pkg.dev/deeplearning-platform-release/gcr.io/workbench-container"
-          tag  = "latest"
+          repository = "REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/IMAGE_NAME"
+          tag        = "TAG"
         }
       }
       # ...
     }
 
-### Upgrading custom containers
+### Upgrade a custom container
 
-To upgrade the container host image, see [Upgrade a VM image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#upgrade-vm-image) for examples using `gcloud` or Terraform.
+A custom container instance runs on two images, which upgrade differently:
 
-To upgrade the custom container image, a mutable tag (such as `:latest` ) can be used. When the custom container instance is restarted, the image is repulled if changes have been made to that tag in the registry. Alternatively, the instance can be updated to use a different image tag.
+  - **Container host image:** managed by Google. It follows the [VM upgrade path](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-image-versions#upgrade-vm-image) .
+  - **Base Container image:** the image you build and select. To upgrade it, either reference a mutable tag such as `:latest` (the instance picks up the changes to that tag on restart) or update the instance to a different tag.
+
+## What's next
+
+  - [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) : See what each image contains, how versions are numbered, and when images are deprecated.
+  - [Image release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/release-notes-image) : See what changed in each image release.
+  - [Support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/support-policy) : Learn about CVE handling, packages, support windows, and deprecation notice.

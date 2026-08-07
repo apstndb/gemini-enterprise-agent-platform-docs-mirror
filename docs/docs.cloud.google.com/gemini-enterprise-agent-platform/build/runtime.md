@@ -154,7 +154,9 @@ The `agent_engines` module within the Agent Platform SDK is being refactored to 
 
   - To align with the [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) (ADK) and Google Gen AI SDK in canonical type representations. This ensures a consistent and standardized way of representing data types across different SDKs, which simplifies interoperability and reduces conversion overhead.
   - For client-level scoping of Google Cloud parameters in multi-project multi-location applications. This allows an application to manage interactions with resources across different Google Cloud projects and geographical locations by configuring each client instance with its specific project and location settings.
-  - To improve discoverability and cohesiveness of Agent Runtime services
+  - To improve discoverability and cohesiveness of Agent Runtime services.
+
+To learn how to migrate to the client-based SDK, see [Agent Runtime SDK migration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk-migration) .
 
 ## What's next
 

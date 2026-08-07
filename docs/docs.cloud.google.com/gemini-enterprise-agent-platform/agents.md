@@ -179,6 +179,6 @@ Create and deploy a basic agent and use the Gen AI evaluation service to evaluat
 
 Resource
 
-### [Gemini Enterprise Agent Ready](https://developers.google.com/program/gear)
+### [Gemini Enterprise Agent Ready](https://g.dev/cloud/gear-docs-ai-ml)
 
 Go from prototyping with Gemini to deploying secure, enterprise-grade agents with hands-on training and guidance from Google experts.

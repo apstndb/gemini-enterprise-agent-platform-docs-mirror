@@ -28,6 +28,8 @@ To help manage costs or ensure availability of VM resources, Agent Platform prov
 
 ## Where to specify compute resources
 
+You can configure the machine types and accelerator settings when you deploy your model for online inference or when you create a batch inference job.
+
 ### Online inference
 
 If you want to use a custom-trained model or an AutoML tabular model to serve online inferences, you must specify a machine type when you deploy the `Model` resource as a `DeployedModel` to an `Endpoint` . For other types of AutoML models, Agent Platform configures the machine types automatically.
@@ -74,6 +76,8 @@ For information about TPU accelerator types, see [Deploy a model to Cloud TPU VM
 | `e2-highcpu-32`  | 32    | 32          |
 
 ### N1 Series
+
+> **Note:** In the `me-west1` region, N1 series machine types are supported for online and custom prediction only when combined with an NVIDIA Tesla T4 GPU accelerator. Using a CPU-only N1 machine type in `me-west1` isn't supported.
 
 | Name             | vCPUs | Memory (GB) |
 | ---------------- | ----- | ----------- |
@@ -274,11 +278,13 @@ Learn about [pricing for each machine type](https://cloud.google.com/gemini-ente
 
 ### Find the ideal machine type
 
+The following guidance helps you determine the best machine type for your online or batch inference workloads.
+
 #### Online inference
 
 To find the ideal machine type for your use case, we recommend loading your model on multiple machine types and measuring characteristics such as the latency, cost, concurrency, and throughput.
 
-One way to do this is to run [this notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/find_ideal_machine_type/find_ideal_machine_type.ipynb) on multiple machine types and compare the results to find the one that works best for you.
+One way to do this is to run the [sample notebook for finding an ideal machine type](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/find_ideal_machine_type/find_ideal_machine_type.ipynb) on multiple machine types and compare the results to find the one that works best for you.
 
 Gemini Enterprise Agent Platform reserves approximately 1 vCPU on each replica for running system processes. This means that running the notebook on a single core machine type would be comparable to using a 2-core machine type for serving inferences.
 
@@ -296,7 +302,7 @@ Some configurations, such as the [A2 series](https://docs.cloud.google.com/compu
 
 The [A4X ( `a4x-highgpu-4g` )](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms) series requires a minimum replica count of 18. This machine is purchased per rack, and has a minimum of 18 VMs.
 
-Other configurations, such as the N1 series, let you optionally add GPUs to accelerate each inference node.
+Other configurations, such as the N1 series, let you optionally add GPUs to accelerate each inference node. However, in the `me-west1` region, N1 series machine types are supported only when combined with an NVIDIA Tesla T4 GPU accelerator. Using a CPU-only N1 machine type in `me-west1` isn't supported.
 
 > **Note:** GPUs are **not** recommended for use with AutoML tabular models. For this type of model, GPUs don't provide a worthwhile performance benefit. Specifying GPUs during AutoML model deployment isn't supported in Google Cloud console.
 

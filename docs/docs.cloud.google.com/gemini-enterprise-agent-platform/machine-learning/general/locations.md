@@ -119,7 +119,7 @@ Some Agent Platform features aren't available in all regions. The following tabl
 
 The following sortable table lets you select different options to see where Agent Platform features are available. For example, to see a list of regions where Agent Platform Feature Store is available in Europe, you can select **Europe** from the **Select a location** drop-down menu, and **Agent Platform Feature Store** from the **Select a feature** drop-down menu.
 
-Africa Asia Pacific Europe Middle East North America South America AutoML for image data AutoML for tabular data AutoML Forecasting Custom model batch inference Custom model online inference Custom model training Data labeling Model Monitoring Model Registry Agent Platform Neural Architecture Search Ray on Agent Platform Vector Search Agent Runtime Gemini Enterprise Agent Platform Experiments Agent Platform Feature Store Agent Platform Pipelines Vertex AI TensorBoard Agent Platform Vizier Vertex Explainable AI Agent Platform ML Metadata
+Africa Asia Pacific Europe Middle East North America South America AutoML for image data AutoML for tabular data AutoML Forecasting Custom model batch inference Custom model online inference Custom model training Data labeling Model Monitoring Model Registry Agent Platform Vertex AI Neural Architecture Search Ray on Agent Platform Vector Search Agent Runtime Gemini Enterprise Agent Platform Experiments Agent Platform Feature Store Agent Platform Pipelines Vertex AI TensorBoard Agent Platform Vizier Vertex Explainable AI Agent Platform ML Metadata
 
 <table>
 <colgroup>
@@ -1142,6 +1142,8 @@ Asia Pacific Europe Middle East North America South America
 
 ## Region considerations
 
+The following sections describe regional requirements and considerations for accelerators, machine types, and storage resources in Agent Platform.
+
 ### Using accelerators
 
 Accelerators are available on a region basis. The following table lists all the available accelerators for each region.
@@ -1195,6 +1197,10 @@ Asia Pacific Europe North America South America A100 40GB A100 80GB B200 GB200 R
 <sup>†</sup> The specified accelerator isn't available for [training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute) .
 
 If your job uses multiple types of GPUs, they must all be available in a single zone in your region. For example, you can't run a job in `australia-southeast1` using NVIDIA Tesla P4 GPUs, NVIDIA Tesla T4 GPUs, and NVIDIA Tesla P100 GPUs. While all of these GPUs are available for jobs in `australia-southeast1` , no single zone in that region provides all three types of GPU. To learn more about the zone availability of GPUs, see [GPU locations](https://docs.cloud.google.com/compute/docs/regions-zones/gpu-regions-zones) .
+
+### Machine type requirements
+
+In the `me-west1` region, N1 series machine types are supported for online and custom prediction only when combined with an NVIDIA Tesla T4 GPU accelerator. Deploying a CPU-only N1 machine type in `me-west1` isn't supported.
 
 ### BigQuery location requirements
 

@@ -102,7 +102,7 @@ Use the following samples to create a feature group and associate a feature data
 
 ### Console
 
-> **Important:** You can't create a feature group with a dedicated service account from the Google Cloud console. To create a feature group with a dedicated service account, use the REST API or the Agent Platform SDK for Python.
+Important: You can't create a feature group with a dedicated service account from the Google Cloud console. To create a feature group with a dedicated service account, use the REST API or the Agent Platform SDK for Python.
 
 Use the following instructions to create a feature group using the Google Cloud console:
 
@@ -138,7 +138,7 @@ Use the following instructions to create a feature group using the Google Cloud 
 
 To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-> **Note:** This sample creates a feature group with the default service account configuration.
+Note: This sample creates a feature group with the default service account configuration.
 
     from google.cloud import aiplatform
     from vertexai.resources.preview import feature_store

@@ -1,2 +1,1 @@
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quickstart-sdk https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/connect-to-the-knowledge-mcp-server
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebooks https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/jupyter-notebooks

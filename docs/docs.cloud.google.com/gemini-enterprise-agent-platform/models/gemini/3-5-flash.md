@@ -149,12 +149,14 @@ Supported regions
 
   - Global: `global`
   - Multi-region: `us` , `eu`
+  - Americas: `northamerica-northeast1`
   - Europe: `europe-west2`
   - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
 **[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - Multi-region: `us` , `eu`
+  - Americas: `northamerica-northeast1`
   - Europe: `europe-west2`
   - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 

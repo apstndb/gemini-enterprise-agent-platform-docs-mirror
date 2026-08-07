@@ -34,6 +34,12 @@ Terraform resource
 
 Terraform configuration samples
 
+[Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform)
+
+[`google_vertex_ai_reasoning_engine`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine)
+
+[View documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform)
+
 [Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction)
 
 [`google_workbench_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance)
@@ -89,6 +95,8 @@ Terraform configuration samples
 [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/tensorboard/main.tf)
 
 ## Learn more about Terraform
+
+  - [Provision agents with Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform)
 
   - [Terraform Developer website](https://developer.hashicorp.com/terraform/)
 

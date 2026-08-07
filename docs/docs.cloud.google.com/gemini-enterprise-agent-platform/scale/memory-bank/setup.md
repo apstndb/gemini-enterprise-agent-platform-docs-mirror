@@ -248,10 +248,10 @@ The following sample shows the default Memory Bank:
           # Extract user information, preferences, key conversation details,
           # and information that the user explicitly asked to be remembered.
           "memory_topics": [
-            {"managed_memory_topic": "USER_PERSONAL_INFO"},
-            {"managed_memory_topic": "USER_PREFERENCES"},
-            {"managed_memory_topic": "KEY_CONVERSATION_DETAILS"},
-            {"managed_memory_topic": "EXPLICIT_INSTRUCTIONS"}
+            {"managed_memory_topic": {"managed_topic_enum": "USER_PERSONAL_INFO"}},
+            {"managed_memory_topic": {"managed_topic_enum": "USER_PREFERENCES"}},
+            {"managed_memory_topic": {"managed_topic_enum": "KEY_CONVERSATION_DETAILS"}},
+            {"managed_memory_topic": {"managed_topic_enum": "EXPLICIT_INSTRUCTIONS"}}
           ],
           "consolidation_config": {
             # Only use the latest memory revision of each candidate memory during
