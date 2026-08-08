@@ -76,8 +76,8 @@ Run the following commands to install the AlphaGenome Cloud SDK. Access to the S
 
     # Copy the SDK wheel file and install
     # If using service account impersonation, append: --impersonate-service-account=$SERVICE_ACCOUNT
-    gcloud storage cp "gs://alphagenome-whl/alphagenome_cloud_sdk-0.4.2.10-py3-none-any.whl" .
-    pip install alphagenome_cloud_sdk-0.4.2.10-py3-none-any.whl
+    gcloud storage cp "gs://alphagenome-whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl" .
+    pip install alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
 
 #### Initialize the client
 
@@ -186,7 +186,7 @@ Clients can query the deployed endpoint using standard REST client tools like cu
       -H "Authorization: Bearer $TOKEN" \
       -H "Content-Type: application/json" \
       -d '{
-        "model": "google/alpha-genome-002",
+        "model": "google/alphagenome-003",
         "instances": [
           {
             "request_type": "predict_interval",

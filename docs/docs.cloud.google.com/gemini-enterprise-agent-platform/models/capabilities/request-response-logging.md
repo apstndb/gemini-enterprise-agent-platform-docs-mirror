@@ -87,7 +87,7 @@ Request JSON body:
            "enabled": true,
            "samplingRate": SAMPLING_RATE,
            "bigqueryDestination": {
-             "outputUri": "BQ_URI"
+             "outputUri": "bq://BQ_URI"
            },
            "enableOtelLogging": true
          }

@@ -159,14 +159,21 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - Global: `global`
+  - Multi-region: `us` , `eu`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us` , `eu`
 
 **[Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models)**
 
   - Global: `global`
+  - Multi-region: `us` , `eu`
 
 **[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**
 
   - Global: `global`
+  - Multi-region: `us` , `eu`
 
 Versions
 

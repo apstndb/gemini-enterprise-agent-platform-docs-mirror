@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings
-title: Get batch text embeddings inferences
+title: Get batch embeddings inferences
 description: Learn how to get batch inferences for text embeddings in Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
@@ -22,15 +22,15 @@ For endpoints and available locations, see [Locations](https://docs.cloud.google
 
 The `gemini-embedding-001` model supports a task type and title configuration for each row.
 
-    {"key": "id_1", "request": {"content": {"parts": [{"text": "Hello World"}]}}, "embed_content_config":{"output_dimensionality": 768, "title": "some_title", "task_type": "RETRIEVAL_DOCUMENT"}}
-    {"key": "id_2", "request": {"content": {"parts": [{"text": "Hello World again"}]}}, "embed_content_config":{"output_dimensionality": 768, "title": "some_title_2", "task_type": "RETRIEVAL_DOCUMENT"}}
+    {"key": "id_1", "request": {"content": {"parts": [{"text": "Hello World"}]}, "embed_content_config":{"output_dimensionality": 768, "title": "some_title", "task_type": "RETRIEVAL_DOCUMENT"}}}
+    {"key": "id_2", "request": {"content": {"parts": [{"text": "Hello World again"}]}, "embed_content_config":{"output_dimensionality": 768, "title": "some_title_2", "task_type": "RETRIEVAL_DOCUMENT"}}}
 
 #### Gemini Embedding 2
 
 The `gemini-embedding-2` model expects the task type and title to be inlined directly within the prompt.
 
-    {"key": "id_1", "request": {"content": {"parts": [{"text": "hello world again"}]}}, "embed_content_config":{"output_dimensionality": 768}}
-    {"key": "id_2", "request": {"content": {"parts": [{"fileData": {"fileUri": "gs://cloud-samples-data/generative-ai/image/benchmark.jpeg", "mimeType": "image/jpeg"}}]}}, "embed_content_config":{"output_dimensionality": 768}}
+    {"key": "id_1", "request": {"content": {"parts": [{"text": "title: sample | text: Hello World"}]}, "embed_content_config":{"output_dimensionality": 768}}}
+    {"key": "id_2", "request": {"content": {"parts": [{"fileData": {"fileUri": "gs://cloud-samples-data/generative-ai/image/benchmark.jpeg", "mimeType": "image/jpeg"}}]}, "embed_content_config":{"output_dimensionality": 768}}}
 
 ### JSONL output example
 

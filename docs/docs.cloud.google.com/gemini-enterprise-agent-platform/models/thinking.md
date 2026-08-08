@@ -196,17 +196,18 @@ Gemini 3 models introduce the `thinking_level` parameter, which simplifies think
 
 The following table summarizes which `thinking_level` values are supported by each model, and the default `thinking_level` for each model:
 
-| Model                  | Supported `thinking_level` values     | Default   |
-| ---------------------- | ------------------------------------- | --------- |
-| Gemini 3.6 Flash       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
-| Gemini 3.5 Flash       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
-| Gemini 3.5 Flash-Lite  | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
-| Gemini 3.1 Flash-Lite  | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
-| Gemini 3.1 Flash Image | `MINIMAL` , `HIGH`                    | `MINIMAL` |
-| Gemini 3 Flash         | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `HIGH`    |
-| Gemini 3.1 Pro         | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
-| Gemini 3 Pro           | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
-| Gemini 3 Pro Image     | `HIGH`                                | `HIGH`    |
+| Model                       | Supported `thinking_level` values     | Default   |
+| --------------------------- | ------------------------------------- | --------- |
+| Gemini 3.6 Flash            | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
+| Gemini 3.5 Flash            | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
+| Gemini 3.5 Flash-Lite       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
+| Gemini 3.1 Flash-Lite       | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |
+| Gemini 3.1 Flash-Lite Image | `MINIMAL` , `HIGH`                    | `MINIMAL` |
+| Gemini 3.1 Flash Image      | `MINIMAL` , `HIGH`                    | `MINIMAL` |
+| Gemini 3 Flash              | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `HIGH`    |
+| Gemini 3.1 Pro              | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
+| Gemini 3 Pro                | `LOW` , `MEDIUM` , `HIGH`             | `HIGH`    |
+| Gemini 3 Pro Image          | `HIGH`                                | `HIGH`    |
 
   - `MINIMAL` : Constrains the model to use as few tokens as possible for thinking and is best used for low-complexity tasks that wouldn't benefit from extensive reasoning. This is the default level for Gemini 3.1 Flash-Lite. `MINIMAL` is as close as possible to a zero budget for thinking but still requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) . If thought signatures aren't provided in your request, the model returns a `400` error. For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .
     
