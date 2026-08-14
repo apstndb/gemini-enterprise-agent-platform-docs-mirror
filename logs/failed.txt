@@ -1,5 +1,7 @@
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/evaluate
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration

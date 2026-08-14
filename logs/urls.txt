@@ -914,7 +914,6 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/streamlit/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/streamlit/streamlit-genai-iap	2026-08-07T22:07:41Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/streamlit/view-app	2026-08-07T22:07:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking	2026-08-07T22:09:20Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures	2026-08-07T22:07:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution	2026-08-07T22:07:48Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling	2026-08-07T22:07:35Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/translate/translate-text	2026-08-07T22:07:23Z
