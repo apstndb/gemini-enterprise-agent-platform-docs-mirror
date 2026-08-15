@@ -1,4 +1,5 @@
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/evaluate
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/monitor-semantic-governance
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures
