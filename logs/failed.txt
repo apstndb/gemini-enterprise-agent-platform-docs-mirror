@@ -1,6 +1,10 @@
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/evaluate
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/monitor-semantic-governance
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk-ref
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-sdk
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphafold-3
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide
 200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er

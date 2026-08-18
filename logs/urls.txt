@@ -479,9 +479,6 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/python-sdk-class-overview	2026-08-07T22:07:41Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/tracking-classes	2026-08-07T22:07:23Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/training-classes	2026-08-07T22:07:41Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk	2026-08-07T22:07:41Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk-ref	2026-08-07T22:07:48Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-sdk	2026-08-07T22:07:41Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/quotas	2026-08-07T22:07:48Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/security-bulletins	2026-08-07T22:07:29Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/security-controls	2026-08-07T22:07:35Z
