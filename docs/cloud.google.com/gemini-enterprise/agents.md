@@ -72,6 +72,8 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 [Contact sales](https://cloud.google.com/contact/gemini-enterprise)
 
+[Video](https://www.gstatic.com/cgc/renaissance/video/MultiPath_2X_V2.webm)
+
 ![Cloud logo](https://www.gstatic.com/cgc/renaissance/image/MultiPath_Bottom_2X_Centered_static.png)
 
 Send message
