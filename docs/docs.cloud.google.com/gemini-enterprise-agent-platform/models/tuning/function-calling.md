@@ -192,7 +192,7 @@ The following is an example of a dataset for tuning [function calling to support
 
 ### Tuning parallel function calling
 
-The following is an example of a dataset for tuning [parallel function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/samples/generativeaionvertexai-function-calling-generate-parallel-calls) .
+The following is an example of a dataset for tuning [parallel function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#parallel-samples) .
 
     {
       "system_instruction": {

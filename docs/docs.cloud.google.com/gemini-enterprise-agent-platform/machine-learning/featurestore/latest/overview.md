@@ -128,7 +128,7 @@ Agent Platform Feature Store provides the following types of online serving for 
 
   - **Bigtable online serving** is useful for serving large data volumes (terabytes of data). Bigtable online serving doesn't support [embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview#embedding) . If you need to serve large volumes of data that are frequently updated and don't need to serve embeddings, use Bigtable online serving.
 
-  - **Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) )** lets you online serve features at ultra-low latencies. Optimized online serving also supports embeddings management.
+  - **Optimized online serving ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) )** lets you online serve features at ultra-low latencies. Optimized online serving also supports embeddings management.
     
     To use Optimized online serving, you need to configure either a public endpoint or a dedicated Private Service Connect endpoint.
 

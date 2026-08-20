@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 You can create IAM allow and deny policies that Agent Gateway uses to securely govern agentic communication between your agents and other services, including other agents, MCP servers, and endpoints. Agent Gateway uses Identity-Aware Proxy (IAP) to enforce the policies. IAP also [enforces end-to-end agent identity authentication and authorization security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview#end-to-end-security) .
 
-To create an IAM policy for Agent Gateway, see [Create IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
+To create an IAM policy for Agent Gateway, see [Create IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
 
 You can also create a principal access boundary (PAB) on the agent identity. Agent Gateway can use IAP to enforce principal access boundary.
 
@@ -20,7 +20,7 @@ To use agentic communication policies, you must [set up Agent Gateway](https://d
 
 We recommend that you configure Agent Gateway in dry-run mode ( `DRY_RUN` ) in a staging environment to ensure that your policies are working as you expect. In dry-run mode, IAP logs disallowed agentic communications to Cloud Audit Logs but doesn't block them.
 
-When you are satisfied that the policies are functioning correctly, you can update the Agent Gateway configuration to set enforcement mode to `ENFORCE` . In this mode, agentic communications that violate the policy are disallowed and communications to the resource is blocked.
+When you are satisfied that the policies are functioning correctly, you can update the Agent Gateway configuration to set enforcement mode to `ENFORCE` . In this mode, agentic communications that violate the policy are disallowed and communications to the resource are blocked.
 
 ### Policy components
 
@@ -91,11 +91,11 @@ In the gcloud CLI you can configure both IAM allow and IAM deny policies that Ag
 
 #### Policies in the Google Cloud console
 
-To create IAM policies by using the Google Cloud console, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#create-ag-iam-policy) .
+To create IAM policies by using the Google Cloud console, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies#create-ag-iam-policy) .
 
 #### Policies in the gcloud CLI
 
-To create IAM policies by using the gcloud CLI, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#create-ag-iam-policy) .
+To create IAM policies by using the gcloud CLI, see [Configure IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies#create-ag-iam-policy) .
 
 ### IAP and Context-Aware Access provide end-to-end security
 

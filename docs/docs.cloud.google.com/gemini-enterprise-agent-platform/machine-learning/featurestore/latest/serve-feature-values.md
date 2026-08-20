@@ -16,9 +16,9 @@ Depending on the type of online serving configured for your online store, you ca
 
   - [Fetch feature values using Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values#bigtable_serving) : Choose this option only if the online store is configured for Bigtable online serving.
 
-  - [Fetch feature values using Optimized online serving (Deprecated) with a public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values#optimized_serving_public) : Choose this option only if the online store is configured for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) ) from a public endpoint.
+  - [Fetch feature values using Optimized online serving (Deprecated) with a public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values#optimized_serving_public) : Choose this option only if the online store is configured for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) ) from a public endpoint.
 
-  - [Fetch feature values using Optimized online serving (Deprecated) with a Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values#optimized_serving_private) : Choose this option only if the online store is configured for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) ) from a dedicated serving endpoint over Private Service Connect.
+  - [Fetch feature values using Optimized online serving (Deprecated) with a Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-feature-values#optimized_serving_private) : Choose this option only if the online store is configured for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) ) from a dedicated serving endpoint over Private Service Connect.
 
 ## Before you begin
 

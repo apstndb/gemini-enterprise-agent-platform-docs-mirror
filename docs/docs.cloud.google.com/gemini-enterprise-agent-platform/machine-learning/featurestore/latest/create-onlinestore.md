@@ -6,7 +6,7 @@ description: Learn how to create an online store instance for Bigtable online se
 data_source: docs.cloud.google.com
 ---
 
-To set up online serving, you need to first create an online store instance for Bigtable online serving or Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) ).
+To set up online serving, you need to first create an online store instance for Bigtable online serving or Optimized online serving ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) ).
 
 Note that you can't change the type of online serving after you choose Bigtable online serving or Optimized online serving while creating your online store. However, you can change the serving endpoint configuration for an online store instance created for Optimized online serving.
 

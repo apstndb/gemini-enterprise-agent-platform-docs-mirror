@@ -32,6 +32,7 @@ The following table lists the models that support audio understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash">Gemini 3.6 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite">Gemini 3.5 Flash-Lite</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash">Gemini 3.5 Flash</a></li>

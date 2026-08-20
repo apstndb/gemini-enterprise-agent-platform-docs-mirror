@@ -137,4 +137,4 @@ You can only compare 5 or fewer evaluations at a time.
 
 ## What's next
 
-  - Learn how to [iterate on your model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/evaluating-automl-models#iterate) .
+  - Learn how to [evaluate your model for fairness](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/intro-evaluation-fairness) .

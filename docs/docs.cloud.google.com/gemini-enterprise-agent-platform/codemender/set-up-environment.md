@@ -246,67 +246,67 @@ Here is what the core default parameters mean:
   - **`human_confirmation: true` (or `require_confirmation: true` )**
     
       - **What it means:** By default, CodeMender **cannot** modify any file on your disk or execute shell commands without explicitly prompting you for a `[Y/n]` confirmation in the terminal.
-      - **Why it's default:** CodeMender may generate speculative patches or attempt to run exploit scripts to verify a vulnerability. Forcing human confirmation helps prevent accidental system changes or unauthorized code execution in your local environment.
+      - **Why this is the default:** CodeMender may generate speculative patches or attempt to run exploit scripts to verify a vulnerability. Forcing human confirmation helps prevent accidental system changes or unauthorized code execution in your local environment.
       - **Bypass:** For non-interactive CI/CD pipelines, this can be set to `false` .
 
   - **`confirm_writes: false`**
     
       - **What it means:** Disables interactive prompts for file modifications, allowing the CodeMender agent to write security patches and modify source files directly to your local disk without waiting for human approval.
-      - **Why it's default:** By default, this safety guardrail is set to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
+      - **Why this is the default:** By default, CodeMender sets this safety guardrail to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
 
   - **`include: [".py", ".java", ".go", ".js", ".ts", ".c", ".cc", ".cpp", ".h", ".rb", ".php"]`**
     
-      - **What it means:** Defines the explicit list of file extensions that CodeMender is authorized to ingest and analyze when scanning your workspace. Any file in your repository with an extension not specified in this list is automatically skipped.
-      - **Why it's default:** By default, this list is restricted to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, it is highly recommended to manually expand this default list to include configuration files, script formats, and IaC files (for example, `.sh` , `.xml` , `.yaml` , `.properties` , `.json` ) so CodeMender doesn't silently ignore them.
+      - **What it means:** Defines the explicit list of file extensions that you authorize CodeMender to ingest and analyze when scanning your workspace. CodeMender automatically skips any file in your repository with an extension not specified in this list.
+      - **Why this is the default:** This list defaults to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, we highly recommend that you manually expand this default list to include configuration files, script formats, and IaC files (for example, shell scripts, XML, YAML, properties, and JSON files) so CodeMender doesn't silently ignore them.
 
   - **`exclude_paths: ["node_modules", "vendor", "dist", "bin"]`**
     
       - **What it means:** CodeMender will completely skip these directories during workspace scanning and code analysis.
-      - **Why it's default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times.
+      - **Why this is the default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times.
 
   - **`project_paths: []`**
     
-      - **What it means:** A list of directory paths that CodeMender is allowed to access (read/write) during tool execution.
-      - **Why it's default:** By default, it is empty, which restricts the agent to the scan target directory, the `.codemender` workspace directory, and `/tmp` . If your build or test process requires accessing files outside these directories, you must add those paths here.
+      - **What it means:** A list of directory paths that CodeMender can access (read/write) during tool execution.
+      - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory, the `.codemender` workspace directory, and `/tmp` . If your build or test process requires accessing files outside these directories, you must add those paths here.
 
   - **`sandbox`** :
     
       - **What it means:** Configuration block for the process-level sandbox environment.
       - **Sub-parameters:**
-          - **`enabled: false`** : (Boolean) Enables or disables the sandbox. When set to `true` , the agent runs tools inside the local sandbox. When set to `false` (default), the agent runs tools directly on the host system without isolation.
+          - **`enabled: true`** : (Boolean) Enables or disables the sandbox. If you set this to `true` (default), the agent runs tools inside the local sandbox. If you set it to `false` , the agent runs tools directly on the host system without isolation.
           - **`mounts`** : (Object)
-              - **`target_dir: "."`** : (String) The directory to mount as the active workspace inside the sandbox. Relative paths are resolved against the workspace root.
+              - **`target_dir: "."`** : (String) The directory to mount as the active workspace inside the sandbox. The CLI resolves relative paths against the workspace root.
           - **`network`** : (Object)
               - **`profile: "permissive-closed"`** : (String) Outbound network access profile inside the sandbox. Granular allow-listing of specific domains or URL patterns is not yet supported. Supported profiles:
-                  - `permissive-closed` (Default): Complete network isolation; all outbound connections are blocked.
+                  - `permissive-closed` (Default): Complete network isolation; the sandbox blocks all outbound connections.
                   - `permissive-open` : Allows full outbound network access.
 
   - **`security`** :
     
       - **What it means:** Configuration block for security policies.
       - **Sub-parameters:**
-          - **`protected_files: []`** : (List of Strings) Files or directories on the host system that should be mounted **read-only** inside the sandbox to protect them from modification (e.g., `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
+          - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (e.g., `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
 
   - **`model: "gemini-3.5-flash"`**
     
       - **What it means:** The default intelligence engine powering the backend reasoning loops.
-      - **Why it's default:** `gemini-3.5-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
+      - **Why this is the default:** `gemini-3.5-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
 
   - **`vcs: { type: "git" }`**
     
-      - **What it means:** Defines the type of version control system used by your project through the `vcs` key. If left unconfigured, the tool attempts to automatically identify Git or Mercurial repositories. If `vcs` is set to `none` by default, the CLI outputs a warning but continues execution without VCS functionality. CodeMender relies on this setting to manage speculative security fixes, track codebase modifications, and integrate with your local repository.
-      - **Why it's default:** CodeMender supports Git, Mercurial, or custom VCS configurations. Git is the default as it is the industry standard for version control tracking, ensuring seamless diff integration and rollback safety.
+      - **What it means:** Defines the type of version control system your project uses through the `vcs` key. If you leave this unconfigured, the tool attempts to automatically identify Git or Mercurial repositories. If you set `vcs` to `none` , the CLI outputs a warning but continues execution without VCS functionality. CodeMender relies on this setting to manage speculative security fixes, track codebase modifications, and integrate with your local repository.
+      - **Why this is the default:** CodeMender supports Git, Mercurial, or custom VCS configurations. Git is the default as it is the industry standard for version control tracking, ensuring seamless diff integration and rollback safety.
 
   - **`build: { command: "make build && make test" }`**
     
       - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
-      - **Why it's default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
+      - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
-> **Summary recommendation:** Treat `config.yaml` as your agent policy document. In local development, we highly recommend that you enable the built-in sandbox ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `human_confirmation: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable sandbox virtual machines or CI/CD pipelines.
+> **Summary recommendation:** Treat `config.yaml` as your agent policy document. In local development, we highly recommend that you keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `human_confirmation: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable sandbox virtual machines or CI/CD pipelines.
 
 ## Execution sandboxing
 
-To safeguard your workstation against unintended file modifications or unexpected tool side effects, you can run the CodeMender CLI inside an OS-level sandbox. Sandboxing is disabled by default, but can be enabled persistently in [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#sandbox-configuration) or per-command using CLI flags.
+To safeguard your workstation against unintended file modifications or unexpected tool side effects, the CodeMender CLI runs inside an OS-level sandbox by default. You can disable sandboxing persistently in [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#sandbox-configuration) or bypass it per-command using CLI flags.
 
 While this sandboxing offers an initial layer of defense on your workstation, it offers weaker security protection than running the agent in a fully isolated virtual machine (VM):
 
@@ -318,12 +318,12 @@ While this sandboxing offers an initial layer of defense on your workstation, it
 
 When the sandbox is active:
 
-1.  **File system Isolation** : The agent can only read and write files within allowed directories. Any writes outside these directories are redirected to a temporary in-memory file system (tmpfs) and don't affect your host system.
-2.  **Network Isolation** : Outbound network access from within the sandbox is blocked by default. This prevents the agent (or the build tools it invokes) from making unexpected external connections or transmitting data outside the workspace.
+1.  **File system Isolation** : The agent can only read and write files within allowed directories. The sandbox redirects any writes outside these directories to a temporary in-memory file system (tmpfs) without affecting your host system.
+2.  **Network Isolation** : The sandbox blocks outbound network access by default. This prevents the agent (or the build tools it invokes) from making unexpected external connections or transmitting data outside the workspace.
 
 ### Network access during build and validation
 
-Because network isolation is enabled by default in the sandbox ( `sandbox.network.profile` defaults to `permissive-closed` ), the agent **cannot access the internet** during tool execution.
+Because the sandbox enables network isolation by default ( `sandbox.network.profile` defaults to `permissive-closed` ), the agent **cannot access the internet** during tool execution.
 
 This introduces limitations for projects that require fetching external dependencies during the build or verification steps (for example, running `npm install` , `pip install` , or `go get` as part of the `build.command` ). If your build process attempts to access external web services, it will fail.
 
@@ -331,7 +331,7 @@ This introduces limitations for projects that require fetching external dependen
 
 If your project requires network access for builds or tests, you have the following options:
 
-  - **Pre-fetch dependencies** : Ensure all required dependencies are already installed on the host system before running `cm` commands, so the build command does not need network access.
+  - **Pre-fetch dependencies** : Install all required dependencies on the host system before running `cm` commands, so the build command does not need network access.
 
   - **Enable network access in the sandbox** : Change the network profile in your `config.yaml` to allow outbound connections:
     
@@ -347,19 +347,25 @@ If your project requires network access for builds or tests, you have the follow
 
 You can configure and control the sandbox using the following options:
 
-  - **Persistent Configuration ( `config.yaml` )** : You can enable and customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) for details.
-  - **Enabling the sandbox using the CLI ( `--sandbox` )** : You can temporarily enable the sandbox for a single run by passing the `--sandbox` flag to `cm find` , `cm verify` , or `cm fix` .
-  - **Bypassing isolation using the CLI ( `--unrestricted` )** : If the sandbox is enabled, you can temporarily bypass all sandbox protections for a single run by passing the `--unrestricted` flag. This disables the file system path boundaries (allowing the agent to access any path on your host) and disables the OS-level container isolation entirely (including network isolation).
+  - **Persistent Configuration ( `config.yaml` )** : You can customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) for details.
+  - **Control the sandbox using the CLI ( `--sandbox` )** : You can explicitly enable or disable the sandbox for a single run by passing `--sandbox=true` or `--sandbox=false` to `cm find` , `cm verify` , or `cm fix` .
+  - **Bypass isolation using the CLI ( `--unrestricted` )** : You can temporarily bypass all sandbox protections for a single run by passing the `--unrestricted` flag. This disables the file system path boundaries (allowing the agent to access any path on your host) and disables the OS-level container isolation entirely (including network isolation).
 
 ### Choosing an isolation level
 
 Depending on your security requirements and development environment, you can choose the appropriate isolation level for running the CodeMender CLI.
 
-| Method                          | Description                                                                                                                                                                         | Advantages                                                                                                                                             | Disadvantages                                                                                                                                                                               |
-| :------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Built-in sandbox** (OS-level) | Disabled by default; can be enabled using config or CLI flags. Uses built-in OS features (namespaces/seccomp, `sandbox-exec` , `AppContainer` (Experimental)) to isolate execution. | **Lightweight** ; zero startup overhead; direct access to local workspace tools with fine-grained control. Recommended for everyday local development. | Security relies on OS kernel features; less isolated than a full VM; Windows support is experimental and may require administrative privileges or be incompatible with some configurations. |
-| **Containers**                  | Running the agent in a container (e.g., Docker).                                                                                                                                    | Good isolation; standardized environment.                                                                                                              | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.                                                                                     |
-| **Full VMs**                    | Running the agent in a dedicated VM.                                                                                                                                                | Maximum security; complete isolation.                                                                                                                  | High resource overhead; slow startup; disallows direct interaction with tools on the local machine.                                                                                         |
+| Method                          | Description                                                                                                                                                                                                         | Advantages                                                                                                                                             | Disadvantages                                                                                                                                                                               |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Built-in sandbox** (OS-level) | Enabled by default; you can disable it in the `config.yaml` file or bypass it using CLI flags. Uses built-in OS features (namespaces/seccomp, `sandbox-exec` , `AppContainer` (Experimental)) to isolate execution. | **Lightweight** ; zero startup overhead; direct access to local workspace tools with fine-grained control. Recommended for everyday local development. | Security relies on OS kernel features; less isolated than a full VM; Windows support is experimental and may require administrative privileges or be incompatible with some configurations. |
+| **Containers**                  | Running the agent in a container (e.g., Docker).                                                                                                                                                                    | Good isolation; standardized environment.                                                                                                              | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.                                                                                     |
+| **Full VMs**                    | Running the agent in a dedicated VM.                                                                                                                                                                                | Maximum security; complete isolation.                                                                                                                  | High resource overhead; slow startup; disallows direct interaction with tools on the local machine.                                                                                         |
+
+## Telemetry
+
+To help us monitor and improve product health, we collect anonymous telemetry data through the CLI. We fully anonymize all collected data, which includes basic usage metrics and performance diagnostics. Telemetry never collects or transmits source code, file contents, findings, patches, or user identities.
+
+By default, telemetry is enabled. If you want to disable telemetry, set the `CM_TELEMETRY_OPT_OUT` environment variable to `1` or `true` .
 
 ## Updating the CLI
 

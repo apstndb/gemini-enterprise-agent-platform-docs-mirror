@@ -44,7 +44,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:query
+    POST https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:query
 
 Request JSON body:
 
@@ -93,7 +93,7 @@ Save the request body in a file named `request.json` , and execute the following
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:query"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:query"
 
 #### PowerShell (Windows)
 
@@ -109,7 +109,7 @@ Save the request body in a file named `request.json` , and execute the following
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:query" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:query" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
@@ -250,7 +250,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects query \
+    gcloud vector-search collections data-objects query \
       --json-filter='{"$or": [{"director": {"$eq": "Akira Kurosawa"}},{"$and": [{"director": {"$eq": "David Fincher"}},{"genre": {"$ne": "Thriller"}}]}]}' \
       --output-data-fields='*' \
       --output-vector-fields='*' \
@@ -263,7 +263,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects query `
+    gcloud vector-search collections data-objects query `
       --json-filter='{"$or": [{"director": {"$eq": "Akira Kurosawa"}},{"$and": [{"director": {"$eq": "David Fincher"}},{"genre": {"$ne": "Thriller"}}]}]}' `
       --output-data-fields='*' `
       --output-vector-fields='*' `
@@ -278,7 +278,7 @@ Execute the following command:
 
 > **Note:** If this command uses `'` for quoting content, replace these single quotes with double quotes. If quoting is nested, use `\"` to escape the inner quotes.
 
-    gcloud beta vector-search collections data-objects query ^
+    gcloud vector-search collections data-objects query ^
       --json-filter='{"$or": [{"director": {"$eq": "Akira Kurosawa"}},{"$and": [{"director": {"$eq": "David Fincher"}},{"genre": {"$ne": "Thriller"}}]}]}' ^
       --output-data-fields='*' ^
       --output-vector-fields='*' ^
@@ -378,13 +378,13 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    data_object_search_service_client = vectorsearch_v1beta.DataObjectSearchServiceClient()
+    data_object_search_service_client = vectorsearch_v1.DataObjectSearchServiceClient()
     
     # Initialize request
-    request = vectorsearch_v1beta.QueryDataObjectsRequest(
+    request = vectorsearch_v1.QueryDataObjectsRequest(
         parent="projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
         filter={
             "$or": [
@@ -420,7 +420,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:aggregate
+    POST https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:aggregate
 
 Request JSON body:
 
@@ -440,7 +440,7 @@ Save the request body in a file named `request.json` , and execute the following
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:aggregate"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:aggregate"
 
 #### PowerShell (Windows)
 
@@ -456,7 +456,7 @@ Save the request body in a file named `request.json` , and execute the following
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:aggregate" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:aggregate" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
@@ -482,7 +482,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects aggregate \
+    gcloud vector-search collections data-objects aggregate \
       --aggregation-method=count \
       --collection=COLLECTION_ID \
       --location=LOCATION \
@@ -492,7 +492,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects aggregate `
+    gcloud vector-search collections data-objects aggregate `
       --aggregation-method=count `
       --collection=COLLECTION_ID `
       --location=LOCATION `
@@ -502,7 +502,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects aggregate ^
+    gcloud vector-search collections data-objects aggregate ^
       --aggregation-method=count ^
       --collection=COLLECTION_ID ^
       --location=LOCATION ^
@@ -515,13 +515,13 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    data_object_search_service_client = vectorsearch_v1beta.DataObjectSearchServiceClient()
+    data_object_search_service_client = vectorsearch_v1.DataObjectSearchServiceClient()
     
     # Initialize request
-    request = vectorsearch_v1beta.AggregateDataObjectsRequest(
+    request = vectorsearch_v1.AggregateDataObjectsRequest(
         parent="projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
         aggregate="COUNT",
     )

@@ -33,7 +33,7 @@ For AI developers:
   - **Simplified innovation:** Developers can focus on building agents without managing complex networking primitives or security overhead.
   - **Protocol mediation:** Developers can seamlessly use their choice of agentic protocols such Model Context Protocol (MCP), Agent-to-Agent(A2A), REST, and gRPC while adhering to enterprise security standards.
   - **Framework agnostic:** Functionality is available regardless of the development framework or client used.
-  - **Secure transport and authentication:** Automatically handles mTLS handshakes and termination to ensure encrypted connectivity between agents and tools without developer effort. Integrates with Agent Platform's [Agent identity Auth Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) to simplify and secure Oauth 2.0 handshakes between their agents and tools.
+  - **Secure transport and authentication:** Automatically handles mTLS handshakes and termination to ensure encrypted connectivity between agents and tools without developer effort. Integrates with Agent Platform's [Agent Identity Auth Manager](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) to simplify and secure Oauth 2.0 handshakes between their agents and tools.
 
 For enterprise admins and security teams:
 
@@ -61,21 +61,17 @@ To configure an end-to-end deployment that uses Agent Gateway, you need the reso
 
 Agent Gateway lets you govern traffic for agents and tools running on the following runtime platforms:
 
-  - **Agent Runtime** : Agent Gateway supports both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) modes.
+  - **[Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)** : Agent Gateway supports both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) modes.
 
-  - **Gemini Enterprise** : Agent Gateway supports only Agent-to-Anywhere (egress) mode.
+  - **[Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/agents-overview)** : Agent Gateway supports only Agent-to-Anywhere (egress) mode.
 
-Agent Gateway is regional in scope. Each gateway governs agentic interactions within the scope of the project it is deployed in. For more details on planning a deployment with these runtimes, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+For details on planning a deployment with these runtimes, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
 ### Agent Registry entries
 
-Your agents, and any endpoints or servers you want to connect to, must all be registered with Agent Registry.
+Your agents, and any endpoints, servers, or tools you want to connect to, must all be registered with Agent Registry.
 
-  - For Agent Runtime, you must register with the Agent Registry instance in the same project and region where your agent and gateway are created.
-
-  - For Gemini Enterprise, you must register with the global, multi-region, or regional instance of Agent Registry that corresponds to your deployment. For more information on regions of deployment and sample deployment patterns, see [Select your runtime and region of deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#choose-runtime-region) .
-
-For more details on Agent Registry requirements, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+For details on Agent Registry requirements and sample deployment patterns to guide you on Agent Registry locations for each type of runtime, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
 ### Access control policies
 
@@ -118,7 +114,7 @@ Acts as the default enforcement layer for Agent Gateway. It uses IAM to validate
 
 IAP is always enabled by default for Agent Gateway, though you can choose to run it in an audit-only dry-run mode.
 
-For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
+For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
 
 Implemented on Agent Gateway by using authorization policies and Service Extensions.
 

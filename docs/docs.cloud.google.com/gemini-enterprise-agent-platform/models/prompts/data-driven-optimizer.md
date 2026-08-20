@@ -630,7 +630,7 @@ If you want to run the data-driven optimizer through the SDK, create a JSON file
         
           - Other parameters:
             
-              - `  RESPONSE_MIME_TYPE  ` : the [MIME response type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/samples/generativeaionvertexai-gemini-controlled-generation-response-schema) that the target model uses. Must be one of `text/plain` or `application/json` . If left unset, the default is `text/plain` .
+              - `  RESPONSE_MIME_TYPE  ` : the [MIME response type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) that the target model uses. Must be one of `text/plain` or `application/json` . If left unset, the default is `text/plain` .
               - `  TARGET_LANGUAGE  ` : the language of the system instructions. If left unset, the default is English.
               - `  PLACEHOLDER_TO_CONTENT  ` : the information that replaces any variables in the system instructions. Information included within this flag is not optimized by the data-driven prompt optimizer.
               - `  DATA_LIMIT  ` : the amount of data used for validation. The runtime increases linearly with this value. Must be an integer between `5` and `100` . If left unset, the default is `100` .

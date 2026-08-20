@@ -16,6 +16,8 @@ Batch inferences are asynchronous requests. You request batch inferences directl
 
 ## Get online inferences
 
+To get online inferences from your model, you must first deploy the model to an endpoint and then send an inference request.
+
 ### Deploy a model to an endpoint
 
 You must deploy a model to an endpoint before that model can be used to serve online inferences. Deploying a model associates physical resources with the model so it can serve online inferences with low latency.
@@ -853,7 +855,7 @@ Some requests start long-running operations that require time to complete. These
 
 ### Make an online inference using your deployed model
 
-To make an online inference, submit one or more test items to a model for analysis, and the model returns results that are based on your model's objective. For more information about inference results, see the [Interpret results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/interpreting-results-automl) page.
+To make an online inference, submit one or more test items to a model for analysis, and the model returns results that are based on your model's objective. For more information about inference results, see the [Interpret results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/interpret-results) page.
 
 ### Console
 
@@ -869,7 +871,7 @@ Use the Google Cloud console to request an online inference. Your model must be 
     
     AutoML models for image objectives require you to upload an image to request an inference.
     
-    For information about local feature importance, see [Get explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions#explanations-api) .
+    For information about local feature importance, see [Get explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/explain) .
     
     After the inference is complete, Gemini Enterprise Agent Platform returns the results in the console.
 

@@ -108,7 +108,6 @@ Technical specifications
   - Maximum images per prompt: 3,000
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB
   - Maximum file size per file from Google Cloud Storage: 30 MB
-  - Maximum number of output images per prompt: 10
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
@@ -150,21 +149,21 @@ Supported regions
   - Global: `global`
   - Multi-region: `us` , `eu`
   - Americas: `northamerica-northeast1`
-  - Europe: `europe-west2`
+  - Europe: `europe-west2` , `europe-west3`
   - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
 **[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - Multi-region: `us` , `eu`
   - Americas: `northamerica-northeast1`
-  - Europe: `europe-west2`
+  - Europe: `europe-west2` , `europe-west3`
   - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
 **[Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models)**
 
   - Global: `global`
   - Multi-region: `us` , `eu`
-  - Europe: `europe-west2`
+  - Europe: `europe-west2` , `europe-west3`
   - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
 
 **[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**

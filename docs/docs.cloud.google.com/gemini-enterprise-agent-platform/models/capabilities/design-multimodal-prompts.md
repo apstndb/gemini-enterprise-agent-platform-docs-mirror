@@ -6,7 +6,7 @@ description: Learn how to design multimodal prompts that work with the Gemini AP
 data_source: docs.cloud.google.com
 ---
 
-The Gemini API lets you include multimodal inputs like text, images, and video as part of your prompt to Gemini models. This page provides best practices for designing multimodal prompts and how to troubleshoot if your prompts aren't working as expected. For general guidance on prompt design, see [our recommended prompt design strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , or see the following list of multimodal-specific best practices.
+The Gemini API in Gemini Enterprise Agent Platform lets you include multimodal inputs like text, images, and video as part of your prompt to Gemini models. This page provides best practices for designing multimodal prompts and how to troubleshoot if your prompts aren't working as expected. For general guidance on prompt design, see [our recommended prompt design strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) , or see the following list of multimodal-specific best practices.
 
 ## Prompt design fundamentals
 
@@ -589,6 +589,22 @@ Asking the model to explain its reasoning can help narrow down which part of the
 </tbody>
 </table>
 
+### Troubleshoot Cloud Storage access and permissions
+
+When you pass Cloud Storage files ( `gs://...` URIs or files selected from Cloud Storage in Agent Studio), Agent Platform accesses the objects using the backend Agent Platform Service Agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` ), not your personal user credentials.
+
+If a prompt request fails with `Permission denied while accessing input file (HTTP 403 / Error code 7)` :
+
+1.  **Grant Storage Object Viewer to the service agent** : Ensure the Agent Platform Service Agent has the `Storage Object Viewer` ( `roles/storage.objectViewer` ) role on the Cloud Storage bucket containing the files:
+    
+        gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+          --member="serviceAccount:service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com" \
+          --role="roles/storage.objectViewer"
+
+2.  **Cross-project bucket access** : If the Cloud Storage bucket resides in a different Google Cloud project from your Agent Platform project, you must grant `roles/storage.objectViewer` to the service agent of the project where the Agent Platform request is initiated.
+
+3.  **Grounding and tool compatibility** : Ensure that [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview) is disabled in the configuration panel when processing Cloud Storage media inputs, or verify tool compatibility with your selected model version.
+
 ### Tune the sampling parameters
 
 In each request, you send not only the multimodal prompt but a set of sampling parameters to the model. The model can generate different results for different parameter values. Experiment with the different parameters to get the best values for the task. The most commonly adjusted parameters are the following:
@@ -611,4 +627,4 @@ Specify a lower value for less random responses and a higher value for more rand
 ## What's next
 
   - Try a quickstart tutorial using the [Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
-  - To get started using the Gemini API, see the [Gemini API quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .
+  - To get started using the Gemini API in Gemini Enterprise Agent Platform, see the [Gemini API in Gemini Enterprise Agent Platform quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .

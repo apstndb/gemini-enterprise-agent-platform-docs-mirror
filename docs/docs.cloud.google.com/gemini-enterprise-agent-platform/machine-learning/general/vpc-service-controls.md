@@ -66,6 +66,7 @@ An alternate method for removing the default route from the producer network wit
 
 VPC Service Controls support is provided in the tuning pipeline of the following models:
 
+  - The `Gemini 2.5` family of [models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning#supported_models) .
   - `text-bison for PaLM 2`
   - `BERT`
   - `T5`

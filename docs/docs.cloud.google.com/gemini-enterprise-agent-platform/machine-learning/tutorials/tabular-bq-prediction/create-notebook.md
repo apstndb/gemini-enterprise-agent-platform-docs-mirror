@@ -6,21 +6,21 @@ description: Create and prepare a notebook (IPYNB) file as part of a tutorial th
 data_source: docs.cloud.google.com
 ---
 
-In this tutorial, you use the Vertex AI SDK in a [Jupyter](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) notebook to get predictions by using a Vertex AI Workbench instance.
+In this tutorial, you use the Agent Platform SDK in a [Jupyter](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) notebook to get predictions by using a Gemini Enterprise Agent Platform Workbench instance.
 
-This section shows you how to create a Jupyter notebook in a Vertex AI Workbench instance. Vertex AI Workbench instances are Jupyter notebook-based development environments for the entire data science workflow. Vertex AI Workbench instances are prepackaged with JupyterLab and have a preinstalled suite of deep learning packages, including support for the TensorFlow and PyTorch frameworks. For more information, see [Introduction to Vertex AI Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction) .
+This section shows you how to create a Jupyter notebook in a Agent Platform Workbench instance. Agent Platform Workbench instances are Jupyter notebook-based development environments for the entire data science workflow. Agent Platform Workbench instances are prepackaged with JupyterLab and have a preinstalled suite of deep learning packages, including support for the TensorFlow and PyTorch frameworks. For more information, see [Introduction to Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction) .
 
-After you create a notebook in Vertex AI Workbench, you run sequential portions of Python code to do most of the work to generate your predictions.
+After you create a notebook in Agent Platform Workbench, you run sequential portions of Python code to do most of the work to generate your predictions.
 
 ## Before you begin
 
-## Create a Vertex AI Workbench instance
+## Create a Agent Platform Workbench instance
 
-To create a Vertex AI Workbench instance, do the following:
+To create a Agent Platform Workbench instance, do the following:
 
 1.  In the Google Cloud console, open your Google Cloud project if it's not already open.
 
-2.  In the Google Cloud console, go to the Vertex AI Workbench **Instances** page.
+2.  In the Google Cloud console, go to the Agent Platform Workbench **Instances** page.
 
 3.  If the option to enable the **Notebooks API** appears, click **Enable** . It might take a few moments for the enabling process to complete.
 
@@ -36,7 +36,7 @@ To create a Vertex AI Workbench instance, do the following:
 
 ## Prepare your notebook
 
-Your Vertex AI Workbench instance is already authenticated to use your Google Cloud project. However, you must install and initialize the Agent Platform SDK for Python. This section walks you through these steps.
+Your Agent Platform Workbench instance is already authenticated to use your Google Cloud project. However, you must install and initialize the Agent Platform SDK for Python. This section walks you through these steps.
 
 After you create your notebook, you use it to enter and run the sequential snippets of code in this tutorial. Each snippet of code must be run individually and in order.
 
@@ -60,7 +60,7 @@ Your notebook is where you run the code in this tutorial. It's a file with the e
 
 ### Install the Agent Platform SDK for Python
 
-After you open your notebook, you must install the Agent Platform SDK for Python. You use the Agent Platform SDK for Python to make Agent Platform API calls that create your dataset, create your model, train and deploy your model, and make predictions with your model. For more information, see [Use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+After you open your notebook, you must install the Agent Platform SDK for Python. You use the Agent Platform SDK for Python to make Agent Platform API calls that create your dataset, create your model, train and deploy your model, and make predictions with your model. For more information, see [Use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
 
 When you install Agent Platform SDK for Python, other Google Cloud SDKs on which it's dependent are also installed. Two of those SDKs are used in this tutorial:
 
@@ -85,7 +85,7 @@ As you proceed through this tutorial, run code in the empty code cell that autom
 
 ### Set your project ID and region
 
-In this step, you assign your project ID and your region to variables so they can be easily referenced later in this tutorial.
+In this step, you assign your project ID and your region to variables so they can be referenced later in this tutorial.
 
 #### Set your project ID
 
@@ -101,7 +101,7 @@ To set your project ID, do the following:
 
 This tutorial uses the `us-central1` region. To set your region, do the following:
 
-1.  Run the following code to set the `region` variable that's used by Gemini Enterprise Agent Platform to `us-central1` . This command doesn't generate output. For more information, see [Choose your location](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/general/locations#choosing_your_location) .
+1.  Run the following code to set the `region` variable that's used by Gemini Enterprise Agent Platform to `us-central1` . This command doesn't generate output. For more information, see [Choose your location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#choosing_your_location) .
     
         region = "us-central1"  # @param {type: "string"}
 

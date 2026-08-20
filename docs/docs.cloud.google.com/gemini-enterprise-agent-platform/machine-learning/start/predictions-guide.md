@@ -44,7 +44,7 @@ To use the inference service, the first step is uploading your trained ML model 
 
 ### Create a model resource
 
-When training models with the [Gemini Enterprise Agent Platform custom training service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-guide) , you can have your model automatically imported to the registry after the training job completes. If you skipped that step, or trained your model outside of Gemini Enterprise Agent Platform, you can upload it manually using the Google Cloud console or [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) by pointing to a Cloud Storage location with your saved model artifacts. The format of these [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) could be `savedmodel.pb` , `model.joblib` , etc, depending on what ML framework you're using.
+When training models with the [Gemini Enterprise Agent Platform custom training service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/training-guide) , you can have your model automatically imported to the registry after the training job completes. If you skipped that step, or trained your model outside of Gemini Enterprise Agent Platform, you can upload it manually using the Google Cloud console or [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) by pointing to a Cloud Storage location with your saved model artifacts. The format of these [model artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) could be `savedmodel.pb` , `model.joblib` , etc, depending on what ML framework you're using.
 
 Uploading artifacts to the Gemini Enterprise Agent Platform Model Registry creates a [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model) resource, which is visible in the Google Cloud console:
 
@@ -78,7 +78,7 @@ If you want to get online inferences, you need to take the extra step of [deploy
 
 ![online inference](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/start/images/predictions/online_prediction.png)
 
-Once the model is deployed to an endpoint it accepts requests like any other REST endpoint, which means you can call it from a Cloud Run function, chatbot, a web app, etc. Note that you can deploy multiple models to a single endpoint, splitting traffic between them. This functionality is useful, for example, if you want to roll out a new model version but don't want to direct all traffic to the new model immediately. You can also deploy the same model to multiple endoints.
+Once the model is deployed to an endpoint it accepts requests like any other REST endpoint, which means you can call it from a Cloud Run function, chatbot, a web app, etc. Note that you can deploy multiple models to a single endpoint, splitting traffic between them. This functionality is useful, for example, if you want to gradually deploy a new model version but don't want to direct all traffic to the new model immediately. You can also deploy the same model to multiple endpoints.
 
 ## Resources for getting inferences from custom models on Agent Platform
 

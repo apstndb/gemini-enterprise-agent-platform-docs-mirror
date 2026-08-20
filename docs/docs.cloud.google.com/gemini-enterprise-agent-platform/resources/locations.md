@@ -145,6 +145,7 @@ Selecting a global endpoint for your requests can improve overall availability w
 
 Usage of the global endpoint is supported for the following Google models in specified regions. For details about which models support the global endpoint, see the **Global** tab in the [Google model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models) .
 
+  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) (Preview)
@@ -176,6 +177,7 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 | Model                                                                                                                                                 | Latest supported model version |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `gemini-3.7-flash`             |
 | [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`             |
 | [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)                                  | `gemini-3.5-flash-lite`        |
 | [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) | `gemini-3.1-flash-lite-image`  |
@@ -200,6 +202,9 @@ Global
 (global)
 
 Gemini models
+
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
 
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`
@@ -329,6 +334,9 @@ European Union multi-region
 (eu)
 
 Gemini models
+
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
 
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`
@@ -474,6 +482,9 @@ Dallas
 
 Gemini models
 
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
+
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`
 
@@ -602,6 +613,9 @@ São Paulo
 (southamerica-east1)
 
 Gemini models
+
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
 
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`
@@ -756,6 +770,9 @@ Paris
 
 Gemini models
 
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
+
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`
 
@@ -900,6 +917,9 @@ Seoul
 
 Gemini models
 
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
+
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`
 
@@ -1031,6 +1051,9 @@ Dammam
 (me-central2)
 
 Gemini models
+
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
+`(gemini-3.7-flash)`
 
 [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)  
 `(gemini-3.6-flash)`

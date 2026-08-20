@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/chat-completions/intro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fchat-completions%2Fintro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fchat-completions%2Fintro_chat_completions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/chat-completions/intro_chat_completions_api.ipynb)
 
-The Chat Completions API works as an Open AI-compatible endpoint, designed to make it easier to interface with Gemini on Gemini Enterprise Agent Platform by using the OpenAI libraries for Python and REST. If you're already using the OpenAI libraries, you can use this API as a low-cost way to switch between calling OpenAI models and Agent Platform hosted models to compare output, cost, and scalability, without changing your existing code. If you aren't already using the OpenAI libraries, we recommend that you [use the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart-multimodal) . To migrate your existing OpenAI SDK code to use the Google Gen AI SDK, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .
+The Chat Completions API works as an Open AI-compatible endpoint, designed to make it easier to interface with Gemini on Gemini Enterprise Agent Platform by using the OpenAI libraries for Python and REST. If you're already using the OpenAI libraries, you can use this API as a low-cost way to switch between calling OpenAI models and Agent Platform hosted models to compare output, cost, and scalability, without changing your existing code. If you aren't already using the OpenAI libraries, we recommend that you [use the Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) . To migrate your existing OpenAI SDK code to use the Google Gen AI SDK, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .
 
 ## Supported models
 
@@ -22,11 +22,12 @@ The following models provide support for the Chat Completions API:
 
 #### Click to expand supported models
 
+  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
@@ -189,7 +190,7 @@ Note that <code dir="ltr" translate="no">image_url</code> as a URL will default 
 
 In general, the `data` parameter can be a URI or a combination of MIME type and base64 encoded bytes in the form `"data:<MIME-TYPE>;base64,<BASE64-ENCODED-BYTES>"` . For a full list of MIME types, see [`GenerateContent`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) . For more information on OpenAI's base64 encoding, see [their documentation](https://platform.openai.com/docs/guides/images-vision#giving-a-model-images-as-input) .
 
-For usage, see our [multimodal input examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/examples#multimodal_input_examples) .
+For usage, see our [multimodal input examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/examples#multimodal-requests) .
 
 ### Gemini-specific parameters
 
@@ -266,7 +267,7 @@ Include a `google` field to contain any Gemini-specific `extra_content` features
 |                     |                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `thought`           | This field explicitly marks if a field is a thought and takes precedence over `thought_tag_marker` . It helps distinguish between different steps in a thought process, especially in tool use scenarios where intermediate steps might be mistaken for final answers. By tagging specific parts of the input as thoughts, you can guide the model to treat them as internal reasoning rather than user-facing responses. |
-| `thought_signature` | A bytes field that provides a thought signature to validate against thoughts returned by the model. This field is distinct from `thought` , which is a boolean field. For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .                                                                                                          |
+| `thought_signature` | A bytes field that provides a thought signature to validate against thoughts returned by the model. This field is distinct from `thought` , which is a boolean field. For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) .                                                                                                 |
 | `parts`             | Specific to a Tool message to pass multi-modal function response parts back to the model. For more information, see [`FunctionResponsePart`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Content#FunctionResponsePart) and [Multimodal function response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling#mm-fr) .                      |
 
 ## What's next
@@ -276,5 +277,5 @@ Include a `google` field to contain any Gemini-specific `extra_content` features
   - See examples of calling the [Inference API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) with the OpenAI-compatible syntax.
   - See examples of calling the [Function Calling API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling#examples) with OpenAI-compatible syntax.
   - Learn more about the [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) .
-  - Learn more about [migrating from Azure OpenAI to the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-from-azure-to-gemini) .
+  - Learn more about [migrating to the latest Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) .
   - To migrate your existing OpenAI SDK code to use the Google Gen AI SDK, see [Migrate from OpenAI SDK to Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code) .

@@ -22,6 +22,7 @@ Priority PayGo is ideal for business critical workloads with fluctuating or unpr
 
 The following models support Priority PayGo in the `global` endpoint only. Priority PayGo doesn't support regional or multi-regional endpoints.
 
+  - [`gemini-3.7-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [`gemini-3.6-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [`gemini-3.5-flash-lite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [`gemini-3.5-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)

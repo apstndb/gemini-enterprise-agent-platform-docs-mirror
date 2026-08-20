@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 # Build, scale, govern, and optimize with Gemini Enterprise Agent Platform
 
-**Gemini Enterprise Agent Platform** is our open and comprehensive platform that empowers businesses to rapidly build, scale, govern and optimize enterprise-grade agents grounded in your enterprise data. It provides the full-stack foundation and extensive developer choice you need to transform your applications and workflows into powerful, reliable agentic systems at global scale.
+**Gemini Enterprise Agent Platform** is our open and comprehensive platform that empowers businesses to rapidly build, scale, govern, and optimize enterprise-grade agents grounded in your enterprise data. It provides the full-stack foundation and extensive developer choice you need to transform your applications and workflows into powerful, reliable agentic systems at global scale.
 
 ![](https://www.gstatic.com/images/branding/productlogos/gemini_2025/v1/192px.svg)
 
@@ -99,6 +99,6 @@ designed for enterprise
   - Open models
     Choose from a variety of open weight models and select the best serving option. Includes Llama, DeepSeek, Mistral, and Qwen.
 
-## Get started with Agent Platform
+## Learn more about Agent Platform
 
-Start using Agent Platform to build, scale, govern, and optimize enterprise-grade agents today.
+For high-level product overviews and marketing details across Google Cloud products, visit the Gemini Enterprise Agent Platform product page.

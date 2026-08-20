@@ -8,9 +8,9 @@ data_source: docs.cloud.google.com
 
 You can use [Agent Studio](https://console.cloud.google.com/agent-platform/studio/) to design, test, and manage prompts for Google's [Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) large language models (LLMs) and partner and open models. Agent Studio supports certain partner and open models that are offered on Agent Platform as [models as a service (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) , such as Anthropic Claude models and Meta's Llama models.
 
-> **Note:** On your initial use for partner and open models, Agent Platform prompts you to accept the partner and open's terms and conditions. You must do this once for each partner and open provider to start using their models.
+> **Note:** On your initial use of partner and open models, Agent Platform prompts you to accept the provider's terms and conditions. You must do this once for each partner and open model provider to start using their models.
 
-In this quickstart, you:
+In this quickstart, you do the following:
 
   - Send these prompts to the Agent Platform API using samples from the generative AI prompt gallery, including the following:
       - A summarization text prompt
@@ -19,11 +19,11 @@ In this quickstart, you:
 
 ## Sample prompts in Agent Studio
 
-A prompt is a natural language request submitted to a language model that generates a response. Prompts can contain questions, instructions, contextual information, [few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design#few-shot-examples) , and partial input for the model to complete. After the model receives a prompt, depending on the type of model used, it can generate text, embeddings, code, images, videos, music, and more.
+A prompt is a natural language request submitted to a language model that generates a response. Prompts can contain questions, instructions, contextual information, [few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design#few_shot_examples) , and partial input for the model to complete. After the model receives a prompt, depending on the type of model used, it can generate text, embeddings, code, images, videos, music, and more.
 
 The sample prompts in [Agent Studio](https://console.cloud.google.com/agent-platform/studio/) [Prompt Gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) are predesigned to help demonstrate model capabilities. Each prompt is preconfigured with specified model and parameter values so you can open the sample prompt and click **Submit** send to generate a response.
 
-## Test the Gemini flash model using a summarization text prompt
+## Test the Gemini model using a summarization text prompt
 
 Send a summarization text prompt to the Agent Platform API. A summarization task extracts the most important information from text. You can provide information in the prompt to help the model create a summary, or ask the model to create a summary on its own.
 
@@ -45,7 +45,7 @@ Send a summarization text prompt to the Agent Platform API. A summarization task
     
     In the **Get code** panel, you can choose your preferred language to get the sample code for the prompt, or you can open the Python code in a Colab Enterprise notebook.
 
-## Test the Gemini flash model using a code generation prompt
+## Test the Gemini model using a code generation prompt
 
 Send a code generation prompt to the Agent Platform API. A code generation task generates code using a natural language description.
 
@@ -63,7 +63,7 @@ Send a code generation prompt to the Agent Platform API. A code generation task 
     
     The output is displayed in the response.
 
-6.  To view the Gemini Enterprise Agent Platform code used to generate the transcript summary, click **Code** .
+6.  To view the Gemini Enterprise Agent Platform code used to generate the code, click **Code** .
     
     In the **Get code** panel, you can choose your preferred language to get the sample code for the prompt, or you can open the Python code in a Colab Enterprise notebook.
 

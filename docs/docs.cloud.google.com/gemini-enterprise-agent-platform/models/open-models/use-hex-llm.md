@@ -266,7 +266,7 @@ You can deploy a custom Agent Platform endpoint with Hex-LLM by using a model ca
 
 1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/335) and click **Deploy** .
 
-2.  For the model variation that you want to use, select the [Cloud TPU v5e machine type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learing/predictions/use-tpu#deploy_a_model) for deployment.
+2.  For the model variation that you want to use, select the [Cloud TPU v5e machine type](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-tpu#deploy_a_model) for deployment.
 
 3.  Click **Deploy** at the bottom to begin the deployment process. You receive two email notifications; one when the model is uploaded and another when the endpoint is ready.
 

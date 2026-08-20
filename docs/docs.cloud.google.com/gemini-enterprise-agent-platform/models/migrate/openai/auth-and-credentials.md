@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials
 title: Authenticate
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to authenticate with the Chat Completions API when using OpenAI libraries with Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -137,4 +137,4 @@ The following example shows how to refresh your credentials automatically as nee
   - See examples of calling the [Inference API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) with the OpenAI-compatible syntax.
   - See examples of calling the [Function Calling API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling#examples) with OpenAI-compatible syntax.
   - Learn more about the [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models) .
-  - Learn more about [migrating from Azure OpenAI to the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-from-azure-to-gemini) .
+  - Learn more about [migrating to the latest Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) .

@@ -12,13 +12,21 @@ Gemini Enterprise Agent Platform implements Google Cloud security controls to he
 
 The following table lists the security controls available for Generative AI features:
 
-[Data residency (at rest)](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/data-residency)
+[Data residency (at rest)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)
 
 [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek)
 
 [VPC Service Controls (VPC-SC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
 
 [Access Transparency (AXT)](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview)
+
+**Gemini 3.7 Flash**
+
+Online prediction
+
+Batch inference
+
+Context caching
 
 **Gemini 3.6 Flash**
 
@@ -156,7 +164,11 @@ RAG Engine
 
 Online prediction
 
-**[Partner and Open Models (MaaS)](https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/overview)**
+**[Partner Models (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models)**
+
+Online prediction
+
+**[Open Models (MaaS)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models)**
 
 Online prediction
 

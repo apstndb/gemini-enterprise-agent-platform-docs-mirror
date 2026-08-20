@@ -27,43 +27,45 @@ To get inferences, you must first [import your model](https://docs.cloud.google.
 
 Then, read the following documentation to learn how to get inferences:
 
-  - [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions)
-    
-    Or
+\* [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions)
+
+``` 
+Or
+```
 
   - [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) and [get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
-
-## Get inferences from AutoML models
-
-Unlike custom trained models, AutoML models are automatically imported into the Model Registry after training.
-
-Other than that, the workflow for AutoML models is similar, but varies slightly based on your data type and model objective. The documentation for getting AutoML inferences is located alongside the other AutoML documentation. The following sections provide links to the documentation.
-
-### Image
-
-Learn how to get inferences from the following types of image AutoML models:
-
-  - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/get-predictions)
-  - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions)
-
-### Tabular
-
-Learn how to get inferences from the following types of tabular AutoML models:
-
-  - Tabular classification and regression models
     
-      - [Online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions)
-      - [Batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions)
-
-  - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions) (batch inferences only)
-
-## Get inferences from BigQuery ML models
-
-You can get inferences from BigQuery ML models in two ways:
-
-  - Request batch inferences directly from the model in BigQuery ML.
-  - Register the models directly with the Model Registry, without exporting them from BigQuery ML or importing them into the Model Registry.
-
-## What's next
-
-  - Learn about [Compute resources for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .
+    ## Get inferences from AutoML models
+    
+    Unlike custom trained models, AutoML models are automatically imported into Model Registry after training.
+    
+    Other than that, the workflow for AutoML models is similar, but varies slightly based on your data type and model objective. The documentation for getting AutoML inferences is located alongside the other AutoML documentation. The following sections provide links to the documentation.
+    
+    ### Image
+    
+    Learn how to get inferences from the following types of image AutoML models:
+    
+      - [Image classification models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/get-predictions)
+      - [Image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions)
+    
+    ### Tabular
+    
+    Learn how to get inferences from the following types of tabular AutoML models:
+    
+      - Tabular classification and regression models
+        
+          - [Online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions)
+          - [Batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-batch-predictions)
+    
+      - [Tabular forecasting models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting/get-predictions) (batch inferences only)
+    
+    ## Get inferences from BigQuery ML models
+    
+    You can get inferences from BigQuery ML models in two ways:
+    
+      - Request batch inferences directly from the model in BigQuery ML.
+      - Register the models directly with Model Registry, without exporting them from BigQuery ML or importing them into Model Registry.
+    
+    ## What's next
+    
+      - Learn about [Compute resources for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute) .

@@ -37,7 +37,7 @@ The following table shows the [Triton Docker images available on NVIDIA NGC Cata
 | **`xx.yy-tf2-python-py3`** | TensorFlow 2.x and Python backends only                                                                                                 |
 | **`xx.yy-py3-min`**        | [Customize Triton container](https://github.com/triton-inference-server/server/blob/main/docs/customization_guide/compose.md) as needed |
 
-## Get started: Serving inferences with NVIDIA Triton
+## Get started: Serve inferences with NVIDIA Triton
 
 The following figure shows the high-level architecture of Triton on Vertex AI Inference:
 
@@ -55,7 +55,7 @@ To run this tutorial in notebook form:
 
 [Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) | [Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fvertex_endpoints%2Fnvidia-triton%2Fnvidia-triton-custom-container-prediction.ipynb) | [View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) | [Open in Vertex AI Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fvertex_endpoints%2Fnvidia-triton%2Fnvidia-triton-custom-container-prediction.ipynb) |
 
-> **Note:** The [tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) uses [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/client-libraries#python) . This tutorial runs [`gcloud ai`](https://cloud.google.com/sdk/gcloud/reference/ai) commands.
+> **Note:** The [tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/vertex_endpoints/nvidia-triton/nvidia-triton-custom-container-prediction.ipynb) uses [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries#python) . This tutorial runs [`gcloud ai`](https://cloud.google.com/sdk/gcloud/reference/ai) commands.
 
 ## Before you begin
 
@@ -132,7 +132,7 @@ Run the following command in your shell to create Artifact Registry repository:
         --location=LOCATION_ID \
         --description="NVIDIA Triton Docker repository"
 
-Replace LOCATION\_ID with the region where Artifact Registry stores your container image. Later, you must create a Gemini Enterprise Agent Platform model resource on a locational endpoint that matches this region, so choose [a region where Gemini Enterprise Agent Platform has a locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/general/locations#feature-availability) , such as `us-central1` .
+Replace LOCATION\_ID with the region where Artifact Registry stores your container image. Later, you must create a Gemini Enterprise Agent Platform model resource on a locational endpoint that matches this region, so choose [a region where Gemini Enterprise Agent Platform has a locational endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#feature-availability) , such as `us-central1` .
 
 After completing the operation, the command prints the following output:
 
@@ -278,7 +278,7 @@ In this section, you create a model and an endpoint, and then you deploy the mod
 
 To create a `Model` resource that uses a custom container running Triton, use the [`gcloud ai models upload` command](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload) .
 
-Before you create your model, read [Settings for custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-genai#settings_for_custom_containers) to learn whether you need to specify the optional `sharedMemorySizeMb` , `startupProbe` , and `healthProbe` fields for your container.
+Before you create your model, read [Settings for custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-genai#settings-for-custom-containers) to learn whether you need to specify the optional `sharedMemorySizeMb` , `startupProbe` , and `healthProbe` fields for your container.
 
     gcloud ai models upload \
         --region=LOCATION_ID \

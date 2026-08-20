@@ -101,7 +101,11 @@ Get started with Memory Bank using the following quickstarts:
 
   - [**Quickstart using Agent Development Kit (ADK)**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart) : Follow the Agent Development Kit (ADK) quickstart if you want your ADK agent to orchestrate calls to Sessions and Memory Bank for you.
 
-## Security risks of prompt injection
+## Memory Bank governance
+
+This section describes data governance considerations when using Memory Bank, such as security responsibilities and data residency.
+
+### Security risks of prompt injection
 
 In addition to the security responsibilities outlined in [Agent Platform shared responsibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/shared-responsibility) , consider the risk of prompt injection and memory poisoning that can affect your agent when using long-term memories. Memory poisoning occurs when false information is stored in Memory Bank. The agent may then operate on this false or malicious information in future sessions.
 
@@ -114,6 +118,32 @@ To mitigate the risk of memory poisoning, you can do the following:
   - **Sandbox execution** : If the agent has the ability to execute or interact with external or critical systems, these actions should be performed in a sandboxed environment with strict access control and human review.
 
 For more information, see [Google's Approach for Secure AI Agents](https://research.google/pubs/an-introduction-to-googles-approach-for-secure-ai-agents/) .
+
+### Data residency
+
+To comply with regulatory frameworks such as the General Data Protection Regulation (GDPR) and regional data sovereignty requirements, you must ensure that memories generated and stored in Memory Bank adhere to strict data residency and segregation boundaries.
+
+While Memory Bank provides [scope-based data isolation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) across identities within an instance, you must apply Role-Based Access Control (RBAC) and Identity and Access Management policies to enforce regional boundaries and prevent cross-border memory contamination between distinct regional instances.
+
+#### Regional instance deployment and data residency
+
+When creating a Memory Bank instance, choose a regional or multi-regional location (such as `eu` for the European Union or `us` for the United States) to ensure that data-at-rest remains within that specific geographic boundary.
+
+Machine learning (ML) processing location depends on the regional availability of the underlying model. If a regional endpoint is unavailable for your selected model or location (for example, Gemini 3 models or Asia single regions), global Gemini endpoints are used for ML processing. For more information, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) and [Multi-regional and global endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#multi-regional-global-endpoints) .
+
+#### Preventing cross-border memory contamination
+
+Cross-border contamination occurs when an agent runtime, agent identity, service account, or application operating in one jurisdiction (for example, the US) writes to or retrieves memories from a Memory Bank instance located in another jurisdiction (for example, the EU).
+
+To prevent cross-border contamination and maintain regulatory compliance, you can configure the following IAM controls:
+
+  - **Dedicated regional agent identities or service accounts** : Create separate, region-specific [agent identities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) or service accounts for each jurisdiction (such as `agent-us@ PROJECT_ID .iam.gserviceaccount.com` for US workloads and `agent-eu@ PROJECT_ID .iam.gserviceaccount.com` for EU workloads). Ensure that regional agent identities and service accounts are only granted IAM roles on the Memory Bank instances residing in the same geographic jurisdiction, preventing regional runtimes from accessing cross-border instances.
+    
+      - **Least-privilege specialized roles** : Grant principals only the specific Memory Bank roles required for their workload (such as `roles/aiplatform.memoryViewer` for read-only retrieval or `roles/aiplatform.memoryEditor` for write and generation access) bound to the appropriate regional resource. For details on available roles, see [Specialized Memory Bank IAM roles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions#memory-roles) .
+
+  - **Organizational policies** : Enforce location restrictions at the organization, folder, or project level by using the `gcp.resourceLocations` [organization policy constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) . This restricts the creation and usage of Memory Bank resources to approved compliant regions and prevents unauthorized global endpoint usage.
+
+For more information on implementing conditional access policies, see [Control access to Agent Platform Memory Bank with IAM Conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions) .
 
 ## What's next
 

@@ -139,7 +139,7 @@ The Gemini API provides the following "harm block" thresholds:
   - **`BLOCK_ONLY_HIGH`** : Block when the probability score or the severity score is `HIGH` .
   - **`HARM_BLOCK_THRESHOLD_UNSPECIFIED`** : Block using the default threshold.
   - **`OFF`** : No automated response blocking and no metadata is returned. For `gemini-3.5-flash` and subsequent models, `OFF` is the default value.
-  - **`BLOCK_NONE`** : The `BLOCK_NONE` setting removes automated response blocking. Instead, you can configure your own content guidelines with the returned scores. This is a restricted field that isn't available to all users in [GA](https://cloud.google.com/products/#product-launch-stages) model versions.
+  - **`BLOCK_NONE`** : The `BLOCK_NONE` setting removes automated response blocking. Instead, you can configure your own content guidelines with the returned scores.
 
 For example, the following Python code demonstrates how you can set the harm block threshold to `BLOCK_ONLY_HIGH` for the dangerous content category:
 

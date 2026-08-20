@@ -23,7 +23,7 @@ Some key metrics provided by the predictive AI model evaluation service include 
   - [AuPRC](https://developers.google.com/machine-learning/glossary#pr-auc-area-under-the-pr-curve)
   - [Confusion matrix](https://developers.google.com/machine-learning/glossary#confusion-matrix)
 
-> **Note:** The model evaluation service described on this page is separate from the [evaluation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/evaluating-automl-models#evaluation_metrics_returned_by) that are automatically generated during the AutoML training process.
+> **Note:** The model evaluation service described on this page is separate from the evaluation metrics that are automatically generated during the [AutoML training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) process.
 
 ## Features
 

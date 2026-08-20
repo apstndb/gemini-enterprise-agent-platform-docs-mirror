@@ -167,7 +167,7 @@ Your dataset should capture the diversity of your problem space. The more divers
 
 ![gather enough data](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/prepare-data.png) After you've decided which is right for you—a manual or the default split—you can add data in Agent Platform by using one of the following methods:
 
-  - You can import data either from your computer or from Cloud Storage in an available format (CSV or [JSON Lines](https://jsonlines.org/) ) with the labels (and bounding boxes, if necessary) inline. For more information on import file format, see [Preparing your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/prepare-image) . If you want to split your dataset manually, you can specify the splits in your CSV or JSON Lines import file.
+  - You can import data either from your computer or from Cloud Storage in an available format (CSV or [JSON Lines](https://jsonlines.org/) ) with the labels (and bounding boxes, if necessary) inline. For more information on import file format, see [Preparing your training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data) . If you want to split your dataset manually, you can specify the splits in your CSV or JSON Lines import file.
   - If your data hasn't been annotated, you can upload unlabeled images and use the Google Cloud console to apply annotations. You can manage these annotations in multiple [annotation sets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/create-annotation-set) for the same set of images. For example, for a single set of images you can have one annotation set with bounding box and label information to do object detection, and also have another annotation set with just label annotations for classification.
 
 ### Tabular
@@ -204,7 +204,7 @@ Agent Platform provides an overview of your dataset after it's been imported. Re
 
 #### Consider how Agent Platform uses your dataset in creating a custom model
 
-Your dataset contains training, validation and testing sets. If you do not specify the splits (see [Prepare your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide#prepare_your_data) ), then Agent Platform automatically uses 80% of your images for training, 10% for validating, and 10% for testing.  
+Your dataset contains training, validation and testing sets. If you do not specify the splits (see [Prepare your data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/beginners-guide#prepare-data) ), then Agent Platform automatically uses 80% of your images for training, 10% for validating, and 10% for testing.  
 ![training validation test sets](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/training-validation-test-sets.png)
 
 ##### Training Set

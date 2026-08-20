@@ -8,13 +8,11 @@ data_source: docs.cloud.google.com
 
 Structured outputs enable a model to generate output that always adheres to a specific schema. For example, a model may be provided with a response schema to ensure that the response produces valid JSON. Grok models available on the Gemini Enterprise Agent Platform Model as a Service (MaaS) support structured outputs.
 
-For more conceptual information about the structured output capability, see [Introduction to structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/multimodal/control-generated-output) .
+For more conceptual information about the structured output capability, see [Introduction to structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) .
 
 ## Use structured outputs with the Responses API
 
-To use stateless functionalities, explicitly set `store` to `false` (or `False` in Python) in your requests. The default value for `store` is `true` .  
-  
-To use stateful functionalities, you must configure your [Organization Policy Service](https://docs.cloud.google.com/organization-policy/overview) to allow it. Specifically, update the constraint `constraints/vertexai.allowedPartnerModelFeatures` by adding `publishers/xai/models/ MODEL_NAME :stateful_responses_api` to the allowed values (for example, `publishers/xai/models/grok-4.20-reasoning:stateful_responses_api` ). For more information, see [Control model access](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/control-model-access) .
+> **Note:** Setting `store` to `true` and the `previous_response_id` parameter for stateful API calls are not supported for Grok models at this time, and `store` defaults to `false` . Support is planned for an upcoming release. When support is added, the default behavior will change to `store: true` , and `previous_response_id` will be enabled. If you want to prevent your responses from being stored after this change, explicitly set `store` to `false` (or `False` in Python) in your requests.
 
 The following templates show how to use structured outputs with the Responses API:
 
@@ -151,7 +149,7 @@ Before running this sample, make sure to set the `OPENAI_BASE_URL` environment v
 ### REST
 
     curl -X POST \
-    -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
     https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/endpoints/openapi/responses -d \
     '{

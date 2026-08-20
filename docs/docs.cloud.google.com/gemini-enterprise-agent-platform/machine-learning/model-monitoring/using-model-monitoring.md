@@ -20,7 +20,7 @@ You can enable skew detection if you provide the original training dataset for y
 
 To use Model Monitoring, complete the following:
 
-1.  Have an available model in Agent Platform that is either a [tabular AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/automl-model-types#tabular) or imported tabular [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) type.
+1.  Have an available model in Agent Platform that is either a [tabular AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) or imported tabular [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) type.
     
       - If you are using an existing endpoint, make sure all the models deployed under the endpoint are tabular AutoML or imported custom training types.
 
@@ -498,7 +498,7 @@ where:
 
   - COMMAND is the command you want to perform on the monitoring job. For example, `update` , `pause` , `resume` , or `delete` . For more information, see the [gcloud CLI reference](https://docs.cloud.google.com/sdk/gcloud/reference/ai/model-monitoring-jobs) .
 
-  - MONITORING\_JOB\_ID is the ID of your monitoring job. For example, `123456789` . You can find the ID by \[retrieving the endpoint information\]\[retrieve-id\] or viewing **Monitoring properties** for a model in the Google Cloud console. The ID is included in the monitoring job resource name in the format ` projects/ PROJECT_NUMBER /locations/ LOCATION /modelDeploymentMonitoringJobs/ MONITORING_JOB_ID  ` .
+  - MONITORING\_JOB\_ID is the ID of your monitoring job. For example, `123456789` . You can find the ID by [retrieving the endpoint information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#retrieve_the_endpoint_id) or viewing **Monitoring properties** for a model in the Google Cloud console. The ID is included in the monitoring job resource name in the format ` projects/ PROJECT_NUMBER /locations/ LOCATION /modelDeploymentMonitoringJobs/ MONITORING_JOB_ID  ` .
 
   - (optional) PARAMETER=VALUE is the parameter you want to update. This flag is required only when using the `update` command. For example, `monitoring-frequency=2` . For a list of parameters you can update, see the [gcloud CLI reference](https://docs.cloud.google.com/sdk/gcloud/reference/ai/model-monitoring-jobs/update) .
 

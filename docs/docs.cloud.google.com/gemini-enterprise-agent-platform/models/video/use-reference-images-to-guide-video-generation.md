@@ -93,7 +93,7 @@ Video generation can take over a minute to complete. To generate a video to down
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
-  - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
       - `"gemini-omni-flash-preview"`
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
   - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
@@ -101,7 +101,7 @@ Before using any of the request data, make the following replacements:
   - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
       - `"16:9"`
       - `"9:16"`
-  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s` "
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"`
 
 HTTP method and URL:
 
@@ -223,7 +223,7 @@ The response contains an interaction which includes the model thoughts and an ou
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
-  - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
       - `"gemini-omni-flash-preview"`
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
   - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
@@ -231,7 +231,7 @@ Before using any of the request data, make the following replacements:
   - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
       - `"16:9"`
       - `"9:16"`
-  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s` "
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"`
 
 HTTP method and URL:
 

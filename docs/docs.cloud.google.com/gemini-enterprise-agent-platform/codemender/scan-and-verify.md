@@ -30,9 +30,9 @@ Skip interactive approval prompts during the scan:
 
 ## Verify vulnerabilities
 
-> **Warning:** CodeMender executes commands and may modify files directly on your host system. Because sandboxing is disabled by default, we highly recommend that you enable the built-in local process-level sandbox (using the `--sandbox` flag or `config.yaml` ) or run the CLI in an isolated VM or container to protect your host system.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass it (using the `--unrestricted` flag), we highly recommend running the CLI in an isolated VM or container to protect your host system.
 
-Once potential vulnerabilities are identified, ask CodeMender to verify exploitability. During verification, CodeMender generates and executes a proof-of-concept (PoC) exploit (in the [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#execution-sandboxing) , if enabled) to confirm whether the issue is genuinely exploitable.
+Once CodeMender identifies potential vulnerabilities, ask it to verify exploitability. During verification, CodeMender generates and executes a proof-of-concept (PoC) exploit (inside the default [sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#execution-sandboxing) ) to confirm whether the issue is genuinely exploitable.
 
 Locate the `finding-id` from the output of `cm report` or `cm find` , then run:
 
@@ -48,11 +48,11 @@ Locate the `finding-id` from the output of `cm report` or `cm find` , then run:
     
         cm verify FINDING_ID --skip-exploit-verification
 
-  - **Enable sandboxing ( `--sandbox` )** : Run the command inside the built-in local process-level sandbox:
+  - **Control sandboxing ( `--sandbox` )** : Explicitly enable or disable the sandbox for this run (e.g., `--sandbox=false` to disable):
     
-        cm verify FINDING_ID --sandbox
+        cm verify FINDING_ID --sandbox=false
 
-  - **Bypass sandboxing ( `--unrestricted` )** : If sandboxing is enabled, temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
+  - **Bypass sandboxing ( `--unrestricted` )** : Temporarily bypass all sandbox protections for this run, disabling file system boundaries and OS-level container isolation:
     
         cm verify FINDING_ID --unrestricted
 

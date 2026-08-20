@@ -12,6 +12,56 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 16, 2026
+
+Security
+
+Updated the bundled Ruby gems rexml and net-imap to patched versions, addressing known vulnerabilities.
+
+Change
+
+### 20260816-2330-rc0 Release
+
+Security
+
+Updated aiohttp, joblib and cryptography to patched versions, addressing known vulnerabilities including CVE-2022-21797 and CVE-2025-69223.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+## August 09, 2026
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Change
+
+### 20260809-2330-rc0 Release
+
+## August 02, 2026
+
+Change
+
+### 20260802-2330-rc0 Release
+
+Fixed
+
+Fixed issue with JupyterLab UI silently reverting file changes and interrupting kernels due to Gemini CLI's auto reload extension.
+
+Change
+
+The JupyterLab last-active and auto-reload extensions are now enabled only when Gemini CLI is configured, preventing them from affecting the native JupyterLab UI otherwise.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed an error that could prevent creating new `micromamba` environments at runtime due to package cache permissions.
+
 ## June 30, 2026
 
 Feature

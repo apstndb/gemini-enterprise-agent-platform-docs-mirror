@@ -26,11 +26,11 @@ With the Gen AI evaluation service, you can trigger an agent execution and get m
 
 The Gen AI evaluation service supports the following categories of agents:
 
-| Supported agents                                                  | Description                                                                                                                                                                                                  |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Agent built with Agent Engine's template                          | [Agent Engine (LangChain on Agent Platform)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/agent-engine/overview) is a Google Cloud platform where you can deploy and manage agents. |
-| LangChain agents built using Agent Engine's customizable template | [LangChain](https://www.langchain.com/) is an open source platform.                                                                                                                                          |
-| Custom agent function                                             | Custom agent function is a flexible function that takes in a prompt for the agent and returns a response and trajectory in a dictionary.                                                                     |
+| Supported agents                                                   | Description                                                                                                                                                      |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Agent built with Agent Runtime's template                          | [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) is a Google Cloud platform where you can deploy and manage agents. |
+| LangChain agents built using Agent Runtime's customizable template | [LangChain](https://www.langchain.com/) is an open source platform.                                                                                              |
+| Custom agent function                                              | Custom agent function is a flexible function that takes in a prompt for the agent and returns a response and trajectory in a dictionary.                         |
 
 ## Defining metrics for agent evaluation
 

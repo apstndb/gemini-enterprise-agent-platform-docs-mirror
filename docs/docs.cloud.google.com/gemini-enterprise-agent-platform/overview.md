@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 [Video](https://www.youtube.com/watch?v=j8qW5poBkEU)
 
-Gemini Enterprise Agent Platform is a unified platform to build, deploy, govern, and optimize enterprise-grade AI agents and model-based solutions. As an evolution of Agent Platform, it supports the complete AI lifecycle from accessing over 200 foundation models to deploying and managing your agents.
+Gemini Enterprise Agent Platform is a unified platform to build, deploy, govern, and optimize enterprise-grade AI agents and model-based solutions. As an evolution of Vertex AI, it supports the complete AI lifecycle from accessing over 200 foundation models to deploying and managing your agents.
 
 Agent Platform meets you where you are, with tools for all skill levels:
 
@@ -16,9 +16,9 @@ Agent Platform meets you where you are, with tools for all skill levels:
       - **Agent Studio:** Design agents and interact with models without code.
   - **Code-based development:**
       - **Colab Enterprise Notebooks:** Perform code-based development, data analysis, and experimentation.
-      - **Agent Development Kit:** Build sophisticated Agents capable of complex reasoning and tool use with this modular, model-agnostic framework.
+      - **Agent Development Kit:** Build sophisticated agents capable of complex reasoning and tool use with this modular, model-agnostic framework.
 
-To meet enterprise requirements, Agent Platform includes integrated security and governance. Agent Identity lets you grant granular permissions to agents. Agent Gateway, together with Model Armor, secures all agent interactions, enforces runtime policies, and helps protect against threats and ensure compliant operations.
+To meet enterprise requirements, Agent Platform includes integrated security and governance. Agent Identity lets you grant granular permissions to agents. Agent Gateway, together with Model Armor, secures all agent interactions, enforces runtime policies, and helps protect against threats and helps ensure compliant operations.
 
 ## Gemini Enterprise Agent Platform Components
 
@@ -67,14 +67,16 @@ Secure, catalog, and govern your agents with enterprise-grade controls and polic
 
 Assess, monitor, and refine your agents to ensure high quality and reliability.
 
-  - [**Agent evaluation**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) Systematically assess agent quality with tools like Multi-Turn AutoRaters and Online Evaluation for live traffic.
-  - [**Simulate and evaluate agent behavior**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-simulated) Generate synthetic test scenarios and simulate multi-turn user interactions with configurable personas to stress-test agent logic.
-  - [**Observability**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) Comprehensive monitoring, logging, and tracing tools, including the Unified Trace Viewer, provide detailed visibility into agent reasoning and performance for effective debugging.
-  - [**Optimize agent prompts**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/optimize-agent) Programmatically refine agent system instructions and tool descriptions by analyzing failure patterns and proposing targeted updates.
+  - [**Agent evaluation:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) Systematically assess agent quality with tools like Multi-Turn AutoRaters and Online Evaluation for live traffic.
+  - [**Simulate and evaluate agent behavior:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-simulated) Generate synthetic test scenarios and simulate multi-turn user interactions with configurable personas to stress-test agent logic.
+  - [**Observability:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview) Comprehensive monitoring, logging, and tracing tools, including the Unified Trace Viewer, provide detailed visibility into agent reasoning and performance for effective debugging.
+  - [**Optimize agent prompts:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/optimize-agent) Programmatically refine agent system instructions and tool descriptions by analyzing failure patterns and proposing targeted updates.
 
 ## How to use this documentation
 
-The Agent Platform documentation is organized into sections to help you find the information you need. Use the navigation tabs to explore the different areas of the platform:
+The Agent Platform documentation is organized into sections to help you find the information you need.
+
+Use the navigation tabs to explore the different areas of the platform:
 
   - **Studio** : Discover how to use Agent Studio for prompt design, model tuning, and other UI-based interactions with models.
   - **Agents** : Explore how to build, deploy, and manage AI agents for enterprise use cases using Agent Platform's agent framework and tools.

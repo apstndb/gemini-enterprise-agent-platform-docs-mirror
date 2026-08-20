@@ -45,7 +45,7 @@ For more information about setting up online serving without registering your fe
 
 You can control access for a feature group at the following levels:
 
-  - **Control access to the `FeatureGroup` resource** : To control access to a feature group for a specific individual, Google group, domain, or service account, [set up an IAM policy for the feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest#set_iam_fg) .
+  - **Control access to the `FeatureGroup` resource** : To control access to a feature group for a specific individual, Google group, domain, or service account, [set up an IAM policy for the feature group](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/control-access#set_iam_fg) .
 
   - **Control access to the BigQuery data source** : By default, a feature group uses the default service account configured for the project. Vertex AI Feature Store assigns the [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) Identity and Access Management (IAM) role to this service account. This lets any user with permission to create a feature group in the project access the feature data source in BigQuery. To restrict access to the BigQuery data source or to grant access to additional users, you can set up your feature group to use its own dedicated service account. Vertex AI Feature Store generates a unique service account email address for each feature group configured to have a dedicated service account.
     

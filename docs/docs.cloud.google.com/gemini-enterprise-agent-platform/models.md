@@ -20,7 +20,7 @@ Quickly start calling APIs on the platform.
 
 Learn how to create and manage API keys.
 
-### [Setup Authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth)
+### [Set up Authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth)
 
 Configure application default credentials.
 
@@ -50,7 +50,7 @@ Instructions for deploying open models from to endpoints.
 
 ## Model Types
 
-Agent Platform provides access to a wide variety of models, including:
+Agent Platform provides access to a variety of models, including:
 
 ### [Google Models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models)
 

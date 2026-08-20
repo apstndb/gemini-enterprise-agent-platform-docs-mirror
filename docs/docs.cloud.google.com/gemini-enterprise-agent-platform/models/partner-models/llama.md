@@ -60,4 +60,4 @@ For more information about deploying and using partner models, see [Deploy a par
 
 ## What's next
 
-[Learn how to use Llama models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/partner-models/llama/use-llama) .
+[Learn how to use Llama models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/use-llama) .

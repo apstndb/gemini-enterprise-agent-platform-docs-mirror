@@ -20,7 +20,7 @@ By using the **Policies** page, you can do the following:
 
 You can create IAM allow and deny policies that Agent Gateway uses to securely govern agentic communication between your agents and other services, including other agents, MCP servers, and endpoints. Agent Gateway uses Identity-Aware Proxy (IAP) to enforce the policies.
 
-For detailed information about IAM policies for Agent Gateway, see [IAM policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview) . To create an IAM policy, see [Create IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
+For detailed information about IAM policies for Agent Gateway, see [IAM policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview) . To create an IAM policy, see [Create IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
 
 ## Use Semantic governance policies
 

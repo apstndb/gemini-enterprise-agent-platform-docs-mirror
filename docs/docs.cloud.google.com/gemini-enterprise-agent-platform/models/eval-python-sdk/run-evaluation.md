@@ -6,13 +6,13 @@ description: Learn how to use the Gen AI Evaluation module of the Agent Platform
 data_source: docs.cloud.google.com
 ---
 
-You can use the [Gen AI Evaluation module](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.evaluation) of the [Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to programmatically evaluate your generative language models and applications with the Gen AI evaluation service API. This page shows you how to run evaluations with the Vertex AI SDK. Note that evaluations at scale are only available using the REST API.
+You can use the [Gen AI Evaluation module](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.evaluation) of the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) to programmatically evaluate your generative language models and applications with the Gen AI evaluation service API. This page shows you how to run evaluations with the Agent Platform SDK. Note that evaluations at scale are only available using the REST API.
 
 ## Before you begin
 
 To get started with running evaluations, complete the following prerequisites.
 
-### Install the Vertex AI SDK
+### Install the Agent Platform SDK
 
 To install the Gen AI Evaluation module from the Agent Platform SDK for Python, run the following command:
 
@@ -20,9 +20,9 @@ To install the Gen AI Evaluation module from the Agent Platform SDK for Python, 
 
 For more information, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
-### Authenticate the Vertex AI SDK
+### Authenticate the Agent Platform SDK
 
-After you install the Agent Platform SDK for Python, you need to authenticate. The following topics explain how to authenticate with the Vertex AI SDK if you're working locally and if you're working in Colaboratory:
+After you install the Agent Platform SDK for Python, you need to authenticate. The following topics explain how to authenticate with the Agent Platform SDK if you're working locally and if you're working in Colaboratory:
 
   - If you're developing locally, set up [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) in your local environment:
     
@@ -83,7 +83,7 @@ Use the `EvalTask` class to run evaluations for the following use cases:
 
 The `EvalTask` class helps you evaluate models and applications based on specific tasks. To make fair comparisons between generative models, you typically need to repeatedly evaluate various models and prompt templates against a fixed evaluation dataset using specific metrics. It's also important to evaluate multiple metrics simultaneously within a single evaluation run.
 
-`EvalTask` also integrates with [Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) to help you track configurations and results for each evaluation run. Vertex AI Experiments aids in managing and interpreting evaluation results, empowering you to make informed decisions.
+`EvalTask` also integrates with [Experiments on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) to help you track configurations and results for each evaluation run. Experiments on Gemini Enterprise Agent Platform aids in managing and interpreting evaluation results, empowering you to make informed decisions.
 
 The following example demonstrates how to instantiate the `EvalTask` class and run an evaluation:
 
@@ -120,7 +120,7 @@ For [model-based metrics](https://docs.cloud.google.com/gemini-enterprise-agent-
 
 ### Use model-based metric examples
 
-You can directly use the built-in constant `Metric Prompt Template Examples` within Vertex AI SDK. Alternatively, modify and incorporate them in the free-form metric definition interface.
+You can directly use the built-in constant `Metric Prompt Template Examples` within Agent Platform SDK. Alternatively, modify and incorporate them in the free-form metric definition interface.
 
 For the full list of Metric Prompt Template Examples covering most key use cases, see [Metric prompt templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/eval-python-sdk/metrics-templates) .
 
@@ -144,7 +144,7 @@ When you're running evaluations in a Colab Enterprise notebook, you can access m
 
 ### Agent Platform SDK
 
-The following Vertex AI SDK example shows how to use `MetricPromptTemplateExamples` class to define your metrics:
+The following Agent Platform SDK example shows how to use `MetricPromptTemplateExamples` class to define your metrics:
 
     # View all the available examples of model-based metrics
     MetricPromptTemplateExamples.list_example_metric_names()
@@ -164,7 +164,7 @@ The following Vertex AI SDK example shows how to use `MetricPromptTemplateExampl
 
 ### Use a model-based metric templated interface
 
-Customize your metrics by populating fields like `Criteria` and `Rating Rubrics` using the `PointwiseMetricPromptTemplate` and `PairwiseMetricPromptTemplate` classes within Vertex AI SDK. Certain fields, such as `Instruction` , are assigned a default value if you don't provide input.
+Customize your metrics by populating fields like `Criteria` and `Rating Rubrics` using the `PointwiseMetricPromptTemplate` and `PairwiseMetricPromptTemplate` classes within Agent Platform SDK. Certain fields, such as `Instruction` , are assigned a default value if you don't provide input.
 
 Optionally, you can specify `input_variables` , which is a list of input fields used by the metric prompt template to generate model-based evaluation results. By default, the model's `response` column is included for pointwise metrics, and both the candidate model's `response` and `baseline_model_response` columns are included for pairwise metrics.
 
@@ -233,7 +233,7 @@ For more flexibility in customizing the metric prompt template, you can define a
 
 ## Evaluate a translation model
 
-To evaluate your translation model, you can specify [BLEU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#text-gen) , [MetricX](https://github.com/google-research/metricx) , or [COMET](https://huggingface.co/Unbabel/wmt22-comet-da) as evaluation metrics when using the Vertex AI SDK.
+To evaluate your translation model, you can specify [BLEU](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval#text-gen) , [MetricX](https://github.com/google-research/metricx) , or [COMET](https://huggingface.co/Unbabel/wmt22-comet-da) as evaluation metrics when using the Agent Platform SDK.
 
     #Prepare the dataset for evaluation.
     sources = [
@@ -391,7 +391,7 @@ You can use the OPERATION\_ID you receive in the response to request the status 
 
 ## Additional metric customization
 
-If you need to further customize your metrics, like choosing a different judge model for model-based metrics, or define a new computation-based metric, you can use the `CustomMetric` class in the Vertex AI SDK. For more details, see the following notebooks:
+If you need to further customize your metrics, like choosing a different judge model for model-based metrics, or define a new computation-based metric, you can use the `CustomMetric` class in the Agent Platform SDK. For more details, see the following notebooks:
 
 > To see an example of Bring your own judge model using Custom Metric, run the "Bring your own judge model using Custom Metric" notebook in one of the following environments:
 > 

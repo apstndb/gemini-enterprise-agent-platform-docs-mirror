@@ -130,7 +130,7 @@ To route Gemini Enterprise traffic through Agent Gateway, perform the following 
     
         curl -X GET \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
-        "https://networkservices.googleapis.com/v1alpha1/projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
+        "https://networkservices.googleapis.com/v1/projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
     
     Here is an example output for a properly configured gateway:
     

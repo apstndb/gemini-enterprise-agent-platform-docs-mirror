@@ -14,7 +14,7 @@ data_source: docs.cloud.google.com
 > 
 > When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) (“Modifying, Disregarding, or Disabling Safety Filters”) of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
 
-The launch of advanced AI models has triggered widespread concern regarding code vulnerabilities. As attackers gain access to new capabilities for generating exploits, security teams are under immense time pressure to proactively find and fix vulnerabilities before they can be exploited.
+The launch of advanced AI models triggered widespread concern regarding code vulnerabilities. As attackers gain access to new capabilities for generating exploits, security teams are under immense time pressure to proactively find and fix vulnerabilities before attackers exploit them.
 
 CodeMender is an AI code security agent that can find, verify, and fix deep vulnerabilities in your codebase. CodeMender wraps a fine-tuned harness around an LLM, using Google DeepMind-engineered prompts, skills, and orchestration logic to turn the model into an agentic system specialized in code security.
 
@@ -22,7 +22,7 @@ CodeMender is an AI code security agent that can find, verify, and fix deep vuln
 
 > **Note:** CodeMender is currently available to a limited set of customers in Public Preview. Contact your sales team to get access.
 
-CodeMender is designed to handle the scale and diversity of modern corporate environments, where code spans numerous languages and system types:
+CodeMender handles the scale and diversity of modern corporate environments, where code spans numerous languages and system types:
 
   - **Find vulnerabilities** by scanning your codebase using an LLM guided by the agent, leveraging specialized tools and prompt engineering to focus the model on security flaws. Alternatively, you can import a list of vulnerabilities from external security scanning tools.
   - **Verify vulnerabilities** by building the code and attempting to exploit found vulnerabilities to verify whether they are exploitable. This helps prioritize confirmed vulnerabilities and reduces the false positive rate.
@@ -89,7 +89,7 @@ To view cumulative billed token usage and cost trends across your Google Cloud p
 
 Set up the CLI tool and initialize your workspace to start scanning.
 
-> **Warning:** CodeMender executes commands and may modify files directly on your host system. Because sandboxing is disabled by default, we highly recommend that you enable the built-in local process-level sandbox (using the `--sandbox` flag or `config.yaml` ) or run the CLI in an isolated VM or container to protect your host system.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass it (using the `--unrestricted` flag), we highly recommend running the CLI in an isolated VM or container to protect your host system.
 
 ### Prerequisites
 
@@ -109,7 +109,7 @@ By default, CodeMender uses Gemini 3.5 Flash. To override the default model, pas
   - Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`
   - Gemini 3 Flash Preview: `--model gemini-3-flash-preview`
 
-The `--model` flag is supported by the following commands:
+The following commands support the `--model` flag:
 
   - `cm find`
   - `cm verify`
@@ -123,32 +123,32 @@ To specify a model when running any of these commands, use the following syntax:
 
 The following sections outline CodeMender's security model, data retention policies, and access controls:
 
-### What data is sent to the cloud?
+### What data does CodeMender send to the cloud?
 
-When using CodeMender, the local CLI tool mediates access to your code, ensuring that your full source code repositories are never uploaded to Google's servers and are not independently cloned by the hosted agent.
+When using CodeMender, the local CLI tool mediates access to your code, ensuring that you never upload your full source code repositories to Google's servers and the hosted agent does not independently clone them.
 
-Instead, the data sent to the Google-hosted agent is strictly localized and consists of:
+Instead, the CLI strictly localizes the data it sends to the Google-hosted agent, which consists of:
 
   - Targeted file contents or code snippets, vulnerability information, proposed patches, and command execution results.
   - Metadata, diagnostics, errors, and usage telemetry (such as tokens consumed and command duration).
 
-**Your customer source code is never used to train the underlying model weights.**
+**We never use your customer source code to train the underlying model weights.**
 
 ### What is the retention policy?
 
 CodeMender uses a strict, short-term data retention policy:
 
-  - **7-day maximum retention:** Session data, including code snippets and tracking states, is retained for up to 7 days in Gemini Enterprise Agent Platform storage to allow users to seamlessly resume interrupted scans. After 7 days, it is automatically deleted (see [Zero Data Retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) ).
+  - **7-day maximum retention:** We retain session data, including code snippets and tracking states, for up to 7 days in Gemini Enterprise Agent Platform storage to allow users to seamlessly resume interrupted scans. After 7 days, the system automatically deletes it (see [Zero Data Retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) ).
   - **Explicit deletion:** Customers do not have to wait 7 days; they can trigger an immediate cleanup of all session data by calling `DeleteInteraction` .
-  - **Ephemeral findings:** Vulnerability findings and patches are not stored in long-lived databases, but rather accumulate in-memory during the pipeline.
+  - **Ephemeral findings:** We do not store vulnerability findings and patches in long-lived databases; they accumulate in-memory during the pipeline.
 
 ### Who can access the data?
 
-CodeMender is designed with a "Zero-Data-Access" approach regarding human visibility:
+CodeMender uses a "Zero-Data-Access" approach regarding human visibility:
 
   - **No human access:** No human groups or Google engineers have access to read customer data in the production environment.
   - **No operator visibility:** Even for production debugging and error tracking, Google operators are restricted and do not have visibility into customer source code context or transient session states.
-  - **Strict isolation:** All data is logically isolated and access-controlled by organization and customer billing-project to protect tenant privacy within our shared infrastructure.
+  - **Strict isolation:** We logically isolate and access-control all data by organization and customer billing-project to protect tenant privacy within our shared infrastructure.
   - **VPC Service Controls (VPC-SC):** To further protect your environment, CodeMender's architecture fully supports VPC Service Controls (VPC-SC). This lets you define a secure security perimeter around your Google Cloud resources, helping to mitigate any data exfiltration risks while your localized data is sent to the cloud reasoning engine.
 
 ## What's next

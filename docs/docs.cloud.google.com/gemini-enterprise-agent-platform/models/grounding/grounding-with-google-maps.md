@@ -30,17 +30,18 @@ This section lists the models that support Grounding with Google Maps.
 
 #### Click to expand supported models
 
+  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
   - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
+  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 For more information about the Gemini models, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview#gemini-models) .
 
@@ -327,8 +328,6 @@ This code sample demonstrates a place source and a place answer source in the re
 
 Grounding with Google Maps supports Find Directions capability. This feature lets your AI agents understand physical movement, real-time travel estimates, and the spatial relationships between locations. With Find Directions capability, your model can provide performance-optimized directions and accurate travel times that account for real-time conditions. This integration enables Grounding with Google Maps to filter places based on travel time, offer precise point-to-point directions, and calculate estimated commute times for specific modes of transportation.
 
-Find Directions isn't supported for Gemini 3.5 Flash-Lite and Gemini 3.6 Flash.
-
 ### Capabilities
 
 Find Directions calculates precise travel distances and durations between origins and destinations.
@@ -386,8 +385,6 @@ The following is an example response for the prompt: "How long does it take to t
 ## Routing - Search Along Route
 
 Search Along Route allows your AI agents to discover points of interest that are geographically relevant and convenient to a user's planned journey. By grounding responses in Google Maps's routing and spatial search engines, your model can provide recommendations that minimize detours and understand the logistical flow of a road trip or commute.
-
-Search Along Route isn't supported for Gemini 3.5 Flash-Lite and Gemini 3.6 Flash.
 
 ### Capabilities
 

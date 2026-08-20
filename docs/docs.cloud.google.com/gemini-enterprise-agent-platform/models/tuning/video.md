@@ -95,7 +95,7 @@ This schema is added as a single line in the JSONL file.
       }
     }
 
-(Gemini 3 and higher models only) Starting with the Gemini 3 models, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another). For more information about part-level resolution and their corresponding token counts, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/start/get-started-with-gemini-3#media-resolution) .
+(Gemini 3 and higher models only) Starting with the Gemini 3 models, you can also [set the media resolution per individual media `Part`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution-by-part) . This lets you mix resolutions in your dataset (for example, by setting `MEDIA_RESOLUTION_HIGH` for one item and `MEDIA_RESOLUTION_LOW` for another). For more information about part-level resolution and their corresponding token counts, see [Media resolution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3#media-resolution) .
 
 `Part` -level media resolution settings take precedence over global settings.
 

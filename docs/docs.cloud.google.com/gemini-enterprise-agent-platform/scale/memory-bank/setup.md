@@ -20,17 +20,18 @@ Every project can be identified in two ways: the project number or the project I
 
 > **Note:** To enable APIs, you need the `serviceusage.services.enable` permission. If you don't have this permission, ask your administrator to grant you the Service Usage Admin ( `roles/serviceusage.serviceUsageAdmin` ) role.
 
-### Get the required roles
+### Get the required permissions
 
 To get the permissions that you need to use Memory Bank, ask your administrator to grant you the following IAM roles on your project:
 
-  - All: [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
+  - Create or update a Memory Bank instance: [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` )
+  - Read, write, or generate memories: [Memory Bank User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.memoryUser) ( `roles/aiplatform.memoryUser` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
 
-If you're making requests to Memory Bank from an agent deployed on Google Kubernetes Engine (GKE) or Cloud Run, make sure that your service account has the necessary permissions. The [Reasoning Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) already has the necessary permissions to read and write memories, so outbound requests from Agent Runtime should already have permission to access Memory Bank.
+If you're making requests to Memory Bank from an agent deployed on Google Kubernetes Engine (GKE) or Cloud Run, make sure that your service account has the necessary permissions to read, write or generate memories. The [Reasoning Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.reasoningEngineServiceAgent) already has the necessary permissions to read, write, and generate memories, so outbound requests from Agent Runtime should already have permission to access Memory Bank.
 
 ### Install libraries
 

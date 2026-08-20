@@ -2,13 +2,13 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/data-classes
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/data-classes
 title: Data classes
-description: Learn about each data-related class in the Vertex AI SDK.
+description: Learn about each data-related class in the Agent Platform SDK.
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes classes that store and read data used to train a model. Each data-related class represents a Gemini Enterprise Agent Platform managed dataset that has structured data, unstructured data, or Vertex AI Feature Store data. After you create a dataset, you use it to train your model.
+The Agent Platform SDK includes classes that store and read data used to train a model. Each data-related class represents a Gemini Enterprise Agent Platform managed dataset that has structured data, unstructured data, or Gemini Enterprise Agent Platform Feature Store data. After you create a dataset, you use it to train your model.
 
-The following topics provide brief explanations of each data-related class in the Vertex AI SDK. The topic for each class includes a code example that shows how to create an instance of that class. After you create a dataset, you can use its ID to retrieve it:
+The following topics provide brief explanations of each data-related class in the Agent Platform SDK. The topic for each class includes a code example that shows how to create an instance of that class. After you create a dataset, you can use its ID to retrieve it:
 
     dataset = aiplatform.ImageDataset('projects/my-project/location/my-region/datasets/{DATASET_ID}')
 
@@ -80,21 +80,21 @@ The following code shows you how to create image dataset by importing a CSV data
         import_schema_uri=['gs://path/to/my/schema.yaml']
         )
 
-## Vertex AI Feature Store data classes
+## Gemini Enterprise Agent Platform Feature Store data classes
 
-Vertex AI Feature Store is a managed service used to store, serve, manage, and share ML features at scale.
+Gemini Enterprise Agent Platform Feature Store is a managed service used to store, serve, manage, and share ML features at scale.
 
-Vertex AI Feature Store uses a time series data model composed of three classes that maintain features as they change over time. The three classes are organized in the following hierarchical order:
+Gemini Enterprise Agent Platform Feature Store uses a time series data model composed of three classes that maintain features as they change over time. The three classes are organized in the following hierarchical order:
 
-![Vertex AI Feature Store class hierarchy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/images/FeatureStore-class-hierarchy.svg "Vertex AI Feature Store class hierarchy diagram")
+![Gemini Enterprise Agent Platform Feature Store class hierarchy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/images/FeatureStore-class-hierarchy.svg "Gemini Enterprise Agent Platform Feature Store class hierarchy diagram")
 
-For more information about the Vertex AI Feature Store data model, see [Data model and resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/concepts) . To learn about Vertex AI Feature Store data source requirements, see [Source data requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/source-data) .
+For more information about the Gemini Enterprise Agent Platform Feature Store data model, see [Data model and resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/concepts) . To learn about Gemini Enterprise Agent Platform Feature Store data source requirements, see [Source data requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/source-data) .
 
-The following classes are used with Vertex AI Feature Store data:
+The following classes are used with Gemini Enterprise Agent Platform Feature Store data:
 
 ### [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore)
 
-The featurestore resource, represented by the [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore) class, is the top-level class in the Vertex AI Feature Store data model hierarchy. The next level resource in the data model is entity type, which is a collection of semantically related features that you create. The following are some of the [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore) methods that work with entity types:
+The featurestore resource, represented by the [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore) class, is the top-level class in the Gemini Enterprise Agent Platform Feature Store data model hierarchy. The next level resource in the data model is entity type, which is a collection of semantically related features that you create. The following are some of the [`Featurestore`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Featurestore) methods that work with entity types:
 
 #### Create an entity type
 
@@ -137,4 +137,4 @@ When you create a [`Feature`](https://docs.cloud.google.com/python/docs/referenc
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

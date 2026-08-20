@@ -110,4 +110,4 @@ This section describes how an administrator grants the roles needed to use Gemin
 
   - Walk through one of the [tutorials for using Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 
-  - Learn how to [use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) , which provides another way to interact with Agent Platform.
+  - Learn how to [use the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) , which provides another way to interact with Agent Platform.

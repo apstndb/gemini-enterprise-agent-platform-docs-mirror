@@ -2,19 +2,33 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources
 title: Compute resources
-description: Optimize AI/ML workloads. Select Vertex Model Development Service compute resources and configure cluster node pools with a4, a3, n2 machine types.
+description: Optimize AI/ML workloads. Select Vertex Model Development Service compute resources and configure cluster node pools with a4, a3, g4, h4d, and n2 machine types.
 data_source: docs.cloud.google.com
 ---
 
 If you're interested in Gemini Enterprise Agent Platform training clusters, contact your sales representative for access.
 
-Gemini Enterprise Agent Platform training clusters supports a variety of machine types to accommodate different workloads. You can choose from the following options when configuring your cluster node pools:
+Gemini Enterprise Agent Platform training clusters supports a variety of machine types to accommodate different workloads. You can choose from the following options when configuring your cluster node pools.
 
-  - a4-highgpu-8g
-  - a4x-highgpu-4g
-  - a3-ultragpu-8g
-  - a3-megagpu-8g
-  - n2 CPU family
+## Accelerator-optimized machine types
+
+| Machine type      | GPU                           | GPUs per node |
+| :---------------- | :---------------------------- | :------------ |
+| `a4x-highgpu-4g`  | NVIDIA GB200                  | 4             |
+| `a4-highgpu-8g`   | NVIDIA B200                   | 8             |
+| `a3-ultragpu-8g`  | NVIDIA H200                   | 8             |
+| `a3-megagpu-8g`   | NVIDIA H100                   | 8             |
+| `g4-standard-48`  | NVIDIA RTX PRO 6000 Blackwell | 1             |
+| `g4-standard-96`  | NVIDIA RTX PRO 6000 Blackwell | 2             |
+| `g4-standard-192` | NVIDIA RTX PRO 6000 Blackwell | 4             |
+| `g4-standard-384` | NVIDIA RTX PRO 6000 Blackwell | 8             |
+
+## CPU and HPC machine types
+
+| Machine type                                                 | Description                                                                                                                                                                    |
+| :----------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| N2 family: `n2-standard-*` , `n2-highmem-*` , `n2-highcpu-*` | General-purpose nodes for data preprocessing, job orchestration, and other work that doesn't require an accelerator. N2 is also the machine family used for Slurm login nodes. |
+| H4D family: `h4d-standard-*` , `h4d-highmem-*`               | HPC-optimized nodes with RDMA networking, for tightly coupled simulation and preprocessing workloads.                                                                          |
 
 ## A4X machine type
 

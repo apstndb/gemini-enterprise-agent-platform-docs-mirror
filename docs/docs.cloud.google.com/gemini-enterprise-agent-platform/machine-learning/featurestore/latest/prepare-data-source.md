@@ -42,7 +42,7 @@ Follow these guidelines to understand the schema and constraints while preparing
         
         If you directly associate a BigQuery data source with a feature view, the `feature_timestamp` column isn't required. In this scenario, you must include only the latest feature values in the data source and Vertex AI Feature Store doesn't look up the timestamp.
     
-      - **Embedding and filtering columns** : Optional. If you want to use embedding management in an online store created for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) ), the data source must contain the following columns:
+      - **Embedding and filtering columns** : Optional. If you want to use embedding management in an online store created for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) ), the data source must contain the following columns:
         
           - An `embedding` column containing arrays of type `float` .
         

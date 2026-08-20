@@ -20,7 +20,7 @@ Vertex AI Feature Store doesn't update the feature data source in BigQuery based
 
 If you want to add or update feature values for a feature column that's used in multiple feature views, then you must make the same updates to each feature view separately.
 
-If an online store instance is configured for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) ), you can't write features directly to a feature view within that online store.
+If an online store instance is configured for Optimized online serving ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) ), you can't write features directly to a feature view within that online store.
 
 Note that this capability doesn't let you add or remove feature columns in a feature view. Also, you can't delete existing feature values or entity IDs.
 

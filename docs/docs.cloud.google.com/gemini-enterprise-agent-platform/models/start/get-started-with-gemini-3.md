@@ -131,7 +131,7 @@ This table summarizes the core new features and parameters available, along with
 </tr>
 <tr class="even">
 <td style="text-align: left;">Thought signature</td>
-<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures">Thought signatures</a></td>
+<td style="text-align: left;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures">Thought signatures</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Temperature</td>
@@ -152,7 +152,7 @@ This table summarizes the core new features and parameters available, along with
 
 The `thinking_level` parameter lets you specify a thinking budget for the model's response generation. By selecting one of two states, you can explicitly balance the trade-offs between response quality and reasoning complexity and latency and cost.
 
-  - `MINIMAL` : **(Gemini 3 Flash and Gemini 3.1 Flash-Lite only)** Constrains the model to use as few tokens as possible for thinking and is best used for low-complexity tasks that wouldn't benefit from extensive reasoning. `MINIMAL` is as close as possible to a zero budget for thinking, but still requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .
+  - `MINIMAL` : **(Gemini 3 Flash and Gemini 3.1 Flash-Lite only)** Constrains the model to use as few tokens as possible for thinking and is best used for low-complexity tasks that wouldn't benefit from extensive reasoning. `MINIMAL` is as close as possible to a zero budget for thinking, but still requires [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) .
   - `LOW` : Constrains the model to use fewer tokens for thinking and is suitable for simpler tasks where extensive reasoning is not required. `LOW` is ideal for high-throughput tasks where speed is essential.
   - `MEDIUM` : **(Gemini 3 Flash, Gemini 3.1 Pro, and Gemini 3.1 Flash-Lite only)** Offers a balanced approach suitable for tasks of moderate complexity that benefit from reasoning but don't require deep, multi-step planning. It provides more reasoning capability than `LOW` while maintaining lower latency than `HIGH` .
   - `HIGH` : Allows the model to use more tokens for thinking and is suitable for complex prompts requiring deep reasoning, such as multi-step planning, verified code generation, or advanced function calling scenarios. This is the default level for Gemini 3 models and Gemini 3 Flash. Use this configuration when replacing tasks you might have previously relied on specialized reasoning models for.
@@ -307,7 +307,7 @@ Thought signatures are encrypted tokens that preserve the model's reasoning stat
 
 When a thinking model decides to call an external tool, it pauses its internal reasoning process. The thought signature acts as a "save state," allowing the model to resume its chain of thought seamlessly once you provide the function's result.
 
-For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) .
+For more information, see [Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) .
 
 #### Why are thought signatures important?
 

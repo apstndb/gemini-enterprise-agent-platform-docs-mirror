@@ -36,6 +36,8 @@ The format of the data used for prediction must match the format used for traini
 
 ## Agent Platform transformations
 
+Prepare for AutoML model training by applying categorical, text, numeric, or timestamp transformations.
+
 ### Categorical
 
 Applying a categorical transformation causes that feature to represent values in a category. That is, a nominal level. The values differ only based on their name without order. You can use numbers to represent categorical values, but the values have no numeric relationship with each other. That is, a categorical 1 is not "greater" than a categorical 0.
@@ -43,14 +45,14 @@ Applying a categorical transformation causes that feature to represent values in
 Here are some examples of categorical values:
 
   - Boolean - `true` , `false` .
-  - Country - `"USA"` , `"Canada"` , `"China"` , and so on.
-  - HTTP status code - `"200"` , `"404"` , `"500"` , and so on.
+  - Country - such as `"USA"` , `"Canada"` , `"China"` .
+  - HTTP status code - such as `"200"` , `"404"` , `"500"` .
 
 Categorical values are case-sensitive; spelling variations are treated as different categories (for example, "Color" and "Colour" are not combined).
 
 When you train a model with a feature with a categorical transformation, Agent Platform applies the following data transformations to the feature, and uses any that provide signal for training:
 
-  - The categorical string as is--no change to case, punctuation, spelling, tense, and so on.
+  - The categorical string as is--no change to case, punctuation, spelling, or tense.
   - Convert the category name to a dictionary lookup index and generate an embedding for each index.
   - Categories that appear less than 5 times in the training dataset are treated as the "unknown" category. The "unknown" category gets its own special lookup index and resulting embedding.
 
@@ -79,7 +81,7 @@ For forecasting models, the text transformation is not supported for [covariate]
 
 When you train a model with a feature with a text transformation, Agent Platform applies the following data transformations to the feature, and uses any that provide signal for training:
 
-  - The text as is--no change to case, punctuation, spelling, tense, and so on.
+  - The text as is--no change to case, punctuation, spelling, or tense.
 
   - Tokenize text to words and generate 1-grams and 2-grams from words. Convert each n-gram to a dictionary lookup index and generate an embedding for each index. Combine the embedding of all elements into a single embedding using the mean.
     
@@ -155,7 +157,7 @@ Numeric transformations can be applied to STRING data in CSV files or to the fol
 
 ### Timestamp
 
-A Timestamp transformation causes a feature to be used as a point in time, represented either as a civil time with a time zone, or a Unix timestamp. Only features with a Timestamp transformation can be used for the [Time column](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/prepare-tabular#time) .
+A Timestamp transformation causes a feature to be used as a point in time, represented either as a civil time with a time zone, or a Unix timestamp. Only features with a Timestamp transformation can be used for the [Time column](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/data-splits#classification-time) .
 
 If a time zone is not specified with the civil time, it defaults to UTC.
 
@@ -362,7 +364,7 @@ The format of data used for prediction must match the format used for training.
 
 If you trained your model on data in a CSV file in Cloud Storage, your data was of type STRING. If you are using a JSON object to send your prediction request, ensure that all the values in the key-value pairs are also of type STRING.
 
-If you trained your model on data stored in BigQuery and you are using a JSON object to send your prediction request, the data types of the values in the JSON key-value pairs must follow the mapping in the table below.
+If you trained your model on data stored in BigQuery and you are using a JSON object to send your prediction request, the data types of the values in the JSON key-value pairs must use the mapping in the following table:
 
 BigQuery data type
 
@@ -423,5 +425,5 @@ Conversely, the following JSON key-value pair will throw an error:
 ## What's next
 
   - Learn more about [BigQuery data types](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types)
-  - Learn how to [prepare your tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/prepare-tabular)
+  - Learn how to [prepare your tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/prepare-data)
   - Learn about [best practices for creating tabular training data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/bp-tabular)

@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use
-title: Tune Gemini models by using supervised fine-tuning
+title: Tune Gemini models with supervised fine-tuning
 description: Tune Gemini models using supervised fine-tuning. Create, manage, and evaluate tuning jobs with Agent Platform.
 data_source: docs.cloud.google.com
 ---
@@ -36,12 +36,12 @@ The following Gemini models support supervised tuning:
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 ## Create a tuning job
 
-You can create a supervised fine-tuning job by using the Google Cloud console, the Google Gen AI SDK, the Agent Platform SDK for Python, the REST API, or Colab Enterprise.
+You can create a supervised fine-tuning job by using the Google Cloud console, the Google Gen AI SDK, the REST API, or Colab Enterprise.
 
 Optional: (Preview) Include the `evaluationConfig` to automatically [run an evaluation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/run-evaluation) using the Gen AI evaluation service after the tuning job completes. This evaluation configuration is available in the `us-central1` region.
 
@@ -87,7 +87,7 @@ To tune a text model with supervised fine-tuning by using the Google Cloud conso
     
     Your new model appears under the **Tuned Models** section on the **Tune and Distill page** . When the model is finished tuning, the **Status** says **Succeeded** .
 
-### Google Gen AI SDK
+### Python
 
 Install the Google Gen AI SDK:
 
@@ -179,43 +179,13 @@ Create the tuning job:
         # Checkpoint 1:  checkpoint_id='1' epoch=1 step=10 endpoint='projects/123456789012/locations/us-central1/endpoints/123456789000000'
         # Checkpoint 2:  checkpoint_id='2' epoch=2 step=20 endpoint='projects/123456789012/locations/us-central1/endpoints/123456789012345'
 
-### Agent Platform SDK
-
-    import time
-    
-    import vertexai
-    from vertexai.tuning import sft
-    
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    sft_tuning_job = sft.train(
-        source_model="gemini-2.0-flash-001",
-        # 1.5 and 2.0 models use the same JSONL format
-        train_dataset="gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl",
-    )
-    
-    # Polling for job completion
-    while not sft_tuning_job.has_ended:
-        time.sleep(60)
-        sft_tuning_job.refresh()
-    
-    print(sft_tuning_job.tuned_model_name)
-    print(sft_tuning_job.tuned_model_endpoint_name)
-    print(sft_tuning_job.experiment)
-    # Example response:
-    # projects/123456789012/locations/us-central1/models/1234567890@1
-    # projects/123456789012/locations/us-central1/endpoints/123456789012345
-    # <google.cloud.aiplatform.metadata.experiment_resources.Experiment object at 0x7b5b4ae07af0>
-
 ### REST
 
 To create a model tuning job, send a POST request by using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method. Some of the parameters are not supported by all of the models. Ensure that you include only the applicable parameters for the model that you're tuning.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your project ID.
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - BASE\_MODEL : Name of the foundation model to tune.
   - TRAINING\_DATASET\_URI : Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare) .
@@ -341,8 +311,8 @@ You should receive a JSON response similar to the following.
     $'{
        "baseModel": "gemini-3.5-flash",
        "supervisedTuningSpec" : {
-          "training_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
-          "validation_dataset_uri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl"
+          "training_dataset_uri": "gs://YOUR_BUCKET_NAME/YOUR_TRAIN_DATASET",
+          "validation_dataset_uri": "gs://YOUR_BUCKET_NAME/YOUR_VALIDATION_DATASET"
        },
        "tunedModelDisplayName": "tuned_gemini"
     }'
@@ -406,7 +376,7 @@ For a discussion of best practices for supervised fine-tuning, see the blog post
 
 ## View a list of tuning jobs
 
-You can view a list of tuning jobs in your current project by using the Google Cloud console, the Google Gen AI SDK, the Agent Platform SDK for Python, or by sending a GET request by using the `tuningJobs` method.
+You can view a list of tuning jobs in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the `tuningJobs` method.
 
 ### Console
 
@@ -414,7 +384,7 @@ To view your tuning jobs in the Google Cloud console, go to the **Agent Platform
 
 Your Gemini tuning jobs are listed in the table under the **Tuned Models** section.
 
-### Google Gen AI SDK
+### Python
 
     from google import genai
     from google.genai.types import HttpOptions
@@ -427,30 +397,13 @@ Your Gemini tuning jobs are listed in the table under the **Tuned Models** secti
         # Example response:
         # projects/123456789012/locations/us-central1/tuningJobs/123456789012345
 
-### Agent Platform SDK for Python
-
-    import vertexai
-    from vertexai.tuning import sft
-    
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    responses = sft.SupervisedTuningJob.list()
-    
-    for response in responses:
-        print(response)
-    # Example response:
-    # <vertexai.tuning._supervised_tuning.SupervisedTuningJob object at 0x7c85287b2680>
-    # resource name: projects/12345678/locations/us-central1/tuningJobs/123456789012345
-
 ### REST
 
 To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
 
 HTTP method and URL:
@@ -495,7 +448,7 @@ You should receive a JSON response similar to the following.
 
 ## Get details of a tuning job
 
-You can get the details of a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, the Agent Platform SDK for Python, or by sending a GET request by using the `tuningJobs` method.
+You can get the details of a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the `tuningJobs` method.
 
 ### Console
 
@@ -505,7 +458,7 @@ You can get the details of a tuning job in your current project by using the Goo
     
     The details of your model are shown.
 
-### Google Gen AI SDK
+### Python
 
     from google import genai
     from google.genai.types import HttpOptions
@@ -524,33 +477,13 @@ You can get the details of a tuning job in your current project by using the Goo
     # projects/123456789012/locations/us-central1/endpoints/123456789012345
     # projects/123456789012/locations/us-central1/metadataStores/default/contexts/tuning-experiment-2025010112345678
 
-### Agent Platform SDK for Python
-
-    import vertexai
-    from vertexai.tuning import sft
-    
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # LOCATION = "us-central1"
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
-    
-    tuning_job_id = "4982013113894174720"
-    response = sft.SupervisedTuningJob(
-        f"projects/{PROJECT_ID}/locations/{LOCATION}/tuningJobs/{tuning_job_id}"
-    )
-    
-    print(response)
-    # Example response:
-    # <vertexai.tuning._supervised_tuning.SupervisedTuningJob object at 0x7cc4bb20baf0>
-    # resource name: projects/1234567890/locations/us-central1/tuningJobs/4982013113894174720
-
 ### REST
 
 To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID` .
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
@@ -618,15 +551,23 @@ You should receive a JSON response similar to the following.
 
 ## Cancel a tuning job
 
-You can cancel a tuning job in your current project by using the Google Cloud console or the Agent Platform SDK for Python, or by sending a POST request using the `tuningJobs` method.
+You can cancel a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a POST request using the `tuningJobs` method.
+
+### Console
+
+1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Platform Studio** page.
+
+2.  In the **Tuned Models** table, click more\_vert **Manage run** .
+
+3.  Click **Cancel** .
 
 ### REST
 
-To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TuningJob_ID` .
+To cancel a model tuning job, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TuningJob_ID` .
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
@@ -670,35 +611,24 @@ You should receive a JSON response similar to the following.
 {}
 ```
 
-### Agent Platform SDK for Python
+### Python
 
-    import vertexai
-    from vertexai.tuning import sft
+    from google import genai
+    from google.genai.types import HttpOptions
     
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # LOCATION = "us-central1"
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
     
-    tuning_job_id = "4982013113894174720"
-    job = sft.SupervisedTuningJob(
-        f"projects/{PROJECT_ID}/locations/{LOCATION}/tuningJobs/{tuning_job_id}"
-    )
-    job.cancel()
-
-### Console
-
-1.  To cancel a tuning job in the Google Cloud console, go to the **Agent Platform Studio** page.
-
-2.  In the **Tuned Models** table, click more\_vert **Manage run** .
-
-3.  Click **Cancel** .
+    def cancel_tuning_job(tuning_job_name: str) -> None:
+        client = genai.Client(http_options=HttpOptions(api_version="v1"))
+    
+        # Cancel the tuning job.
+        # Eg. tuning_job_name = "projects/123456789012/locations/us-central1/tuningJobs/123456789012345"
+        client.tunings.cancel(name=tuning_job_name)
 
 > **Note:** If you configured the Gen AI evaluation service to run automatically during tuning, any evaluations that are in progress still run to completion even if you cancel the tuning job.
 
 ## Evaluate the tuned model
 
-If you didn't [configure the Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) to run automatically after the tuning job, you can interact with the tuned model endpoint the same way as base Gemini by using the Agent Platform SDK for Python or the Google Gen AI SDK, or by sending a POST request using the `generateContent` method.
+If you didn't [configure the Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) to run automatically after the tuning job, you can interact with the tuned model endpoint the same way as base Gemini by using the Google Gen AI SDK, or by sending a POST request using the `generateContent` method.
 
 For thinking models, we recommend to turn off thinking or set the thinking budget to the minimum on tuned tasks for optimal performance and cost efficiency. During supervised fine-tuning, the model learns to mimic the ground truth in tuning dataset, omitting the thinking process. Therefore, tuned model is able to handle the task without thinking budget effectively.
 
@@ -712,7 +642,7 @@ The following example prompts a model with the question "Why is sky blue?".
     
     A page where you can create a conversation with your tuned model is displayed.
 
-### Google Gen AI SDK
+### Python
 
     from google import genai
     from google.genai.types import HttpOptions
@@ -734,19 +664,6 @@ The following example prompts a model with the question "Why is sky blue?".
     # Example response:
     # The sky is blue because ...
 
-### Agent Platform SDK for Python
-
-``` 
-    from vertexai.preview.tuning import sft
-    from vertexai.generative_models import GenerativeModel
-
-    sft_tuning_job = sft.SupervisedTuningJob("projects//locations//tuningJobs/")
-    tuned_model = GenerativeModel(sft_tuning_job.tuned_model_endpoint_name)
-    content = "Why is sky blue?"
-    print(tuned_model.generate_content(content))
-    
-```
-
 ### REST
 
 To test a tuned model with a prompt, send a POST request and specify the \`MREP\_LOCATION\` and \`ENDPOINT\_ID\`.
@@ -758,7 +675,7 @@ Before using any of the request data, make the following replacements:
       - `us`
       - `eu`
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers).
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
   - ENDPOINT\_ID : The tuned model endpoint ID from the GET API.
 
@@ -899,7 +816,7 @@ To test a tuned model with a prompt, send a POST request and specify the \`TUNED
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers).
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
 
   - TUNING\_JOB\_REGION : The region where the tuning job runs. This is also the default region for where the tuned model is uploaded.
 
@@ -987,7 +904,7 @@ You should receive a JSON response similar to the following.
         {
           "content": {
             "role": "model",
-            "parts": [Why is sky blue?
+            "parts": [
               {
                 "text": "The sky appears blue due to a phenomenon called Rayleigh
                 scattering, where shorter blue wavelengths of sunlight are scattered
@@ -1046,7 +963,7 @@ Call the [`models.delete`](https://docs.cloud.google.com/gemini-enterprise-agent
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - REGION : The region where the tuned model is located.
   - MODEL\_ID : The model to delete.
 
@@ -1081,18 +998,6 @@ Execute the following command:
         -Uri "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/models/MODEL_ID" | Select-Object -Expand Content
 
 You should receive a successful status code (2xx) and an empty response.
-
-### Agent Platform SDK for Python
-
-    from google.cloud import aiplatform
-    
-    aiplatform.init(project=PROJECT_ID, location=LOCATION)
-    
-    # To find out which models are available in Model Registry
-    models = aiplatform.Model.list()
-    
-    model = aiplatform.Model(MODEL_ID)
-    model.delete()
 
 ## Tuning and validation metrics
 

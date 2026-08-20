@@ -605,9 +605,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-``` 
- https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig
-```
+    GET https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:fetchPublisherModelConfig
 
 To send your request, choose one of these options:
 
@@ -617,9 +615,9 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X  \
+    curl -X GET \
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig"
+         "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:fetchPublisherModelConfig"
 
 #### PowerShell
 
@@ -631,9 +629,9 @@ Execute the following command:
     $headers = @{ "Authorization" = "Bearer $cred" }
     
     Invoke-WebRequest `
-        -Method  `
+        -Method GET `
         -Headers $headers `
-        -Uri "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:setPublisherModelConfig" | Select-Object -Expand Content
+        -Uri "https://ENDPOINT_PREFIX.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/publishers/PUBLISHER/models/MODEL:fetchPublisherModelConfig" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 

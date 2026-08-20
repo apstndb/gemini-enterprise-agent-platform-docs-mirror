@@ -153,7 +153,7 @@ The Jupyter Notebook instance invokes an API call to the Gemini model hosted in 
 
 The Agent Platform API can be called using Rest, gRPC or SDK. To use the Private Service Connect customer fully qualified domain name, update the API\_ENDPOINT in Jupyter Notebook with the following:
 
-### Instructions for using Vertex AI SDK for Python
+### Instructions for using Agent Platform SDK for Python
 
 1.  Install the SDK:
     
@@ -177,7 +177,7 @@ The Agent Platform API can be called using Rest, gRPC or SDK. To use the Private
         API_ENDPOINT="https://us-central1-aiplatform-restricted.p.googleapis.com" # PSC Endpoint
         MODEL_ID="gemini-2.0-flash-001" # Gemini Model ID
 
-4.  Initialize the Vertex AI SDK for Python:
+4.  Initialize the Agent Platform SDK for Python:
     
         from google import genai
         client= genai.Client(vertexai=True, project=PROJECT_ID, location=LOCATION_ID, http_options={'base_url': API_ENDPOINT})
@@ -290,4 +290,4 @@ After validating your perimeter in dry run mode, [switch it to enforced mode](ht
   - Learn how to [Use `p.googleapis.com` DNS names](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#configure-p-dns) .
   - To learn how to validate your perimeter in dry run mode, watch [the VPC Service Controls dry run logging video](https://www.youtube.com/watch?v=_l-ei3ZlgWc) .
   - Learn how to use the [Gemini Enterprise Agent Platform REST API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest) .
-  - Learn more about using the [Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn more about using the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

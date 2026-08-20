@@ -260,8 +260,8 @@ For more information, see [Use RAG Engine on Gemini Enterprise Agent Platform in
 
 Models that have native audio capabilities support the following features:
 
-  - [30 HD voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices_supported)
-  - [24 languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages_supported)
+  - [30 HD voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported)
+  - [24 languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported)
   - [Proactive Audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-proactive-audio)
   - [Affective Dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-affective-dialog)
 

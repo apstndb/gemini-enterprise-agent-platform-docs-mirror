@@ -78,13 +78,13 @@ Your reward function may read `references["ground_truth_answer"]` and compares i
 
 The following limits apply to reinforcement learning fine-tuning datasets:
 
-| Specification                                                 | Value  |
-| ------------------------------------------------------------- | ------ |
-| Maximum number of examples in a training dataset              | 5,000  |
-| Maximum number of examples in a validation dataset            | 500    |
-| Maximum dataset file size                                     | 1 GB   |
-| Maximum input tokens per example                              | 32,768 |
-| Maximum output tokens per example (including thinking tokens) | 32,768 |
+| Specification                                                 | Value                                                                                   |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Maximum number of examples in a training dataset              | 5,000                                                                                   |
+| Maximum number of examples in a validation dataset            | 30% of the number of training examples if there are more than 1,000 validation examples |
+| Maximum dataset file size                                     | 1 GB                                                                                    |
+| Maximum input tokens per example                              | 32,768                                                                                  |
+| Maximum output tokens per example (including thinking tokens) | 32,768                                                                                  |
 
 ### Multimodal limits
 
@@ -102,6 +102,7 @@ The following per-modality limits apply when your dataset includes image, audio,
 
 | Specification                                             | Value     |
 | --------------------------------------------------------- | --------- |
+| Supported only for Gemini 3.5 Flash.                      |           |
 | Maximum number of video files per prompt                  | 10        |
 | Maximum total video length per example (across all files) | 5 minutes |
 | Maximum video file size                                   | 20 MB     |

@@ -54,18 +54,18 @@ The following limitations exist when deploying models with resource sharing enab
       - PyTorch model deployments that use [prebuilt containers for PyTorch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers#pytorch)
   - Prebuilt containers configured for other frameworks aren't supported.
   - Custom containers aren't supported.
-  - Only [custom trained models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) and [imported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/import-model) are supported. AutoML models aren't supported.
+  - Only [custom-trained models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) and [imported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) are supported. AutoML models aren't supported.
   - Only models with the same container image (including framework version) of Gemini Enterprise Agent Platform prebuilt containers for inference for TensorFlow or PyTorch can be deployed in the same deployment resource pool.
-  - [Vertex Explainable AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai) isn't supported.
+  - [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) isn't supported.
 
 ## Deploy a model
 
 To deploy a model to a `DeploymentResourcePool` , complete the following steps:
 
-1.  [Create a deployment resource pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#create_a_deployment_resource_pool) if needed.
-2.  [Create an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#create_endpoint) if needed.
-3.  [Retrieve the endpoint ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#retrieve_endpoint_id) .
-4.  [Deploy the model to the endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#deploy_model_in_a_deployment_resource_pool) in the deployment resource pool.
+1.  [Create a deployment resource pool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#create-deployment-resource-pool) if needed.
+2.  [Create an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#create-endpoint) if needed.
+3.  [Retrieve the endpoint ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#retrieve-endpoint-id) .
+4.  [Deploy the model to the endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting#deploy-model-deployment-resource-pool) in the deployment resource pool.
 
 ### Create a deployment resource pool
 
@@ -185,7 +185,7 @@ To create an endpoint, see [Create a public endpoint by using the gcloud CLI or 
 
 ### Retrieve the endpoint ID
 
-To retrieve the endpoint ID, see [Deploy a model by using the gcloud CLI or Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#get_the_endpoint_id) . This step is the same as for a single-model deployment.
+To retrieve the endpoint ID, see [Deploy a model by using the gcloud CLI or Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#get-the-endpoint-id) . This step is the same as for a single-model deployment.
 
 ### Deploy the model in a deployment resource pool
 
@@ -199,7 +199,7 @@ After you create a `DeploymentResourcePool` and an endpoint, you are ready to de
 
 3.  Under **Model settings** (shown below), select **Deploy to a shared deployment resource pool** .
     
-    ![Model settings form, with traffic split set to 100 and Deploy to a shared deployment resource pool selected](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/_images/_deploy-to-pool.png)
+    ![Model settings form, with traffic split set to 100 and Deploy to a shared deployment resource pool selected](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/predictions/images/deploy-to-pool.png)
 
 ### REST
 

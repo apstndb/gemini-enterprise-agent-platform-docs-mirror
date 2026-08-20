@@ -303,41 +303,32 @@ You should receive a JSON response similar to the following. Note that `values` 
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
-    from __future__ import annotations
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+
+    from google import genai
+    from google.genai.types import EmbedContentConfig
     
-    from vertexai.language_models import TextEmbeddingInput, TextEmbeddingModel
-    
-    
-    def embed_text() -> list[list[float]]:
-        """Embeds texts with a pre-trained, foundational model.
-    
-        Returns:
-            A list of lists containing the embedding vectors for each input text
-        """
-    
-        # A list of texts to be embedded.
-        texts = ["banana muffins? ", "banana bread? banana muffins?"]
-        # The dimensionality of the output embeddings.
-        dimensionality = 3072
-        # The task type for embedding. Check the available tasks in the model's documentation.
-        task = "RETRIEVAL_DOCUMENT"
-    
-        model = TextEmbeddingModel.from_pretrained("gemini-embedding-001")
-        kwargs = dict(output_dimensionality=dimensionality) if dimensionality else {}
-    
-        embeddings = []
-        # gemini-embedding-001 takes one input at a time
-        for text in texts:
-            text_input = TextEmbeddingInput(text, task)
-            embedding = model.get_embeddings([text_input], **kwargs)
-            print(embedding)
-            # Example response:
-            # [[0.006135190837085247, -0.01462465338408947, 0.004978656303137541, ...]]
-            embeddings.append(embedding[0].values)
-    
-        return embeddings
+    client = genai.Client()
+    response = client.models.embed_content(
+        model="gemini-embedding-001",
+        contents=[
+            "How do I get a driver's license/learner's permit?",
+            "How long is my driver's license valid for?",
+            "Driver's knowledge test study guide",
+        ],
+        config=EmbedContentConfig(
+            task_type="RETRIEVAL_DOCUMENT",  # Optional
+            output_dimensionality=3072,  # Optional
+            title="Driver's License",  # Optional
+        ),
+    )
+    print(response)
+    # Example response:
+    # embeddings=[ContentEmbedding(values=[-0.06302902102470398, 0.00928034819662571, 0.014716853387653828, -0.028747491538524628, ... ],
+    # statistics=ContentEmbeddingStatistics(truncated=False, token_count=13.0))]
+    # metadata=EmbedContentMetadata(billable_character_count=112)
 
 ### Go
 

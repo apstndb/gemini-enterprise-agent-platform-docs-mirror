@@ -292,4 +292,4 @@ for chunk in stream:
 
   - Learn how to [Use OpenAI libraries with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/overview) .
   - See code examples for [OpenAI compatibility](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai) .
-  - Get started with [Google Gen AI SDK quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart-multimodal) .
+  - Get started with [Google Gen AI SDK quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start) .

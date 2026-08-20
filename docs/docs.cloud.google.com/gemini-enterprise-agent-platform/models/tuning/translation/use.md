@@ -20,7 +20,7 @@ Before you begin, you must prepare a supervised fine-tuning dataset. Depending o
 
 ## Create a tuning job
 
-You can create a supervised fine-tuning job by using the REST API or the Agent Platform SDK for Python.
+You can create a supervised fine-tuning job by using the REST API or the Google Gen AI SDK.
 
 ### REST
 
@@ -117,45 +117,83 @@ You should receive a JSON response similar to the following.
 
 ### Python
 
-    from vertexai.generative_models import GenerativeModel
-    
-    sft_tuning_job = sft.SupervisedTuningJob("projects/<PROJECT_ID>/locations/<TUNING_JOB_REGION>/tuningJobs/<TUNING_JOB_ID>")
-    tuned_model = GenerativeModel(sft_tuning_job.tuned_model_endpoint_name)
-    print(tuned_model.generate_content(content))
-    
     import time
     
-    import vertexai
-    from vertexai.tuning import sft
-    
-    # TODO(developer): Update and un-comment below line.
-    # PROJECT_ID = os.environ["GOOGLE_CLOUD_PROJECT"]
-    vertexai.init(project=PROJECT_ID, location="us-central1")
-    
-    sft_tuning_job = sft.train(
-      source_model="translation-llm-002",
-        train_dataset="gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/text/sft_train_data.jsonl",
-        # The following parameters are optional
-        validation_dataset="gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/text/sft_validation_data.jsonl",
-        tuned_model_display_name="tuned_translation_llm_002",
+    from google import genai
+    from google.genai.types import (
+        CreateTuningJobConfig,
+        EvaluationConfig,
+        GcsDestination,
+        HttpOptions,
+        Metric,
+        OutputConfig,
+        TuningDataset,
     )
     
-    # Polling for job completion
-    while not sft_tuning_job.has_ended:
-      time.sleep(60)
-      sft_tuning_job.refresh()
+    # TODO(developer): Update and un-comment below line
+    # output_gcs_uri = "gs://your-bucket/your-prefix"
     
-    print(sft_tuning_job.tuned_model_name)
-    print(sft_tuning_job.tuned_model_endpoint_name)
-    print(sft_tuning_job.experiment)
+    client = genai.Client(http_options=HttpOptions(api_version="v1beta1"))
+    
+    training_dataset = TuningDataset(
+        gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_train_data.jsonl",
+    )
+    validation_dataset = TuningDataset(
+        gcs_uri="gs://cloud-samples-data/ai-platform/generative_ai/gemini/text/sft_validation_data.jsonl",
+    )
+    
+    evaluation_config = EvaluationConfig(
+        metrics=[
+            Metric(
+                name="FLUENCY",
+                prompt_template="""Evaluate this {prediction}"""
+            )
+        ],
+        output_config=OutputConfig(
+            gcs_destination=GcsDestination(
+                output_uri_prefix=output_gcs_uri,
+            )
+        ),
+    )
+    
+    tuning_job = client.tunings.tune(
+        base_model="gemini-3.5-flash",
+        training_dataset=training_dataset,
+        config=CreateTuningJobConfig(
+            tuned_model_display_name="Example tuning job",
+            validation_dataset=validation_dataset,
+            evaluation_config=evaluation_config,
+        ),
+    )
+    
+    running_states = set([
+        "JOB_STATE_PENDING",
+        "JOB_STATE_RUNNING",
+    ])
+    
+    while tuning_job.state in running_states:
+        print(tuning_job.state)
+        tuning_job = client.tunings.get(name=tuning_job.name)
+        time.sleep(60)
+    
+    print(tuning_job.tuned_model.model)
+    print(tuning_job.tuned_model.endpoint)
+    print(tuning_job.experiment)
     # Example response:
     # projects/123456789012/locations/us-central1/models/1234567890@1
     # projects/123456789012/locations/us-central1/endpoints/123456789012345
-    # <google.cloud.aiplatform.metadata.experiment_resources.Experiment object at 0x7b5b4ae07af0>
+    # projects/123456789012/locations/us-central1/metadataStores/default/contexts/tuning-experiment-2025010112345678
+    
+    if tuning_job.tuned_model.checkpoints:
+        for i, checkpoint in enumerate(tuning_job.tuned_model.checkpoints):
+            print(f"Checkpoint {i + 1}: ", checkpoint)
+        # Example response:
+        # Checkpoint 1:  checkpoint_id='1' epoch=1 step=10 endpoint='projects/123456789012/locations/us-central1/endpoints/123456789000000'
+        # Checkpoint 2:  checkpoint_id='2' epoch=2 step=20 endpoint='projects/123456789012/locations/us-central1/endpoints/123456789012345'
 
 ## View a list of tuning jobs
 
-You can view a list of tuning jobs in your current project by using the Google Cloud console, the Agent Platform SDK for Python, or by sending a GET request by using the `tuningJobs` method.
+You can view a list of tuning jobs in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the `tuningJobs` method.
 
 ### REST
 
@@ -163,7 +201,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
 
 HTTP method and URL:
@@ -208,20 +246,16 @@ You should receive a JSON response similar to the following.
 
 ### Python
 
-    import vertexai
-    from vertexai.tuning import sft
+    from google import genai
+    from google.genai.types import HttpOptions
     
-    # TODO(developer): Update and un-comment below line
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
-    responses = sft.SupervisedTuningJob.list()
-    
+    responses = client.tunings.list()
     for response in responses:
-        print(response)
-    # Example response:
-    # <vertexai.tuning._supervised_tuning.SupervisedTuningJob object at 0x7c85287b2680>
-    # resource name: projects/12345678/locations/us-central1/tuningJobs/123456789012345
+        print(response.name)
+        # Example response:
+        # projects/123456789012/locations/us-central1/tuningJobs/123456789012345
 
 ### Console
 
@@ -231,7 +265,7 @@ Your Translation LLM tuning jobs are listed in the table under the **Translation
 
 ## Get details of a tuning job
 
-You can get the details of a tuning job in your current project by using the Google Cloud console, the Agent Platform SDK for Python, or by sending a GET request by using the `tuningJobs` method.
+You can get the details of a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the `tuningJobs` method.
 
 ### REST
 
@@ -239,7 +273,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
@@ -307,23 +341,22 @@ You should receive a JSON response similar to the following.
 
 ### Python
 
-    import vertexai
-    from vertexai.tuning import sft
+    from google import genai
+    from google.genai.types import HttpOptions
     
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # LOCATION = "us-central1"
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
+    client = genai.Client(http_options=HttpOptions(api_version="v1"))
     
-    tuning_job_id = "4982013113894174720"
-    response = sft.SupervisedTuningJob(
-        f"projects/{PROJECT_ID}/locations/{LOCATION}/tuningJobs/{tuning_job_id}"
-    )
+    # Get the tuning job and the tuned model.
+    # Eg. tuning_job_name = "projects/123456789012/locations/us-central1/tuningJobs/123456789012345"
+    tuning_job = client.tunings.get(name=tuning_job_name)
     
-    print(response)
+    print(tuning_job.tuned_model.model)
+    print(tuning_job.tuned_model.endpoint)
+    print(tuning_job.experiment)
     # Example response:
-    # <vertexai.tuning._supervised_tuning.SupervisedTuningJob object at 0x7cc4bb20baf0>
-    # resource name: projects/1234567890/locations/us-central1/tuningJobs/4982013113894174720
+    # projects/123456789012/locations/us-central1/models/1234567890@1
+    # projects/123456789012/locations/us-central1/endpoints/123456789012345
+    # projects/123456789012/locations/us-central1/metadataStores/default/contexts/tuning-experiment-2025010112345678
 
 ### Console
 
@@ -335,7 +368,7 @@ You should receive a JSON response similar to the following.
 
 ## Cancel a tuning job
 
-You can cancel a tuning job in your current project by using the Google Cloud console, the Agent Platform SDK for Python, or by sending a POST request using the `tuningJobs` method.
+You can cancel a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a POST request using the `tuningJobs` method.
 
 ### REST
 
@@ -343,7 +376,7 @@ To view a list of model tuning jobs, send a GET request by using the [`tuningJob
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - TUNING\_JOB\_REGION : The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
   - TUNING\_JOB\_ID : The ID of the tuning job.
 
@@ -389,19 +422,16 @@ You should receive a JSON response similar to the following.
 
 ### Python
 
-    import vertexai
-    from vertexai.tuning import sft
+    from google import genai
+    from google.genai.types import HttpOptions
     
-    # TODO(developer): Update and un-comment below lines
-    # PROJECT_ID = "your-project-id"
-    # LOCATION = "us-central1"
-    vertexai.init(project=PROJECT_ID, location=LOCATION)
     
-    tuning_job_id = "4982013113894174720"
-    job = sft.SupervisedTuningJob(
-        f"projects/{PROJECT_ID}/locations/{LOCATION}/tuningJobs/{tuning_job_id}"
-    )
-    job.cancel()
+    def cancel_tuning_job(tuning_job_name: str) -> None:
+        client = genai.Client(http_options=HttpOptions(api_version="v1"))
+    
+        # Cancel the tuning job.
+        # Eg. tuning_job_name = "projects/123456789012/locations/us-central1/tuningJobs/123456789012345"
+        client.tunings.cancel(name=tuning_job_name)
 
 ### Console
 
@@ -413,7 +443,7 @@ You should receive a JSON response similar to the following.
 
 ## Test the tuned model with a prompt
 
-You can test a tuning job in your current project by using the Agent Platform SDK for Python or by sending a POST request using the `tuningJobs` method.
+You can test a tuning job in your current project by using the Google Gen AI SDK or by sending a POST request using the `tuningJobs` method.
 
 The following example prompts a model with the question "Why is sky blue?".
 
@@ -501,11 +531,25 @@ You should receive a JSON response similar to the following.
 
 ### Python
 
-    from vertexai.generative_models import GenerativeModel
+    from google import genai
+    from google.genai.types import HttpOptions
     
-    sft_tuning_job = sft.SupervisedTuningJob("projects/<PROJECT_ID>/locations/<TUNING_JOB_REGION>/tuningJobs/<TUNING_JOB_ID>")
-    tuned_model = GenerativeModel(sft_tuning_job.tuned_model_endpoint_name)
-    print(tuned_model.generate_content(content))
+    client = genai.Client(http_options=HttpOptions(api_version="v1"))
+    
+    # Get the tuning job and the tuned model.
+    # Eg. tuning_job_name = "projects/123456789012/locations/us-central1/tuningJobs/123456789012345"
+    tuning_job = client.tunings.get(name=tuning_job_name)
+    
+    contents = "Why is the sky blue?"
+    
+    # Predicts with the tuned endpoint.
+    response = client.models.generate_content(
+        model=tuning_job.tuned_model.endpoint,
+        contents=contents,
+    )
+    print(response.text)
+    # Example response:
+    # The sky is blue because ...
 
 ## Tuning and validation metrics
 

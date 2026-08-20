@@ -24,7 +24,7 @@ Multimodal datasets on Agent Platform let you create, manage, share, and use mul
 
   - Validate your schema and structure and quantify the resources needed for downstream tasks, helping you catch errors and estimate the cost before you start a task.
 
-You can use multimodal datasets through the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-sdk) or [REST API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets) .
+You can use multimodal datasets through the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-sdk) or [REST API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.datasets) .
 
 Multimodal datasets are a type of [managed datasets on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) . They are different from other types of managed datasets in the following ways:
 

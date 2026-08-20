@@ -121,7 +121,7 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
   "display_name": "DISPLAY_NAME",
   "network": {
     "network": "projects/PROJECT_ID/global/networks/NETWORK",
-    "subnetwork": "projects/PROJECT_ID/regions/asia-sREGION/subnetworks/SUBNETWORK"
+    "subnetwork": "projects/PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK"
   },
   "node_pools": [
     {
@@ -150,7 +150,7 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
         "accelerator_type": "NVIDIA_B200",
         "accelerator_count": 8,
         "reservation_affinity": {
-          "reservation_affinity_type": RESERVATION_AFFINITY_TYPE,
+          "reservationAffinityType": "RESERVATION_AFFINITY_TYPE",
           "key": "compute.googleapis.com/reservation-name",
           "values": [
             "projects/PROJECT_ID/zones/ZONE/reservations/RESERVATION_NAME"
@@ -217,7 +217,7 @@ This example demonstrates how to add a custom script to a node pool. This script
             "boot_disk_type": "pd-standard",
             "boot_disk_size_gb": 200
           },
-          "startup_script" : "#Example script\nsudo mkdir -p /data\necho 'Script Finished'\n",
+          "startup_script" : "#Example script\nsudo mkdir -p /data\necho 'Script Finished'\n"
         },
         {
           "id": "a4",
@@ -244,7 +244,7 @@ This example demonstrates how to add a custom script to a node pool. This script
             "boot_disk_type": "hyperdisk-balanced",
             "boot_disk_size_gb": 200
           },
-          "startup_script" : "#Example script\nsudo mkdir -p /data\necho 'Script Finished'\n",
+          "startup_script" : "#Example script\nsudo mkdir -p /data\necho 'Script Finished'\n"
         }
       ],
       "orchestrator_spec": {
@@ -295,8 +295,8 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
         {
           "id": "login",
           "machine_spec": {
-            "machine_type": "n2-standard-8",
-          }
+            "machine_type": "n2-standard-8"
+          },
           "scaling_spec": {
             "min_node_count": MIN_NODE_COUNT,
             "max_node_count": MAX_NODE_COUNT
@@ -307,7 +307,7 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
             "boot_disk_type": "pd-standard",
             "boot_disk_size_gb": 120
           }
-        },
+        }
       ],
       "orchestrator_spec": {
         "slurm_spec": {
@@ -396,7 +396,7 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
           ],
           "epilog_bash_scripts": [
             "#!/bin/bash\necho 'Epilog script running'"
-          ]
+          ],
           "partitions": [
             {
               "id": "cpu",
@@ -525,7 +525,7 @@ These fields are defined within the `orchestrator_spec.slurm_spec` block of the 
 
   - HOME\_DIRECTORY\_STORAGE (corresponds to `home_directory_storage` ): The full resource name of the pre-existing storage instance to be mounted as the `/home` directory. Can be a Filestore or Lustre instance.
   - LOGIN\_NODE\_POOL\_ID (corresponds to `login_node_pool_id` ): The id of the node pool that should be used for login nodes.
-  - `partitions` : A list of partition objects, where each object requires an `id` and a list of `node_pool_ids` .
+  - `partitions` : A list of partition objects, where each object requires an `id` and a list of `node_pool_ids` . The first partition in the list is the cluster's default partition: Slurm jobs submitted without an explicit partition (for example, `sbatch` without `--partition` ) run on it. To set the default partition, reorder the list of partitions so that the default partition is at the top of the list. This applies to updates as well: reordering the partitions of an existing cluster changes its default partition.
 
 #### Advanced Slurm settings
 
@@ -543,6 +543,8 @@ These fields are defined within the `orchestrator_spec.slurm_spec` block of the 
 These fields are defined within the `runtime_spec` block of the JSON file.
 
   - `service_account` : The default service account used by the cluster when running any workloads on it. If unspecified, the default Compute Engine service account is used. This field can't be updated after cluster creation.
+
+> **Caution:** Contact your Google account team before you create a cluster with a custom `service_account` . By default, your project's default Compute Engine service account has access to the Gemini Enterprise Agent Platform training clusters agent repositories. If you use a custom service account, your Google account team must grant it access separately.
 
 ## What's next
 

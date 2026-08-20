@@ -22,7 +22,7 @@ For instructions on how to set up Model Monitoring for online (real-time) infere
 
 To use Model Monitoring with batch inferences, complete the following:
 
-1.  Have an available model in Gemini Enterprise Agent Platform Model Registry that is either a [tabular AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/automl-model-types#tabular) or tabular [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) type.
+1.  Have an available model in Gemini Enterprise Agent Platform Model Registry that is either a [tabular AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) or tabular [custom training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) type.
 
 2.  Upload your training data to [Cloud Storage](https://docs.cloud.google.com/storage/docs/uploading-objects) or [BigQuery](https://docs.cloud.google.com/bigquery/docs/loading-data) and obtain the URI link to the data.
     
@@ -30,10 +30,10 @@ To use Model Monitoring with batch inferences, complete the following:
 
 3.  Model Monitoring compares the training data to the batch inference output. Make sure you use supported file formats for the training data and batch inference output:
     
-    | Model type     | Training data                                    | Batch inference output                         |
-    | -------------- | ------------------------------------------------ | ---------------------------------------------- |
-    | Custom-trained | CSV, JSONL, BigQuery, TfRecord(tf.train.Example) | JSONL                                          |
-    | AutoML tabular | CSV, JSONL, BigQuery, TfRecord(tf.train.Example) | CSV, JSONL, BigQuery, TfRecord(Protobuf.Value) |
+    | Model type     | Training data                                      | Batch inference output                           |
+    | -------------- | -------------------------------------------------- | ------------------------------------------------ |
+    | Custom-trained | CSV, JSONL, BigQuery, `TfRecord(tf.train.Example)` | JSONL                                            |
+    | AutoML tabular | CSV, JSONL, BigQuery, `TfRecord(tf.train.Example)` | CSV, JSONL, BigQuery, `TfRecord(Protobuf.Value)` |
     
 
 4.  Optional: For custom-trained models, upload the [schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/schemas#parse-batch-schemas) for your model to Cloud Storage. Model Monitoring requires the schema to calculate the baseline distribution for skew detection.

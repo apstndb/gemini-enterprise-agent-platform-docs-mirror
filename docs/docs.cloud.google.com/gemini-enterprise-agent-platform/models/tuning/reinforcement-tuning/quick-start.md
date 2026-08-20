@@ -16,7 +16,7 @@ Before you begin, see [About reinforcement learning fine-tuning](https://docs.cl
 
 ## Create a reinforcement learning fine-tuning job
 
-A reinforcement learning fine-tuning job is created by sending a `POST` request to the `tuningJobs.create` endpoint. For the full request schema and all configurable fields, see the [Reinforcement learning fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job) page.
+A reinforcement learning fine-tuning job is created by sending a `POST` request to the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/create) endpoint. For the full request schema and all configurable fields, see the [Reinforcement learning fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job) page.
 
 The examples on this page use `us-central1` as the tuning region. The resulting tuned model is served from the `us` multi-region endpoint. For the full list of supported tuning and serving regions, see the [Supported models and regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning#supported-models-and-regions) section.
 
@@ -73,7 +73,7 @@ Depending on your setup, a Gemini reinforcement learning fine-tuning job can run
 
 ## Get the tuned-model endpoint
 
-After the tuning job reaches `JOB_STATE_SUCCEEDED` , retrieve the deployed tuned-model endpoint by issuing a `GetTuningJob` request and reading the `tunedModel.endpoint` field of the response.
+After the tuning job reaches `JOB_STATE_SUCCEEDED` , retrieve the deployed tuned-model endpoint by issuing a [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/get) request and reading the `tunedModel.endpoint` field of the response.
 
     curl -X GET \
       -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \

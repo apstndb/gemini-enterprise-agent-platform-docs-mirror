@@ -64,7 +64,7 @@ Note the following limitations for private endpoints:
       - HTTP error codes `5xx` that indicate the service might be temporarily unavailable.
   - For the HTTP error code `429` that indicates the system is overloaded, consider slowing down traffic to mitigate this issue instead of retrying.
   - Inference requests from prediction services (such as [`PredictionServiceClient`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.prediction_service.PredictionServiceClient) and [`PredictionServiceClient`](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient) ) aren't supported.
-  - The Private Service Access endpoint does not support tuned foundation models. For a tuned foundation model, deploy it using a [Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vertex-psc-googleapis) .
+  - The Private Service Access endpoint does not support tuned foundation models. For a tuned foundation model, deploy it using a [Private Service Connect endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/psc-endpoints) .
 
 ### Monitor private endpoints
 
@@ -86,7 +86,7 @@ Learn [how to select, query, and display these metrics in Metrics Explorer](http
 
 You can import a new model, or deploy an existing model that you have already uploaded. To upload a new model, use [`gcloud ai models upload`](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/upload) . For more information, see [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) .
 
-1.  To deploy a model to a private endpoint, see the guide to [deploy models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#deploying_the_model) . Besides traffic splitting and manually enabling access logging, you can use any of the other options available for deploying custom-trained models. Refer to the [limitations of private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints#limitations) to learn more about how they are different from public endpoints.
+1.  To deploy a model to a private endpoint, see the guide to [deploy models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api#deploy-model) . Besides traffic splitting and manually enabling access logging, you can use any of the other options available for deploying custom-trained models. Refer to the [limitations of private endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints#limitations-private-endpoints) to learn more about how they are different from public endpoints.
 
 2.  After you deploy the endpoint, you can get the inference URI from the metadata of your private endpoint.
     
@@ -121,7 +121,7 @@ If you choose to undeploy the current model and redeploy with a new one, the dom
 
 1.  [Create a Compute Engine instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance) in your VPC network. Make sure to [create the instance in the same VPC network that you have peered with Agent Platform](https://docs.cloud.google.com/compute/docs/instances/create-start-instance#creating_an_instance_in_a_specific_subnet) .
 
-2.  SSH into your Compute Engine instance, and install your inference client, if applicable. Otherwise, you can use curl.
+2.  Connect to your Compute Engine instance using SSH and install your inference client, if applicable. Otherwise, you can use curl.
 
 3.  When predicting, use the inference URL obtained from model deployment. In this example, you're sending the request from your inference client in your Compute Engine instance in the same VPC network:
     
@@ -158,4 +158,4 @@ When you create the Compute Engine instance in the client project, it must be wi
           --region=REGION \
           --project=CLIENT_PROJECT_ID
 
-3.  [Send inference requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints#sending-inference-to-private-endpoint) , using the inference client within the client project.
+3.  [Send inference requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/using-private-endpoints#send-inference-private-endpoint) , using the inference client within the client project.

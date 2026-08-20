@@ -218,7 +218,7 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li>The featurestore and all content in the featurestore.</li>
 </ul></td>
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/managing-featurestores">Managing featurestores</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-onlinestore#create_fos_bigtable_cmek">Create an online store that uses a CMEK</a></li>
 </ul></td>
 </tr>
 <tr class="odd">

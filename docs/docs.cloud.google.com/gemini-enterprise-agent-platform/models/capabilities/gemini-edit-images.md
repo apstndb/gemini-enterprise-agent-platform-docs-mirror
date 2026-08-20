@@ -27,8 +27,8 @@ The following Gemini models support image editing:
 #### Click to expand supported models
 
   - [`gemini-3.1-flash-lite-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
-  - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+  - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
 For more information about model capabilities, see [Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .
@@ -400,8 +400,8 @@ The following Gemini models support multi-turn editing:
 #### Click to expand supported models
 
   - [`gemini-3.1-flash-lite-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
-  - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-3.1-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+  - [`gemini-3-pro-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [`gemini-2.5-flash-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
 We recommend limiting the entire request file size to 50MB maximum.
@@ -414,7 +414,7 @@ To test out multi-turn image editing, see the following notebooks:
 
   - [Gemini 3.1 Flash-Lite Image Generation in Agent Platform](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_3_1_flash_lite_image_gen.ipynb)
 
-To see code samples related to multi-turn image creation and editing using Gemini 3 Pro Image, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures#multi-turn-image-editing) .
+To see code samples related to multi-turn image creation and editing using Gemini 3 Pro Image, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures#multi-turn-image-editing) .
 
 ## What's next?
 

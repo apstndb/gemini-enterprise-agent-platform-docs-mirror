@@ -568,6 +568,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
+<li>Vector Search</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
@@ -577,12 +578,13 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <tr class="even">
 <td><code dir="ltr" translate="no">me-central2</code><br />
 </td>
-<td>Damman, Saudi Arabia, Middle East</td>
+<td>Dammam, Saudi Arabia, Middle East</td>
 <td><ul>
 <li>Custom model batch inference</li>
 <li>Custom model online inference</li>
 <li>Custom model training</li>
 <li>Model Registry</li>
+<li>Vector Search</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
@@ -1163,7 +1165,7 @@ Asia Pacific Europe North America South America A100 40GB A100 80GB B200 GB200 R
 | `asia-northeast1`         | Tokyo, Japan, Asia Pacific                   | A100 40GB <sup>†</sup> , H100, H100 Mega, B200 <sup>\*</sup> , L4 <sup>†</sup> , T4, TPU v6e                                                                                                                                                              |
 | `asia-northeast3`         | Seoul, South Korea, Asia Pacific             | A100 40GB, H100, L4, T4                                                                                                                                                                                                                                   |
 | `asia-south1`             | Mumbai, India, Asia Pacific                  | H100, L4, T4, H200                                                                                                                                                                                                                                        |
-| `asia-south2`             | Delhi, India, APAC                           | H200, RTX PRO 6000                                                                                                                                                                                                                                        |
+| `asia-south2`             | Delhi, India, Asia Pacific                   | H200, RTX PRO 6000                                                                                                                                                                                                                                        |
 | `asia-southeast1`         | Jurong West, Singapore, Asia Pacific         | A100 40GB, A100 80GB, B200, H100, H100 Mega, L4, P4, T4, RTX PRO 6000                                                                                                                                                                                     |
 | `asia-southeast2`         | Jakarta, Indonesia, Asia Pacific             | T4                                                                                                                                                                                                                                                        |
 | `australia-southeast1`    | Sydney, Australia, Asia Pacific              | H100 Mega, P4, T4                                                                                                                                                                                                                                         |

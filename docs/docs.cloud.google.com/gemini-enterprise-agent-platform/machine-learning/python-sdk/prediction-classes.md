@@ -2,15 +2,15 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/prediction-classes
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/prediction-classes
 title: Prediction classes
-description: Learn about each inference class in the Vertex AI SDK.
+description: Learn about each inference class in the Agent Platform SDK.
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes the following prediction classes. One class is for batch predictions. The others are related to online predictions or Vector Search predictions. For more information, see [Overview of getting predictions on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) .
+The Agent Platform SDK includes the following prediction classes. One class is for batch predictions. The others are related to online predictions or Vector Search predictions. For more information, see [Overview of getting predictions on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions) .
 
 ## Batch prediction class
 
-A batch prediction is a group of asynchronous prediction requests. You request batch predictions from the model resource without needing to deploy the model to an endpoint. Batch predictions are suitable for when you don't need an immediate response and want to process data with a single request. [`BatchPredictionJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.BatchPredictionJob) is the one class in the Vertex AI SDK that is specific to batch predictions.
+A batch prediction is a group of asynchronous prediction requests. You request batch predictions from the model resource without needing to deploy the model to an endpoint. Batch predictions are suitable for when you don't need an immediate response and want to process data with a single request. [`BatchPredictionJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.BatchPredictionJob) is the one class in the Agent Platform SDK that is specific to batch predictions.
 
 ### [`BatchPredictionJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.BatchPredictionJob)
 
@@ -97,7 +97,7 @@ When the input data deviates from the data used to train your model, the model's
   - *Skew* occurs when the production feature data distribution deviates from the feature data used to train the model.
   - *Drift* occurs when the production feature data changes significantly over time.
 
-For more information, see [Introduction to Gemini Enterprise Agent Platform model monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) . For an example of how to implement Gemini Enterprise Agent Platform monitoring with the Vertex AI SDK, see the [Gemini Enterprise Agent Platform model monitoring with explainable AI feature attributions](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) notebook on GitHub.
+For more information, see [Introduction to Gemini Enterprise Agent Platform model monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview) . For an example of how to implement Gemini Enterprise Agent Platform monitoring with the Agent Platform SDK, see the [Gemini Enterprise Agent Platform model monitoring with explainable AI feature attributions](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) notebook on GitHub.
 
 ## Vector Search prediction classes
 
@@ -164,4 +164,4 @@ The following code is an example of creating a matching engine index endpoint an
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

@@ -40,7 +40,7 @@ You can configure a request authorization extension to delegate access decisions
 
 The following steps show you how to configure an authorization extension with an authorization policy for an Agent Gateway instance.
 
-1.  Create the required IAM egress policies for your agents and tools. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
+1.  Create the required IAM egress policies for your agents and tools. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
 
 2.  See [Configure Agent Gateway in Agent-to-Anywhere (Egress) mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) to enable IAP while creating the Agent Gateway (by using the **Access authorization** parameter).
     
@@ -100,7 +100,7 @@ The following steps show you how to configure an authorization extension with an
     
     2.  Import the authorization policy to the project. Use the [`gcloud network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import) with the following sample values.
         
-            gcloud beta network-security authz-policies import my-iap-request-authz-policy \
+            gcloud network-security authz-policies import my-iap-request-authz-policy \
                 --source=iap-request-authz-policy.yaml \
                 --location=LOCATION
 
@@ -143,7 +143,7 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
       - `  GATEWAY_PROJECT_NUMBER  ` : The project number of the project where you created the gateway.
       - `  MODEL_ARMOR_PROJECT_ID  ` : The project ID of the project that contains the Model Armor template.
     
-    If you're using the gateway for Agent Runtime, the Reasoning Engine Service Agent also requires these permissions as documented in [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#permissions) .
+    If you're using the gateway for Agent Runtime, the Agent Runtime service agent also requires these permissions as documented in [Route Agent Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#route-traffic) .
 
 ### gcloud
 
@@ -208,7 +208,7 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
             name: my-ma-content-authz-policy
             target:
               resources:
-                - "projects/PROJECT_ID/locations/LOCATION/gateways/AGENT_GATEWAY_NAME"
+                - "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
             policyProfile: CONTENT_AUTHZ
             action: CUSTOM
             customProvider:
@@ -235,7 +235,7 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
             name: my-ma-content-authz-policy
             target:
               resources:
-                - "projects/PROJECT_ID/locations/LOCATION/gateways/AGENT_GATEWAY_NAME"
+                - "projects/PROJECT_ID/locations/LOCATION/agentGateways/AGENT_GATEWAY_NAME"
             policyProfile: CONTENT_AUTHZ
             action: CUSTOM
             customProvider:

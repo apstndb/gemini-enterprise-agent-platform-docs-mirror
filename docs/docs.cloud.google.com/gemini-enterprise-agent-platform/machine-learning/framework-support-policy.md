@@ -10,7 +10,7 @@ Gemini Enterprise Agent Platform publishes containers and virtual machine images
 
 This allows you time to update and test your code when moving from one framework version to another. You should always test your jobs and models thoroughly when switching to a new framework version, regardless of whether it's a major or minor update.
 
-For all services, subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/release-notes) page for announcements about new version releases for your containers, images, and frameworks.
+For all services, subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes) page for announcements about new version releases for your containers, images, and frameworks.
 
 For the list of supported framework versions, see the [Supported frameworks list](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks) .
 
@@ -68,7 +68,7 @@ If you use the following services, you should be aware of new version releases t
     
       - For the version support schedule for pipeline SDKs, see [Supported frameworks for pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#pipelines) in "Supported frameworks list."
 
-For all services, subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/release-notes) page for announcements about new version releases for your containers, images, and frameworks.
+For all services, subscribe to the [Gemini Enterprise Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes) page for announcements about new version releases for your containers, images, and frameworks.
 
 ## What's next
 

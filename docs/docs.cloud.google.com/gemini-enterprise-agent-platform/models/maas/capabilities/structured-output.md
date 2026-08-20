@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Structured outputs enable a model to generate output that always adheres to a specific schema. For example, a model may be provided with a response schema to ensure that the response produces valid JSON. All open models available on the Gemini Enterprise Agent Platform Model as a Service (MaaS) support structured outputs.
 
-For more conceptual information about the structured output capability, see [Introduction to structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/multimodal/control-generated-output) .
+For more conceptual information about the structured output capability, see [Introduction to structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) .
 
 ## Use structured outputs
 

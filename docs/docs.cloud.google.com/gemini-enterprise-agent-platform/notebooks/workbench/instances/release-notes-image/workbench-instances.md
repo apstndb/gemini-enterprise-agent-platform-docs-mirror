@@ -12,6 +12,54 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 16, 2026
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed the Git panel's grayed out buttons, which were disabled due to an issue with the Jupyter Lab's Git plugin introduced in version 0.54.0.
+
+Change
+
+### 20260816-2030-rc0 Release
+
+## July 30, 2026
+
+Change
+
+### M145 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed the JupyterLab Git extension's Pull and Push buttons being disabled by pinning `jupyterlab-git` to 0.53.0.
+
+Fixed
+
+Fixed an error that could prevent creating new `micromamba` environments at runtime due to package cache permissions.
+
+Fixed
+
+Workbench internal agents now trust custom and enterprise CA certificates installed on the host operating system, fixing TLS certificate verification failures for connections routed through the instance proxy.
+
+Fixed
+
+Files created by the post-startup script are now owned by the `jupyter` user, and `git safe.directory` is configured so that root-owned repositories continue to work.
+
+Fixed
+
+Fixed issue with JupyterLab UI silently reverting file changes and interrupting kernels due to Gemini CLI's auto reload extension.
+
+Change
+
+The JupyterLab last-active and auto-reload extensions are now enabled only when Gemini CLI is configured, preventing them from affecting the native JupyterLab UI otherwise.
+
 ## July 13, 2026
 
 Change

@@ -12,13 +12,13 @@ data_source: docs.cloud.google.com
 
 In Agent Studio, you can design and iterate your prompts and compare results from different configurations and models. Once you finish engineering your prompt, you can deploy your prompt as a web application to share with your collaborators or target users to let them test out the web application. The web application is hosted on Cloud Run and is available outside the Google Cloud console.
 
-In this quick start, you will:
+In this quickstart, you do the following:
 
   - Create a prompt with prompt variables
   - Deploy your prompt as a web application
   - Monitor deployment progress and test the deployed application
-  - Update and re-deploy your prompt
-  - Test out prompt submission with multimodal supports
+  - Update and redeploy your prompt
+  - Test prompt submission with multimodal support
 
 ## Before you start
 
@@ -67,7 +67,7 @@ In the **Manage prompt variables** dialog, enter a variable name and give it a v
 
 ![Manage prompt variables dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/02-prompt-variable-dialog.png)
 
-In the prompt input box, compose the prompt using the variable and then adjust other parameters. For example, you can enable **Grounding with Google Search** , and has "Always get current weather from the web" as the system instructions.
+In the prompt input box, compose the prompt using the variable and then adjust other parameters. For example, you can enable **Grounding with Google Search** , and set "Always get current weather from the web" as the system instructions.
 
 ## Deploy your prompt as a web application
 
@@ -87,7 +87,7 @@ The save prompt dialog will pop up, as saving is required before a prompt can be
 
 1.  Once the prompt is saved, the deployment process will continue. If this is your first deployment, you will see a dialog for enabling required APIs. Click **Enable required APIs** .
 
-2.  After the APIs are enabled, the **Create a web app** dialog will appear. You can choose to **Required authentication (via [Identity Aware Proxy](https://docs.cloud.google.com/iap/docs/enabling-cloud-run) )** or **Allow public access** .
+2.  After the APIs are enabled, the **Create a web app** dialog will appear. You can choose **Require authentication (via [Identity-Aware Proxy](https://docs.cloud.google.com/iap/docs/enabling-cloud-run) )** or **Allow public access** .
     
       - If required authentication is chosen, follow the [guide to grant access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt#grant-access) (include yourself).
       - When you select **Allow public access** , it means anyone can access the app. Therefore, **don't include sensitive or personally identifiable information (PII) in your prompt** . Check the **I understand this app will be deployed publicly** checkbox to acknowledge.
@@ -160,7 +160,7 @@ After the update is done, you can open the web application again. You will see t
 
 ## Insert multimodal content
 
-You can insert inputs such as images, video, audio, and documents into the conversation UI. What inputs are supported depends on the model selected for the prompt. See the [documentation for multimodal support for each model](https://ai.google.dev/gemini-api/docs/models#model-variations) .
+You can insert inputs such as images, video, audio, and documents into the conversation UI. What inputs are supported depends on the model selected for the prompt. See the [documentation for multimodal support for each model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .
 
 To insert a file, click the clip icon button in the conversation input box.
 
@@ -178,7 +178,7 @@ Once you are familiar with the deployment process, you can consider the followin
 
 If you want to customize the web application, you can make changes to the source code in Cloud Run. Open the Cloud Run source code page from the **Manage web app** dialog by clicking the more\_vert more icon button at the end of the row. ![open source code editor from the manage web app dialog](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/adv-edit-01-open-source-code.png)
 
-Alternatively, You can also navigate to the security page from the web application by clicking the **source code editor** link.
+Alternatively, you can also navigate to the security page from the web application by clicking the **source code editor** link.
 
 In the Cloud Run source code page, click **Edit source** to start editing mode. Once you are done, click **Save and redeploy** .
 
@@ -188,7 +188,7 @@ After the re-deployment is completed, you need to open the application from Agen
 
 ### Grant access
 
-To grant users or groups access to the app, follow the steps:
+To grant users or groups access to the app, follow these steps:
 
 1.  Open the **Manage Web App** dialog.
 
@@ -252,7 +252,7 @@ The following error happens when you have inputs in the prompt variable, but the
 
 #### 400 Invalid argument: mimeType is not supported
 
-If you choose a file type that the model does not support, it will return a 400 error. This is expected, and you will have to use other types of files supported by the model. See the [documentation for multimodal support for each model](https://ai.google.dev/gemini-api/docs/models#model-variations) .
+If you choose a file type that the model does not support, it will return a 400 error. This is expected, and you will have to use other types of files supported by the model. See the [documentation for multimodal support for each model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .
 
 ![error for unsupported mime types](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/agent-studio/images/deploy/error-03-invalid-input.png)
 

@@ -545,7 +545,7 @@ If the model returns a response that's too generic, too short, or the model give
 
   - Range for Gemini 3 models versions 3.5 Flash and lower: `0.0 - 2.0` (default: `1.0` )
 
-> **Note:** Sampling parameters ( `temperature` , `topP` , and `topK` ) are deprecated for all `Gemini 3` models. It is recommended to omit these parameters and let the model manage sampling automatically.
+> **Warning:** Sampling parameters ( `temperature` , `topP` , and `topK` ) are deprecated for all `Gemini 3` models. It is recommended to omit these parameters and let the model manage sampling automatically.
 
 For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#temperature) .
 
@@ -663,6 +663,8 @@ Optional: `boolean`
 
 If true, returns the log probabilities of the tokens that were chosen by the model at each step. By default, this parameter is set to `false` .
 
+> **Warning:** The `responseLogprobs` parameter is deprecated for Gemini 3.x models and will soon be completely deprecated.
+
 `logprobs`
 
 Optional: `int`
@@ -670,6 +672,8 @@ Optional: `int`
 Returns the log probabilities of the top candidate tokens at each generation step. The model's chosen token might not be the same as the top candidate token at each step. Specify the number of candidates to return by using an integer value in the range of `1` - `20` .
 
 You must enable [`responseLogprobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#responseLogprobs) to use this parameter.
+
+> **Warning:** The `logprobs` parameter is deprecated for Gemini 3.x models and will soon be completely deprecated.
 
 `audioTimestamp`
 
@@ -885,6 +889,8 @@ Controls how input media is processed. `LOW` reduces tokens per image/video, pos
 > **Note:** For billing purposes, tokens consumed by document inputs to Gemini 3 and later models are counted as image tokens.
 
 ## Examples
+
+The following examples show how to generate content using Gemini models.
 
 ### Text Generation
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page describes the interfaces that you can use to interact with Gemini Enterprise Agent Platform and when you should use them. You can use these interfaces along with one of Agent Platform's [notebook solutions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/notebook-solution) .
 
-Some Gemini Enterprise Agent Platform operations are only available through specific interfaces, so you may need to switch between interfaces during your workflow. For example, in Vertex AI Experiments, you must use the API to log data to an experiment run, but you can view the results in the console.
+Some Gemini Enterprise Agent Platform operations are only available through specific interfaces, so you may need to switch between interfaces during your workflow. For example, in Experiments on Gemini Enterprise Agent Platform, you must use the API to log data to an experiment run, but you can view the results in the console.
 
 ### Console
 
@@ -26,7 +26,7 @@ The [Google Cloud command-line interface (CLI)](https://docs.cloud.google.com/sd
 
 Use the Google Cloud CLI when you want to manage your Gemini Enterprise Agent Platform resources from the command line or through scripts and other automation.
 
-For more information, see [Install the gcloud CLI](https://docs.cloud.google.com/sdk/docs/install) and the [`gcloud ai`](https://docs.cloud.google.com/sdk/gcloud/reference/ai) reference.
+For more information, see [Install the Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install) and the [`gcloud ai`](https://docs.cloud.google.com/sdk/gcloud/reference/ai) reference.
 
 ### Terraform
 
@@ -40,9 +40,9 @@ To get started, see [Terraform support for Gemini Enterprise Agent Platform](htt
 
 ### Python
 
-Use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to programmatically automate your Gemini Enterprise Agent Platform workflow.
+Use the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) to programmatically automate your Gemini Enterprise Agent Platform workflow.
 
-The Agent Platform SDK for Python is similar to the Gemini Enterprise Agent Platform Python client library, except the SDK is higher-level and less granular. For more information, see the [Understand the SDK and client library differences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk#sdk-vs-client-library) .
+The Agent Platform SDK for Python is similar to the Gemini Enterprise Agent Platform Python client library, except the SDK is higher-level and less granular. For more information, see the [Understand the SDK and client library differences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk#sdk-vs-client-library) .
 
 To get started, see [Install the Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
@@ -52,7 +52,7 @@ Client libraries use each supported language's natural conventions to call the A
 
 The following languages are supported for Gemini Enterprise Agent Platform:
 
-  - Python. The Gemini Enterprise Agent Platform Python client library is installed when you install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Python. The Gemini Enterprise Agent Platform Python client library is installed when you install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
 
   - Java
 

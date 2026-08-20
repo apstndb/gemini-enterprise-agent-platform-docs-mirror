@@ -32,16 +32,17 @@ For more use cases and examples that are powered by function calling, see [Use c
 
 #### Click to expand supported models
 
+  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
+  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
   - [Gemini 2.5 Flash with Gemini Live API native audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api)
+  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 <!-- end list -->
 
@@ -456,7 +457,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
             string projectId = "your-project-id",
             string location = "us-central1",
             string publisher = "google",
-            string model = "gemini-2.0-flash-001")
+            string model = "gemini-2.5-flash")
         {
             var predictionServiceClient = new PredictionServiceClientBuilder
             {
@@ -835,7 +836,7 @@ If the model determines that the API response is sufficient for responding to th
 > 
 > [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/thinking/intro_thought_signatures.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fthinking%2Fintro_thought_signatures.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fthinking%2Fintro_thought_signatures.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/thinking/intro_thought_signatures.ipynb)
 
-When calling functions with [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) enabled, you'll need to get the [`thought_signature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) from the model response object and return it when you send the result of the function execution back to the model. For example:
+When calling functions with [thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) enabled, you'll need to get the [`thought_signature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) from the model response object and return it when you send the result of the function execution back to the model. For example:
 
 ### Python
 
@@ -881,7 +882,7 @@ When returning thought signatures, follow these guidelines:
   - Don't merge part with one signature with another part which also contains a signature. Signatures can't be concatenated together.
   - Don't merge one part with a signature with another part without a signature. This breaks the correct positioning of the thought represented by the signature.
 
-Learn more about limitations and usage of [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) , and about [thinking models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) .
+Learn more about limitations and usage of [thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) , and about [thinking models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) .
 
 ## Parallel function calling
 
@@ -1153,39 +1154,36 @@ The following command demonstrates how you can provide the function output to th
 
     import (
      "context"
-     "encoding/json"
      "errors"
      "fmt"
      "io"
     
-     "cloud.google.com/go/vertexai/genai"
+     genai "google.golang.org/genai"
     )
     
-    // parallelFunctionCalling shows how to execute multiple function calls in parallel
+    // generateWithParallelFunctionCalling shows how to execute multiple function calls in parallel
     // and return their results to the model for generating a complete response.
-    func parallelFunctionCalling(w io.Writer, projectID, location, modelName string) error {
-     // location = "us-central1"
-     // modelName = "gemini-2.0-flash-001"
+    func generateWithParallelFunctionCalling(w io.Writer) error {
      ctx := context.Background()
-     client, err := genai.NewClient(ctx, projectID, location)
-     if err != nil {
-         return fmt.Errorf("failed to create GenAI client: %w", err)
-     }
-     defer client.Close()
     
-     model := client.GenerativeModel(modelName)
-     // Set temperature to 0.0 for maximum determinism in function calling.
-     model.SetTemperature(0.0)
+     // Initialize the unified GenAI client for Vertex AI.
+     client, err := genai.NewClient(ctx, &genai.ClientConfig{
+         HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
+         Backend:     genai.BackendVertexAI,
+     })
+     if err != nil {
+         return fmt.Errorf("failed to create genai client: %w", err)
+     }
     
      funcName := "getCurrentWeather"
      funcDecl := &genai.FunctionDeclaration{
          Name:        funcName,
          Description: "Get the current weather in a given location",
          Parameters: &genai.Schema{
-             Type: genai.TypeObject,
+             Type: "object",
              Properties: map[string]*genai.Schema{
                  "location": {
-                     Type: genai.TypeString,
+                     Type: "string",
                      Description: "The location for which to get the weather. " +
                          "It can be a city name, a city name and state, or a zip code. " +
                          "Examples: 'San Francisco', 'San Francisco, CA', '95616', etc.",
@@ -1194,84 +1192,112 @@ The following command demonstrates how you can provide the function output to th
              Required: []string{"location"},
          },
      }
-     // Add the weather function to our model toolbox.
-     model.Tools = []*genai.Tool{
-         {
-             FunctionDeclarations: []*genai.FunctionDeclaration{funcDecl},
+    
+     config := &genai.GenerateContentConfig{
+         Temperature: genai.Ptr(float32(0.0)),
+         Tools: []*genai.Tool{
+             {
+                 FunctionDeclarations: []*genai.FunctionDeclaration{funcDecl},
+             },
          },
      }
     
-     prompt := genai.Text("Get weather details in New Delhi and San Francisco?")
-     resp, err := model.GenerateContent(ctx, prompt)
+     // Initialize the conversation history with the user prompt.
+     prompt := "Get weather details in New Delhi and San Francisco?"
+     contents := []*genai.Content{
+         {
+             Role: "user",
+             Parts: []*genai.Part{
+                 {Text: prompt},
+             },
+         },
+     }
     
+     modelName := "gemini-2.5-flash"
+    
+     // First API call: The model determines it needs to call tools based on the prompt.
+     resp, err := client.Models.GenerateContent(ctx, modelName, contents, config)
      if err != nil {
          return fmt.Errorf("failed to generate content: %w", err)
      }
-     if len(resp.Candidates) == 0 {
+    
+     if len(resp.Candidates) == 0 || resp.Candidates[0].Content == nil {
          return errors.New("got empty response from model")
-     } else if len(resp.Candidates[0].FunctionCalls()) == 0 {
+     }
+    
+     // Extract the parallel function call requests from the model's response.
+     var functionCalls []*genai.FunctionCall
+     for _, part := range resp.Candidates[0].Content.Parts {
+         if part.FunctionCall != nil {
+             functionCalls = append(functionCalls, part.FunctionCall)
+             fmt.Fprintf(w, "Model suggests to call the function %q with args: %v\n", part.FunctionCall.Name, part.FunctionCall.Args)
+         }
+     }
+    
+     if len(functionCalls) == 0 {
          return errors.New("got no function call suggestions from model")
      }
     
-     // In a production environment, consider adding validations for function names and arguments.
-     for _, fnCall := range resp.Candidates[0].FunctionCalls() {
-         fmt.Fprintf(w, "The model suggests to call the function %q with args: %v\n", fnCall.Name, fnCall.Args)
-         // Example response:
-         // The model suggests to call the function "getCurrentWeather" with args: map[location:New Delhi]
-         // The model suggests to call the function "getCurrentWeather" with args: map[location:San Francisco]
-     }
+     // Append the model's tool call request to the conversation history.
+     contents = append(contents, resp.Candidates[0].Content)
     
-     // Use synthetic data to simulate responses from the external API.
-     // In a real application, this would come from an actual weather API.
-     mockAPIResp1, err := json.Marshal(map[string]string{
+     // Simulate external API responses. The SDK now directly accepts map[string]any.
+     mockAPIResp1 := map[string]any{
          "location":         "New Delhi",
          "temperature":      "42",
          "temperature_unit": "C",
          "description":      "Hot and humid",
          "humidity":         "65",
-     })
-     if err != nil {
-         return fmt.Errorf("failed to marshal function response to JSON: %w", err)
      }
     
-     mockAPIResp2, err := json.Marshal(map[string]string{
+     mockAPIResp2 := map[string]any{
          "location":         "San Francisco",
          "temperature":      "36",
          "temperature_unit": "F",
          "description":      "Cold and cloudy",
          "humidity":         "N/A",
-     })
-     if err != nil {
-         return fmt.Errorf("failed to marshal function response to JSON: %w", err)
      }
     
-     // Note, that the function calls don't have to be chained. We can obtain both responses in parallel
-     // and return them to Gemini at once.
-     funcResp1 := &genai.FunctionResponse{
-         Name: funcName,
-         Response: map[string]any{
-             "content": mockAPIResp1,
-         },
-     }
-     funcResp2 := &genai.FunctionResponse{
-         Name: funcName,
-         Response: map[string]any{
-             "content": mockAPIResp2,
+     // Bundle the API responses into a single Content block as Parts.
+     funcRespContent := &genai.Content{
+         Role: "user",
+         Parts: []*genai.Part{
+             {
+                 FunctionResponse: &genai.FunctionResponse{
+                     Name:     funcName,
+                     Response: mockAPIResp1,
+                 },
+             },
+             {
+                 FunctionResponse: &genai.FunctionResponse{
+                     Name:     funcName,
+                     Response: mockAPIResp2,
+                 },
+             },
          },
      }
     
-     // Return both API responses to the model allowing it to complete its response.
-     resp, err = model.GenerateContent(ctx, prompt, funcResp1, funcResp2)
+     // Append the tool response to the conversation history
+     contents = append(contents, funcRespContent)
+    
+     // Final API call: The model synthesizes the tool results into a natural language response.
+     resp, err = client.Models.GenerateContent(ctx, modelName, contents, config)
      if err != nil {
          return fmt.Errorf("failed to generate content: %w", err)
      }
-     if len(resp.Candidates) == 0 || len(resp.Candidates[0].Content.Parts) == 0 {
+    
+     if len(resp.Candidates) == 0 || resp.Candidates[0].Content == nil || len(resp.Candidates[0].Content.Parts) == 0 {
          return errors.New("got empty response from model")
      }
     
-     fmt.Fprintln(w, resp.Candidates[0].Content.Parts[0])
+     for _, part := range resp.Candidates[0].Content.Parts {
+         if part.Text != "" {
+             fmt.Fprintln(w, part.Text)
+         }
+     }
+    
      // Example response:
-     // The weather in New Delhi is hot and humid with a humidity of 65 and a temperature of 42°C. The weather in San Francisco ...
+     // The weather in New Delhi is hot and humid with a temperature of 42 degrees Celsius. The weather in San Francisco is ...
     
      return nil
     }
@@ -1882,7 +1908,7 @@ If the model proposes the invocation of a function that would send an order, upd
 
 ### Use thought signatures
 
-[Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) should always be used with function calling for best results.
+[Thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) should always be used with function calling for best results.
 
 ## Pricing
 

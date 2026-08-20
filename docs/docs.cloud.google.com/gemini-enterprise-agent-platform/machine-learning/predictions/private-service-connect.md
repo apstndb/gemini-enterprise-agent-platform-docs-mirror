@@ -27,7 +27,7 @@ Dedicated private endpoints support both HTTP and gRPC communication protocols. 
   - StreamRawPredict
   - Chat Completion (Model Garden only)
 
-You can send online inference requests to a dedicated private endpoint by using the Agent Platform SDK for Python. For details, see [Get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect#get_online_inferences) .
+You can send online inference requests to a dedicated private endpoint by using the Agent Platform SDK for Python. For details, see [Get online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect#get-online-inferences) .
 
 ## Required roles
 
@@ -227,7 +227,7 @@ You must be a network administrator to create the [service connection policy](ht
 2.  View your service connection policy.
     
         gcloud network-connectivity service-connection-policies list \
-            --project=VPC_PROJECT -–region=REGION
+            --project=VPC_PROJECT --region=REGION
     
     For a single VPC setup, a sample looks like this:
     
@@ -361,7 +361,9 @@ Replace the following:
 
 After you create your online inference endpoint with Private Service Connect enabled, deploy your model to it, following the steps outlined in [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment#deploy_a_model_to_an_endpoint) .
 
-## Create PSC Endpoint Manually
+## Create PSC endpoint manually
+
+To connect your VPC network to the online inference endpoint manually, you must obtain the service attachment URI, create a forwarding rule, and get the internal IP address.
 
 ### Get the service attachment URI
 
@@ -485,7 +487,7 @@ Here are some error handling details.
       - If successful, the IP address and forwarding rule is displayed.
       - If unsuccessful, an error message is displayed.
   - Automation configurations are removed when no models are deployed or in the process of being deployed to the endpoint. This results in a change to the IP address and forwarding rule if a model is deployed later.
-  - Failed automation won't recover. In case of failure, you can still create the PSC endpoint manually, see [Create PSC Endpoint Manually](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect#create-psc-endpoint-manually) .
+  - Failed automation won't recover. In case of failure, you can still create the PSC endpoint manually, see [Create PSC endpoint manually](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/private-service-connect#create-psc-endpoint-manually) .
 
 ## Get online inferences
 
@@ -602,7 +604,7 @@ Following are the high-level deployment steps:
 1.  Create a certificate in one of the following ways:
     
       - **Generate a self-signed certificate (or use your CA) for a custom domain.** Custom domains don't need to follow a specific format.
-      - **Use [Certificate Manager](https://docs.cloud.google.com/certificate-manager/docs/overview) for a Google-managed certificate.** Google-managed certificates have limitations on the length of supported domain names. For more information, see [Domain name length limitations for Google-managed certificates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/quotas#domain_name_length_limitations_for_google-managed_certificates) .
+      - **Use [Certificate Manager](https://docs.cloud.google.com/certificate-manager/docs/overview) for a Google-managed certificate.** Google-managed certificates have limitations on the length of supported domain names. For more information, see [Domain name length limitations for Google-managed certificates](https://docs.cloud.google.com/certificate-manager/docs/quotas#domain_name_length_limitations_for_google-managed_certificates) .
 
 2.  Deploy a regional Application Load Balancer (HTTPS):
     

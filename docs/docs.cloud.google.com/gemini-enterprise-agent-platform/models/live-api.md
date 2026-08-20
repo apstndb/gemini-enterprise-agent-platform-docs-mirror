@@ -26,11 +26,11 @@ Gemini Live API can be used to build real-time voice and video agents for a vari
 Gemini Live API offers a comprehensive set of features for building robust voice and video agents:
 
   - [**High audio quality**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#native-audio) : Gemini Live API provides natural, realistic-sounding speech across multiple languages.
-  - [**Multilingual support**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages_supported) : Converse in 24 supported languages.
+  - [**Multilingual support**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported) : Converse in 24 supported languages.
   - [**Barge-in**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voice-activity-detection) : Users can interrupt the model at any time for responsive interactions.
   - [**Affective dialog**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-affective-dialog) : Adapts response style and tone to match the user's input expression.
   - [**Tool use**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#configure-tool-use) : Integrates tools like function calling and Google Search for dynamic interactions.
-  - [**Audio transcriptions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable_audio_transcription_for_the_session) : Provides text transcripts of both user input and model output.
+  - [**Audio transcriptions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription) : Provides text transcripts of both user input and model output.
   - [**Proactive audio**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-proactive-audio) : (Preview) Lets you control when the model responds and in what contexts.
 
 ## Technical specifications

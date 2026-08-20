@@ -88,3 +88,9 @@ Reference
 ### [Managed Agents API on Agent Platform sandbox environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/sandbox-environment)
 
 Learn about the isolated sandbox container, permissions, and pre-installed packages/tools.
+
+Guide
+
+### [Evaluate agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/evaluate)
+
+Learn how to evaluate agents built with the Managed Agents API using the GenAI Evaluation Service.

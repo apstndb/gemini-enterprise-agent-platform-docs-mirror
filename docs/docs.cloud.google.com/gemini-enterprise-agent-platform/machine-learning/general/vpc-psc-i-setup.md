@@ -101,9 +101,21 @@ If the network attachment is created in a project different from the Service Pro
 
 ## Gemini Enterprise Agent Platform service agent required role
 
-In the project where you create the network attachment, grant the `compute.networkAdmin` role to the [Gemini Enterprise Agent Platform service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) of the same project. Enable the Agent Platform API in this project in advance if it differs from the service project where you use Agent Platform.
+The [Gemini Enterprise Agent Platform service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) (AI Platform Service Agent) requires specific IAM roles to manage networking resources and facilitate Private Service Connect (Private Service Connect) interface connections.
 
-If you specify a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) network for Agent Platform to use and you create a network attachment in a service project, then grant the [Agent Platform service agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) in the service project where you use Agent Platform the `compute.networkUser` role to your VPC host project.
+Depending on your network configuration, grant the following roles to the service agent ( `service- PROJECT_NUMBER @gcp-sa-aiplatform.iam.gserviceaccount.com` ):
+
+1.  **Compute Network Admin ( `roles/compute.networkAdmin` )**
+    
+    In the project where you create the network attachment, you must grant the `roles/compute.networkAdmin` role to the service agent.
+
+2.  **Compute Network User ( `roles/compute.networkUser` )**
+    
+    If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) and you create the network attachment in a service project, grant the service agent (located in the service project) the `roles/compute.networkUser` role on the VPC host project.
+
+3.  **DNS Peer ( `roles/dns.peer` )**
+    
+    To enable resources like Agent Platform Managed Training or Agent Runtime to resolve private DNS records, grant the `roles/dns.peer` role to the service agent. Grant this role in the project where you are using the services. If using a Shared VPC, you must also grant the `roles/dns.peer` role to the service agent in the VPC host project.
 
 ## Configure firewall rules
 
@@ -131,20 +143,34 @@ Configuring firewall rules is optional. However, we recommend that you set commo
 
 ## Set up a private DNS peering
 
-To enable Vertex AI Training jobs or Agent Runtime agents configured with PSC-I to resolve private DNS records in customer-managed Cloud DNS zones, the AI Platform offers a user-configurable mechanism for specifying which DNS domains to peer with Google internal resources. Make the following additional configurations:
+To enable Agent Platform Managed Training jobs or Agent Runtime agents configured with Private Service Connect interfaces to resolve private DNS records in customer-managed Cloud DNS zones, you can specify your network attachment and create private DNS peering while configuring or deploying your resource.
 
-1.  Assign the `DNS Peer (roles/dns.peer)` role to the [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) account within the project where the Vertex AI Training or the Agent Runtime on Gemini Enterprise Agent Platform services are active.
-    
-    If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/provisioning-shared-vpc#setting_up) network for Agent Platform and created a network attachment in a service project, you must also grant the `DNS Peer (roles/dns.peer)` role to the service project's [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#service-agents) within your VPC host project.
+You can configure DNS peering by specifying target networks and domain suffixes in the `dns_peering_configs` field under `psc_interface_config` :
 
-2.  Create a firewall rule that allows all ICMP, TCP, and UDP traffic (optional):
-    
-        gcloud compute firewall-rules create NETWORK-firewall4 \
-            --network NETWORK
-            --allow tcp:0-65535,udp:0-65535,icmp
-            --source-ranges IP_RANGES
+  - **`dns_peering_configs`** : A list of DNS peering configurations:
+      - **`domain`** : The DNS name of the private Cloud DNS zone.
+      - **`target_project`** : The project that hosts the VPC network. It can be different from the project where you created the network attachment.
+      - **`target_network`** : The VPC network name in the target project to which the DNS peering is established.
 
-3.  Set up your private DNS zone for DNS resolution and traffic routing. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
+For example, when creating a resource in Python, you can configure the private DNS peering as follows:
+
+    psc_interface_config = {
+        "network_attachment": "NETWORK_ATTACHMENT",
+        "dns_peering_configs": [
+            {
+                "domain": "DOMAIN_SUFFIX",
+                "target_project": "TARGET_PROJECT",
+                "target_network": "TARGET_NETWORK",
+            },
+        ],
+    }
+
+Replace the following:
+
+  - NETWORK\_ATTACHMENT : the name or full path of your network attachment. For example, ` projects/ SERVICE_PROJECT /regions/ REGION /networkAttachments/ NETWORK_ATTACHMENT_NAME  ` . If you create the network attachment in a project different from the service project where you use Agent Platform, you must pass the full path of the network attachment.
+  - DOMAIN\_SUFFIX : the DNS name of the private Cloud DNS zone (for example, `example.com.` ).
+  - TARGET\_PROJECT : the project that hosts the VPC network. It can be different from the project where you created the network attachment.
+  - TARGET\_NETWORK : the VPC network name in the target project to which the DNS peering is established.
 
 ## Troubleshooting
 

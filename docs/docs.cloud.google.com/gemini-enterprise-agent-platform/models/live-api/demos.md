@@ -17,12 +17,11 @@ This page provides a collection of reference implementations for the Gemini Live
   - [Gaming assistant](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/multimodal-live-api/native-audio-websocket-demo-apps/gaming-assistant-demo-app) : A gaming companion with persona switching and screen sharing capabilities.
   - [Gemini Live Telephony App](https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/sample-apps/gemini-live-telephony-app) : A real-time, voice-to-AI application that uses Twilio for telephony, a FastAPI backend, and the Gemini Live API for conversational AI.
 
-## ADK bidi-streaming development guide
+## ADK Gemini Live API Toolkit
 
 The [Agent Development Kit](https://google.github.io/adk-docs/) (ADK) provides a production-ready framework for building Bidi-streaming applications with the Live API. The following guide and demos introduce ADK's streaming architecture, which enables real-time, two-way communication between users and AI agents through multimodal channels (text, audio, video).
 
-  - [ADK Bidi-streaming development guide series](https://google.github.io/adk-docs/streaming/dev-guide/part1/)
-  - [Bidi-streaming demo](https://github.com/google/adk-samples/tree/main/python/agents/bidi-demo)
+  - [ADK Gemini Live API Toolkit](https://adk.dev/live/)
 
 ## Other tools
 

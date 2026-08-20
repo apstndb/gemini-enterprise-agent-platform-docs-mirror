@@ -64,7 +64,7 @@ Video generation can take over a minute to complete. To generate a video to down
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
-  - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
       - `"gemini-omni-flash-preview"`
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
   - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
@@ -194,7 +194,7 @@ The response contains an interaction which includes the model thoughts and an ou
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
-  - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
       - `"gemini-omni-flash-preview"`
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
   - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
@@ -711,7 +711,7 @@ For more information about the Veo API, see the following:
     
       - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
     
-      - `  MODEL_ID  ` : A string respresenting the model ID to use. The following are accepted values:
+      - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
         
           - **Veo 2:** `veo-2.0-generate-001`
           - **Veo 3:** `veo-3.0-generate-001`

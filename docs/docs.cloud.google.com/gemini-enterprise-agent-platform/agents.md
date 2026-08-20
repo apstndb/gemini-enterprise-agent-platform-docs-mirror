@@ -115,7 +115,7 @@ The Agent Platform is the central console for platform and security administrato
   - **[Agent Gateway Management](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway)** : Configure, manage, and monitor Agent Gateway instances.
   - **[Policy Enforcement](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview)** : Define and apply IAM and Model Armor policies.
   - **[Observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Monitor agent metrics, traces, and logs, and visualize agent dependencies and interactions.
-  - **[Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam)** : Manage agent service accounts and permissions.
+  - **[Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies)** : Manage agent service accounts and permissions.
   - **[Security](https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings)** : Integrate with Security Command Center for threat detection.
   - **[Audit Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings#iam-audit)** : Track agent activities.
   - **[Build](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build)** , **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** , and **[Optimize](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation)** workflows within Agent Platform.
@@ -124,7 +124,7 @@ The Agent Platform is the central console for platform and security administrato
 
   - Manage Gemini Enterprise licenses and users.
   - Manage Gemini Enterprise instances and data connectors.
-  - Attach to [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) to setup routing for Gemini Enterprise instances.
+  - Attach to [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) to set up routing for Gemini Enterprise instances.
   - Add agents and tools to the Gemini Enterprise instance from Agent and Tool Registry (also support existing paths for BYO-MCP and A2A agents).
   - Manage Gemini Enterprise user permissions for agents.
   - Enable observability (logs, metrics, traces) using Google Cloud tools for Gemini Enterprise agents.

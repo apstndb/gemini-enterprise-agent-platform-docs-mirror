@@ -2,25 +2,25 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/tracking-classes
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/tracking-classes
 title: Tracking classes
-description: Learn about the Vertex AI SDK classes that help with visualization, measurements, and tracking.
+description: Learn about the Agent Platform SDK classes that help with visualization, measurements, and tracking.
 data_source: docs.cloud.google.com
 ---
 
 The Agent Platform SDK for Python includes classes to help with visualization, measurements, and tracking. These classes can be grouped into three types:
 
   - Classes that use metadata to track resources in your machine learning (ML) workflow
-  - Classes that are used for Vertex AI Experiments
-  - Classes that are used for a Vertex AI TensorBoard
+  - Classes that are used for Experiments on Agent Platform
+  - Classes that are used for a Agent Platform Vertex AI TensorBoard
 
 The following topics provide an overview of the classes related to tracking and monitoring an ML workflow in Agent Platform SDK for Python.
 
 ## Metadata classes
 
-You can use the Agent Platform SDK for Python to create Vertex ML Metadata to help you track and analyze the metadata in your ML workflow. For more information, see [Introduction to Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) .
+You can use the Agent Platform SDK for Python to create Gemini Enterprise Agent Platform ML Metadata to help you track and analyze the metadata in your ML workflow. For more information, see [Introduction to Gemini Enterprise Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) .
 
 ### [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact)
 
-The [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) class represents the metadata in an artifact in Gemini Enterprise Agent Platform. An artifact is a discrete entity or piece of data that's produced by an ML workflow. Examples of an artifact are a [dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) , a [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) , and an [input file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/video-data/classification/prepare-data#input-files) . For more information, see [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts) .
+The [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) class represents the metadata in an artifact in Gemini Enterprise Agent Platform. An artifact is a discrete entity or piece of data that's produced by an ML workflow. Examples of an artifact are a [dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) , a [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) , and an [input file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data) . For more information, see [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts) .
 
 When you create an [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) resource, you need to specify its schema. Each type of an artifact has a unique schema. For example, the `system.Dataset` schema represents a dataset and the `system.Metrics` schema represents evaluation metrics. For more information, see [How to use system schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/system-schemas#how_to_use_system_schemas) .
 
@@ -45,16 +45,16 @@ The following sample code shows how to create an [`Execution`](https://docs.clou
         model = aiplatform.Artifact.create(uri='gs://my-uri', schema_title='system.Model')
         execution.assign_output_artifacts([model])
 
-## Vertex AI Experiments classes
+## Experiments on Agent Platform classes
 
-You can use the Agent Platform SDK for Python to create and run Vertex AI Experiments. Use Vertex AI Experiments to track logged metrics and parameters to help you analyze and optimize your ML workflow. For more information, see [Introduction to Vertex AI Experiments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) .
+You can use the Agent Platform SDK for Python to create and run Experiments on Agent Platform. Use Experiments on Agent Platform to track logged metrics and parameters to help you analyze and optimize your ML workflow. For more information, see [Introduction to Experiments on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) .
 
 To learn more about how to use the [`Experiment`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Experiment) and [`ExperimentRun`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ExperimentRun) classes, try one of the following tutorials:
 
-  - [Build Vertex AI Experiments lineage for custom training](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/build_model_experimentation_lineage_with_prebuild_code.ipynb)
+  - [Build Experiments on Agent Platform lineage for custom training](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/build_model_experimentation_lineage_with_prebuild_code.ipynb)
   - [Track parameters and metrics for locally trained models](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/comparing_local_trained_models.ipynb)
-  - [Compare pipeline runs with Vertex AI Experiments](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/comparing_pipeline_runs.ipynb)
-  - [Get started with Vertex AI Experiments](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments.ipynb)
+  - [Compare pipeline runs with Experiments on Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/comparing_pipeline_runs.ipynb)
+  - [Get started with Experiments on Agent Platform](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/experiments/get_started_with_vertex_experiments.ipynb)
 
 ### [`Experiment`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Experiment)
 
@@ -108,7 +108,7 @@ The following sample code shows how to create and start an experiment run, then 
          aiplatform.log_params({'learning_rate': 0.1, 'dropout_rate': 0.2})
          aiplatform.log_metrics({'accuracy': 0.9, 'recall': 0.8})
     
-    # Get a reference to the ExperimentRun resource, get the parameters logged to 
+    # Get a reference to the ExperimentRun resource, get the parameters logged to
     # the run, get the summary metrics logged to the run, then delete it.
     with aiplatform.start_run(RUN_NAME, resume=True) as run:
          run.get_params()
@@ -161,4 +161,4 @@ The [`TensorboardTimeSeries`](https://docs.cloud.google.com/python/docs/referenc
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

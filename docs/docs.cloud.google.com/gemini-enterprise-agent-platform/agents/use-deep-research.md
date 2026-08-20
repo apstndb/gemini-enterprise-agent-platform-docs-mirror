@@ -32,7 +32,7 @@ Consider the following strengths of Deep Research as you plan your project:
 
   - **Extensive data grounding** : The Gemini Deep Research Agent can reason across various data sources simultaneously. This includes remote MCP servers, internal institutional knowledge, and direct context from uploaded files or folders.
 
-  - **Polished reporting** : It produces comprehensive, cited reports that can feature presentation-ready visuals. These include financial graphs, inline infographics, and market positioning matrixes, which are generated using HTML and an image model.
+  - **Polished reporting** : It produces comprehensive, cited reports that can feature presentation-ready visuals. These include financial graphs, inline infographics, and market positioning matrices, which are generated using HTML and an image model.
 
   - **High steerability** : You can heavily customize the final output directly in your prompt. This includes setting a specific tone (for example, technical or executive), defining strict formats, or requesting structured data tables.
 
@@ -59,7 +59,7 @@ Deep Research comes with the following features and capabilities:
 
 ## How to use Deep Research
 
-You can access the Gemini Deep Research Agent using the global endpoint ( **v1beta1** ) by using either the Google Gen AI SDK or direct REST API requests. For an example usage, see the [Introduction to Gemini Deep Research Pro notebook on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/deep-research/intro_deep_research.ipynb) .
+You can access the Gemini Deep Research Agent using the global endpoint ( **v1beta1** ) by using either the Google Gen AI SDK or direct REST API requests. For an example usage, see the [Introduction to Gemini Deep Research Agent notebook on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/deep-research/intro_deep_research.ipynb) .
 
 ## Before you begin
 
@@ -81,7 +81,7 @@ interaction = client.interactions.create(
   input="Analyze competitive positioning for solar energy providers.",
   agent="deep-research-preview-04-2026",
   background=True,
-  stream=True
+  stream=False
 )
 
 print(f"Research started: {interaction.id}")

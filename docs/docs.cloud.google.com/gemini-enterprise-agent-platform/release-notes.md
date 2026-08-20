@@ -10,11 +10,59 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 15, 2026
+
+Feature
+
+**Monitor semantic governance policies with built-in metrics (Preview)**
+
+Built-in Cloud Monitoring metrics for the semantic governance policy engine are available in Preview. You can now observe request throughput, evaluation counts, latencies, verdict distribution ( `ALLOW` versus `DENY` ), and LLM token consumption for the policy engine directly in [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer) , query them through the Cloud Monitoring v3 API and PromQL, and use them in alerting policies.
+
+For more information, see [Monitor semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/monitor-semantic-governance) .
+
+Feature
+
+**AlphaFold 3 is generally available**
+
+AlphaFold 3 is now generally available (GA) and available for approved users for commercial research use.
+
+AlphaFold 3 Google DeepMind's and Isomorphic Labs' deep learning model to predict the 3D structures and interactions of proteins, DNA, RNA, ligands, and ions. For more information, see [AlphaFold 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphafold-3) .
+
+## August 13, 2026
+
+Feature
+
+**Gemini 3.7 Flash is generally available**
+
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) is now generally available (GA) and available for production use. This model is our first model to enable [agentic video processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) enabled by default.
+
+For more information on 3.7 Flash, see the [model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) .
+
+Feature
+
+**Agent Runtime: ADK telemetry metrics**
+
+Agents deployed to Agent Runtime with Agent Development Kit (ADK) 2.6.0 or later can emit `gen_ai` application metrics that follow OpenTelemetry's generative AI semantic conventions. Set the `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY` environment variable to export these metrics to Cloud Monitoring as user-defined metrics, alongside agent traces and logs.
+
+For more information, see [Set up monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/monitoring#adk-metrics) .
+
+## August 12, 2026
+
+Feature
+
+**CodeMender CLI: Sandbox enabled by default**
+
+This release updates the CodeMender CLI default behavior:
+
+  - **Sandbox enabled by default** : The CLI now runs commands inside the process-level sandbox by default to protect your workstation. You can disable the sandbox in your `config.yaml` , by passing `--sandbox=false` to CLI commands, or bypass it using the `--unrestricted` flag.
+
+For more information, see [Install the CLI and configure](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment) .
+
 ## August 04, 2026
 
 Feature
 
-### Process-level sandboxing and auto-updates (Preview)
+**Process-level sandboxing and auto-updates (Preview)**
 
 This release introduces process-level sandboxing, automatic update checks, and other improvements to the CodeMender CLI (Preview):
 
@@ -99,11 +147,16 @@ The following open model endpoints are deprecated and will be retired on October
 
 Announcement
 
-### CodeMender is available in Public Preview
+**CodeMender is available in Public Preview**
 
 CodeMender is now available in Public Preview for select customers. CodeMender is an AI-powered code security agent that runs on your local workstation to find, verify, and fix security vulnerabilities in your codebase.
 
-Key capabilities in this release include: \* **Scan and find** : Scan your codebase for application logic, memory management, and authentication vulnerabilities, or import findings from external scanners. \* **Verify** : Build your code and run tests locally to confirm whether findings are exploitable, minimizing false positives. \* **Fix** : Auto-generate security patches and verify them locally before applying them to your workspace. \* **Safety controls** : Enforces a Human-in-the-Loop workflow with mandatory manual confirmations for all disk writes and command executions by default.
+Key capabilities in this release include:
+
+  - **Scan and find** : Scan your codebase for application logic, memory management, and authentication vulnerabilities, or import findings from external scanners.
+  - **Verify** : Build your code and run tests locally to confirm whether findings are exploitable, minimizing false positives.
+  - **Fix** : Auto-generate security patches and verify them locally before applying them to your workspace.
+  - **Safety controls** : Enforces a Human-in-the-Loop workflow with mandatory manual confirmations for all disk writes and command executions by default.
 
 For more information, see the [CodeMender overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
 
@@ -161,16 +214,6 @@ The Grok 4.1 model family (including `xai/grok-4.1-fast-reasoning` and `xai/grok
 
 Feature
 
-**Memory Bank support for Gemini Embedding 2**
-
-Memory Bank supports the `gemini-embedding-2` model for similarity search configurations.
-
-When you configure `gemini-embedding-2` as the embedding model, you must use one of the `global` , `us` , or `eu` endpoints in the model's resource name (for example, `projects/{project}/locations/us/publishers/google/models/gemini-embedding-2` ). Memory Bank does not support using regional locations (for example, `us-central1` ) for `gemini-embedding-2` .
-
-For details, see [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) .
-
-Feature
-
 **Memory Bank IngestEvents is generally available (GA)**
 
 The Memory Bank `IngestEvents` API is generally available. The `IngestEvents` API decouples event ingestion from memory generation, letting you continuously stream content to Memory Bank and configure when memory generation is triggered.
@@ -182,6 +225,16 @@ This GA release includes the following features:
   - **Attach metadata to memories:** Use the `metadata` and `metadata_merge_strategy` configuration parameters to store structured information alongside generated memories.
 
 For details, see [Ingest events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events) .
+
+Feature
+
+**Memory Bank support for Gemini Embedding 2**
+
+Memory Bank supports the `gemini-embedding-2` model for similarity search configurations.
+
+When you configure `gemini-embedding-2` as the embedding model, you must use one of the `global` , `us` , or `eu` endpoints in the model's resource name (for example, `projects/{project}/locations/us/publishers/google/models/gemini-embedding-2` ). Memory Bank does not support using regional locations (for example, `us-central1` ) for `gemini-embedding-2` .
+
+For details, see [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) .
 
 ## July 06, 2026
 

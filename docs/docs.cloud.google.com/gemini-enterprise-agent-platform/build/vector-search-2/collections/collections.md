@@ -36,7 +36,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections?collection_id=COLLECTION_ID
+    POST https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections?collection_id=COLLECTION_ID
 
 Request JSON body:
 
@@ -95,7 +95,7 @@ Save the request body in a file named `request.json` , and execute the following
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections?collection_id=COLLECTION_ID"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections?collection_id=COLLECTION_ID"
 
 #### PowerShell (Windows)
 
@@ -111,19 +111,19 @@ Save the request body in a file named `request.json` , and execute the following
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections?collection_id=COLLECTION_ID" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections?collection_id=COLLECTION_ID" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID",
       "metadata": {
-        "@type": "type.googleapis.com/google.cloud.vectorsearch.v1beta.OperationMetadata",
+        "@type": "type.googleapis.com/google.cloud.vectorsearch.v1.OperationMetadata",
         "createTime": "2026-01-23T17:17:29.687753204Z",
         "target": "projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
         "verb": "create",
         "requestedCancellation": false,
-        "apiVersion": "v1beta"
+        "apiVersion": "v1"
       },
       "done": false
     }
@@ -177,7 +177,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections create COLLECTION_ID \
+    gcloud vector-search collections create COLLECTION_ID \
       --data-schema=DATA_SCHEMA_FILE \
       --vector-schema=VECTOR_SCHEMA_FILE \
       --labels=fookey=barvalue \
@@ -188,7 +188,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections create COLLECTION_ID `
+    gcloud vector-search collections create COLLECTION_ID `
       --data-schema=DATA_SCHEMA_FILE `
       --vector-schema=VECTOR_SCHEMA_FILE `
       --labels=fookey=barvalue `
@@ -199,7 +199,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections create COLLECTION_ID ^
+    gcloud vector-search collections create COLLECTION_ID ^
       --data-schema=DATA_SCHEMA_FILE ^
       --vector-schema=VECTOR_SCHEMA_FILE ^
       --labels=fookey=barvalue ^
@@ -212,10 +212,10 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    vector_search_service_client = vectorsearch_v1beta.VectorSearchServiceClient()
+    vector_search_service_client = vectorsearch_v1.VectorSearchServiceClient()
     
     # The JSON schema for the data
     data_schema = {
@@ -236,11 +236,11 @@ You should receive a response similar to the following:
         "sparse_embedding": {"sparse_vector": {}},
     }
     
-    collection = vectorsearch_v1beta.Collection(
+    collection = vectorsearch_v1.Collection(
         data_schema=data_schema,
         vector_schema=vector_schema,
     )
-    request = vectorsearch_v1beta.CreateCollectionRequest(
+    request = vectorsearch_v1.CreateCollectionRequest(
         parent="projects/PROJECT_ID/locations/LOCATION",
         collection_id="COLLECTION_ID",
         collection=collection,
@@ -274,7 +274,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    GET https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID
+    GET https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID
 
 Request JSON body:
 
@@ -333,7 +333,7 @@ Save the request body in a file named `request.json` , and execute the following
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID"
 
 #### PowerShell (Windows)
 
@@ -349,7 +349,7 @@ Save the request body in a file named `request.json` , and execute the following
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
@@ -411,19 +411,19 @@ Execute the following command:
 
 #### Linux, macOS, or Cloud Shell
 
-    gcloud  beta vector-search collections describe COLLECTION_ID \
+    gcloud vector-search collections describe COLLECTION_ID \
     --location=LOCATION \
     --project=PROJECT_ID
 
 #### Windows (PowerShell)
 
-    gcloud  beta vector-search collections describe COLLECTION_ID `
+    gcloud vector-search collections describe COLLECTION_ID `
     --location=LOCATION `
     --project=PROJECT_ID
 
 #### Windows (cmd.exe)
 
-    gcloud  beta vector-search collections describe COLLECTION_ID ^
+    gcloud vector-search collections describe COLLECTION_ID ^
     --location=LOCATION ^
     --project=PROJECT_ID
 
@@ -460,13 +460,13 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    vector_search_service_client = vectorsearch_v1beta.VectorSearchServiceClient()
+    vector_search_service_client = vectorsearch_v1.VectorSearchServiceClient()
     
     # Initialize request
-    request = vectorsearch_v1beta.GetCollectionRequest(
+    request = vectorsearch_v1.GetCollectionRequest(
         name="projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
     )
     
@@ -489,7 +489,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    GET https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections
+    GET https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections
 
 To send your request, expand one of these options:
 
@@ -501,7 +501,7 @@ Execute the following command:
 
     curl -X GET \
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections"
 
 #### PowerShell (Windows)
 
@@ -515,7 +515,7 @@ Execute the following command:
     Invoke-WebRequest `
         -Method GET `
         -Headers $headers `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
@@ -580,19 +580,19 @@ Execute the following command:
 
 #### Linux, macOS, or Cloud Shell
 
-    gcloud beta vector-search collections list \
+    gcloud vector-search collections list \
     --location=LOCATION \
     --project=PROJECT_ID
 
 #### Windows (PowerShell)
 
-    gcloud beta vector-search collections list `
+    gcloud vector-search collections list `
     --location=LOCATION `
     --project=PROJECT_ID
 
 #### Windows (cmd.exe)
 
-    gcloud beta vector-search collections list ^
+    gcloud vector-search collections list ^
     --location=LOCATION ^
     --project=PROJECT_ID
 
@@ -630,13 +630,13 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    vector_search_service_client = vectorsearch_v1beta.VectorSearchServiceClient()
+    vector_search_service_client = vectorsearch_v1.VectorSearchServiceClient()
     
     # Initialize request argument
-    request = vectorsearch_v1beta.ListCollectionsRequest(
+    request = vectorsearch_v1.ListCollectionsRequest(
         parent="projects/PROJECT_ID/locations/LOCATION",
     )
     
@@ -686,7 +686,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    DELETE https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID
+    DELETE https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID
 
 To send your request, expand one of these options:
 
@@ -698,7 +698,7 @@ Execute the following command:
 
     curl -X DELETE \
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID"
 
 #### PowerShell (Windows)
 
@@ -712,19 +712,19 @@ Execute the following command:
     Invoke-WebRequest `
         -Method DELETE `
         -Headers $headers `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/operations/operation-1769280311389-64926ac77ed08-661d4521-c7d3036c",
       "metadata": {
-        "@type": "type.googleapis.com/google.cloud.vectorsearch.v1beta.OperationMetadata",
+        "@type": "type.googleapis.com/google.cloud.vectorsearch.v1.OperationMetadata",
         "createTime": "2026-01-24T18:45:11.402619681Z",
         "target": "projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
         "verb": "delete",
         "requestedCancellation": false,
-        "apiVersion": "v1beta"
+        "apiVersion": "v1"
       },
       "done": false
     }
@@ -741,19 +741,19 @@ Execute the following command:
 
 #### Linux, macOS, or Cloud Shell
 
-    gcloud beta vector-search collections delete COLLECTION_ID \
+    gcloud vector-search collections delete COLLECTION_ID \
     --location=LOCATION \
     --project=PROJECT_ID
 
 #### Windows (PowerShell)
 
-    gcloud beta vector-search collections delete COLLECTION_ID `
+    gcloud vector-search collections delete COLLECTION_ID `
     --location=LOCATION `
     --project=PROJECT_ID
 
 #### Windows (cmd.exe)
 
-    gcloud beta vector-search collections delete COLLECTION_ID ^
+    gcloud vector-search collections delete COLLECTION_ID ^
     --location=LOCATION ^
     --project=PROJECT_ID
 
@@ -763,13 +763,13 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    vector_search_service_client = vectorsearch_v1beta.VectorSearchServiceClient()
+    vector_search_service_client = vectorsearch_v1.VectorSearchServiceClient()
     
     # Initialize request
-    request = vectorsearch_v1beta.DeleteCollectionRequest(
+    request = vectorsearch_v1.DeleteCollectionRequest(
         name="projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
     )
     

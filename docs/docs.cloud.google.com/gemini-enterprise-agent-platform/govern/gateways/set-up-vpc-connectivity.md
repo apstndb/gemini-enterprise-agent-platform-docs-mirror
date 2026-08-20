@@ -14,7 +14,11 @@ To configure VPC connectivity for Agent Gateway, ensure that the identity used f
 
 In a standalone project where the gateway, network attachment, and VPC network reside in the same project, standard Agent Gateway permissions apply. For details, see [Required permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#required-roles) .
 
-If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) or cross-project setup where the target VPC network, network attachment, or private DNS zones reside in a central host project ( TARGET\_PROJECT\_ID ), the following roles are required:
+### Shared VPC or cross-project deployments
+
+If you are using a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) or cross-project setup where the target VPC network, network attachment, or private DNS zones reside in a central host project ( TARGET\_VPC\_PROJECT\_ID ), the following roles are required:
+
+**Table:** Permissions needed for Shared VPC or cross-project deployments
 
 Principal or identity
 
@@ -24,10 +28,10 @@ Required IAM role
 
 Purpose
 
-**Provisioning identity**  
+**Provisioning identity <sup>1</sup>**  
 (User account or deployment service account)
 
-Host project ( TARGET\_PROJECT\_ID )
+Host project ( TARGET\_VPC\_PROJECT\_ID )
 
   - Compute Network Viewer ( `roles/compute.networkViewer` )
   - DNS Reader ( `roles/dns.reader` )
@@ -37,7 +41,7 @@ Allows backend validation of the target VPC network, subnets, network attachment
 **Network attachment creator**  
 (Administrator creating the PSC attachment)
 
-Host project ( TARGET\_PROJECT\_ID )
+Host project ( TARGET\_VPC\_PROJECT\_ID )
 
   - Compute Network User ( `roles/compute.networkUser` )
 
@@ -45,10 +49,9 @@ Allows using a Shared VPC subnet in the host project to create a Private Service
 
 **Network attachment in the service project (Recommended)**
 
-**Agent Gateway Service Agent**  
-`service- GATEWAY_PROJECT_NUMBER @gcp-sa-agentgateway.iam.gserviceaccount.com`
+**Agent Gateway Service Agent <sup>2</sup>**
 
-Host project ( TARGET\_PROJECT\_ID )
+Host project ( TARGET\_VPC\_PROJECT\_ID )
 
   - Compute Network User ( `roles/compute.networkUser` )
   - DNS Peer ( `roles/dns.peer` )
@@ -57,10 +60,9 @@ Allows the Agent Gateway service agent to use the host project subnet for the ne
 
 **Network attachment in the host project**
 
-**Agent Gateway Service Agent**  
-`service- GATEWAY_PROJECT_NUMBER @gcp-sa-agentgateway.iam.gserviceaccount.com`
+**Agent Gateway Service Agent <sup>2</sup>**
 
-Host project ( TARGET\_PROJECT\_ID )
+Host project ( TARGET\_VPC\_PROJECT\_ID )
 
   - Compute Network Admin ( `roles/compute.networkAdmin` ), or a custom role with:
       - `compute.networkAttachments.get`
@@ -70,7 +72,9 @@ Host project ( TARGET\_PROJECT\_ID )
 
 Allows the Agent Gateway service agent to update the host project network attachment to allow the connection from the Agent Gateway tenant project, to route egress traffic, and peer with private Cloud DNS zones in the host project.
 
-> **Note:** For the provisioning identity, basic project-level roles such as Viewer ( `roles/viewer` ) or Editor ( `roles/editor` ) on the host project are also sufficient.
+<sup>1</sup> For the provisioning identity, basic project-level roles such as Viewer ( `roles/viewer` ) or Editor ( `roles/editor` ) on the host project are also sufficient.
+
+<sup>2</sup> The Agent Gateway Service Agent is formatted as: `service- AGENT_GATEWAY_PROJECT_NUMBER @gcp-sa-agentgateway.iam.gserviceaccount.com` .
 
 ## Configure VPC connectivity
 
@@ -86,13 +90,13 @@ Perform the following steps:
     
       - **Connection preference** : Configure the network attachment to [automatically accept connections](https://docs.cloud.google.com/vpc/docs/about-network-attachments#connection-policies) ( `--connection-preference=ACCEPT_AUTOMATIC` ).
     
-      - **Same VPC network requirement** : The network attachment subnet and the target network configured for DNS peering ( `targetNetwork` ) **must be in the exact same VPC network** . If the network attachment's subnet belongs to a different network than the DNS peering target network, configuration validation fails.
+      - **Same VPC network requirement** : The network attachment subnet and the target network configured for DNS peering ( `targetNetwork` ) *must be in the exact same VPC network* . If the network attachment's subnet belongs to a different network than the DNS peering target network, configuration validation fails.
     
       - **Network attachment immutability** : Once an Agent Gateway is configured with a network attachment, the `networkAttachment` field can't be modified on that gateway. To switch to a different network attachment, you must delete and recreate the Agent Gateway resource.
     
-      - The endpoint that you connect to must support HTTPS with a publicly signed or trusted certificate. If Agent Gateway is unable to validate the certificate, the connection fails.
+      - **Certificate requirement** : The endpoint that you connect to must support HTTPS with a publicly signed or trusted certificate. If Agent Gateway is unable to validate the certificate, the connection fails.
     
-      - Subnet requirements for the network attachment:
+      - **Subnet requirements** : Note the following requirements for the network attachment subnet:
         
           - Agent Gateway requires a minimum `/28` subnet for the network attachment. A `/28` subnet provides 12 usable IP addresses, which is sufficient for a single Agent Gateway instance. If you plan to connect multiple gateways to the same network attachment or subnet, use a larger subnet (such as `/26` or `/24` ) to avoid IP address exhaustion.
         
@@ -103,19 +107,25 @@ Perform the following steps:
               - Class E: `240.0.0.0/4`
               - `private.googleapis.com` : `199.36.153.8/30`
               - `restricted.googleapis.com` : `199.36.153.4/30`
+              - **PSC endpoints for Google APIs** : If you deploy a custom Private Service Connect endpoint for Google APIs using an internal private IP address in your VPC network, traffic to this endpoint is routed through your VPC network. Ensure that Cloud DNS peering is configured in the connectivity template so that Agent Gateway correctly resolves Google API domains to your internal PSC endpoint IP address.
+        
+        Requests to standard public Google API endpoints are handled automatically using Private Google Access within the managed service environment. Internet-bound traffic isn't routed through your VPC network.
     
-    **Shared VPC setup** :
-    
-    In a Shared VPC architecture, you can create the network attachment in either the service project (recommended) or the host project:
-    
-      - **Network attachment in service project (Recommended)** :
-        1.  [Create the subnet](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#add-subnets) in the host project.
-        2.  [Create the network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments) in the service project, referencing the host project's subnet.
-      - **Network attachment in host project** :
-        1.  [Create the subnet](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#add-subnets) in the host project.
-        2.  [Create the network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments) in the host project.
-    
-    Note the URI of the network attachment. You'll need it when you update the PSC\_NETWORK\_ATTACHMENT\_URI attribute of the Agent Gateway resource in a later step.
+      - **Shared VPC setup requirements** :
+        
+        In a Shared VPC architecture, you can create the network attachment in either the service project (recommended) or the host project:
+        
+          - **Recommended: Network attachment in service project** :
+            
+            1.  [Create the subnet](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#add-subnets) in the host project.
+            2.  [Create the network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments) in the service project, referencing the host project's subnet.
+        
+          - **Network attachment in host project** :
+            
+            1.  [Create the subnet](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#add-subnets) in the host project.
+            2.  [Create the network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments) in the host project.
+        
+        Note the URI of the network attachment. You'll need it when you update the PSC\_NETWORK\_ATTACHMENT\_URI attribute of the connectivity template resource in a later step.
 
 3.  Configure DNS peering for the service that you are connecting to. With DNS peering, your agents can connect to services in the target VPC network using stable, human-readable DNS names instead of IP addresses. DNS peering lets Agent Gateway resolve DNS names using the records from a Cloud DNS private zone in your VPC.
     
@@ -145,18 +155,18 @@ Perform the following steps:
         dnsPeeringConfig:
           domains:
             - DOMAIN_NAME
-          targetProject: TARGET_PROJECT_ID
-          targetNetwork: TARGET_NETWORK_URI
+          targetProject: TARGET_VPC_PROJECT_ID
+          targetNetwork: TARGET_VPC_NETWORK_URI
     ```
     
     Replace the following:
     
       - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
       - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For Agent Runtime agents, use a regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ). For Gemini Enterprise, use the global, multi-region, or regional registry that corresponds to your deployment (for example, `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global` ).
-      - `  PSC_NETWORK_ATTACHMENT_URI  ` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project (such as the Shared VPC host project) different from where you deployed the agent, you need to pass the full path of your network attachment: ` projects/ TARGET_PROJECT_ID /regions/ REGION /networkAttachments/ ATTACHMENT_NAME  ` . Note: This field is immutable once configured.
+      - `  PSC_NETWORK_ATTACHMENT_URI  ` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project (such as the Shared VPC host project) different from where you deployed the agent, you need to pass the full path of your network attachment: ` projects/ TARGET_VPC_PROJECT_ID /regions/ REGION /networkAttachments/ ATTACHMENT_NAME  ` . Note: This field is immutable once configured.
       - `  DOMAIN_NAME  ` : A specific domain suffix for DNS peering (for example, `example.com.` or `corp.internal.` ). This value is required, must end with a trailing dot ( `.` ), and must have an exact match private Cloud DNS managed zone authorized for the target network. Don't use root or wildcard domains (such as `.` ) or Google service domains (such as `googleapis.com.` ).
-      - `  TARGET_PROJECT_ID  ` : The target project for DNS peering (such as the Shared VPC host project).
-      - `  TARGET_NETWORK_URI  ` : The target network where you created the network attachment. This must be of the form: ` projects/ TARGET_PROJECT_ID /global/networks/ NETWORK_NAME  ` . The project in this path must match `  TARGET_PROJECT_ID  ` , and the network must be the **exact same VPC network** where the network attachment is created.
+      - `  TARGET_VPC_PROJECT_ID  ` : The target project for DNS peering (such as the Shared VPC host project).
+      - `  TARGET_VPC_NETWORK_URI  ` : The target network where you created the network attachment. This must be of the form: ` projects/ TARGET_VPC_PROJECT_ID /global/networks/ NETWORK_NAME  ` . The project in this path must match `  TARGET_VPC_PROJECT_ID  ` , and the network must be the **exact same VPC network** where the network attachment is created.
 
 5.  Run the following command to update the resource based on the YAML specification:
     
@@ -164,9 +174,9 @@ Perform the following steps:
             --source="my-agent-gateway-vpc-egress.yaml" \
             --location=LOCATION
     
-    Replace `  LOCATION  ` with the location where you want to create the Agent Gateway resource. For example, `us-central1` .
-    
-    ## What's next
+    Replace `  LOCATION  ` with the location where you want to create the Agent Gateway resource. For example, `europe-west1` .
+
+## What's next
 
 Guide
 

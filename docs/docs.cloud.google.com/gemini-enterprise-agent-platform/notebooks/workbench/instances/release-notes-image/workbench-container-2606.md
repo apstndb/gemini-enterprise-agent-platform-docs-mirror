@@ -12,6 +12,68 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 16, 2026
+
+Change
+
+Updated the CUDA base image from 12.8.1 to 12.9.2 (CUDA 12.9, cuDNN 9.10). This is a minor CUDA 12 update, binary compatible with the previous image, and also addresses known vulnerabilities in a bundled NVIDIA profiler component.
+
+Security
+
+Updated the bundled Ruby gems rexml and net-imap to patched versions, addressing known vulnerabilities.
+
+Deprecated
+
+Removed the JupyterLab 3 environment from the Python 3.12 custom container; JupyterLab 4 is now the only JupyterLab environment and is always used. The Python 3.10 images are unaffected.
+
+Change
+
+### 20260816-2330-rc0 Release
+
+Security
+
+Updated aiohttp, joblib and cryptography to patched versions, addressing known vulnerabilities including CVE-2022-21797 and CVE-2025-69223.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+## August 09, 2026
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Change
+
+### 20260809-2330-rc0 Release
+
+Fixed
+
+Fixed the Git panel's grayed out buttons which were disabled due to an issue with the Jupyter Lab's Git plugin introduced in version 0.54.0.
+
+## August 02, 2026
+
+Change
+
+### 20260802-2330-rc0 Release
+
+Fixed
+
+Fixed issue with JupyterLab UI silently reverting file changes and interrupting kernels due to Gemini CLI's auto reload extension.
+
+Change
+
+The JupyterLab last-active and auto-reload extensions are now enabled only when Gemini CLI is configured, preventing them from affecting the native JupyterLab UI otherwise.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed an error that could prevent creating new `micromamba` environments at runtime due to package cache permissions.
+
 ## July 13, 2026
 
 Feature

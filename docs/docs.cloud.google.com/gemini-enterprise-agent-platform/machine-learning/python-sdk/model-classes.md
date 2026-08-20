@@ -6,7 +6,7 @@ description: Learn about the model class, which represents a trained model that 
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes the [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model) class to work with a model that you train and then use for predictions. The SDK also includes the [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation) class to evaluate metrics on trained AutoML models. For more information about models, see [Train and use your own models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .
+The Agent Platform SDK includes the [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model) class to work with a model that you train and then use for predictions. The SDK also includes the [`ModelEvaluation`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.ModelEvaluation) class to evaluate metrics on trained AutoML models. For more information about models, see [Train and use your own models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) .
 
 ### [`Model`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model)
 
@@ -62,7 +62,7 @@ If you use the `CustomJob` class, you need to use a script to write your model t
 
 If you have a model that isn't registered with the Gemini Enterprise Agent Platform Model Registry, then you need to register it so you can manage your model's lifecycle. Gemini Enterprise Agent Platform Model Registry is a central repository that provides an overview of your models so you can manage them. For more information, see [Introduction to Gemini Enterprise Agent Platform Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction) .
 
-The Vertex AI SDK includes the following methods to import a model to the Gemini Enterprise Agent Platform Model Registry. Click one of the methods to learn more about it in the Vertex AI SDK reference guide.
+The Agent Platform SDK includes the following methods to import a model to the Gemini Enterprise Agent Platform Model Registry. Click one of the methods to learn more about it in the Agent Platform SDK reference guide.
 
   - [`Model.upload`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model#google_cloud_aiplatform_Model_upload)
   - [`Model.upload_scikit_learn_model_file`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model#google_cloud_aiplatform_Model_upload_scikit_learn_model_file)
@@ -111,4 +111,4 @@ The following code sample shows how to create a reference to a model evaluation 
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

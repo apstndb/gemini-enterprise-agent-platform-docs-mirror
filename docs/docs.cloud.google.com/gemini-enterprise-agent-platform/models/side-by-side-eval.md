@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval
 title: Run AutoSxS pipeline to perform pairwise model-based evaluation
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to perform pairwise model-based evaluation using AutoSxS in Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -49,7 +49,7 @@ The list of evaluation criteria for `summarization` is as follows:
 
 ### Question answer
 
-The `question_answering` task has a 4,096 input [token limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/compute-token) .
+The `question_answering` task has a 4,096 input [token limit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count) .
 
 The list of evaluation criteria for `question_answering` is as follows:
 
@@ -424,7 +424,7 @@ Response
 
 ### Agent Platform SDK for Python
 
-To learn how to install or update the Agent Platform SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) . For more information on the Python API, see the [Agent Platform SDK for Python API](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+To learn how to install or update the Agent Platform SDK for Python, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) . For more information on the Python API, see the [Agent Platform SDK for Python API](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
 For more information about pipeline parameters, see [Google Cloud Pipeline Components Reference Documentation](https://google-cloud-pipeline-components.readthedocs.io/en/google-cloud-pipeline-components-2.8.0/_modules/google_cloud_pipeline_components/preview/model_evaluation/model_based_llm_evaluation/autosxs/autosxs_pipeline.html#autosxs_pipeline) .
 

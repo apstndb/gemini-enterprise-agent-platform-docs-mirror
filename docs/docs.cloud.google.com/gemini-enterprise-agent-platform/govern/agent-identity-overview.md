@@ -123,7 +123,9 @@ Agent Identity is fully integrated with Google's policy systems like IAM, Princi
   - **Context-Aware Access:** By default, a Google-managed Context-Aware Access policy helps secure [agent credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview#agent-credentials) by enforcing mTLS and DPoP token binding. This approach ensures that certificate-bound tokens cannot be replayed outside their trusted runtime environment.
   - **IAM integration:** Support for standard IAM allow policies and deny policies.
   - **Principal Access Boundary (PAB):** A PAB limits the resources an agent can access, regardless of other permissions.
-  - **VPC Service Controls:** Support for using agent identities ( [Preview](https://cloud.google.com/products#product-launch-stages) ) in [ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules) to allow access to resources protected by a service perimeter.
+  - **VPC Service Controls:** Support for perimeter protection and principal usage:
+      - **Perimeter protection:** You can add the Agent Identity API ( `agentidentity.googleapis.com` ) and the Agent Identity Credentials API ( `agentidentitycredentials.googleapis.com` ) to a service perimeter to help control access to these APIs. To use these APIs within a service perimeter, clients must route requests through the Restricted VIP ( `restricted.googleapis.com` ).
+      - **Ingress and egress rules:** Support for using agent identities as principals in [ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/ingress-egress-rules) to allow access to resources protected by a service perimeter.
 
 ## How Agent Identity works
 

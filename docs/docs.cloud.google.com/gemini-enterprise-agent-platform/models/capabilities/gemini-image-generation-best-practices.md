@@ -22,7 +22,7 @@ To improve your image generation results, follow these best practices:
 
   - **Prompt for images:** Describe the intent by using phrases such as "create an image of" or "generate an image of". Otherwise, the multimodal model might respond with text instead of the image.
 
-  - **Pass [Thought Signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures) :** When using Gemini, we recommend that you pass thought signatures back to the model during multi-turn image creation and editing. This lets you preserve reasoning context across interactions. For code samples related to multi-turn image editing using Gemini, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thought-signatures#multi-turn-image-editing) .
+  - **Pass [Thought Signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures) :** When using Gemini, we recommend that you pass thought signatures back to the model during multi-turn image creation and editing. This lets you preserve reasoning context across interactions. For code samples related to multi-turn image editing using Gemini, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures#multi-turn-image-editing) .
 
 ## What's next?
 

@@ -72,11 +72,12 @@ Access to the deployed endpoint is managed using Google Cloud Identity and Acces
 
 #### Install the SDK
 
-Run the following commands to install the AlphaGenome Cloud SDK. Access to the SDK wheel file requires allowlisting. Refer to the product welcome package for the wheel file location.
+The Wheel file for the AlphaGenome Cloud SDK is available at the [GoogleCloudPlatform GitHub repository](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/alphagenome/whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl) . You can download the Wheel file by running the following:
 
-    # Copy the SDK wheel file and install
-    # If using service account impersonation, append: --impersonate-service-account=$SERVICE_ACCOUNT
-    gcloud storage cp "gs://alphagenome-whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl" .
+    # Download the whl file using - 
+    wget -q https://github.com/GoogleCloudPlatform/vertex-ai-samples/raw/main/notebooks/community/alphagenome/whl/alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
+    
+    # Install the whl file
     pip install alphagenome_cloud_sdk-0.4.2.11-py3-none-any.whl
 
 #### Initialize the client

@@ -78,15 +78,41 @@ Agent Gateway supports two deployment modes:
   - **Client-to-Agent (ingress)** : Secures communications from clients to your agents running on Google Cloud.
   - **Agent-to-Anywhere (egress)** : Secures communications from your agents to external targets, public APIs, and MCP servers.
 
-### Select your runtime and region of deployment
+### Select your runtime, project, and region of deployment
 
-Agent Gateway governs traffic from agents running on Gemini Enterprise and Runtime. To centralize governance of agents across Gemini Enterprise and Runtime, you can use a single Agent Gateway. Alternatively, you can also deploy independent Agent Gateway instances for Gemini Enterprise and Runtime.
+Agent Gateway governs traffic from agents running on Gemini Enterprise and Runtime.
 
-Note that the Gemini Enterprise app, Runtime agents, Agent Gateway, and its associated Agent Registry all need to be in the same Google Cloud project.
+  - **Agent Runtime** : Agent Gateway supports both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) modes. In Agent-to-Anywhere mode, agents can be either in the same project as the gateway or in a different one. In Client-to-Agent mode, agents must be in the same project as the gateway. In either mode, agents must be in the same region as the gateway.
+
+  - **Gemini Enterprise** : Agent Gateway supports only Agent-to-Anywhere (egress) mode. With Gemini Enterprise, each gateway governs agentic interactions only within the scope of the project and region it is deployed in.
+
+To centralize governance of agents across Gemini Enterprise and Runtime, you can use a single Agent Gateway. Alternatively, you can also deploy independent Agent Gateway instances for Gemini Enterprise and Runtime.
+
+#### Sample deployment patterns
 
 Here are some sample deployment patterns for your consideration:
 
-  - Pattern 1: Centralized governance for Gemini Enterprise and Runtime agents  
+  - Centralized cross-project governance for Runtime agents  
+    In this deployment pattern, you deploy an Agent-to-Anywhere (egress) Agent Gateway in a dedicated governance project to centralize egress control. Runtime agents are deployed in separate projects in the same region as the gateway and can belong to any folder within your organization.
+    
+    To set up cross-project egress governance, you configure the following resources:
+    
+    In the **central governance project** :
+    
+      - Create the Agent Gateway. Ensure that the gateway is associated with an Agent Registry instance.
+      - Register cross-project agents along with any tools, servers, or endpoints with the Agent Registry attached to the gateway.
+      - Grant cross-project IAM permissions to the Runtime service agent of each project where the agents are based so that agents in these projects can bind to the gateway in the governance project. For an example, see [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) .
+      - Configure IAP policies, Principal Access Boundaries, and SPIFFE-compatible workload identities to govern and secure egress traffic to authorized endpoints.
+      - Create any Model Armor templates you want to use for egress.
+      - If you want to [egress to a VPC network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , you can create the PSC network attachment and DNS peering configuration in the governance project.
+    
+    In the **Agent Runtime projects** :
+    
+      - Deploy the agents and bind them to the central gateway in the governance project.
+    
+    Note that cross-project governance is supported only for Runtime with Agent-to-Anywhere (egress) gateways; Gemini Enterprise is not supported.
+
+  - Shared governance for Gemini Enterprise and Runtime agents  
     Your Gemini Enterprise app is deployed as a multi-region deployment (in either `us` or `eu` ) while all the other resources (Runtime, Agent Gateway, and Agent Registry) are deployed within a single region corresponding to the Gemini Enterprise multi-region setup.
     
     In such a deployment, both the Gemini Enterprise app and Runtime route their traffic through a single, local Agent Gateway directly to the final destination.
@@ -99,7 +125,7 @@ Here are some sample deployment patterns for your consideration:
 
     <sup>1</sup> For the agent to communicate with endpoints and servers, including Google Cloud MCP servers, you must manually register them with the regional Agent Registry instance.
 
-  - Pattern 2: Independent governance for Gemini Enterprise (using Google Cloud MCP servers) and Runtime agents  
+  - Independent governance for Gemini Enterprise (using Google Cloud MCP servers) and Runtime agents  
     Your Gemini Enterprise app is deployed as a multi-region deployment (in either `global` , `us` , or `eu` ) while Runtime agents are deployed in separate regions as needed. Agent Gateway instances are deployed in each region where runtimes are located.
     
     This pattern ensures regional isolation, with each region having a dedicated Agent Gateway to monitor and govern agent traffic.
@@ -149,7 +175,7 @@ Here are some sample deployment patterns for your consideration:
     
     <sup>1</sup> You must manually register your Runtime agents with the global Agent Registry instance to be able to govern connectivity between the Gemini Enterprise app and the Runtime agent.
 
-  - Pattern 3: Independent governance for Gemini Enterprise, Google Workspace, and Runtime agents  
+  - Independent governance for Gemini Enterprise, Google Workspace, and Runtime agents  
     Your Gemini Enterprise, Google Workspace and Runtime agents are deployed as multi-region or regional deployments as needed. The Agent Gateway instances are deployed in each region where runtimes are located.
     
     If your Google Workspace agents are multi-region, you'll need to associate the multi-region registry with Agent Gateway as shown in the following table.
@@ -197,12 +223,16 @@ To enable secure communication, you must identify your Agent Registry instance a
 
 1.  Identify the Agent Registry instance that you will be using.
     
-      - For Agent Runtime, you reference the regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ) in the same project and region where the Agent Runtime agents are deployed and where the gateway will be deployed.
+      - For Agent Runtime, you reference the regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ) in the same project and region where the Agent Gateway will be deployed.
       - For Gemini Enterprise, you reference either the global, multi-region, or regional registry in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed. See the [Plan your deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section for guidance on which registry is suitable for your deployment.
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
+    
+    Runtime agents in a different project than the gateway must be registered with the Agent Registry in the gateway project.
 
 3.  Identify and register all tools, MCP servers, and API endpoints your agents will call. Registering these resources is required because Agent Gateway blocks all outbound traffic to hosts not registered in Agent Registry.
+    
+    Destinations in a different project than the gateway must be registered with the Agent Registry in the gateway project. Such destinations are only valid for Runtime agents in Agent-to-Anywhere mode.
     
     For instructions, see the following guides:
     
@@ -224,7 +254,7 @@ Every Agent Gateway requires an associated authorization policy.
     For more information, see the following documents:
     
       - [Configure Model Armor on a gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor)
-      - [Delegate authorization using Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#model-armor)
+      - [Delegate authorization using Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma)
 
   - Semantic Governance Policies  
     (Optional) You can opt to add natural language-based context-aware controls on your agents to enable protections against toxic combinations of tools.
@@ -251,7 +281,7 @@ The following steps are required to enable communications between the agent and 
     
     Agent Gateway checks specifically for the `iap.webServiceVersions.egressViaIAP` permission, which is only granted by the `roles/iap.egressor` role. By default, all egress traffic is denied unless explicitly allowed by this IAM policy.
     
-    For instructions, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
+    For instructions, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
 
 ## Configure Agent Gateway in Agent-to-Anywhere (egress) mode
 
@@ -367,11 +397,11 @@ You define Agent Gateways declaratively using YAML.
     
     4.  Import the YAML configuration file to an authorization policy.
         
-            gcloud beta network-security authz-policies import AUTHORIZATION_POLICY_NAME \
+            gcloud network-security authz-policies import AUTHORIZATION_POLICY_NAME \
               --source=iap-request-authz-policy.yaml \
               --location=LOCATION
 
-4.  Optional: If you want to configure Model Armor guardrails to help protect your deployment against prompt injection attacks and sensitive data leaks, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#model_armor) .
+4.  Optional: If you want to configure Model Armor guardrails to help protect your deployment against prompt injection attacks and sensitive data leaks, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
 
 After an Agent Gateway has been created, it serves as the primary connection point for routing agent traffic within your project and chosen region. You can now use this endpoint to establish secure, encrypted, and authenticated communication channels between agents and their destinations (tools, other agents, or other endpoints).
 

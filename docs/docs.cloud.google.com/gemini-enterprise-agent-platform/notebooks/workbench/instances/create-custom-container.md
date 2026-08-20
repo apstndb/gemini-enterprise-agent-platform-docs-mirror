@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container
-title: Create a Agent Platform Workbench instance using a custom container
+title: Create an instance using a custom container
 description: Create a Gemini Enterprise Agent Platform Workbench instance based on a custom container.
 data_source: docs.cloud.google.com
 ---
@@ -36,7 +36,7 @@ Agent Platform Workbench provides Google-built base container images in two vari
 
 The standard base container supports all Agent Platform Workbench features and includes the following:
 
-  - Pre-installed [data science packages](https://docs.cloud.google.com/deep-learning-vm/docs/introduction#pre-installed_packages) .
+  - Pre-installed [data science packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/images-overview#pre-installed-packages) .
   - [Cuda libraries](https://hub.docker.com/r/nvidia/cuda) similar to [Deep Learning Containers](https://docs.cloud.google.com/deep-learning-containers/docs/overview) .
   - Google Cloud JupyterLab integrations such as the [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions) and [BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/bigquery) integrations.
   - Common system packages such as `curl` or `git` .

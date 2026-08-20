@@ -6,13 +6,13 @@ description: Learn about using prebuilt containers and explanations for inferenc
 data_source: docs.cloud.google.com
 ---
 
-Gemini Enterprise Agent Platform provides Docker container images that you run as *prebuilt containers* for serving inferences and [explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/overview) from trained model artifacts. These containers, which are organized by machine learning (ML) framework and framework version, provide [HTTP inference servers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#server) that you can use to serve inferences with minimal configuration. In many cases, using a prebuilt container is simpler than [creating your own custom container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
+Gemini Enterprise Agent Platform provides Docker container images that you run as *prebuilt containers* for serving inferences and [explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) from trained model artifacts. These containers, which are organized by machine learning (ML) framework and framework version, provide [HTTP inference servers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-container-requirements#server) that you can use to serve inferences with minimal configuration. In many cases, using a prebuilt container is simpler than [creating your own custom container for inference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .
 
 This document lists the prebuilt containers for inferences and explanations, and it describes how to use them with model artifacts that you [created using Agent Platform's custom training functionality](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/code-requirements) or model artifacts that you created outside of Agent Platform.
 
 ## Support policy and schedule
 
-Gemini Enterprise Agent Platform supports each framework version based on a schedule to minimize security vulnerabilities. Review the [Support policy schedule](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/framework-support-policy#support_policy_schedule) to understand the implications of the end-of-support and end-of-availability dates.
+Gemini Enterprise Agent Platform supports each framework version based on a schedule to minimize security vulnerabilities. Review the [Support policy schedule](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/framework-support-policy#support_policy_schedule) to understand the implications of the end-of-support and end-of-availability dates.
 
 ## Available container images
 

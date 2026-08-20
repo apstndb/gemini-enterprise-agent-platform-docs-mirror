@@ -146,9 +146,9 @@ To create an agent-to-registry egress policy by using the gcloud CLI, do the fol
 2.  Set the IAM allow policy in IAP for all resources in the Agent Registry:
     
     ```bash
-    gcloud beta iap web set-iam-policy agents-iap-policy.json \
+    gcloud iap web set-iam-policy agents-iap-policy.json \
         --project=PROJECT_ID \
-        --resource-type=AgentRegistry \
+        --resource-type=agent-registry \
         --region=REGION
     ```
     
@@ -226,8 +226,9 @@ To define an agent-to-agent egress policy by using the Google Cloud console, do 
 2.  Bind the IAM policy to IAP.
     
     ```bash
-    gcloud beta iap web set-iam-policy agents-iap-policy.json \
+    gcloud iap web set-iam-policy agents-iap-policy.json \
         --project=PROJECT_ID \
+        --resource-type=agent-registry \
         --agent=AGENT_ID \
         --region=REGION
     ```
@@ -336,9 +337,10 @@ To create an agent-to-MCP server egress policy using the gcloud CLI, do the foll
 2.  Bind the IAM policy to IAP.
     
     ```bash
-    gcloud beta iap web set-iam-policy agents-iap-policy.json \
+    gcloud iap web set-iam-policy agents-iap-policy.json \
         --project=PROJECT_ID \
-        --mcpServer=MCP_SERVER_ID 
+        --resource-type=agent-registry \
+        --mcp-server=MCP_SERVER_ID \
         --region=REGION
     ```
     
@@ -442,8 +444,9 @@ To define an agent-to-endpoint egress policy by using the Google Cloud console, 
 2.  Bind the IAM policy to IAP.
     
     ```bash
-    gcloud beta iap web set-iam-policy agents-iap-policy.json \
+    gcloud iap web set-iam-policy agents-iap-policy.json \
         --project=PROJECT_ID \
+        --resource-type=agent-registry \
         --endpoint=ENDPOINT_ID \
         --region=REGION
     ```
@@ -467,7 +470,7 @@ To configure IAP-based authentication for MCP servers that you deploy on Cloud R
 2.  Grant the Invoker role to the IAP service agent:
     
     ```sh
-    gcloud beta run services add-iam-policy-binding SERVICE_NAME \
+    gcloud run services add-iam-policy-binding SERVICE_NAME \
         --member='serviceAccount:service-PROJECT_NUMBER@gcp-sa-iap.iam.gserviceaccount.com' \
         --role='roles/run.invoker'
     ```
@@ -486,7 +489,7 @@ To configure IAP-based authentication for MCP servers that you deploy on Cloud R
     To deploy a new service, run the following command:
     
     ```sh
-    gcloud beta run deploy SERVICE_NAME \
+    gcloud run deploy SERVICE_NAME \
       --image=CONTAINER_IMAGE \
       --region=REGION \
       --project=PROJECT_ID \

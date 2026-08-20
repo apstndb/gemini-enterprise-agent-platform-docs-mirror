@@ -32,6 +32,7 @@ Flex PayGo is ideal for the synchronous, latency-tolerant, and non-critical task
 
 The following [preview](https://cloud.google.com/products#product-launch-stages) Gemini models support Flex PayGo in the `global` endpoint only. Flex PayGo doesn't support regional or multi-regional endpoints.
 
+  - [`gemini-3.7-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [`gemini-3.6-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [`gemini-3.5-flash-lite`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
   - [`gemini-3.1-flash-lite-image`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
@@ -102,7 +103,7 @@ After you set up your environment, you can use REST to test a text prompt. The f
 Before using any of the request data, make the following replacements.
 
   - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
-  - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Flex PayGo. For a list of models that support Flex PayGo, see [Model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/flex-paygo#supported-models) .
+  - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Flex PayGo. For a list of models that support Flex PayGo, see [Model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo#supported-models) .
   - `  PROMPT_TEXT  ` : The text instructions to include in the prompt. JSON.
 
 > You can override the default timeout by setting the `X-Server-Timeout` header. The timeout is specified in seconds.
@@ -194,7 +195,7 @@ Initialize your GenAI client to use Flex PayGo. After performing this step, you 
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
-  - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Flex PayGo. For a list of models that support Flex PayGo, see [Model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/flex-paygo#supported-models) .
+  - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Flex PayGo. For a list of models that support Flex PayGo, see [Model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo#supported-models) .
   - `  PROMPT_TEXT  ` : The text instructions to include in the prompt. JSON.
 
 > You can override the default timeout by setting the `X-Server-Timeout` header. The timeout is specified in seconds.

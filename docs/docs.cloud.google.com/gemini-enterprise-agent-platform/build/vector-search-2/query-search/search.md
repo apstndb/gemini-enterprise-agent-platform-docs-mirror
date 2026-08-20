@@ -26,7 +26,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search
+    POST https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search
 
 Request JSON body:
 
@@ -66,7 +66,7 @@ Save the request body in a file named `request.json` , and execute the following
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \
          -H "Content-Type: application/json; charset=utf-8" \
          -d @request.json \
-         "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search"
+         "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search"
 
 #### PowerShell (Windows)
 
@@ -82,7 +82,7 @@ Save the request body in a file named `request.json` , and execute the following
         -Headers $headers `
         -ContentType: "application/json; charset=utf-8" `
         -InFile request.json `
-        -Uri "https://vectorsearch.googleapis.com/v1beta/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search" | Select-Object -Expand Content
+        -Uri "https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
 
@@ -266,7 +266,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects search \
+    gcloud vector-search collections data-objects search \
       --vector-search-field="plot_embedding" \
       --vector-from-file=SEARCH_VECTOR_FILE \
       --json-filter='{"genre": {"$eq": "Thriller"}}' \
@@ -282,7 +282,7 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud beta vector-search collections data-objects search `
+    gcloud vector-search collections data-objects search `
       --vector-search-field="plot_embedding" `
       --vector-from-file=SEARCH_VECTOR_FILE `
       --json-filter='{"genre": {"$eq": "Thriller"}}' `
@@ -300,7 +300,7 @@ Execute the following command:
 
 > **Note:** If this command uses `'` for quoting content, replace these single quotes with double quotes. If quoting is nested, use `\"` to escape the inner quotes.
 
-    gcloud beta vector-search collections data-objects search ^
+    gcloud vector-search collections data-objects search ^
       --vector-search-field="plot_embedding" ^
       --vector-from-file=SEARCH_VECTOR_FILE ^
       --json-filter='{"genre": {"$eq": "Thriller"}}' ^
@@ -419,19 +419,19 @@ You should receive a response similar to the following:
 
 ### Python
 
-    from google.cloud import vectorsearch_v1beta
+    from google.cloud import vectorsearch_v1
     
     # Create the client
-    data_object_search_service_client = vectorsearch_v1beta.DataObjectSearchServiceClient()
+    data_object_search_service_client = vectorsearch_v1.DataObjectSearchServiceClient()
     
     # Initialize request
-    vector_search = vectorsearch_v1beta.VectorSearch(
+    vector_search = vectorsearch_v1.VectorSearch(
         search_field="plot_embedding",
         vector={"values": [0.1, 0.2, 0.3]},
         filter={"genre": {"$eq": "Thriller"}},
         top_k=5,
     )
-    request = vectorsearch_v1beta.SearchDataObjectsRequest(
+    request = vectorsearch_v1.SearchDataObjectsRequest(
         parent="projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID",
         vector_search=vector_search,
     )

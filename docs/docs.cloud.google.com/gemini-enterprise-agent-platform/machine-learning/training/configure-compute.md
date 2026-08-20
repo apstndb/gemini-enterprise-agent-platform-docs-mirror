@@ -145,9 +145,14 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
   - `c2-standard-16`
   - `c2-standard-30`
   - `c2-standard-60`
+  - `cloud-tpu` <sup>\*</sup>
   - `ct5lp-hightpu-1t` <sup>\*</sup>
   - `ct5lp-hightpu-4t` <sup>\*</sup>
   - `ct5lp-hightpu-8t` <sup>\*</sup>
+  - `ct6e-standard-1t` <sup>\*</sup>
+  - `ct6e-standard-4t` <sup>\*</sup>
+  - `ct6e-standard-8t` <sup>\*</sup>
+  - `tpu7x-standard-4t` <sup>\*</sup>
   - `m1-ultramem-40`
   - `m1-ultramem-80`
   - `m1-ultramem-160`
@@ -164,7 +169,6 @@ In your `WorkerPoolSpec` , you must specify one of the following machine types i
   - `g4-standard-96` <sup>\*</sup>
   - `g4-standard-192` <sup>\*</sup>
   - `g4-standard-384` <sup>\*</sup>
-  - `cloud-tpu` <sup>\*</sup>
 
 \* Machine types marked with asterisks in the preceding list must be used with certain GPUs or TPUs. See the following sections of this guide.
 

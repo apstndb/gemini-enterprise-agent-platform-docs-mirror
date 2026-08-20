@@ -188,57 +188,69 @@ Here is an example:
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
-    from vertexai.language_models import TextEmbeddingInput, TextEmbeddingModel
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+
+    import os
     
-    MODEL_NAME = "gemini-embedding-001"
-    DIMENSIONALITY = 3072
+    from google import genai
     
+    # TODO (Developer) set the following environment variables.
+    PROJECT_ID = os.getenv("PROJECT_ID")
+    LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
+    MODEL_NAME = os.getenv("MODEL_NAME", "gemini-embedding-001")
     
-    def embed_text(
-        texts: list[str] = ["Retrieve a function that adds two numbers"],
-        task: str = "CODE_RETRIEVAL_QUERY",
-        model_name: str = "gemini-embedding-001",
-        dimensionality: int | None = 3072,
-    ) -> list[list[float]]:
-        """Embeds texts with a pre-trained, foundational model."""
-        model = TextEmbeddingModel.from_pretrained(model_name)
-        kwargs = dict(output_dimensionality=dimensionality) if dimensionality else {}
-    
-        embeddings = []
-        # gemini-embedding-001 takes one input at a time
-        for text in texts:
-            text_input = TextEmbeddingInput(text, task)
-            embedding = model.get_embeddings([text_input], **kwargs)
-            print(embedding)
-            # Example response:
-            # [[0.006135190837085247, -0.01462465338408947, 0.004978656303137541, ...]]
-            embeddings.append(embedding[0].values)
-    
-        return embeddings
+    QUERY_LINES = ["Retrieve a function that adds two numbers"]
+    CODE_RETRIEVAL_QUERY = "CODE_RETRIEVAL_QUERY"
+    RETRIEVAL_DOCUMENT = "RETRIEVAL_DOCUMENT"
+    SOURCE_CODE = [
+        "def func(a, b): return a + b",
+        "def func(a, b): return a - b",
+        "def func(a, b): return (a ** 2 + b ** 2) ** 0.5",
+    ]
     
     
-    if __name__ == "__main__":
-        # Embeds code block with a pre-trained, foundational model.
-        # Using this function to calculate the embedding for corpus.
-        texts = ["Retrieve a function that adds two numbers"]
-        task = "CODE_RETRIEVAL_QUERY"
-        code_block_embeddings = embed_text(
-            texts=texts, task=task, model_name=MODEL_NAME, dimensionality=DIMENSIONALITY
-        )
+    def embed_test() -> (
+        tuple[genai.types.EmbedContentResponse, genai.types.EmbedContentResponse]
+    ):
+        """Generates embeddings for source code indexing and code search queries using the Gemini API.
     
-        # Embeds code retrieval with a pre-trained, foundational model.
-        # Using this function to calculate the embedding for query.
-        texts = [
-            "def func(a, b): return a + b",
-            "def func(a, b): return a - b",
-            "def func(a, b): return (a ** 2 + b ** 2) ** 0.5",
-        ]
-        task = "RETRIEVAL_DOCUMENT"
-        code_query_embeddings = embed_text(
-            texts=texts, task=task, model_name=MODEL_NAME, dimensionality=DIMENSIONALITY
-        )
+        Returns:
+            tuple[genai.types.EmbedContentResponse, genai.types.EmbedContentResponse]: A tuple containing
+            the final source code indexing response and search query embedding response.
+        """
+        client = genai.Client(enterprise=True, project=PROJECT_ID, location=LOCATION_ID)
+    
+        # Index Source Code
+        for line in SOURCE_CODE:
+            config = genai.types.EmbedContentConfig(task_type=RETRIEVAL_DOCUMENT)
+    
+            index_response = client.models.embed_content(
+                model=MODEL_NAME, contents=line, config=config
+            )
+    
+            print(
+                f"Task: {RETRIEVAL_DOCUMENT} | "
+                f"Vector length: {len(index_response.embeddings)} | "
+                f"Preview: {index_response.embeddings[:3]}..."
+            )
+    
+        # Embed Search Prompts
+        for line in QUERY_LINES:
+            config = genai.types.EmbedContentConfig(task_type=CODE_RETRIEVAL_QUERY)
+    
+            query_response = client.models.embed_content(
+                model=MODEL_NAME, contents=line, config=config
+            )
+    
+            print(
+                f"Task: {CODE_RETRIEVAL_QUERY} | "
+                f"Vector length: {len(query_response.embeddings)} | "
+                f"Preview: {query_response.embeddings[:3]}..."
+            )
+    
+        return index_response, query_response
 
 ### Assess text similarity
 

@@ -39,7 +39,7 @@ Specify the machine type (and, optionally, GPU configuration) in the [`dedicated
 Learn how to deploy each model type:
 
   - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
-  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#1_create_an_endpoint)
+  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#create-endpoint)
   - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
 
 ### Batch inference
@@ -309,7 +309,7 @@ Other configurations, such as the N1 series, let you optionally add GPUs to acce
 To add optional GPU accelerators, you must account for several requirements:
 
   - You can only use GPUs when your `Model` resource is based on a [TensorFlow SavedModel](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts) , or when you [use a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) that has been designed to take advantage of GPUs. You can't use GPUs for scikit-learn or XGBoost models.
-  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/general/locations#accelerators) .
+  - The availability of each type of GPU varies depending on which region you use for your model. Learn [which types of GPUs are available in which regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#accelerators) .
   - You can only use one type of GPU for your `DeployedModel` resource or `BatchPredictionJob` , and there are limitations on the number of GPUs you can add depending on which machine type you are using. The following table describes these limitations.
 
 The following table shows the optional GPUs that are available for online inference and how many of each type of GPU you can use with each Compute Engine machine type:
@@ -526,7 +526,7 @@ The following machine types are supported. Note that, for machine types that onl
 
 Before using this feature, read [Deploy a model by using the gcloud CLI or Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api) .
 
-### Deploying the model replicas
+### Deploy the model replicas
 
 The following samples demonstrate how to deploy coscheduled model replicas.
 
@@ -691,6 +691,6 @@ Because more than one replica is being coscheduled on the same VM, Vertex AI Inf
 ## What's next
 
   - [Deploy an AutoML tabular model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-console)
-  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-recognition-custom/serving#1_create_an_endpoint)
+  - [Deploy a custom-trained model in Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/serving#create-endpoint)
   - [Deploy a custom-trained model using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/deploy-model-api)
   - [Get batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions)

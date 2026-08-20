@@ -60,7 +60,7 @@ You can set a [Model Garden organization policy](https://docs.cloud.google.com/g
 
 ## Learn more about Model Garden
 
-For more information about the deployment options and customizations that you can do with models in Model Garden, view the resources in the following sections, which include links to tutorials, references, notebooks, and YouTube videos.
+For more information about the deployment options and customizations that you can do with models in Model Garden, view the resources in the following sections.
 
 ### Deploy and serve
 
@@ -75,14 +75,14 @@ Learn more about customizing deployments and advance serving features.
   - [Serve open models with a Hex-LLM container on Cloud TPUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hex-llm)
   - [Deploying Llama models by using Hex-LLM tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_hexllm_deep_dive_tutorial.ipynb)
   - [Use prefix caching and speculative decoding with Hex-LLM or vLLM tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_advanced_features.ipynb)
+  - [Serving Gemma 2 with multiple LoRA adapters with HuggingFace DLC for PyTorch inference tutorial on Medium](https://medium.com/google-cloud/open-models-on-vertex-ai-with-hugging-face-serving-multiple-lora-adapters-on-vertex-ai-e3ceae7b717c)
+  - [Use custom handles to serve PaliGemma for image captioning with HuggingFace DLC for PyTorch inference tutorial on LinkedIn](https://www.linkedin.com/posts/ivan-nardini_vertexai-huggingface-deeplearning-activity-7269824291238526976-oxuM?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy)
+  - [Deploy and serve a HuggingFace model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models)
+  - [Use xDiT GPU serving container for image and video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/xdit)
   - [Use vLLM to serve text-only and multimodel language models on Cloud GPUs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/vllm/use-vllm)
       - [Text-only models tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_vllm_text_only_tutorial.ipynb)
       - [Multimodal models tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_vllm_multimodal_tutorial.ipynb)
-  - [Use xDiT GPU serving container for image and video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/xdit)
-  - [Serving Gemma 2 with multiple LoRA adapters with HuggingFace DLC for PyTorch inference tutorial on Medium](https://medium.com/google-cloud/open-models-on-vertex-ai-with-hugging-face-serving-multiple-lora-adapters-on-vertex-ai-e3ceae7b717c)
-  - [Use custom handles to serve PaliGemma for image captioning with HuggingFace DLC for PyTorch inference tutorial on LinkedIn](https://www.linkedin.com/posts/ivan-nardini_vertexai-huggingface-deeplearning-activity-7269824291238526976-oxuM?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy)
   - [Deploy and serve a model that uses Spot VMs or a Compute Engine reservation tutorial notebook](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_reservations_spotvm.ipynb)
-  - [Deploy and serve a HuggingFace model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models)
 
 ### Tuning
 

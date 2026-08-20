@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames
 title: Generate videos using first and last video frames
-description: Generate Veo on Gemini Enterprise Agent Platform videos with a first and last frame that you specify. Use the {{dynamic_data.site_values.cloud_name_short}} console, or send a request to the Agent Platform API.
+description: Generate videos on Gemini Enterprise Agent Platform with a first and last frame that you specify. Use the {{dynamic_data.site_values.cloud_name_short}} console, or send a request to the Agent Platform API.
 data_source: docs.cloud.google.com
 ---
 
-You can generate Veo on Gemini Enterprise Agent Platform videos by specifying the first and last frames of the video. Supported interfaces include the Google Cloud console and the Agent Platform API.
+You can generate videos with Gemini Enterprise Agent Platform by specifying the first and last frames of the video. Supported interfaces include the Google Cloud console and the Agent Platform API.
 
 The following models support generating videos from first and last video frames:
 

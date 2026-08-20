@@ -58,7 +58,7 @@ Capabilities
     Not supported
   - [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)  
     Not supported
-  - [Virtual try-on](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/virtual-try-on)  
+  - [Virtual try-on](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/generate-virtual-try-on-images)  
     Supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported

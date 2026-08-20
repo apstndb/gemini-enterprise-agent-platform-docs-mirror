@@ -43,7 +43,7 @@ From the registry, you can manage model versions, deploy to endpoints for online
 
 **Available languages:**
 
-  - The [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-sdk) supports Python, Java, Node.js, and Go.
+  - The [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-sdk) supports Python, Java, Node.js, and Go.
 
 ### BigQuery: A serverless, multicloud enterprise data warehouse
 
@@ -80,7 +80,7 @@ You can register your BigQuery ML models to the Model Registry in order to manag
 
   - **MLOps capabilities** : Models are most beneficial when they are kept up to date through continuous training. Agent Platform offers MLOps tools that automate the monitoring and retraining of models to maintain the accuracy of predictions over time. With Agent Platform Pipelines, you can use BigQuery operators to plug any BigQuery jobs (including BigQuery ML) into an ML pipeline. With Gemini Enterprise Agent Platform Model Monitoring, you can monitor your BigQuery ML predictions over time.
 
-![An image of Google Cloud products and where they fit in an MLOps workflow](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/mlops_bq2_new.png)
+![Google Cloud products and where they fit in an MLOps workflow](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/beginner/images/mlops_bq2_new.png)
 
 To learn how to register your BigQuery ML models to the Model Registry, see [Manage BigQuery ML models with Agent Platform](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex) .
 

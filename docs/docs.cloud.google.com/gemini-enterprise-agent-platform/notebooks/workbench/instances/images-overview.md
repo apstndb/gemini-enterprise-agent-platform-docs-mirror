@@ -88,6 +88,15 @@ Your container runs on a Google-managed host, based on Container-Optimized OS (C
 
 For the base image URIs, sizes, and supported Python versions, see [Create a custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container) . For constraints, see [Custom container limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-custom-container#limitations) .
 
+## Pre-installed packages
+
+Agent Platform Workbench images can be configured to include the following:
+
+  - Specific ML frameworks (for example, TensorFlow and PyTorch) and their supporting packages.
+  - Python with common data science packages such as numpy, scipy, matplotlib, pandas, nltk, pillow, scikit-image, opencv-python, and scikit-learn, among many others.
+  - JupyterLab notebook environments for quick prototyping.
+  - NVIDIA packages, including the NVIDIA driver, CUDA, cuDNN, and NCCL, for GPU-enabled instances.
+
 ## What's next
 
   - [Image versioning and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/image-versioning) : See what each image contains, how versions are numbered, and when images are deprecated.

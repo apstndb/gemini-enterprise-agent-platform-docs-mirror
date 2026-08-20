@@ -24,7 +24,7 @@ The following steps cover this process:
 
 5.  Create a Cloud Function with an Eventarc trigger that runs the pipeline whenever new data is inserted into the BigQuery dataset.
 
-## Before You Begin
+## Before you begin
 
 Setup your project and notebook.
 
@@ -458,7 +458,7 @@ At the end of this section, your **Files** panel should contain the following fi
     
     Replace the following parameter values:
     
-      - `REGION` : Choose the same region you choose when creating your colab notebook.
+      - `REGION` : Choose the same region you choose when creating your Colab notebook.
     
       - `BUCKET_NAME` : The bucket name.
 

@@ -12,11 +12,11 @@ This page lists the supported frameworks and their constituent packages for the 
 
   - [Prebuilt containers for predictions and explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#predictions)
 
-  - [Prebuilt containers for Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#ray)
+  - [Prebuilt containers for Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#ray)
 
   - [Gemini Enterprise Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#pipelines)
 
-For an in-depth explanation of the framework support policy, see [Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/framework-support-policy) .
+For an in-depth explanation of the framework support policy, see [Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/framework-support-policy) .
 
 ## Supported frameworks for custom training
 
@@ -6107,9 +6107,9 @@ The following container images use the optimized TensorFlow runtime. For more in
 </tbody>
 </table>
 
-## Supported versions of Ray on Vertex AI
+## Supported versions of Ray on Gemini Enterprise Agent Platform
 
-[Ray on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) container images are available. The following versions of prebuilt containers are supported:
+[Ray on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray) container images are available. The following versions of prebuilt containers are supported:
 
 <table>
 <colgroup>
@@ -6568,7 +6568,7 @@ Other <a href="https://docs.cloud.google.com/deep-learning-containers/docs/overv
 
   - [Google Cloud Pipeline Components (GCPC)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/supported-frameworks#gcpc_framework)
 
-Since these frameworks are periodically updated to patch bugs and vulnerabilities, it's recommended that you always use the latest patch version and stay within the end of support date. Customer support is not provided if a version is beyond the end of support date. For more information, see [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform//machine-learning/framework-support-policy) .
+Since these frameworks are periodically updated to patch bugs and vulnerabilities, it's recommended that you always use the latest patch version and stay within the end of support date. Customer support is not provided if a version is beyond the end of support date. For more information, see [Gemini Enterprise Agent Platform framework support policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/framework-support-policy) .
 
 In general, follow these guidelines while using pipeline templates:
 

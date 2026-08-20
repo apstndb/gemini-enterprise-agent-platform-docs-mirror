@@ -10,9 +10,11 @@ data_source: docs.cloud.google.com
 > 
 > These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products** . These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 
-Hyperparameters control how the model weights are updated during reinforcement learning fine-tuning. The defaults are tuned to work well for most workloads, but you can override any of them in the request body when you create a tuning job.
+Hyperparameters control how the model weights are updated during reinforcement learning fine-tuning. The defaults are tuned to work well for most workloads, but you can override any of them in the request body when you [create a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/create) .
 
 ## Available hyperparameters
+
+For the API definition of these parameters, see the [`ReinforcementTuningHyperParameters`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningHyperParameters) API reference.
 
 ### `epochCount`
 

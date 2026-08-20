@@ -82,9 +82,9 @@ You can configure the following tools for your agent:
 
   - **Google Search:** Lets the agent perform web searches using Google Search. Toggled on by default.
 
-  - **URL context:** Let the model analyze URLs from prompts sent to the agent. Toggled on by default.
+  - **URL context:** Lets the model analyze URLs from prompts sent to the agent. Toggled on by default.
 
-  - **Agent Platform Search Data Store:** Click **Add** (+) to let your agent access information that has been indexed in your Agent Search data store.
+  - **Agent Search Data Store:** Click **Add** (+) to let your agent access information that has been indexed in your Agent Search data store.
     
       - **Project Number:** The Google Cloud project number associated with your Agent Search data store. [View your project number](https://console.cloud.google.com/welcome) .
     
@@ -94,7 +94,7 @@ You can configure the following tools for your agent:
     
       - **Collection ID** : Collection ID of the data to include. [View a list of your data stores and collection IDs](https://console.cloud.google.com/gen-app-builder/data-stores) . If your data store doesn't have a Collection ID, enter `default_collection` .
     
-    If you don't have an existing data store, see [Get started with custom search](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-enterprise-search#create_a_data_store) to create one. Then grant service account access to Agent Platform Search:
+    If you don't have an existing data store, see [Get started with custom search](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-enterprise-search#create_a_data_store) to create one. Then grant service account access to Agent Search:
     
     1.  In the Google Cloud console, go to the **IAM** page.  
     
@@ -115,7 +115,7 @@ You can configure the following tools for your agent:
     
     Your agent can use all tools in your connected MCP server.
 
-## Deploy an Agent from Agent Studio
+## Deploy an agent from Agent Studio
 
 After you create and preview an agent, you can deploy it to production. Use the following steps to deploy an agent from Agent Studio:
 
@@ -135,7 +135,7 @@ Deployment creates a new runtime instance and can take up to five minutes to com
 
 To view your deployed agent:
 
-1.  In the Google Cloud console, go to the **Agent Platform** page.  
+1.  In the Google Cloud console, go to the Agent Platform **Deployments** page.  
 
 2.  Use the **Region** list to filter by deployment region.
 
@@ -147,4 +147,4 @@ To view your deployed agent:
 
 6.  Enter a test query in the chat pane to verify that the agent runs successfully.
 
-For more information on available metrics for your agent, see [View metrics for your deployed agent](https://docs.cloud.google.com/agent-builder/agent-engine/manage/overview#view-metrics) .
+For more information on available metrics for your agent, see [View metrics for your deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/monitoring#view-metrics) .

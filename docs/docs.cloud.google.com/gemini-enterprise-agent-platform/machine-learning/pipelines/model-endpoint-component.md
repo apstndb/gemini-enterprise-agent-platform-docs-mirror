@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 `Model` , this resource is available in Gemini Enterprise Agent Platform. You can deploy this `Model` to an `Endpoint` and then send prediction requests to this resource.
 
-Learn more about how to [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) and [Request predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/getting-predictions) .
+Learn more about how to [Import models to Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) and [Request predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-online-predictions) .
 
 ## Model operators
 

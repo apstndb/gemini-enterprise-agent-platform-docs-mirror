@@ -16,6 +16,8 @@ Using provided queries, you can explore the query results as a topology graph or
 
 You can view data for both discovered agents and agents that are registered with [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . Gemini Enterprise Agent Platform determines relationships using aggregated trace data.
 
+> **Note:** Starting September 15, 2026, the App Topology API transitions to a usage-based billing model that includes a daily free data usage allotment. For more information, see [App Topology pricing](https://docs.cloud.google.com/hub/docs/app-topology#pricing) .
+
 ### Limitations
 
   - Query results only include components that meet the following criteria:

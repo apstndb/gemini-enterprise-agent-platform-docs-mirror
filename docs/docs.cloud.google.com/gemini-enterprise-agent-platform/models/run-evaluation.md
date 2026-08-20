@@ -10,7 +10,9 @@ This page shows you how to run evaluations for your generative language models a
 
 ## Before you begin
 
-### Install the Vertex AI SDK
+Before you run evaluations, complete the following prerequisites:
+
+### Install the Agent Platform SDK
 
 To install the Gen AI Evaluation module from the Agent Platform SDK for Python, run the following command:
 
@@ -18,9 +20,9 @@ To install the Gen AI Evaluation module from the Agent Platform SDK for Python, 
 
 For more information, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) .
 
-### Authenticate the Vertex AI SDK
+### Authenticate the Agent Platform SDK
 
-After you install the Agent Platform SDK for Python, you need to authenticate. The following topics explain how to authenticate with the Vertex AI SDK if you're working locally and if you're working in Colaboratory:
+After you install the Agent Platform SDK for Python, you need to authenticate. The following topics explain how to authenticate with the Agent Platform SDK if you're working locally and if you're working in Colaboratory:
 
   - If you're developing locally, set up [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) in your local environment:
     

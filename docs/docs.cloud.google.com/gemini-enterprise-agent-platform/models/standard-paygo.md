@@ -18,16 +18,63 @@ Your traffic isn't strictly capped at the Baseline Throughput limit. Agent Platf
 
 The following tiers are available in Standard PayGo:
 
-| Model Family                           | Tier   | Customer Spend (30 Days) | Traffic TPM (Org-Level) |
-| :------------------------------------- | :----- | :----------------------- | :---------------------- |
-| **Gemini Pro models**                  | Tier 1 | $10 - $250               | 500,000                 |
-|                                        | Tier 2 | $250 - $2000             | 1,000,000               |
-|                                        | Tier 3 | \> $2000                 | 2,000,000               |
-| **Gemini Flash and Flash-Lite models** | Tier 1 | $10 - $250               | 2,000,000               |
-|                                        | Tier 2 | $250 - $2000             | 4,000,000               |
-|                                        | Tier 3 | \> $2000                 | 10,000,000              |
+Model Family
 
-Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 2.5 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. However, the [system limit of 30,000 RPM](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) per model per region applies. Gemini requests with multimodal inputs are subject to the corresponding system rate limits, including [image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) , [audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/audio-understanding) , [video](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding) , and [document](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/document-understanding) .
+Tier
+
+Customer Spend (30 Days)
+
+Traffic TPM (Org-Level)
+
+**Gemini Pro models**
+
+Tier 1
+
+$10 - $250
+
+500,000
+
+Tier 2
+
+$250 - $2000
+
+1,000,000
+
+Tier 3
+
+\> $2000
+
+2,000,000
+
+Custom Tier
+
+Contact your sales team for more information
+
+**Gemini Flash and Flash-Lite models**
+
+Tier 1
+
+$10 - $250
+
+2,000,000
+
+Tier 2
+
+$250 - $2000
+
+4,000,000
+
+Tier 3
+
+\> $2000
+
+10,000,000
+
+Custom Tier
+
+Contact your sales team for more information
+
+Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 2.5 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
 
 > **Note:** For mission-critical workloads that require a strict Service Level Agreement (SLA) and can't tolerate performance variation or throttling, we recommend using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . Provisioned Throughput provides dedicated and assured capacity with improved performance and reliability.
 
@@ -77,8 +124,8 @@ The following [generally available (GA)](https://cloud.google.com/products#produ
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
   - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
 The following [GA](https://cloud.google.com/products#product-launch-stages) Gemini models and their [supervised fine-tuned](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) models also support Standard PayGo, but the usage tiers don't apply to these models:
 

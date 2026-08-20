@@ -71,7 +71,7 @@ You can view a reinforcement learning fine-tuning job's status and results in tw
 
 ### Programmatically with `curl`
 
-Issue a `GetTuningJob` request to retrieve the job's state, `tunedModel` , error details, and metadata.
+Issue a [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/get) request to retrieve the job's state, `tunedModel` , error details, and metadata.
 
     curl -X GET \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \

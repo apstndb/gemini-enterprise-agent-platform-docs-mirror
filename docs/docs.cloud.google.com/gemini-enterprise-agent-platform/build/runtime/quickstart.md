@@ -35,7 +35,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Install and initialize the Agent Platform SDK for Python
 
-1.  Run the following command to install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) and other required packages:
+1.  Run the following command to install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) and other required packages:
     
     ### LangGraph
     

@@ -218,4 +218,4 @@ You should receive a JSON response similar to the following:
   - Previous models don't automatically undeploy after a rolling deployment completes successfully. You can [undeploy the model manually](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/undeployModel) .
   - For rolling deployments on shared public endpoints, the `predictRoute` and `healthRoute` for the new model must be the same as for the previous model.
   - Rolling deployments aren't compatible with [model cohosting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/model-co-hosting) .
-  - Rolling deployments can't be used for models that require [online explanations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/explainable-ai/getting-explanations) .
+  - Rolling deployments can't be used for models that require [online explanations](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/getting-explanations) .

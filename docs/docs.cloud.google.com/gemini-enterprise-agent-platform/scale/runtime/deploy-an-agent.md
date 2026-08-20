@@ -526,7 +526,7 @@ To deploy an agent on Agent Platform, you can choose between the following metho
 
   - Deploying from container image for image-based workflows.
 
-### Python Object
+### Python object
 
 To deploy the agent on Agent Platform, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) :
 
@@ -588,13 +588,13 @@ To deploy from Developer Connect on Agent Platform, use `client.agent_engines.cr
 
 The parameters for Developer Connect deployment are:
 
-  - `developer_connect_source` (Required, `dict` ): The configuration for fetching source code. See [set up Developer Connect Git repository link](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-setup) for details.
-      - `git_repository_link` (Required, `str` ): The Developer Connect Git repository link resource name.
-      - `revision` (Required, `str` ): The revision to fetch (branch, tag, or commit SHA).
-      - `dir` (Required, `str` ): The root directory of the agent code within the repository.
-  - `entrypoint_module` (Required, `str` ): The Python module name containing the agent entrypoint, relative to the directory specified in `developer_connect_source.dir` .
-  - `entrypoint_object` (Required, `str` ): The name of the callable object within the `entrypoint_module` that represents the agent application (for example, `root_agent` ).
-  - `requirements_file` (Optional, `str` ): The path to a pip requirements file relative to the source root. Defaults to `requirements.txt` .
+  - `developer_connect_source` ( `dict` ): The configuration for fetching source code. See [set up Developer Connect Git repository link](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-setup) for details.
+      - `git_repository_link` ( `str` ): The Developer Connect Git repository link resource name.
+      - `revision` ( `str` ): The revision to fetch (branch, tag, or commit SHA).
+      - `dir` ( `str` ): The root directory of the agent code within the repository.
+  - `entrypoint_module` ( `str` ): The Python module name containing the agent entrypoint, relative to the directory specified in `developer_connect_source.dir` .
+  - `entrypoint_object` ( `str` ): The name of the callable object within the `entrypoint_module` that represents the agent application (for example, `root_agent` ).
+  - `requirements_file` ( `str` ): Optional: The path to a pip requirements file relative to the source root. Defaults to `requirements.txt` .
 
 Deployment takes a few minutes, during which the following steps happen in the background:
 
@@ -606,6 +606,17 @@ Deployment takes a few minutes, during which the following steps happen in the b
 
 To deploy from source files on Agent Platform, use `client.agent_engines.create` by providing `source_packages` , `entrypoint_module` , `entrypoint_object` , and `class_methods` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . With this method, you don't need to pass an agent object or Cloud Storage bucket.
 
+    # Example file structure:
+    # /agent_directory
+    #     ├── agent.py
+    #     ├── requirements.txt
+    
+    # Example agent_directory/agent.py:
+    # class MyAgent:
+    #     def ask(self, question: str) -> str:
+    #         return f"Answer to {question}"
+    # root_agent = MyAgent()
+    
     remote_agent = client.agent_engines.create(
         config={
             "source_packages": source_packages,             # Required.
@@ -631,21 +642,20 @@ To deploy from source files on Agent Platform, use `client.agent_engines.create`
 
 The parameters for inline source deployment are:
 
-  - `source_packages` (Required, `list[str]` ): A list of local file or directory paths to include in the deployment. The total size of the files and directories in `source_packages` shouldn't exceed 8MB.
+  - `source_packages` ( `list[str]` ): A list of local file or directory paths to include in the deployment. The total size of the files and directories in `source_packages` shouldn't exceed 8MB.
 
-  - `entrypoint_module` (Required, `str` ): The fully qualified Python module name containing the agent entrypoint (for example, `agent_dir.agent` ).
+  - `entrypoint_module` ( `str` ): The fully qualified Python module name containing the agent entrypoint (for example, `agent_dir.agent` ).
 
-  - `entrypoint_object` (Required, `str` ): The name of the callable object within the `entrypoint_module` that represents the agent application (for example, `root_agent` ).
+  - `entrypoint_object` ( `str` ): The name of the callable object within the `entrypoint_module` that represents the agent application (for example, `root_agent` ).
 
-  - `class_methods` (Required, `list[dict]` ): A list of dictionaries that define the agent's exposed methods. Each dictionary includes a `name` (Required), an `api_mode` (Required), and a `parameters` field. Refer to [List supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#supported-operations) for more information a the methods for a custom agent.
+  - `class_methods` ( `list[dict]` ): A list of dictionaries that define the agent's exposed methods. Each dictionary includes a `name` , `api_mode` , and optional `parameters` field. Refer to [List supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#supported-operations) for more information about the methods for a custom agent.
     
     For example:
     
-    ```` 
-      "class_methods": [
+        class_methods = [
           {
               "name": "method_name",
-              "api_mode": "", # Possible options are: "", "async", "async_stream", "stream", "bidi_stream"
+              "api_mode": "",  # Options: "", "async", "async_stream", "stream", "bidi_stream"
               "parameters": {
                   "type": "object",
                   "properties": {
@@ -655,11 +665,9 @@ The parameters for inline source deployment are:
                   "required": ["param1"]
               }
           }
-      ]
-      ```
-    ````
+        ]
 
-  - `requirements_file` (Optional, `str` ): The path to a pip requirements file within the paths specified in `source_packages` . Defaults to `requirements.txt` at the root directory of the packaged source.
+  - `requirements_file` ( `str` ): Optional: The path to a pip requirements file within the paths specified in `source_packages` . Defaults to `requirements.txt` at the root directory of the packaged source.
 
 Deployment takes a few minutes, during which the following steps happen in the background:
 
@@ -667,52 +675,12 @@ Deployment takes a few minutes, during which the following steps happen in the b
 2.  This archive is encoded and sent directly to the Agent Platform API.
 3.  The Agent Runtime service receives the archive, extracts it, installs dependencies from `requirements_file` (if provided), and starts the agent application using the specified `entrypoint_module` and `entrypoint_object` .
 
-The following is an example of deploying an agent from source files:
-
-    from google.cloud.aiplatform import vertexai
-    
-    # Example file structure:
-    # /agent_directory
-    #     ├── agent.py
-    #     ├── requirements.txt
-    
-    # Example agent_directory/agent.py:
-    # class MyAgent:
-    #     def ask(self, question: str) -> str:
-    #         return f"Answer to {question}"
-    # root_agent = MyAgent()
-    
-    remote_agent = client.agent_engines.create(
-      config={
-          "display_name": "My Agent",
-          "description": "An agent deployed from a local source.",
-          "source_packages": ["agent_directory"],
-          "entrypoint_module": "agent_directory.agent",
-          "entrypoint_object": "root_agent",
-          "requirements_file": "requirements.txt",
-          "class_methods": [
-              {"name": "ask", "api_mode": "", "parameters": {
-                  "type": "object",
-                  "properties": {
-                      "question": {"type": "string"}
-                  },
-                  "required": ["question"]
-              }},
-          ],
-          # Other optional configs:
-          # "env_vars": {...},
-          # "service_account": "...",
-      }
-    )
-
 ### Dockerfile
 
-To deploy from Dockerfile on Agent Platform, it follows a similar approach to [deploying from source files](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-source-files) . The only place that changes when deploying is to replace `entrypoint_module` , `entrypoint_object` , and (optionally) `requirements_file` in the config with an `image_spec` . The container built from the Dockerfile must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+Deploying from Dockerfile on Agent Platform follows a similar approach to deploying from source files, except that you use `image_spec` in the configuration instead of `entrypoint_module` , `entrypoint_object` , and `requirements_file` . The container built from the Dockerfile must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
 
 The following is an example of deploying an agent using a Dockerfile:
 
-    from google.cloud.aiplatform import vertexai
-    
     # Example file structure:
     # /current_directory
     #     ├── agent.py
@@ -734,9 +702,11 @@ The following is an example of deploying an agent using a Dockerfile:
         }
     )
 
-### Container Image
+### Container image
 
-To deploy from a container image, first follow the setup instructions for [Bring your own container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) , making sure to install a version of `google-cloud-aiplatform` satisfying `>=1.144` . The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) . Next, run the following code:
+To deploy from a container image, first follow the setup instructions for [Bring your own container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) , making sure to install a version of `google-cloud-aiplatform` satisfying `>=1.144` . The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+
+The following is an example of deploying an agent using a container image:
 
     remote_agent = client.agent_engines.create(
         config={

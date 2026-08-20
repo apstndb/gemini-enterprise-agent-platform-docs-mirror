@@ -323,51 +323,58 @@ You should receive a JSON response similar to the following. Note that `pipeline
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
+
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
 
     import os
     
-    from google.auth import default
-    
     import vertexai
-    from vertexai.preview.language_models import (
-        EvaluationTextClassificationSpec,
-        TextGenerationModel,
-    )
+    from vertexai.evaluation import EvalResult, EvalTask
     
+    # TODO (Developer) Set environment variables
     PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
+    LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
+    MODEL_NAME = os.getenv("MODEL_NAME", "gemini-2.5-flash")
     
     
-    def evaluate_model() -> object:
+    def evaluate_model() -> EvalResult:
         """Evaluate the performance of a generative AI model."""
     
-        # Set credentials for the pipeline components used in the evaluation task
-        credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
+        vertexai.init(project=PROJECT_ID, location=LOCATION_ID)
     
-        vertexai.init(project=PROJECT_ID, location="us-central1", credentials=credentials)
+        # Dataset URI containing input prompts and ground truth labels
+        dataset_uri = "gs://cloud-samples-data/ai-platform/generative_ai/llm_classification_bp_input_prompts_with_ground_truth.jsonl"
     
-        # Create a reference to a generative AI model
-        model = TextGenerationModel.from_pretrained("text-bison@002")
+        metric_column_mapping = {"reference": "ground_truth"}
     
-        # Define the evaluation specification for a text classification task
-        task_spec = EvaluationTextClassificationSpec(
-            ground_truth_data=[
-                "gs://cloud-samples-data/ai-platform/generative_ai/llm_classification_bp_input_prompts_with_ground_truth.jsonl"
-            ],
-            class_names=["nature", "news", "sports", "health", "startups"],
-            target_column_name="ground_truth",
+        # Define evaluation task
+        eval_task = EvalTask(
+            dataset=dataset_uri,
+            metrics=["exact_match"],
+            experiment="gemini-classification-eval",
+            metric_column_mapping=metric_column_mapping,
         )
     
-        # Evaluate the model
-        eval_metrics = model.evaluate(task_spec=task_spec)
-        print(eval_metrics)
-        # Example response:
-        # ...
-        # PipelineJob run completed.
-        # Resource name: projects/123456789/locations/us-central1/pipelineJobs/evaluation-llm-classification-...
-        # EvaluationClassificationMetric(label_name=None, auPrc=0.53833705, auRoc=0.8...
+        # Define a prompt template so the generative Gemini model produces formatted labels
+        prompt_template = (
+            "Classify the following text into exactly one category from "
+            "[nature, news, sports, health, startups]. Return only the category name:\n\n{prompt}"
+        )
     
-        return eval_metrics
+        # Evaluate using a modern Gemini model
+        eval_result = eval_task.evaluate(
+            model=MODEL_NAME,
+            prompt_template=prompt_template,
+        )
+    
+        print("=== SUMMARY METRICS ===")
+        print(eval_result.summary_metrics)
+    
+        print("\n=== METRICS TABLE SAMPLE ===")
+        print(eval_result.metrics_table.head())
+    
+        return eval_result
 
 ### Console
 

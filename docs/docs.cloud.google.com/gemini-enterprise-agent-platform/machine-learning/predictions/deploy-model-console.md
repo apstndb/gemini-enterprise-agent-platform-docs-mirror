@@ -85,13 +85,13 @@ In the Model Registry page, you can deploy a model to one or more new or existin
 
 10. Select your **Machine type** .
     
-    Larger machine resources increase your inference performance and increase costs. [Compare the available machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine_type_comparison) .
+    Larger machine resources increase your inference performance and increase costs. [Compare the available machine types](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types) .
 
 11. Select an **Accelerator type** and an **Accelerator count** .
     
     If you enabled accelerator use when you [imported](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/import-model) or created the model, this option displays.
     
-    For the accelerator count, refer to the [GPU table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training%5Dconfigure-compute#gpus) to check for valid numbers of GPUs that you can use with each CPU machine type. The accelerator count refers to the number of accelerators per node, not the total number of accelerators in your deployment.
+    For the accelerator count, refer to the [GPU table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#gpus) to check for valid numbers of GPUs that you can use with each CPU machine type. The accelerator count refers to the number of accelerators per node, not the total number of accelerators in your deployment.
 
 12. If you want to use a [custom service account](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account) for the deployment, select a service account in the **Service account** drop-down box.
 

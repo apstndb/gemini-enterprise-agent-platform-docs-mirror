@@ -4287,8 +4287,12 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
-<p><code dir="ltr" translate="no">compute.reservationSlots.get</code></p>
-<p><code dir="ltr" translate="no">compute.reservationSlots.list</code></p>
+<p><code dir="ltr" translate="no">compute.reservationSlots.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reservationSlots.get</code></li>
+<li><code dir="ltr" translate="no">compute.reservationSlots.list</code></li>
+<li><code dir="ltr" translate="no">compute.  reservationSlots.  update</code></li>
+</ul>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservations.get</code></p>

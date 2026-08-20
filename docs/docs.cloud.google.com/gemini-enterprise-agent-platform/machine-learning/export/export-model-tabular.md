@@ -50,9 +50,9 @@ Before you can complete this task, you must have completed the following tasks:
 
 3.  Click **Export** in the button bar to export your model.
 
-4.  Select or create a Cloud Storage folder in the desired location.
+4.  Select or create a Cloud Storage folder in the chosen location.
     
-    The bucket must meet the [bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/general/locations#buckets) .
+    The bucket must meet the [bucket requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#buckets) .
     
     You cannot export a model to a top-level bucket. You must use at least one level of folder.
     
@@ -70,7 +70,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : Your region.
 
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT :Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers)
 
   - MODEL\_ID : the ID of the model you want to export.
 

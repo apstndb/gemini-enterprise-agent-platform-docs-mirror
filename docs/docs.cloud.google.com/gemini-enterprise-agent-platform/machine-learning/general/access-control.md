@@ -6,7 +6,7 @@ description: Control access to Agent Platform resources with IAM.
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) to manage access to Gemini Enterprise Agent Platform resources. To manage access to Gemini Enterprise Agent Platform Workbench instances, see [Agent Platform Workbench instances access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam) .
+This page describes how to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs) to manage access to Gemini Enterprise Agent Platform resources. To manage access to Gemini Enterprise Agent Platform Workbench instances, see [Agent Platform Workbench instances access control](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam) .
 
 ## Overview
 
@@ -5107,17 +5107,17 @@ For most Agent Platform resources, access can only be controlled by the project,
 
 Users share control of all resources they can access. For example, if a user registers a model, all other authorized users in the project can access, change, and delete the model.
 
-To grant access to resources at the project level, assign one or more [roles](https://docs.cloud.google.com/iam/docs/understanding-roles) to a principal (user, group, or [service account](https://docs.cloud.google.com/iam/docs/overview#service_account) ).
+To grant access to resources at the project level, assign one or more [roles](https://docs.cloud.google.com/iam/docs/roles-overview) to a principal (user, group, or [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) ).
 
 For Agent Platform resources that let you grant access at the resource level, you set an IAM policy on that resource. The policy defines which roles are assigned to which principals.
 
-Setting a [policy](https://docs.cloud.google.com/iam/docs/policies#structure) at the resource level doesn't affect project-level policies. A resource inherits all policies from its ancestry. You can use these two levels of granularity to customize permissions. For example, you can grant users read permissions at the project level so that they can read all resources in the project, and then you can grant users write permissions per resource (at the resource level).
+Setting a [policy](https://docs.cloud.google.com/iam/docs/allow-policies#structure) at the resource level doesn't affect project-level policies. A resource inherits all policies from its ancestry. You can use these two levels of granularity to customize permissions. For example, you can grant users read permissions at the project level so that they can read all resources in the project, and then you can grant users write permissions per resource (at the resource level).
 
 Not all Agent Platform predefined roles and resources support resource-level policies. To identify which roles can be used on which resources, see the [Predefined roles table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-control#predefined-roles) .
 
 ### Supported resources
 
-Agent Platform supports Vertex AI Feature Store featurestore, entity type, and Model Registry resources. For more information, see [Control access to Vertex AI Feature Store resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/resource-policy) and [Control access to Model Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/access-control) .
+Agent Platform supports Vertex AI Feature Store featurestore, entity type, and Model Registry resources. For more information, see [Control access to Vertex AI Feature Store resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/control-access) . Model Registry access is managed at the Agent Platform level.
 
 After granting or revoking access to a resource, those changes take time to propagate. For more information, see [Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation) .
 
@@ -8094,9 +8094,11 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.reservationBlocks.list`
 
-`compute.reservationSlots.get`
+`compute.reservationSlots.*`
 
-`compute.reservationSlots.list`
+  - `compute.reservationSlots.get`
+  - `compute.reservationSlots.list`
+  - `compute. reservationSlots. update`
 
 `compute. reservationSubBlocks. get`
 
@@ -8551,4 +8553,4 @@ To authorize Agent Platform to access your Sheets file:
   - [Learn more about IAM](https://docs.cloud.google.com/iam/docs) .
   - [Learn about specific IAM permissions and the operations they support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions) .
   - To learn about recommended ways to set up a project for a team, see [Set up a project for a team](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/set-up-project) .
-  - [Get an overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-unified-platform) .
+  - [Get an overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview) .

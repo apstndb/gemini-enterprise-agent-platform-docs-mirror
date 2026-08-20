@@ -41,7 +41,7 @@ If the Semantic Governance runtime receives a description that exceeds any of th
 
 ## When Semantic governance policy intervenes
 
-Semantic governance policy operates specifically as a runtime security check on **proposed tool calls** . It does not intercept, block, or modify standard conversational dialogue between the user and the agent's LLM during brainstorming, planning, or reasoning across multiple turns. The policy engine ( `Conseca` ) intercepts and evaluates requests only at the moment the model proposes invoking a tool to execute an action.
+Semantic governance policy operates specifically as a runtime security check on **proposed tool calls** . It does not intercept, block, or modify standard conversational dialogue between the user and the agent's LLM during brainstorming, planning, or reasoning across multiple turns. The policy engine intercepts and evaluates requests only at the moment the model proposes invoking a tool to execute an action.
 
 ### Scenario 1: Conversational refinement versus tool execution (Denied tool call)
 
@@ -57,7 +57,7 @@ Consider an agent that has an `initiate_marketing_campaign` tool and is governed
     
         initiate_marketing_campaign(campaign_name="Fall Launch", budget=50000)
 
-3.  **Policy intervention and denial:** The Agent Gateway intercepts this proposed tool call and routes it to the policy engine ( `Conseca` ). The policy engine evaluates the action against the constraint, determines that no manager approval exists within the session history, and issues a `DENY` verdict. The tool call is blocked before it executes, and a structured denial rationale is returned to the agent.
+3.  **Policy intervention and denial:** The Agent Gateway intercepts this proposed tool call and routes it to the policy engine. The policy engine evaluates the action against the constraint, determines that no manager approval exists within the session history, and issues a `DENY` verdict. The tool call is blocked before it executes, and a structured denial rationale is returned to the agent.
 
 ### Scenario 2: Compliant tool execution (Allowed tool call)
 

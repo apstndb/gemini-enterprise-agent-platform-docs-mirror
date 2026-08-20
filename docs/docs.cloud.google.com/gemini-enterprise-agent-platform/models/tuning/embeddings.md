@@ -16,7 +16,7 @@ Foundation embedding models are pre-trained on a massive dataset of text, provid
   - `text-embedding-005`
   - `text-multilingual-embedding-002`
 
-Text embedding models support [supervised tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-text-models-supervised) . Supervised tuning uses labeled examples that demonstrate the type of output you'd like from your text embedding model during inference.
+Text embedding models support [supervised tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) . Supervised tuning uses labeled examples that demonstrate the type of output you'd like from your text embedding model during inference.
 
 To learn more about model tuning, see [How model tuning works](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning#how_model_tuning_works) .
 
@@ -256,47 +256,70 @@ After launching the pipeline, follow the progress of your tuning job through the
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) .
 
-    import re
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+
+    import os
     
-    from google.cloud.aiplatform import initializer as aiplatform_init
-    from vertexai.language_models import TextEmbeddingModel
+    from google.cloud import aiplatform
+    
+    # TODO (Developer) set the following environment variables.
+    PROJECT_ID = os.getenv("PROJECT_ID")
+    LOCATION_ID = os.getenv("LOCATION_ID", "us-central1")
+    MODEL_NAME = os.getenv("MODEL_NAME", "text-embedding-004")
+    # A storage bucket: gs://your-bucket-name/embedding-tuning-output
+    OUTPUT_URI = os.getenv("OUTPUT_DIR")
+    
+    TRAIN_LABEL_PATH = (
+        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv"
+    )
+    TEST_LABEL_PATH = (
+        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv"
+    )
+    CORPUS_PATH = (
+        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl"
+    )
+    QUERIES_PATH = (
+        "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl"
+    )
+    
+    ACCELERATOR_TYPE = "NVIDIA_L4"
+    
+    # Official Google Cloud KFP pipeline template URI for text embedding model tuning
+    EMBEDDING_TUNING_PIPELINE_URI = "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.3"
     
     
-    def tune_embedding_model(
-        api_endpoint: str,
-        base_model_name: str = "text-embedding-005",
-        corpus_path: str = "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/corpus.jsonl",
-        queries_path: str = "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/queries.jsonl",
-        train_label_path: str = "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/train.tsv",
-        test_label_path: str = "gs://cloud-samples-data/ai-platform/embedding/goog-10k-2024/r11/test.tsv",
-    ):  # noqa: ANN201
-        """Tune an embedding model using the specified parameters.
-        Args:
-            api_endpoint (str): The API endpoint for the Vertex AI service.
-            base_model_name (str): The name of the base model to use for tuning.
-            corpus_path (str): GCS URI of the JSONL file containing the corpus data.
-            queries_path (str): GCS URI of the JSONL file containing the queries data.
-            train_label_path (str): GCS URI of the TSV file containing the training labels.
-            test_label_path (str): GCS URI of the TSV file containing the test labels.
-        """
-        match = re.search(r"^(\w+-\w+)", api_endpoint)
-        location = match.group(1) if match else "us-central1"
-        base_model = TextEmbeddingModel.from_pretrained(base_model_name)
-        tuning_job = base_model.tune_model(
-            task_type="DEFAULT",
-            corpus_data=corpus_path,
-            queries_data=queries_path,
-            training_data=train_label_path,
-            test_data=test_label_path,
-            batch_size=128,  # The batch size to use for training.
-            train_steps=1000,  # The number of training steps.
-            tuned_model_location=location,
-            output_dimensionality=768,  # The dimensionality of the output embeddings.
-            learning_rate_multiplier=1.0,  # The multiplier for the learning rate.
+    def tune_embedding_model() -> aiplatform.PipelineJob:
+        """Tune an embedding model using the specified parameters."""
+    
+        aiplatform.init(project=PROJECT_ID, location=LOCATION_ID)
+    
+        # Configure parameters expected by the embedding tuning pipeline template
+        pipeline_parameters = {
+            "base_model_version_id": MODEL_NAME,
+            "corpus_path": CORPUS_PATH,
+            "queries_path": QUERIES_PATH,
+            "train_label_path": TRAIN_LABEL_PATH,
+            "test_label_path": TEST_LABEL_PATH,
+            "accelerator_type": ACCELERATOR_TYPE,
+        }
+    
+        # Instantiate the Vertex AI Pipeline job
+        pipeline_job = aiplatform.PipelineJob(
+            display_name="tune-text-embedding-model-job",
+            template_path=EMBEDDING_TUNING_PIPELINE_URI,
+            pipeline_root=OUTPUT_URI,
+            parameter_values=pipeline_parameters,
+            project=PROJECT_ID,
+            location=LOCATION_ID,
         )
-        return tuning_job
+    
+        pipeline_job.submit()
+    
+        print(f"Pipeline submitted successfully: {pipeline_job.resource_name}")
+    
+        return pipeline_job
 
 ### Java
 

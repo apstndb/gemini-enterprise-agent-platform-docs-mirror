@@ -18,7 +18,7 @@ Agent Studio provides a centralized, collaborative workspace for discovering mod
 
 Agent Studio offers [advanced model access](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) . Build with Google's most capable models, including **Gemini 3.1** for reasoning, **Nano Banana 2** for low-latency image generation, and **Veo 3.1** for high-quality video generation.
 
-Experience seamless integration with Agent Studio's cloud-native integration with the broader Google Cloud ecosystem, bringing you access to APIs and deployments.
+Experience seamless, cloud-native integration with the broader Google Cloud ecosystem, bringing you access to APIs and deployments.
 
 ## What's next
 

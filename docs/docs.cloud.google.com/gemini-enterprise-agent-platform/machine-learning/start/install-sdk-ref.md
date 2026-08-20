@@ -2,39 +2,39 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref
 title: Install the Agent Platform SDK for Python
-description: Create an isolated Python environment, install the Vertex AI SDK package, and initialize the Vertex AI SDK.
+description: Create an isolated Python environment, install the Agent Platform SDK package, and initialize the Agent Platform SDK.
 data_source: docs.cloud.google.com
 ---
 
-Use the Agent Platform SDK for Python to automate your machine learning (ML) workflows. This page shows you how to install the Agent Platform SDK for Python. For more information about the Vertex AI SDK, see the following resources:
+Use the Agent Platform SDK for Python to automate your machine learning (ML) workflows. This page shows you how to install the Agent Platform SDK for Python. For more information about the Agent Platform SDK, see the following resources:
 
-  - To learn about the Agent Platform SDK for Python, see [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - To learn about the Agent Platform SDK for Python, see [Introduction to the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .
   - To learn how to train a model using the Agent Platform SDK for Python, see the [Train a model using Gemini Enterprise Agent Platform and the Python SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction) .
-  - To learn about the classes and methods in the Agent Platform SDK for Python, see the [Vertex AI SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform) .
+  - To learn about the classes and methods in the Agent Platform SDK for Python, see the [Agent Platform SDK reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform) .
 
 Installation of the Agent Platform SDK for Python includes the following steps:
 
 1.  [Create an isolated Python environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref#create-isolated-environment)
-2.  [Install the Vertex AI SDK package](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref#install-python-sdk)
-3.  [Initialize the Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref#initialize-python-sdk)
+2.  [Install the Agent Platform SDK package](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref#install-python-sdk)
+3.  [Initialize the Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk-ref#initialize-python-sdk)
 
 ## Create an isolated Python environment
 
-A Python best practice is to install the Vertex AI SDK in an isolated Python environment for each project. This helps prevent dependency, version, and permissions conflicts. You can create an isolated environment for using the command line in a shell or for using a notebook.
+A Python best practice is to install the Agent Platform SDK in an isolated Python environment for each project. This helps prevent dependency, version, and permissions conflicts. You can create an isolated environment for using the command line in a shell or for using a notebook.
 
-To create an isolated environment when you use the command line, [activate a `venv` environment](https://docs.cloud.google.com/python/docs/setup#installing_and_using_virtualenv) . After the `venv` environment is activated, you're ready to install the Vertex AI SDK and run your Python scripts. For more information, see [Use `venv` to isolate dependencies](https://docs.cloud.google.com/python/docs/setup#installing_and_using_virtualenv) and [Set up a Python development environment](https://docs.cloud.google.com/python/docs/setup) .
+To create an isolated environment when you use the command line, [activate a `venv` environment](https://docs.cloud.google.com/python/docs/setup#installing_and_using_virtualenv) . After the `venv` environment is activated, you're ready to install the Agent Platform SDK and run your Python scripts. For more information, see [Use `venv` to isolate dependencies](https://docs.cloud.google.com/python/docs/setup#installing_and_using_virtualenv) and [Set up a Python development environment](https://docs.cloud.google.com/python/docs/setup) .
 
-To use a notebook in an isolated environment, you can create a Gemini Enterprise Agent Platform Workbench instance. Then, install the Vertex AI SDK and run your Python scripts from a notebook on your Gemini Enterprise Agent Platform Workbench instance. For more information, see [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .
+To use a notebook in an isolated environment, you can create a Gemini Enterprise Agent Platform Workbench instance. Then, install the Agent Platform SDK and run your Python scripts from a notebook on your Gemini Enterprise Agent Platform Workbench instance. For more information, see [Create a Agent Platform Workbench instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create) .
 
-## Install or update the Vertex AI SDK package
+## Install or update the Agent Platform SDK package
 
-To install or update the Vertex AI SDK, run the following command in your virtual environment:
+To install or update the Agent Platform SDK, run the following command in your virtual environment:
 
     pip install --upgrade google-cloud-aiplatform
 
-## Initialize the Vertex AI SDK
+## Initialize the Agent Platform SDK
 
-After you install the Agent Platform SDK for Python, you must initialize the SDK with your Gemini Enterprise Agent Platform and Google Cloud details. For example, when you initialize the SDK, you specify information such as your project name, region, and your staging Cloud Storage bucket. The following method is an example of a method that initializes the Vertex AI SDK.
+After you install the Agent Platform SDK for Python, you must initialize the SDK with your Gemini Enterprise Agent Platform and Google Cloud details. For example, when you initialize the SDK, you specify information such as your project name, region, and your staging Cloud Storage bucket. The following method is an example of a method that initializes the Agent Platform SDK.
 
     def init_sample(
         project: Optional[str] = None,
@@ -60,4 +60,4 @@ After you install the Agent Platform SDK for Python, you must initialize the SDK
 
 ## What's next
 
-  - Learn more about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn more about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

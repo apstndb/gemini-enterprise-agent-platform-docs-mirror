@@ -32,7 +32,7 @@ The following diagram shows the overall reinforcement learning fine-tuning workf
 
   - **Continuous tuning:** Further refine a previously tuned model by incorporating additional training examples or epochs. Using an existing tuned model or checkpoint as the foundation enables a more efficient process for tuning experimentation. For details, see the [Continuous tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/continuous-tuning) page.
 
-  - **Multimodal datasets:** Supports text, image, video, and audio data modalities.
+  - **Multimodal datasets:** Supports text, image, video (Gemini 3.5 Flash only), and audio data modalities.
 
 ## When to use reinforcement learning fine-tuning
 
@@ -80,7 +80,42 @@ The following Gemini models support reinforcement learning fine-tuning:
 </tr>
 <tr class="odd">
 <td>API version</td>
-<td><code dir="ltr" translate="no">v1beta1</code> only</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs"><code dir="ltr" translate="no">v1beta1</code></a> only</td>
+</tr>
+</tbody>
+</table>
+
+### Gemini 3.1 Flash-Lite
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Supported endpoints for model tuning</td>
+<td><ul>
+<li><code dir="ltr" translate="no">us-central1</code> — <code dir="ltr" translate="no">us-central1-aiplatform.googleapis.com</code></li>
+<li><code dir="ltr" translate="no">europe-west4</code> — <code dir="ltr" translate="no">europe-west4-aiplatform.googleapis.com</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Supported endpoints for tuned model serving</td>
+<td><ul>
+<li><code dir="ltr" translate="no">us</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.us.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">us-central1</code></li>
+<li><code dir="ltr" translate="no">eu</code> multi-region endpoint ( <code dir="ltr" translate="no">aiplatform.eu.rep.googleapis.com</code> ) when tuning in <code dir="ltr" translate="no">europe-west4</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>API version</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs"><code dir="ltr" translate="no">v1beta1</code></a> only</td>
 </tr>
 </tbody>
 </table>
@@ -92,7 +127,7 @@ Reinforcement learning fine-tuning supports the following data modalities in you
   - Text
   - Audio
   - Image
-  - Video
+  - Video (supported only for Gemini 3.5 Flash)
 
 For per-modality dataset limits (such as maximum number of files per prompt, maximum file size, and maximum total length), see the [Tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) page.
 

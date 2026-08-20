@@ -696,10 +696,6 @@ type for priority Pay-As-You-Go traffic.
 
 type for Flex traffic.
 
-`ON_DEMAND_OFF_PEAK`
-
-type for Off-Peak Pay-As-You-Go traffic.
-
 `PROVISIONED_THROUGHPUT`
 
 type for Provisioned Throughput traffic.

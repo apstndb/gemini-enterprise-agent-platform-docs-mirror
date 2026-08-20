@@ -14,7 +14,7 @@ Perform serverless training on Gemini Enterprise Agent Platform to run your own 
 
 First, determine what structure you want your ML training code to take. You can provide training code to Agent Platform in one of the following forms:
 
-  - **A Python script to use with a prebuilt container.** Use the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) to [create a custom job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob#google_cloud_aiplatform_CustomJob_from_local_script) . This method lets you provide your training application as a single Python script.
+  - **A Python script to use with a prebuilt container.** Use the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) to [create a custom job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob#google_cloud_aiplatform_CustomJob_from_local_script) . This method lets you provide your training application as a single Python script.
 
   - **A Python training application to use with a prebuilt container.** Create a [Python source distribution](https://packaging.python.org/en/latest/overview/#python-source-distributions) with code that trains an ML model and exports it to Cloud Storage. This training application can use any of the dependencies included in the prebuilt container that you plan to use it with.
     
@@ -299,7 +299,7 @@ Alternatively, you can run a different container on each of several *worker pool
 
 ### Track and visualize serverless training experiments using Vertex AI TensorBoard
 
-[Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) is a managed version of [TensorBoard](https://www.tensorflow.org/tensorboard/get_started) , a Google open source project for visualizing machine learning experiments. With Vertex AI TensorBoard you can track, visualize, and compare ML experiments and then share them with your team. You can also use [Cloud Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) to pinpoint and fix performance bottlenecks to train models faster and cheaper.
+[Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) is a managed version of [TensorBoard](https://www.tensorflow.org/tensorboard/get_started) , a Google Open Source project for visualizing machine learning experiments. With Vertex AI TensorBoard you can track, visualize, and compare ML experiments and then share them with your team. You can also use [Cloud Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) to pinpoint and fix performance bottlenecks to train models faster and cheaper.
 
 To use Vertex AI TensorBoard with serverless training, you must do the following:
 

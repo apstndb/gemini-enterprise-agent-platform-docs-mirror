@@ -2,17 +2,17 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/training-classes
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/training-classes
 title: Training classes
-description: Learn about the Vertex AI SDK classes that you use to create, train, and return your model.
+description: Learn about the Agent Platform SDK classes that you use to create, train, and return your model.
 data_source: docs.cloud.google.com
 ---
 
-The Vertex AI SDK includes several classes that you use when you train your model. Most of the training classes are used to create, train, and return your model. Use the [`HyperparameterTuningJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.HyperparameterTuningJob) to tune the training job's hyperparameters. Use the [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob) manage your machine learning (ML) workflow so you can automate and monitor your ML systems.
+The Agent Platform SDK includes several classes that you use when you train your model. Most of the training classes are used to create, train, and return your model. Use the [`HyperparameterTuningJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.HyperparameterTuningJob) to tune the training job's hyperparameters. Use the [`PipelineJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob) manage your machine learning (ML) workflow so you can automate and monitor your ML systems.
 
-The following topics provide a high-level description of each training-related class in the Vertex AI SDK.
+The following topics provide a high-level description of each training-related class in the Agent Platform SDK.
 
 ## AutoML training classes for structured data
 
-Vertex AI SDK includes the following classes that are used to train a structured AutoML model.
+The Agent Platform SDK includes the following classes that are used to train a structured AutoML model.
 
 ### [`AutoMLForecastingTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLForecastingTrainingJob)
 
@@ -24,7 +24,7 @@ For sample code that shows you how to use [`AutoMLForecastingTrainingJob`](https
 
 The [`AutoMLTabularTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLTabularTrainingJob) class represents a job that creates, trains, and returns an `AutoML` tabular model. For more information about training tabular models and Gemini Enterprise Agent Platform, see [Tabular data](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#tabular_data) and [Tabular data overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/overview) .
 
-The following sample code snippet shows how you might use the Vertex AI SDK to create and run an `AutoML` tabular model:
+The following sample code snippet shows how you might use the Agent Platform SDK to create and run an `AutoML` tabular model:
 
     dataset = aiplatform.TabularDataset('projects/my-project/location/us-central1/datasets/{DATASET_ID}')
     
@@ -63,7 +63,7 @@ The [`TimeSeriesDenseEncoderForecastingTrainingJob`](https://docs.cloud.google.c
 
 ## AutoML training classes for unstructured data
 
-The Vertex AI SDK includes the following classes to train unstructured image models:
+The Agent Platform SDK includes the following classes to train unstructured image models:
 
 ### [`AutoMLImageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.AutoMLImageTrainingJob)
 
@@ -73,9 +73,9 @@ For an example of how to use the [`AutoMLImageTrainingJob`](https://docs.cloud.g
 
 ## Custom data training classes
 
-You can use the Vertex AI SDK to automate a custom training workflow. For information about using Gemini Enterprise Agent Platform to run custom training applications, see [Custom training overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) .
+You can use the Agent Platform SDK to automate a custom training workflow. For information about using Gemini Enterprise Agent Platform to run custom training applications, see [Custom training overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview) .
 
-The Vertex AI SDK includes three classes that create a custom training pipeline. A training pipeline accepts an input Gemini Enterprise Agent Platform managed dataset that it uses to train a model. Next, it returns the model after the training job completes. Each of the three custom training pipeline classes creates a training pipeline differently. [`CustomTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomTrainingJob) uses a Python script, [`CustomContainerTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomContainerTrainingJob) uses a custom container, and [`CustomPythonPackageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomPythonPackageTrainingJob) uses a Python package and a prebuilt container.
+The Agent Platform SDK includes three classes that create a custom training pipeline. A training pipeline accepts an input Gemini Enterprise Agent Platform managed dataset that it uses to train a model. Next, it returns the model after the training job completes. Each of the three custom training pipeline classes creates a training pipeline differently. [`CustomTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomTrainingJob) uses a Python script, [`CustomContainerTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomContainerTrainingJob) uses a custom container, and [`CustomPythonPackageTrainingJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomPythonPackageTrainingJob) uses a Python package and a prebuilt container.
 
 The [`CustomJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob) class creates a custom training job but is not a pipeline. Unlike a custom training pipeline, the [`CustomJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.CustomJob) class can use a dataset that's not a Gemini Enterprise Agent Platform managed dataset to train a model, and it doesn't return the trained model. Because the class accepts different types of datasets and doesn't return a trained model, it's less automated and more flexible than a custom training pipeline.
 
@@ -144,7 +144,7 @@ For an example of how to use the [`CustomTrainingJob`](https://docs.cloud.google
 
 ## Hyperparameter training class
 
-The Vertex AI SDK includes a class for hyperparameter tuning. Hyperparameter tuning maximizes your model's predictive accuracy by optimizing variables (known as *hyperparameters* ) that govern the training process. For more information, see [Overview of hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/hyperparameter-tuning-overview) .
+The Agent Platform SDK includes a class for hyperparameter tuning. Hyperparameter tuning maximizes your model's predictive accuracy by optimizing variables (known as *hyperparameters* ) that govern the training process. For more information, see [Overview of hyperparameter tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/hyperparameter-tuning-overview) .
 
 ### [`HyperparameterTuningJob`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.HyperparameterTuningJob)
 
@@ -174,4 +174,4 @@ For more tutorial notebooks, see [Gemini Enterprise Agent Platform notebook tuto
 
 ## What's next
 
-  - Learn about the [Vertex AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-vertex-ai-python-sdk) .
+  - Learn about the [Agent Platform SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/use-python-sdk) .

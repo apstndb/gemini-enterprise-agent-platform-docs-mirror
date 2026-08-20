@@ -71,8 +71,6 @@ If you subscribed to Grounding with Parallel Web Search on Google Cloud Marketpl
 
 Before you run the samples, complete the [prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#before-you-begin) , including [subscribing on Google Cloud Marketplace](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#subscribe-on-marketplace) or providing a Parallel API key.
 
-Each SDK sample reads your project and location from the environment variables shown in its tab. In the sample code, replace `MODEL_ID` with a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) ID, such as `gemini-2.5-flash` .
-
 ### Console
 
 To ground Gemini responses with Parallel Web Search by using Agent Studio on Gemini Enterprise Agent Platform, follow these steps:
@@ -103,6 +101,21 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     export GOOGLE_CLOUD_LOCATION=global
     export GOOGLE_GENAI_USE_ENTERPRISE=True
 
+Before running the sample, make the following replacements:
+
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+  - TEXT : The text prompt to send to the model.
+  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+
+<!-- end list -->
+
     from google import genai
     from google.genai import types
     
@@ -110,22 +123,28 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     response = client.models.generate_content(
         model="MODEL_ID",
-        contents="Who won the 2025 Las Vegas F1 Grand Prix?",
+        contents="TEXT",
         config=types.GenerateContentConfig(
             tools=[
                 types.Tool(
                     parallel_ai_search=types.ToolParallelAiSearch(
                         # Optional. Omit api_key if you subscribed to Grounding with
-                        # Parallel Web Search on Google Cloud Marketplace. Otherwise,
-                        # provide your Parallel API key.
-                        # api_key="API_KEY",
-                        # Optional. Customize the search. See the REST tab for the
-                        # full list of supported parameters. Keys inside custom_configs
-                        # are Parallel.ai Search API params (snake_case).
+                        # Parallel Web Search on Google Cloud Marketplace.
+                        api_key="API_KEY",
+                        # Optional. Customize the search. Click a placeholder to
+                        # enter a value, or remove the line to accept the default.
                         custom_configs={
-                            "mode": "basic",
-                            "max_results": 10,
-                            "source_policy": {"include_domains": ["wikipedia.org"]},
+                            "mode": "MODE",
+                            "location": "SEARCH_LOCATION",
+                            "max_results": MAX_RESULTS,
+                            "source_policy": {
+                                "exclude_domains": ["EXCLUDE_DOMAINS"],
+                                "include_domains": ["INCLUDE_DOMAINS"],
+                            },
+                            "excerpts": {
+                                "max_chars_per_result": MAX_CHARS_PER_RESULT,
+                                "max_chars_total": MAX_CHARS_TOTAL,
+                            },
                         },
                     )
                 )
@@ -140,8 +159,6 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # The grounding metadata contains the web sources used to ground the response.
     print(response.candidates[0].grounding_metadata.grounding_chunks)
 
-To customize the search, set the `custom_configs` field of `ToolParallelAiSearch` . This field accepts the same optional parameters that are described in the **REST** tab, such as `source_policy` , `excerpts` , `max_results` , and `mode` .
-
 ### Java
 
 Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
@@ -155,6 +172,21 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
     export GOOGLE_CLOUD_LOCATION=global
     export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+Before running the sample, make the following replacements:
+
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+  - TEXT : The text prompt to send to the model.
+  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+
+<!-- end list -->
 
     import com.google.genai.Client;
     import com.google.genai.types.GenerateContentConfig;
@@ -171,38 +203,45 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
           GenerateContentConfig config =
               GenerateContentConfig.builder()
                   .tools(
-                      // Omit apiKey if you subscribed to Grounding with Parallel Web
-                      // Search on Google Cloud Marketplace. Otherwise, set apiKey to
-                      // your Parallel API key.
                       Tool.builder()
                           .parallelAiSearch(
                               ToolParallelAiSearch.builder()
-                                  // Optional. Customize the search. See the REST tab
-                                  // for the full list of supported parameters. Keys
-                                  // inside customConfigs are Parallel.ai Search API
-                                  // params (snake_case).
+                                  // Optional. Omit apiKey if you subscribed to
+                                  // Grounding with Parallel Web Search on Google
+                                  // Cloud Marketplace.
+                                  .apiKey("API_KEY")
+                                  // Optional. Customize the search. Click a
+                                  // placeholder to enter a value, or remove the
+                                  // entry to accept the default.
                                   .customConfigs(
                                       Map.of(
-                                          "mode", "basic",
-                                          "max_results", 10,
+                                          "mode", "MODE",
+                                          "location", "SEARCH_LOCATION",
+                                          "max_results", MAX_RESULTS,
                                           "source_policy",
                                           Map.of(
+                                              "exclude_domains",
+                                              List.of("EXCLUDE_DOMAINS"),
                                               "include_domains",
-                                              List.of("wikipedia.org"))))
+                                              List.of("INCLUDE_DOMAINS")),
+                                          "excerpts",
+                                          Map.of(
+                                              "max_chars_per_result",
+                                              MAX_CHARS_PER_RESULT,
+                                              "max_chars_total",
+                                              MAX_CHARS_TOTAL)))
                                   .build())
                           .build())
                   .build();
     
           GenerateContentResponse response =
               client.models.generateContent(
-                  "MODEL_ID", "Who won the 2025 Las Vegas F1 Grand Prix?", config);
+                  "MODEL_ID", "TEXT", config);
     
           System.out.println(response.text());
         }
       }
     }
-
-To customize the search, set the `customConfigs` field of `ToolParallelAiSearch` . This field accepts the same optional parameters that are described in the **REST** tab, such as `source_policy` , `excerpts` , `max_results` , and `mode` .
 
 ### Node.js
 
@@ -220,26 +259,49 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     export GOOGLE_CLOUD_LOCATION=global
     export GOOGLE_GENAI_USE_ENTERPRISE=True
 
+Before running the sample, make the following replacements:
+
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
+  - TEXT : The text prompt to send to the model.
+  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
+  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+  - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
+  - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
+  - MAX\_CHARS\_TOTAL : Optional: The maximum total characters from all search result excerpts. If not specified, defaults to `100000` . The allowed range is `[1000, 1000000]` .
+  - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
+  - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
+  - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+
+<!-- end list -->
+
     import {GoogleGenAI} from '@google/genai';
     
     const ai = new GoogleGenAI({});
     
     const response = await ai.models.generateContent({
       model: 'MODEL_ID',
-      contents: 'Who won the 2025 Las Vegas F1 Grand Prix?',
+      contents: 'TEXT',
       config: {
         tools: [
-          // Omit apiKey if you subscribed to Grounding with Parallel Web Search on
-          // Google Cloud Marketplace. Otherwise, set apiKey to your Parallel API key.
           {
             parallelAiSearch: {
-              // Optional. Customize the search. See the REST tab for the full
-              // list of supported parameters. Keys inside customConfigs are
-              // Parallel.ai Search API params (snake_case).
+              // Optional. Omit apiKey if you subscribed to Grounding with Parallel
+              // Web Search on Google Cloud Marketplace.
+              apiKey: 'API_KEY',
+              // Optional. Customize the search. Click a placeholder to enter a
+              // value, or remove the line to accept the default.
               customConfigs: {
-                mode: 'basic',
-                max_results: 10,
-                source_policy: {include_domains: ['wikipedia.org']},
+                mode: 'MODE',
+                location: 'SEARCH_LOCATION',
+                max_results: MAX_RESULTS,
+                source_policy: {
+                  exclude_domains: ['EXCLUDE_DOMAINS'],
+                  include_domains: ['INCLUDE_DOMAINS'],
+                },
+                excerpts: {
+                  max_chars_per_result: MAX_CHARS_PER_RESULT,
+                  max_chars_total: MAX_CHARS_TOTAL,
+                },
               },
             },
           },
@@ -249,18 +311,15 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     console.log(response.text);
 
-To customize the search, set the `customConfigs` field of the `parallelAiSearch` tool. This field accepts the same optional parameters that are described in the **REST** tab, such as `source_policy` , `excerpts` , `max_results` , and `mode` .
-
 ### REST
 
 Before using any of the request data, make the following replacements:
 
   - LOCATION : The region to process the request. To use the global endpoint, exclude the location from the endpoint name and configure the location of the resource to \`global\`.
   - PROJECT\_ID : Your Google Cloud project ID.
-  - MODEL\_ID : The ID of the model to use.
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-parallel#supported-models) to use, such as `gemini-2.5-flash` .
   - TEXT : The text prompt to send to the model.
-  - API\_KEY : Your API key for Parallel Web Search. If you specify an API key and are also subscribed to Grounding with Parallel Web Search on Google Cloud Marketplace, the API key takes precedence.
-  - ENABLE\_ZERO\_DATA\_RETENTION : Optional: Switch to the [ZDR version of Parallel Web Search](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) to enable Zero Data Retention on sensitive workloads. Set to `true` to use the ZDR offering for your request. You *must* be subscribed to the ZDR-specific offering for these requests to succeed. If not specified, it defaults to the [standard version](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) . The ZDR version is only available via Google Cloud Marketplace.
+  - API\_KEY : Your API key for Parallel Web Search. Omit this parameter if you are subscribed on Google Cloud Marketplace; if both are provided, the API key takes precedence.
   - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from grounding sources. If specified, sources from these domains are excluded. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
   - INCLUDE\_DOMAINS : Optional: List of domains to include in grounding sources. If specified, sources from these domains are included. Acceptable values are domains (www.example.com) or domain extensions starting with a period ( .gov, .edu, .co.uk). You can specify up to 200 domains.
   - MAX\_CHARS\_PER\_RESULT : Optional: The maximum number of characters to include in each search result excerpt. If not specified, defaults to `30000` . The allowed range is `[1000, 100000]` .
@@ -268,6 +327,7 @@ Before using any of the request data, make the following replacements:
   - MAX\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `10` . The allowed range is `[1, 20]` .
   - MODE : Optional: Mode to be used for the request either `basic` or `advanced` . The default is `basic` . Consider `advanced` mode if you want more thorough search results at the expense of higher latency.
   - SEARCH\_LOCATION : Optional: [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for geo-targeted search results. Example: `"us"` .
+  - ENABLE\_ZERO\_DATA\_RETENTION : Optional: Switch to the [ZDR version of Parallel Web Search](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems-zdr) to enable Zero Data Retention on sensitive workloads. Set to `true` to use the ZDR offering for your request. You *must* be subscribed to the ZDR-specific offering for these requests to succeed. If not specified, it defaults to the [standard version](https://console.cloud.google.com/marketplace/product/parallel-web-systems-public/parallel-web-systems) . The ZDR version is only available via Google Cloud Marketplace.
 
 HTTP method and URL:
 
