@@ -6,7 +6,7 @@ description: Call XAI Grok models using the Responses API. Implement requests to
 data_source: docs.cloud.google.com
 ---
 
-XAI's Grok models on Gemini Enterprise Agent Platform support the [Responses API](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1beta1/projects.locations.endpoints.openapi/responses) for generating responses.
+XAI's Grok models on Gemini Enterprise Agent Platform support the [Responses API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.endpoints.responses) for generating responses.
 
 This page shows how to make calls to Grok models using the Responses API.
 

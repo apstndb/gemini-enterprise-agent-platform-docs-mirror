@@ -51,7 +51,7 @@ A successful response contains a clusters array with up to five cluster resource
 
 `UPDATE_PAYLOAD` specifies the local path to a JSON file that defines the full `ModelDevelopmentCluster` you want to update to.
 
-For example, to update the node count of a pool of a [CPU-only cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/managed-training/create-cluster#cpu-only-cluster) , use the following JSON payload:
+For example, to update the node count of a pool of a [CPU-only cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#cpu-only-cluster) , use the following JSON payload:
 
     {
       "display_name": "DISPLAY_NAME",

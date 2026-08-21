@@ -28,20 +28,20 @@ The following quotas apply to Gemini Enterprise Agent Platform requests for a gi
 
 For the quotas of Gemini models, see [Generative AI on Gemini Enterprise Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) . For information about the quota of OpenMaaS and 3P MaaS models, see [Gemini Enterprise Agent Platform managed models for MaaS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) . For an example of Llama 4 Maverick, see [Llama 4 Maverick 17B-128E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick)
 
-| Request type                                                                                                                                           | Requests per minute |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
-| Resource management (CRUD) requests <sup>1</sup>                                                                                                       | 600                 |
-| Job or long-running operation (LRO) submission requests <sup>3</sup>                                                                                   | 60                  |
-| Online inference requests <sup>2</sup>                                                                                                                 | 30,000              |
-| Online inference request throughput                                                                                                                    | 1.5 GB              |
-| Online explain requests                                                                                                                                | 600                 |
-| [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/experiments/tensorboard-introduction) Time Series read requests | 60,000              |
-| ML Metadata (CRUD) requests                                                                                                                            | 12,000              |
-| generative AI Caching (CRUD) requests                                                                                                                  | 200                 |
-| Agent Platform Vizier (CRUD) requests                                                                                                                  | 6,000               |
-| Vertex AI Feature Store online serving requests                                                                                                        | 300,000             |
-| Vertex ML Metadata requests                                                                                                                            | 12,000              |
-| Number of count tokens or compute tokens requests                                                                                                      | 3,000               |
+| Request type                                                                                                                                                            | Requests per minute |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Resource management (CRUD) requests <sup>1</sup>                                                                                                                        | 600                 |
+| Job or long-running operation (LRO) submission requests <sup>3</sup>                                                                                                    | 60                  |
+| Online inference requests <sup>2</sup>                                                                                                                                  | 30,000              |
+| Online inference request throughput                                                                                                                                     | 1.5 GB              |
+| Online explain requests                                                                                                                                                 | 600                 |
+| [Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction) Time Series read requests | 60,000              |
+| ML Metadata (CRUD) requests                                                                                                                                             | 12,000              |
+| generative AI Caching (CRUD) requests                                                                                                                                   | 200                 |
+| Agent Platform Vizier (CRUD) requests                                                                                                                                   | 6,000               |
+| Vertex AI Feature Store online serving requests                                                                                                                         | 300,000             |
+| Vertex ML Metadata requests                                                                                                                                             | 12,000              |
+| Number of count tokens or compute tokens requests                                                                                                                       | 3,000               |
 
 <span class="small"><sup>1</sup> Resource management requests include any request that isn't a job, an LRO, an online inference request, an Agent Platform Vizier request, an ML metadata request, a Vertex AI TensorBoard Timeseries Insights API read request, a Vertex AI Feature Store request, a Vertex AI Feature Store streaming request, or a Vector Search request. Resource management requests can be both global and regional.</span>
 
@@ -7344,14 +7344,14 @@ The following quotas apply to a given project and region. For example, in a sing
 
 Vertex AI Feature Store also has the following limits. You can't request an increase to any of the limits in the following table:
 
-| Limit                                                                                                                                                   | Value           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Maximum number of `FeatureGroup` resources in a project and location                                                                                    | 250             |
-| Maximum number of `Feature` resources within a `FeatureGroup`                                                                                           | 10,000          |
-| Maximum size of feature data per entity                                                                                                                 | 5 MB            |
-| Number of entity IDs per online serving request ( `FetchFeatureValues` )                                                                                | 1               |
-| Maximum length of an entity ID                                                                                                                          | 4076 characters |
-| Storage limit for an Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations) ) node | 200 GB          |
+| Limit                                                                                                                                                                                                           | Value           |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| Maximum number of `FeatureGroup` resources in a project and location                                                                                                                                            | 250             |
+| Maximum number of `Feature` resources within a `FeatureGroup`                                                                                                                                                   | 10,000          |
+| Maximum size of feature data per entity                                                                                                                                                                         | 5 MB            |
+| Number of entity IDs per online serving request ( `FetchFeatureValues` )                                                                                                                                        | 1               |
+| Maximum length of an entity ID                                                                                                                                                                                  | 4076 characters |
+| Storage limit for an Optimized online serving ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ) node | 200 GB          |
 
 ### Vertex AI Feature Store (Legacy)
 

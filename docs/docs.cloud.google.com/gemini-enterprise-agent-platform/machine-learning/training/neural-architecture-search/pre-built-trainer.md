@@ -51,7 +51,7 @@ Prior to running your experiments, you will need to define several environment v
 
   - REGION: A region which should be the same as your experiment output bucket region. For example: `us-central1` .
 
-  - PARAM\_OVERRIDE: a .yaml file overriding parameters of the prebuilt trainer. Agent Platform Neural Architecture Search provides some default configurations that you can use:
+  - PARAM\_OVERRIDE: a YAML file overriding parameters of the prebuilt trainer. Agent Platform Neural Architecture Search provides some default configurations that you can use:
 
 <!-- end list -->
 
@@ -64,7 +64,7 @@ Prior to running your experiments, you will need to define several environment v
     TRAINING_DATA_PATH=gs://PATH_TO_TRAINING_DATA
     VALIDATION_DATA_PATH=gs://PATH_TO_VALIDATION_DATA
 
-You might want to select and/or modify the override file that matches your training requirements. Consider the following:
+You might want to select or modify the override file that matches your training requirements. Consider the following:
 
   - You can set `--accelerator_type` to choose from GPU or CPU. To run only a few epoches for fast testing using CPU, you may set the Flag `--accelerator_type=""` and use the configuration file `tf_vision/test_files/fast_nas_detection_spinenet_search_for_testing.yaml` .
   - Number of epochs
@@ -157,9 +157,9 @@ In the shared source code, the reward is calculated as follows:
       speed_ratio = target_latency / inference_latency
       return accuracy * (speed_ratio**weight)
 
-You can use other variants of the `reward` calculation on page 3 of [the mnasnet paper](https://arxiv.org/pdf/1807.11626.pdf) .
+You can use other variants of the `reward` calculation on page 3 of [the MnasNet paper](https://arxiv.org/pdf/1807.11626.pdf) .
 
-  - `target_device_type` specifies the target device type that is [supported in Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/reference/rest/Shared.Types/AcceleratorType) , such as, `NVIDIA_TESLA_P100` .
+  - `target_device_type` specifies the target device type that is [supported in Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/AcceleratorType) , such as, `NVIDIA_TESLA_P100` .
   - `use_prebuilt_latency_calculator` uses our prebuilt latency-calculator [`tf_vision/latency_computation_using_saved_model.py`](https://github.com/google/vertex-ai-nas/blob/main/tf_vision/latency_computation_using_saved_model.py) .
   - `target_device_latency_ms` specifies the target device latency.
 
@@ -169,13 +169,13 @@ For information about how to customize the latency calculation function, see [`t
 
 In the Google Cloud console, on the job page, the **chart** shows the `reward vs. trial number` while the **table** shows the rewards for each trial. You can find the top trials with the highest reward.
 
-![Agent Platform Neural Architecture Search in the Google Cloud console.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_cloud_console.png)
+![Job details page showing trial reward chart and metrics table in the Google Cloud console.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/nas_cloud_console.png)
 
 ## Plot a stage-2 training curve
 
 After stage-2 training, you use either Cloud Shell or Google Cloud `TensorBoard` to plot the training curve by pointing it to the job directory:
 
-![TensorBoard plot.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/tensorboard.png)
+![Training curve metrics over steps visualized in TensorBoard.](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/images/tensorboard.png)
 
 ## Deploy a selected model
 

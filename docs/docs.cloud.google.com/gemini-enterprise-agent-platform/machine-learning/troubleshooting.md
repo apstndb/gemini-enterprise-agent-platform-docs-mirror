@@ -33,9 +33,9 @@ When you use the default data split when training an AutoML classification model
 
 To resolve this issue, add more training data, manually split your data to assign enough classes to every set, or remove the less frequently occurring labels from your dataset. For more information, see [About data splits for AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/ml-use) .
 
-## Vertex AI Studio
+## Agent Studio on Gemini Enterprise Agent Platform
 
-When working with Vertex AI Studio you might receive the following errors:
+When working with Agent Studio you might receive the following errors:
 
 ### Attempting to tune a model returns `Internal error encountered`
 
@@ -189,7 +189,7 @@ For an example of how to use this operator, see [Agent Platform Pipelines: Custo
 
 This section describes troubleshooting steps that you might find helpful if you run into problems with networking for Agent Platform.
 
-> **Note:** Enabling VPC Service Controls for Peerings will change the forwarding behavior in the Agent Platform producer project that peered to your VPC. Be sure to read the discussion on [Service perimeter creation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vpc-service-controls#service_perimeter_creation) for Agent Platform and confirm the configuration by running following command;
+> **Note:** Enabling VPC Service Controls for Peerings will change the forwarding behavior in the Agent Platform producer project that peered to your VPC. Be sure to read the discussion on [Service perimeter creation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#service-perimeter-creation) for Agent Platform and confirm the configuration by running following command;
 
     gcloud services vpc-peerings get-vpc-service-controls \
       --network YOUR_NETWORK
@@ -256,7 +256,7 @@ Because transitive peering is not supported, the Gemini Enterprise Agent Platfor
 
 **Issue**
 
-The only routes you can see in the Google Cloud console are those known to your own VPC as well as the ranges reserved when you complete the [VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vpc-peering) configuration.
+The only routes you can see in the Google Cloud console are those known to your own VPC as well as the ranges reserved when you complete the [VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) configuration.
 
 On rare occasions, a Gemini Enterprise Agent Platform job might throw a `no route to host` complaint when trying to reach an IP address that your VPC is exporting to the Gemini Enterprise Agent Platform network.
 
@@ -274,7 +274,7 @@ Craft your workload to return its local namespace IP addresses and confirm that 
 
 **Issue**
 
-Errors of the form `RANGES_EXHAUSTED` and `RANGES_NOT_RESERVED` and `RANGES_DELETED_LATER` indicate a problem with the underlying [VPC network peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/vpc-peering) configuration. These are networking errors and not errors from the Agent Platform service itself.
+Errors of the form `RANGES_EXHAUSTED` and `RANGES_NOT_RESERVED` and `RANGES_DELETED_LATER` indicate a problem with the underlying [VPC network peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) configuration. These are networking errors and not errors from the Agent Platform service itself.
 
 > **Note:** If you have created several ranges in the same VPC, these IP Ranges should be contiguous. Gemini Enterprise Agent Platform won't consume IP addresses from non-contiguous ranges within the same region.
 
@@ -685,9 +685,9 @@ To resolve this, try one of the following:
 
   - *Service account does not have permission to access Artifact Registry or bucket.* If you get an error such as `Agent Platform Service Agent service-123456789@gcp-sa-aiplatform-cc.iam.gserviceaccount.com does not have permission to access Artifact Registry repository projects/my-project/locations/my-region/repositories/nas` or a similar error for bucket access, give this service account a storage editor role in your project.
 
-## Agent Platform Neural Architecture Search Feature Store
+## Agent Platform Feature Store
 
-This section describes troubleshooting steps that you might find helpful if you run into problems with Agent Platform Neural Architecture Search Feature Store.
+This section describes troubleshooting steps that you might find helpful if you run into problems with [Feature Store on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview) .
 
 ### `Resource not found` error when sending a streaming ingestion or online serving request
 
@@ -717,7 +717,7 @@ Your CPU utilization for an online serving node is high.
 
 **Solution**
 
-To mitigate this issue, you can either increase the number of online serving nodes by manually increasing the node count or by enabling autoscaling. Note that even if auto scaling is enabled, Vertex AI Feature Store needs time to rebalance the data when nodes are added or removed. For information about how to view feature value distribution metrics over time, see [View feature value metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/monitoring#view_feature_value_distributions) .
+To mitigate this issue, you can either increase the number of online serving nodes by manually increasing the node count or by enabling autoscaling. Note that even if auto scaling is enabled, Agent Platform Feature Store needs time to rebalance the data when nodes are added or removed. For information about how to view feature value distribution metrics over time, see [View feature value metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/monitor-features#view-statistics) .
 
 ### CPU utilization is high for the hottest online serving node
 
@@ -757,11 +757,11 @@ Exporting a high volume of data can fail with a resource exceeded error if the e
 
 **Solution**
 
-To avoid this error, you can configure the time range parameters, `start_time` and `end_time` , to process smaller amounts of data at a time. For information about full export, see [Full export](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/export-features#full_export_2) .
+To avoid this error, you can configure the time range parameters, `start_time` and `end_time` , to process smaller amounts of data at a time. For information about serving historical feature data, see [Serve historical feature values](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/serve-historical-features) .
 
-## Agent Platform Neural Architecture Search Vizier
+## Agent Platform Vizier
 
-When using Agent Platform Neural Architecture Search Vizier, you might get the following issues.
+When using Agent Platform Vizier, you might get the following issues.
 
 #### Internal error
 
@@ -771,13 +771,13 @@ The internal error occurs when there is a system error.
 
 **Solution**
 
-It might be transient. Try to resend the request, and if the error persists, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/machine-learning/support/getting-support) .
+It might be transient. Try to resend the request, and if the error persists, [contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/support/getting-support) .
 
-### Permissions errors when using service account roles with Agent Platform Neural Architecture Search
+### Permissions errors when using service account roles with Agent Platform
 
 **Issue**
 
-You get general permissions errors when you use service account roles with Agent Platform Neural Architecture Search.
+You get general permissions errors when you use service account roles with Agent Platform.
 
 These errors can appear in Cloud Logging in either the product component logs or audit logs. They may also appear in any combination of the affected projects.
 
@@ -791,7 +791,7 @@ These issues can be caused by one or both of the following:
 
 To resolve the issue, try one or more of the following:
 
-  - Determine whether the `Service Account Token Creator` or `Service Account User` role is needed. To learn more, read the IAM documentation for the Agent Platform Neural Architecture Search services you are using, as well as any other product integrations that you are using.
+  - Determine whether the `Service Account Token Creator` or `Service Account User` role is needed. To learn more, read the IAM documentation for the Agent Platform services you are using, as well as any other product integrations that you are using.
 
   - If you have granted a service account permissions across multiple projects, enable service accounts to be attached across projects by ensuring that [`iam.disableCrossProjectServiceAccountUsage`](https://docs.cloud.google.com/iam/docs/attach-service-accounts#enabling-cross-project) . isn't enforced. To ensure that `iam.disableCrossProjectServiceAccountUsage` isn't enforced, run the following command:
     

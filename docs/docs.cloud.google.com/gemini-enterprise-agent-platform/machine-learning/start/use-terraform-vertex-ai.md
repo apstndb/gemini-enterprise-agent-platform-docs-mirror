@@ -58,11 +58,11 @@ Terraform configuration samples
 
 [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/endpoint/main.tf)
 
-[Model Garden](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models)
+[Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models)
 
 [`google_vertex_ai_endpoint_with_model_garden_deployment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_endpoint_with_model_garden_deployment)
 
-[Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/featurestore/latest/overview)
+[Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview)
 
 [`google_vertex_ai_feature_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_feature_group)
 
@@ -72,13 +72,13 @@ Terraform configuration samples
 
 [`google_vertex_ai_feature_online_store_featureview`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_feature_online_store_featureview)
 
-[Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/ml-metadata/introduction)
+[Vertex ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction)
 
 [`google_vertex_ai_metadata_store`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_metadata_store)
 
 [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/metadata_store_cmek/main.tf)
 
-[Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/matching-engine/overview)
+[Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview)
 
 [`google_vertex_ai_index`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_index)
 
@@ -88,7 +88,7 @@ Terraform configuration samples
 
 [`google_vertex_ai_index_endpoint_deployed_index`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_index_endpoint_deployed_index)
 
-[Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/experiments/tensorboard-introduction)
+[Vertex AI TensorBoard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-introduction)
 
 [`google_vertex_ai_tensorboard`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_tensorboard)
 

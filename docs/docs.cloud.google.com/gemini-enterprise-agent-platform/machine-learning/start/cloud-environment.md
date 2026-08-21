@@ -106,7 +106,7 @@ This section describes how an administrator grants the roles needed to use Gemin
 
 ## What's next
 
-  - Read an [overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/introduction-unified-platform) .
+  - Read an [overview of Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning) .
 
   - Walk through one of the [tutorials for using Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials) .
 

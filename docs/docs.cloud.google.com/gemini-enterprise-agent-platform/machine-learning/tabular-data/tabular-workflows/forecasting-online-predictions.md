@@ -18,7 +18,7 @@ You must deploy your model to an endpoint before you can use it for inferences. 
 
 You can request an explanation instead of an inference. The explanation's local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
-To learn about pricing for online inferences, see [Pricing for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+To learn about pricing for online inferences, see [Pricing for Tabular Workflows](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices) .
 
 ## Before you begin
 
@@ -265,4 +265,4 @@ Use the functions [`undeploy_all()`](https://docs.cloud.google.com/python/docs/r
 
 ## What's next
 
-  - Learn about [pricing for online inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for online inferences](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices) .

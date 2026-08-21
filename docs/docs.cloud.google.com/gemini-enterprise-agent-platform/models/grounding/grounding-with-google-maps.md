@@ -257,25 +257,27 @@ This section lists place properties that are used to describe locations and used
 
 ### Sample place properties
 
-This list provides an alphabetized sampling of properties about places that can be used by your model to generate responses.
+This list provides an alphabetized sampling of properties about places that can be used by your model to generate responses:
 
   - Address
+  - Busyness trends
   - Curbside pickup
   - Debit card
   - Distance
+  - EV charging station info (connector types, charging speeds, and availability)
   - Free parking lot
+  - Gas prices and available fuel types
+  - Good for kids
   - Live music
-  - Menu for children
+  - Menu highlights
   - Opening hours
   - Payment options (such as *cash* or *credit card* )
-  - Place answer
   - Pet friendly
+  - Review insights
   - Serves beer
   - Serves vegetarian food
   - Wheelchair accessible
   - Wifi
-
-**Place answers** are a response from Grounding with Google Maps based on information derived from user reviews.
 
 ### Examples of using place properties
 
@@ -285,6 +287,10 @@ The following examples use [place properties](https://docs.cloud.google.com/gemi
     
     Answers to these questions help you to determine if a restaurant is suitable for a family and if the restaurant offers a convenient service.
 
+  - **Explore menu highlights and signature dishes** : You might ask, *What are the most recommended pasta dishes on the menu at "The Italian Place"? Do they have vegetarian entrees, and what do reviewers say about their marinara sauce?*
+    
+    Answers to these questions use **Menu highlights** , and **Review insights** to help you explore specific culinary offerings and community favorites.
+
   - **Check accessibility for a friend** : You might ask, *I need a restaurant that has a wheelchair accessible entrance.*
     
     A response to this prompt might help you to determine if the location meets specific accessibility needs.
@@ -293,34 +299,33 @@ The following examples use [place properties](https://docs.cloud.google.com/gemi
     
     Answers to these questions help you to find an open establishment serving a specific meal during a particular time.
 
-  - **Meet a client for coffee** : You might ask, *Does "Cafe Central" have Wifi? Do they serve coffee? What is their price level, and do they accept credit cards?*
+  - **Plan EV charging and hotel amenities for a road trip** : You might ask, *I am staying at "Overnight Motel". Do they have on-site EV charging stations, what connector types are supported, and how busy is their parking area on Friday evenings?*
     
-    Answers to these questions help you to assess the suitability of a cafe for a business meeting based on amenities, offerings, and payment options.
+    Answers to these questions combine **EV charging station info** and **Busyness trends** to help you plan vehicle charging and evaluate crowd levels during your stay.
 
-Information in the **Google Maps Grounded Results** might differ from actual conditions of the road.
+  - **Compare gas prices and specialty fuels nearby** : You might ask, *Which gas stations near Mountain View, CA sell diesel or hydrogen, and how do their current prices compare?*
+    
+    Answers to these questions leverage **Gas prices and available fuel types** to help you locate specialty fuels and cost-effective refueling stops.
+
+  - **Synthesize work atmosphere from reviews** : You might ask, *What do customer review summaries say about the noise level, seating comfort, and Wifi reliability at "Breakfast Cafe" for remote work?*
+    
+    A response to this prompt leverages **Review insights** to assess the suitability of a cafe for working or studying based on community consensus.
+
+Information in the **Google Maps Grounded Results** might differ from actual conditions of the road or venue.
 
 ### Understand your response
 
-Google Maps sources are returned in `groundingMetadata` within `groundingChunks` . Sources are returned for places and for user reviews, which are used to help generate the **Google Maps Grounded Result** .
+Google Maps sources are returned in `groundingMetadata` within `groundingChunks` . Sources are returned for places, which are used to help generate the **Google Maps Grounded Result** . The `uri` field may link to a supporting review or directly to the place sheet on Google Maps.
 
-This code sample demonstrates a place source and a place answer source in the response:
+This code sample demonstrates a place source in the response:
 
     "groundingChunks": [
       {
         "maps": {
-          "uri": "{Link to Maps Content}",
+          "uri": "{Link to place sheet or review on Maps}",
           "title": "{Name of Maps Place}",
-          "placeId": "{Place ID}",
-          "placeAnswerSources": {
-            "reviewSnippets" : [
-              {
-                "reviewId": "{Review ID}",
-                "googleMapsUri": "{Link to Maps Content}",
-                "title": "{Title of review}"
-              }
-            ]
-          }
-        },
+          "placeId": "{Place ID}"
+        }
       }
     ],
 
@@ -477,11 +482,11 @@ You must convey the active disclosure of sources using **at least one** of the f
 
 ### Display Google Maps sources with Google Maps links
 
-For each source in `groundingChunks` and in `grounding_chunks.maps.placeAnswerSources.reviewSnippets` , a link preview must be generated following these requirements:
+For each source in `groundingChunks` , a link preview must be generated following these requirements:
 
   - Attribute each source to Google Maps following the [Google Maps text attribution guidelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-maps#google-maps-attribution-guidelines) .
   - Display the source title provided in the response.
-  - Link to the source using the `uri` or `googleMapsUri` from the response.
+  - Link to the source using the `uri` from the response.
 
 These images show the minimum requirements for displaying the sources and Google Maps links.
 

@@ -49,7 +49,7 @@ For sample colabs and notebooks, contact your sales representative or fill out a
 
 Tabular Workflows have an effective versioning system that allows for continuous updates and improvements without breaking changes to your applications.
 
-Each workflow is releases and updated as part of the [Google Cloud Pipeline Components SDK](https://pypi.org/project/google-cloud-pipeline-components/) . Updates and modifications to any workflow are released as new versions of that workflow. Previous versions of every workflow are always available through the older versions of the SDK. If the SDK version is pinned, the workflow version is also pinned.
+Each workflow is releases and updated as part of the [Google Cloud Pipeline Components SDK](https://pypi.org/project/google-cloud-pipeline-components/) . Updates and modifications to any workflow are released as new versions of that workflow. Previous versions of every workflow are always available through the earlier versions of the SDK. If the SDK version is pinned, the workflow version is also pinned.
 
 ## Available workflows
 
@@ -59,7 +59,7 @@ Agent Platform provides the following Tabular Workflows:
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------- |
 | [Feature Transform Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#feature-transform-engine) | Feature Engineering         | Public Preview      |
 | [End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#cr-e2e-automl)                   | Classification & Regression | Generally Available |
-| [Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#forecasting)                           | Forecasting                 | Public Preview      |
+| [Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview#f-forecasting)                         | Forecasting                 | Public Preview      |
 
 For additional information and sample notebooks, contact your sales representative or fill out a [request form](https://forms.gle/PGFzdf5gtZHfWTtw9) .
 
@@ -71,7 +71,7 @@ For additional information and sample notebooks, contact your sales representati
 
 Feature Transform Engine performs feature selection and feature transformations. If feature selection is enabled, Feature Transform Engine creates a ranked set of important features. If feature transformations are enabled, Feature Transform Engine processes the features to ensure that the input for model training and model serving is consistent. Feature Transform Engine can be used on its own or together with any of the [tabular training workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/overview) . It supports both TensorFlow and non-TensorFlow frameworks.
 
-For more information, see [Feature engineering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/feature-engineering) .
+For more information, see [Data types and transformations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/data-types-tabular) .
 
 ## Tabular Workflows for classification and regression
 
@@ -140,4 +140,4 @@ For more information, see [Tabular Workflow for Forecasting](https://docs.cloud.
 
   - Learn about [Tabular Workflow for End-to-End AutoML](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl) .
   - Learn about [Tabular Workflow for Forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting) .
-  - Learn about [Pricing for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for Tabular Workflows](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#tabular-data) .

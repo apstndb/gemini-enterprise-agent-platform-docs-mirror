@@ -10,7 +10,7 @@ Vertex AI Feature Store offers the following types of online serving that you ca
 
   - [Bigtable online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#bigtable_serving)
 
-  - [Optimized online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ( [Deprecated](https://docs.cloud.google.com/vertex-ai/docs/deprecations) ), where you can choose one of the following configurations:
+  - [Optimized online serving](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ( [Deprecated](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_serving) ), where you can choose one of the following configurations:
     
       - [Optimized online serving with public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/online-serving-types#optimized_public)
     

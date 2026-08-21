@@ -415,9 +415,9 @@ The response contains information about specifications as well as the TRAININGPI
 
 You can [get the status](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api#get-pipeline) of the trainingPipeline job using the TRAININGPIPELINE\_ID .
 
-## Get trainingPipeline status
+## Get `trainingPipeline` status
 
-Use the following code to programmatically get the status of trainingPipeline creation.
+Use the following code to programmatically get the status of `trainingPipeline` creation.
 
 ### REST
 
@@ -684,7 +684,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## Get model information
 
-After the trainingPipeline creation completes you can use the model's display name to get more detailed model information.
+After the `trainingPipeline` creation completes you can use the model's display name to get more detailed model information.
 
 ### REST
 
@@ -1015,5 +1015,5 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
 ## What's next
 
-  - [Evaluating AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/evaluating-automl-models) .
-  - [Exporting AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-edge-model) .
+  - [Evaluate AutoML models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview#automl) .
+  - [Export AutoML Edge models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/export/export-edge-model) .

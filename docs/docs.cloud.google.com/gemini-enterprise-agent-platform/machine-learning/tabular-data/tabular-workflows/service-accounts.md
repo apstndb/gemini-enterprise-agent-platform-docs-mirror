@@ -384,7 +384,7 @@ These workflows use the following service accounts:
 | [Service account for Dataflow worker](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#fte-workflow-dataflow)                             | The service account that runs the Dataflow workers     | `PROJECT_NUMBER-compute@developer.gserviceaccount.com`             | `Compute Engine default service account` | Yes               |
 | [AI Platform Service Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts#fte-workflow-aip)                                            | The service account that runs the training containers. | `service-PROJECT_NUMBER@gcp-sa-aiplatform.iam.gserviceaccount.com` | `AI Platform Service Agent`              | No                |
 
-You can change some of the service accounts to an account of your choice. For For Tabular Workflow for Wide & Deep instructions, see [Train a model with Wide & Deep](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/wide-and-deep-train) . For Prophet instructions, see [Forecasting with Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet) .
+You can change some of the service accounts to an account of your choice. For Prophet instructions, see [Forecasting with Prophet](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet) .
 
 ### Service account for Gemini Enterprise Agent Platform Pipelines
 

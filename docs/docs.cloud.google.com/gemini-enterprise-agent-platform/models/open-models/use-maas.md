@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This document describes how to use open models through Model as a Service (MaaS) on Gemini Enterprise Agent Platform. MaaS provides serverless access to selected partner and open-source models, eliminating the need to provision or manage infrastructure.
 
-[Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) is a centralized library of AI and ML models from Google, Google Partners, and open models (open-weight and open-source), including MaaS models. Model Garden provides multiple ways to deploy [available models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/available-models) on Gemini Enterprise Agent Platform, including [models from Hugging Face](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models) .
+[Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) is a centralized library of AI and ML models from Google, Google Partners, and open models (open-weight and open-source), including MaaS models. Model Garden provides multiple ways to deploy [available models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) on Gemini Enterprise Agent Platform, including [models from Hugging Face](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models) .
 
 For more information about MaaS, see the [partner models documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) .
 

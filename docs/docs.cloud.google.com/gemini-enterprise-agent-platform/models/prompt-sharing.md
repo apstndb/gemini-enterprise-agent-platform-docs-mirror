@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompt-sharing
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompt-sharing
 title: Save and share prompts
-description: How to save and share prompts in Vertex AI Studio.
+description: How to save and share prompts in Agent Studio.
 data_source: docs.cloud.google.com
 ---
 
-This document describes how to save and share prompts in Vertex AI Studio. Sharing prompts lets you collaborate with team members, ensure consistency, and build a library of effective prompts for various tasks.
+This document describes how to save and share prompts in Agent Studio. Sharing prompts lets you collaborate with team members, ensure consistency, and build a library of effective prompts for various tasks.
 
 Sharing works as follows:
 
@@ -22,7 +22,7 @@ Sharing works as follows:
 
 To save a prompt for later use or sharing:
 
-1.  Go to Vertex AI Studio.
+1.  Go to Agent Studio.
 
 2.  Write a new prompt or open an existing prompt and then click send **Submit** .
 
@@ -32,7 +32,7 @@ To save a prompt for later use or sharing:
 
 To share a saved prompt:
 
-1.  In Vertex AI Studio, go to either **Prompt management** or **Chat playground**
+1.  In Agent Studio, go to either **Prompt management** or **Chat playground**
 
 2.  Open a saved prompt and click the share **Share** button.
     
@@ -60,7 +60,7 @@ To revoke access to a prompt:
 
 Overview
 
-### [Agent Platform Studio capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/vertex-ai-studio-capabilities)
+### [Agent Platform Studio capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities)
 
 Key features implemented within Agent Platform Studio that facilitate transforming innovative ideas into generative AI solutions.
 

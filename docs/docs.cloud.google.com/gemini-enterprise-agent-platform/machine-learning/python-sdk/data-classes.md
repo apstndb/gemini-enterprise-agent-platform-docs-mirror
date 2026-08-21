@@ -31,7 +31,7 @@ The following code shows you how to create a tabular dataset by importing a CSV 
         display_name="my-dataset")
     
     my_dataset.import(
-        gcs_source=['gs://path/to/my/dataset.csv']
+        gcs_source=['gs://path/to/my/dataset.csv'],
         import_schema_uri=aiplatform.schema.dataset.ioformat.text.multi_label_classification
     )
 
@@ -88,7 +88,7 @@ Gemini Enterprise Agent Platform Feature Store uses a time series data model com
 
 ![Gemini Enterprise Agent Platform Feature Store class hierarchy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/images/FeatureStore-class-hierarchy.svg "Gemini Enterprise Agent Platform Feature Store class hierarchy diagram")
 
-For more information about the Gemini Enterprise Agent Platform Feature Store data model, see [Data model and resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/concepts) . To learn about Gemini Enterprise Agent Platform Feature Store data source requirements, see [Source data requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/source-data) .
+For more information about the Gemini Enterprise Agent Platform Feature Store data model, see [Data model and resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/overview) . To learn about Gemini Enterprise Agent Platform Feature Store data source requirements, see [Source data requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/prepare-data-source) .
 
 The following classes are used with Gemini Enterprise Agent Platform Feature Store data:
 

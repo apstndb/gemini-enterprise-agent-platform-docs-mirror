@@ -149,7 +149,7 @@ To train a model by using the Google Cloud console, perform the following steps:
 
 8.  In the **Compute and pricing** page, configure as follows:
     
-    1.  Enter the maximum number of hours you want your model to train for. Learn more about [pricing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+    1.  Enter the maximum number of hours you want your model to train for. Learn more about [pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#tabular-data) .
     2.  **Optional:** In the **Compute Settings** section, you can configure the machine types and the number of machines for each stage of the workflow. This option is a good choice if you have a large dataset and want to optimize the machine hardware accordingly.
 
 9.  Click **Submit** .

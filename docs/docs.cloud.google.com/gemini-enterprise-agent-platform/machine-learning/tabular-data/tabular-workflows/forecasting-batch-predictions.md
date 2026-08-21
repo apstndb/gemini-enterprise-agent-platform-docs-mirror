@@ -18,7 +18,7 @@ You can request batch inferences directly from the model resource.
 
 You can request an inference with explanations (also called feature attributions) to see how your model arrived at an inference. The local feature importance values tell you how much each feature contributed to the inference result. For a conceptual overview, see [Feature attributions for forecasting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-explanations) .
 
-To learn about pricing for batch inferences, see [Pricing for Tabular Workflows](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+To learn about pricing for batch inferences, see [Pricing for Tabular Workflows](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices) .
 
 ## Before you begin
 
@@ -742,4 +742,4 @@ The inference values are given in the `predicted_Sales.quantile_predictions` col
 
 ## What's next
 
-  - Learn about [pricing for batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for batch inferences](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices) .

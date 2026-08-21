@@ -220,4 +220,4 @@ The following model training parameter lets you run the pipeline without the arc
 ## What's next
 
   - Learn about [batch inferences](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-batch-predictions) for forecasting models.
-  - Learn about [pricing for model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/pricing) .
+  - Learn about [pricing for model training](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#tabular-data) .

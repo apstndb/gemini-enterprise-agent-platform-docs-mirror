@@ -22,8 +22,6 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 **Turn complex spreadsheets into actionable insights with** [**Data Insights**](https://docs.cloud.google.com/gemini/enterprise/docs/data-agent).\* This agent (in preview) provides insights from your BigQuery data without requiring prior SQL knowledge, freeing up data analysts to focus on more complex tasks.
 
-**Help developers complete common tasks with** [**Gemini Code Assist**](https://codeassist.google/).\* This specialized agent helps developers perform coding tasks across the software development lifecycle.
-
 *\*Available in the Standard and Plus editions of Gemini Enterprise app.*
 
 ## Create and deploy your own custom agents
@@ -56,7 +54,7 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
   - [](https://cloud.google.com/products/gemini-enterprise-agent-platform)
     
-    Agent Platform
+    Gemini Enterprise Agent Platform
     
     Our new developer platform and evolution of Vertex AI. It brings together our full suite of models, development, and tuning services, with new features for businesses to build, scale, govern, and optimize agents that can work autonomously to execute complex business workflows.
 

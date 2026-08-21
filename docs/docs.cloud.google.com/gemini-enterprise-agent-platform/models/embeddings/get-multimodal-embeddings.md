@@ -765,34 +765,59 @@ The embedding the model returns a float vector of the dimension you specify. The
 
 ### Python
 
-    import vertexai
+    import os
     
-    from vertexai.vision_models import Image, MultiModalEmbeddingModel
+    from google import genai
     
-    # TODO(developer): Update & uncomment line below
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # TODO (Developer) Set environment variables
+    PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
+    LOCATION_ID = "global"
     
-    # TODO(developer): Try different dimenions: 128, 256, 512, 1408
-    embedding_dimension = 128
+    # Supported dimensions: 128, 256, 512, 1408 (or up to 3072 for gemini-embedding-2)
+    EMBEDDING_DIMENSION = 128
+    IMAGE_URI = "gs://cloud-samples-data/vertex-ai/llm/prompts/landmark1.png"
+    EMBEDDING_MODEL = "gemini-embedding-2"
+    CONTEXTUAL_TEXT = "Colosseum"
     
-    model = MultiModalEmbeddingModel.from_pretrained("multimodalembedding@001")
-    image = Image.load_from_file(
-        "gs://cloud-samples-data/vertex-ai/llm/prompts/landmark1.png"
-    )
     
-    embeddings = model.get_embeddings(
-        image=image,
-        contextual_text="Colosseum",
-        dimension=embedding_dimension,
-    )
+    def generate_embeddings_with_lower_dimension() -> genai.types.EmbedContentResponse:
+        """Generates multimodal embeddings (image + text) with custom lower dimensionality
     
-    print(f"Image Embedding: {embeddings.image_embedding}")
-    print(f"Text Embedding: {embeddings.text_embedding}")
+        using the modern google-genai SDK.
+        """
     
-    # Example response:
-    # Image Embedding: [0.0622573346, -0.0406507477, 0.0260440577, ...]
-    # Text Embedding: [0.27469793, -0.146258667, 0.0222803634, ...]
+        client = genai.Client(
+            vertexai=True,
+            project=PROJECT_ID,
+            location=LOCATION_ID,
+        )
+    
+        image_part = genai.types.Part.from_uri(
+            file_uri=IMAGE_URI,
+            mime_type="image/png",
+        )
+    
+        text_part = genai.types.Part.from_text(text=CONTEXTUAL_TEXT)
+    
+        contents = genai.types.Content(parts=[image_part, text_part])
+    
+        config = genai.types.EmbedContentConfig(output_dimensionality=EMBEDDING_DIMENSION)
+    
+        response = client.models.embed_content(
+            model=EMBEDDING_MODEL,
+            contents=[contents],
+            config=config,
+        )
+    
+        if response.embeddings:
+    
+            embeddings = response.embeddings[0].values
+    
+            print(f"Embeddings (dim={len(embeddings)}): {embeddings[:3]}...\n")
+    
+        print(response)
+    
+        return response
 
 ### Go
 
@@ -979,30 +1004,38 @@ The embedding the model returns is a 1408 float vector. The following sample res
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import vertexai
-    from vertexai.vision_models import Image, MultiModalEmbeddingModel
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+
+    from google import genai
+    from google.genai import types
     
-    # TODO(developer): Update & uncomment line below
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
     
-    model = MultiModalEmbeddingModel.from_pretrained("multimodalembedding@001")
-    image = Image.load_from_file(
-        "gs://cloud-samples-data/vertex-ai/llm/prompts/landmark1.png"
-    )
+    def embed_content() -> types.EmbedContentResponse:
+        client = genai.Client()
     
-    embeddings = model.get_embeddings(
-        image=image,
-        contextual_text="Colosseum",
-        dimension=1408,
-    )
-    print(f"Image Embedding: {embeddings.image_embedding}")
-    print(f"Text Embedding: {embeddings.text_embedding}")
-    # Example response:
-    # Image Embedding: [-0.0123147098, 0.0727171078, ...]
-    # Text Embedding: [0.00230263756, 0.0278981831, ...]
+        content = types.Content(
+            parts=[
+                types.Part.from_uri(
+                    file_uri="gs://cloud-samples-data/vertex-ai/llm/prompts/landmark1.png",
+                    mime_type="image/png",
+                ),
+                types.Part.from_text(text="Colosseum"),
+            ],
+        )
+    
+        response = client.models.embed_content(
+            model="gemini-embedding-2",
+            contents=[content],
+            config=types.EmbedContentConfig(
+                output_dimensionality=1408,
+            ),
+        )
+        print(response)
+        # Example response:
+        # embeddings=[ContentEmbedding(values=[-0.0123147098, 0.0727171078, ...])]
+        return response
 
 ### Node.js
 
@@ -1553,38 +1586,35 @@ The embedding the model returns is a 1408 float vector. The following sample res
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import vertexai
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+
+    from google import genai
+    from google.genai import types
     
-    from vertexai.vision_models import MultiModalEmbeddingModel, Video
-    from vertexai.vision_models import VideoSegmentConfig
     
-    # TODO(developer): Update & uncomment line below
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    def embed_content() -> types.EmbedContentResponse:
+        client = genai.Client()
     
-    model = MultiModalEmbeddingModel.from_pretrained("multimodalembedding@001")
-    
-    embeddings = model.get_embeddings(
-        video=Video.load_from_file(
-            "gs://cloud-samples-data/vertex-ai-vision/highway_vehicles.mp4"
-        ),
-        video_segment_config=VideoSegmentConfig(end_offset_sec=1),
-    )
-    
-    # Video Embeddings are segmented based on the video_segment_config.
-    print("Video Embeddings:")
-    for video_embedding in embeddings.video_embeddings:
-        print(
-            f"Video Segment: {video_embedding.start_offset_sec} - {video_embedding.end_offset_sec}"
+        part = types.Part(
+            file_data=types.FileData(
+                file_uri="gs://cloud-samples-data/vertex-ai-vision/highway_vehicles.mp4",
+                mime_type="video/mp4",
+            ),
+            video_metadata=types.VideoMetadata(end_offset="1s"),
         )
-        print(f"Embedding: {video_embedding.embedding}")
     
-    # Example response:
-    # Video Embeddings:
-    # Video Segment: 0.0 - 1.0
-    # Embedding: [-0.0206376351, 0.0123456789, ...]
+        content = types.Content(parts=[part])
+    
+        response = client.models.embed_content(
+            model="gemini-embedding-2",
+            contents=[content],
+        )
+        print(response)
+        # Example response:
+        # embeddings=[ContentEmbedding(values=[-0.0123147098, 0.0727171078, ...])]
+        return response
 
 ### Go
 
@@ -1843,50 +1873,59 @@ The embedding the model returns is a 1408 float vector. The following sample res
 
 ### Python
 
-To learn how to install or update the Vertex AI SDK for Python, see [Install the Vertex AI SDK for Python](https://docs.cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk) . For more information, see the [Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
+Before trying this sample, follow the Python setup instructions in the [Agent Platform quickstart using client libraries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/client-libraries) . For more information, see the [Agent Platform Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) .
 
-    import vertexai
+To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) .
+
+    import os
     
-    from vertexai.vision_models import Image, MultiModalEmbeddingModel, Video
-    from vertexai.vision_models import VideoSegmentConfig
+    from google import genai
     
-    # TODO(developer): Update & uncomment line below
-    # PROJECT_ID = "your-project-id"
-    vertexai.init(project=PROJECT_ID, location="us-central1")
+    # Environment configuration
+    PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT", "your-project-id")
+    LOCATION_ID = "global"
     
-    model = MultiModalEmbeddingModel.from_pretrained("multimodalembedding@001")
+    EMBEDDING_MODEL = "gemini-embedding-2"
+    IMAGE_URI = "gs://cloud-samples-data/vertex-ai/llm/prompts/landmark1.png"
+    VIDEO_URI = "gs://cloud-samples-data/vertex-ai-vision/highway_vehicles.mp4"
+    CONTEXTUAL_TEXT = "Cars on Highway"
     
-    image = Image.load_from_file(
-        "gs://cloud-samples-data/vertex-ai/llm/prompts/landmark1.png"
-    )
-    video = Video.load_from_file(
-        "gs://cloud-samples-data/vertex-ai-vision/highway_vehicles.mp4"
-    )
     
-    embeddings = model.get_embeddings(
-        image=image,
-        video=video,
-        video_segment_config=VideoSegmentConfig(end_offset_sec=1),
-        contextual_text="Cars on Highway",
-    )
+    def get_image_video_text_embeddings() -> genai.types.EmbedContentResponse:
+        """Generates multimodal embeddings from image, video, and text using the google-genai SDK."""
     
-    print(f"Image Embedding: {embeddings.image_embedding}")
-    
-    # Video Embeddings are segmented based on the video_segment_config.
-    print("Video Embeddings:")
-    for video_embedding in embeddings.video_embeddings:
-        print(
-            f"Video Segment: {video_embedding.start_offset_sec} - {video_embedding.end_offset_sec}"
+        client = genai.Client(
+            vertexai=True,
+            project=PROJECT_ID,
+            location=LOCATION_ID,
         )
-        print(f"Embedding: {video_embedding.embedding}")
     
-    print(f"Text Embedding: {embeddings.text_embedding}")
-    # Example response:
-    # Image Embedding: [-0.0123144267, 0.0727186054, 0.000201397663, ...]
-    # Video Embeddings:
-    # Video Segment: 0.0 - 1.0
-    # Embedding: [-0.0206376351, 0.0345234685, ...]
-    # Text Embedding: [-0.0207006838, -0.00251058186, ...]
+        image_part = genai.types.Part.from_uri(
+            file_uri=IMAGE_URI,
+            mime_type="image/png",
+        )
+    
+        video_part = genai.types.Part.from_uri(
+            file_uri=VIDEO_URI,
+            mime_type="video/mp4",
+        )
+    
+        content = genai.types.Content(
+            parts=[image_part, video_part, genai.types.Part.from_text(text=CONTEXTUAL_TEXT)]
+        )
+    
+        # Joint/Interleaved Multimodal Embedding (Image + Video + Text in same vector space)
+        response = client.models.embed_content(model=EMBEDDING_MODEL, contents=content)
+    
+        if response.embeddings:
+    
+            vector = response.embeddings[0].values
+    
+            print(f"Embeddings ({len(vector)} dims): {vector[:3]}...")
+    
+        print(response)
+    
+        return response
 
 ### Go
 

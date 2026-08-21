@@ -24,7 +24,7 @@ Use the following code sample to configure the failure policy of a pipeline task
           num_retries=NUMBER_OF_RETRIES,
           backoff_duration='BACKOFF_DURATION',
           backoff_factor=BACKOFF_FACTOR,
-          backoff_maxk_duration='BACKOFF_MAX_DURATION'
+          backoff_max_duration='BACKOFF_MAX_DURATION'
         )
 
 Replace the following:

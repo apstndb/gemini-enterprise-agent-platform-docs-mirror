@@ -18,11 +18,11 @@ The following topics provide an overview of the classes related to tracking and 
 
 You can use the Agent Platform SDK for Python to create Gemini Enterprise Agent Platform ML Metadata to help you track and analyze the metadata in your ML workflow. For more information, see [Introduction to Gemini Enterprise Agent Platform ML Metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/introduction) .
 
-### [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact)
+### [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) {: id="artifact-class"}
 
-The [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) class represents the metadata in an artifact in Gemini Enterprise Agent Platform. An artifact is a discrete entity or piece of data that's produced by an ML workflow. Examples of an artifact are a [dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) , a [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) , and an [input file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/prepare-data) . For more information, see [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts) .
+The [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) class represents the metadata in an artifact in Gemini Enterprise Agent Platform. An artifact is a discrete entity or piece of data that's produced by an ML workflow. Examples of an artifact are a [dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) , a [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training-overview) , and an [input file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/video-data/classification/prepare-data#input-files) . For more information, see [Track executions and artifacts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/track-executions-artifacts) .
 
-When you create an [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) resource, you need to specify its schema. Each type of an artifact has a unique schema. For example, the `system.Dataset` schema represents a dataset and the `system.Metrics` schema represents evaluation metrics. For more information, see [How to use system schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/system-schemas#how_to_use_system_schemas) .
+When you create an [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) resource, you need to specify its schema. Each type of an artifact has a unique schema. For example, the `system.Dataset` schema represents a dataset and the `system.Metrics` schema represents evaluation metrics. For more information, see [How to use system schemas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/system-schemas#how-to-use-system-schemas) .
 
 The following sample code shows how to create an [`Artifact`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Artifact) resource that represents a model:
 
@@ -30,6 +30,7 @@ The following sample code shows how to create an [`Artifact`](https://docs.cloud
             schema_title="system.Model",
             display_name=PREPROCESSED_DATASET_NAME,
             uri=PREPROCESSED_DATASET_URI,
+    )
 
 ### [`Execution`](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Execution)
 
@@ -45,7 +46,7 @@ The following sample code shows how to create an [`Execution`](https://docs.clou
         model = aiplatform.Artifact.create(uri='gs://my-uri', schema_title='system.Model')
         execution.assign_output_artifacts([model])
 
-## Experiments on Agent Platform classes
+## Vertex AI Experiments classes
 
 You can use the Agent Platform SDK for Python to create and run Experiments on Agent Platform. Use Experiments on Agent Platform to track logged metrics and parameters to help you analyze and optimize your ML workflow. For more information, see [Introduction to Experiments on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/intro-vertex-ai-experiments) .
 

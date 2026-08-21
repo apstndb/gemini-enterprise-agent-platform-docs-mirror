@@ -65,7 +65,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
   - Automatic Data Splitting: When using managed datasets in training pipelines, Agent Platform can automatically split your data into training, validation, and test sets based on specified fractions, filters, predefined splits, or timestamps. This simplifies the data preparation process.
   - Utilizing Dataset Versions: Managed datasets enables versioning, which lets you to track changes to your data over time and revert to previous versions if needed.
 
-### Specific to Ray on Vertex AI
+### Specific to Ray on Gemini Enterprise Agent Platform
 
   - If you use a managed dataset in an Agent Platform training pipeline that utilizes Ray for distributed training, the data from the managed dataset is made available to the training containers, which your Ray application can then access (via mounted Cloud Storage or BigQuery if the dataset is linked to those sources). The environment variables `AIP_TRAINING_DATA_URI` , `AIP_VALIDATION_DATA_URI` , and `AIP_TEST_DATA_URI` would point to the data.
 
@@ -79,18 +79,18 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
   - When building training pipelines: When building training pipelines in Agent Platform, you can use data directly from BigQuery. For example, a pipeline can fetch data from BigQuery, preprocess it, and then train a model.
   - Continuous model training pipelines: For setting up continuous model training, you might trigger pipeline runs based on new data arriving in a BigQuery table. This enables automation of model retraining. You can configure an Eventarc trigger to initiate a pipeline when a new job is inserted into a specific BigQuery table.
   - Model monitoring: BigQuery can be used as a source for monitoring feature skew and drift of your deployed models. For skew detection, you can specify the BigQuery URI of your training dataset. Also, BigQuery can store the logs from online inference endpoints, which can then be used as a data source for continuous monitoring. For this, your BigQuery table should ideally have a timestamp column.
-  - BigQuery ML integration: You can use BigQuery datasets when leveraging BigQuery ML for building machine learning models using SQL. Vertex AI Workbench enables interactive exploratory analysis of BigQuery data and the use of BigQuery ML within a notebook environment.
+  - BigQuery ML integration: You can use BigQuery datasets when leveraging BigQuery ML for building machine learning models using SQL. Agent Platform Workbench, enables interactive exploratory analysis of BigQuery data and the use of BigQuery ML within a notebook environment.
   - Data exploration and preparation: Before training, you can use BigQuery to explore and visualize your data. You can also perform data transformations using SQL queries directly in BigQuery before using the data for training.
-  - Accessing public datasets: BigQuery hosts many public datasets, such as the Chicago Taxi Trips dataset, which you can readily use for experimentation and training in Vertex AI Workbench.
+  - Accessing public datasets: BigQuery hosts many public datasets, such as the Chicago Taxi Trips dataset, which you can readily use for experimentation and training in Agent Platform Workbench,.
 
-### Specific to Ray on Vertex AI
+### Specific to Ray on Gemini Enterprise Agent Platform
 
-  - Ray on Vertex AI has capabilities to read data directly from BigQuery. You can use the Agent Platform SDK for Python within a Ray task to execute BigQuery queries and materialize the results for use in your Ray applications.
+  - Ray on Gemini Enterprise Agent Platform has capabilities to read data directly from BigQuery. You can use the Agent Platform SDK for Python within a Ray task to execute BigQuery queries and materialize the results for use in your Ray applications.
   - When reading from BigQuery, be aware of the maximum query response size, which is 10 GB.
   - You can also write data from your Ray applications back to BigQuery using the Agent Platform SDK for Python.
 
 ### Learn more
 
-  - [Agent Platform for BigQuery users](https://docs.cloud.google.com/gemini-enterprise-agent-platform/beginner/bqml)
+  - [Agent Platform for BigQuery users](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/bqml)
   - [Build a pipeline for continuous model training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/continuous-training-tutorial)
-  - [Use Ray on Vertex AI with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration)
+  - [Use Ray on Gemini Enterprise Agent Platform with BigQuery](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration)

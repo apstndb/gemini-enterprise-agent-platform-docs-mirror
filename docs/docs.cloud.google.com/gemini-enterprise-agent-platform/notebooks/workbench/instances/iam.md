@@ -315,6 +315,9 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  list</code></p>
@@ -428,8 +431,10 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.snapshotGroups.get</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotGroups.list</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotSettings.get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.get</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></p>
@@ -832,6 +837,9 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  list</code></p>
@@ -945,8 +953,10 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.snapshotGroups.get</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotGroups.list</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotSettings.get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.get</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></p>
@@ -1351,6 +1361,9 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  list</code></p>
@@ -1464,8 +1477,10 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.snapshotGroups.get</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotGroups.list</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotSettings.get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.get</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></p>
@@ -2191,6 +2206,12 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  updatePolicy</code></li>
 <li><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  use</code></li>
 <li><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  withdraw</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  delete</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  recover</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.  regionBackendBuckets.  create</code></li>
 <li><code dir="ltr" translate="no">compute.  regionBackendBuckets.  createTagBinding</code></li>
 <li><code dir="ltr" translate="no">compute.  regionBackendBuckets.  delete</code></li>
@@ -2459,6 +2480,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.snapshotGroups.list</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshotGroups.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshotGroups.  useReadOnly</code></li>
+<li><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></li>
+<li><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  update</code></li>
 <li><code dir="ltr" translate="no">compute.snapshotSettings.get</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshotSettings.  update</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.create</code></li>
@@ -2466,6 +2489,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.snapshots.delete</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshots.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.get</code></li>
+<li><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.list</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></li>
@@ -2986,6 +3010,9 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  list</code></p>
@@ -3099,8 +3126,10 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.snapshotGroups.get</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotGroups.list</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotSettings.get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.get</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></p>
@@ -3480,6 +3509,9 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></p>
+<p><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  list</code></p>
@@ -3593,8 +3625,10 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.snapshotGroups.get</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotGroups.list</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotSettings.get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.get</code></p>
+<p><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></p>
@@ -4202,6 +4236,15 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  list</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  publicDelegatedPrefixes.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">compute.recoverableSnapshots.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  delete</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  get</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  getIamPolicy</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  list</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  recover</code></li>
+<li><code dir="ltr" translate="no">compute.  recoverableSnapshots.  setIamPolicy</code></li>
+</ul>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  regionBackendBuckets.  list</code></p>
@@ -4345,6 +4388,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">compute.  snapshotGroups.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshotGroups.  useReadOnly</code></li>
 </ul>
+<p><code dir="ltr" translate="no">compute.  snapshotRecycleBinPolicy.  get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshotSettings.get</code></p>
 <p><code dir="ltr" translate="no">compute.snapshots.*</code></p>
 <ul>
@@ -4353,6 +4397,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">compute.snapshots.delete</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshots.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.get</code></li>
+<li><code dir="ltr" translate="no">compute.  snapshots.  getEffectiveRecycleBinRule</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.snapshots.list</code></li>
 <li><code dir="ltr" translate="no">compute.  snapshots.  listEffectiveTags</code></li>

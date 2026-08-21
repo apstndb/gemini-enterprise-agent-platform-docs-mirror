@@ -51,7 +51,6 @@ CodeMender supports the following models:
 
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview
 
 To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender#specifying-the-model) .
 
@@ -107,7 +106,6 @@ By default, CodeMender uses Gemini 3.5 Flash. To override the default model, pas
 
   - Gemini 3.5 Flash (default): `--model gemini-3.5-flash`
   - Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`
-  - Gemini 3 Flash Preview: `--model gemini-3-flash-preview`
 
 The following commands support the `--model` flag:
 

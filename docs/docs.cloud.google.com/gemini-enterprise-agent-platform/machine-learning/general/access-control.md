@@ -483,6 +483,12 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  delete</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></li>
@@ -1164,6 +1170,15 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
 <ul>
@@ -1881,6 +1896,15 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
@@ -2134,6 +2158,8 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  specialistPools.  update</code></p>
 <p><code dir="ltr" translate="no">aiplatform.studies.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.studies.list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.tasks.get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.tasks.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.tensorboardRuns.get</code></p>
@@ -3633,6 +3659,15 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.  create</code></li>
@@ -4681,6 +4716,15 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.studies.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.studies.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.tasks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.tasks.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.tasks.update</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.  tensorboardExperiments.*</code></p>
 <ul>
@@ -5887,6 +5931,15 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.studies.get`
   - `aiplatform.studies.list`
   - `aiplatform.studies.update`
+
+`aiplatform.tasks.*`
+
+  - `aiplatform.tasks.cancel`
+  - `aiplatform.tasks.create`
+  - `aiplatform.tasks.delete`
+  - `aiplatform.tasks.get`
+  - `aiplatform.tasks.list`
+  - `aiplatform.tasks.update`
 
 `aiplatform. tensorboardExperiments.*`
 
@@ -7096,6 +7149,15 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.studies.list`
   - `aiplatform.studies.update`
 
+`aiplatform.tasks.*`
+
+  - `aiplatform.tasks.cancel`
+  - `aiplatform.tasks.create`
+  - `aiplatform.tasks.delete`
+  - `aiplatform.tasks.get`
+  - `aiplatform.tasks.list`
+  - `aiplatform.tasks.update`
+
 `aiplatform. tensorboardExperiments.*`
 
   - `aiplatform. tensorboardExperiments. create`
@@ -7943,6 +8005,15 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute. publicDelegatedPrefixes. listTagBindings`
 
+`compute.recoverableSnapshots.*`
+
+  - `compute. recoverableSnapshots. delete`
+  - `compute. recoverableSnapshots. get`
+  - `compute. recoverableSnapshots. getIamPolicy`
+  - `compute. recoverableSnapshots. list`
+  - `compute. recoverableSnapshots. recover`
+  - `compute. recoverableSnapshots. setIamPolicy`
+
 `compute. regionBackendBuckets. get`
 
 `compute. regionBackendBuckets. getIamPolicy`
@@ -8182,6 +8253,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
   - `compute. snapshotGroups. setIamPolicy`
   - `compute. snapshotGroups. useReadOnly`
 
+`compute. snapshotRecycleBinPolicy. get`
+
 `compute.snapshotSettings.get`
 
 `compute.snapshots.*`
@@ -8191,6 +8264,7 @@ Provide access for notebooks service agent to manage notebook instances in user 
   - `compute.snapshots.delete`
   - `compute. snapshots. deleteTagBinding`
   - `compute.snapshots.get`
+  - `compute. snapshots. getEffectiveRecycleBinRule`
   - `compute.snapshots.getIamPolicy`
   - `compute.snapshots.list`
   - `compute. snapshots. listEffectiveTags`

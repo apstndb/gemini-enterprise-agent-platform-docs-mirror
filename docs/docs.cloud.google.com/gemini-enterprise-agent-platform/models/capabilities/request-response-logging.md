@@ -524,7 +524,7 @@ You don't need to enable request-response logging for BigQuery to use request-re
 
 VPC Service Controls protected projects are prevented from sharing data with MaaS Partners by default. Configuring a VPC Service Controls egress rule isn't supported. To enable data sharing for a VPC Service Controls protected project, file a [support case](https://cloud.google.com/support-hub?e=13802955) .
 
-### Enable data
+### Enable data sharing
 
 Do the following:
 
