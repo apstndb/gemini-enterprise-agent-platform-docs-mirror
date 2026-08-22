@@ -14,6 +14,10 @@ xAI Grok models are available for use as managed APIs on Gemini Enterprise Agent
 
 The following models are available from xAI to use in Gemini Enterprise Agent Platform. To access a xAI model, go to its Model Garden model card.
 
+### Grok 4.6
+
+Grok 4.6 is xAI's most capable model, built for coding, agentic tasks, and knowledge work.
+
 ### Grok 4.3
 
 Grok 4.3 is xAI's flagship model.
@@ -40,6 +44,7 @@ For managed models, you can use curl commands to send requests to the Gemini Ent
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
+  - For Grok 4.6, use `grok-4.6`
   - For Grok 4.3, use `grok-4.3`
   - For Grok 4.20 (Reasoning), use `grok-4.20-reasoning`
   - For Grok 4.20 (Non-reasoning), use `grok-4.20-non-reasoning`

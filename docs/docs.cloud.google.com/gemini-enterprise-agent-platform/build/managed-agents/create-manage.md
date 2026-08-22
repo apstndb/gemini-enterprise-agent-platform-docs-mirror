@@ -785,7 +785,7 @@ When the number of agents to return is larger than the `PAGE_SIZE` , the `ListAg
 
     curl -X GET "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/agents?page_size=PAGE_SIZE&page_token=PAGE_TOKEN" \
       -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)"
+      -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
 
 #### Example Response
 

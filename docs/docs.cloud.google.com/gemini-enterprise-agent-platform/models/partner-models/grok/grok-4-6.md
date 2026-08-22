@@ -1,8 +1,8 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3
-title: Grok 4.3
-description: Explore the Grok 4.3 model.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6
+title: Grok 4.6
+description: Explore the Grok 4.6 model.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,13 +10,13 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
-xAI's high-performance model.
+xAI's most capable model, built for coding, agentic tasks, and knowledge work.
 
-[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.3)
+[View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.6)
 
 Model ID
 
-`grok-4.3`
+`grok-4.6`
 
 Launch stage
 
@@ -50,14 +50,14 @@ Supported
 Not supported
 
   - [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) preview Preview feature
-  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/overview) preview Preview feature
+  - [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) preview Preview feature
 
 Versions
 
-`grok-4.3`
+`grok-4.6`
 
   - **Launch stage:** Preview
-  - **Release date:** May 27, 2026
+  - **Release date:** August 21, 2026
 
 Supported regions
 
@@ -71,10 +71,10 @@ Quota limits
 
 global endpoint:
 
-  - QPM: 100
-  - Input TPM: 540,000
-  - Output TPM: 80,000
-  - Context length: 200,000
+  - QPM: 13
+  - Input TPM: 188,000
+  - Output TPM: 16,000
+  - Context length: 524,288
 
 Pricing
 

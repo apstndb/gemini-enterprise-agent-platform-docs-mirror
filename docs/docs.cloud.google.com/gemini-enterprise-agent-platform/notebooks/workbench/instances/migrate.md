@@ -53,7 +53,7 @@ To migrate data and files to a new Agent Platform Workbench instance by using Cl
 
 5.  Use the gcloud CLI to restore your data on the new instance. The following example command copies all of the files from a Cloud Storage directory to the your new instance's `/home/jupyter/` directory.
     
-        gcloud storage cp gs://BUCKET_NAMEPATH* /home/jupyter/
+        gcloud storage cp gs://BUCKET_NAMEPATH* /home/jupyter/ --recursive
 
 ## What's next
 
