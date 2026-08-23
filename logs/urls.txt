@@ -211,7 +211,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/b
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies	2026-08-21T17:17:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance	2026-08-21T17:17:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/govern-agent-skills	2026-08-21T17:17:01Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview	2026-08-21T17:16:27Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview	2026-08-22T17:07:40Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/monitor-semantic-governance	2026-08-21T17:16:27Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview	2026-08-21T17:16:52Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview	2026-08-21T17:16:27Z
