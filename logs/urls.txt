@@ -197,7 +197,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/manage
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/scan-and-verify	2026-08-21T17:17:01Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment	2026-08-21T17:16:27Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern	2026-08-21T17:17:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-08-21T17:16:27Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-08-23T11:28:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry	2026-08-21T17:17:01Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor	2026-08-21T17:16:40Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy	2026-08-21T17:16:27Z

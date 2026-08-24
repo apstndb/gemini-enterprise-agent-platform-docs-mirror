@@ -31,7 +31,7 @@ Use case and solution
 
 **User-delegated authority**
 
-OAuth 2.0 (3-legged) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
+OAuth 2.0 (3-legged)
 
 External tools and services
 
@@ -45,13 +45,13 @@ Google Cloud services
 
 When an agent hosted on Google Cloud needs to access other Google Cloud services using its own identity. For more information, see [Authenticate using an agent's own identity](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity) .
 
-OAuth 2.0 (2-legged) ( [Preview](https://cloud.google.com/products#product-launch-stages) )
+OAuth 2.0 (2-legged)
 
 External tools and services
 
 Recommended for machine-to-machine authentication with external services that support OAuth. You configure a 2-legged OAuth auth provider in Agent Identity auth manager to handle client credentials and access tokens. For more information, see [Authenticate using 2-legged OAuth with auth manager](https://docs.cloud.google.com/iam/docs/auth-with-2lo-v2) .
 
-API key ( [Preview](https://cloud.google.com/products#product-launch-stages) )
+API key
 
 External tools and services
 
@@ -103,10 +103,6 @@ Agent credentials provide cryptographic proof of an agent's identity. The system
 By default, agent identities use mutual TLS (mTLS) with X.509 certificates when communicating directly with Google Cloud APIs. When agents interact across the Agent Gateway, they also use Demonstrating Proof of Possession (DPoP), creating double-bound credentials for end-to-end security. This double binding means that agents authenticate using mTLS for first-party access to the gateway and use DPoP for interactions beyond the gateway.
 
 ### Agent Identity auth manager
-
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
 Agent Identity auth manager is a centralized credentials vault and authentication broker that simplifies outbound tool authentication for your agents. It lets agents authenticate using an API key or OAuth client ID and secret, or on behalf of a user through OAuth delegation using end-user access tokens. Within the auth manager, you configure auth providers that define the authentication type and credentials for specific third-party applications.
 
