@@ -129,6 +129,9 @@ The following [generally available (GA)](https://cloud.google.com/products#produ
 
 The following [GA](https://cloud.google.com/products#product-launch-stages) Gemini models and their [supervised fine-tuned](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning) models also support Standard PayGo, but the usage tiers don't apply to these models:
 
+  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+  - [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
   - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
 
 Note that these tiers don't apply to preview models. Refer to the specific official documentation of each model for the most accurate and up-to-date information.

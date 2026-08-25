@@ -651,7 +651,7 @@ Set environment variables to use the Google Gen AI SDK with Gemini Enterprise Ag
 
 ### GenAI SDK for Go
 
-Learn how to install or update the [Google Gen AI SDK for Go](https://docs.cloud.google.com/sdks/overview) .
+Learn how to install or update the [Google Gen AI SDK for Go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/sdks/overview) .
 
 To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
 

@@ -887,6 +887,6 @@ Explore prompt engineering techniques and best practices tailored for Gemini thi
 
 Console
 
-### [Google Cloud Console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/agent-platform/studio/multimodal)
+### [Google Cloud Console](https://console.cloud.google.com/agent-platform/studio/multimodal)
 
 Try prompting Gemini for yourself in the Google Cloud Console.

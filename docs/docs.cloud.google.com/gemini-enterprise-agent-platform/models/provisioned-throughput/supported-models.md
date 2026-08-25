@@ -479,7 +479,7 @@ For information about a model's capabilities and input or output limits, see the
 
 > **Request access:** The model `gemini-live-2.5-flash` is in private GA. For information about access to this release, see the [access request page](https://docs.google.com/forms/d/e/1FAIpQLScxBeD4UJ8GbUfX4SXjj5a1XJ1K7Urwvb0iSGdGccNcFRBrpQ/viewform) .
 
-You can upgrade to new models as they are made available. For information about model availability and discontinuation dates, see [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/measure-provisioned-throughput/gemini-enterprise-agent-platform/models/provisioned-throughput/measure-provisioned-throughputlearn/models#stable-versions-available) .
+You can upgrade to new models as they are made available. For information about model availability and discontinuation dates, see [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available) .
 
 For more information about supported locations, see [Available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#available-regions) .
 

@@ -31,7 +31,7 @@ Requests for `gemini-embedding-001` using the `predict` API are also subject to 
 
 ## Agent Runtime quotas
 
-The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-engine/overview) for a given project in each region:
+The following quotas apply to [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) for a given project in each region:
 
 | Description                                                                          | Quota | Metric                                                                         |
 | ------------------------------------------------------------------------------------ | ----- | ------------------------------------------------------------------------------ |

@@ -39,7 +39,7 @@ For more information about deploying and using partner models, see [Deploy a par
 When using self-deployed partner models, keep the following in mind:
 
   - **Weight Export:** Unlike with some open models, you cannot export the weights of self-deployed partner models.
-  - **Endpoint Type:** Only the [shared public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/choose-endpoint-type) type is supported for these deployments.
+  - **Endpoint Type:** Only the [shared public endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) type is supported for these deployments.
 
 > **Note:** Support for model-specific issues is provided directly by the partner. To contact a partner for model performance or other related issues, use the contact details found in the "Support" section of their Model Garden model card.
 

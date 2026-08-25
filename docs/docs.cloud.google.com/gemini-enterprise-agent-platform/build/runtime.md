@@ -136,6 +136,18 @@ Build interoperable agents that communicate and collaborate with other agents re
 
 For more information, see the [A2A protocol documentation](https://a2a-protocol.org/) .
 
+## Supported languages
+
+Agent Runtime supports the following languages for deployment:
+
+  - **Python** : Deploy agents to Agent Runtime using the [`adk` CLI](https://adk.dev/api-reference/cli/#adk-deploy-agent-engine) .
+
+  - **Go** : Deploy agents to Agent Runtime using the [`adkgo` CLI](https://github.com/google/adk-go) .
+
+  - **Java** : Deploy agents to Agent Runtime using a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) or to [Cloud Run using CLI commands](https://docs.cloud.google.com/run/docs/deploying) .
+
+  - **TypeScript** : Deploy agents to Agent Runtime using a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) or to [Cloud Run using CLI commands](https://docs.cloud.google.com/run/docs/deploying) .
+
 ## Supported regions
 
 See [Locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations#supported-regions-agent-engine) for a list of supported regions for Agent Runtime.

@@ -17,7 +17,7 @@ This tutorial shows you how to use Gemini Enterprise Agent Platform Pipelines to
 
 1.  Ensure that you've completed the tasks 1-3 in [Set up a Google Cloud project and a development environment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#project) .
 
-2.  Install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/libraries/reference#client_libraries) and the Kubeflow Pipelines SDK:
+2.  Install the [Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk) and the Kubeflow Pipelines SDK:
     
         python3 -m pip install "kfp<2.0.0" "google-cloud-aiplatform>=1.16.0" --upgrade --quiet
 

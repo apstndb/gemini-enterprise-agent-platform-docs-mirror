@@ -614,6 +614,62 @@ GLM 5 supports disabling reasoning tokens using `"chat_template_kwargs": { "enab
       }
     }
 
+### GLM 5.2
+
+GLM 5.2 supports disabling reasoning tokens using `"chat_template_kwargs": { "enable_thinking": false }` . Reasoning is enabled by default. Thinking tokens are outputted in `"reasoning_content"` ; normal response text is in `"content"` .
+
+*Example request:*
+
+    curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    https://aiplatform.googleapis.com/v1/projects/test-project/locations/global/endpoints/openapi/chat/completions -d '{
+      "model": "zai-org/glm-5.2-maas",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Who are you?"
+        }
+      ]
+    }'
+
+*Example response:*
+
+    {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "logprobs": null,
+          "matched_stop": 154827,
+          "message": {
+            "content": "I'm GLM, a large language model developed by Z.ai. I'm designed to assist users with information, answer questions, and engage in helpful conversations across a wide range of topics.\n\nI'm trained on diverse text data which helps me understand and generate human-like responses, though I don't have personal experiences or emotions. I'm continuously learning to improve my capabilities.\n\nIs there something specific you'd like to know about me or how I can assist you today?",
+            "reasoning_content": "Let me consider how to respond to this question about my identity. The user is asking \"Who are you?\" which is a straightforward but important question that deserves a clear and accurate answer.\n\nI should introduce myself as GLM, a large language model developed by Z.ai. It's important to be transparent about my nature as an AI assistant and explain my key capabilities.\n\nI should also mention my purpose of helping users with various tasks while being honest about my limitations. This will help set appropriate expectations for our interaction.\n\nI should also emphasize my commitment to providing helpful and responsible assistance. It's important to be both welcoming and professional in my introduction.\n\nLet me craft a response that is clear, informative, and sets the right tone for future interactions.",
+            "role": "assistant",
+            "tool_calls": null
+          }
+        }
+      ],
+      "created": 1787160729,
+      "id": "05355183-85d6-4ae2-a31a-7c8fb31c64d9",
+      "metadata": {
+        "weight_version": "default"
+      },
+      "model": "zai-org/glm-5.2-maas",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 243,
+        "extra_properties": {
+          "google": {
+            "traffic_type": "ON_DEMAND"
+          }
+        },
+        "prompt_tokens": 16,
+        "prompt_tokens_details": null,
+        "total_tokens": 259
+      }
+    }
+
 ### Gemma 4 26B A4B IT
 
 Gemma 4 26B A4B IT supports enabling reasoning tokens using `"chat_template_kwargs": { "enable_thinking": true }` . Reasoning is disabled by default. Thinking tokens are outputted in `"reasoning_content"` ; normal response text is in `"content"` .

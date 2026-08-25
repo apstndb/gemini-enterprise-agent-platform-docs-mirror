@@ -2035,4 +2035,4 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
   - Read the blog ["What is Multimodal Search: 'LLMs with vision' change businesses"](https://cloud.google.com/blog/products/ai-machine-learning/multimodal-generative-ai-search) .
   - For information about text-only use cases (text-based semantic search, clustering, long-form document analysis, and other text retrieval or question-answering use cases), read [Get text embeddings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/get-text-embeddings) .
   - Explore more pretrained models in [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
-  - Learn about [responsible AI best practices and safety filters in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/learn/responsible-ai) .
+  - Learn about [responsible AI best practices and safety filters in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

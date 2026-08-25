@@ -26,7 +26,7 @@ data_source: docs.cloud.google.com
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/model-garden-published-notebooks/%7B%20%7Bconsole_url%7D%20%7Dvertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_advanced_features"><img src="https://lh3.googleusercontent.com/JmcxdQi-qOpctIvWKgPtrzZdJJK-J3sWE1RsfjZNwshCFgE_9fULcNpuXYTilIR2hjwN" width="32" alt="Google Cloud Colab Enterprise logo" /><br />
+<td style="text-align: center;"><a href="https://console.cloud.google.com/vertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_advanced_features.ipynb"><img src="https://lh3.googleusercontent.com/JmcxdQi-qOpctIvWKgPtrzZdJJK-J3sWE1RsfjZNwshCFgE_9fULcNpuXYTilIR2hjwN" width="32" alt="Google Cloud Colab Enterprise logo" /><br />
 Run in Colab Enterprise</a></td>
 <td style="text-align: center;"><a href="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_advanced_features.ipynb"><img src="https://cloud.google.com/ml-engine/images/github-logo-32px.png" width="32" alt="GitHub logo" /><br />
 View on GitHub</a></td>

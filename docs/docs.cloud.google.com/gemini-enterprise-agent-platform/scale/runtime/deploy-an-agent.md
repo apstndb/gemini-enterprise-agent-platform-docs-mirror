@@ -13,7 +13,7 @@ To deploy an agent on Agent Runtime, choose between the following methods:
   - **Deploy from an agent object** : Ideal for interactive development in environments like Colab, enabling deployment of in-memory `local_agent` objects. This method works best for agents with structures that don't contain complex, non-serializable components.
   - **Deploy from source files** : This method is well-suited for automated workflows such as CI/CD pipelines and Infrastructure as Code tools like Terraform, enabling fully declarative and automated deployments. It deploys your agent directly from local source code and does not require a Cloud Storage bucket.
   - **Deploy from Dockerfile** : This method is similar to the method for deploying from source files. You deploy your agent directly from local source code. You don't need a Cloud Storage bucket. This method is appropriate if you need to define and have control over the API server that is deployed. The deployed container must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
-  - **Deploy from Container Image** : This method is similar to the method for deploying from Dockerfile. You deploy a container image that is hosted in Artifact Registry. Use this method if you require control over the build process for the container image and lower deployment latency. The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+  - **Deploy from container image** : This method is similar to the method for deploying from Dockerfile. You deploy a container image that is hosted in Artifact Registry. Use this method if you require control over the build process for the container image and lower deployment latency. The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
   - **Deploy from Developer Connect** : Recommended for projects managed in a Git repository that are linked through [Developer Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-deployment) . This method streamlines agent deployment directly from your source code and natively supports version control, team collaboration, and CI/CD pipelines. Before using this method, set up your Git repository link by following the instructions in [Set up Developer Connect Git repository link](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-setup) .
 
 To get started, use the following steps:
@@ -25,9 +25,7 @@ To get started, use the following steps:
 5.  Optional: [List the supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations)
 6.  Optional: [Grant the deployed agent permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#agent-permissions)
 
-You can also use [Agents CLI](https://google.github.io/agents-cli/) for deployment.
-
-> **Note:** Agent Runtime deployment only supports Python.
+For a list of supported languages for deployment, see [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime#supported-languages) . You can also use [Agents CLI](https://google.github.io/agents-cli/) for deployment.
 
 ## Prerequisites
 

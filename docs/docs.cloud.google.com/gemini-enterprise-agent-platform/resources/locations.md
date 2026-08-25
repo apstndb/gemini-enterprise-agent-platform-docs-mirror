@@ -1717,6 +1717,9 @@ ZAI.org models
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
+
 OpenAI models
 
 [gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
@@ -1779,6 +1782,9 @@ ZAI.org models
 
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
+
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
 
 OpenAI models
 
@@ -1858,6 +1864,9 @@ ZAI.org models
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
+
 OpenAI models
 
 [gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
@@ -1920,6 +1929,9 @@ ZAI.org models
 
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
+
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
 
 OpenAI models
 
@@ -2008,6 +2020,9 @@ ZAI.org models
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
+
 OpenAI models
 
 [gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
@@ -2086,6 +2101,9 @@ ZAI.org models
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
 
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
+
 OpenAI models
 
 [gpt-oss 120B](https://console.cloud.google.com/agent-platform/publishers/openai/model-garden/gpt-oss-120b-maas)  
@@ -2151,6 +2169,9 @@ ZAI.org models
 
 [GLM 5](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5-maas)  
 `(glm-5-maas)`
+
+[GLM 5.2](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-5.2-maas) preview  
+`(glm-5.2-maas)`
 
 OpenAI models
 

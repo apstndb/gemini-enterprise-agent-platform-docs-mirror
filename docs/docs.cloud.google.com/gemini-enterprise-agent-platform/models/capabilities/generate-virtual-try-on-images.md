@@ -97,7 +97,7 @@ For more information about the Virtual Try-On API, see the following:
 
 Before using any of the request data, make the following replacements:
 
-  - REGION : The region that your project is located in. For more information about supported regions, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent/platform/resources/locations) .
+  - REGION : The region that your project is located in. For more information about supported regions, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
   - PROJECT\_ID : Your Google Cloud [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects) .
   - BASE64\_PERSON\_IMAGE : The Base64-encoded image of the person image.
   - BASE64\_PRODUCT\_IMAGE : The Base64-encoded image of the product image.

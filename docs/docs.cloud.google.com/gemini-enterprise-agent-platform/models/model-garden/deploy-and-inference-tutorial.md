@@ -1323,7 +1323,7 @@ Replace DEPLOYED\_MODEL\_NAME with the model's display name. Replace PROJECT\_ID
 
   - Learn more about [Gemma open models](https://ai.google.dev/gemma/docs) .
   - Read the [Gemma Terms of Use](https://ai.google.dev/gemma/terms) .
-  - Learn more about [open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-open-models) .
+  - Learn more about [open models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models) .
   - Learn how to [deploy a tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model) .
   - Learn how to [deploy Gemma 2 to Google Kubernetes Engine using HuggingFace Textgen Inference (TGI)](https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/serve-gemma-gpu-tgi) .
   - Learn more about the `PredictionServiceClient` in your preferred language: [Python](https://docs.cloud.google.com/python/docs/reference/aiplatform/1.18.2/google.cloud.aiplatform_v1beta1.services.prediction_service.PredictionServiceClient) , [Node.js](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/3.13.0/aiplatform/v1.predictionserviceclient) , [Java](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient) , or [Go](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/aiplatform/1.0.0/apiv1#cloud_google_com_go_aiplatform_apiv1_PredictionClient_Predict) .

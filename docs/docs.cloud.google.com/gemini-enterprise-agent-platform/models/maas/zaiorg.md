@@ -6,8 +6,6 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> **Caution:** All GLM Model as a Service (MaaS) endpoints are either deprecated or retired. You can either [self-deploy your model from Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) or migrate your workloads to alternative managed endpoints before the retirement date. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
-
 GLM models on Gemini Enterprise Agent Platform offer fully managed and serverless models as APIs. To use a GLM model on Agent Platform, send a request directly to the Agent Platform API endpoint. Because GLM models use a managed API, there's no need to provision or manage infrastructure.
 
 You can stream your responses to reduce the end-user latency perception. A streamed response uses *server-sent events* (SSE) to incrementally stream the response.
@@ -20,12 +18,17 @@ GLM 4.7 is a model from GLM designed for core or vibe coding, tool use, and comp
 
 GLM 5 is a model from GLM targeting complex systems engineering and long-horizon agentic tasks.
 
+### GLM 5.2
+
+GLM 5.2 is a model from GLM built for long-horizon agentic and coding tasks, with a 1M-token context window.
+
 ## Use GLM models
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
   - For GLM 4.7, use `glm-4.7-maas`
   - For GLM 5, use `glm-5-maas`
+  - For GLM 5.2, use `glm-5.2-maas`
 
 To learn how to make streaming and non-streaming calls to GLM models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
@@ -61,6 +64,12 @@ GLM models are available in the following regions:
 </tr>
 <tr class="even">
 <td>GLM 5</td>
+<td><ul>
+<li><code dir="ltr" translate="no">global</code></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>GLM 5.2</td>
 <td><ul>
 <li><code dir="ltr" translate="no">global</code></li>
 </ul></td>
