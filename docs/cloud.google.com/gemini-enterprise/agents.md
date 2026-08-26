@@ -64,7 +64,7 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
     
     Join GEAR and receive 35 learning credits every month on Google Skills. Whether you're new to AI or an experienced developer, build your knowledge and skills with hands-on AI-agentic training from the experts at Google.
 
-## Transform your workforce with Gemini Enterprise app
+## Make work less work with Gemini Enterprise
 
 [Start 30-day trial](https://business.gemini.google)
 

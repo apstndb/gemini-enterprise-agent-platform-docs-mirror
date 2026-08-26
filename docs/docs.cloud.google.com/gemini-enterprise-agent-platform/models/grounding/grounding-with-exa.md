@@ -64,7 +64,7 @@ Before using any of the request data, make the following replacements:
   - MODEL\_ID : The ID of the model to use.
   - TEXT : The text prompt to send to the model.
   - API\_KEY : Your API key for Exa web search.
-  - SEARCH\_TYPE : Optional: The type of Exa search to run. Valid values are `auto` (the default) and `fast` . `fast` runs with lower latency at the cost of a less comprehensive search.
+  - SEARCH\_TYPE : Optional: The type of Exa search to run. Supported values are `fast` and `instant` . Defaults to `fast` , which provides comprehensive results with reduced latency and is a good fit for user-facing search and interactive workflows. Use `instant` for experiences requiring the lowest latency, such as chat, voice agents, and autocomplete; it minimizes response time by prioritizing speed over search depth.
   - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from search results. If specified, no results will be returned from these domains. You can specify up to 1200 domains.
   - INCLUDE\_DOMAINS : Optional: List of domains to include in the search. If specified, results will only come from these domains. You can specify up to 1200 domains.
   - MAX\_CHARACTERS : Optional: Maximum number of characters to return for highlights. Controls the total length of highlight text returned per URL.

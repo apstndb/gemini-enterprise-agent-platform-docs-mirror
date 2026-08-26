@@ -71,6 +71,8 @@ Opt out of the default CAA policy by setting the following environment variable 
 
     config={
       "env_vars": {
-        "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES&quot;:False,}}
+        "GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES": False,
+      }
+    }
 
 For scenario \#2, you can similarly set the `GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES` variable to `False` to allow agents to use the non-mTLS API endpoints as a temporary workaround. In this case, the underlying issue could be a known issue with ADK.

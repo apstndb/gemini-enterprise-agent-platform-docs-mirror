@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas
-title: Generative AI on Gemini Enterprise Agent Platform quotas and system limits
-description: Understand Generative AI on Gemini Enterprise Agent Platform quotas and system limits. Configure PayGo and provisioned throughput.
+title: Generative AI on Agent Platform quotas and system limits
+description: Understand quotas and system limits for generative AI on Gemini Enterprise Agent Platform. Configure PayGo and provisioned throughput.
 data_source: docs.cloud.google.com
 ---
 

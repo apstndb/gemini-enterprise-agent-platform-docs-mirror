@@ -77,7 +77,7 @@ The studio discovery and development features enhance the developer workflow.
 </tr>
 <tr class="odd">
 <td>Upload large files</td>
-<td>The ability to upload local or Cloud Storage files up to 20 MB.</td>
+<td>The ability to upload local or Cloud Storage files up to 50 MB.</td>
 </tr>
 <tr class="even">
 <td>Generate code files</td>

@@ -36,7 +36,7 @@ To get the permissions that you need to configure Agent Platform for AI agents, 
   - [Agent Registry Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.viewer) ( `roles/agentregistry.viewer` )
   - [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
   - [Network Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.admin) ( `roles/networksecurity.admin` )
-  - [Service Extensions Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceextensions#serviceextensions.admin) ( `roles/serviceextensions.admin` )
+  - [Service Extensions Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networkservices#networkservices.serviceExtensionsAdmin) ( `roles/networkservices.serviceExtensionsAdmin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 

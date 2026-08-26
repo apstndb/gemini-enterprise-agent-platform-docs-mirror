@@ -35,7 +35,7 @@ Send a summarization text prompt to the Agent Platform API. A summarization task
     
     This sample prompt includes an audio file and requests a summary of the file contents in a bulleted list.
 
-4.  Notice that in the settings panel, the model's default value is set to **gemini-3.1-pro-preview** . You can choose a different Gemini model by clicking **Switch model** .
+4.  Notice that in the settings panel, the model's default value is set to **gemini-3.7-flash** . You can choose a different Gemini model in the **Model settings** panel.
 
 5.  Click **Submit** send to generate the summary.
     
@@ -57,7 +57,7 @@ Send a code generation prompt to the Agent Platform API. A code generation task 
     
     This sample prompt includes a [system instruction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction) that tells the model how to respond and some incomplete Java methods.
 
-4.  Notice that in the settings panel, the model's default value is set to **gemini-3.1-pro-preview** . You can choose a different Gemini model by clicking **Switch model** .
+4.  Notice that in the settings panel, the model's default value is set to **gemini-3.7-flash** . You can choose a different Gemini model in the **Model settings** panel.
 
 5.  To complete each method by generating code in the areas marked `<WRITE CODE HERE>` , click **Submit** send .
     

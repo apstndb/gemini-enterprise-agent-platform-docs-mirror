@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/cookbook
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/cookbook
-title: Generative AI on Gemini Enterprise Agent Platform cookbook
+title: Generative AI on Agent Platform cookbook
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
 ---
 
-A collection of guides and examples for Generative AI on Gemini Enterprise Agent Platform.
+A collection of guides and examples for generative AI on Agent Platform.
 
 Explore more in the [Generative AI Repository](https://github.com/GoogleCloudPlatform/generative-ai) and [Agent Platform Repository](https://github.com/Google-Cloud-AI/agent-platform)
 

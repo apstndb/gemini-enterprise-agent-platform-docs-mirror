@@ -22,7 +22,7 @@ For critical production applications that require consistent performance and pre
 
 ## Quotas for Generative AI services
 
-Gemini Enterprise Agent Platform offers a suite of generative AI services, such as model tuning, model evaluation, batch prediction, embeddings, and retrieval augmented generation. To learn more about the quotas for these services, see [Generative AI on Gemini Enterprise Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
+Gemini Enterprise Agent Platform offers a suite of generative AI services, such as model tuning, model evaluation, batch prediction, embeddings, and retrieval augmented generation. To learn more about the quotas for these services, see [Generative AI on Agent Platform quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas) .
 
 ## What's next
 

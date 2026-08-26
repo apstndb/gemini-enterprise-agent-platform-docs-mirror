@@ -24,7 +24,7 @@ This tutorial assumes that you're able to use the following tools and frameworks
 
 You must have a basic understanding of the following Google Cloud services:
 
-  - **Generative AI on Gemini Enterprise Agent Platform** : Provides access to Google's LLMs so you can test, tune, and deploy them for use in your applications. [Learn more about Generative AI on Gemini Enterprise Agent Platform.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)
+  - **Generative AI on Agent Platform** : Provides access to Google's LLMs so you can test, tune, and deploy them for use in your applications. [Learn more about Generative AI on Agent Platform.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models)
 
   - **Cloud Run** : A managed compute platform that lets you deploy and run container images. You create a Cloud Run service to deploy your app. [Learn more about Cloud Run.](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run)
 

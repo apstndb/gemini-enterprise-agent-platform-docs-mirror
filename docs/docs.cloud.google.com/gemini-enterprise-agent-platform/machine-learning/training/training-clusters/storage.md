@@ -11,7 +11,7 @@ If you're interested in Gemini Enterprise Agent Platform training clusters, cont
 Choosing the right storage configuration is critical for the performance and stability of your training cluster. The service integrates with two distinct, high-performance storage solutions:
 
   - Filestore: A required managed file service that provides the shared `/home` directories for all nodes in the cluster.
-  - Google Cloud Managed Lustre: An optional parallel file system designed for extreme I/O performance, ideal for training on massive datasets.
+  - Google Cloud Managed Lustre: An optional parallel file system designed for extreme I/O performance, ideal for training on massive datasets. Treat it as high-performance working storage rather than a system of record, and keep Cloud Storage as your source of truth. For more information, see [Back up Managed Lustre data to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage#lustre-backup) .
 
 This page provides an overview of their key uses and outlines the specific networking and deployment requirements for a successful integration with your cluster.
 
@@ -32,6 +32,54 @@ This service uses a Filestore instance to provide the shared `/home` directory f
 ### Google Cloud Managed Lustre for high-performance workloads
 
 For workloads that require maximum I/O performance, you can attach a Managed Lustre file system. This service connects to your VPC using Private Service Access.
+
+Managed Lustre is optimized for throughput rather than for durability. An instance is zonal, and it has no snapshot, backup, or undelete capability. Back up anything you can't regenerate to Cloud Storage. For more information, see [Back up Managed Lustre data to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage#lustre-backup) .
+
+### Back up Managed Lustre data to Cloud Storage
+
+Keep Cloud Storage as the source of truth behind Managed Lustre. Doing so safeguards your checkpoints and lets you recover quickly if an instance fails or is deleted.
+
+> **Caution:** Deleting a Managed Lustre instance permanently destroys its contents. Because the service provides no snapshots and no undelete, data that exists only on the instance can't be recovered.
+
+Managed Lustre includes a built-in, high-throughput transfer that exports directly to Cloud Storage. Transfers are incremental: each run copies only the files that don't already exist in the destination, or that have changed since the last transfer.
+
+Two identities need permissions. The user or service account that starts the export needs `lustre.instances.exportData` , which is included in the `roles/lustre.admin` role or which you can grant through a [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) . The Managed Lustre service agent separately needs write access to the destination bucket.
+
+1.  Grant the Managed Lustre service agent write access to the destination bucket. You only need to do this once per bucket:
+    
+        gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+          --member=serviceAccount:service-PROJECT_NUMBER@gcp-sa-lustre.iam.gserviceaccount.com \
+          --role=roles/storage.objectUser
+    
+    Where:
+    
+      - BUCKET\_NAME is the destination bucket.
+      - PROJECT\_NUMBER is the number of the project that contains the Managed Lustre instance. For more information, see [Permissions for the Managed Lustre service agent](https://docs.cloud.google.com/managed-lustre/docs/transfer-data#sa-permissions) .
+
+2.  Export the file system to the bucket:
+    
+        gcloud lustre instances export-data INSTANCE_ID \
+          --location=ZONE \
+          --lustre-path="/" \
+          --gcs-path-uri="gs://BUCKET_NAME/INSTANCE_ID/"
+    
+    Where:
+    
+      - INSTANCE\_ID is the name of the Managed Lustre instance to back up.
+      - ZONE is the zone of the instance, for example `us-central1-a` .
+    
+    The `--gcs-path-uri` value can be a bucket on its own, or a path within a bucket. If you include a path, it must end with a forward slash. Exporting each instance to a path named after it keeps instances separate: if you attach more than one Managed Lustre instance to the cluster, give each one its own path, because two instances that export to the same path overwrite each other's files.
+
+To keep the backup current, run the export on a schedule. For example, you can run a daily cron job on a login node instead of only running it at the end of a training run. Because transfers are incremental, each run after the first copies only what changed.
+
+Consider the following when you plan a backup:
+
+  - Only one transfer operation per instance can be active at a time. A transfer started while another is still running fails with `ABORTED: unable to queue the operation` .
+  - The export never deletes objects from the destination, so a file that you delete on Managed Lustre remains in the bucket. Enable [Object Versioning](https://docs.cloud.google.com/storage/docs/object-versioning) on the destination bucket so that you can also recover a file that was overwritten with unwanted content.
+  - Symbolic links, empty directories, and striping layouts set with `lfs setstripe` aren't preserved, and hard links are exported as separate objects, so a hard-linked file consumes space once per link in the bucket. POSIX UID, GID, mode, and mtime are preserved as custom object metadata.
+  - Write checkpoints atomically—write to a temporary path, then rename the file into place—so that an export running during a write captures either the previous file or the complete new one, and never a partial file.
+
+To restore, create a new Managed Lustre instance and load the data back with `gcloud lustre instances import-data` . For more information, see [Transfer data to or from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/transfer-data) .
 
 ### Critical networking limitation: No transitive peering
 
@@ -112,6 +160,8 @@ When creating a Managed Lustre instance, you must define the following propertie
 Managed Lustre offers [4 performance tiers](https://docs.cloud.google.com/managed-lustre/docs/performance) , each with a different maximum throughput speed per TiB. Performance tiers also affect the minimum and maximum instance size, and the step size between acceptable capacity values. You cannot change an instance's performance tier after it's been created.
 
 Deploying Managed Lustre requires Private Service Access, which establishes VPC peering between the training cluster's VPC and the VPC hosting Managed Lustre, using a dedicated /20 subnet.
+
+> **Caution:** Managed Lustre is optimized for throughput rather than for durability. An instance is zonal, and it has no snapshot, backup, or undelete capability, so deleting an instance permanently destroys its contents. Keep Cloud Storage as the source of truth behind Managed Lustre, and back up anything you can't regenerate. Managed Lustre provides a built-in, incremental transfer that exports directly to Cloud Storage. For more information, see [Transfer data to or from Cloud Storage](https://docs.cloud.google.com/managed-lustre/docs/transfer-data) .
 
 ### Configure Managed Lustre instance (optional)
 

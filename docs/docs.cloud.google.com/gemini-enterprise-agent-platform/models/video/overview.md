@@ -6,8 +6,6 @@ description: A high-level guide about using Agent Platform to generate videos.
 data_source: docs.cloud.google.com
 ---
 
-> **API reference overview** : To view an overview of the API options for video generation, see the [Veo model API reference](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/veo-video-generation) .
-
 > To see examples of video generation in Agent Platform, run the following notebooks in the environment of your choice:
 > 
 >   - "Gemini Omni Flash Video Generation":

@@ -740,4 +740,3 @@ Congratulations to the graduating class\! I can't wait to see what amazing thing
 ## What's next
 
   - Learn how to [use system instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions)
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .

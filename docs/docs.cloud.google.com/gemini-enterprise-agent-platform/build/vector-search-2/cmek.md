@@ -6,7 +6,7 @@ description: Learn how CMEK works with Agent Retrieval (formerly Vector Search 2
 data_source: docs.cloud.google.com
 ---
 
-Agent Retrieval (formerly Vector Search 2.0) lets you protect your data at rest using cryptographic keys managed through [Google Cloud Key Management Service (KMS)](https://docs.cloud.google.com/third_party/devsite/cloud/en/kms/docs/key-management-service) . This integration provides control over the keys used to encrypt core customer content, including the ability to rotate and revoke those keys.
+Agent Retrieval (formerly Vector Search 2.0) lets you protect your data at rest using cryptographic keys managed through [Cloud Key Management Service](https://docs.cloud.google.com/kms/docs/key-management-service) . This integration provides control over the keys used to encrypt core customer content, including the ability to rotate and revoke those keys.
 
 By default, data is encrypted using Google-managed platform defaults. CMEK provides you with direct control over the encryption keys.
 

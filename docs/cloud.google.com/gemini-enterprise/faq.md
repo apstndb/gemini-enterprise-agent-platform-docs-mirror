@@ -85,8 +85,7 @@ Gemini Enterprise also comes with a ready-to-deploy "taskforce" of specialized a
 Gemini Enterprise app offers several prebuilt agents made by Google, including:
 
   - Deep Research agent, which explores complex topics on the employee’s behalf, synthesizing information across internal and external sources into comprehensive, easy-to-read reports—all with a single prompt. 
-  - NotebookLM Enterprise\*, which brings new ways for employees to synthesize information, uncover insights, and engage with the data. It’s the same experience millions of NotebookLM users love, enhanced with additional security and privacy features needed for work use.
-  - [Gemini Code Assist Standard](https://codeassist.google/products/business)\*, a specialized AI coding agent to help your developer teams build, run and manage your applications across the software development lifecycle.
+  - Gemini Notebook for enterprise, which brings new ways for employees to synthesize information, uncover insights, and engage with the data. It’s the same experience millions of Gemini Enterprise users love, enhanced with additional security and privacy features needed for work use.
   - Data Insights Agent (Preview)\* to let your employees easily access data-insights by “talking” to your data sources in natural language, freeing up data analysts to work on higher-value tasks, while ensuring that all employees can make well-informed business decisions.
 
 Additionally, you can find and access partner-built agents for your specialized needs inside of [Agent Marketplace](https://console.cloud.google.com/marketplace/browse?filter=category:ai-agent&filter=validations:gemini-enterprise-compatible).\*

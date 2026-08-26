@@ -16,9 +16,9 @@ You learn how to do the following:
 
 ## Access and interpret the model observability dashboard
 
-Generative AI on Gemini Enterprise Agent Platform provides a prebuilt model observability dashboard to view the behavior, health, and performance of fully-managed models. Fully-managed models, also known as Model as a Service (MaaS), are provided by Google and include Google's Gemini models and partner models with managed endpoints. Metrics from self-hosted models aren't included in the dashboard.
+Agent Platform provides a prebuilt model observability dashboard to view the behavior, health, and performance of fully-managed models. Fully-managed models, also known as Model as a Service (MaaS), are provided by Google and include Google's Gemini models and partner models with managed endpoints. Metrics from self-hosted models aren't included in the dashboard.
 
-Generative AI on Gemini Enterprise Agent Platform automatically collects and reports activity from MaaS models to help you quickly troubleshoot latency issues and monitor capacity.
+Agent Platform automatically collects and reports activity from MaaS models to help you quickly troubleshoot latency issues and monitor capacity.
 
 ![<sup>Model observability dashboard example</sup>](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/observability-dashboard.png)
 
@@ -34,7 +34,7 @@ The model observability dashboard displays a subset of metrics that are collecte
 
 ### Limitations
 
-Agent Platform captures dashboard metrics only for API calls to a model's endpoint. Google Cloud console usage, such as metrics from Vertex AI Studio, aren't added to the dashboard.
+Agent Platform captures dashboard metrics only for API calls to a model's endpoint. Google Cloud console usage, such as metrics from Agent Studio, aren't added to the dashboard.
 
 ### View the dashboard
 
