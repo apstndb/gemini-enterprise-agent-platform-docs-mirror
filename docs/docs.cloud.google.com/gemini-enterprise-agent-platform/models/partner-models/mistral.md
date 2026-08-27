@@ -372,4 +372,4 @@ Codestral 2
 
 128,000 tokens
 
-If you want to increase any of your quotas for Generative AI on Gemini Enterprise Agent Platform, you can use the Google Cloud console to request a quota increase. To learn more about quotas, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview) .
+If you want to increase any of your quotas for Agent Platform, you can use the Google Cloud console to request a quota increase. To learn more about quotas, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview) .

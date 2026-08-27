@@ -91,7 +91,3 @@ Note that the example uses XML-like formatting to separate the components of the
 ## Find the optimal number of examples
 
 You can experiment with the number of examples to provide in the prompt for the most desired results. Models like Gemini can often pick up on patterns using a few examples, though you may need to experiment with what number of examples leads to the desired results. At the same time, if you include too many examples, the model might start to [overfit](https://developers.google.com/machine-learning/glossary#overfitting) the response to the examples.
-
-## What's next
-
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .

@@ -249,7 +249,7 @@ Also, if you have an organization policy that restricts model usage in Model Gar
 
 ### Partner model regulatory compliance
 
-The [certifications](https://cloud.google.com/security/compliance/services-in-scope/) for [Generative AI on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) continue to apply when partner models are used as a managed API using Gemini Enterprise Agent Platform. If you need details about the models themselves, additional information can be found in the respective Model Card, or you can contact the respective model publisher.
+The [certifications](https://cloud.google.com/security/compliance/services-in-scope/) for [generative AI on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview) continue to apply when partner models are used as a managed API using Gemini Enterprise Agent Platform. If you need details about the models themselves, additional information can be found in the respective Model Card, or you can contact the respective model publisher.
 
 Your data is stored at rest within the selected region or multi-region for partner models on Gemini Enterprise Agent Platform, but the regionalization of data processing may vary. For a detailed list of partner models' data processing commitments, see [Data residency for partner models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models) .
 

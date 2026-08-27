@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 24, 2026
+
+Feature
+
+**GLM 5.2 is available in Public Preview**
+
+GLM 5.2 from Z.ai is available as a fully managed model (MaaS) in Model Garden. The model targets long-horizon agentic and coding tasks and supports a 1M-token context window.
+
+For more information, see [GLM 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-52) .
+
 ## August 21, 2026
 
 Feature

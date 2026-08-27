@@ -189,7 +189,3 @@ Now you can aggregate the data from both datasets to help you plan your purchasi
 </table>
 
 We would expect the output to contain a suggested stocklist of about 20 records, based on record sales and streams, with more favor given to records with proven sales history than to those with more streaming popularity.
-
-## What's next
-
-  - Explore examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .

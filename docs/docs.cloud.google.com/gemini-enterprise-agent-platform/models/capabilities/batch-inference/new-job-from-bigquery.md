@@ -403,6 +403,6 @@ For succeeded rows, model responses are stored in the `response` column. Otherwi
 
 If a batch inference job fails, is canceled, or expires, you can resume it by creating a new batch job. The new job only processes the incomplete or failed requests from the previous job, merging the new results with those from the previously completed requests. For example, if the incomplete batch job was 90% complete, the new job processes the remaining 10% of the requests.
 
-To resume a batch job, create a new batch job, supplying the or BigQuery table output as input to the new job.
+To resume a batch job, create a new batch job, supplying the [Cloud Storage file](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-cloud-storage) or [BigQuery table output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/new-job-from-bigquery) as input to the new job.
 
 > **Note:** In rare cases where users modify the output file of the job before resuming, the system resumes from the modified output file. The system doesn't validate whether the output file has been modified.

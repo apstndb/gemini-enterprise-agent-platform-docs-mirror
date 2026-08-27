@@ -230,6 +230,5 @@ If a prompt is not performing as expected, use the following checklist to identi
 
 ## What's next
 
-  - Explore examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .
   - Learn how to optimize prompts for use with [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) by using the [Gemini Enterprise Agent Platform prompt optimizer (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) .
   - Learn about [responsible AI best practices and Agent Platform's safety filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/responsible-ai) .

@@ -160,6 +160,7 @@ Usage of the global endpoint is supported for the following Google models in spe
   - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
+  - [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) (Preview)
 
 For information about global endpoint availability for partner models, see the **Global** tab in the [Google Cloud partner model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models) .
 
@@ -253,6 +254,9 @@ Gemini models
 
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
+
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
 
 Embeddings models
 
@@ -385,6 +389,9 @@ Gemini models
 
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
+
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
 
 Embeddings models
 
@@ -533,6 +540,9 @@ Gemini models
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
 
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -664,6 +674,9 @@ Gemini models
 
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
+
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
 
 Embeddings models
 
@@ -821,6 +834,9 @@ Gemini models
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
 
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -968,6 +984,9 @@ Gemini models
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
 
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -1102,6 +1121,9 @@ Gemini models
 
 [Virtual Try-On](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/vto/virtual-try-on-001)  
 `(virtual-try-on-001)`
+
+[Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
+`(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
 
 Embeddings models
 

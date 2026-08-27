@@ -116,7 +116,3 @@ In the example, generic instructions lead to a response with more JSON fields th
 </table>
 
 By applying the instruction principles, this example went from a response that contained too much data to one that contained exactly the data required for this use case. Instructions that use the instruction princples can help you guide the model to deliver the most helpful response for your use case.
-
-## What's next
-
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .

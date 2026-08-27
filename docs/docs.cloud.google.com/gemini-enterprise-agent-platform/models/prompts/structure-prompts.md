@@ -86,7 +86,3 @@ For complex prompts, use XML and other delimiters to separate components of a pr
     
     QUESTION: How much did I pay for my last order?
     ANSWER:
-
-## What's next
-
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .

@@ -18,7 +18,7 @@ There are multiple Lyria music generation models that you can use. For more info
 
 ## Locations
 
-A location is a [region](https://docs.cloud.google.com/about/locations) you can specify in a request to control where data is stored at rest. For the list of available regions for Gemini Enterprise Agent Platform services, see [Generative AI on Gemini Enterprise Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+A location is a [region](https://docs.cloud.google.com/about/locations) you can specify in a request to control where data is stored at rest. For the list of available regions for Gemini Enterprise Agent Platform services, see [Agent Platform locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
 ## Responsible AI
 

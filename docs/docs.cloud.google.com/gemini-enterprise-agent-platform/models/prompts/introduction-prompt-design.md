@@ -184,6 +184,5 @@ To learn about task-specific guidance for common use cases check out the followi
 ## What's next
 
   - Learn about [prompting strategies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies) .
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .
   - Learn how to optimize prompts for use with [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) by using the [Gemini Enterprise Agent Platform prompt optimizer (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) .
   - Learn about [saving and sharing prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompt-sharing)

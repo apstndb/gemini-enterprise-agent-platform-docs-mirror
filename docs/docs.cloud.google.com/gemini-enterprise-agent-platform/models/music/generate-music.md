@@ -6,7 +6,7 @@ description: You can generate Lyria music from prompts that you provide. Use the
 data_source: docs.cloud.google.com
 ---
 
-You can use Lyria to generate novel music tracks from prompts. Supported interfaces include the Google Cloud console and the Gemini API in Gemini Enterprise Agent Platform API.
+You can use Lyria to generate novel music tracks from prompts. Supported interfaces include the Google Cloud console and the Gemini API API.
 
 ### Before you begin
 

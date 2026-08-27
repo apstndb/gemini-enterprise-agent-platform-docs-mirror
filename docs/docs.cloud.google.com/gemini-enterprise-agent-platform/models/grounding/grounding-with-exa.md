@@ -41,7 +41,7 @@ Grounding with Exa improves accuracy and reduces hallucinations by giving models
 Grounding with Exa is supported by the following models:
 
   - Gemini 2.5 Flash ( `gemini-2.5-flash` )
-  - Gemini 2.5 Flash-Lite ( `gemini-2.5-flash-lite` )
+  - Gemini 2.5 Flash Lite ( `gemini-2.5-flash-lite` )
   - Gemini 2.5 Pro ( `gemini-2.5-pro` )
   - Gemini 3.1 Pro ( `gemini-3.1-pro-preview` )
   - Gemini 3.1 Flash Lite ( `gemini-3.1-flash-lite` )
@@ -53,7 +53,223 @@ To use Grounding with Exa, you need to get an API key from [Exa's web site](http
 
 ## Ground Gemini responses with Exa
 
-Request grounded responses from Gemini by using the REST API as follows. For best performance, we recommend using default settings for optional parameters unless you strictly require non-default values.
+Request grounded responses from Gemini by using the Google Gen AI SDK or the REST API. For best performance, we recommend using default settings for optional parameters unless you strictly require non-default values.
+
+Before you run the samples, complete the [prerequisites](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-exa#before-you-begin) , including getting an Exa API key.
+
+### Python
+
+#### Install
+
+    pip install --upgrade google-genai
+
+To learn more, see the [SDK reference documentation](https://googleapis.github.io/python-genai/) .
+
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+Before running the sample, make the following replacements:
+
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-exa#supported-models) to use, such as `gemini-2.5-flash` .
+  - TEXT : The text prompt to send to the model.
+  - API\_KEY : Your API key for Exa web search.
+  - SEARCH\_TYPE : Optional: The type of Exa search to run. Supported values are `fast` and `instant` . Defaults to `fast` , which provides comprehensive results with reduced latency and is a good fit for user-facing search and interactive workflows. Use `instant` for experiences requiring the lowest latency, such as chat, voice agents, and autocomplete; it minimizes response time by prioritizing speed over search depth.
+  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from search results. If specified, no results are returned from these domains. To exclude more than one domain, add each domain as a separate quoted string in the list (for example, `["example.com", "example.net"]` ). You can specify up to 1200 domains.
+  - INCLUDE\_DOMAINS : Optional: List of domains to include in the search. If specified, results come only from these domains. To include more than one domain, add each domain as a separate quoted string in the list (for example, `["example.com", "example.net"]` ). You can specify up to 1200 domains.
+  - MAX\_CHARACTERS : Optional: Maximum number of characters to return for highlights. Controls the total length of highlight text returned per URL.
+  - NUM\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `5` .
+
+<!-- end list -->
+
+    from google import genai
+    from google.genai import types
+    
+    client = genai.Client()
+    
+    response = client.models.generate_content(
+        model="MODEL_ID",
+        contents="TEXT",
+        config=types.GenerateContentConfig(
+            tools=[
+                types.Tool(
+                    exa_ai_search=types.ToolExaAiSearch(
+                        # Required. Your API key for Exa web search.
+                        api_key="API_KEY",
+                        # Optional. Customize the search. Click a placeholder to
+                        # enter a value, or remove the line to accept the default.
+                        custom_configs={
+                            "type": "SEARCH_TYPE",
+                            "excludeDomains": ["EXCLUDE_DOMAINS"],
+                            "includeDomains": ["INCLUDE_DOMAINS"],
+                            "contents": {
+                                "highlights": {
+                                    "maxCharacters": MAX_CHARACTERS,
+                                },
+                            },
+                            "numResults": NUM_RESULTS,
+                        },
+                    )
+                )
+            ],
+        ),
+    )
+    
+    print(response.text)
+    
+    # The grounding metadata contains the web sources used to ground the response.
+    print(response.candidates[0].grounding_metadata.grounding_chunks)
+
+### Java
+
+Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
+
+To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
+
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+Before running the sample, make the following replacements:
+
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-exa#supported-models) to use, such as `gemini-2.5-flash` .
+  - TEXT : The text prompt to send to the model.
+  - API\_KEY : Your API key for Exa web search.
+  - SEARCH\_TYPE : Optional: The type of Exa search to run. Supported values are `fast` and `instant` . Defaults to `fast` , which provides comprehensive results with reduced latency and is a good fit for user-facing search and interactive workflows. Use `instant` for experiences requiring the lowest latency, such as chat, voice agents, and autocomplete; it minimizes response time by prioritizing speed over search depth.
+  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from search results. If specified, no results are returned from these domains. To exclude more than one domain, add each domain as a separate quoted string in the list (for example, `["example.com", "example.net"]` ). You can specify up to 1200 domains.
+  - INCLUDE\_DOMAINS : Optional: List of domains to include in the search. If specified, results come only from these domains. To include more than one domain, add each domain as a separate quoted string in the list (for example, `["example.com", "example.net"]` ). You can specify up to 1200 domains.
+  - MAX\_CHARACTERS : Optional: Maximum number of characters to return for highlights. Controls the total length of highlight text returned per URL.
+  - NUM\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `5` .
+
+<!-- end list -->
+
+    import com.google.genai.Client;
+    import com.google.genai.types.GenerateContentConfig;
+    import com.google.genai.types.GenerateContentResponse;
+    import com.google.genai.types.Tool;
+    import com.google.genai.types.ToolExaAiSearch;
+    import java.util.List;
+    import java.util.Map;
+    
+    public class ExaGroundingSample {
+      public static void main(String[] args) {
+        try (Client client = Client.builder().build()) {
+    
+          GenerateContentConfig config =
+              GenerateContentConfig.builder()
+                  .tools(
+                      Tool.builder()
+                          .exaAiSearch(
+                              ToolExaAiSearch.builder()
+                                  // Required. Your API key for Exa web search.
+                                  .apiKey("API_KEY")
+                                  // Optional. Customize the search. Click a
+                                  // placeholder to enter a value, or remove the
+                                  // entry to accept the default.
+                                  .customConfigs(
+                                      Map.of(
+                                          "type", "SEARCH_TYPE",
+                                          "excludeDomains",
+                                          List.of("EXCLUDE_DOMAINS"),
+                                          "includeDomains",
+                                          List.of("INCLUDE_DOMAINS"),
+                                          "contents",
+                                          Map.of(
+                                              "highlights",
+                                              Map.of(
+                                                  "maxCharacters",
+                                                  MAX_CHARACTERS)),
+                                          "numResults", NUM_RESULTS))
+                                  .build())
+                          .build())
+                  .build();
+    
+          GenerateContentResponse response =
+              client.models.generateContent(
+                  "MODEL_ID", "TEXT", config);
+    
+          System.out.println(response.text());
+    
+          // The grounding metadata contains the web sources used to ground the response.
+          System.out.println(
+              response.candidates().get().get(0).groundingMetadata().get().groundingChunks().get());
+        }
+      }
+    }
+
+### Node.js
+
+#### Install
+
+    npm install @google/genai
+
+To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
+
+Set environment variables to use the Google Gen AI SDK with Vertex AI:
+
+    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
+    # with appropriate values for your project.
+    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
+    export GOOGLE_CLOUD_LOCATION=global
+    export GOOGLE_GENAI_USE_ENTERPRISE=True
+
+Before running the sample, make the following replacements:
+
+  - MODEL\_ID : The ID of a [supported model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-exa#supported-models) to use, such as `gemini-2.5-flash` .
+  - TEXT : The text prompt to send to the model.
+  - API\_KEY : Your API key for Exa web search.
+  - SEARCH\_TYPE : Optional: The type of Exa search to run. Supported values are `fast` and `instant` . Defaults to `fast` , which provides comprehensive results with reduced latency and is a good fit for user-facing search and interactive workflows. Use `instant` for experiences requiring the lowest latency, such as chat, voice agents, and autocomplete; it minimizes response time by prioritizing speed over search depth.
+  - EXCLUDE\_DOMAINS : Optional: List of domains to exclude from search results. If specified, no results are returned from these domains. To exclude more than one domain, add each domain as a separate quoted string in the list (for example, `["example.com", "example.net"]` ). You can specify up to 1200 domains.
+  - INCLUDE\_DOMAINS : Optional: List of domains to include in the search. If specified, results come only from these domains. To include more than one domain, add each domain as a separate quoted string in the list (for example, `["example.com", "example.net"]` ). You can specify up to 1200 domains.
+  - MAX\_CHARACTERS : Optional: Maximum number of characters to return for highlights. Controls the total length of highlight text returned per URL.
+  - NUM\_RESULTS : Optional: The maximum number of search results to use for grounding. If not specified, defaults to `5` .
+
+<!-- end list -->
+
+    import {GoogleGenAI} from '@google/genai';
+    
+    const ai = new GoogleGenAI({});
+    
+    const response = await ai.models.generateContent({
+      model: 'MODEL_ID',
+      contents: 'TEXT',
+      config: {
+        tools: [
+          {
+            exaAiSearch: {
+              // Required. Your API key for Exa web search.
+              apiKey: 'API_KEY',
+              // Optional. Customize the search. Click a placeholder to enter a
+              // value, or remove the line to accept the default.
+              customConfigs: {
+                type: 'SEARCH_TYPE',
+                excludeDomains: ['EXCLUDE_DOMAINS'],
+                includeDomains: ['INCLUDE_DOMAINS'],
+                contents: {
+                  highlights: {
+                    maxCharacters: MAX_CHARACTERS,
+                  },
+                },
+                numResults: NUM_RESULTS,
+              },
+            },
+          },
+        ],
+      },
+    });
+    
+    console.log(response.text);
+    
+    // The grounding metadata contains the web sources used to ground the response.
+    console.log(response.candidates[0].groundingMetadata.groundingChunks);
 
 ### REST
 

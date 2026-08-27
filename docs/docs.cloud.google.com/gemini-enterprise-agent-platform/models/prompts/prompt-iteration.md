@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Prompt design often requires a few iterations before you get the desired response consistently. Your prompt design strategy should apply the [Prompt design best practices](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies#best-practices) , with incremental refinements. You can iteratively introduce some or all of the best practices when testing for performance that meets your use case needs.
+Prompt design often requires a few iterations before you get the desired response consistently. Your prompt design strategy should apply the [Prompt design best practices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-design-strategies#best-practices) , with incremental refinements. You can iteratively introduce some or all of the best practices when testing for performance that meets your use case needs.
 
 Additionally, the order of the content in the prompt can sometimes affect the response. Try changing the content order and see how the response changes. For example, for multimodal prompts, try adding the files to the prompt before the instructions.
 
@@ -200,5 +200,4 @@ As demonstrated by the example, prompt iteration is an integral part of the prom
 
 ## What's next
 
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .
   - Learn how to optimize prompts for use with [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) by using the [Gemini Enterprise Agent Platform prompt optimizer (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) .

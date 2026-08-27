@@ -12,6 +12,20 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 23, 2026
+
+Fixed
+
+Scheduled notebook executions now report their final status when the execution user's credentials stop working part way through a run, instead of continuing until the execution timeout.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Change
+
+### M147 Release
+
 ## August 16, 2026
 
 Change
@@ -24,7 +38,7 @@ Fixed the Git panel's grayed out buttons, which were disabled due to an issue wi
 
 Change
 
-### 20260816-2030-rc0 Release
+### M146 Release
 
 ## July 30, 2026
 

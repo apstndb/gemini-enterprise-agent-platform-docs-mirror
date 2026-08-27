@@ -124,7 +124,3 @@ Another technique you can use to improve the model's response is to instruct the
 </table>
 
 By prompting the model to print out its thinking process, the model generated a more thorough response and you learned more about how it generated that response.
-
-## What's next
-
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .

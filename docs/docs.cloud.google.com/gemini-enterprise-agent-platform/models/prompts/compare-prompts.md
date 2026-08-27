@@ -142,5 +142,4 @@ The evaluation metrics that are generated when you compare a prompt with a groun
 
 ## What's next
 
-  - Explore more examples of prompts in the [Prompt gallery](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/prompt-gallery) .
   - For more information about evaluating your models, see [Gen AI evaluation service overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) .

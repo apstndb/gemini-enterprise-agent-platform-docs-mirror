@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-google-ai
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-google-ai
 title: Migrate from Google AI Studio to Gemini Enterprise Agent Platform
-description: Migrate your existing Gemini API in Gemini Enterprise Agent Platform code to Gemini Enterprise Agent Platform.
+description: Migrate your existing Gemini API code to Gemini Enterprise Agent Platform.
 data_source: docs.cloud.google.com
 ---
 
@@ -182,7 +182,7 @@ To migrate your training data to Gemini Enterprise Agent Platform, you need to u
 
 ### 3\. Delete unused API Keys
 
-If you no longer need to use your Gemini API key for the Gemini Developer API, then follow security best practices and delete it.
+If you no longer need to use your Gemini API key, then follow security best practices and delete it.
 
 To delete an API key:
 
