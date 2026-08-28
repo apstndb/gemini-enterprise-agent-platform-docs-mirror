@@ -10,7 +10,7 @@ Veo 3.1 is our latest line of video generation models. This page documents the c
 
 ## 3.1 Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -43,9 +43,9 @@ Capabilities
   - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
     Text to video, image to video, from first and last frame  
     Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)  
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
     Supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation)  
+  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
     Asset images  
     Supported
   - [Prompt rewriting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/turn-the-prompt-rewriter-off)  
@@ -119,7 +119,7 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 
 ## 3.1 Fast Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -152,9 +152,9 @@ Capabilities
   - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
     Text to video, image to video, from first and last frame  
     Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)  
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
     Supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation)  
+  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
     Asset images  
     Supported
   - [Prompt rewriting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/turn-the-prompt-rewriter-off)  
@@ -232,7 +232,7 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 
 ## 3.1 Lite Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -265,9 +265,9 @@ Capabilities
   - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
     Text to video, image to video, from first and last frame  
     Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)  
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
     Supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation)  
+  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
     Not supported
   - [Prompt rewriting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/turn-the-prompt-rewriter-off)  
     Supported
@@ -344,7 +344,7 @@ Versions
 
 ## 3.1 Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -377,9 +377,9 @@ Capabilities
   - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
     Text to video, image to video, from first and last frame  
     Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)  
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
     Supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation)  
+  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
     Asset images  
     Supported
   - [Prompt rewriting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/turn-the-prompt-rewriter-off)  
@@ -458,7 +458,7 @@ Versions
 
 ## 3.1 Fast Generate
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/video) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -491,9 +491,9 @@ Capabilities
   - [Video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
     Text to video, image to video, from first and last frame  
     Supported
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)  
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
     Supported
-  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/use-reference-images-to-guide-video-generation)  
+  - [Use reference images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
     Asset images  
     Supported
   - [Prompt rewriting](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/turn-the-prompt-rewriter-off)  

@@ -12,7 +12,7 @@ DeepSeek-OCR is a comprehensive Optical Character Recognition (OCR) model that a
 
 ## Managed API (MaaS) specifications
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

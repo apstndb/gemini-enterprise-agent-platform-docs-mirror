@@ -23,7 +23,7 @@ Flash includes the following potentially breaking changes when compared to previ
       - When using the Interactions API: Requests where the last object in the `input` array has `"type": "model_output"` .
       - When using the GenerateContent API: Requests where the last object in the `contents` array has `"role": "model"` .
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.6-flash) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.6-flash) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.6-flash) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.6-flash) [Developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-6-flash) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

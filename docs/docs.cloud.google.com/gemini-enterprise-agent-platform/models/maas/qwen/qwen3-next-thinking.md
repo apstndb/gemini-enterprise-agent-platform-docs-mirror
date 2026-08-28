@@ -12,7 +12,7 @@ Qwen3-Next-80B Thinking is a language model from the Qwen3-Next family of models
 
 ## Managed API (MaaS) specifications
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

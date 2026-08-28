@@ -145,6 +145,7 @@ Selecting a global endpoint for your requests can improve overall availability w
 
 Usage of the global endpoint is supported for the following Google models in specified regions. For details about which models support the global endpoint, see the **Global** tab in the [Google model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models) .
 
+  - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) (Preview)
   - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
@@ -203,6 +204,9 @@ Global
 (global)
 
 Gemini models
+
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
 
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`
@@ -338,6 +342,9 @@ European Union multi-region
 (eu)
 
 Gemini models
+
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
 
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`
@@ -489,6 +496,9 @@ Dallas
 
 Gemini models
 
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
+
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`
 
@@ -623,6 +633,9 @@ São Paulo
 (southamerica-east1)
 
 Gemini models
+
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
 
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`
@@ -783,6 +796,9 @@ Paris
 
 Gemini models
 
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
+
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`
 
@@ -933,6 +949,9 @@ Seoul
 
 Gemini models
 
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
+
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`
 
@@ -1070,6 +1089,9 @@ Dammam
 (me-central2)
 
 Gemini models
+
+[Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
+`(gemini-omni-1.1-flash-preview)`
 
 [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)  
 `(gemini-3.7-flash)`

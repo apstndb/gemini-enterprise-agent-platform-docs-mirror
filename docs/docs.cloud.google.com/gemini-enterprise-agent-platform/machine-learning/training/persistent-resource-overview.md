@@ -6,7 +6,7 @@ description: Overview of persistent resources.
 data_source: docs.cloud.google.com
 ---
 
-A Gemini Enterprise Agent Platform persistent resource is a long-running cluster that you can create to run Gemini Enterprise Agent Platform serverless training jobs. After a training job completes, the persistent resource remains available to run other training jobs until you delete it. You can use a persistent resource to ensure compute resource availability and to reduce the job startup time that's otherwise needed for compute resource creation. Persistent resources support all VMs and GPUs that are supported by serverless training jobs. This page explains when to use a persistent resource and gives you information about billing and quota.
+A Gemini Enterprise Agent Platform persistent resource is a long-running cluster that you can create to run serverless training jobs. After a training job completes, the persistent resource remains available to run other training jobs until you delete it. You can use a persistent resource to ensure compute resource availability and to reduce the job startup time that's otherwise needed for compute resource creation. Persistent resources support all VMs and GPUs that are supported by serverless training jobs. This page explains when to use a persistent resource and gives you information about billing and quota.
 
 ## When to use a persistent resource
 

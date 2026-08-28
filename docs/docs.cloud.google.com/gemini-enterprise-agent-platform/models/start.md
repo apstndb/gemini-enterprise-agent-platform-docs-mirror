@@ -593,6 +593,40 @@ You must include `responseModalities: ["TEXT", "IMAGE"]` in your configuration. 
       }
     }
 
+### REST
+
+To send this prompt request, run the curl command from the command line or include the REST call in your application.
+
+    curl \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    "${API_ENDPOINT}/v1/projects/${GOOGLE_CLOUD_PROJECT}/locations/${GOOGLE_CLOUD_LOCATION}/publishers/google/models/${MODEL_ID}:${GENERATE_CONTENT_API}" -d \
+    $'{
+        "contents": {
+          "role": "USER",
+          "parts": [
+            {
+              "text": "Create a tutorial explaining how to make a peanut butter and
+              jelly sandwich in three easy steps."
+            }
+          ]
+        },
+        "generationConfig": {
+          "responseModalities": ["TEXT", "IMAGE"],
+          "imageConfig": {
+            "aspectRatio": "16:9",
+          },
+         },
+         "safetySettings": {
+          "method": "PROBABILITY",
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+        },
+      }' 2>/dev/null >response.json
+
+The model returns a response.
+
 ## Understand images
 
 Gemini can understand images as well. The following code uses the image generated in the previous section and uses a different model to infer information about the image:

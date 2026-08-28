@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-train
-title: Run Gemini Enterprise Agent Platform serverless training jobs on a persistent resource
-description: Run a Gemini Enterprise Agent Platform serverless training job on a persistent resource using the {{dynamic_data.site_values.cloud_name_short}} console, Google Cloud CLI, Agent Platform SDK for Python, or the REST API.
+title: Run serverless training jobs on a persistent resource
+description: Run a serverless training job on a persistent resource using the {{dynamic_data.site_values.cloud_name_short}} console, Google Cloud CLI, Agent Platform SDK for Python, or the REST API.
 data_source: docs.cloud.google.com
 ---
 

@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/train-nfs-share
 title: Mount a Network File System share
-description: How to mount a Network File System share when running a Gemini Enterprise Agent Platform serverless training job.
+description: How to mount a Network File System share when running a serverless training job.
 data_source: docs.cloud.google.com
 ---
 
-You can configure your Gemini Enterprise Agent Platform serverless training jobs to mount Network File System (NFS) shares to the container where your code is running. This lets your jobs access remote files as if they were local, enabling high throughput and low latency.
+You can configure your serverless training jobs to mount Network File System (NFS) shares to the container where your code is running. This lets your jobs access remote files as if they were local, enabling high throughput and low latency.
 
 This guide shows how to mount a Network File System share when running a serverless training job.
 

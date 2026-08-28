@@ -12,7 +12,7 @@ Qwen3 235B is a large 235B parameter model. The model is distinguished by its "h
 
 ## Managed API (MaaS) specifications
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

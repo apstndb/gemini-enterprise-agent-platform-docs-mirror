@@ -1,12 +1,12 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/genai-training-overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/genai-training-overview
-title: Generative AI on Gemini Enterprise Agent Platform training overview
+title: Agent Platform training overview
 description: Provides an overview of the various training options available in Generative AI.
 data_source: docs.cloud.google.com
 ---
 
-Generative AI often relies on large-scale machine learning (ML) models that are pre-trained on vast amounts of data. These are referred to as foundation models and serve as a base for various tasks. There are numerous ways to customize foundation models using Generative AI on Gemini Enterprise Agent Platform:
+Generative AI often relies on large-scale machine learning (ML) models that are pre-trained on vast amounts of data. These are referred to as foundation models and serve as a base for various tasks. There are numerous ways to customize foundation models using Agent Platform:
 
   - Tuning: Tuning involves providing a model with a training dataset of specific examples relevant to the chosen downstream task.
     

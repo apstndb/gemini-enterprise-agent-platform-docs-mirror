@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-reservations
 title: Use reservations with training
-description: Use Compute Engine reservations with Gemini Enterprise Agent Platform serverless training.
+description: Use Compute Engine reservations with serverless training.
 data_source: docs.cloud.google.com
 ---
 
@@ -23,7 +23,7 @@ When using Compute Engine reservations with Agent Platform, consider the followi
 
   - Agent Platform can't consume reservations of VMs that have [Local SSD disks manually attached](https://docs.cloud.google.com/compute/docs/disks/local-ssd#lssd_disk_options) .
 
-  - Using Compute Engine reservations with Agent Platform is only supported for Gemini Enterprise Agent Platform serverless training, inference, and [Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/reservations) (Preview).
+  - Using Compute Engine reservations with Agent Platform is only supported for serverless training, inference, and [Gemini Enterprise Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/reservations) (Preview).
 
   - A reservation's VM properties must match exactly with your Agent Platform workload to consume the reservation. For example, if a reservation specifies an `a2-ultragpu-8g` machine type, then the Agent Platform workload can only consume the reservation if it also uses an `a2-ultragpu-8g` machine type. See [Requirements](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#requirements) .
 
@@ -75,7 +75,7 @@ To verify that the reservation is being consumed, see [Verify reservations consu
 
 ## Create a serverless training job with a reservation
 
-Use the REST API to create a Gemini Enterprise Agent Platform serverless training job that consumes a Compute Engine reservation of GPU VMs.
+Use the REST API to create a serverless training job that consumes a Compute Engine reservation of GPU VMs.
 
 ### REST
 

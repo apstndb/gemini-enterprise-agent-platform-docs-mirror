@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 The Virtual Try-On model ( `virtual-try-on-001` ) lets you generate virtual try-on images from an image of a person and product photos that you provide.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/generate;tab=image) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/media/generate;tab=image) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

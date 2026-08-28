@@ -12,7 +12,7 @@ The 120B model achieves near-parity with OpenAI o4-mini on core reasoning benchm
 
 ## Managed API (MaaS) specifications
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

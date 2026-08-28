@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 GLM 4.7 is a model from GLM for core or vibe coding, tool use, and complex reasoning.
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

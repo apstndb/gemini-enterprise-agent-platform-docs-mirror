@@ -12,7 +12,7 @@ MiniMax M2 is a model from MiniMax that's designed for agentic and code-related 
 
 ## Managed API (MaaS) specifications
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

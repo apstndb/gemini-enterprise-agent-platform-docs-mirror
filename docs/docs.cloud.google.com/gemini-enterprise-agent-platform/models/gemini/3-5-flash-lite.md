@@ -21,7 +21,7 @@ When using 3.5 Flash-Lite, you can use different thinking levels to optimize for
       - When using the Interactions API: Requests where the last object in the `input` array has `"type": "model_output"` .
       - When using the GenerateContent API: Requests where the last object in the `contents` array has `"role": "model"` .
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.5-flash-lite) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.5-flash-lite) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/chat?model=gemini-3.5-flash-lite) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/chat?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3.5-flash-lite) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

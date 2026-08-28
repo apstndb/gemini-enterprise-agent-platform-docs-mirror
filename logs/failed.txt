@@ -1,11 +1,3 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-5-flash
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-6-flash
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-7-flash
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic
 404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration

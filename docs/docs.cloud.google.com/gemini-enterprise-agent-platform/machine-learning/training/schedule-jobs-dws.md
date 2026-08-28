@@ -2,11 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/schedule-jobs-dws
 title: Schedule training jobs based on resource availability
-description: Use Dynamic Workload Scheduler to schedule Gemini Enterprise Agent Platform serverless training jobs based on GPU resource availability.
+description: Use Dynamic Workload Scheduler to schedule serverless training jobs based on GPU resource availability.
 data_source: docs.cloud.google.com
 ---
 
-For Gemini Enterprise Agent Platform serverless training jobs that request GPU resources, Dynamic Workload Scheduler lets you schedule the jobs based on when the requested GPU resources become available. This page shows you how to schedule serverless training jobs by using Dynamic Workload Scheduler, and how to customize the scheduling behavior on Gemini Enterprise Agent Platform.
+For serverless training jobs that request GPU resources, Dynamic Workload Scheduler lets you schedule the jobs based on when the requested GPU resources become available. This page shows you how to schedule serverless training jobs by using Dynamic Workload Scheduler, and how to customize the scheduling behavior on Gemini Enterprise Agent Platform.
 
 ## Recommended use cases
 

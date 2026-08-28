@@ -97,4 +97,5 @@ Analyze training metrics, visualize model graphs, and profile performance in Ver
   - Set up model monitoring: After deployment, monitor your model for performance drift and data anomalies to help maintain the model's effectiveness in production.
       - [Introduction to Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview)
   - Optimize costs and manage your cluster: Regularly review your cluster utilization and manage its lifecycle (for example, deleting the cluster when not in use) to optimize costs for reserved hardware.
+      - [Learn how to view your training clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters)
       - [Learn how to manage your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster)

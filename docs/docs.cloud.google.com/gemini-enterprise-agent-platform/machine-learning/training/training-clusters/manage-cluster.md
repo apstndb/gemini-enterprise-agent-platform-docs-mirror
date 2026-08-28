@@ -2,52 +2,26 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster
 title: Manage cluster
-description: 'Manage Agent Platform cluster lifecycle. Use REST API endpoints: Get, List, Update, Delete clusters in your {{dynamic_data.site_values.cloud_name}} project.'
+description: Change or remove a Agent Platform training cluster. Use the Update and Delete REST API endpoints on clusters in your {{dynamic_data.site_values.cloud_name}} project.
 data_source: docs.cloud.google.com
 ---
 
 If you're interested in Gemini Enterprise Agent Platform training clusters, contact your sales representative for access.
 
-Once a cluster is deployed, you can manage its full lifecycle using the following REST API endpoints.
+Once a cluster is deployed, you can change or remove it using the following Agent Platform API endpoints:
 
-  - `List` : Views all active clusters in your project.
-  - `Get` : Retrieves detailed information for a specific cluster.
   - `Update` : Modifies an existing cluster configuration.
   - `Delete` : Permanently removes a cluster and its resources.
 
-#### Authentication
+Updating a cluster is available only through the Agent Platform API. You can delete a cluster from either the Agent Platform API or the Google Cloud console.
+
+For instructions on listing all clusters or viewing individual clusters, see [View clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters) .
+
+## Authentication
 
     alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
 
-#### List clusters:
-
-``` 
-    gcurl -X GET https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters
-    
-```
-
-The list method supports the following optional query parameters to control pagination.
-
-  - `pageSize` (integer, optional): The maximum number of clusters to return in the response. The service may return fewer than this value, even if more items exist. If unspecified, a default page size will be used.
-  - `pageToken (string, optional)` : A token received from a previous list call. Provide this token to retrieve the subsequent page of results.
-
-The following example requests the first page of results with a maximum of 5 clusters per page.
-
-``` 
-    gcurl "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters?pageSize=5"
-    
-```
-
-A successful response contains a clusters array with up to five cluster resources and may also include a `nextPageToken` string.
-
-#### Get a cluster:
-
-``` 
-    gcurl -X GET https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID
-    
-```
-
-#### Update a cluster:
+## Update a cluster
 
 `UPDATE_PAYLOAD` specifies the local path to a JSON file that defines the full `ModelDevelopmentCluster` you want to update to.
 
@@ -157,7 +131,7 @@ A successful request returns a Long Running Operation (LRO). You can then monito
 
 Once the update operation completes successfully, most modifications take effect immediately (or within the 15s Slurm sync time) and require no further action. Only changes to the underlying cluster compute infrastructure—including modifications to storage sources and startup scripts—require the resources to be recreated.
 
-#### Delete a cluster:
+## Delete a cluster
 
 ``` 
   gcurl -X DELETE https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID

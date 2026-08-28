@@ -1,8 +1,8 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview
-title: Gemini Omni Flash Preview
-description: Learn about Gemini Omni Flash Preview, which is optimized for video generation and multimodal tasks.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash
+title: Gemini Omni 1.1 Flash Preview
+description: Learn about Gemini Omni 1.1 Flash Preview, which is optimized for video generation and multimodal tasks.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,15 +10,15 @@ data_source: docs.cloud.google.com
 > 
 > This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
 
-Gemini Omni Flash (Preview) is a multimodal model designed for video, image, and text tasks. It is optimized for video generation, offering video output alongside text responses in a single model.
+Gemini Omni 1.1 Flash (Preview) is a multimodal model designed for video, image, and text tasks. It is optimized for video generation, offering video output alongside text responses in a single model.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-omni-1.1-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-omni-flash-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-omni-1.1-flash-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-omni-1.1-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-omni-1.1-flash-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-omni-1.1-flash-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 
 Model ID
 
-`gemini-omni-flash-preview`
+`gemini-omni-1.1-flash-preview`
 
 Modalities
 
@@ -83,18 +83,18 @@ Capabilities
   - [Generate videos from text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)  
     Supported
   - [Generate videos from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)  
-    Not supported
+    Supported
   - [Generate videos from references](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)  
-    Not supported
+    Supported
   - [Videos from first and last frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)  
-    Not supported
+    Supported
   - [Sound generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide#audio)  
     Speech, music, sound effects  
     Supported
   - [Video editing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos)  
     Supported
   - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)  
-    Not supported
+    Supported
   - [Content Credentials (C2PA)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials)  
     Supported
 
@@ -125,9 +125,8 @@ Technical specifications
 **Image** photo
 
   - Maximum images per prompt: 10
-  - Maximum file size per file for inline data or direct uploads through the console: 20 GiB
-  - Supported aspect ratios: 16:9, 9:16
-  - Supported resolutions: 720p
+  - Maximum file size per file for inline data or direct uploads through the console: 20 MB
+  - Maximum file size per file from Google Cloud Storage: 30 MB
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
@@ -143,6 +142,8 @@ Technical specifications
   - Maximum video length (with audio): 10 seconds
   - Maximum video length (without audio): 10 seconds
   - Maximum number of videos per prompt: 3
+  - Supported aspect ratios: 16:9, 9:16
+  - Supported resolutions: 360p, 720p, 1080p, 4k
   - Supported MIME types:
     `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
@@ -164,8 +165,7 @@ Supported regions
 
 Versions
 
-`gemini-omni-flash-preview`
+`gemini-omni-1.1-flash-preview`
 
   - Launch stage: Preview
-  - Release date: June 30, 2026
-  - Retirement date: June 30, 2027
+  - Release date: August 27, 2026

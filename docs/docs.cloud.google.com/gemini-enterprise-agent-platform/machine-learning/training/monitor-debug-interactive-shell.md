@@ -14,7 +14,7 @@ Using an interactive shell to inspect your training container can help you debug
   - Analyze GPU usage.
   - Check Google Cloud permissions available to the container.
 
-You can also use Cloud Profiler to debug model training performance for your Gemini Enterprise Agent Platform serverless trainingjobs. For details, see [Profile model training performance using Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) .
+You can also use Cloud Profiler to debug model training performance for your serverless training jobs. For details, see [Profile model training performance using Profiler](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/tensorboard-profiler) .
 
 ## Before you begin
 

@@ -361,7 +361,9 @@ Running a prebuilt workload verifies the cluster's operational status. The next 
       - [Learn how to run a distributed training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
   - Monitor your training jobs: Effectively track the progress, resource utilization, and logs for the jobs running on your cluster using the the Google Cloud console or Cloud Logging.
       - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
-  - Manage your cluster: After running your tests, check the status of your cluster or delete it to manage costs.
+  - View your cluster: After running your tests, check the status of your cluster and of its individual nodes.
+      - [Learn how to view your training clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters)
+  - Manage your cluster: Update your cluster's configuration, or delete it to manage costs.
       - [Learn how to manage your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster)
   - Orchestrate jobs with Gemini Enterprise Agent Platform Pipelines: After running jobs manually, automate the process by creating a pipeline to orchestrate your training workflows.
       - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)

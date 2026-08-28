@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/pre-built-containers
-title: Prebuilt containers for Gemini Enterprise Agent Platform serverless training
-description: Learn how to use prebuilt containers for Gemini Enterprise Agent Platform serverless training.
+title: Prebuilt containers for serverless training
+description: Learn how to use prebuilt containers for serverless training.
 data_source: docs.cloud.google.com
 ---
 

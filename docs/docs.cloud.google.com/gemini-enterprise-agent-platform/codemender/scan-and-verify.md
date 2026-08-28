@@ -56,6 +56,6 @@ Locate the `finding-id` from the output of `cm report` or `cm find` , then run:
     
         cm verify FINDING_ID --unrestricted
 
-  - **Auto-approve prompts ( `-y` )** : Skip confirmation prompts:
+  - **Auto-approve confirmation prompts ( `-y` / `--yes` )** : Skip interactive confirmation prompts for tool actions and PoC exploit execution. When running interactively without `-y` , CodeMender prompts for confirmation ( `[y/N]` ) before executing generated exploit scripts. In automated CI/CD pipelines and evaluation runs, passing `-y` auto-approves execution while keeping all commands contained within the OS-level sandbox container ( `exebox` ):
     
         cm verify FINDING_ID -y

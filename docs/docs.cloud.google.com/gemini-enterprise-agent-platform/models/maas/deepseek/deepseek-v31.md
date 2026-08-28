@@ -12,7 +12,7 @@ DeepSeek-V3.1 is a hybrid model that supports both thinking mode and non-thinkin
 
 ## Managed API (MaaS) specifications
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

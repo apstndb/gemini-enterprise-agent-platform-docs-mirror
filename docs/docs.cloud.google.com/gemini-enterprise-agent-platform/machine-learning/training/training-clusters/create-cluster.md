@@ -554,7 +554,9 @@ Use your active persistent training cluster to run your machine learning workloa
       - [Learn how to run a distributed training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/distributed-training)
   - Orchestrate your training with Gemini Enterprise Agent Platform Pipelines: For repeatable, production-grade workflows, automate the job submission process using Agent Platform Pipelines.
       - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)
-  - View and manage your cluster: List existing clusters, check their status, and view configuration details using the Google Cloud CLI or the Google Cloud console.
+  - View your cluster: List the existing clusters in your project, check their status, and view configuration details using the Google Cloud console or the Agent Platform API.
+      - [Learn how to view your training clusters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/view-clusters)
+  - Change your cluster: Update an existing cluster's configuration, such as its node counts or its Slurm partitions.
       - [Learn how to manage your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster)
   - Delete your cluster to stop incurring costs: Training clusters are persistent and incur costs while active.
-      - [Learn how to delete your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster:)
+      - [Learn how to delete your training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster)

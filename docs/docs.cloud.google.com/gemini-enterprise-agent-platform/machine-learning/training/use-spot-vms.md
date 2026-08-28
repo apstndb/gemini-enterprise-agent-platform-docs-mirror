@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-spot-vms
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/use-spot-vms
 title: Use Spot VMs with training
-description: Use Spot VMs with with Gemini Enterprise Agent Platform serverless training.
+description: Use Spot VMs with with serverless training.
 data_source: docs.cloud.google.com
 ---
 

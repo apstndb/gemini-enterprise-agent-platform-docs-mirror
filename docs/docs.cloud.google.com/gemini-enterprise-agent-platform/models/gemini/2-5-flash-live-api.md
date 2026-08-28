@@ -23,7 +23,7 @@ For more information on Gemini Live API, see:
   - Our [Gemini Live API supported audio formats](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api#supported-audio-formats) .
   - Our [Gemini Live API concurrent session limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#max-concurrent-sessions) .
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-native-audio) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-live-2.5-flash-native-audio) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

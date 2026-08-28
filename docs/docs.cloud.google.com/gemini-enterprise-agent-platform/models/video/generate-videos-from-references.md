@@ -1,35 +1,33 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text
-title: Generate videos from text prompts
-description: You can use Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform to generate videos from a text prompt that you provide. Use either the {{dynamic_data.site_values.cloud_name_short}} console or the Agent Platform API to send a request.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references
+title: Generate videos from references
+description: You can specify the subject of your Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform generated videos. You use either the {{dynamic_data.site_values.cloud_name_short}} console or the Agent Platform API and specify reference images or videos that the model uses to match the subject that you provided.
 data_source: docs.cloud.google.com
 ---
 
-You can use Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform to generate new videos from a text prompt. Supported interfaces include the Google Cloud console and the Agent Platform API.
+You can use Gemini Omni Flash or Veo on Gemini Enterprise Agent Platform to guide video generation using reference images or videos.
 
-The following models support generating video from a text prompt:
+The following models support reference images:
 
 **Gemini Omni Flash**
 
+Gemini Omni Flash lets you use reference images or videos to provide additional input to the model when generating a video.
+
 #### Click to expand supported models
 
-  - [`gemini-omni-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
   - [`gemini-omni-1.1-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview
 
 **Veo**
 
+Veo on Gemini Enterprise Agent Platform lets you use reference subject images to direct your generated video. You provide up to three images of a single person, character, or product. Veo preserves the subject's appearance in the output video.
+
 #### Click to expand supported models
 
-  - [`veo-3.1-lite-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001-preview) preview
   - [`veo-3.1-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview
   - [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)
   - [`veo-3.1-fast-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview
   - [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001)
-  - [`veo-3.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview
-  - [`veo-3.0-fast-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview
-  - [`veo-3.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)
-  - [`veo-3.0-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)
   - [`veo-2.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
   - [`veo-2.0-generate-exp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview
   - [`veo-2.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview
@@ -46,15 +44,31 @@ For more information about writing effective text prompts for video generation, 
     
     When you use the Google Cloud console to access Google Cloud services and APIs, you don't need to set up authentication.
     
+    ### Python
+    
+    To use the Python samples on this page in a local development environment, install and initialize the gcloud CLI, and then set up Application Default Credentials with your user credentials.
+    
+    1.  [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI.
+    
+    2.  If you're using an external identity provider (IdP), you must first [sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+    
+    3.  If you're using a local shell, then create local authentication credentials for your user account:
+        
+            gcloud auth application-default login
+        
+        You don't need to do this if you're using Cloud Shell.
+        
+        If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud) .
+    
+    For more information, see [Set up ADC for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment) in the Google Cloud authentication documentation.
+    
     ### REST
     
     To use the REST API samples on this page in a local development environment, you use the credentials you provide to the gcloud CLI.
     
     For more information, see [Authenticate for using REST](https://docs.cloud.google.com/docs/authentication/rest) in the Google Cloud authentication documentation.
 
-## Generate videos using Gemini Omni Flash
-
-To generate videos using Gemini Omni Flash, do the following:
+## Use Gemini Omni Flash and references to generate videos
 
 ### REST
 
@@ -71,9 +85,30 @@ Before using any of the request data, make the following replacements:
   - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
     
       - `"gemini-omni-1.1-flash-preview"`
-      - `"gemini-omni-flash-preview"`
 
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+
+  - `  CLOUD_STORAGE_IMAGE_URI  ` : A string representing the Cloud Storage bucket that contains the input image. For example: `"gs://video-bucket/input/"` .
+
+  - `  IMAGE_MIME  ` : A string representing an image MIME type. The following are accepted values:
+    
+      - `image/png`
+      - `image/jpeg`
+      - `image/webp`
+      - `image/heic`
+      - `image/heif`
+
+  - `  CLOUD_STORAGE_VIDEO_URI  ` : A string representing the Cloud Storage bucket that contains the input video. For example: `"gs://video-bucket/input/"` .
+
+  - `  VIDEO_MIME  ` : A string representing a video MIME type. The following are accepted values:
+    
+      - `video/3gpp`
+      - `video/mp4`
+      - `video/mpeg`
+      - `video/quicktime`
+      - `video/webm`
+      - `video/x-flv`
+      - `video/x-ms-wmv`
 
   - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 
@@ -108,7 +143,18 @@ Request JSON body:
       "input": [
         {
           "type": "text",
-          "text": "TEXT_PROMPT"
+          "text": "TEXT_PROMPT Use the image(s) as references to
+          generate the video."
+        },
+        {
+          "type": "image",
+          "uri": "CLOUD_STORAGE_IMAGE_URI",
+          "mime_type": "IMAGE_MIME"
+        },
+        {
+          "type": "video",
+          "uri": "CLOUD_STORAGE_VIDEO_URI",
+          "mime_type": "VIDEO_MIME"
         }
       ],
       "response_format": [
@@ -123,7 +169,7 @@ Request JSON body:
       ],
       "generation_config": {
         "video_config": {
-          "task": "text_to_video"
+          "task": "reference_to_video"
         }
       }
     }
@@ -216,10 +262,31 @@ Before using any of the request data, make the following replacements:
 
   - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
     
-      - `"gemini-omni-flash-preview"`
       - `"gemini-omni-1.1-flash-preview"`
 
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+
+  - `  CLOUD_STORAGE_IMAGE_URI  ` : A string representing the Cloud Storage bucket that contains the input image. For example: `"gs://video-bucket/input/"` .
+
+  - `  IMAGE_MIME  ` : A string representing an image MIME type. The following are accepted values:
+    
+      - `image/png`
+      - `image/jpeg`
+      - `image/webp`
+      - `image/heic`
+      - `image/heif`
+
+  - `  CLOUD_STORAGE_VIDEO_URI  ` : A string representing the Cloud Storage bucket that contains the input video. For example: `"gs://video-bucket/input/"` .
+
+  - `  VIDEO_MIME  ` : A string representing a video MIME type. The following are accepted values:
+    
+      - `video/3gpp`
+      - `video/mp4`
+      - `video/mpeg`
+      - `video/quicktime`
+      - `video/webm`
+      - `video/x-flv`
+      - `video/x-ms-wmv`
 
   - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
 
@@ -255,7 +322,18 @@ Request JSON body:
         {
           "background": true,
           "type": "text",
-          "text": "TEXT_PROMPT"
+          "text": "TEXT_PROMPT Use the image(s) as references to
+          generate the video."
+        },
+        {
+          "type": "image",
+          "uri": "CLOUD_STORAGE_IMAGE_URI",
+          "mime_type": "IMAGE_MIME"
+        },
+        {
+          "type": "video",
+          "uri": "CLOUD_STORAGE_VIDEO_URI",
+          "mime_type": "VIDEO_MIME"
         }
       ],
       "response_format": [
@@ -264,13 +342,13 @@ Request JSON body:
           "delivery": "uri",
           "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
           "aspect_ratio": "ASPECT_RATIO",
-          "output": "OUTPUT_RESOLUTION",
+          "resolution": "OUTPUT_RESOLUTION",
           "duration": "DURATION"
         }
       ],
       "generation_config": {
         "video_config": {
-          "task": "text_to_video"
+          "task": "reference_to_video"
         }
       }
     }
@@ -411,33 +489,49 @@ The response is in a format similar to the following:
       "updated":"2026-05-29T02:17:56Z",
     }
 
-## Generate videos using Veo
+## Use Veo and asset images to generate videos
 
-The following examples show how you can use text prompts to generate videos by using Veo:
+Do the following:
 
 ### Console
 
-1.  In the Google Cloud console, go to the **Agent Platform \> Media Studio** page.
+1.  In the Google Cloud console, go to the **Agent Platform \> Agent Platform Studio** page.
 
-2.  Click **Video** .
+2.  Click **Generate media** .
 
-3.  In the **Task** menu, select **Text-to-video** .
+3.  Click **Video** .
 
-4.  From the **Model** menu, select a model from the displayed options.
+4.  In the **Task** menu, select **Reference-to-video (Subject)** .
 
-5.  In the **Prompt** box, enter a text prompt that describes the videos to generate.
-
-6.  Optional: Adjust the following **Parameters** :
+5.  In the **Model** menu, select a model from the available options.
     
-      - **Aspect ratio** : choose either **16:9** or **9:16** .
+    > **Note:** `veo-3.1-generate-preview` only returns 8 second videos when you use subject images.
+
+6.  In the **Subject Images** section, click **Add** .
     
+    A file selection dialog is displayed. Choose one to three images on your computer to upload.
+
+7.  Optional: In the **Parameters** section, adjust the following settings:
+    
+      - **Aspect ratio** : select either **16:9** or **9:16** .
       - **Number of results** : adjust the slider or enter a value between **1** and **4** .
-    
-      - **Video length** : select a video length from the menu.
-    
-      - **Output directory** : click **Browse** to create or select a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/buckets) to store the generated files.
+      - **Video length** : select **8** , **6** , or **4** seconds.
+      - **Output resolution** : select one of the following:
+          - **720p**
+          - **1080p**
+          - **4k**
 
-7.  Click **Run** .
+8.  Optional: In the **Safety** section, select one of the following **Person generation** settings:
+    
+      - **Allow (Adults only)** : default value. Generate adult people or faces only. Don't generate youth or children people or faces.
+    
+      - **Don't allow** : don't generate people or faces.
+
+9.  Optional: In the **Advanced options** section, enter a **Seed** value for randomizing video generation.
+
+10. In the **Prompt** box, enter your text prompt that describes the videos to generate.
+
+11. Click **Run** .
 
 ### Python
 
@@ -457,7 +551,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
     import time
     from google import genai
-    from google.genai.types import GenerateVideosConfig
+    from google.genai.types import GenerateVideosConfig, Image, VideoGenerationReferenceImage
     
     client = genai.Client()
     
@@ -465,10 +559,19 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # output_gcs_uri = "gs://your-bucket/your-prefix"
     
     operation = client.models.generate_videos(
-        model="veo-3.1-generate-001",
-        prompt="a cat reading a book",
+        model="veo-3.1-generate-preview",
+        prompt="A person walks in carrying a vase full of flowers and places the vase on a kitchen table.",
         config=GenerateVideosConfig(
-            aspect_ratio="16:9",
+            reference_images=[
+                VideoGenerationReferenceImage(
+                    image=Image(
+                        gcs_uri="gs://cloud-samples-data/generative-ai/image/vase.png",
+                        mime_type="image/png",
+                    ),
+                    reference_type="asset",
+                ),
+            ],
+            aspect_ratio="9:16",
             output_gcs_uri=output_gcs_uri,
         ),
     )
@@ -484,201 +587,6 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     # Example response:
     # gs://your-bucket/your-prefix
 
-### Go
-
-Learn how to install or update the [Go](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
-
-To learn more, see the [SDK reference documentation](https://pkg.go.dev/google.golang.org/genai) .
-
-Set environment variables to use the Google Gen AI SDK with Vertex AI:
-
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
-
-    import (
-        "context"
-        "fmt"
-        "io"
-        "time"
-    
-        "google.golang.org/genai"
-    )
-    
-    // generateVideoWithText shows how to gen video from text.
-    func generateVideoWithText(w io.Writer, outputGCSURI string) error {
-        //outputGCSURI = "gs://your-bucket/your-prefix"
-        ctx := context.Background()
-    
-        client, err := genai.NewClient(ctx, &genai.ClientConfig{
-            HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
-        })
-        if err != nil {
-            return fmt.Errorf("failed to create genai client: %w", err)
-        }
-    
-        config := &genai.GenerateVideosConfig{
-            AspectRatio:  "16:9",
-            OutputGCSURI: outputGCSURI,
-        }
-    
-        modelName := "veo-3.0-generate-preview"
-        prompt := "a cat reading a book"
-        operation, err := client.Models.GenerateVideos(ctx, modelName, prompt, nil, config)
-        if err != nil {
-            return fmt.Errorf("failed to start video generation: %w", err)
-        }
-    
-        // Polling until the operation is done
-        for !operation.Done {
-            time.Sleep(15 * time.Second)
-            operation, err = client.Operations.GetVideosOperation(ctx, operation, nil)
-            if err != nil {
-                return fmt.Errorf("failed to get operation status: %w", err)
-            }
-        }
-    
-        if operation.Response != nil && len(operation.Response.GeneratedVideos) > 0 {
-            videoURI := operation.Response.GeneratedVideos[0].Video.URI
-            fmt.Fprintln(w, videoURI)
-            return nil
-        }
-    
-        // Example response:
-        // gs://your-bucket/your-prefix/videoURI
-    
-        return fmt.Errorf("video generation failed or returned no results")
-    }
-
-### Node.js
-
-#### Install
-
-    npm install @google/genai
-
-To learn more, see the [SDK reference documentation](https://googleapis.github.io/js-genai/) .
-
-Set environment variables to use the Google Gen AI SDK with Vertex AI:
-
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
-
-    const {GoogleGenAI} = require('@google/genai');
-    
-    const GOOGLE_CLOUD_PROJECT = process.env.GOOGLE_CLOUD_PROJECT;
-    const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || 'global';
-    
-    async function generateVideo(
-      outputGcsUri,
-      projectId = GOOGLE_CLOUD_PROJECT,
-      location = GOOGLE_CLOUD_LOCATION
-    ) {
-      const client = new GoogleGenAI({
-        vertexai: true,
-        project: projectId,
-        location: location,
-      });
-    
-      let operation = await client.models.generateVideos({
-        model: 'veo-3.1-fast-generate-001',
-        prompt: 'a cat reading a book',
-        config: {
-          aspectRatio: '16:9',
-          outputGcsUri: outputGcsUri,
-        },
-      });
-    
-      while (!operation.done) {
-        await new Promise(resolve => setTimeout(resolve, 15000));
-        operation = await client.operations.get({operation: operation});
-        console.log(operation);
-      }
-    
-      if (operation.response) {
-        console.log(operation.response.generatedVideos[0].video.uri);
-      }
-      return operation;
-    }
-
-### Java
-
-Learn how to install or update the [Java](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) .
-
-To learn more, see the [SDK reference documentation](https://central.sonatype.com/artifact/com.google.genai/google-genai) .
-
-Set environment variables to use the Google Gen AI SDK with Vertex AI:
-
-    # Replace the `GOOGLE_CLOUD_PROJECT` and `GOOGLE_CLOUD_LOCATION` values
-    # with appropriate values for your project.
-    export GOOGLE_CLOUD_PROJECT=GOOGLE_CLOUD_PROJECT
-    export GOOGLE_CLOUD_LOCATION=global
-    export GOOGLE_GENAI_USE_ENTERPRISE=True
-
-    import com.google.genai.Client;
-    import com.google.genai.types.GenerateVideosConfig;
-    import com.google.genai.types.GenerateVideosOperation;
-    import com.google.genai.types.GenerateVideosResponse;
-    import com.google.genai.types.GenerateVideosSource;
-    import com.google.genai.types.GeneratedVideo;
-    import com.google.genai.types.GetOperationConfig;
-    import com.google.genai.types.Video;
-    import java.util.concurrent.TimeUnit;
-    
-    public class VideoGenWithTxt {
-    
-      public static void main(String[] args) throws InterruptedException {
-        // TODO(developer): Replace these variables before running the sample.
-        String modelId = "veo-3.1-generate-001";
-        String outputGcsUri = "gs://your-bucket/your-prefix";
-        generateContent(modelId, outputGcsUri);
-      }
-    
-      // Generates a video with a text prompt.
-      public static String generateContent(String modelId, String outputGcsUri)
-          throws InterruptedException {
-        // Client Initialization. Once created, it can be reused for multiple requests.
-        try (Client client = Client.builder().location("global").vertexAI(true).build()) {
-    
-          GenerateVideosOperation operation =
-              client.models.generateVideos(
-                  modelId,
-                  GenerateVideosSource.builder().prompt("a cat reading a book").build(),
-                  GenerateVideosConfig.builder()
-                      .aspectRatio("16:9")
-                      .outputGcsUri(outputGcsUri)
-                      .build());
-    
-          while (!operation.done().orElse(false)) {
-            TimeUnit.SECONDS.sleep(15);
-            operation =
-                client.operations.getVideosOperation(operation, GetOperationConfig.builder().build());
-          }
-    
-          String generatedVideoUri =
-              operation
-                  .response()
-                  .flatMap(GenerateVideosResponse::generatedVideos)
-                  .flatMap(videos -> videos.stream().findFirst())
-                  .flatMap(GeneratedVideo::video)
-                  .flatMap(Video::uri)
-                  .orElseThrow(
-                      () ->
-                          new IllegalStateException(
-                              "Could not get the URI from the generated video"));
-    
-          System.out.println("Generated video URI: " + generatedVideoUri);
-          // Example response:
-          // Generated video URI: gs://your-bucket/your-prefix/generated-video-123.mp4
-          return generatedVideoUri;
-        }
-      }
-    }
-
 ### REST
 
 For more information about the Veo API, see the following:
@@ -690,32 +598,48 @@ For more information about the Veo API, see the following:
 
 <!-- end list -->
 
-1.  Use the following command to send a video generation request. This request begins a long-running operation and stores output to a Cloud Storage bucket you specify.
+1.  Use the following commands to send a video generation request. This request begins a long-running operation and stores output to a Cloud Storage bucket you specify.
     
     Before using any of the request data, make the following replacements:
     
-      - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+      - `  PROJECT_ID  ` : Your Google Cloud project ID.
     
-      - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
+      - `  MODEL_ID  ` : A string representing the model ID to use. The following models are supported:
         
-          - **Veo 2:** `"veo-2.0-generate-001"`
-          - **Veo 3:** `"veo-3.0-generate-001"`
-          - **Veo 3:** `"veo-3.0-fast-generate-001"`
-          - **Veo 3:** `"veo-3.0-generate-preview"` (Preview)
-          - **Veo 3:** `"veo-3.0-fast-generate-preview"` (Preview)
-          - **Veo 3.1:** `"veo-3.1-generate-001"`
-          - **Veo 3.1:** `"veo-3.1-fast-generate-001"`
+          - `veo-3.1-generate-preview preview`
+          - `veo-3.1-generate-001`
+          - `veo-3.1-fast-generate-preview preview`
+          - `veo-3.1-fast-generate-001`
     
       - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
     
-      - `  OUTPUT_STORAGE_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+      - `  BASE64_ENCODED_IMAGE  ` : A base64-bytes encoded subject image. You can repeat this field and `mimeType` to specify up to three subject images.
     
-      - `  RESPONSE_COUNT  ` : The number of video files to generate. The accepted range of values is `1` - `4` .
-    
-      - `  DURATION  ` : An integer representing the length of the generated video files. The following are the accepted values for each model:
+      - `  IMAGE_MIME_TYPE  ` : The MIME type of the input image. Only one of the following:
         
-          - Veo 2 models: `5` - `8` . The default is `8` .
-          - Veo 3 models: `4` , `6` , or `8` . The default is `8` .
+          - `image/jpeg`
+          - `image/png`
+        
+        You can repeat this field and `bytesBase64Encoded` to specify up to three subject images.
+    
+      - `  ASPECT_RATIO  ` : Optional: The aspect ratio of the generated video. Only one of the following:
+        
+          - `"16:9"`
+          - `"9:16"`
+        
+        The default value is `"16:9"` .
+    
+      - `  OUTPUT_STORAGE_URI  ` : Optional: The Cloud Storage bucket to store the output videos. If not provided, a Base64-bytes encoded video is returned in the response. For example: `gs://video-bucket/output/` .
+    
+      - `  RESPONSE_COUNT  ` : The number of video files you want to generate. Accepted integer values: 1-4.
+    
+      - `  VIDEO_RESOLUTION  ` : Optional: The resolution of the generated video. Only one of the following:
+        
+          - `"720p"`
+          - `"1080p"`
+          - `"4k"` (Veo 3.1 Preview models only)
+        
+        Default value is `"720p"` .
     
       - **Additional optional parameters**
         
@@ -767,12 +691,26 @@ For more information about the Veo API, see the following:
         {
           "instances": [
             {
-              "prompt": "TEXT_PROMPT"
+              "prompt": "TEXT_PROMPT",
+              // The following fields can be repeated for up to three total
+              // images.
+              "referenceImages": [
+                {
+                  "image": {
+                    "bytesBase64Encoded": "BASE64_ENCODED_IMAGE",
+                    "mimeType": "IMAGE_MIME_TYPE"
+                  },
+                  "referenceType": "asset"
+                }
+              ]
             }
           ],
           "parameters": {
+            "aspectRatio":, "ASPECT_RATIO,
+            "durationSeconds": 8,
             "storageUri": "OUTPUT_STORAGE_URI",
-            "sampleCount": "RESPONSE_COUNT"
+            "sampleCount": RESPONSE_COUNT,
+            "resolution": "VIDEO_RESOLUTION
           }
         }
     
@@ -809,7 +747,8 @@ For more information about the Veo API, see the following:
     This request returns a full operation name with a unique operation ID. Use this full operation name to poll that status of the video generation request.
     
         {
-          "name": "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/a1b07c8e-7b5a-4aba-bb34-3e1ccb8afcc8"
+          "name":
+          "projects/PROJECT_ID/locations/us-central1/publishers/google/models/MODEL_ID/operations/a1b07c8e-7b5a-4aba-bb34-3e1ccb8afcc8"
         }
 
 2.  Optional: Check the status of the video generation long-running operation.
@@ -885,11 +824,11 @@ For more information about the Veo API, see the following:
 
   - [Best practices for generating videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
 
+  - [Generate videos from text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
+
   - [Generate videos from an image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-an-image)
 
   - [Generate videos from first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
-
-  - [Generate videos from references](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)
 
   - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)
 

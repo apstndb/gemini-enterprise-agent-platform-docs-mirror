@@ -455,7 +455,7 @@ We recommend the following:
 
 ## What's next
 
-  - [Best practices for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
+  - [Best practices for generating videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
 
   - [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
 
@@ -463,6 +463,8 @@ We recommend the following:
 
   - [Generate videos by using first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
 
-  - [Extend Veo on Gemini Enterprise Agent Platform-generate videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)
+
+  - [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos)
 
   - [Understand responsible AI and usage guidelines for Veo on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)

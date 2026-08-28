@@ -46,7 +46,7 @@ Pricing for Private Service Connect interfaces is described in the "Using a Priv
 
 [Set up your resources for Private Service Connect interface](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup) on your user project.
 
-## Create a Gemini Enterprise Agent Platform serverless training job with a Private Service Connect interface
+## Create a serverless training job with a Private Service Connect interface
 
 You can create a serverless training job with Private Service Connect interface by using the Agent Platform SDK for Python or the REST API.
 

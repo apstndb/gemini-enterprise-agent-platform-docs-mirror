@@ -1,14 +1,14 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip
-title: Use a private IP for Gemini Enterprise Agent Platform serverless training
-description: How to run Gemini Enterprise Agent Platform serverless training jobs in your network after setting up VPC Network Peering to peer your network with a Gemini Enterprise Agent Platform CustomJob, HyperparameterTuningJob, or custom TrainingPipeline resource.
+title: Use a private IP for serverless training
+description: How to run serverless training jobs in your network after setting up VPC Network Peering to peer your network with a Gemini Enterprise Agent Platform CustomJob, HyperparameterTuningJob, or custom TrainingPipeline resource.
 data_source: docs.cloud.google.com
 ---
 
 > **Note:** Vertex AI Training doesn't support VPC Peering with H100-mega, H200 and B200 accelerators. A [network attachment with PSC-I](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress) can be used as an alternative for VPC Peering.
 
-Using private IP to connect to your training jobs provides more network security and lower network latency than using public IP. To use private IP, you use [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with any type of [Gemini Enterprise Agent Platform serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) . This allows your training code to access private IP addresses inside your Google Cloud or on-premises networks.
+Using private IP to connect to your training jobs provides more network security and lower network latency than using public IP. To use private IP, you use [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/vpc-peering) to peer your network with any type of [serverless training job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/custom-training-methods) . This allows your training code to access private IP addresses inside your Google Cloud or on-premises networks.
 
 This guide shows how to run serverless training jobs in your network after you have already [set up VPC Network Peering](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering) to peer your network with an Agent Platform `CustomJob` , `HyperparameterTuningJob` , or custom `TrainingPipeline` resource.
 
@@ -20,7 +20,7 @@ This guide covers the following tasks:
 
   - Understanding which IP ranges to reserve for serverless training.
   - Verify the status of your existing peering connections.
-  - Perform Gemini Enterprise Agent Platform serverless training on your network.
+  - Perform serverless training on your network.
   - Check for active training occurring on one network before training on another network.
   - Test that your training code can access private IPs in your network.
 

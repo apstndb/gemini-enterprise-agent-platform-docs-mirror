@@ -208,7 +208,7 @@ Gemini 3.5 Transcribe is available in the following Google Cloud locations, with
   - **Provide language hints when known:** If you know the audio language in advance, specify `language_codes` to maximize accuracy.
   - **Target custom vocabulary:** Include only distinct domain terms, brand names, or proper nouns in `custom_vocabulary` rather than common everyday words.
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

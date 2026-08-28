@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 
 GLM 5 is a model from GLM targeting complex systems engineering and long-horizon agentic tasks.
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

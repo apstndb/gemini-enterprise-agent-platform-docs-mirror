@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service
-title: Understand the Gemini Enterprise Agent Platform serverless training service
+title: Understand the serverless training service
 description: Learn about the state of a training cluster through the lifecycle of a training job, and how Gemini Enterprise Agent Platform handles training errors.
 data_source: docs.cloud.google.com
 ---

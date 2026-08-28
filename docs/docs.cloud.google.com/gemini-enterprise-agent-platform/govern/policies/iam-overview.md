@@ -38,7 +38,9 @@ Policies have the following components:
 
   - **Condition** : You can optionally configure a condition on the IAM allow policy to further restrict what the agent can access. In the Google Cloud console, you can use the **Condition builder** to create a condition by selecting UI elements. Alternatively, you can use the **Condition editor** to enter more complex conditions as Common Expression Language (CEL) expressions.
     
-    The following table shows the variables that you can use in CEL expressions:
+    The following table lists the attribute names that you can use to construct CEL expressions. Because the direct field-access style (such as `request.mcp.toolName` ) is not supported, you must use the `api.getAttribute()` function to retrieve the value of each attribute.
+    
+    For more information about how to configure allow policies with conditions, see [Configure IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
     
     <table>
     <colgroup>
@@ -47,38 +49,43 @@ Policies have the following components:
     </colgroup>
     <thead>
     <tr class="header">
-    <th>Attribute</th>
-    <th>Description</th>
+    <th>Attribute name</th>
+    <th>Description and CEL example</th>
     </tr>
     </thead>
     <tbody>
     <tr class="odd">
-    <td><code dir="ltr" translate="no">mcp.toolName</code></td>
+    <td><code dir="ltr" translate="no">iap.googleapis.com/mcp.toolName</code></td>
     <td>Name of the specific tool being called.<br />
-    Eg: <code dir="ltr" translate="no">request.mcp.toolName == 'GetCalendarEvents'</code></td>
+    For example: <code dir="ltr" translate="no">api.getAttribute('iap.googleapis.com/mcp.toolName', '') == 'GetCalendarEvents'</code></td>
     </tr>
     <tr class="even">
-    <td><code dir="ltr" translate="no">mcp.resourceName</code></td>
-    <td>Name of the resource being accessed.</td>
+    <td><code dir="ltr" translate="no">iap.googleapis.com/mcp.resourceName</code></td>
+    <td>Name of the resource being accessed.<br />
+    For example: <code dir="ltr" translate="no">api.getAttribute('iap.googleapis.com/mcp.resourceName', '') == 'my-resource'</code></td>
     </tr>
     <tr class="odd">
-    <td><code dir="ltr" translate="no">mcp.promptName</code></td>
-    <td>Prompt name being used.</td>
+    <td><code dir="ltr" translate="no">iap.googleapis.com/mcp.promptName</code></td>
+    <td>Prompt name being used.<br />
+    For example: <code dir="ltr" translate="no">api.getAttribute('iap.googleapis.com/mcp.promptName', '') == 'my-prompt'</code></td>
     </tr>
     <tr class="even">
-    <td><code dir="ltr" translate="no">mcp.method</code></td>
-    <td>The specific MCP operation (e.g., tools/call, resources/read).</td>
+    <td><code dir="ltr" translate="no">iap.googleapis.com/mcp.method</code></td>
+    <td>The specific MCP operation (such as <code dir="ltr" translate="no">tools/call</code> or <code dir="ltr" translate="no">resources/read</code> ).<br />
+    For example: <code dir="ltr" translate="no">api.getAttribute('iap.googleapis.com/mcp.method', '') == 'tools/call'</code></td>
     </tr>
     <tr class="odd">
-    <td><code dir="ltr" translate="no">mcp.tool.isReadOnly</code><br />
-    <code dir="ltr" translate="no">mcp.tool.isDestructive</code><br />
-    <code dir="ltr" translate="no">mcp.tool.isIdempotent</code><br />
-    <code dir="ltr" translate="no">mcp.tool.isOpenWorld</code></td>
-    <td>Boolean flag indicating the type of operation.</td>
+    <td><code dir="ltr" translate="no">iap.googleapis.com/mcp.tool.isReadOnly</code><br />
+    <code dir="ltr" translate="no">iap.googleapis.com/mcp.tool.isDestructive</code><br />
+    <code dir="ltr" translate="no">iap.googleapis.com/mcp.tool.isIdempotent</code><br />
+    <code dir="ltr" translate="no">iap.googleapis.com/mcp.tool.isOpenWorld</code></td>
+    <td>Boolean flags indicating the type of operation.<br />
+    For example: <code dir="ltr" translate="no">api.getAttribute('iap.googleapis.com/mcp.tool.isReadOnly', false) == true</code></td>
     </tr>
     <tr class="even">
-    <td><code dir="ltr" translate="no">request.auth.type</code></td>
-    <td>Enum indicating the protocol (e.g., 'MCP').</td>
+    <td><code dir="ltr" translate="no">iap.googleapis.com/request.auth.type</code></td>
+    <td>Enum indicating the protocol (such as <code dir="ltr" translate="no">'MCP'</code> ).<br />
+    For example: <code dir="ltr" translate="no">api.getAttribute('iap.googleapis.com/request.auth.type', '') == 'MCP'</code></td>
     </tr>
     </tbody>
     </table>

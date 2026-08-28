@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemma 4 26B A4B IT is a multimodal model from Google handling text and image input (with audio supported on small models) and generating text output.
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

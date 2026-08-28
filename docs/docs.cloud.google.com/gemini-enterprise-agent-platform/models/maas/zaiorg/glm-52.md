@@ -10,7 +10,7 @@ GLM 5.2 is a model from GLM built for long-horizon agentic and coding tasks, wit
 
 The `glm-5.2-maas` endpoint is available until at least October 8, 2026. Availability might be extended based on usage and demand. For more information, see [Minimum availability for Preview models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models#minimum-availability) .
 
-[View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Agent Platform supports training with various frameworks and libraries using a TPU VM. When configuring compute resources, you can specify [TPU v2](https://docs.cloud.google.com/tpu/docs/v2) , [TPU v3](https://docs.cloud.google.com/tpu/docs/v3) , or [TPU v5e](https://docs.cloud.google.com/tpu/docs/v5e) VMs. TPU v5e supports JAX 0.4.6+, TensorFlow 2.15+, and PyTorch 2.1+. TPU v6e supports Python 3.10+, JAX 0.4.37+, and PyTorch 2.1+ using PJRT as the default runtime.
 
-For details on configuring TPU VMs for Gemini Enterprise Agent Platform serverless training, see [Configure compute resources for serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#tpu) .
+For details on configuring TPU VMs for serverless training, see [Configure compute resources for serverless training](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#tpu) .
 
 ## TensorFlow training
 

@@ -16,7 +16,7 @@ Gemini 3 Flash combines Gemini 3 Pro's reasoning capabilities with the Flash lin
 
 See [Get started with Gemini 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-3) for information on what's new with the Gemini 3 family of models.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-flash-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-flash-preview) [View pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal?model=gemini-3-flash-preview) [View in Model Garden](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-3-flash-preview) [Deploy example app](https://console.cloud.google.com/agent-platform/studio/multimodal?suggestedPrompt=How%20does%20AI%20work&deploy=true&model=gemini-3-flash-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Note: "Deploy example app" requires a Google Cloud project with billing and Agent Platform API enabled.
 

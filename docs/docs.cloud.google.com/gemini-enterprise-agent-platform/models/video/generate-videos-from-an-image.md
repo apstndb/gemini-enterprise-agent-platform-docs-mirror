@@ -14,24 +14,24 @@ The following models support generating videos from an image:
 
 #### Click to expand supported models
 
-  - [`gemini-omni-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
+  - [`gemini-omni-1.1-flash-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview
 
 **Veo**
 
 #### Click to expand supported models
 
-  - [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
-  - [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview
-  - [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview
-  - [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview
-  - [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview
-  - [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)
-  - [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)
-  - [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview
-  - [Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview
-  - [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)
-  - [Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001)
-  - [Veo 3.1 Lite Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001-preview) preview
+  - [`veo-3.1-lite-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-lite-generate-001-preview) preview
+  - [`veo-3.1-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview
+  - [`veo-3.1-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)
+  - [`veo-3.1-fast-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview
+  - [`veo-3.1-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-001)
+  - [`veo-3.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview
+  - [`veo-3.0-fast-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview
+  - [`veo-3.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)
+  - [`veo-3.0-fast-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)
+  - [`veo-2.0-generate-001`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)
+  - [`veo-2.0-generate-exp`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview
+  - [`veo-2.0-generate-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview
 
 For more information about writing effective text prompts for video generation, see the [Video generation prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/video-gen-prompt-guide) .
 
@@ -55,24 +55,45 @@ For more information about writing effective text prompts for video generation, 
 
 ### REST
 
-For more information about using the Gemini Omni API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
+Video generation can take over a minute to complete. To generate a video to download immediately after completion, use a synchronous request. To generate a video that you can download later, send an asynchronous request by setting the `background` parameter to `true` . Asynchronous requests are retained for up to 14 days.
 
-Video generation can take over a minute to complete. To generate a video to download immediately after completion, use a synchronous request. To generate a video that can be downloaded later, send an asynchronous request by setting the `background` parameter to `true` . Asynchronous interactions are retained for up to 14 days.
+For more information about using the Gemini Omni Flash API, seek [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
 
 ### Synchronous request
 
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+
   - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
-      - `"gemini-omni-flash-preview"`
+    
+      - `"gemini-omni-1.1-flash-preview"`
+
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+
   - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+
   - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+
   - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+    
       - `"16:9"`
       - `"9:16"`
-  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, "10s"
+
+  - `  OUTPUT_RESOLUTION  ` :
+    
+    Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
+    
+    `gemini-omni-1.1-flash-preview` supports the following values:
+    
+      - `"360p"`
+      - `"720p"`
+      - `"1080p"`
+      - `"4k"`
+    
+    `gemini-omni-flash-preview` only supports `"720p"` .
+
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
 
 HTTP method and URL:
 
@@ -99,6 +120,7 @@ Request JSON body:
           "delivery": "uri",
           "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
           "aspect_ratio": "ASPECT_RATIO",
+          "resolution": "OUTPUT_RESOLUTION",
           "duration": "DURATION"
         }
       ],
@@ -194,15 +216,36 @@ The response contains an interaction which includes the model thoughts and an ou
 Before using any of the request data, make the following replacements:
 
   - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+
   - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
-      - `"gemini-omni-flash-preview"`
+    
+      - `"gemini-omni-1.1-flash-preview"`
+
   - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+
   - `  CLOUD_STORAGE_INPUT_URI  ` : A string representing the Cloud Storage bucket that contains the input media. For example: `"gs://video-bucket/input/"` .
+
   - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+
   - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+    
       - `"16:9"`
       - `"9:16"`
-  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, "10s"
+
+  - `  OUTPUT_RESOLUTION  ` :
+    
+    Optional: A string representing the video output resolution. If not provided, the output defaults to 720p.
+    
+    `gemini-omni-1.1-flash-preview` supports the following values:
+    
+      - `"360p"`
+      - `"720p"`
+      - `"1080p"`
+      - `"4k"`
+    
+    `gemini-omni-flash-preview` only supports `"720p"` .
+
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"` .
 
 HTTP method and URL:
 
@@ -230,6 +273,7 @@ Request JSON body:
           "delivery": "uri",
           "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
           "aspect_ratio": "ASPECT_RATIO",
+          "resolution": "OUTPUT_RESOLUTION",
           "duration": "DURATION"
         }
       ],
@@ -914,10 +958,14 @@ For more information about the Veo API, see the following:
 
   - [Best practices for generating videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/best-practice)
 
-  - [Generate videos with from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
+  - [Generate videos from text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text)
 
   - [Generate videos with first and last video frames](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames)
 
-  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-a-veo-video)
+  - [Generate videos from references](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references)
+
+  - [Extend videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/extend-videos)
+
+  - [Edit videos](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/edit-videos)
 
   - [Understand responsible AI and usage guidelines for video generation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/responsible-ai-and-usage-guidelines)
