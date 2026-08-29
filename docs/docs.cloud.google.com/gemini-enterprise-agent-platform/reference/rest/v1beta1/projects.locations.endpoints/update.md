@@ -114,6 +114,10 @@ If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicat
 
 Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast\_tryout is enabled, uid will be fasttryout. Format: `https://{endpointId}.{region}-{uid}.prediction.vertexai.goog` .
 
+`endpoint.gdcConfig` ` object ( GdcConfig  ` )
+
+Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set this field when the Endpoint is to be deployed in a GDC environment.
+
 `endpoint.clientConnectionConfig` ` object ( ClientConnectionConfig  ` )
 
 Configurations that are applied to the endpoint for online prediction.

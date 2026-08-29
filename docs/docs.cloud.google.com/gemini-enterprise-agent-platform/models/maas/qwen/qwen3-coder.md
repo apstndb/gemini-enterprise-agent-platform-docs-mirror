@@ -46,7 +46,7 @@ Capabilities
     Supported
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
     Supported
-  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
+  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking)  
     Not supported
 
 Consumption options
@@ -70,7 +70,8 @@ Supported regions
 
 **[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
-  - Multi-region: `us`
+  - United States: `us-south1`
+  - Global: `global`
 
 Quotas
 

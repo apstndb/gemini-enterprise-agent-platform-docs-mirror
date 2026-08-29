@@ -104,6 +104,10 @@ If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicat
 
 Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast\_tryout is enabled, uid will be fasttryout. Format: `https://{endpointId}.{region}-{uid}.prediction.vertexai.goog` .
 
+`gdcConfig` ` object ( GdcConfig  ` )
+
+Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set this field when the Endpoint is to be deployed in a GDC environment.
+
 `clientConnectionConfig` ` object ( ClientConnectionConfig  ` )
 
 Configurations that are applied to the endpoint for online prediction.
@@ -135,7 +139,7 @@ Optional. Configuration for a Publisher Model. This message contains details abo
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)},&quot;publisherModelConfig&quot;: {object (PublisherModelConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;deployedModels&quot;: [{object (DeployedModel)}],&quot;trafficSplit&quot;: {string: integer,...},&quot;etag&quot;: string,&quot;labels&quot;: {string: string,...},&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;network&quot;: string,&quot;enablePrivateServiceConnect&quot;: boolean,&quot;privateServiceConnectConfig&quot;: {object (PrivateServiceConnectConfig)},&quot;modelDeploymentMonitoringJob&quot;: string,&quot;predictRequestResponseLoggingConfig&quot;: {object (PredictRequestResponseLoggingConfig)},&quot;dedicatedEndpointEnabled&quot;: boolean,&quot;dedicatedEndpointDns&quot;: string,&quot;gdcConfig&quot;: {object (GdcConfig)},&quot;clientConnectionConfig&quot;: {object (ClientConnectionConfig)},&quot;satisfiesPzs&quot;: boolean,&quot;satisfiesPzi&quot;: boolean,&quot;genAiAdvancedFeaturesConfig&quot;: {object (GenAiAdvancedFeaturesConfig)},&quot;publisherModelConfig&quot;: {object (PublisherModelConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -636,6 +640,34 @@ This field is used for large models. If true, in addition to the original large 
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;enabled&quot;: boolean,&quot;samplingRate&quot;: number,&quot;errorSamplingRate&quot;: number,&quot;bigqueryDestination&quot;: {object (BigQueryDestination)},&quot;requestResponseLoggingSchemaVersion&quot;: string,&quot;enableOtelLogging&quot;: boolean}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## GdcConfig
+
+Google Distributed Cloud (GDC) config.
+
+Fields
+
+`zone` `string`
+
+GDC zone. A cluster will be designated for the Agent Platform workload in this zone.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;zone&quot;: string
+}</code></pre></td>
 </tr>
 </tbody>
 </table>

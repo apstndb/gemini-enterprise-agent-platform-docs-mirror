@@ -109,6 +109,29 @@ Replace the following:
 
 > Format for the network name is \`projects/PROJECT\_ID/global/networks/NETWORK\_NAME\` and format of the subnetwork name is \`projects/PROJECT\_ID/regions/LOCATION/subnetworks/SUBNET\_NAME\`
 
+##### Retrieve the automatically generated DNS hostname
+
+When you provision the engine with Google-managed binding, Google automatically creates a Private Service Connect (PSC) endpoint and registers a DNS A-record in your private DNS zone. The FQDN of this record serves as the `SGP_DNS_HOSTNAME` and is populated in the `dnsRecord` output-only field of your gateway configuration.
+
+To retrieve the automatically generated DNS hostname:
+
+### gcloud
+
+Run the following command to describe the policy engine configuration:
+
+    gcloud beta ai semantic-governance-policy-engine describe \
+        --location=LOCATION \
+        --project=PROJECT_ID
+
+### REST
+
+Send a GET request to retrieve the engine resource:
+
+    curl "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)"
+
+In the response, locate the `dnsRecord` field under `gatewayConfigs.GATEWAY_NAME.dnsRecord` . Save this FQDN—you'll need it as the `SGP_DNS_HOSTNAME` when you [connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) .
+
 #### Self-managed binding
 
 ### REST
@@ -140,9 +163,11 @@ Alternatively, check the overall engine status until the `state` field returns `
 
 > **Provisioning requirement:** Wait until the `state` field returns `ACTIVE` before proceeding. Save the `pscServiceAttachment` value from the response — you'll need it when you [configure the network](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#configuring-the-network) .
 
-##### Configuring the network
+#### Configuring the network (self-managed only)
 
 After the policy engine is provisioned, configure the networking components required for Agent Gateway to communicate with the policy engine.
+
+While Google automatically creates the PSC endpoint in a Google-managed tenant project for the Google-managed path, for the self-managed path, you must manually create and manage the PSC endpoint in your own Google Cloud project.
 
 **1. Provision VPC network and subnet**
 
@@ -213,6 +238,8 @@ Create a network attachment to allow Agent Gateway to connect to resources in yo
 **4. Create static IP, PSC endpoint, and DNS record**
 
 Reserve a static IP address, create a Private Service Connect (PSC) endpoint pointing to the policy engine's service attachment, and create a DNS record to make it reachable.
+
+> **Note (Self-managed binding only):** The `SGP_DNS_HOSTNAME` is a custom FQDN that you define. In this step, you create a private DNS A-record mapping this hostname to the static IP address of the PSC endpoint. This resolves the hostname to the policy engine's `pscServiceAttachment` over your private network. Ensure that the `SGP_DNS_HOSTNAME` value used in the next command matches the FQDN you define here.
 
     # Reserve a static IP address
     gcloud compute addresses create STATIC_IP_NAME \

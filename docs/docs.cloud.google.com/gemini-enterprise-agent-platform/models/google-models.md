@@ -110,8 +110,6 @@ width\_normal [Multimodal Embeddings](https://console.cloud.google.com/vertex-ai
 
 ## Veo models
 
-movie [Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001) Generates videos from text prompts and images.
-
 movie [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001) Generates videos from text prompts and images with high quality.
 
 movie [Veo 3 Fast](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001) Generates videos from text prompts and images with high quality and low latency.

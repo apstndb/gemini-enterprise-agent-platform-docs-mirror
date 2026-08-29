@@ -276,32 +276,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`
@@ -414,32 +393,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`
@@ -567,32 +525,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`
@@ -705,32 +642,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`
@@ -867,32 +783,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`
@@ -1020,32 +915,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`
@@ -1161,32 +1035,11 @@ Embeddings for Multimodal
 
 Veo on Gemini Enterprise Agent Platform models
 
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-001)  
-`(veo-2.0-generate-001)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-exp) preview  
-`(veo-2.0-generate-exp)`
-
-[Veo 2 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/2-0-generate#2.0-generate-preview) preview  
-`(veo-2.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-preview) preview  
-`(veo-3.0-generate-preview)`
-
-[Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-preview) preview  
-`(veo-3.0-fast-generate-preview)`
-
 [Veo 3 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-generate-001)  
 `(veo-3.0-generate-001)`
 
 [Veo 3 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#3.0-fast-generate-001)  
 `(veo-3.0-fast-generate-001)`
-
-[Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-preview) preview  
-`(veo-3.1-generate-preview)`
-
-[Veo 3.1 Fast Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-fast-generate-preview) preview  
-`(veo-3.1-fast-generate-preview)`
 
 [Veo 3.1 Generate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate#3.1-generate-001)  
 `(veo-3.1-generate-001)`

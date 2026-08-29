@@ -46,7 +46,7 @@ Capabilities
     Not supported
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
     Not supported
-  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)  
+  - [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/thinking)  
     Not supported
 
 Consumption options

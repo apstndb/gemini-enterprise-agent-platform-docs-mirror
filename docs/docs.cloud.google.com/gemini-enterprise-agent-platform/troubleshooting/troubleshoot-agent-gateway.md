@@ -37,6 +37,7 @@ If your Agent Runtime instances fail to start or deploy then it might mean that 
     
     Common internal services that may require registration during startup include:
     
+      - Agent Platform (Reasoning Engine and Sessions): `https:// REGION -aiplatform.mtls.googleapis.com`
       - Resource Manager: `https://cloudresourcemanager.mtls.googleapis.com` and `https://cloudresourcemanager.mtls.googleapis.com/`
       - Cloud Trace (if enabled): `https://telemetry.mtls.googleapis.com/`
       - Cloud Logging (if enabled): `https://logging.googleapis.com/`

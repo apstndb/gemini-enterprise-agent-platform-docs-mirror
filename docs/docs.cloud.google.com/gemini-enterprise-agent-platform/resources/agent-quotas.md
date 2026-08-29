@@ -50,6 +50,10 @@ The following quotas apply to agents deployed on Agent Platform for a given proj
 | A2A Agent post requests like `sendMessage` and `cancelTask` per minute                                      | 60    | `aiplatform.googleapis.com/a2a_agent_post_requests`                              |
 | A2A Agent get requests like `getTask` and `getCard` per minute                                              | 600   | `aiplatform.googleapis.com/a2a_agent_get_requests`                               |
 | Concurrent live bidirectional connections using the `BidiStreamQuery` API per minute                        | 10    | `aiplatform.googleapis.com/reasoning_engine_service_concurrent_query_requests`   |
+| Maximum revisions per project per region                                                                    | 6,000 | `aiplatform.googleapis.com/agent_engine_revisions_per_project_per_region`        |
+| Maximum revisions per agent\*                                                                               | 950   | `aiplatform.googleapis.com/agent_engine_revisions_per_agent`                     |
+
+> **Note:** \* The maximum revisions per agent limit ( `aiplatform.googleapis.com/agent_engine_revisions_per_agent` ) is enforced as an internal system limit and is not visible on the Google Cloud console Quotas page. Both revision quotas are not adjustable. When you reach a limit, attempts to create new revisions fail until you delete older revisions.
 
 ### Quota management for production loads
 

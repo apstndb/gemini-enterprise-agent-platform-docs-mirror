@@ -57,6 +57,8 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
 
 3.  **Configure your agent to route traffic through Agent Gateway**
     
+    > **Caution:** Binding your agent to an enforcing gateway immediately routes its outbound traffic, including platform calls (such as the Sessions API), through the gateway. If you have not yet allowlisted the required endpoints (see [Allowlist essential APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#allowlist-essential-apis) ), all agent invocations will fail with a `498` error. To avoid this, either allowlist the essential APIs *before* performing this binding step, or ensure that the associated IAP policies are in `DRY_RUN` mode until allowlisting is complete.
+    
     Depending on whether you are deploying a new agent or configuring an existing agent, choose one of the following options:
     
       - **For new agents**
@@ -217,7 +219,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
         
         > **Note:** If you want to bind all the agents in a project to a registry (including all Runtime agents, Gemini Enterprise agents, and any other agents created in the future), you can bind the IAM policy to ` principal:// TRUST_DOMAIN /attribute.container/projects/ PROJECT_ID  ` .
 
-6.  **Allowlist essential APIs for Runtime operations**
+6.  <span id="allowlist-essential-apis"></span> **Allowlist essential APIs for Runtime operations**
     
     At this point your agent traffic is now directed through the Agent Gateway. However, Agent Gateway adopts a *default deny* policy. To enable certain Agent Platform functions, you must ensure that the agent can communicate with the following endpoints:
     

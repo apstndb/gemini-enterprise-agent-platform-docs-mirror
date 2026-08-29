@@ -692,6 +692,7 @@ data_source: docs.cloud.google.com
   - `  GatewayConfig.State  ` (enum)
   - `  GcsDestination  ` (message)
   - `  GcsSource  ` (message)
+  - `  GdcConfig  ` (message)
   - `  GeminiExample  ` (message)
   - `  GeminiRequestReadConfig  ` (message)
   - `  GeminiTemplateConfig  ` (message)
@@ -27465,6 +27466,12 @@ If true, the endpoint will be exposed through a dedicated DNS \[Endpoint.dedicat
 
 Output only. DNS of the dedicated endpoint. Will only be populated if dedicated\_endpoint\_enabled is true. Depending on the features enabled, uid might be a random number or a string. For example, if fast\_tryout is enabled, uid will be fasttryout. Format: `https://{endpoint_id}.{region}-{uid}.prediction.vertexai.goog` .
 
+`gdc_config`
+
+`  GdcConfig  `
+
+Configures the Google Distributed Cloud (GDC) environment for online prediction. Only set this field when the Endpoint is to be deployed in a GDC environment.
+
 `client_connection_config`
 
 `  ClientConnectionConfig  `
@@ -33730,6 +33737,18 @@ Fields
 `string`
 
 Required. Google Cloud Storage URI(-s) to the input file(s). May contain wildcards. For more information on wildcards, see <https://cloud.google.com/storage/docs/wildcards> .
+
+## GdcConfig
+
+Google Distributed Cloud (GDC) config.
+
+Fields
+
+`zone`
+
+`string`
+
+GDC zone. A cluster will be designated for the Agent Platform workload in this zone.
 
 ## GeminiExample
 

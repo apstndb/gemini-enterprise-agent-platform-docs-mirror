@@ -73,16 +73,3 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 [Video](https://www.gstatic.com/cgc/renaissance/video/MultiPath_2X_V2.webm)
 
 ![Cloud logo](https://www.gstatic.com/cgc/renaissance/image/MultiPath_Bottom_2X_Centered_static.png)
-
-Send message
-
-  - <span id="What is Gemini Enterprise?">*reply*What is Gemini Enterprise?</span>
-  - <span id="Which edition is right for my business? ">*reply*Which edition is right for my business?</span>
-  - <span id="How can I try Gemini Enterprise for free?">*reply*How can I try Gemini Enterprise for free?</span>
-
-More options
-
-  - Clear conversation
-  - Give feedback
-
-Minimize

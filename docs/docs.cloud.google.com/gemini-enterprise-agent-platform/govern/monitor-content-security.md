@@ -128,6 +128,26 @@ To download violations data to a PNG or CSV file, follow these steps:
 2.  Click more\_vert **More chart options \> Download** .
 3.  Click **Download PNG** or **Download CSV** to download the data in your preferred format.
 
+## View unstructured security log entries in Logs Explorer
+
+To query raw text security log entries in the **Logs Explorer** , you can use the `logName` field to search for Model Armor sanitization content results.
+
+To query these logs, complete the following steps:
+
+1.  In the Google Cloud console, go to the **Logs Explorer** page.
+
+2.  Click the **Show query** toggle.
+
+3.  Paste the following into the query field:
+    
+        logName="projects/PROJECT_ID/logs/modelarmor.googleapis.com%2Fsanitize_operations"
+    
+    Replace `  PROJECT_ID  ` with your Google Cloud project ID.
+
+4.  Click **Run query** .
+
+For more information about how logging filters and freshness windows can impact your results, see the [log freshness warning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#query-log-name) on the gateway monitoring page.
+
 ## What's next
 
 Guide

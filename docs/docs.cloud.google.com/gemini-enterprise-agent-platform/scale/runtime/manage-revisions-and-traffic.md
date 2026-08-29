@@ -20,16 +20,13 @@ If you haven't created any revisions yet, you will need to create revisions befo
 
 At this time, revisions and traffic splitting are available through the [v1beta1 API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1) .
 
-> **Important:** You should deprecate or delete old revisions to prevent running out of resource quota. Deprecating or deleting old revisions also stops users from querying old revisions with potential errors or security vulnerabilities. See [delete a revision](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#delete) for instructions to delete revisions.
+> **Important:** You should delete old revisions to prevent reaching revision limits and running out of resource quota. Gemini Enterprise Agent Platform enforces a maximum of 6,000 revisions per project per region ( `aiplatform.googleapis.com/agent_engine_revisions_per_project_per_region` ) and 950 revisions per agent ( `aiplatform.googleapis.com/agent_engine_revisions_per_agent` ). These limits are not adjustable. When you reach a limit, attempts to create new revisions fail until you delete older revisions. Deleting old revisions also stops users from querying old revisions, which may contain errors or security vulnerabilities. For more information, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas#quotas) . See [Delete a revision](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#delete) for instructions on deleting revisions.
 
 This page describes how to manage agent revisions and traffic splitting.
 
 ## Revisions and states
 
-A revision is a snapshot of an agent. When you create an agent or update its [versioned fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#versioned_and_unversioned_fields) , an immutable revision of the agent is created. A revision can have the following states:
-
-  - **Active** : The revision is available for queries. Note that it might not be receiving any queries, depending on the [traffic configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#configure-traffic) .
-  - **Deprecated** : The revision cannot be queried.
+A revision is a snapshot of an agent. When you create an agent or update its [versioned fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#versioned_and_unversioned_fields) , an immutable revision of the agent is created. A revision is **Active** when it is available for queries. Note that it might not be receiving any queries, depending on the [traffic configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#configure-traffic) .
 
 You can identify a revision using its resource name, which can be found by [listing the agent revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#list_agent_revisions) .
 
@@ -68,7 +65,7 @@ These are the *versioned fields* :
 
 ## List agent revisions
 
-You can list all the revisions of a deployed agent—both active and deprecated.
+You can list all the revisions of a deployed agent.
 
 To find the resource ID for your agent, see [Get the agent resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) .
 
@@ -90,7 +87,7 @@ To find the resource ID for your agent, see [Get the agent resource ID](https://
 5.  The list shows all revisions for the agent, and includes this information:
     
     1.  **Name** : The revision name or number.
-    2.  **State** : Whether the revision is deployed or deprecated.
+    2.  **State** : The state of the revision.
     3.  **Traffic** : The percentage of traffic routed to the revision.
     4.  **Created** : The date and time the revision was created.
 
@@ -182,6 +179,18 @@ You should receive a JSON response similar to the following:
 ## Get the details of a revision
 
 You can retrieve the details for a specific revision.
+
+### Console
+
+1.  Go to **Govern \> Deployments** .
+
+2.  Click the name of the agent.
+
+3.  Go to the **Revisions** tab.
+
+4.  On the revisions detail page, click the **Revision name** .
+
+5.  This screen shows information about the revision, including the create time and state.
 
 ### Agent Platform SDK
 
@@ -414,7 +423,7 @@ Save the request body in a file named `request.json` , and execute the following
         -InFile request.json `
         -Uri "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID?update_mask=traffic_config" | Select-Object -Expand Content
 
-This request initiates a Long Running Operation (LRO). Initially, you'll receive a standard operation response. Once the configuration changes complete, the response shows `done` and repeats your configuration settings.
+This request initiates a long-running operation (LRO). Initially, you'll receive a standard operation response. Once the configuration changes complete, the response shows `done` and repeats your configuration settings.
 
     {
       "name": "projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID",
@@ -517,7 +526,7 @@ Update deployed agents following the instructions in [Update a deployed agent](h
 
 ## Delete an agent revision
 
-You can remove an agent revision by deleting it. You can only delete revisions that are not active for traffic management because they are either deprecated or not configured to receive traffic. See [Configure traffic distribution between revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#configure-traffic) for instructions to configure whether a revision receives traffic.
+You can remove an agent revision by deleting it. You can only delete revisions that are not active for traffic management because they are not configured to receive traffic. See [Configure traffic distribution between revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#configure-traffic) for instructions to configure whether a revision receives traffic.
 
 ### Console
 

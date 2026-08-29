@@ -478,7 +478,9 @@ To cancel a long-running query job, you must have the LRO resource name that is 
 
     response = client.agent_engines.cancel_query_job(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID",
-        operation_name="projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID",
+        config={
+            "operation_name": "projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID",
+        },
     )
 
 ### REST
@@ -491,6 +493,10 @@ To cancel a long-running query job, you must have the LRO resource name that is 
       "name": "projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID",
       "operation_name": "projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID"
     }'
+
+Cancellation is asynchronous. The cancel request returns as soon as it's accepted, but the job can keep reporting a status of `RUNNING` from `check_query_job` until work that is already in flight, such as a blocking tool call, finishes.
+
+Once the job is cancelled, its operation completes with an error code of `1` ( `CANCELLED` ) and the message `Cancelled by user.` . Note that `check_query_job` reports every operation that completed with an error as a status of `FAILED` , so a cancelled job is reported as `FAILED` rather than through a distinct cancelled status. Inspect the error code to tell a cancellation apart from a genuine failure.
 
 ## Manage memories
 

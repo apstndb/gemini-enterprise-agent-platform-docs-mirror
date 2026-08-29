@@ -224,6 +224,9 @@ To enable secure communication, you must identify your Agent Registry instance a
 1.  Identify the Agent Registry instance that you will be using.
     
       - For Agent Runtime, you reference the regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ) in the same project and region where the Agent Gateway will be deployed.
+        
+        **Note:** If your regional agents need to access globally auto-registered Google-managed MCP servers (which reside under `locations/global` ), you must bind both the regional and global registry paths to your gateway. Agent Gateway supports a maximum of two bound registries, one of which must be `global` . If you omit the global registry, requests to Google-managed MCP servers fail with a `NOT_FOUND` error.
+    
       - For Gemini Enterprise, you reference either the global, multi-region, or regional registry in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed. See the [Plan your deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section for guidance on which registry is suitable for your deployment.
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
@@ -340,6 +343,17 @@ You define Agent Gateways declaratively using YAML.
     
       - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
       - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+    
+    If you configure a regional gateway (for example, in `us-central1` ) that needs to route to globally auto-registered Google-managed MCP servers, you must specify both the regional and global registry paths in the `registries` list:
+    
+        name: my-agent-gateway
+        protocols:
+          - MCP
+        googleManaged:
+          governedAccessPath: AGENT_TO_ANYWHERE
+        registries:
+          - //agentregistry.googleapis.com/projects/PROJECT_ID/locations/us-central1
+          - //agentregistry.googleapis.com/projects/PROJECT_ID/locations/global
 
 2.  Run the following command to create an Agent Gateway resource based on the YAML specification:
     

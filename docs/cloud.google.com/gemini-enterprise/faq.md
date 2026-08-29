@@ -152,16 +152,3 @@ Gemini Enterprise app enforces identity and access controls at various levels: 
 #### What safeguards are available to protect user prompts and responses with Gemini Enterprise app?
 
 All editions of Gemini Enterprise app include Model Armor, our built-in guardrails for AI prompts and responses, to proactively screen malicious and unsafe interactions such as prompt injection, jailbreaking, and sensitive data detection.
-
-Send message
-
-  - <span id="What is Gemini Enterprise app?">*reply*What is Gemini Enterprise app?</span>
-  - <span id="Which edition is right for my business?">*reply*Which edition is right for my business?</span>
-  - <span id="How can I try Gemini Enterprise app for free?">*reply*How can I try Gemini Enterprise app for free?</span>
-
-More options
-
-  - Clear conversation
-  - Give feedback
-
-Minimize
