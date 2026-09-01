@@ -223,28 +223,97 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     
     At this point your agent traffic is now directed through the Agent Gateway. However, Agent Gateway adopts a *default deny* policy. To enable certain Agent Platform functions, you must ensure that the agent can communicate with the following endpoints:
     
-      - To enable automatic discovery of agents, MCP servers, and endpoints, Agent Gateway must allow traffic to endpoint `https://agentregistry.googleapis.com/` .
+    Hostname matching in Agent Gateway is exact. Wildcards, such as `*.googleapis.com` , or prefix forms aren't supported. You must register each standard, regional, and secure (mTLS) hostname variant that your agent SDK or client application resolves to.
     
-      - If Cloud Trace is enabled, Agent Gateway must allow traffic to endpoint `https://telemetry.googleapis.com/` .
-        
-        If the `GOOGLE_API_USE_CLIENT_CERTIFICATE` and `GOOGLE_API_USE_MTLS_ENDPOINT` environment variables are set, then ensure that traffic to `https://telemetry.mtls.googleapis.com/` is also allowed.
+    To enable certain Agent Platform functions and ensure successful initialization and telemetry, you must allow traffic to the following endpoints in the Agent Registry:
     
-      - If Cloud Logging is enabled, Agent Gateway must allow traffic to endpoint `https://logging.googleapis.com/` .
-        
-        If the `GOOGLE_API_USE_CLIENT_CERTIFICATE` and `GOOGLE_API_USE_MTLS_ENDPOINT` environment variables are set, then ensure that traffic to `https://logging.mtls.googleapis.com/` is also allowed.
+    ### Essential platform endpoints
     
-    Additionally, if your agents are calling LLMs, or use features such as [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) and [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , you must ensure that the agents can communicate with the endpoints used by these services. For example:
+    The following table lists the essential platform endpoints that your agents require for standard operations, tracing, logging, and metadata resolution:
     
-      - For Sessions: `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /sessions`
-      - For Memory Bank: `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /memories`
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th>Service name</th>
+    <th>Standard hostname</th>
+    <th>mTLS hostname</th>
+    <th>Regional and other variants</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><strong>Agent Registry</strong></td>
+    <td><code dir="ltr" translate="no">agentregistry.googleapis.com</code></td>
+    <td>—</td>
+    <td>—</td>
+    </tr>
+    <tr class="even">
+    <td><strong>Cloud Logging</strong></td>
+    <td><code dir="ltr" translate="no">logging.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">logging.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>Cloud Trace / Telemetry</strong></td>
+    <td><code dir="ltr" translate="no">telemetry.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">telemetry.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="even">
+    <td><strong>Trace API</strong></td>
+    <td><code dir="ltr" translate="no">cloudtrace.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">cloudtrace.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>Cloud Monitoring</strong></td>
+    <td><code dir="ltr" translate="no">monitoring.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">monitoring.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="even">
+    <td><strong>Secret Manager</strong></td>
+    <td><code dir="ltr" translate="no">secretmanager.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">secretmanager.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>Resource Manager</strong></td>
+    <td><code dir="ltr" translate="no">cloudresourcemanager.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">cloudresourcemanager.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="even">
+    <td><strong>IAM credentials</strong></td>
+    <td><code dir="ltr" translate="no">iamcredentials.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">iamcredentials.mtls.googleapis.com</code></td>
+    <td>—</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>Agent Platform (aiplatform)</strong></td>
+    <td><code dir="ltr" translate="no">aiplatform.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">aiplatform.mtls.googleapis.com</code></td>
+    <td><code dir="ltr" translate="no">          REGION          -aiplatform.googleapis.com</code><br />
+    <code dir="ltr" translate="no">          REGION          -aiplatform.mtls.googleapis.com</code><br />
+    <code dir="ltr" translate="no">aiplatform.           REGION          .rep.googleapis.com</code></td>
+    </tr>
+    </tbody>
+    </table>
     
-    For security reasons, we recommend that you register and allowlist only the specific URIs that the agent accesses. Because the gateway matches hostnames directly, you must ensure that you register all the variants that the agent SDK uses. For example, depending on the SDK version, regional client configuration, or mTLS usage, a Google API can resolve through the following endpoint hostnames:
+    ### Feature-specific endpoints
     
-      - `https:// REGION -aiplatform.googleapis.com`
-      - `https:// REGION -aiplatform.mtls.googleapis.com`
-      - `https://aiplatform. REGION .rep.googleapis.com`
+    Additionally, if your agents use features such as [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) or [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , you must ensure that the agents can communicate with the specific endpoints used by these services:
     
-    > **Caution:** While you can register a base URI (such as `https:// REGION -aiplatform.googleapis.com/` ) for convenience, doing so provides a broad access policy that lets the agent access any service under that domain. Note that even if you register a base URI, you are still required to register all its regional and mTLS variants.
+      - **For Sessions** : `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /sessions`
+      - **For Memory Bank** : `https:// REGION -aiplatform.googleapis.com/ API_VERSION /projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ RESOURCE_ID /memories`
+    
+    Note that even if you register a base URI (such as `https:// REGION -aiplatform.googleapis.com/` ), you are still required to register all its regional, mTLS, and secure variants that the client SDK resolves to.
     
     To learn how to register endpoints, see [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) . You must also ensure that the agent has the IAP Egressor role for these endpoints. For instructions, see [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-endpoint) .
 

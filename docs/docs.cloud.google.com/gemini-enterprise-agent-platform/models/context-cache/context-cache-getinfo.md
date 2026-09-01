@@ -234,7 +234,7 @@ The following shows how to use REST to list the context caches associated with a
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region where the requests to [create the context caches](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) were processed.
 
 HTTP method and URL:

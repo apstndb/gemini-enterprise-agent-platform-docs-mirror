@@ -119,7 +119,7 @@ Technical specifications
   - Maximum file size per file from Google Cloud Storage: 30 MB
   - Maximum number of output images per prompt: Limited to 32,768 output tokens
   - Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21
-  - Supported resolutions: 1K, 2K, 4K (Preview)
+  - Supported resolutions: 1K, 2K, 4K
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
@@ -181,13 +181,3 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 Gemini 3 Pro Image consumes 560 input image tokens per input image. Gemini 3 Pro Image consumes 1120 tokens for 1K (roughly 1MP) and 2K (roughly 4MP), and 2000 tokens for 4K (roughly 16MP). Additional charges for input and output tokens for other modalities such as text and video also apply. Refer to the pricing page for the latest.
 
 For more information about image generation using Gemini 3 Pro Image, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) .
-
-### Preview features
-
-> **Preview**
-> 
-> This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
-
-The following features remain in Preview on this GA endpoint:
-
-  - 4K image outputs

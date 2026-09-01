@@ -71,7 +71,7 @@ Select a tab that corresponds to your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where your model is stored.
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - MODEL\_ID : The ID of the model resource .
   - PROJECT\_NUMBER : Your project's automatically generated [project number](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - EVALUATION\_ID : ID for the model evaluation (appears in the response).

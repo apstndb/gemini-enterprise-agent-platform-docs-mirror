@@ -34,7 +34,7 @@ Note the number that appears in the `ENDPOINT_ID` column. Use this ID in the fol
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - ENDPOINT\_NAME : The display name for the endpoint.
 
 HTTP method and URL:
@@ -221,7 +221,7 @@ Deploy the model.
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - ENDPOINT\_ID : The ID for the endpoint.
   - MODEL\_ID : The ID for the model to be deployed.
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.

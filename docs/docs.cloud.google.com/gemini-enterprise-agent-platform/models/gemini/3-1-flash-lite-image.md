@@ -21,7 +21,7 @@ Modalities
 description
 
 Text  
-Input and output
+Input only
 
 photo
 
@@ -111,12 +111,12 @@ Input size limit
 
 Technical specifications
 
-**Images** photo
+**Image** photo
 
   - Maximum images per prompt: 14
   - Maximum file size per file for inline data or direct uploads through the console: 7 MB
   - Maximum file size per file from Google Cloud Storage: 30 MB
-  - Maximum number of output images per prompt: Limited to 32,768 output tokens
+  - Maximum number of output images per prompt: Limited to 4,096 output tokens
   - Supported aspect ratios: 1:1, 1:4, 4:1, 1:8, 8:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9
   - Supported resolutions: 1K
   - Supported MIME types:
@@ -126,11 +126,11 @@ Technical specifications
 
   - Maximum number of input video files per prompt: 10
   - Maximum YouTube URLs per prompt: 1
-  - Maximum video length (without audio): As supported by the 128k token context window (approximately 25 minutes).
+  - Maximum video length (without audio): As supported by the 65,536 token context window (approximately 12 minutes).
   - Supported MIME types:
     `video/x-flv` , `video/quicktime` , `video/mpeg` , `video/mpegs` , `video/mpg` , `video/mp4` , `video/webm` , `video/wmv` , `video/3gpp`
 
-**Documents** description
+**Text** description
 
   - Maximum number of files per prompt: As supported by the 65,536 token context window
   - Maximum number of pages per file: As supported by the 65,536 token context window
@@ -155,7 +155,7 @@ Versions
 `gemini-3.1-flash-lite-image`
 
   - Launch stage: GA
-  - Release date: June 30, 2026
+  - Release date: June 23, 2026
 
 Security controls
 

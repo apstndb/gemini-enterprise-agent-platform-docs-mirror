@@ -287,7 +287,7 @@ You can use REST to update the context cache by using the Agent Platform API to 
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region where the request to [create the context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) was processed.
   - CACHE\_ID : The ID of the context cache. The context cache ID is returned when you create the context cache. You can also find context cache IDs by listing the context caches for a Google Cloud project using. For more information, see [create a context cache](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create) and [list context caches](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo#get-context-cache-list) .
   - SECONDS : A `float` that specifies the seconds component of the duration before the cache expires.

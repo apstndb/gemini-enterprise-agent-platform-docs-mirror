@@ -329,7 +329,7 @@ For example, the request JSON body used to create an agent that uses the BigQuer
         {
           "type": "mcp_server",
           "name": "bigquery-mcp",
-          "url": "https://mcp-bigquery.googleapis.com/v1",
+          "url": "https://bigquery.googleapis.com/mcp",
           "headers": {
             "Authorization": "Bearer ya29.a0AQyyyy",
             "X-Goog-User-Project": "project-nameyyyy"

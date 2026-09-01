@@ -16,36 +16,8 @@ You can add documents (PDF and TXT files) to Gemini requests to perform tasks th
 
 The following table lists the models that support document understanding:
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Models</th>
-<th style="text-align: left;">Media details</th>
-<th>MIME types</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image">Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)</a></li>
-</ul></td>
-<td style="text-align: left;"><ul>
-<li>Maximum number of files per prompt: As supported by the 65,536 token context window</li>
-<li>Maximum number of pages per file: As supported by the 65,536 token context window</li>
-<li>Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)</li>
-</ul></td>
-<td><ul>
-<li><code dir="ltr" translate="no">application/pdf</code></li>
-<li><code dir="ltr" translate="no">text/plain</code></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+| Models | Media details | MIME types |
+| ------ | ------------- | ---------- |
 
 <sup>1</sup> This is the maximum TPM from document inputs across all requests of a project. Also use the maximum TPM for other modalities.
 
@@ -370,7 +342,7 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
   - `  FILE_URI  ` : The URI or URL of the file to include in the prompt. Acceptable values include the following:
     

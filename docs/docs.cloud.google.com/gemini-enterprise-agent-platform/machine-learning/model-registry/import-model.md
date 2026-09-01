@@ -157,7 +157,7 @@ Use the following code sample to upload a model using the [`upload` method of th
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - MODEL\_NAME : A display name for the `Model` .
   - MODEL\_DESCRIPTION : Optional. A description for the model.
   - IMAGE\_URI : The URI of the container image to use for serving inferences. For example, `us-docker.pkg.dev/vertex-ai/prediction/tf2-cpu.2-1:latest` . Use a [prebuilt container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/pre-built-containers) or a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container) .

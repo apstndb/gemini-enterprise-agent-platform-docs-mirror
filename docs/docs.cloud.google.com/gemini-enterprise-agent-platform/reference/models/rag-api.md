@@ -1388,7 +1388,7 @@ This code sample demonstrates how to create a RAG corpus.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - CORPUS\_DISPLAY\_NAME : The display name of the `RagCorpus` .
   - CORPUS\_DESCRIPTION : The description of the `RagCorpus` .
@@ -1470,7 +1470,7 @@ These examples demonstrate how to update a RAG corpus.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - CORPUS\_ID : The corpus ID of your RAG corpus.
   - CORPUS\_DISPLAY\_NAME : The display name of the `RagCorpus` .
@@ -1535,7 +1535,7 @@ This code sample demonstrates how to list all of the RAG corpora.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - PAGE\_SIZE : The standard list page size. You may adjust the number of `RagCorpora` to return per page by updating the `page_size` parameter.
   - PAGE\_TOKEN : The standard list page token. Obtained typically using `ListRagCorporaResponse.next_page_token` of the previous `VertexRagDataService.ListRagCorpora` call.
@@ -1578,7 +1578,7 @@ You should receive a successful status code (\`2xx\`) and a list of `RagCorpora`
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
 
@@ -1642,7 +1642,7 @@ The `get` and `list` commands are used in an example to demonstrate how `RagCorp
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
 
@@ -1686,7 +1686,7 @@ This code sample demonstrates how to batch create metadata schemas for a RAG cor
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - SCHEMA\_KEY\_1 : The key for the first metadata schema.
@@ -1757,7 +1757,7 @@ This code sample demonstrates how to list metadata schemas for a RAG corpus.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
 
@@ -1801,7 +1801,7 @@ This code sample demonstrates how to batch delete metadata schemas.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - SCHEMA\_ID\_1 : The ID of the first metadata schema to delete.
@@ -1896,7 +1896,7 @@ The `response.skipped_rag_files_count` refers to the number of files that were s
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - GCS\_URIS : A list of Cloud Storage locations. Example: `gs://my-bucket1, gs://my-bucket2` .
@@ -2038,7 +2038,7 @@ This code sample demonstrates how to list RAG files.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - PAGE\_SIZE : The standard list page size. You may adjust the number of `RagFiles` to return per page by updating the `page_size` parameter.
@@ -2084,7 +2084,7 @@ This code sample demonstrates how to get a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - RAG\_FILE\_ID : The ID of the `RagFile` resource.
@@ -2129,7 +2129,7 @@ This code sample demonstrates how to delete a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - RAG\_FILE\_ID : The ID of the `RagFile` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file_id}` .
@@ -2174,7 +2174,7 @@ This code sample demonstrates how to batch create metadata for a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - RAG\_FILE\_ID : The ID of the `RagFile` resource.
@@ -2252,7 +2252,7 @@ This code sample demonstrates how to list metadata for a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - RAG\_FILE\_ID : The ID of the `RagFile` resource.
@@ -2297,7 +2297,7 @@ This code sample demonstrates how to update metadata for a RAG file.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - RAG\_FILE\_ID : The ID of the `RagFile` resource.
@@ -2359,7 +2359,7 @@ This code sample demonstrates how to batch delete metadata entries for a RAG fil
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - RAG\_CORPUS\_ID : The ID of the `RagCorpus` resource.
   - RAG\_FILE\_ID : The ID of the `RagFile` resource.
@@ -2420,7 +2420,7 @@ When a user asks a question or provides a prompt, the retrieval component in RAG
 Before using any of the request data, make the following replacements:
 
   - LOCATION : The region to process the request.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - RAG\_CORPUS\_RESOURCE : The name of the `RagCorpus` resource. Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}` .
   - TOP\_K : The number of top contexts to retrieve.
   - VECTOR\_DISTANCE\_THRESHOLD : Only contexts with a vector distance smaller than the threshold are returned.
@@ -2493,7 +2493,7 @@ The LLM generates a grounded response using the retrieved contexts.
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - LOCATION : The region to process the request.
   - MODEL\_ID : LLM model for content generation. Example: `gemini-3.5-flash`
   - GENERATION\_METHOD : LLM method for content generation. Options: `generateContent` , `streamGenerateContent`

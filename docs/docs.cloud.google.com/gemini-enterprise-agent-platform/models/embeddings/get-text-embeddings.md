@@ -268,7 +268,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - TEXT : The text that you want to generate embeddings for. **Limit:** five texts of up to 2,048 tokens per text for all models except `textembedding-gecko@001` . The max input token length for `textembedding-gecko@001` is 3072. For `gemini-embedding-001` , each request can only include a single input text. For more information, see [Text embedding limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#text-embedding-limits) .
   - AUTO\_TRUNCATE : If set to `false` , text that exceeds the token limit causes the request to fail. The default value is `true` .
 

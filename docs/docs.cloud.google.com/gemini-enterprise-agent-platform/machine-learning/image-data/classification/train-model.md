@@ -43,7 +43,7 @@ Select the tab below for your language or environment:
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where dataset is located and Model is created. For example, `us-central1` .
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - TRAININGPIPELINE\_DISPLAYNAME : Required. A display name for the trainingPipeline.
   - DATASET\_ID : The ID number for the dataset to use for training.
   - `fractionSplit` : Optional. One of several possible ML use [split options](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.trainingPipelines#inputdataconfig) for your data. For `fractionSplit` , values must sum to 1. For example:

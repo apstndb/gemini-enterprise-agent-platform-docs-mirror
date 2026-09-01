@@ -32,7 +32,9 @@ Policies have the following components:
 
   - **Agent Registry resource** : The Agent Registry service that you're granting allow or deny access on. In IAM allow and deny policies, Agent Registry services are referred to as *resources* . The resource can be an entire registry within a project or an individual service, which can be an MCP server, agent, or endpoint.
     
-    Individual services must be registered in Agent Registry to be used in an IAM policy. If you regionalize your agent registries, then your IAM allow policy applies only to the resources that are in the registry's region.
+    Individual services must be registered in Agent Registry before they can be referenced in an IAM policy. This registration is validated at bind time (when the policy binding is created or updated). If you reference a service that is not registered, policy creation fails immediately with a requested entity not found ( `NOT_FOUND` ) error.
+    
+    If you regionalize your agent registries, then your IAM allow policy applies only to the resources that are in the registry's region.
 
   - **Role** : Agentic communication policies always grant the [IAP-secured Egressor ( `roles/iap.egressor` )](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.egressor) roles on the service resource.
 

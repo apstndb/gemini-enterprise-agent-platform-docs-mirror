@@ -42,7 +42,7 @@ To use Spot VMs when you deploy a model to get inferences, you can use the REST 
 Before using any of the request data, make the following replacements:
 
   - LOCATION\_ID : The region where you are using Agent Platform.
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - ENDPOINT\_ID : The ID for the endpoint.
   - MODEL\_ID : The ID for the model to be deployed.
   - DEPLOYED\_MODEL\_NAME : A name for the `DeployedModel` . You can use the display name of the `Model` for the `DeployedModel` as well.

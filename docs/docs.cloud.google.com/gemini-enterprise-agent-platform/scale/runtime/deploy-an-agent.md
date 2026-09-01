@@ -10,11 +10,33 @@ Deploying an agent on Agent Runtime makes it available remotely to handle reques
 
 To deploy an agent on Agent Runtime, choose between the following methods:
 
-  - **Deploy from an agent object** : Ideal for interactive development in environments like Colab, enabling deployment of in-memory `local_agent` objects. This method works best for agents with structures that don't contain complex, non-serializable components.
-  - **Deploy from source files** : This method is well-suited for automated workflows such as CI/CD pipelines and Infrastructure as Code tools like Terraform, enabling fully declarative and automated deployments. It deploys your agent directly from local source code and does not require a Cloud Storage bucket.
-  - **Deploy from Dockerfile** : This method is similar to the method for deploying from source files. You deploy your agent directly from local source code. You don't need a Cloud Storage bucket. This method is appropriate if you need to define and have control over the API server that is deployed. The deployed container must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
-  - **Deploy from container image** : This method is similar to the method for deploying from Dockerfile. You deploy a container image that is hosted in Artifact Registry. Use this method if you require control over the build process for the container image and lower deployment latency. The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
-  - **Deploy from Developer Connect** : Recommended for projects managed in a Git repository that are linked through [Developer Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-deployment) . This method streamlines agent deployment directly from your source code and natively supports version control, team collaboration, and CI/CD pipelines. Before using this method, set up your Git repository link by following the instructions in [Set up Developer Connect Git repository link](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-setup) .
+### Developer Connect
+
+Recommended for projects managed in a Git repository that are linked through [Developer Connect](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-deployment) . This method streamlines agent deployment directly from your source code and natively supports version control, team collaboration, and CI/CD pipelines. Before using this method, set up your Git repository link by following the instructions in [Set up Developer Connect Git repository link](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#developer-connect-setup) .
+
+You can use this deployment method with Python only.
+
+### Source files
+
+Well-suited for automated workflows such as CI/CD pipelines and Infrastructure as Code tools like Terraform, enabling fully declarative and automated deployments. It deploys your agent directly from local source code and does not require a Cloud Storage bucket.
+
+You can use this deployment method with Python only.
+
+### Dockerfile
+
+Similar to deploying from source files. You deploy your agent directly from local source code without needing a Cloud Storage bucket. This method is appropriate if you need to define and have control over the API server that is deployed. The deployed container must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+
+You can use this deployment method with any language. The examples on this page use Python.
+
+### Container image
+
+Similar to deploying from Dockerfile. You deploy a container image hosted in Artifact Registry. Use this method if you require control over the build process for the container image and lower deployment latency. The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+
+You can use this deployment method with any language. The examples on this page use Python.
+
+### Agent Platform SDK
+
+Ideal for interactive development in environments like Colab, enabling deployment of in-memory `local_agent` objects. This method works best for agents with structures that don't contain complex, non-serializable components.
 
 To get started, use the following steps:
 
@@ -25,8 +47,6 @@ To get started, use the following steps:
 5.  Optional: [List the supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations)
 6.  Optional: [Grant the deployed agent permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#agent-permissions)
 
-For a list of supported languages for deployment, see [Supported languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime#supported-languages) . You can also use [Agents CLI](https://google.github.io/agents-cli/) for deployment.
-
 ## Prerequisites
 
 Before you deploy an agent, make sure you have completed the following tasks:
@@ -36,7 +56,7 @@ Before you deploy an agent, make sure you have completed the following tasks:
 
 ## Optional: Configure your agent for deployment
 
-You can make the following optional configurations for your agent:
+You can make optional configurations for your agent. The examples in this section use Python.
 
 #### Define the package requirements
 
@@ -512,61 +532,13 @@ To deploy from a Git repository using Developer Connect, follow the [Developer C
 
 ## Create an Agent Platform instance
 
-This section describes how to create an Agent Platform instance for deploying an agent.
-
-To deploy an agent on Agent Platform, you can choose between the following methods:
-
-  - Deploying from an agent object for interactive development.
-
-  - Deploying from Developer Connect for Git-based workflows.
-
-  - Deploying from source files or Dockerfile for file-based workflows.
-
-  - Deploying from container image for image-based workflows.
-
-### Python object
-
-To deploy the agent on Agent Platform, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) :
-
-    remote_agent = client.agent_engines.create(
-        agent=local_agent,                                  # Optional.
-        config={
-            "requirements": requirements,                   # Optional.
-            "extra_packages": extra_packages,               # Optional.
-            "gcs_dir_name": gcs_dir_name,                   # Optional.
-            "display_name": display_name,                   # Optional.
-            "description": description,                     # Optional.
-            "labels": labels,                               # Optional.
-            "env_vars": env_vars,                           # Optional.
-            "build_options": build_options,                 # Optional.
-            "identity_type": identity_type,                 # Optional.
-            "service_account": service_account,             # Optional.
-            "min_instances": min_instances,                 # Optional.
-            "max_instances": max_instances,                 # Optional.
-            "resource_limits": resource_limits,             # Optional.
-            "container_concurrency": container_concurrency, # Optional
-            "encryption_spec": encryption_spec,             # Optional.
-            "agent_framework": agent_framework,             # Optional.
-        },
-    )
-
-Deployment takes a few minutes, during which the following steps happen in the background:
-
-1.  A bundle of the following artifacts are generated locally:
-    
-      - `*.pkl` a pickle file corresponding to local\_agent.
-      - `requirements.txt` a text file containing the [package requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#package-requirements) .
-      - `dependencies.tar.gz` a tar file containing any [extra packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#extra-packages) .
-
-2.  The bundle is uploaded to Cloud Storage (under the corresponding [folder](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#gcs-directory) ) for staging the artifacts.
-
-3.  The Cloud Storage URIs for the respective artifacts are specified in the [PackageSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#PackageSpec) .
-
-4.  The Agent Runtime service receives the request and builds containers and starts HTTP servers on the backend.
+This section describes how to create an Agent Platform instance for deploying an agent. You can choose between the following methods:
 
 ### Developer Connect
 
 To deploy from Developer Connect on Agent Platform, use `client.agent_engines.create` by providing `developer_connect_source` , `entrypoint_module` , and `entrypoint_object` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . This method lets you deploy code directly from a connected Git repository.
+
+You can use this deployment method with Python only.
 
     remote_agent = client.agent_engines.create(
         config={
@@ -600,9 +572,19 @@ Deployment takes a few minutes, during which the following steps happen in the b
 2.  The service installs dependencies from `requirements_file` (if provided).
 3.  The service starts the agent application using the specified `entrypoint_module` and `entrypoint_object` .
 
+Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
+
+The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+
 ### Source files
 
 To deploy from source files on Agent Platform, use `client.agent_engines.create` by providing `source_packages` , `entrypoint_module` , `entrypoint_object` , and `class_methods` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . With this method, you don't need to pass an agent object or Cloud Storage bucket.
+
+You can use this deployment method with Python only.
 
     # Example file structure:
     # /agent_directory
@@ -651,18 +633,18 @@ The parameters for inline source deployment are:
     For example:
     
         class_methods = [
-          {
-              "name": "method_name",
-              "api_mode": "",  # Options: "", "async", "async_stream", "stream", "bidi_stream"
-              "parameters": {
-                  "type": "object",
-                  "properties": {
-                      "param1": {"type": "string", "description": "Description of param1"},
-                      "param2": {"type": "integer"}
-                  },
-                  "required": ["param1"]
-              }
-          }
+            {
+                "name": "method_name",
+                "api_mode": "",  # Options: "", "async", "async_stream", "stream", "bidi_stream"
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "param1": {"type": "string", "description": "Description of param1"},
+                        "param2": {"type": "integer"}
+                    },
+                    "required": ["param1"]
+                }
+            }
         ]
 
   - `requirements_file` ( `str` ): Optional: The path to a pip requirements file within the paths specified in `source_packages` . Defaults to `requirements.txt` at the root directory of the packaged source.
@@ -673,9 +655,19 @@ Deployment takes a few minutes, during which the following steps happen in the b
 2.  This archive is encoded and sent directly to the Agent Platform API.
 3.  The Agent Runtime service receives the archive, extracts it, installs dependencies from `requirements_file` (if provided), and starts the agent application using the specified `entrypoint_module` and `entrypoint_object` .
 
+Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
+
+The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+
 ### Dockerfile
 
 Deploying from Dockerfile on Agent Platform follows a similar approach to deploying from source files, except that you use `image_spec` in the configuration instead of `entrypoint_module` , `entrypoint_object` , and `requirements_file` . The container built from the Dockerfile must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+
+You can use this deployment method with any language. The example in this section uses Python.
 
 The following is an example of deploying an agent using a Dockerfile:
 
@@ -700,9 +692,19 @@ The following is an example of deploying an agent using a Dockerfile:
         }
     )
 
+Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
+
+The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+
 ### Container image
 
 To deploy from a container image, first follow the setup instructions for [Bring your own container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) , making sure to install a version of `google-cloud-aiplatform` satisfying `>=1.144` . The container image must adhere to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) .
+
+You can use this deployment method with any language. The example in this section uses Python.
 
 The following is an example of deploying an agent using a container image:
 
@@ -717,6 +719,50 @@ The following is an example of deploying an agent using a container image:
     )
 
 Where `  CONTAINER_IMAGE_URI  ` corresponds to the URI of the container image in Artifact Registry (such as `us-central1-docker.pkg.dev/my-project/my-repo/my-image:tag` ).
+
+Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
+
+The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+
+### Agent Platform SDK
+
+To deploy the agent on Agent Platform, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) :
+
+    remote_agent = client.agent_engines.create(
+        agent=local_agent,                                  # Optional.
+        config={
+            "requirements": requirements,                   # Optional.
+            "extra_packages": extra_packages,               # Optional.
+            "gcs_dir_name": gcs_dir_name,                   # Optional.
+            "display_name": display_name,                   # Optional.
+            "description": description,                     # Optional.
+            "labels": labels,                               # Optional.
+            "env_vars": env_vars,                           # Optional.
+            "build_options": build_options,                 # Optional.
+            "identity_type": identity_type,                 # Optional.
+            "service_account": service_account,             # Optional.
+            "min_instances": min_instances,                 # Optional.
+            "max_instances": max_instances,                 # Optional.
+            "resource_limits": resource_limits,             # Optional.
+            "container_concurrency": container_concurrency, # Optional
+            "encryption_spec": encryption_spec,             # Optional.
+            "agent_framework": agent_framework,             # Optional.
+        },
+    )
+
+Deployment takes a few minutes, during which the following steps happen in the background:
+
+1.  A bundle of the following artifacts are generated locally:
+      - `*.pkl` a pickle file corresponding to local\_agent.
+      - `requirements.txt` a text file containing the [package requirements](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#package-requirements) .
+      - `dependencies.tar.gz` a tar file containing any [extra packages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#extra-packages) .
+2.  The bundle is uploaded to Cloud Storage (under the corresponding [folder](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#gcs-directory) ) for staging the artifacts.
+3.  The Cloud Storage URIs for the respective artifacts are specified in the [PackageSpec](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines#PackageSpec) .
+4.  The Agent Runtime service receives the request and builds containers and starts HTTP servers on the backend.
 
 Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
 

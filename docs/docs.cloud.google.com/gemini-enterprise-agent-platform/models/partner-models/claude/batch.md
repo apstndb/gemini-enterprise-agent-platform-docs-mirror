@@ -122,7 +122,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 Before using any of the request data, make the following replacements:
 
   - LOCATION : A region that supports the selected Anthropic Claude model (see [Claude Regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/use-claude#regions) ).
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - MODEL : The name of the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch#models) .
   - INPUT\_URI : The BigQuery table where your batch prediction input is located such as `bq://myproject.mydataset.input_table` .
   - OUTPUT\_FORMAT : To output to a BigQuery table, specify `bigquery` . To output to a Cloud Storage bucket, specify `jsonl` .

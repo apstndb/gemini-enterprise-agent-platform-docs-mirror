@@ -53,7 +53,7 @@ The following steps show you how to configure an authorization extension with an
             cat >iap-request-authz-extension.yaml <<EOF
             name: my-iap-request-authz-ext
             service: iap.googleapis.com
-            failOpen: true
+            failOpen: false
             timeout: 1s
             metadata:
               iapPolicyVersion: "V1"
@@ -64,7 +64,7 @@ The following steps show you how to configure an authorization extension with an
             cat >iap-request-authz-extension.yaml <<EOF
             name: my-iap-request-authz-ext
             service: iap.googleapis.com
-            failOpen: true
+            failOpen: false
             timeout: 1s
             metadata:
               iapPolicyVersion: "V1"
@@ -188,7 +188,7 @@ To use the Google Cloud console to enable Model Armor for Agent Gateway, perform
                 "request_template_id": "projects/MODEL_ARMOR_PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID"
                 }
               ]'
-            failOpen: true
+            failOpen: false
             timeout: 1s
             EOF
     
@@ -263,7 +263,7 @@ When you use FQDN targets, the extension uses the HTTP2 protocol with TLS encryp
         cat >custom-authz-extension.yaml <<EOF
         name: my-custom-authz-ext
         service: mycustomauthz.internal.net
-        failOpen: true
+        failOpen: false
         timeout: 1s
         EOF
 
@@ -311,7 +311,7 @@ The following example uses IAP as a centralized request authorization system and
             cat >iap-extension.yaml <<EOF
             name: iap-extension
             service: iap.googleapis.com
-            failOpen: true
+            failOpen: false
             timeout: 1s
             metadata:
               iapPolicyVersion: "V1"
@@ -366,7 +366,7 @@ The following example uses IAP as a centralized request authorization system and
                 "request_template_id": "projects/MODEL_ARMOR_PROJECT_ID/locations/LOCATION/templates/REQUEST_TEMPLATE_ID"
                 }
               ]'
-            failOpen: true
+            failOpen: false
             timeout: 1s
             EOF
         

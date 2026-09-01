@@ -18,7 +18,7 @@ Agent Runtime lets you do the following:
   - Customize the agent's container image with build-time installation scripts for system dependencies.
   - Use security features including VPC-SC compliance and configuration of authentication and IAM.
   - Access models and tools such as [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) .
-  - Deploy agents built using [different Python frameworks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime#supported-frameworks) and the [Agent2Agent open protocol](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) .
+  - Deploy agents built using [different languages and frameworks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime#supported-frameworks) and the [Agent2Agent open protocol](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) .
 
 > **Note:** Because the name of Agent Runtime changed over time, the name of the resource in the API reference is [`ReasoningEngine`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines) to maintain backwards compatibility.
 
@@ -32,15 +32,46 @@ The workflow for building an agent on Agent Runtime is:
 4.  [**Use the agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent) : Query the agent by sending an API request.
 5.  [**Manage the deployed agent**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents) : Manage and delete agents that you have deployed to Agent Runtime.
 
-## Supported frameworks
+## Supported languages and frameworks
 
-The following table describes the level of support Agent Runtime provides for various agent frameworks:
+Agent Runtime supports deploying agents written in any programming language and agent framework, as long as the agent application can be containerized and conforms to the [runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) :
 
-| Support level                                                                                                                                                                                                                                                                  | Agent frameworks                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Custom template** : You can adapt a custom template to support deployment to Agent Runtime from your framework. For deploying custom containers, see the [Runtime contract](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract) . | [CrewAI](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_crewai_agent_engine_customized_template.ipynb) , [custom frameworks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent)                                                                                                                                                                                          |
-| **Agent Platform SDK integration** : Agent Runtime provides managed templates per framework in the Agent Platform SDK and documentation.                                                                                                                                       | [LangChain](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent) , [LangGraph](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent) , [AG2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-ag2-agent) , [LlamaIndex](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-llamaindex-agent) |
-| **Full integration** : Features are integrated to work across the framework, Agent Runtime, and broader Google Cloud ecosystem.                                                                                                                                                | [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent)                                                                                                                                                                                                                                                                                                                                          |
+  - **From a container image** : If you built a container image for your agent, you can deploy it directly from Artifact Registry to Agent Runtime. For more information, see [Deploy from a container image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-container-image) .
+
+  - **From a Dockerfile** : If you have containerized source code, you can provide a `Dockerfile` with your source files. Agent Runtime builds and deploys the container image automatically. For more information, see [Deploy from a Dockerfile](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#from-dockerfile) .
+
+For supported languages and frameworks, higher-level tools and SDKs are available to simplify deployment. The following table describes the level of support Agent Runtime provides for various agent frameworks:
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Support level</th>
+<th>Agent frameworks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Custom template</strong> : You can adapt a custom template to support deployment to Agent Runtime from your framework. For deploying custom containers, see the <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract">Runtime contract</a> .</td>
+<td><a href="https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/evaluating_crewai_agent_engine_customized_template.ipynb">CrewAI</a> , <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent">custom frameworks</a></td>
+</tr>
+<tr class="even">
+<td><strong>Agent Platform SDK integration</strong> : Agent Runtime provides managed templates per framework in the Agent Platform SDK and documentation.</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent">LangChain</a> , <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent">LangGraph</a> , <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-ag2-agent">AG2</a> , <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-llamaindex-agent">LlamaIndex</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Full integration</strong> : Features are integrated to work across the framework, Agent Runtime, and broader Google Cloud ecosystem.</td>
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent">Agent Development Kit (ADK)</a>
+<ul>
+<li><strong>Python</strong> : Deploy using the <a href="https://adk.dev/api-reference/cli/#adk-deploy-agent-engine"><code dir="ltr" translate="no">adk</code> CLI</a> .</li>
+<li><strong>Go</strong> : Deploy using the <a href="https://github.com/google/adk-go"><code dir="ltr" translate="no">adkgo</code> CLI</a> .</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 ## Deploy in production with Agents CLI
 
@@ -135,18 +166,6 @@ Build multi-agent systems with A2A protocol (preview)
 Build interoperable agents that communicate and collaborate with other agents regardless of their framework.
 
 For more information, see the [A2A protocol documentation](https://a2a-protocol.org/) .
-
-## Supported languages
-
-Agent Runtime supports the following languages for deployment:
-
-  - **Python** : Deploy agents to Agent Runtime using the [`adk` CLI](https://adk.dev/api-reference/cli/#adk-deploy-agent-engine) .
-
-  - **Go** : Deploy agents to Agent Runtime using the [`adkgo` CLI](https://github.com/google/adk-go) .
-
-  - **Java** : Deploy agents to Agent Runtime using a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) or to [Cloud Run using CLI commands](https://docs.cloud.google.com/run/docs/deploying) .
-
-  - **TypeScript** : Deploy agents to Agent Runtime using a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#byoc) or to [Cloud Run using CLI commands](https://docs.cloud.google.com/run/docs/deploying) .
 
 ## Supported regions
 

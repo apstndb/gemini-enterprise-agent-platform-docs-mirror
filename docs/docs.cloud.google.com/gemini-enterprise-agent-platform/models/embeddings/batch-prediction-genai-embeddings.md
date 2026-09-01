@@ -46,33 +46,37 @@ To learn more about using batch inference for Gemini embedding models, refer to 
 
 ## Legacy Embedding batch prediction
 
+This section describes batch inference workflows for legacy text embedding models.
+
 ### Text embeddings models that support batch inferences
 
 All stable versions of legacy text embedding models support batch inferences and are fully supported for production environments. To view the full list of embedding models, see [Embedding model and versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#embedding_models_and_versions) .
 
-## Prepare your inputs
+### Prepare your inputs for legacy models
+
+> **Note:** The following input formats apply only to legacy text embedding models ( `text-embedding-004` , `text-embedding-005` , and `text-multilingual-embedding-002` ). If you are using Gemini embedding models ( `gemini-embedding-2` or `gemini-embedding-001` ), see [Gemini Embedding Batch Inference (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/embeddings/batch-prediction-genai-embeddings#gemini-embedding-batch-prediction-preview) for the required `request` schema.
 
 The input for batch requests are a list of prompts that can either be stored in a BigQuery table or as a [JSON Lines (JSONL)](https://jsonlines.org/) file in Cloud Storage. Each request can include up to 30,000 prompts.
 
-### JSONL example
+#### JSONL example
 
 This section shows examples of how to format JSONL input and output.
 
-#### JSONL input example
+##### JSONL input example
 
     {"content":"Give a short description of a machine learning model:"}
     {"content":"Best recipe for banana bread:"}
 
-#### JSONL output example
+##### JSONL output example
 
     {"instance":{"content":"Give..."},"predictions": [{"embeddings":{"statistics":{"token_count":8,"truncated":false},"values":[0.2,....]}}],"status":""}
     {"instance":{"content":"Best..."},"predictions": [{"embeddings":{"statistics":{"token_count":3,"truncated":false},"values":[0.1,....]}}],"status":""}
 
-### BigQuery example
+#### BigQuery example
 
 This section shows examples of how to format BigQuery input and output.
 
-#### BigQuery input example
+##### BigQuery input example
 
 This example shows a single column BigQuery table.
 
@@ -81,7 +85,7 @@ This example shows a single column BigQuery table.
 | "Give a short description of a machine learning model:" |
 | "Best recipe for banana bread:"                         |
 
-#### BigQuery output example
+##### BigQuery output example
 
 <table>
 <colgroup>
@@ -220,23 +224,22 @@ You should receive a JSON response similar to the following:
       "modelMonitoringStatus": {}
     }
 
-\#\#\# Example curl command
+#### Example curl command
 
 Replace the following variables in your command:
 
   - `PROJECT_ID` : Your Google Cloud project ID.
-
   - `LOCATION` : The location to send your request.
-
   - `GCS_SOURCE_BUCKET` : Your Cloud Storage source bucket URI.
-
   - `GCS_OUTPUT_BUCKET` : Your Cloud Storage output bucket URI.
-    
-        curl -X POST \
-            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-            -H "Content-Type: application/json; charset=utf-8" \
-            -d @request.json \
-            "https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/batchPredictionJobs"
+
+<!-- end list -->
+
+    curl -X POST \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -H "Content-Type: application/json; charset=utf-8" \
+        -d @request.json \
+        "https://${LOCATION}-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/batchPredictionJobs"
 
 ### Python
 

@@ -91,6 +91,8 @@ This automated recovery is subject to the following conditions:
 
   - **GPU Utilization** : Node deletion and recreation is also skipped if the job running on the node doesn't use all of the available GPUs. In this case, the node is only drained to prevent new jobs from being scheduled on it.
 
+Every recovery action is recorded in your project's logs as a resilience event. To chart these events against the Slurm state of your nodes, see [Monitor resilience events with a dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/monitor-resilience-dashboard) .
+
 ## Manually managing faulty compute nodes
 
 Training clusters provides APIs for manually reporting and managing faulty compute nodes, which is particularly useful if automated health checks don't resolve an issue. You can only run these operations on one node at a time.
@@ -183,6 +185,7 @@ By leveraging both automated health checks and the manual controls detailed on t
 Configuring your training cluster for fault tolerance is a key step in building a complete, production-ready MLOps workflow.
 
   - Monitor and debug your training jobs: Track the progress, resource utilization, and health of your training jobs, including how to identify when a node has been recovered or a job has been restarted due to a failure.
+      - [Monitor resilience events with a dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/monitor-resilience-dashboard)
       - [Monitor training jobs on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/monitoring-metrics)
   - Orchestrate your resilient jobs with Gemini Enterprise Agent Platform Pipelines: For production environments, use Gemini Enterprise Agent Platform Pipelines to create an automated, repeatable workflow that submits your resilient training jobs to your cluster.
       - [Learn about orchestrating jobs on a training cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration)

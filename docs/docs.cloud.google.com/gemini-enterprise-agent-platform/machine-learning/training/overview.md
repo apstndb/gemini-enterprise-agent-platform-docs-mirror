@@ -1,7 +1,7 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/overview
-title: serverless training overview
+title: Serverless training overview
 description: Provides a managed training service that helps you operationalize large scale model training
 data_source: docs.cloud.google.com
 ---

@@ -71,7 +71,7 @@ The model can be viewed using the Agent Platform REST API and includes the expla
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where your model is stored
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - MODEL\_ID : The ID of the model resource
 
 HTTP method and URL:

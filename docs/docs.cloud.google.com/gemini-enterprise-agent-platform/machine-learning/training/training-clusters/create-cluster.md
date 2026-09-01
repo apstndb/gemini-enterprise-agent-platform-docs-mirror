@@ -331,6 +331,8 @@ This example demonstrates how to customize the Slurm orchestrator with advanced 
 
 For a list of parameters, see [Parameter reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#param-reference) .
 
+You don't have to settle these configurations at creation time. The `scheduling` and `accounting` settings shown here can also be changed on a running cluster, without restarting nodes or disrupting queued jobs. See [Update a cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#update-a-cluster) .
+
     {
       "display_name": "DISPLAY_NAME",
       "network": {

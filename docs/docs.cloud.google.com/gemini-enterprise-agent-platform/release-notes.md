@@ -10,6 +10,26 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 31, 2026
+
+Feature
+
+**Gemini 3.1 Flash Image and Gemini 3 Pro Image updates**
+
+This release introduces feature updates and expanded endpoint availability for Gemini 3.1 Flash Image and Gemini 3 Pro Image:
+
+  - **Multi-region endpoint support** : [Gemini 3.1 Flash Image ( `gemini-3.1-flash-image` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) is now available on US ( `us` ) and EU ( `eu` ) multi-region endpoints for model availability, ML processing, Provisioned Throughput, and PayGo Standard.
+
+  - **4K image output in GA** : Generating 4K resolution images is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for both [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) .
+
+  - **Video inputs in GA** : Image generation from video inputs is now [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) .
+
+For more information, see the following:
+
+  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
+  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
+  - [Model locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#multi-region)
+
 ## August 27, 2026
 
 Feature
@@ -88,7 +108,7 @@ Feature
 
 **Gemini 3.7 Flash is generally available**
 
-[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) is now generally available (GA) and available for production use. This model is our first model to enable [agentic video processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) enabled by default.
+[Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) is now generally available (GA) and available for production use.
 
 For more information on 3.7 Flash, see the [model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) .
 

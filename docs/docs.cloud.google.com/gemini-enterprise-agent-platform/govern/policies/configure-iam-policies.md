@@ -25,6 +25,10 @@ Before you create an IAM allow policy:
       - DIY agents (Cloud Run): Know the service accounts-based identity.
 
 3.  The target agent resources—agents, MCP servers, and endpoints—that you want *to* manage access to must be registered in Agent Registry.
+    
+    Target resource validation occurs when the policy is bound to the resource, rather than at runtime. You cannot bind a policy to an unregistered resource. Attempting to create a policy binding for an unregistered resource fails immediately with a requested entity not found ( `NOT_FOUND` ) error.
+    
+    We recommend that you define and apply your policies in a continuous integration and continuous deployment (CI/CD) pipeline. This helps to ensure that invalid references or typos are caught during integration checks before deployment.
 
 4.  [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) . We recommend that you initially configure Agent Gateway in dry run mode. To learn about Agent Gateway, see [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
 

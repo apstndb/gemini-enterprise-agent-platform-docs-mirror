@@ -84,11 +84,6 @@ Explicit caching is supported when using the following models:
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
-Explicit caching also supports the latest aliases, including:
-
-  - `gemini-flash-latest`
-  - `gemini-flash-lite-latest`
-
 ## When to use context caching
 
 Context caching is particularly well suited to scenarios where a substantial initial context is referenced repeatedly by subsequent requests.

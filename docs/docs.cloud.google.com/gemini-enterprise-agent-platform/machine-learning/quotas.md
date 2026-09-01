@@ -7628,20 +7628,20 @@ The following quotas apply to Agent Platform tuned models for a given project an
 
 ## Embedding limits
 
-Requests for `gemini-embedding-001` are subject to regional quotas, while requests for `gemini-embedding-2` are subject to global quotas.
+Requests for `gemini-embedding-001` and `gemini-embedding-2` are subject to global quotas.
 
 | Base model                      | Quota       | Metric                                                                                  |
 | ------------------------------- | ----------- | --------------------------------------------------------------------------------------- |
-| base\_model: gemini-embedding   | 100,000,000 | `aiplatform.googleapis.com/embed_content_input_tokens_per_minute_per_base_model`        |
+| base\_model: gemini-embedding   | 100,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
+| base\_model: gemini-embedding   | 100,000     | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
 | base\_model: gemini-embedding-2 | 200,000,000 | `aiplatform.googleapis.com/global_embed_content_input_tokens_per_minute_per_base_model` |
 | base\_model: gemini-embedding-2 | 60,000      | `aiplatform.googleapis.com/global_embed_content_requests_per_minute_per_base_model`     |
 
 Requests for `gemini-embedding-001` using the `predict` API are also subject to the following quotas:
 
-| Base model                    | Quota   | Metric                                                                |
-| ----------------------------- | ------- | --------------------------------------------------------------------- |
-| base\_model: gemini-embedding | 100,000 | `aiplatform.googleapis.com/online_prediction_requests_per_base_model` |
-| base\_model: N/A              | 30,000  | `aiplatform.googleapis.com/online_prediction_requests`                |
+| Base model       | Quota  | Metric                                                 |
+| ---------------- | ------ | ------------------------------------------------------ |
+| base\_model: N/A | 30,000 | `aiplatform.googleapis.com/online_prediction_requests` |
 
 ## Gen AI evaluation service service quotas
 

@@ -87,7 +87,8 @@ Capabilities
 Tools
 
   - [Grounding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview)  
-    Not supported
+    Google Search  
+    Supported
   - [Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution)  
     Not supported
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling)  
@@ -118,14 +119,14 @@ Technical specifications
   - Maximum file size per file from Google Cloud Storage: 30 MB
   - Maximum number of output images per prompt: Limited to 32,768 output tokens
   - Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9, 9:21
-  - Supported resolutions: 512, 1K, 2K, 4K (Preview)
+  - Supported resolutions: 512, 1K, 2K, 4K
   - Supported MIME types:
     `image/png` , `image/jpeg` , `image/webp` , `image/heic` , `image/heif`
 
 **Text** description
 
   - Maximum number of files per prompt: As supported by the 128k token context window
-  - Maximum number of pages per file: As supported by the 65,536 token context window
+  - Maximum number of pages per file: As supported by the 128k token context window
   - Maximum file size per file: 50 MB (API and Cloud Storage imports) or 7 MB (direct upload through Google Cloud console)
   - Supported MIME types:
     `application/pdf` , `text/plain`
@@ -149,6 +150,21 @@ Supported regions
 **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations)**
 
   - Global: `global`
+  - Multi-region: `us` , `eu`
+
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
+
+  - Multi-region: `us` , `eu`
+
+**[Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models)**
+
+  - Global: `global`
+  - Multi-region: `us` , `eu`
+
+**[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**
+
+  - Global: `global`
+  - Multi-region: `us` , `eu`
 
 Versions
 
@@ -188,14 +204,3 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 Gemini 3.1 Flash Image consumes 1120 input image tokens per input image. Gemini 3.1 Flash Image consumes 747 output image tokens for 512 (roughly 0.25MP), 1120 tokens for 1K (roughly 1MP), 1680 tokens for 2K (roughly 4MP), and 2520 tokens for 4K (roughly 16MP). Additional charges for input and output tokens for other modalities such as text and video also apply. Refer to the pricing page for the latest.
 
 For more information about image generation using Gemini 3.1 Flash Image, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) .
-
-### Preview features
-
-> **Preview**
-> 
-> This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
-
-The following features remain in Preview:
-
-  - 4K image outputs
-  - Video inputs

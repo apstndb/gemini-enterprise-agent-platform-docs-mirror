@@ -81,7 +81,7 @@ After you set up your environment, you can use REST to test a text prompt. The f
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Priority PayGo. For a list of models that support Priority PayGo, see [Model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo#supported-models) .
   - `  PROMPT_TEXT  ` : The text instructions to include in the prompt. JSON.
 
@@ -166,7 +166,7 @@ Initialize your GenAI client to use Priority PayGo. After performing this step, 
 
 Before using any of the request data, make the following replacements:
 
-  - `  PROJECT_ID  ` : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - `  PROJECT_ID  ` : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - `  MODEL_ID  ` : The model ID of the model for which you want to initialize Priority PayGo. For a list of models that support Priority PayGo, see [Model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo#supported-models) .
   - `  PROMPT_TEXT  ` : The text instructions to include in the prompt. JSON.
 
@@ -282,20 +282,20 @@ You can verify whether Priority PayGo was utilized for a request from the `traff
       }
     }
 
-## Ramp limits
+## Throughput limits
 
-Priority PayGo sets ramp limits at the organization level. Ramp limits help provide a predictable and consistent performance. The starting limit depends on the model, as follows:
+Priority PayGo provides a baseline throughput limit at the organization level for each model:
 
-  - **Gemini Flash and Flash-Lite models:** 4M tokens/min.
-  - **Gemini Pro models:** 1M tokens/min.
+  - **Gemini Pro models** : 10,000,000 tokens per minute
+  - **Gemini Flash and Flash-Lite models** : 50,000,000 tokens per minute
 
-The ramp limit increases by 50% for every 10 minutes of sustained usage.
+These limits are available to your organization immediately. There's no ramp-up period, and no need to build sustained usage before you can reach them. Similar to [Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo#usage-tiers-and-throughput) , the throughput limit shown for a model family applies independently to each model within that family.
 
-If a request exceeds the ramp limit or the system is temporarily over capacity owing to high loads of traffic, the request may be downgraded to Standard PayGo and is charged at Standard PayGo rates.
-
-To minimize downgrades, scale usage incrementally to stay within the limit. If you still require better performance, consider [purchasing additional Provisioned Throughput quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .
+Traffic above your limit isn't automatically downgraded. When capacity is available, Agent Platform continues to serve that traffic at priority, and it's billed at Priority PayGo rates. Requests are downgraded to Standard PayGo only when there isn't spare capacity to serve them at priority, and those requests are billed at Standard PayGo rates.
 
 You can verify whether a request was downgraded from the response. For requests downgraded to Standard PayGo, the traffic type is set to `ON_DEMAND` . For more information, see [Verify Priority PayGo usage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo#verify-usage) .
+
+To reduce the chance of a downgrade, smooth traffic across each minute rather than sending sharp, second-level spikes. If your workload requires a higher limit, contact your sales team. For workloads that need dedicated, assured capacity, see [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) .
 
 ## What's next
 

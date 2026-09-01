@@ -38,7 +38,7 @@ You can control the amount of thinking the model performs before returning a res
 
 ### Gemini 3 and later models
 
-Gemini 3 models introduce the `thinking_level` parameter, which simplifies thinking budget configuration into discrete levels. By default, Gemini 3 models use dynamic thinking ( `thinking_level.HIGH` ) to reason through prompts. For faster, lower-latency responses when complex reasoning isn't required, you can constrain the model's `thinking_level` .
+Gemini 3 models introduce the `thinking_level` parameter, which simplifies thinking budget configuration into discrete levels. For faster, lower-latency responses when complex reasoning isn't required, you can constrain the model's `thinking_level` .
 
 The following table summarizes which `thinking_level` values are supported by each model, and the default `thinking_level` for each model:
 

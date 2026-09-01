@@ -64,7 +64,7 @@ Use the following samples to create a dataset for your data.
 Before using any of the request data, make the following replacements:
 
   - LOCATION : Region where the dataset will be stored. This must be a region that supports dataset resources. For example, `us-central1` . See [List of available locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations) .
-  - PROJECT : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
   - DATASET\_NAME : Name for the dataset.
 
 HTTP method and URL:

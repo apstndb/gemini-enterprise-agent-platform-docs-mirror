@@ -224,9 +224,6 @@ To enable secure communication, you must identify your Agent Registry instance a
 1.  Identify the Agent Registry instance that you will be using.
     
       - For Agent Runtime, you reference the regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ) in the same project and region where the Agent Gateway will be deployed.
-        
-        **Note:** If your regional agents need to access globally auto-registered Google-managed MCP servers (which reside under `locations/global` ), you must bind both the regional and global registry paths to your gateway. Agent Gateway supports a maximum of two bound registries, one of which must be `global` . If you omit the global registry, requests to Google-managed MCP servers fail with a `NOT_FOUND` error.
-    
       - For Gemini Enterprise, you reference either the global, multi-region, or regional registry in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed. See the [Plan your deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section for guidance on which registry is suitable for your deployment.
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
@@ -343,17 +340,6 @@ You define Agent Gateways declaratively using YAML.
     
       - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
       - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
-    
-    If you configure a regional gateway (for example, in `us-central1` ) that needs to route to globally auto-registered Google-managed MCP servers, you must specify both the regional and global registry paths in the `registries` list:
-    
-        name: my-agent-gateway
-        protocols:
-          - MCP
-        googleManaged:
-          governedAccessPath: AGENT_TO_ANYWHERE
-        registries:
-          - //agentregistry.googleapis.com/projects/PROJECT_ID/locations/us-central1
-          - //agentregistry.googleapis.com/projects/PROJECT_ID/locations/global
 
 2.  Run the following command to create an Agent Gateway resource based on the YAML specification:
     
@@ -367,19 +353,30 @@ You define Agent Gateways declaratively using YAML.
 
 3.  Create an authorization policy to enforce centralized access control and governance policies on traffic passing through the Agent Gateway. The following steps show you how to configure an authorization policy that uses IAP.
     
-    1.  Configure an authorization extension that points to IAP. Define the extension in a YAML file, such as `iap-request-authz-extension.yaml` .
-        
-        To validate the policy configuration and routing without disrupting traffic, we recommend that you first deploy the extension in dry-run (audit-only) mode. To do this, you specify `DRY_RUN` in the `iamEnforcementMode` field as shown in the example.
+    1.  Configure an authorization extension that points to IAP. Define the extension in a YAML file, such as `iap-request-authz-extension.yaml` . Use the sample values provided:
         
             cat >iap-request-authz-extension.yaml <<EOF
             name: AUTHORIZATION_EXTENSION_NAME
             service: iap.googleapis.com
-            failOpen: true
+            failOpen: false
             timeout: 1s
             metadata:
-              iamEnforcementMode: "DRY_RUN"
               iapPolicyVersion: "V1"
             EOF
+        
+        If you want to deploy the extension in a dry run *audit-only* mode to test the authorization policy without enforcing it, you can specify the `iamEnforcementMode` field inside the `metadata` block. This lets you verify your policy and minimize the risk of disrupting traffic due to configuration errors:
+        
+            cat >iap-request-authz-extension.yaml <<EOF
+            name: AUTHORIZATION_EXTENSION_NAME
+            service: iap.googleapis.com
+            failOpen: false
+            timeout: 1s
+            metadata:
+              iapPolicyVersion: "V1"
+              iamEnforcementMode: "DRY_RUN"
+            EOF
+        
+        Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
     
     2.  Import the YAML configuration file to an authorization extension.
         

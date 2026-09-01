@@ -449,7 +449,7 @@ Before using any of the request data, make the following replacements:
 
   - LOCATION : The region to process the request.
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) . .
 
   - MODEL\_ID : The model ID of the multimodal model that you want to use, like `gemini-3.5-flash` .
 

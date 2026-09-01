@@ -367,7 +367,7 @@ You can use REST to create a context cache by using the Agent Platform API to se
 
 Before using any of the request data, make the following replacements:
 
-  - PROJECT\_ID : Your \[project ID\](/resource-manager/docs/creating-managing-projects\#identifiers). .
+  - PROJECT\_ID : Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers) .
   - LOCATION : The region to process the request and where the cached content is stored. For a list of supported regions, see [Available regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
   - CACHE\_DISPLAY\_NAME : A meaningful display name to describe and to help you identify each context cache.
   - MIME\_TYPE : The MIME type of the content to cache.

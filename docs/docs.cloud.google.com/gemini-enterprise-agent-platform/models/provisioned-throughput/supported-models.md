@@ -121,6 +121,7 @@ Tokens
 
 1 input text token = 1 token  
 1 input image token = 1 token  
+1 input video token = 1 token  
 1 output response text token = 6 tokens  
 1 output reasoning text token = 6 tokens  
 1 output image token = 60 tokens  

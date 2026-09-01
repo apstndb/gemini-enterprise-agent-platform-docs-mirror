@@ -33,14 +33,25 @@ If your Agent Runtime instances fail to start or deploy then it might mean that 
     
     **Cause** : Agent Gateway uses a *default deny* policy for all traffic. Therefore, when IAP is in enforcement mode, it blocks calls even to internal services (such as `aiplatform` or `logging` ) unless they are registered and the agent has the required IAM permissions.
     
-    **Fix** : Temporarily switch IAP to dry-run mode to see which connections are failing without blocking startup. Once you identify the target service hostnames, register them in Agent Registry and grant the `roles/iap.egressor` role to the agent.
+    **Fix** : Temporarily switch IAP to dry-run mode to see which connections are failing without blocking startup, or query Cloud Logging to identify the exact blocked hostnames. After you identify the target service hostnames, register them in Agent Registry and grant the `roles/iap.egressor` role to the agent.
+    
+    To find specific blocked hostnames using Cloud Logging, run the following query in the Logs Explorer:
+    
+        resource.type="networkservices.googleapis.com/Gateway"
+        resource.labels.gateway_type="SECURE_WEB_GATEWAY"
+        httpRequest.status=403
+    
+    Examine the `httpRequest.requestUrl` or `jsonPayload.authzPolicyInfo` fields in the results to find the destination hostnames.
     
     Common internal services that may require registration during startup include:
     
       - Agent Platform (Reasoning Engine and Sessions): `https:// REGION -aiplatform.mtls.googleapis.com`
       - Resource Manager: `https://cloudresourcemanager.mtls.googleapis.com` and `https://cloudresourcemanager.mtls.googleapis.com/`
-      - Cloud Trace (if enabled): `https://telemetry.mtls.googleapis.com/`
+      - Google Cloud Observability (if enabled): `https://telemetry.mtls.googleapis.com/`
       - Cloud Logging (if enabled): `https://logging.googleapis.com/`
+      - Cloud Monitoring: `https://monitoring.googleapis.com/` and `https://monitoring.mtls.googleapis.com/`
+      - Cloud Trace: `https://cloudtrace.googleapis.com/` and `https://cloudtrace.mtls.googleapis.com/`
+      - Secret Manager: `https://secretmanager.googleapis.com/` and `https://secretmanager.mtls.googleapis.com/`
 
 2.  **Confirm that the agent identity has the required basic roles**
     
