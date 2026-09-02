@@ -46,11 +46,13 @@ Optional. Forces a flush of all pending events in the stream and triggers memory
 
 `source` `Union type`
 
-Source of the events to ingest. `source` can be only one of the following:
+Source of the events to ingest. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `directContentsSource` ` object ( IngestionDirectContentsSource  ` )
 
 Ingest events directly from the request.
+
+End of mutually exclusive fields.
 
 ### Response body
 

@@ -32,7 +32,7 @@ Describe which measurement selection type will be used
 
 `automated_stopping_spec` `Union type`
 
-`automated_stopping_spec` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `decayCurveStoppingSpec` ` object ( DecayCurveAutomatedStoppingSpec  ` )
 
@@ -45,6 +45,8 @@ The automated early stopping spec using median rule.
 `convexAutomatedStoppingSpec` ` object ( ConvexAutomatedStoppingSpec  ` )
 
 The automated early stopping spec using convex stopping rule.
+
+End of mutually exclusive fields.
 
 `studyStoppingConfig` ` object ( StudyStoppingConfig  ` )
 
@@ -264,7 +266,7 @@ If two items in conditionalParameterSpecs have the same name, they must have dis
 
 `parameter_value_spec` `Union type`
 
-`parameter_value_spec` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `doubleValueSpec` ` object ( DoubleValueSpec  ` )
 
@@ -281,6 +283,8 @@ The value spec for a 'CATEGORICAL' parameter.
 `discreteValueSpec` ` object ( DiscreteValueSpec  ` )
 
 The value spec for a 'DISCRETE' parameter.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -464,7 +468,7 @@ Required. The spec for a conditional parameter.
 
 `parent_value_condition` `Union type`
 
-A set of parameter values from the parent ParameterSpec's feasible space. `parent_value_condition` can be only one of the following:
+A set of parameter values from the parent ParameterSpec's feasible space. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `parentDiscreteValues` ` object ( DiscreteValueCondition  ` )
 
@@ -477,6 +481,8 @@ The spec for matching values from a parent parameter of `INTEGER` type.
 `parentCategoricalValues` ` object ( CategoricalValueCondition  ` )
 
 The spec for matching values from a parent parameter of `CATEGORICAL` type.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -652,7 +658,7 @@ Fields
 
 `constraint` `Union type`
 
-`constraint` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `maxDuration` ` string ( Duration  ` format)
 
@@ -665,6 +671,8 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 Compares the wallclock time to this time. Must use UTC timezone.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

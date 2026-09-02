@@ -22,7 +22,7 @@ End of the attributed segment, exclusive.
 
 `type` `Union type`
 
-The type of annotation. `type` can be only one of the following:
+The type of annotation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `urlCitation` ` object ( UrlCitation  ` )
 
@@ -39,6 +39,8 @@ A place citation annotation.
 `wordInfo` ` object ( WordInfo  ` )
 
 word-level ASR annotation with timing and speaker info.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

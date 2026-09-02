@@ -44,7 +44,7 @@ Optional. Specifies the types of memories to retrieve. If this field is empty or
 
 `retrieval_params` `Union type`
 
-Parameters for retrieval. `retrieval_params` can be only one of the following:
+Parameters for retrieval. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `similaritySearchParams` ` object ( SimilaritySearchParams  ` )
 
@@ -53,6 +53,8 @@ Parameters for semantic similarity search based retrieval.
 `simpleRetrievalParams` ` object ( SimpleRetrievalParams  ` )
 
 Parameters for simple (non-similarity search) retrieval.
+
+End of mutually exclusive fields.
 
 ### Response body
 

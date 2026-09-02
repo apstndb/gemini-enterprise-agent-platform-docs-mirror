@@ -245,7 +245,7 @@ Maps to Kubernetes probe argument 'initialDelaySeconds'.
 
 `probe_type` `Union type`
 
-`probe_type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `exec` ` object ( ExecAction  ` )
 
@@ -262,6 +262,8 @@ GrpcAction probes the health of a container by sending a gRPC request.
 `tcpSocket` ` object ( TcpSocketAction  ` )
 
 TcpSocketAction probes the health of a container by opening a TCP socket connection.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

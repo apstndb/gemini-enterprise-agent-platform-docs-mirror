@@ -20,11 +20,13 @@ Optional. Post startup script config.
 
 `runtime_image` `Union type`
 
-The image to be used by the notebook runtime. Can be one of release name, or custom container image. `runtime_image` can be only one of the following:
+The image to be used by the notebook runtime. Can be one of release name, or custom container image. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `colabImage` ` object ( ColabImage  ` )
 
 Optional. Google-managed NotebookRuntime colab image.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

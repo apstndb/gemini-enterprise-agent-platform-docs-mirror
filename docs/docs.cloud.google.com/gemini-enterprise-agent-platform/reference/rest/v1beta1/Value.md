@@ -12,7 +12,7 @@ Fields
 
 `kind` `Union type`
 
-The kind of value. `kind` can be only one of the following:
+The kind of value. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `nullValue` `null`
 
@@ -41,6 +41,8 @@ Represents a repeated `value` .
 `contentValue` ` object ( Content  ` )
 
 Represents rich content (text, image, etc.).
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -154,7 +154,7 @@ Whether to persist the ML use assignment to data item system labels.
 
 `split` `Union type`
 
-The instructions how the input data should be split between the training, validation and test sets. If no split type is provided, the `  fraction_split  ` is used by default. `split` can be only one of the following:
+The instructions how the input data should be split between the training, validation and test sets. If no split type is provided, the `  fraction_split  ` is used by default. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `fractionSplit` ` object ( FractionSplit  ` )
 
@@ -182,6 +182,8 @@ Supported only for tabular Datasets.
 
 Split based on the distribution of the specified column.
 
+End of mutually exclusive fields.
+
 `destination` `Union type`
 
 Only applicable to Custom and Hyperparameter Tuning TrainingPipelines.
@@ -195,7 +197,7 @@ The following Agent Platform environment variables are passed to containers or p
   - AIP\_DATA\_FORMAT : Exported data format.
   - AIP\_TRAINING\_DATA\_URI : Sharded exported training data uris.
   - AIP\_VALIDATION\_DATA\_URI : Sharded exported validation data uris.
-  - AIP\_TEST\_DATA\_URI : Sharded exported test data uris. `destination` can be only one of the following:
+  - AIP\_TEST\_DATA\_URI : Sharded exported test data uris. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsDestination` ` object ( GcsDestination  ` )
 
@@ -224,6 +226,8 @@ The BigQuery project location where the training data is to be written to. In th
   - AIP\_VALIDATION\_DATA\_URI = "bigqueryDestination.dataset\_ \_ \_ .validation"
 
   - AIP\_TEST\_DATA\_URI = "bigqueryDestination.dataset\_ \_ \_ .test"
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

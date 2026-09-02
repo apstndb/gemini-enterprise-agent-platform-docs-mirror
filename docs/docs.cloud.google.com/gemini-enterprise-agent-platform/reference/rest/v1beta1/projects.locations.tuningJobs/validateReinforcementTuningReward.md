@@ -38,7 +38,7 @@ Required. The example to validate the reward configuration.
 
 `reward_config` `Union type`
 
-The reward configuration to validate. This can be a single or a composite reward configuration. `reward_config` can be only one of the following:
+The reward configuration to validate. This can be a single or a composite reward configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `singleRewardConfig` ` object ( SingleReinforcementTuningRewardConfig  ` )
 
@@ -47,6 +47,8 @@ Optional. Single Reward function configuration for reinforcement tuning.
 `compositeRewardConfig` ` object ( CompositeReinforcementTuningRewardConfig  ` )
 
 Optional. Composite reward function configuration for reinforcement tuning.
+
+End of mutually exclusive fields.
 
 ### Response body
 

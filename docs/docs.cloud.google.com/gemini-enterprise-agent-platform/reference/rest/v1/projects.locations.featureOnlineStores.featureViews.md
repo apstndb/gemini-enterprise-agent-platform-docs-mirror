@@ -74,7 +74,7 @@ Output only. metadata containing information about the Cloud Bigtable.
 
 `source` `Union type`
 
-`source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bigQuerySource` ` object ( BigQuerySource  ` )
 
@@ -87,6 +87,8 @@ Optional. Configures the features from a feature Registry source that need to be
 `vertexRagSource` ` object ( VertexRagSource  ` )
 
 Optional. The Vertex RAG Source that the FeatureView is linked to.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -292,7 +294,7 @@ Optional. The distance measure used in nearest neighbor search.
 
 `algorithm_config` `Union type`
 
-The configuration with regard to the algorithms used for efficient search. `algorithm_config` can be only one of the following:
+The configuration with regard to the algorithms used for efficient search. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `treeAhConfig` ` object ( TreeAHConfig  ` )
 
@@ -301,6 +303,8 @@ Optional. Configuration options for the tree-AH algorithm (Shallow tree + Asymme
 `bruteForceConfig` ` object ( BruteForceConfig  ` )
 
 Optional. Configuration options for using brute force search, which simply implements the standard linear search in the database for each query. It is primarily meant for benchmarking and to generate the ground truth for approximate search.
+
+End of mutually exclusive fields.
 
 `embeddingDimension` `integer`
 

@@ -171,11 +171,13 @@ Fields
 
 `threshold` `Union type`
 
-`threshold` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `value` `number`
 
 Specify a threshold value that can trigger the alert. 1. For categorical feature, the distribution distance is calculated by L-inifinity norm. 2. For numerical feature, the distribution distance is calculated by Jensen–Shannon divergence. Each feature must have a non-zero threshold if they need to be monitored. Otherwise no alert will be triggered for that feature.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

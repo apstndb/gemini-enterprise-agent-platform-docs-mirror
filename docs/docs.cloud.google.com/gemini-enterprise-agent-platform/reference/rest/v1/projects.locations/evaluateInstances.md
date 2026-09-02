@@ -34,7 +34,7 @@ Optional. Autorater config used for evaluation. Not applicable for predefined me
 
 `metric_inputs` `Union type`
 
-Instances and specs for evaluation `metric_inputs` can be only one of the following:
+Instances and specs for evaluation The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `exactMatchInput` ` object ( ExactMatchInput  ` )
 
@@ -160,6 +160,8 @@ Input for trajectory recall metric.
 
 Input for trajectory single tool use metric.
 
+End of mutually exclusive fields.
+
 ### Response body
 
 Response message for EvaluationService.EvaluateInstances.
@@ -174,7 +176,7 @@ Metric results for each instance. The order of the metric results is guaranteed 
 
 `evaluation_results` `Union type`
 
-Evaluation results will be served in the same order as presented in EvaluationRequest.instances. `evaluation_results` can be only one of the following:
+Evaluation results will be served in the same order as presented in EvaluationRequest.instances. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `exactMatchResults` ` object ( ExactMatchResults  ` )
 
@@ -299,6 +301,8 @@ Results for trajectory recall metric.
 `trajectorySingleToolUseResults` ` object ( TrajectorySingleToolUseResults  ` )
 
 Results for trajectory single tool use metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1947,7 +1951,7 @@ Fields
 
 `instance` `Union type`
 
-Instance for pointwise metric. `instance` can be only one of the following:
+Instance for pointwise metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `jsonInstance` `string`
 
@@ -1956,6 +1960,8 @@ Instance specified as a json string. String key-value pairs are expected in the 
 `contentMapInstance` ` object ( ContentMap  ` )
 
 Key-value contents for the mutlimodality input, including text, image, video, audio, and pdf, etc. The key is placeholder in metric prompt template, and the value is the multimodal content.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2063,7 +2069,7 @@ Fields
 
 `instance` `Union type`
 
-Instance for pairwise metric. `instance` can be only one of the following:
+Instance for pairwise metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `jsonInstance` `string`
 
@@ -2072,6 +2078,8 @@ Instance specified as a json string. String key-value pairs are expected in the 
 `contentMapInstance` ` object ( ContentMap  ` )
 
 Key-value contents for the mutlimodality input, including text, image, video, audio, and pdf, etc. The key is placeholder in metric prompt template, and the value is the multimodal content.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

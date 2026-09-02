@@ -12,7 +12,7 @@ Fields
 
 `response` `Union type`
 
-Response based on which delete option is specified in the request `response` can be only one of the following:
+Response based on which delete option is specified in the request The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `selectEntity` ` object ( SelectEntity  ` )
 
@@ -21,6 +21,8 @@ Response for request specifying the entities to delete
 `selectTimeRangeAndFeature` ` object ( SelectTimeRangeAndFeature  ` )
 
 Response for request specifying time range and feature
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

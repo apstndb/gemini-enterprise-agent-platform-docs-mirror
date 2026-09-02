@@ -166,7 +166,7 @@ Fields
 
 `transformation_detail` `Union type`
 
-The transformation that the training pipeline will apply to the input columns. `transformation_detail` can be only one of the following:
+The transformation that the training pipeline will apply to the input columns. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `auto` ` object ( AutoTransformation  ` )
 
@@ -177,6 +177,8 @@ The transformation that the training pipeline will apply to the input columns. `
 `timestamp` ` object ( TimestampTransformation  ` )
 
 `text` ` object ( TextTransformation  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

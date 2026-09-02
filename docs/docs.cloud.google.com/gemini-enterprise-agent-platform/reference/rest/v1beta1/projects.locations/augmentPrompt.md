@@ -38,11 +38,13 @@ Optional. metadata of the backend deployed model.
 
 `data_source` `Union type`
 
-The data source for retrieving contexts. `data_source` can be only one of the following:
+The data source for retrieving contexts. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexRagStore` ` object ( VertexRagStore  ` )
 
 Optional. Retrieves contexts from the Vertex RagStore.
+
+End of mutually exclusive fields.
 
 ### Response body
 

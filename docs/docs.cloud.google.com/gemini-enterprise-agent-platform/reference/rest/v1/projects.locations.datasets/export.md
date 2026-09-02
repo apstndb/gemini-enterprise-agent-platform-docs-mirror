@@ -72,15 +72,17 @@ Indicates the usage of the exported files.
 
 `destination` `Union type`
 
-The destination of the output. `destination` can be only one of the following:
+The destination of the output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsDestination` ` object ( GcsDestination  ` )
 
 The Google Cloud Storage location where the output is to be written to. In the given directory a new directory will be created with name: `export-data-<dataset-display-name>-<timestamp-of-export-call>` where timestamp is in YYYY-MM-DDThh:mm:ss.sssZ ISO-8601 format. All export output will be written into that directory. Inside that directory, annotations with the same schema will be grouped into sub directories which are named with the corresponding annotations' schema title. Inside these sub directories, a schema.yaml will be created to describe the output format.
 
+End of mutually exclusive fields.
+
 `split` `Union type`
 
-The instructions how the export data should be split between the training, validation and test sets. `split` can be only one of the following:
+The instructions how the export data should be split between the training, validation and test sets. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `fractionSplit` ` object ( ExportFractionSplit  ` )
 
@@ -89,6 +91,8 @@ Split based on fractions defining the size of each set.
 `filterSplit` ` object ( ExportFilterSplit  ` )
 
 Split based on the provided filters for each set.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -76,7 +76,7 @@ Output only. reserved for future use.
 
 `backend_config` `Union type`
 
-The backend config of the RagCorpus. It can be data store and/or retrieval engine. `backend_config` can be only one of the following:
+The backend config of the RagCorpus. It can be data store and/or retrieval engine. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vectorDbConfig` ` object ( RagVectorDbConfig  ` )
 
@@ -85,6 +85,8 @@ Optional. Immutable. The config for the Vector DBs.
 `vertexAiSearchConfig` ` object ( VertexAiSearchConfig  ` )
 
 Optional. Immutable. The config for the Agent Platform Search.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -118,7 +120,7 @@ Optional. Immutable. The embedding model config of the Vector DB.
 
 `vector_db` `Union type`
 
-The config for the Vector DB. `vector_db` can be only one of the following:
+The config for the Vector DB. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `ragManagedDb` ` object ( RagManagedDb  ` )
 
@@ -144,6 +146,8 @@ The config for the Vertex Vector Search.
 
 The config for the RAG-managed Vertex Vector Search 2.0.
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -168,7 +172,7 @@ Fields
 
 `retrieval_strategy` `Union type`
 
-Choice of retrieval strategy. `retrieval_strategy` can be only one of the following:
+Choice of retrieval strategy. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `knn` ` object ( KNN  ` )
 
@@ -177,6 +181,8 @@ Performs a KNN search on RagCorpus. Default choice if not specified.
 `ann` ` object ( ANN  ` )
 
 Performs an ANN search on RagCorpus. Use this if you have a lot of files (\> 10K) in your RagCorpus and want to reduce the search latency.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -401,11 +407,13 @@ Fields
 
 `auth_config` `Union type`
 
-The auth config. `auth_config` can be only one of the following:
+The auth config. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `apiKeyConfig` ` object ( ApiKeyConfig  ` )
 
 The API secret.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -431,7 +439,7 @@ Fields
 
 `model_config` `Union type`
 
-The model config to use. `model_config` can be only one of the following:
+The model config to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexPredictionEndpoint` ` object ( VertexPredictionEndpoint  ` )
 
@@ -440,6 +448,8 @@ The Agent Platform Prediction Endpoint that either refers to a publisher model o
 `hybridSearchConfig` ` object ( HybridSearchConfig  ` )
 
 Configuration for hybrid search.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -533,11 +543,13 @@ Fields
 
 `model` `Union type`
 
-The model to use for sparse embedding generation. `model` can be only one of the following:
+The model to use for sparse embedding generation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bm25` ` object ( Bm25  ` )
 
 Use BM25 scoring algorithm.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -681,7 +693,7 @@ Fields
 
 `corpus_type_config` `Union type`
 
-Optional. Whether the RagCorpus is used as document store or memory store. `corpus_type_config` can be only one of the following:
+Optional. Whether the RagCorpus is used as document store or memory store. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `documentCorpus` ` object ( DocumentCorpus  ` )
 
@@ -690,6 +702,8 @@ Optional. Config for the document corpus.
 `memoryCorpus` ` object ( MemoryCorpus  ` )
 
 Optional. Config for the memory corpus.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -55,7 +55,7 @@ The supported MIME types are:
 
 `data` `Union type`
 
-`data` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bytesBase64Encoded` `string`
 
@@ -64,6 +64,8 @@ Base64-encoded bytes of the image.
 `gcsUri` `string`
 
 A Cloud Storage URI pointing to the image file. Format: `gs://bucket/object`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -100,7 +102,7 @@ Configuration for processing a video segment. If specified, embeddings are gener
 
 `data` `Union type`
 
-`data` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bytesBase64Encoded` `string`
 
@@ -109,6 +111,8 @@ Base64-encoded bytes of the video.
 `gcsUri` `string`
 
 A Cloud Storage URI pointing to the video file. Format: `gs://bucket/object`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

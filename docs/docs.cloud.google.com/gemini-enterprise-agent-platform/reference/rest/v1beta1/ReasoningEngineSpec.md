@@ -32,7 +32,7 @@ Optional. The identity type to use for the Reasoning Engine. If not specified, t
 
 `deployment_source` `Union type`
 
-Defines the source for the deployment. The `package_spec` field should not be set if `deployment_source` is specified. `deployment_source` can be only one of the following:
+Defines the source for the deployment. The `package_spec` field should not be set if `deployment_source` is specified. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `sourceCodeSpec` ` object ( SourceCodeSpec  ` )
 
@@ -41,6 +41,8 @@ Deploy from source code files with a defined entrypoint.
 `containerSpec` ` object ( ContainerSpec  ` )
 
 Deploy from a container image with a defined entrypoint and commands.
+
+End of mutually exclusive fields.
 
 `serviceAccount` `string`
 
@@ -70,7 +72,7 @@ Fields
 
 `source` `Union type`
 
-Specifies where the source code is located. `source` can be only one of the following:
+Specifies where the source code is located. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `inlineSource` ` object ( InlineSource  ` )
 
@@ -84,9 +86,11 @@ Source code is in a Git repository managed by Developer Connect.
 
 Source code is generated from the agent config.
 
+End of mutually exclusive fields.
+
 `language_spec` `Union type`
 
-Specifies the language-specific configuration for building and running the code. `language_spec` can be only one of the following:
+Specifies the language-specific configuration for building and running the code. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `pythonSpec` ` object ( PythonSpec  ` )
 
@@ -95,6 +99,8 @@ Configuration for a Python application.
 `imageSpec` ` object ( ImageSpec  ` )
 
 Optional. Configuration for building an image with custom config file.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

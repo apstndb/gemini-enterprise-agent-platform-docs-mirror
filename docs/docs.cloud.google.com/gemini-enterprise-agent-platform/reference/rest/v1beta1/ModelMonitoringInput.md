@@ -12,7 +12,7 @@ Fields
 
 `dataset` `Union type`
 
-Dataset source. `dataset` can be only one of the following:
+Dataset source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `columnizedDataset` ` object ( ModelMonitoringDataset  ` )
 
@@ -26,9 +26,11 @@ Agent Platform Batch prediction Job.
 
 Agent Platform Endpoint request & response logging.
 
+End of mutually exclusive fields.
+
 `time_spec` `Union type`
 
-Time specification for the dataset. `time_spec` can be only one of the following:
+Time specification for the dataset. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `timeInterval` ` object ( Interval  ` )
 
@@ -37,6 +39,8 @@ The time interval (pair of startTime and endTime) for which results should be re
 `timeOffset` ` object ( TimeOffset  ` )
 
 The time offset setting for which results should be returned.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -66,7 +70,7 @@ The timestamp field. Usually for serving data.
 
 `data_location` `Union type`
 
-Choose one of supported data location for columnized dataset. `data_location` can be only one of the following:
+Choose one of supported data location for columnized dataset. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexDataset` `string`
 
@@ -79,6 +83,8 @@ Google Cloud Storage data source.
 `bigquerySource` ` object ( ModelMonitoringBigQuerySource  ` )
 
 BigQuery data source.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -156,7 +162,7 @@ Fields
 
 `connection` `Union type`
 
-`connection` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tableUri` `string`
 
@@ -167,6 +173,8 @@ BigQuery URI to a table, up to 2000 characters long. All the columns in the tabl
 `query` `string`
 
 Standard SQL to be used instead of the `tableUri` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

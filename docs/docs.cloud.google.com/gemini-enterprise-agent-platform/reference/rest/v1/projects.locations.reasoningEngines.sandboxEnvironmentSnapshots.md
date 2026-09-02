@@ -54,7 +54,7 @@ Optional. Input only. Action to take on the source SandboxEnvironment after the 
 
 `expiration` `Union type`
 
-The expiration of the SandboxEnvironmentSnapshot. If not set, the SandboxEnvironmentSnapshot will have a default TTL of 30 days. `expire_time` is recommended for specifying a precise expiration time. `expiration` can be only one of the following:
+The expiration of the SandboxEnvironmentSnapshot. If not set, the SandboxEnvironmentSnapshot will have a default TTL of 30 days. `expire_time` is recommended for specifying a precise expiration time. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -67,6 +67,8 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 Optional. Input only. The TTL for the sandbox environment snapshot. The expiration time is computed: now + TTL.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

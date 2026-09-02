@@ -12,7 +12,7 @@ Fields
 
 `destination` `Union type`
 
-`destination` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bigqueryDestination` ` object ( BigQueryDestination  ` )
 
@@ -34,6 +34,8 @@ Below are the mapping from feature value type in Featurestore to feature value t
 `csvDestination` ` object ( CsvDestination  ` )
 
 Output in CSV format. Array feature value types are not allowed in CSV format.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

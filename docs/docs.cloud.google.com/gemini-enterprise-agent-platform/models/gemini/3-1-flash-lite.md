@@ -77,6 +77,8 @@ Capabilities
     Supported
   - [URL context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/url-context)  
     Supported
+  - [Agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) preview Preview feature  
+    Not supported
 
 Tools
 

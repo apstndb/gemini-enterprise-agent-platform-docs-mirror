@@ -20,7 +20,7 @@ The error result. Do not set prediction if this is set.
 
 `input` `Union type`
 
-Some identifier from the input so that the prediction can be mapped back to the input instance. `input` can be only one of the following:
+Some identifier from the input so that the prediction can be mapped back to the input instance. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `instance` ` object ( Struct  ` format)
 
@@ -29,6 +29,8 @@ user's input instance. Struct is used here instead of Any so that JsonFormat doe
 `key` `string`
 
 Optional user-provided key from the input instance.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

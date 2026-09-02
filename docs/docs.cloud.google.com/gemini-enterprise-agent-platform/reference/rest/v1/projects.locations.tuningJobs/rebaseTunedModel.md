@@ -60,7 +60,7 @@ Fields
 
 `tuned_model_ref` `Union type`
 
-The Tuned Model Reference for the model. `tuned_model_ref` can be only one of the following:
+The Tuned Model Reference for the model. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tunedModel` `string`
 
@@ -73,6 +73,8 @@ Support migration from tuning job list page, from gemini-1.0-pro-002 to 1.5 and 
 `pipelineJob` `string`
 
 Support migration from tuning job list page, from bison model to gemini model.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

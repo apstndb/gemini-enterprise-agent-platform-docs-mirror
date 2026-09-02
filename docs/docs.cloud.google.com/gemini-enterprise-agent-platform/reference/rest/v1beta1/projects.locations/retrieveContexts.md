@@ -34,11 +34,13 @@ Required. Single RAG retrieve query.
 
 `data_source` `Union type`
 
-Data Source to retrieve contexts. `data_source` can be only one of the following:
+Data Source to retrieve contexts. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexRagStore` ` object ( VertexRagStore  ` )
 
 The data source for Vertex RagStore.
+
+End of mutually exclusive fields.
 
 ### Response body
 

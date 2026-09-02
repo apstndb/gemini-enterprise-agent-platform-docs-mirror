@@ -52,7 +52,7 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `read_option` `Union type`
 
-`read_option` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `csvReadInstances` ` object ( CsvSource  ` )
 
@@ -75,6 +75,8 @@ Values in the timestamp column must use the RFC 3339 format, e.g. `2012-07-30T10
 `bigqueryReadInstances` ` object ( BigQuerySource  ` )
 
 Similar to csvReadInstances, but from BigQuery source.
+
+End of mutually exclusive fields.
 
 ### Response body
 

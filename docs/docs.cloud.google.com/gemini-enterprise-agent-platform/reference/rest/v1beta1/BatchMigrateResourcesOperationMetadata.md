@@ -46,7 +46,7 @@ It's the same as the value in `  BatchMigrateResourcesRequest.migrate_resource_r
 
 `result` `Union type`
 
-If the resource's migration is ongoing, none of the result will be set. If the resource's migration is finished, either error or one of the migrated resource name will be filled. `result` can be only one of the following:
+If the resource's migration is ongoing, none of the result will be set. If the resource's migration is finished, either error or one of the migrated resource name will be filled. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `error` ` object ( Status  ` )
 
@@ -59,6 +59,8 @@ Migrated model resource name.
 `dataset` `string`
 
 Migrated dataset resource name.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

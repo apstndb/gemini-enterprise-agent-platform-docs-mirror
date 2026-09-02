@@ -46,7 +46,7 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `image` ` object ( Image  ` )
 
@@ -55,6 +55,8 @@ Image.
 `video` ` object ( Video  ` )
 
 Video
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -104,7 +106,7 @@ Image size. The size of the image. Can be self reported, or computed from the im
 
 `content` `Union type`
 
-`content` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `image` `string ( bytes format)`
 
@@ -115,6 +117,8 @@ A base64-encoded string.
 `uri` `string`
 
 Path to another storage (typically Google Cloud Storage).
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -333,7 +337,7 @@ Text/Expanded text input for Help Me Write.
 
 `content` `Union type`
 
-`content` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `video` `string ( bytes format)`
 
@@ -348,6 +352,8 @@ Path to another storage (typically Google Cloud Storage).
 `encodedVideo` `string`
 
 Base 64 encoded video bytes.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

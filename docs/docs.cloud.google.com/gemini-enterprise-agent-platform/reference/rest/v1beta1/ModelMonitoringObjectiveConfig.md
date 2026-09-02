@@ -66,7 +66,7 @@ Strategy to sample data from Training Dataset. If not set, we process the whole 
 
 `data_source` `Union type`
 
-`data_source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dataset` `string`
 
@@ -79,6 +79,8 @@ The Google Cloud Storage uri of the unmanaged Dataset used to train this Model.
 `bigquerySource` ` object ( BigQuerySource  ` )
 
 The BigQuery table of the unmanaged Dataset used to train this Model.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -206,7 +208,7 @@ The storage format of the predictions generated BatchPrediction job.
 
 `destination` `Union type`
 
-The configuration specifying of BatchExplain job output. This can be used to generate the baseline of feature attribution scores. `destination` can be only one of the following:
+The configuration specifying of BatchExplain job output. This can be used to generate the baseline of feature attribution scores. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcs` `object ( GcsDestination` )
 
@@ -215,6 +217,8 @@ Cloud Storage location for BatchExplain output.
 `bigquery` ` object ( BigQueryDestination  ` )
 
 BigQuery location for BatchExplain output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -34,7 +34,7 @@ Fields
 
 `DeleteOption` `Union type`
 
-Defines options to select feature values to be deleted. `DeleteOption` can be only one of the following:
+Defines options to select feature values to be deleted. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `selectEntity` ` object ( SelectEntity  ` )
 
@@ -43,6 +43,8 @@ Select feature values to be deleted by specifying entities.
 `selectTimeRangeAndFeature` ` object ( SelectTimeRangeAndFeature  ` )
 
 Select feature values to be deleted by specifying time range and features.
+
+End of mutually exclusive fields.
 
 ### Response body
 
@@ -86,11 +88,13 @@ Source column that holds entity IDs. If not provided, entity IDs are extracted f
 
 `EntityIdsSource` `Union type`
 
-Details about the source data, including the location of the storage and the format. `EntityIdsSource` can be only one of the following:
+Details about the source data, including the location of the storage and the format. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `csvSource` ` object ( CsvSource  ` )
 
 Source of Csv
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

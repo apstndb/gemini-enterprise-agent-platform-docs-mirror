@@ -42,7 +42,7 @@ Fields
 
 `tier` `Union type`
 
-The tier of the RagManagedDb. `tier` can be only one of the following:
+The tier of the RagManagedDb. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` scaled (deprecated)  ` ` object ( Scaled  ` )
 
@@ -61,6 +61,8 @@ Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManage
 > This item is deprecated\!
 
 Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManagedDb to the Unprovisioned tier.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

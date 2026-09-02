@@ -54,7 +54,7 @@ Output only. reserved for future use.
 
 `backend_config` `Union type`
 
-The backend config of the RagCorpus. It can be data store and/or retrieval engine. `backend_config` can be only one of the following:
+The backend config of the RagCorpus. It can be data store and/or retrieval engine. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vectorDbConfig` ` object ( RagVectorDbConfig  ` )
 
@@ -63,6 +63,8 @@ Optional. Immutable. The config for the Vector DBs.
 `vertexAiSearchConfig` ` object ( VertexAiSearchConfig  ` )
 
 Optional. Immutable. The config for the Agent Platform Search.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -96,7 +98,7 @@ Optional. Immutable. The embedding model config of the Vector DB.
 
 `vector_db` `Union type`
 
-The config for the Vector DB. `vector_db` can be only one of the following:
+The config for the Vector DB. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `ragManagedDb` ` object ( RagManagedDb  ` )
 
@@ -109,6 +111,8 @@ The config for the Pinecone.
 `vertexVectorSearch` ` object ( VertexVectorSearch  ` )
 
 The config for the Vertex Vector Search.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -134,7 +138,7 @@ Fields
 
 `retrieval_strategy` `Union type`
 
-Choice of retrieval strategy. `retrieval_strategy` can be only one of the following:
+Choice of retrieval strategy. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `knn` ` object ( KNN  ` )
 
@@ -143,6 +147,8 @@ Performs a KNN search on RagCorpus. Default choice if not specified.
 `ann` ` object ( ANN  ` )
 
 Performs an ANN search on RagCorpus. Use this if you have a lot of files (\> 10K) in your RagCorpus and want to reduce the search latency.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -278,11 +284,13 @@ Fields
 
 `auth_config` `Union type`
 
-The auth config. `auth_config` can be only one of the following:
+The auth config. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `apiKeyConfig` ` object ( ApiKeyConfig  ` )
 
 The API secret.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -308,11 +316,13 @@ Fields
 
 `model_config` `Union type`
 
-The model config to use. `model_config` can be only one of the following:
+The model config to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexPredictionEndpoint` ` object ( VertexPredictionEndpoint  ` )
 
 The Agent Platform Prediction Endpoint that either refers to a publisher model or an endpoint that is hosting a 1P fine-tuned text embedding model. endpoints hosting non-1P fine-tuned text embedding models are currently not supported. This is used for dense vector search.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

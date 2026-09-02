@@ -92,11 +92,13 @@ Fields
 
 `condition` `Union type`
 
-Alert triggered condition. `condition` can be only one of the following:
+Alert triggered condition. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `threshold` `number`
 
 A condition that compares a stats value against a threshold. Alert will be triggered if value above the threshold.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

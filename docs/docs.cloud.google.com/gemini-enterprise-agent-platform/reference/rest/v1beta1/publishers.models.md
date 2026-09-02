@@ -136,7 +136,7 @@ Fields
 
 `reference` `Union type`
 
-`reference` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `uri` `string`
 
@@ -157,6 +157,8 @@ Use case (CUJ) of the resource.
 > This item is deprecated\!
 
 description of the resource.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -449,7 +451,7 @@ Optional. The signed URI for ephemeral Cloud Storage access to model artifact.
 
 `prediction_resources` `Union type`
 
-The prediction (for example, the machine) resources that the DeployedModel uses. `prediction_resources` can be only one of the following:
+The prediction (for example, the machine) resources that the DeployedModel uses. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dedicatedResources` ` object ( DedicatedResources  ` )
 
@@ -462,6 +464,8 @@ A description of resources that to large degree are decided by Agent Platform, a
 `sharedResources` `string`
 
 The resource name of the shared DeploymentResourcePool to deploy on. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deploymentResourcePool}`
+
+End of mutually exclusive fields.
 
 `deployTaskName` `string`
 

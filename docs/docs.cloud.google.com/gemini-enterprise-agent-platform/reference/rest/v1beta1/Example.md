@@ -24,11 +24,13 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `example_type` `Union type`
 
-The type of the example. Each example type has a defined format `example_type` can be only one of the following:
+The type of the example. Each example type has a defined format The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `storedContentsExample` ` object ( StoredContentsExample  ` )
 
 An example of chat history and its expected outcome to be used with GenerateContent.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

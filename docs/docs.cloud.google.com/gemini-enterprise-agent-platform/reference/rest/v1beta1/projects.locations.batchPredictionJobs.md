@@ -234,7 +234,7 @@ Required. The format in which instances are given, must be one of the `  Model's
 
 `source` `Union type`
 
-Required. The source of the input. `source` can be only one of the following:
+Required. The source of the input. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
@@ -247,6 +247,8 @@ The BigQuery location of the input table. The schema of the table should be in t
 `vertexMultimodalDatasetSource` ` object ( VertexMultimodalDatasetSource  ` )
 
 A Vertex Managed Dataset. Currently, only datasets of type Multimodal are supported.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -391,7 +393,7 @@ Required. The format in which Agent Platform gives the predictions, must be one 
 
 `destination` `Union type`
 
-Required. The destination of the output. `destination` can be only one of the following:
+Required. The destination of the output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsDestination` `object ( GcsDestination` )
 
@@ -404,6 +406,8 @@ The BigQuery project or dataset location where the output is to be written to. I
 `vertexMultimodalDatasetDestination` ` object ( VertexMultimodalDatasetDestination  ` )
 
 The details for a Vertex Multimodal Dataset that will be created for the output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -491,7 +495,7 @@ Output only. The name of the BigQuery table created, in `predictions_<timestamp>
 
 `output_location` `Union type`
 
-The output location into which prediction output is written. `output_location` can be only one of the following:
+The output location into which prediction output is written. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsOutputDirectory` `string`
 
@@ -504,6 +508,8 @@ Output only. The path of the BigQuery dataset created, in `bq://projectId.bqData
 `vertexMultimodalDatasetName` `string`
 
 Output only. The resource name of the Vertex Managed Dataset created, into which the prediction output is written. Format: `projects/{project}/locations/{location}/datasets/{dataset}`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

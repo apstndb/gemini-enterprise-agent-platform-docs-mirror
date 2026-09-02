@@ -226,7 +226,7 @@ Optional. Spec for configuring speculative decoding.
 
 `prediction_resources` `Union type`
 
-The prediction (for example, the machine) resources that the DeployedModel uses. The user is billed for the resources (at least their minimal amount) even if the DeployedModel receives no traffic. Not all Models support all resources types. See `  Model.supported_deployment_resources_types  ` . Required except for Large Model Deploy use cases. `prediction_resources` can be only one of the following:
+The prediction (for example, the machine) resources that the DeployedModel uses. The user is billed for the resources (at least their minimal amount) even if the DeployedModel receives no traffic. Not all Models support all resources types. See `  Model.supported_deployment_resources_types  ` . Required except for Large Model Deploy use cases. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dedicatedResources` ` object ( DedicatedResources  ` )
 
@@ -239,6 +239,8 @@ A description of resources that to large degree are decided by Agent Platform, a
 `sharedResources` `string`
 
 The resource name of the shared DeploymentResourcePool to deploy on. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deploymentResourcePool}`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -379,7 +381,7 @@ The number of speculative tokens to generate at each step.
 
 `speculation` `Union type`
 
-The type of speculation method to use. `speculation` can be only one of the following:
+The type of speculation method to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `draftModelSpeculation` ` object ( DraftModelSpeculation  ` )
 
@@ -388,6 +390,8 @@ draft model speculation.
 `ngramSpeculation` ` object ( NgramSpeculation  ` )
 
 N-Gram speculation.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

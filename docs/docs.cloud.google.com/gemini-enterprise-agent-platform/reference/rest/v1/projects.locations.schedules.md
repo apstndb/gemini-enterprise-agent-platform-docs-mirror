@@ -96,15 +96,17 @@ Output only. Response of the last scheduled run. This is the response for starti
 
 `time_specification` `Union type`
 
-Required. The time specification to launch scheduled runs. `time_specification` can be only one of the following:
+Required. The time specification to launch scheduled runs. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `cron` `string`
 
 Cron schedule ( <https://en.wikipedia.org/wiki/Cron> ) to launch scheduled runs. To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: "CRON\_TZ=${IANA\_TIME\_ZONE}" or "TZ=${IANA\_TIME\_ZONE}". The ${IANA\_TIME\_ZONE} may only be a valid string from IANA time zone database. For example, "CRON\_TZ=America/New\_York 1 \* \* \* \*", or "TZ=America/New\_York 1 \* \* \* \*".
 
+End of mutually exclusive fields.
+
 `request` `Union type`
 
-Required. The API request template to launch the scheduled runs. User-specified ID is not supported in the request template. `request` can be only one of the following:
+Required. The API request template to launch the scheduled runs. User-specified ID is not supported in the request template. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `createPipelineJobRequest` ` object ( CreatePipelineJobRequest  ` )
 
@@ -113,6 +115,8 @@ Request for `  PipelineService.CreatePipelineJob  ` . CreatePipelineJobRequest.p
 `createNotebookExecutionJobRequest` ` object ( CreateNotebookExecutionJobRequest  ` )
 
 Request for `  NotebookService.CreateNotebookExecutionJob  ` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

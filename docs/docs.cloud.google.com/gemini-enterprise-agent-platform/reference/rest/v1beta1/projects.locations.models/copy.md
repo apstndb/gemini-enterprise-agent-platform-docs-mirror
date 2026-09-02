@@ -44,7 +44,7 @@ Requires the user copying the Model to have the `iam.serviceAccounts.actAs` perm
 
 `destination_model` `Union type`
 
-If both fields are unset, a new Model will be created with a generated ID. `destination_model` can be only one of the following:
+If both fields are unset, a new Model will be created with a generated ID. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `modelId` `string`
 
@@ -55,6 +55,8 @@ This value may be up to 63 characters, and valid characters are `[a-z0-9_-]` . T
 `parentModel` `string`
 
 Optional. Specify this field to copy sourceModel into this existing Model as a new version. Format: `projects/{project}/locations/{location}/models/{model}`
+
+End of mutually exclusive fields.
 
 ### Response body
 

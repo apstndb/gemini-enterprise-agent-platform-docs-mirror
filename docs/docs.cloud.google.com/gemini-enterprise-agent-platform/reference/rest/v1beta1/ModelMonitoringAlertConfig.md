@@ -20,11 +20,13 @@ Resource names of the NotificationChannels to send alert. Must be of the format 
 
 `alert` `Union type`
 
-`alert` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `emailAlertConfig` ` object ( EmailAlertConfig  ` )
 
 email alert config.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

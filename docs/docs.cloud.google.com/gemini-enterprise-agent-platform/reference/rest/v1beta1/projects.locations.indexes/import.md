@@ -48,11 +48,13 @@ Fields
 
 `source` `Union type`
 
-The source of the data to import. `source` can be only one of the following:
+The source of the data to import. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bigQuerySourceConfig` ` object ( BigQuerySourceConfig  ` )
 
 Configuration for importing data from a BigQuery table.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

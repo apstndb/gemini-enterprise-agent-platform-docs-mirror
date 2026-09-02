@@ -34,7 +34,7 @@ Optional. The Gemini request read config for the dataset.
 
 `assessment_config` `Union type`
 
-The assessment type. `assessment_config` can be only one of the following:
+The assessment type. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tuningValidationAssessmentConfig` ` object ( TuningValidationAssessmentConfig  ` )
 
@@ -51,6 +51,8 @@ Optional. Configuration for the batch prediction validation assessment.
 `batchPredictionResourceUsageAssessmentConfig` ` object ( BatchPredictionResourceUsageAssessmentConfig  ` )
 
 Optional. Configuration for the batch prediction resource usage assessment.
+
+End of mutually exclusive fields.
 
 ### Response body
 

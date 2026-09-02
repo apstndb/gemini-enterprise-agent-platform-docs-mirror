@@ -50,6 +50,7 @@ Enable the following APIs in the Google Cloud project that you are using for thi
   - Network Services API ( `networkservices.googleapis.com` )
   - Cloud DNS API ( `dns.googleapis.com` )
   - Identity and Access Management API ( `iam.googleapis.com` )
+  - Identity-Aware Proxy API ( `iap.googleapis.com` )
   - Agent Registry API ( `agentregistry.googleapis.com` )
   - Vertex AI API ( `aiplatform.googleapis.com` )
   - Discovery Engine API ( `discoveryengine.googleapis.com` )

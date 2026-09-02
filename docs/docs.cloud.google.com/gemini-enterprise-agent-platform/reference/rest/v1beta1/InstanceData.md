@@ -12,7 +12,7 @@ Fields
 
 `data` `Union type`
 
-Supported formats for instance data. `data` can be only one of the following:
+Supported formats for instance data. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` `string`
 
@@ -21,6 +21,8 @@ Text data.
 `contents` ` object ( Contents  ` )
 
 List of Gemini content data.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

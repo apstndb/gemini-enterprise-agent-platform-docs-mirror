@@ -42,7 +42,7 @@ Fields
 
 `tier` `Union type`
 
-The tier of the RagManagedDb. `tier` can be only one of the following:
+The tier of the RagManagedDb. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` enterprise (deprecated)  ` ` object ( Enterprise  ` )
 
@@ -68,9 +68,11 @@ Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManage
 
 Deprecated: Use `mode` instead to set the tier under Spanner. Sets the RagManagedDb to the Unprovisioned tier.
 
+End of mutually exclusive fields.
+
 `mode` `Union type`
 
-The choice of backend for your RagEngine. `mode` can be only one of the following:
+The choice of backend for your RagEngine. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `serverless` ` object ( Serverless  ` )
 
@@ -81,6 +83,8 @@ Sets the backend to be the serverless mode offered by RAG Engine.
 Sets the RAG Engine backend to be RagManagedDb, built on top of Spanner.
 
 NOTE: This is the default mode (w/ Basic Tier) if not explicitly chosen.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -142,7 +146,7 @@ Fields
 
 `tier` `Union type`
 
-The tier of the RagManagedDb, built on top of Spanner. `tier` can be only one of the following:
+The tier of the RagManagedDb, built on top of Spanner. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `scaled` ` object ( Scaled  ` )
 
@@ -155,6 +159,8 @@ Sets the RagManagedDb to the Basic tier. This is the default tier for Spanner mo
 `unprovisioned` ` object ( Unprovisioned  ` )
 
 Sets the RagManagedDb to the Unprovisioned tier.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

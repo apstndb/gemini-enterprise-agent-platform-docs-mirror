@@ -18,19 +18,21 @@ Before you create an IAM allow policy:
 
 1.  Set up a Google Cloud billing project.
 
-2.  Know the identity of agent that you want to manage access *from* . To manage access from an entire registry using the Google Cloud console, select the project that contains the registry.
+2.  Enable the Identity-Aware Proxy API ( `iap.googleapis.com` ) in your project. The gateway uses the Identity-Aware Proxy API to authenticate and authorize egress traffic from your agents.
+
+3.  Know the identity of agent that you want to manage access *from* . To manage access from an entire registry using the Google Cloud console, select the project that contains the registry.
     
       - Agent Platform and Gemini Enterprise agents: Know the agent identity.
     
       - DIY agents (Cloud Run): Know the service accounts-based identity.
 
-3.  The target agent resources—agents, MCP servers, and endpoints—that you want *to* manage access to must be registered in Agent Registry.
+4.  The target agent resources—agents, MCP servers, and endpoints—that you want *to* manage access to must be registered in Agent Registry.
     
     Target resource validation occurs when the policy is bound to the resource, rather than at runtime. You cannot bind a policy to an unregistered resource. Attempting to create a policy binding for an unregistered resource fails immediately with a requested entity not found ( `NOT_FOUND` ) error.
     
     We recommend that you define and apply your policies in a continuous integration and continuous deployment (CI/CD) pipeline. This helps to ensure that invalid references or typos are caught during integration checks before deployment.
 
-4.  [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) . We recommend that you initially configure Agent Gateway in dry run mode. To learn about Agent Gateway, see [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
+5.  [Set up an Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) . We recommend that you initially configure Agent Gateway in dry run mode. To learn about Agent Gateway, see [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) .
 
 ## Required roles
 
@@ -40,7 +42,7 @@ To get the permissions that you need to configure Agent Platform for AI agents, 
   - [Agent Registry Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.viewer) ( `roles/agentregistry.viewer` )
   - [Project IAM Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/resourcemanager#resourcemanager.projectIamAdmin) ( `roles/resourcemanager.projectIamAdmin` )
   - [Network Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networksecurity#networksecurity.admin) ( `roles/networksecurity.admin` )
-  - [Service Extensions Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/networkservices#networkservices.serviceExtensionsAdmin) ( `roles/networkservices.serviceExtensionsAdmin` )
+  - [Service Extensions Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceextensions#serviceextensions.admin) ( `roles/serviceextensions.admin` )
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
 

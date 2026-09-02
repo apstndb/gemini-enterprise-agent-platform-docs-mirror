@@ -52,7 +52,7 @@ Fields
 
 `result` `Union type`
 
-The result of the upload. `result` can be only one of the following:
+The result of the upload. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `ragFile` ` object ( RagFile  ` )
 
@@ -61,6 +61,8 @@ The RagFile that had been uploaded into the RagCorpus.
 `error` ` object ( Status  ` )
 
 The error that occurred while processing the RagFile.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

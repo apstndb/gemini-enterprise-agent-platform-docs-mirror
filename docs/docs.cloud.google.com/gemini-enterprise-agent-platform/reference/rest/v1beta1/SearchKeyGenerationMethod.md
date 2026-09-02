@@ -12,11 +12,13 @@ Fields
 
 `method` `Union type`
 
-The method for generating the search key. `method` can be only one of the following:
+The method for generating the search key. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `lastEntry` ` object ( LastEntry  ` )
 
 Use only the last entry of the conversation history ( `contentsExample.contents` ) as the search key.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

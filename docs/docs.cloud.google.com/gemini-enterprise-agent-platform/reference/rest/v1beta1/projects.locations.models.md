@@ -430,7 +430,7 @@ Fields
 
 `source` `Union type`
 
-`source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `modelGardenSource` ` object ( ModelGardenSource  ` )
 
@@ -439,6 +439,8 @@ Source information of Model Garden models.
 `genieSource` ` object ( GenieSource  ` )
 
 Information about the base model of Genie models.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

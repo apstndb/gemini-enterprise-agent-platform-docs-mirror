@@ -42,11 +42,13 @@ Specify response data format. If not set, keyvalue format will be used. Deprecat
 
 `entity_id` `Union type`
 
-Entity ID to fetch feature values for. Deprecated. Use `  FetchFeatureValuesRequest.data_key  ` . `entity_id` can be only one of the following:
+Entity ID to fetch feature values for. Deprecated. Use `  FetchFeatureValuesRequest.data_key  ` . The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` id (deprecated)  ` `string`
 
 Simple id. The whole string will be used as is to identify Entity to fetch feature values for.
+
+End of mutually exclusive fields.
 
 ### Response body
 

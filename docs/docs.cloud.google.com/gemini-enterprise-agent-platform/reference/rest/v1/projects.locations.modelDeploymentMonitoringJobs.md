@@ -288,7 +288,7 @@ Strategy to sample data from Training Dataset. If not set, we process the whole 
 
 `data_source` `Union type`
 
-`data_source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dataset` `string`
 
@@ -301,6 +301,8 @@ The Google Cloud Storage uri of the unmanaged Dataset used to train this Model.
 `bigquerySource` ` object ( BigQuerySource  ` )
 
 The BigQuery table of the unmanaged Dataset used to train this Model.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -414,11 +416,13 @@ Fields
 
 `threshold` `Union type`
 
-`threshold` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `value` `number`
 
 Specify a threshold value that can trigger the alert. If this threshold config is for feature distribution distance: 1. For categorical feature, the distribution distance is calculated by L-inifinity norm. 2. For numerical feature, the distribution distance is calculated by Jensen–Shannon divergence. Each feature must have a non-zero threshold if they need to be monitored. Otherwise no alert will be triggered for that feature.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -517,7 +521,7 @@ The storage format of the predictions generated BatchPrediction job.
 
 `destination` `Union type`
 
-The configuration specifying of BatchExplain job output. This can be used to generate the baseline of feature attribution scores. `destination` can be only one of the following:
+The configuration specifying of BatchExplain job output. This can be used to generate the baseline of feature attribution scores. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcs` ` object ( GcsDestination  ` )
 
@@ -526,6 +530,8 @@ Cloud Storage location for BatchExplain output.
 `bigquery` ` object ( BigQueryDestination  ` )
 
 BigQuery location for BatchExplain output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -614,11 +620,13 @@ Resource names of the NotificationChannels to send alert. Must be of the format 
 
 `alert` `Union type`
 
-`alert` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `emailAlertConfig` ` object ( EmailAlertConfig  ` )
 
 email alert config.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -35,6 +35,8 @@ The following multimodal models support getting an estimate of the prompt token 
   - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
 
+> **Note:** [Agentic video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) isn't supported when using the `countTokens` API.
+
 To learn more about model versions, see [Gemini model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#gemini-model-versions) .
 
 ## Get the token count for a prompt

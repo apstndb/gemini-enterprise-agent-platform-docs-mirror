@@ -16,7 +16,7 @@ metadata of feature value.
 
 `value` `Union type`
 
-Value for the feature. `value` can be only one of the following:
+Value for the feature. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `boolValue` `boolean`
 
@@ -59,6 +59,8 @@ A base64-encoded string.
 `structValue` ` object ( StructValue  ` )
 
 A struct type feature value.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -66,7 +66,7 @@ The MIME type of the image. Supported MIME types: - image/jpeg - image/png
 
 `data` `Union type`
 
-The image data. The image can be provided as either base64 encoded bytes or a Google Cloud Storage URI. `data` can be only one of the following:
+The image data. The image can be provided as either base64 encoded bytes or a Google Cloud Storage URI. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bytesBase64Encoded` `string`
 
@@ -75,6 +75,8 @@ The image bytes encoded in base64.
 `gcsUri` `string`
 
 A Google Cloud Storage URI pointing to the image file.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -111,7 +113,7 @@ The MIME type of the video. Supported MIME types: - video/mov - video/mpeg - vid
 
 `data` `Union type`
 
-The video data. The video can be provided as either base64 encoded bytes or a Google Cloud Storage URI. `data` can be only one of the following:
+The video data. The video can be provided as either base64 encoded bytes or a Google Cloud Storage URI. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsUri` `string`
 
@@ -120,6 +122,8 @@ A Google Cloud Storage URI pointing to the video file.
 `bytesBase64Encoded` `string`
 
 The video bytes encoded in base64.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -160,7 +164,7 @@ Specifies how the mask is applied to the input video for editing. For `insert` ,
 
 `data` `Union type`
 
-The mask data. The mask can be provided as either base64 encoded bytes or a Google Cloud Storage URI. `data` can be only one of the following:
+The mask data. The mask can be provided as either base64 encoded bytes or a Google Cloud Storage URI. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bytesBase64Encoded` `string`
 
@@ -169,6 +173,8 @@ The mask bytes encoded in base64.
 `gcsUri` `string`
 
 A Google Cloud Storage URI pointing to the mask file.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

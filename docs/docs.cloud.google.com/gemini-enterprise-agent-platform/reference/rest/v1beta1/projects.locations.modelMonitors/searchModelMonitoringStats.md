@@ -84,11 +84,13 @@ Fields
 
 `filter` `Union type`
 
-`filter` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tabularStatsFilter` ` object ( TabularStatsFilter  ` )
 
 Tabular statistics filter.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -162,11 +164,13 @@ Fields
 
 `stats` `Union type`
 
-`stats` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tabularStats` ` object ( ModelMonitoringTabularStats  ` )
 
 Generated tabular statistics.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -282,7 +286,7 @@ Fields
 
 `value` `Union type`
 
-The typed value. `value` can be only one of the following:
+The typed value. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `doubleValue` `number`
 
@@ -291,6 +295,8 @@ Double.
 `distributionValue` ` object ( DistributionDataValue  ` )
 
 Distribution.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

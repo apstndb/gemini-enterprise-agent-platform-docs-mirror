@@ -44,11 +44,13 @@ Fields
 
 `source` `Union type`
 
-`source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
 `bigquerySource` ` object ( BigQuerySource  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

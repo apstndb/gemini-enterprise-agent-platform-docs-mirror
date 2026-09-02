@@ -44,7 +44,7 @@ Fields
 
 `request` `Union type`
 
-`request` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `migrateMlEngineModelVersionConfig` ` object ( MigrateMlEngineModelVersionConfig  ` )
 
@@ -63,6 +63,8 @@ Config for migrating Dataset in automl.googleapis.com to Agent Platform's Datase
 > This item is deprecated\!
 
 Deprecated: data labeling service is shut down. Config for migrating Dataset in datalabeling.googleapis.com to Agent Platform's Dataset.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

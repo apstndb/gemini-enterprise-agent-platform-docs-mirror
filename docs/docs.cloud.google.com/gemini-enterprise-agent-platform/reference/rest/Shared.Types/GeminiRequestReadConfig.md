@@ -12,7 +12,7 @@ Fields
 
 `read_config` `Union type`
 
-The read config for the dataset. `read_config` can be only one of the following:
+The read config for the dataset. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `templateConfig` ` object ( GeminiTemplateConfig  ` )
 
@@ -21,6 +21,8 @@ Gemini request template with placeholders.
 `assembledRequestColumnName` `string`
 
 Optional. column name in the dataset table that contains already fully assembled Gemini requests.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -72,7 +72,7 @@ Fields
 
 `result` `Union type`
 
-The outcome of creating/updating a single example. It's either the example that was successfully created/updated or a status with an error message. `result` can be only one of the following:
+The outcome of creating/updating a single example. It's either the example that was successfully created/updated or a status with an error message. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `example` ` object ( Example  ` )
 
@@ -81,6 +81,8 @@ The example created/updated successfully.
 `status` ` object ( Status  ` )
 
 The error message of the example that was not created/updated successfully.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

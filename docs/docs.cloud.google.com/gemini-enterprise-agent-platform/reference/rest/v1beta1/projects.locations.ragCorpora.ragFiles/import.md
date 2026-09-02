@@ -78,7 +78,7 @@ Default is false, i.e., index is not rebuilt.
 
 `import_source` `Union type`
 
-The source of the import. `import_source` can be only one of the following:
+The source of the import. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
@@ -100,9 +100,11 @@ Jira queries with their corresponding authentication.
 
 SharePoint sources.
 
+End of mutually exclusive fields.
+
 `partial_failure_sink` `Union type`
 
-Optional. If provided, all partial failures are written to the sink. Deprecated. Prefer to use the `import_result_sink` . `partial_failure_sink` can be only one of the following:
+Optional. If provided, all partial failures are written to the sink. Deprecated. Prefer to use the `import_result_sink` . The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` partialFailureGcsSink (deprecated)  ` `object ( GcsDestination` )
 
@@ -116,9 +118,11 @@ The Cloud Storage path to write partial failures to. Deprecated. Prefer to use `
 
 The BigQuery destination to write partial failures to. It should be a bigquery table resource name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not exist, it will be created with the expected schema. If the table exists, the schema will be validated and data will be added to this existing table. Deprecated. Prefer to use `import_result_bq_sink` .
 
+End of mutually exclusive fields.
+
 `import_result_sink` `Union type`
 
-Optional. If provided, all successfully imported files and all partial failures are written to the sink. `import_result_sink` can be only one of the following:
+Optional. If provided, all successfully imported files and all partial failures are written to the sink. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `importResultGcsSink` `object ( GcsDestination` )
 
@@ -127,6 +131,8 @@ The Cloud Storage path to write import result to.
 `importResultBigquerySink` ` object ( BigQueryDestination  ` )
 
 The BigQuery destination to write import result to. It should be a bigquery table resource name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not exist, it will be created with the expected schema. If the table exists, the schema will be validated and data will be added to this existing table.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

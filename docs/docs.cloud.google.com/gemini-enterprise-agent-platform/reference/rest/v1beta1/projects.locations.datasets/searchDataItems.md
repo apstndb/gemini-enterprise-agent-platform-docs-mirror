@@ -77,7 +77,7 @@ A token identifying a page of results for the server to return Typically obtaine
 
 `order` `Union type`
 
-`order` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `orderByDataItem` `string`
 
@@ -86,6 +86,8 @@ A comma-separated list of data item fields to order by, sorted in ascending orde
 `orderByAnnotation` ` object ( OrderByAnnotation  ` )
 
 Expression that allows ranking results based on annotation's property.
+
+End of mutually exclusive fields.
 
 ### Request body
 

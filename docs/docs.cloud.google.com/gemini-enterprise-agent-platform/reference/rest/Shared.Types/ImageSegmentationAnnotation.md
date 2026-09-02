@@ -12,7 +12,7 @@ Fields
 
 `annotation` `Union type`
 
-`annotation` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `maskAnnotation` ` object ( MaskAnnotation  ` )
 
@@ -25,6 +25,8 @@ Polygon annotation.
 `polylineAnnotation` ` object ( PolylineAnnotation  ` )
 
 Polyline annotation.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

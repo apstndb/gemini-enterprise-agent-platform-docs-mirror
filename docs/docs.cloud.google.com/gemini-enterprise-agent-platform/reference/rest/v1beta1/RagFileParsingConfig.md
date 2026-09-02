@@ -18,7 +18,7 @@ Whether to use advanced PDF parsing.
 
 `parser` `Union type`
 
-The parser to use for RagFiles. `parser` can be only one of the following:
+The parser to use for RagFiles. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `advancedParser` ` object ( AdvancedParser  ` )
 
@@ -31,6 +31,8 @@ The Layout Parser to use for RagFiles.
 `llmParser` ` object ( LlmParser  ` )
 
 The LLM Parser to use for RagFiles.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

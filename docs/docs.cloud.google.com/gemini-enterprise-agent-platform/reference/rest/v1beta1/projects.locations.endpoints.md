@@ -244,7 +244,7 @@ Optional. Spec for configuring speculative decoding.
 
 `prediction_resources` `Union type`
 
-The prediction (for example, the machine) resources that the DeployedModel uses. The user is billed for the resources (at least their minimal amount) even if the DeployedModel receives no traffic. Not all Models support all resources types. See `  Model.supported_deployment_resources_types  ` . Required except for Large Model Deploy use cases. `prediction_resources` can be only one of the following:
+The prediction (for example, the machine) resources that the DeployedModel uses. The user is billed for the resources (at least their minimal amount) even if the DeployedModel receives no traffic. Not all Models support all resources types. See `  Model.supported_deployment_resources_types  ` . Required except for Large Model Deploy use cases. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dedicatedResources` ` object ( DedicatedResources  ` )
 
@@ -261,6 +261,8 @@ The resource name of the shared DeploymentResourcePool to deploy on. Format: `pr
 `fullFineTunedResources` ` object ( FullFineTunedResources  ` )
 
 Optional. Resources for a full fine tuned model.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -413,7 +415,7 @@ Output only. Read-only. Revision number determines the relative priority of Depl
 
 `max_unavailable` `Union type`
 
-Configures how many replicas are allowed to be unavailable during a rolling deployment. `max_unavailable` can be only one of the following:
+Configures how many replicas are allowed to be unavailable during a rolling deployment. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `maxUnavailableReplicas` `integer`
 
@@ -423,9 +425,11 @@ Absolute count of replicas allowed to be unavailable.
 
 Percentage of replicas allowed to be unavailable. For autoscaling deployments, this refers to the target replica count.
 
+End of mutually exclusive fields.
+
 `max_surge` `Union type`
 
-Configures how many additional replicas can be provisioned during a rolling deployment. `max_surge` can be only one of the following:
+Configures how many additional replicas can be provisioned during a rolling deployment. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `maxSurgeReplicas` `integer`
 
@@ -434,6 +438,8 @@ Absolute count of allowed additional replicas.
 `maxSurgePercentage` `integer`
 
 Percentage of allowed additional replicas. For autoscaling deployments, this refers to the target replica count.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -516,7 +522,7 @@ The number of speculative tokens to generate at each step.
 
 `speculation` `Union type`
 
-The type of speculation method to use. `speculation` can be only one of the following:
+The type of speculation method to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `draftModelSpeculation` ` object ( DraftModelSpeculation  ` )
 
@@ -525,6 +531,8 @@ draft model speculation.
 `ngramSpeculation` ` object ( NgramSpeculation  ` )
 
 N-Gram speculation.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

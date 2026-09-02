@@ -54,7 +54,7 @@ Only applicable to Models that predict multiple outputs (e,g, multi-class Models
 
 `method` `Union type`
 
-`method` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `sampledShapleyAttribution` ` object ( SampledShapleyAttribution  ` )
 
@@ -73,6 +73,8 @@ XRAI currently performs better on natural images, like a picture of a house or a
 `examples` ` object ( Examples  ` )
 
 Example-based explanations that returns the nearest neighbors from the provided dataset.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -174,7 +176,7 @@ The number of gradient samples to use for approximation. The higher this number,
 
 `GradientNoiseSigma` `Union type`
 
-Represents the standard deviation of the gaussian kernel that will be used to add noise to the interpolated inputs prior to computing gradients. `GradientNoiseSigma` can be only one of the following:
+Represents the standard deviation of the gaussian kernel that will be used to add noise to the interpolated inputs prior to computing gradients. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `noiseSigma` `number`
 
@@ -187,6 +189,8 @@ If the distribution is different per feature, set `  featureNoiseSigma  ` instea
 `featureNoiseSigma` ` object ( FeatureNoiseSigma  ` )
 
 This is similar to `  noiseSigma  ` , but provides additional flexibility. A separate noise sigma can be provided for each feature, which is useful if their distributions are different. No noise is added to features that are not set. If this field is unset, `  noiseSigma  ` will be used for all features.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -347,15 +351,17 @@ The number of neighbors to return when querying for examples.
 
 `source` `Union type`
 
-`source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `exampleGcsSource` ` object ( ExampleGcsSource  ` )
 
 The Cloud Storage input instances.
 
+End of mutually exclusive fields.
+
 `config` `Union type`
 
-`config` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `nearestNeighborSearchConfig` ` value ( Value  ` format)
 
@@ -364,6 +370,8 @@ The full configuration for the generated index, the semantics are the same as ` 
 `presets` ` object ( Presets  ` )
 
 Simplified preset configuration, which automatically sets configuration values based on the desired query speed-precision trade-off and modality.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -883,7 +891,7 @@ name of the output tensor. Required and is only applicable to Agent Platform pro
 
 Defines how to map `  Attribution.output_index  ` to `  Attribution.output_display_name  ` .
 
-If neither of the fields are specified, `  Attribution.output_display_name  ` will not be populated. `display_name_mapping` can be only one of the following:
+If neither of the fields are specified, `  Attribution.output_display_name  ` will not be populated. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `indexDisplayNameMapping` ` value ( Value  ` format)
 
@@ -900,6 +908,8 @@ Specify a field name in the prediction to look for the display name.
 Use this if the prediction contains the display names for the outputs.
 
 The display names in the prediction must have the same shape of the outputs, so that it can be located by `  Attribution.output_index  ` for a specific output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -160,11 +160,13 @@ The specific rubric(s) that failed and caused this example to be classified here
 
 `source` `Union type`
 
-The source of this example. `source` can be only one of the following:
+The source of this example. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `evaluationItem` `string`
 
 Reference to the persisted EvalItem resource name. Format: projects/.../locations/.../evaluationItems/{itemId} Used when analysis is run on an EvalSet.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -34,11 +34,13 @@ Optional. The number of similar examples to return.
 
 `parameters` `Union type`
 
-The parameters to search for similar examples. This includes which value to use for similarity search and the filters that should be applied to the search. Filters limit which examples are considered as candidates for similarity search. `parameters` can be only one of the following:
+The parameters to search for similar examples. This includes which value to use for similarity search and the filters that should be applied to the search. Filters limit which examples are considered as candidates for similarity search. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `storedContentsExampleParameters` ` object ( StoredContentsExampleParameters  ` )
 
 The parameters of StoredContentsExamples to be searched.
+
+End of mutually exclusive fields.
 
 ### Response body
 
@@ -80,7 +82,7 @@ Optional. The function names for filtering.
 
 `query` `Union type`
 
-The query to use to retrieve similar StoredContentsExamples. `query` can be only one of the following:
+The query to use to retrieve similar StoredContentsExamples. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `searchKey` `string`
 
@@ -89,6 +91,8 @@ The exact search key to use for retrieval.
 `contentSearchKey` ` object ( ContentSearchKey  ` )
 
 The chat history to use to generate the search key for retrieval.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

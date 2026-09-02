@@ -12,7 +12,7 @@ Fields
 
 `metadata_schema_source` `Union type`
 
-Specifies the metadata schema source. `metadata_schema_source` can be only one of the following:
+Specifies the metadata schema source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsMetadataSchemaSource` ` object ( GcsSource  ` )
 
@@ -26,9 +26,11 @@ Google Drive location. Supports importing individual files as well as Google Dri
 
 Inline metadata schema source. Must be a JSON string.
 
+End of mutually exclusive fields.
+
 `metadata_source` `Union type`
 
-Specifies the metadata source. `metadata_source` can be only one of the following:
+Specifies the metadata source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsMetadataSource` ` object ( GcsSource  ` )
 
@@ -41,6 +43,8 @@ Google Drive location. Supports importing individual files as well as Google Dri
 `inlineMetadataSource` `string`
 
 Inline metadata source. Must be a JSON string.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

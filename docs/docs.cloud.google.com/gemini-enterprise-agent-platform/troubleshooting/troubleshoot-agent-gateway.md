@@ -114,6 +114,12 @@ You can also view egress traffic logs, including `403` denials, by using the bui
   - **Cause:** The agent's custom container does not trust the Agent Gateway's certificate authority.
   - **Fix:** Ensure you have added the Agent Gateway's root certificate to your container's CA store. See [Configure custom container (BYOC) agents for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#configure-byoc) .
 
+### Policy binding fails or mimics a governance denial
+
+  - **Symptom:** Policy binding configurations fail, you are prompted interactively for an `etag` when binding policies, or requests fail with a false governance denial error (such as "unregistered destination correctly rejected").
+  - **Cause:** The Identity-Aware Proxy API ( `iap.googleapis.com` ) is disabled in your project.
+  - **Fix:** Enable the Identity-Aware Proxy API.
+
 ## Debugging workflow
 
 If any of the conditions described in the [Egress request flow section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#request-flow) are missing, your requests might get blocked.

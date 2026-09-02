@@ -64,6 +64,7 @@ See [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/re
                 },
                 "fps": double
               },
+              "mediaProcessing": string,
               "mediaResolution": MediaResolution
             }
           ]
@@ -117,6 +118,7 @@ See [examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/re
           "thinkingBudget": integer,
           "thinkingLevel": enum
         },
+        "mediaProcessing": string,
         "mediaResolution": MediaResolution
       },
       "labels": {
@@ -274,6 +276,16 @@ For video input, the start and end offset of the video in [Duration](https://pro
   - `"fps": 10.0`
 
 The metadata should only be specified while the video data is presented in `inlineData` or `fileData` .
+
+`mediaProcessing`
+
+Optional: `string`
+
+How the model processes this media part. When set to `AGENTIC` , uses model-driven dynamic video navigation. When set to `STATIC` , uses fixed-rate frame extraction.
+
+Only supported for 3.5 and higher versioned Gemini models. If set for a request using an unsupported model, falls back to `STATIC` .
+
+Supported values: `AGENTIC` , `STATIC` .
 
 `mediaResolution`
 

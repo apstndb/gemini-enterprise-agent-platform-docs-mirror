@@ -42,11 +42,13 @@ Optional. Example IDs to fetch. If both metadata filters and Example IDs are spe
 
 `metadata_filter` `Union type`
 
-The example type-specific filters to be applied to the fetch operation. `metadata_filter` can be only one of the following:
+The example type-specific filters to be applied to the fetch operation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `storedContentsExampleFilter` ` object ( StoredContentsExampleFilter  ` )
 
 The metadata filters for StoredContentsExamples.
+
+End of mutually exclusive fields.
 
 ### Response body
 

@@ -90,7 +90,7 @@ Additional experiment flags for the Tables training pipeline.
 
 `additional_optimization_objective_config` `Union type`
 
-Additional optimization objective configuration. Required for `maximize-precision-at-recall` and `maximize-recall-at-precision` , otherwise unused. `additional_optimization_objective_config` can be only one of the following:
+Additional optimization objective configuration. Required for `maximize-precision-at-recall` and `maximize-recall-at-precision` , otherwise unused. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `optimizationObjectiveRecallValue` `number`
 
@@ -99,6 +99,8 @@ Required when optimizationObjective is "maximize-precision-at-recall". Must be b
 `optimizationObjectivePrecisionValue` `number`
 
 Required when optimizationObjective is "maximize-recall-at-precision". Must be between 0 and 1, inclusive.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -122,7 +124,7 @@ Fields
 
 `transformation_detail` `Union type`
 
-The transformation that the training pipeline will apply to the input columns. `transformation_detail` can be only one of the following:
+The transformation that the training pipeline will apply to the input columns. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `auto` ` object ( AutoTransformation  ` )
 
@@ -139,6 +141,8 @@ The transformation that the training pipeline will apply to the input columns. `
 `repeatedCategorical` ` object ( CategoricalArrayTransformation  ` )
 
 `repeatedText` ` object ( TextArrayTransformation  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

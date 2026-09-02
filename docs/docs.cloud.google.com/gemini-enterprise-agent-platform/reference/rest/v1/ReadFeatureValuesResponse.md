@@ -130,7 +130,7 @@ Fields
 
 `data` `Union type`
 
-`data` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `value` ` object ( FeatureValue  ` )
 
@@ -139,6 +139,8 @@ feature value if a single value is requested.
 `values` ` object ( FeatureValueList  ` )
 
 feature values list if values, successive in time, are requested. If the requested number of values is greater than the number of existing feature values, nonexistent values are omitted instead of being returned as empty.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

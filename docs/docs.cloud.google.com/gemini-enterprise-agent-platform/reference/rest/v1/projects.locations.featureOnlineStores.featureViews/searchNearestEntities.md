@@ -92,7 +92,7 @@ Optional. Parameters that can be set to tune query on the fly.
 
 `instance` `Union type`
 
-`instance` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `entityId` `string`
 
@@ -101,6 +101,8 @@ Optional. The entity id whose similar entities should be searched for. If embedd
 `embedding` ` object ( Embedding  ` )
 
 Optional. The embedding vector that be used for similar search.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -202,7 +204,7 @@ Required. column name in BigQuery that used as filters.
 
 `Value` `Union type`
 
-The type of Value must be consistent for all datapoints with a given name. This is verified at runtime. `Value` can be only one of the following:
+The type of Value must be consistent for all datapoints with a given name. This is verified at runtime. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `valueInt` `string ( int64 format)`
 
@@ -215,6 +217,8 @@ float value type.
 `valueDouble` `number`
 
 double value type.
+
+End of mutually exclusive fields.
 
 `op` ` enum ( Operator  ` )
 

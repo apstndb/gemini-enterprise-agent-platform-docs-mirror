@@ -1068,6 +1068,105 @@ You can set custom frame rate sampling by passing an `fps` argument to `videoMet
 
 By default, 1 frame per second (FPS) is sampled from the video. You might want to set low FPS (\< 1) for long videos. This is especially useful for mostly static videos (for example, lectures). If you want to capture more details in rapidly changing visuals, consider setting a higher FPS value.
 
+## Agentic video understanding
+
+> **Preview**
+> 
+> This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms) . For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud.
+
+**Agentic video understanding** allows the model to dynamically navigate video content instead of having to process every frame statically. Agentic video understanding uses fewer tokens than static processing and can improve response quality. This can result in lower costs and faster responses for long-form video workloads.
+
+You can use agentic video understanding and static processing for different videos in the same request. For example, if you have long-form videos (such as an hour-long lecture) and short-form video content (like YouTube Shorts), you can use agentic video understanding on the long-form videos to target contextually relevant information and static processing on the short-form video content for frame-level precision.
+
+Video context must be preserved across turns in a conversation. When using agentic processing with the GenerateContent API, the response may include opaque steps ( `step_list` ) that encode video context. You must include these steps in the following turn to preserve context. If you omit them, the video context is lost and the model cannot answer follow-up questions about the video without reprocessing it.
+
+### Supported models and file types
+
+Agentic video understanding is supported in the following models:
+
+#### Click to expand supported models
+
+  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
+  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
+
+You can use the following sources when using agentic video understanding:
+
+  - YouTube URLs
+  - Cloud Storage URIs
+  - Inline Base64 encoded video files
+
+### When to use agentic video understanding
+
+If your use case is similar to one of the following examples, you may want to use agentic video understanding:
+
+  - **Long-form video Q\&A** : Ask questions about hour-long lectures, meetings, or video tutorials.
+  - **Multi-video comparison** : Compare multiple videos in a single request. You can use different processing modes for each video within the same request.
+  - **Video-powered agents** : Build agents that reason over video content with multi-turn conversation support. Video context is preserved across turns without reprocessing.
+  - **Cost optimization for video workloads** : Dramatically reduce token consumption for video-heavy applications.
+
+### Use agentic video understanding
+
+You can use agentic video understanding using the GenerateContent API. Use [`media_processing = "AGENTIC"`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#parts) in the request:
+
+### Python
+
+    from google import genai
+    from google.genai import types
+    
+    client = genai.Client()
+    
+    # Example: Controlling media_processing explicitly
+    video_part = types.Part(
+      file_data=types.FileData(
+          file_uri="gs://my-bucket-name/sports_clip.mp4",
+          mime_type="video/mp4",
+      ),
+      media_processing="agentic" # Options: "agentic", "static"
+    )
+    
+    response = client.models.generate_content(
+      model="gemini-3.7-flash",
+      contents=[
+          video_part,
+          "Analyze the player's footwork right before the shot."
+      ]
+    )
+    print(response.text)
+
+### REST
+
+    curl -X POST \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "Content-Type: application/json" \
+    https://aiplatform.googleapis.com/v1beta1/projects/YOUR_PROJECT_ID/locations/global/publishers/google/models/gemini-3.7-flash:generateContent \
+    -d '{
+      "contents": [
+        {
+          "role": "USER",
+          "parts": [
+            {
+              "fileData": {
+                "mimeType": "video/mp4",
+                "fileUri": "gs://my-bucket/lecture.mp4"
+              },
+              "mediaProcessing": "AGENTIC"
+            },
+            {
+              "text": "Summarize the key takeaways."
+            }
+          ]
+        }
+      ],
+      "generationConfig": {
+        "thinkingLevel": "MEDIUM"
+      }
+    }'
+
+> **Important:** Agentic video understanding is only available in `v1beta1` , not `v1` .
+
+Agentic video understanding is set to `STATIC` or disabled by default for all supported models.
+
 ## Adjust media resolution
 
 You can adjust [`MediaResolution`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MediaResolution) to process your videos with fewer tokens.

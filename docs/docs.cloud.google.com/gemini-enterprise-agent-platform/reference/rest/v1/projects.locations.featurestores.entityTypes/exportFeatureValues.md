@@ -42,7 +42,7 @@ Per-feature export settings.
 
 `mode` `Union type`
 
-Required. The mode in which Feature values are exported. `mode` can be only one of the following:
+Required. The mode in which Feature values are exported. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `snapshotExport` ` object ( SnapshotExport  ` )
 
@@ -51,6 +51,8 @@ Exports the latest feature values of all entities of the EntityType within a tim
 `fullExport` ` object ( FullExport  ` )
 
 Exports all historical values of all entities of the EntityType within a time range
+
+End of mutually exclusive fields.
 
 ### Response body
 

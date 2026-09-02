@@ -22,7 +22,7 @@ Step index of this data point within the run.
 
 `value` `Union type`
 
-Value of this time series data point. `value` can be only one of the following:
+Value of this time series data point. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `scalar` ` object ( Scalar  ` )
 
@@ -35,6 +35,8 @@ A tensor value.
 `blobs` ` object ( TensorboardBlobSequence  ` )
 
 A blob sequence value.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

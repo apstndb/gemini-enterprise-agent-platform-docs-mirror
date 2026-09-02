@@ -10,7 +10,7 @@ This page lists the supported locations for Google agents and agent infrastructu
 
 To see supported locations for generative AI models on Agent Platform, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
-[Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) , [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , and Agent Gateway are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
+[Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) , [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , and Agent Gateway are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
 
 | Region                                       | Location          | Supported versions                                                              |
 | -------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
@@ -39,12 +39,6 @@ To see supported locations for generative AI models on Agent Platform, see [Depl
 | `southamerica-east1`                         | São Paulo         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
 
 <sup>\*</sup> Memory Bank is not supported in this region. <sup>†</sup> Agent Gateway is not supported in this region.
-
-For [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , the following regions are supported.
-
-| Region        | Location | Supported versions              |
-| ------------- | -------- | ------------------------------- |
-| `us-central1` | Iowa     | `v1beta1` version is supported. |
 
 ## Multi-regional and global endpoints
 

@@ -62,7 +62,7 @@ Input only. Immutable. Customer-managed encryption key spec for a `CachedContent
 
 `expiration` `Union type`
 
-Expiration time of the cached content. `expiration` can be only one of the following:
+Expiration time of the cached content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -75,6 +75,8 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 Input only. The TTL for this resource. The expiration time is computed: now + TTL.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -233,7 +235,7 @@ Optional. Deprecated. This option is no longer supported.
 
 `source` `Union type`
 
-The source of the retrieval. `source` can be only one of the following:
+The source of the retrieval. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexAiSearch` ` object ( VertexAISearch  ` )
 
@@ -242,6 +244,8 @@ Set to use data source powered by Agent Platform Search.
 `vertexRagStore` ` object ( VertexRagStore  ` )
 
 Set to use data source powered by Vertex RAG store. user data is uploaded via the VertexRagDataService.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -457,7 +461,7 @@ Optional. String for metadata filtering.
 
 `vector_db_threshold` `Union type`
 
-Filter contexts retrieved from the vector DB based on either vector distance or vector similarity. `vector_db_threshold` can be only one of the following:
+Filter contexts retrieved from the vector DB based on either vector distance or vector similarity. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vectorDistanceThreshold` `number`
 
@@ -466,6 +470,8 @@ Optional. Only returns contexts with vector distance smaller than the threshold.
 `vectorSimilarityThreshold` `number`
 
 Optional. Only returns contexts with vector similarity larger than the threshold.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -498,7 +504,7 @@ Fields
 
 `ranking_config` `Union type`
 
-Config options for ranking. Currently only Rank Service is supported. `ranking_config` can be only one of the following:
+Config options for ranking. Currently only Rank Service is supported. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `rankService` ` object ( RankService  ` )
 
@@ -507,6 +513,8 @@ Optional. Config for Rank service.
 `llmRanker` ` object ( LlmRanker  ` )
 
 Optional. Config for LlmRanker.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

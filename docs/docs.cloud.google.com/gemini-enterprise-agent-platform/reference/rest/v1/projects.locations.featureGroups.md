@@ -54,11 +54,13 @@ Output only. A service Account unique to this FeatureGroup. The role bigquery.da
 
 `source` `Union type`
 
-`source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bigQuery` ` object ( BigQuery  ` )
 
 Indicates that features for this group come from BigQuery Table/View. By default treats the source as a sparse time series source. The BigQuery source table or view must have at least one entity id column and a column named `feature_timestamp` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

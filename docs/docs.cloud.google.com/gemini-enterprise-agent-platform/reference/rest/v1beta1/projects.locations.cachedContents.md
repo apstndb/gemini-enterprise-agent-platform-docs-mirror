@@ -62,7 +62,7 @@ Input only. Immutable. Customer-managed encryption key spec for a `CachedContent
 
 `expiration` `Union type`
 
-Expiration time of the cached content. `expiration` can be only one of the following:
+Expiration time of the cached content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -75,6 +75,8 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 Input only. The TTL for this resource. The expiration time is computed: now + TTL.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

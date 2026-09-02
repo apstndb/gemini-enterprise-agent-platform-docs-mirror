@@ -56,11 +56,13 @@ Required. Points to a YAML file stored on Google Cloud Storage describing the im
 
 `source` `Union type`
 
-The source of the input. `source` can be only one of the following:
+The source of the input. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
 The Google Cloud Storage location for the input content.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

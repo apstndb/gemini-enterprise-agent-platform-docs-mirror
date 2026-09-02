@@ -184,10 +184,16 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 
 ### Image generation specifications
 
-Gemini 3.1 Flash-Lite Image consumes 1120 input image tokens per input image. Gemini 3.1 Flash-Lite Image consumes 1120 output image tokens for 1K (roughly 1MP).
+Gemini 3.1 Flash-Lite Image consumes 1,120 tokens per input image.
+
+Output image token consumption varies based on the generated image resolution:
+
+| Output resolution | Approximate megapixels | Output image tokens |
+| ----------------- | ---------------------- | ------------------- |
+| 1K                | 1                      | 1,120               |
 
 Videos are sampled at 1 frame per second, and each video frame accounts for 70 tokens. Audio in video files isn't used.
 
-Additional charges for input and output tokens for other modalities such as text and video also apply. Refer to the pricing page for the latest.
+> **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) for the latest.
 
 For more information about image generation using Gemini 3.1 Flash-Lite Image, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) .

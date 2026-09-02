@@ -115,7 +115,7 @@ Fields
 
 `chunk_type` `Union type`
 
-The source of the grounding chunk, which can be from Google Search, Agent Platform Search, or Google Maps. `chunk_type` can be only one of the following:
+The source of the grounding chunk, which can be from Google Search, Agent Platform Search, or Google Maps. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `web` ` object ( Web  ` )
 
@@ -128,6 +128,8 @@ A grounding chunk from a data source retrieved by a retrieval tool, such as Agen
 `maps` ` object ( Maps  ` )
 
 A grounding chunk from Google Maps. See the `Maps` message for details.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -191,11 +193,13 @@ Fields
 
 `context_details` `Union type`
 
-Provides tool-specific details about the retrieved context. This allows for different types of retrieval tools to return their own specific metadata. `context_details` can be only one of the following:
+Provides tool-specific details about the retrieved context. This allows for different types of retrieval tools to return their own specific metadata. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `ragChunk` ` object ( RagChunk  ` )
 
 Additional context for a Retrieval-Augmented Generation (RAG) retrieval result. This is populated only when the RAG retrieval tool is used.
+
+End of mutually exclusive fields.
 
 `uri` `string`
 

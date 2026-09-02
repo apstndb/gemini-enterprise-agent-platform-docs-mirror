@@ -84,7 +84,7 @@ The MIME type of the image. The following values are supported: - image/jpeg - i
 
 `data` `Union type`
 
-Image content for virtual try-on. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location. `data` can be only one of the following:
+Image content for virtual try-on. The following values are supported: - A `bytesBase64` encoded string that encodes the image. - A `gcsUri` string URI to a Google Cloud Storage bucket location. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bytesBase64Encoded` `string`
 
@@ -93,6 +93,8 @@ The base64-encoded bytes of the image.
 `gcsUri` `string`
 
 The Google Cloud Storage URI of the image. The URI must be in `gs://` format.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

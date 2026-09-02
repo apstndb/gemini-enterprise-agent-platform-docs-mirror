@@ -101,7 +101,7 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 
 `resource` `Union type`
 
-`resource` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `mlEngineModelVersion` ` object ( MlEngineModelVersion  ` )
 
@@ -120,6 +120,8 @@ Output only. Represents one Dataset in automl.googleapis.com.
 > This item is deprecated\!
 
 Output only. Deprecated: data Labeling Dataset migration is no longer supported. Represents one Dataset in datalabeling.googleapis.com.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

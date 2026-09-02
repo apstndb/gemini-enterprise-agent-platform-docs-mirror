@@ -16,7 +16,7 @@ The data key associated with this response. Will only be populated for `  Featur
 
 `format` `Union type`
 
-`format` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `keyValues` ` object ( FeatureNameValuePairList  ` )
 
@@ -25,6 +25,8 @@ feature values in keyvalue format.
 `protoStruct` ` object ( Struct  ` format)
 
 feature values in proto Struct format.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -80,11 +82,13 @@ feature short name.
 
 `data` `Union type`
 
-`data` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `value` ` object ( FeatureValue  ` )
 
 feature value.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

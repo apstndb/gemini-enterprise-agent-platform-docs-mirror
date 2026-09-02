@@ -74,7 +74,7 @@ Fields
 
 `value` `Union type`
 
-The value of the metadata. `value` can be only one of the following:
+The value of the metadata. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `intValue` `string ( int64 format)`
 
@@ -99,6 +99,8 @@ value of boolean type metadata.
 `listValue` ` object ( MetadataList  ` )
 
 value of list type metadata.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

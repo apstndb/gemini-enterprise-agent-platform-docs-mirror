@@ -24,11 +24,13 @@ The overlap between chunks.
 
 `chunking_config` `Union type`
 
-Specifies the chunking config for RagFiles. `chunking_config` can be only one of the following:
+Specifies the chunking config for RagFiles. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `fixedLengthChunking` ` object ( FixedLengthChunking  ` )
 
 Specifies the fixed length chunking config.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

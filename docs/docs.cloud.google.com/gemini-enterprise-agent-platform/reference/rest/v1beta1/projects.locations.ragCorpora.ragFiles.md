@@ -54,7 +54,7 @@ Output only. The metadata for metadata search. The userMetadata Needs to be in J
 
 `rag_file_source` `Union type`
 
-The origin location of the RagFile if it is imported from Google Cloud Storage or Google Drive. `rag_file_source` can be only one of the following:
+The origin location of the RagFile if it is imported from Google Cloud Storage or Google Drive. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
@@ -79,6 +79,8 @@ The RagFile is imported from a Jira query.
 `sharePointSources` ` object ( SharePointSources  ` )
 
 The RagFile is imported from a SharePoint source.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -396,7 +398,7 @@ Output only. The SharePoint file id. Output only.
 
 `folder_source` `Union type`
 
-The SharePoint folder source. If not provided, uses "root". `folder_source` can be only one of the following:
+The SharePoint folder source. If not provided, uses "root". The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `sharepointFolderPath` `string`
 
@@ -406,9 +408,11 @@ The path of the SharePoint folder to download from.
 
 The id of the SharePoint folder to download from.
 
+End of mutually exclusive fields.
+
 `drive_source` `Union type`
 
-The SharePoint drive source. `drive_source` can be only one of the following:
+The SharePoint drive source. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `driveName` `string`
 
@@ -417,6 +421,8 @@ The name of the drive to download from.
 `driveId` `string`
 
 The id of the drive to download from.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

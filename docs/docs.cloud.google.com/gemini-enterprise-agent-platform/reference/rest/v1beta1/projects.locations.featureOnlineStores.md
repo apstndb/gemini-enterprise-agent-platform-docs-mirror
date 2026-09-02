@@ -68,7 +68,7 @@ Output only. reserved for future use.
 
 `storage_type` `Union type`
 
-`storage_type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bigtable` ` object ( Bigtable  ` )
 
@@ -77,6 +77,8 @@ Contains settings for the Cloud Bigtable instance that will be created to serve 
 `optimized` ` object ( Optimized  ` )
 
 Contains settings for the Optimized store that will be created to serve featureValues for all FeatureViews under this FeatureOnlineStore. When choose Optimized storage type, need to set `  PrivateServiceConnectConfig.enable_private_service_connect  ` to use private endpoint. Otherwise will use public endpoint by default.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

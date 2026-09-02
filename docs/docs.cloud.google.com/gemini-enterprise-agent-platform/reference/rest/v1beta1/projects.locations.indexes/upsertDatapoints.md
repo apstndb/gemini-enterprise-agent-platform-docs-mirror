@@ -191,7 +191,7 @@ This MUST be specified for queries and must NOT be specified for datapoints.
 
 `Value` `Union type`
 
-The type of Value must be consistent for all datapoints with a given namespace name. This is verified at runtime. `Value` can be only one of the following:
+The type of Value must be consistent for all datapoints with a given namespace name. This is verified at runtime. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `valueInt` `string ( int64 format)`
 
@@ -204,6 +204,8 @@ Represents 32 bit float.
 `valueDouble` `number`
 
 Represents 64 bit float.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

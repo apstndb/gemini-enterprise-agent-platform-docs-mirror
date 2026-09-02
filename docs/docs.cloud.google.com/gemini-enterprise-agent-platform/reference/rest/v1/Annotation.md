@@ -82,7 +82,7 @@ The method name of the API RPC call. For example, "/google.cloud.aiplatform.{api
 
 `reference` `Union type`
 
-`reference` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `operation` `string`
 
@@ -91,6 +91,8 @@ For API calls that return a long running operation. Resource name of the long ru
 `dataLabelingJob` `string`
 
 For API calls that start a LabelingJob. Resource name of the LabelingJob. Format: `projects/{project}/locations/{location}/dataLabelingJobs/{dataLabelingJob}`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

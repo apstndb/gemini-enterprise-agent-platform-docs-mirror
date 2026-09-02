@@ -12,11 +12,13 @@ Fields
 
 `response` `Union type`
 
-The response of the long running operation. `response` can be only one of the following:
+The response of the long running operation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `generateVideoResponse` ` object ( GenerateVideoResponse  ` )
 
 The response of the video generation prediction.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

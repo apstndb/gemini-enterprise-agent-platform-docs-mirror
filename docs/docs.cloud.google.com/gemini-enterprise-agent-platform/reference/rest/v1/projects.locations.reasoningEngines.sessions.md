@@ -50,7 +50,7 @@ Required. Immutable. String id provided by the user
 
 `expiration` `Union type`
 
-The expiration of the session. `expiration` can be only one of the following:
+The expiration of the session. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -63,6 +63,8 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 Optional. Input only. The TTL for this session. The minimum value is 24 hours.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

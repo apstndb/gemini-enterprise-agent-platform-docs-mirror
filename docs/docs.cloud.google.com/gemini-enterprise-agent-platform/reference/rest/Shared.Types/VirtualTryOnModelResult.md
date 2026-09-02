@@ -44,7 +44,7 @@ Supported values are: \* `image/png` \* `image/jpeg`
 
 `data` `Union type`
 
-The generated image data or filtering reason. `data` can be only one of the following:
+The generated image data or filtering reason. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bytesBase64Encoded` `string`
 
@@ -57,6 +57,8 @@ The Google Cloud Storage URI where the generated image is stored.
 `raiFilteredReason` `string`
 
 The reason why the generated image was filtered out by Responsible AI checks. If this field is present, no image is returned.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

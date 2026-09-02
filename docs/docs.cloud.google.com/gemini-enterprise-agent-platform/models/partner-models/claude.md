@@ -24,6 +24,12 @@ The following models are available from Anthropic to use in Gemini Enterprise Ag
 
 Anthropic's Claude models support Agent Platform request-response logging. Enable 30-day request-response logging of your prompt and completion activity to track any model misuse by your users. For more information, see [Log requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging) .
 
+### Claude Fable 5.1 on Google Cloud
+
+Claude Fable 5.1 on Google Cloud is optimized for autonomous knowledge work and coding, handling long-running, complex, and asynchronous tasks.
+
+**Retirement Date:** Not sooner than March 1, 2027.
+
 ### Claude Opus 5 on Google Cloud
 
 Claude Opus 5 on Google Cloud is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.

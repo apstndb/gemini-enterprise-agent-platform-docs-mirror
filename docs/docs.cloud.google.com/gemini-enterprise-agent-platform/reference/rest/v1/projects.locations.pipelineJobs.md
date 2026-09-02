@@ -260,7 +260,7 @@ Fields
 
 `details` `Union type`
 
-`details` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `containerDetail` ` object ( ContainerDetail  ` )
 
@@ -269,6 +269,8 @@ Output only. The detailed info for a container executor.
 `customJobDetail` ` object ( CustomJobDetail  ` )
 
 Output only. The detailed info for a custom job executor.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -528,7 +530,7 @@ Fields
 
 `value` `Union type`
 
-`value` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `intValue` `string ( int64 format)`
 
@@ -541,6 +543,8 @@ A double value.
 `stringValue` `string`
 
 A string value.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -591,11 +595,13 @@ Fields
 
 `kind` `Union type`
 
-`kind` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `artifactId` `string`
 
 Artifact resource id from MLMD. Which is the last portion of an artifact resource name: `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifactId}` . The artifact must stay within the same project, location and default metadatastore as the pipeline.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

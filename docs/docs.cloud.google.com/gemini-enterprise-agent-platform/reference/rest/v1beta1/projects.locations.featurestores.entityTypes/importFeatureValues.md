@@ -60,7 +60,7 @@ If true, API doesn't start ingestion analysis pipeline.
 
 `source` `Union type`
 
-Details about the source data, including the location of the storage and the format. `source` can be only one of the following:
+Details about the source data, including the location of the storage and the format. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `avroSource` ` object ( AvroSource  ` )
 
@@ -68,9 +68,11 @@ Details about the source data, including the location of the storage and the for
 
 `csvSource` ` object ( CsvSource  ` )
 
+End of mutually exclusive fields.
+
 `feature_time_source` `Union type`
 
-Source of Feature timestamp for all Feature values of each entity. Timestamps must be millisecond-aligned. `feature_time_source` can be only one of the following:
+Source of Feature timestamp for all Feature values of each entity. Timestamps must be millisecond-aligned. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `featureTimeField` `string`
 
@@ -81,6 +83,8 @@ Source column that holds the feature timestamp for all feature values in each en
 Single feature timestamp for all entities being imported. The timestamp must not have higher than millisecond precision.
 
 Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"` , `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"` .
+
+End of mutually exclusive fields.
 
 ### Response body
 

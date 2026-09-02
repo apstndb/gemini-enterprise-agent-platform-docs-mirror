@@ -42,7 +42,7 @@ Optional. The deploy config to use for the deployment. If not specified, the def
 
 `artifacts` `Union type`
 
-The artifacts to deploy. `artifacts` can be only one of the following:
+The artifacts to deploy. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `publisherModelName` `string`
 
@@ -55,6 +55,8 @@ The Hugging Face model to deploy. Format: Hugging Face model id like `google/gem
 `customModel` ` object ( CustomModel  ` )
 
 The custom model to deploy from a Google Cloud Storage URI.
+
+End of mutually exclusive fields.
 
 ### Response body
 
@@ -74,11 +76,13 @@ Optional. Deprecated. Use ModelConfig.model\_user\_id instead.
 
 `model_source` `Union type`
 
-The source of the custom model. `model_source` can be only one of the following:
+The source of the custom model. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsUri` `string`
 
 Immutable. The Google Cloud Storage URI of the custom model, storing weights and config files (which can be used to infer the base model).
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

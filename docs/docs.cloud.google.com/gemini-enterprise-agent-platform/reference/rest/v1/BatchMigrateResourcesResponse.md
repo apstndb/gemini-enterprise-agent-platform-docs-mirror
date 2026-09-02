@@ -42,7 +42,7 @@ Before migration, the identifier in ml.googleapis.com, automl.googleapis.com or 
 
 `migrated_resource` `Union type`
 
-After migration, the resource name in Agent Platform. `migrated_resource` can be only one of the following:
+After migration, the resource name in Agent Platform. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dataset` `string`
 
@@ -51,6 +51,8 @@ Migrated Dataset's resource name.
 `model` `string`
 
 Migrated Model's resource name.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

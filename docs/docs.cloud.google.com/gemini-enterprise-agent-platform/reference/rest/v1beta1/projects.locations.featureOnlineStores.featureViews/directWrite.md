@@ -110,7 +110,7 @@ feature short name.
 
 `data_oneof` `Union type`
 
-Feature value data to write. `data_oneof` can be only one of the following:
+Feature value data to write. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `value` ` object ( FeatureValue  ` )
 
@@ -119,6 +119,8 @@ feature value. A user provided timestamp may be set in the `FeatureValue.metadat
 `valueAndTimestamp` ` object ( FeatureValueAndTimestamp  ` )
 
 feature value and timestamp.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

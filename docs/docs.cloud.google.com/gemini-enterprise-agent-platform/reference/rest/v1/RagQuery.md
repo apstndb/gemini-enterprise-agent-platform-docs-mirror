@@ -16,11 +16,13 @@ Optional. The retrieval config for the query.
 
 `query` `Union type`
 
-The query to retrieve contexts. Currently only text query is supported. `query` can be only one of the following:
+The query to retrieve contexts. Currently only text query is supported. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` `string`
 
 Optional. The query in text format to get relevant contexts.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

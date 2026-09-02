@@ -12,7 +12,7 @@ Fields
 
 `strategy` `Union type`
 
-`strategy` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `column` `string`
 
@@ -25,6 +25,8 @@ Stride length used to generate input examples. Within one time series, every {$S
 `maxCount` `string ( int64 format)`
 
 Maximum number of windows that should be generated across all time series.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

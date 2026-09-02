@@ -162,7 +162,7 @@ Fields
 
 `kind` `Union type`
 
-`kind` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `value` ` object ( Value  ` )
 
@@ -175,6 +175,8 @@ A range of values for a numerical feature. Example: `{"range":{"low":10000.0,"hi
 `allValues` `boolean`
 
 If allValues is set to true, then all possible labels of the keyed feature will have another slice computed. Example: `{"allValues":{"value":true}}`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -200,7 +202,7 @@ Fields
 
 `kind` `Union type`
 
-`kind` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `stringValue` `string`
 
@@ -209,6 +211,8 @@ String type.
 `floatValue` `number`
 
 Float type.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -34,7 +34,7 @@ Optional. Contains instructions from the developer for the agent. Can be static 
 
 `tools_data` `Union type`
 
-Data for the tools available to the agent. `tools_data` can be only one of the following:
+Data for the tools available to the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `toolsText` `string`
 
@@ -43,6 +43,8 @@ A JSON string containing a list of tools available to an agent with info such as
 `tools` ` object ( Tools  ` )
 
 List of tools.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

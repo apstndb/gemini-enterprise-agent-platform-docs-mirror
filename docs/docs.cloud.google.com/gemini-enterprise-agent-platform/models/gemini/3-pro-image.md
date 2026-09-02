@@ -178,6 +178,16 @@ See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-pl
 
 ### Image generation specifications
 
-Gemini 3 Pro Image consumes 560 input image tokens per input image. Gemini 3 Pro Image consumes 1120 tokens for 1K (roughly 1MP) and 2K (roughly 4MP), and 2000 tokens for 4K (roughly 16MP). Additional charges for input and output tokens for other modalities such as text and video also apply. Refer to the pricing page for the latest.
+Gemini 3 Pro Image consumes 560 tokens per input image.
+
+Output image token consumption varies based on the generated image resolution:
+
+| Output resolution | Approximate megapixels | Output image tokens |
+| ----------------- | ---------------------- | ------------------- |
+| 1K                | 1                      | 1,120               |
+| 2K                | 4                      | 1,120               |
+| 4K                | 16                     | 2,000               |
+
+> **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) for the latest.
 
 For more information about image generation using Gemini 3 Pro Image, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) .

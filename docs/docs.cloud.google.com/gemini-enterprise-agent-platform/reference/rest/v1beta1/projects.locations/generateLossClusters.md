@@ -34,7 +34,7 @@ Required. Configuration for the analysis algorithm. Analysis for multiple metric
 
 `source` `Union type`
 
-The source of evaluation data to analyze. `source` can be only one of the following:
+The source of evaluation data to analyze. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `evaluationSet` `string`
 
@@ -43,6 +43,8 @@ Reference to a persisted EvaluationSet. The service will read items from this se
 `inlineResults` ` object ( EvaluationResultList  ` )
 
 Inline evaluation results. Useful for ephemeral analysis in notebooks/SDKs where data isn't persisted.
+
+End of mutually exclusive fields.
 
 ### Response body
 

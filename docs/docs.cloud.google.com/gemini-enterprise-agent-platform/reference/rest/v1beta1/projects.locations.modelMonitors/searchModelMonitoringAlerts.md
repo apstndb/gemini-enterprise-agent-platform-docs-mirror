@@ -144,11 +144,13 @@ algorithm used to calculated the metrics, eg: jensen\_shannon\_divergence, l\_in
 
 `anomaly` `Union type`
 
-`anomaly` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tabularAnomaly` ` object ( TabularAnomaly  ` )
 
 Tabular anomaly.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

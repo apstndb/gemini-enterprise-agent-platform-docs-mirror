@@ -124,11 +124,13 @@ Target dataset.
 
 `objective` `Union type`
 
-The monitoring objective. `objective` can be only one of the following:
+The monitoring objective. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tabularObjective` ` object ( TabularObjective  ` )
 
 Tabular monitoring objective.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

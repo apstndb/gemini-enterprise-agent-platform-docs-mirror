@@ -34,11 +34,13 @@ Optional. Example IDs to remove. If both metadata filters and Example IDs are sp
 
 `metadata_filter` `Union type`
 
-The metadata filters that will be used to select which examples should be removed. `metadata_filter` can be only one of the following:
+The metadata filters that will be used to select which examples should be removed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `storedContentsExampleFilter` ` object ( StoredContentsExampleFilter  ` )
 
 The metadata filters for StoredContentsExamples.
+
+End of mutually exclusive fields.
 
 ### Response body
 

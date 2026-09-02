@@ -10,6 +10,40 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 01, 2026
+
+Feature
+
+**Anthropic's Claude Fable 5.1 is now available**
+
+[Claude Fable 5.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5-1) is available in Model Garden.
+
+Change
+
+**Embedding SKUs are changing**
+
+Memory bank uses the following embedding model SKUs:
+
+  - 6E46-5623-C0B6
+  - C15D-A68F-5C1E
+  - 2D07-D52C-A93B
+
+For detailed information about individual SKUs, see [Google Cloud Platform SKUs](https://cloud.google.com/skus) .
+
+Feature
+
+**Agentic video processing now available in Preview**
+
+Gemini 3.5 Pro and later models now support agentic video processing, where the model dynamically navigates video content instead of extracting frames at a fixed rate. This reduces token usage for long-form video and improves answer quality. Set `processing: "agentic"` (Interactions API) or `media_processing: "AGENTIC"` (GenerateContent API) on video inputs, or use the model default.
+
+See [Video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding#agentic-video-processing) for details.
+
+Change
+
+**Pricing updates for agent metering**
+
+Session and memory bank compute metering is in effect for the Agent Platform compute SKU. For more information, see [Gemini Agent Platform Pricing](https://services.google.com/fh/files/emails/b_502770571_gemini_enterprise_agent_platform_pricing.pdf) .
+
 ## August 31, 2026
 
 Feature

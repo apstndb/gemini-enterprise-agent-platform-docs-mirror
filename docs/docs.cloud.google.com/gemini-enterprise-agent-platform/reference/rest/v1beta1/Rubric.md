@@ -50,11 +50,13 @@ Fields
 
 `content_type` `Union type`
 
-`content_type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `property` ` object ( Property  ` )
 
 Evaluation criteria based on a specific property.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

@@ -118,11 +118,13 @@ It defines the search space for Neural Architecture Search (NAS).
 
 `nas_algorithm_spec` `Union type`
 
-The Neural Architecture Search (NAS) algorithm specification. `nas_algorithm_spec` can be only one of the following:
+The Neural Architecture Search (NAS) algorithm specification. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `multiTrialAlgorithmSpec` ` object ( MultiTrialAlgorithmSpec  ` )
 
 The spec of multi-trial algorithms.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -326,11 +328,13 @@ Fields
 
 `output` `Union type`
 
-The output of this Neural Architecture Search (NAS) job. `output` can be only one of the following:
+The output of this Neural Architecture Search (NAS) job. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `multiTrialJobOutput` ` object ( MultiTrialJobOutput  ` )
 
 Output only. The output of this multi-trial Neural Architecture Search (NAS) job.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

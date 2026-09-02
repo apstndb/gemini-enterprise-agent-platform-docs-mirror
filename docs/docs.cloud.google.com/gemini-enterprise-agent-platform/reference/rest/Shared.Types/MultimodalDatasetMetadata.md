@@ -46,11 +46,13 @@ Fields
 
 `source` `Union type`
 
-The source of the input. We only support BigQuery as source for now. `source` can be only one of the following:
+The source of the input. We only support BigQuery as source for now. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `bigquerySource` ` object ( BigQuerySource  ` )
 
 BigQuery source table.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

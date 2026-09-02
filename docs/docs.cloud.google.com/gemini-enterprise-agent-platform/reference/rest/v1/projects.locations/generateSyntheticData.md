@@ -42,11 +42,13 @@ Optional. A list of few-shot examples that help the model understand the desired
 
 `strategy` `Union type`
 
-Specifies how the synthetic data should be generated. Choose one of the available strategies. `strategy` can be only one of the following:
+Specifies how the synthetic data should be generated. Choose one of the available strategies. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `taskDescription` ` object ( TaskDescriptionStrategy  ` )
 
 Generates synthetic data based on a high-level description of the task or data you want.
+
+End of mutually exclusive fields.
 
 ### Response body
 

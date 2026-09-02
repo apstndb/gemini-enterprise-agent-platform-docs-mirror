@@ -70,11 +70,13 @@ Output only. reserved for future use.
 
 `default_objective` `Union type`
 
-Optional default monitoring objective, it can be overridden in the ModelMonitoringJob objective spec. `default_objective` can be only one of the following:
+Optional default monitoring objective, it can be overridden in the ModelMonitoringJob objective spec. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `tabularObjective` ` object ( TabularObjective  ` )
 
 Optional default tabular model monitoring objective.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -100,11 +102,13 @@ Fields
 
 `source` `Union type`
 
-`source` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexModel` ` object ( VertexModelSource  ` )
 
 Model in Agent Platform Model Registry.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

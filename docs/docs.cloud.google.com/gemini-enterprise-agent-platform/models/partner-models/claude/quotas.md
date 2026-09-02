@@ -194,6 +194,14 @@ Quotas
 
 Context length
 
+Claude Fable 5.1 on Google Cloud
+
+`Multi-region`
+
+`Multi-region`
+
+`global endpoint`
+
 Claude Sonnet 5 on Google Cloud
 
 `Multi-region`

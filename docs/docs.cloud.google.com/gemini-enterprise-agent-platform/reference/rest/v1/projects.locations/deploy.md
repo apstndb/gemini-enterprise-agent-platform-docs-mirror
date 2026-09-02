@@ -42,7 +42,7 @@ Optional. The deploy config to use for the deployment. If not specified, the def
 
 `artifacts` `Union type`
 
-The artifacts to deploy. `artifacts` can be only one of the following:
+The artifacts to deploy. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `publisherModelName` `string`
 
@@ -51,6 +51,8 @@ The Model Garden model to deploy. Format: `publishers/{publisher}/models/{publis
 `huggingFaceModelId` `string`
 
 The Hugging Face model to deploy. Format: Hugging Face model id like `google/gemma-2-2b-it` .
+
+End of mutually exclusive fields.
 
 ### Response body
 

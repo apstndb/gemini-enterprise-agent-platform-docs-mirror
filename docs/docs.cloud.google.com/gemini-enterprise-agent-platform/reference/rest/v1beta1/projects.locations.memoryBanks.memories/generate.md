@@ -38,7 +38,7 @@ Optional. The scope of the memories that should be generated. Memories will be c
 
 `source` `Union type`
 
-Source content used to generate memories. `source` can be only one of the following:
+Source content used to generate memories. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexSessionSource` ` object ( VertexSessionSource  ` )
 
@@ -52,9 +52,11 @@ Defines a direct source of content as the source content from which to generate 
 
 Defines a direct source of memories that should be uploaded to Memory Bank. This is similar to `memories.create` , but it allows for consolidation between these new memories and existing memories for the same scope.
 
+End of mutually exclusive fields.
+
 `revision_expiration` `Union type`
 
-The expiration of the Memory Revisions created as a result of this request. If not set, Memory Bank will defer to `MemoryBankConfig.memory_revision_default_ttl` or the global default, 365 days. `revision_expiration` can be only one of the following:
+The expiration of the Memory Revisions created as a result of this request. If not set, Memory Bank will defer to `MemoryBankConfig.memory_revision_default_ttl` or the global default, 365 days. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `revisionExpireTime` ` string ( Timestamp  ` format)
 
@@ -67,6 +69,8 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 Optional. The TTL for the revision. The expiration time is computed: now + TTL.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 ### Response body
 

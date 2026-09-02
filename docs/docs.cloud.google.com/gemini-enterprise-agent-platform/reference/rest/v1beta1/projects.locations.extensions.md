@@ -132,7 +132,7 @@ Fields
 
 `api_spec` `Union type`
 
-`api_spec` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `openApiYaml` `string`
 
@@ -141,6 +141,8 @@ The API spec in Open API standard and YAML format.
 `openApiGcsUri` `string`
 
 Cloud Storage URI pointing to the OpenAPI spec.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -176,7 +178,7 @@ type of auth scheme.
 
 `auth_config` `Union type`
 
-`auth_config` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `apiKeyConfig` ` object ( ApiKeyConfig  ` )
 
@@ -197,6 +199,8 @@ Config for user oauth.
 `oidcConfig` ` object ( OidcConfig  ` )
 
 Config for user OIDC auth.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -350,7 +354,7 @@ Fields
 
 `oauth_config` `Union type`
 
-`oauth_config` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `accessToken` `string`
 
@@ -361,6 +365,8 @@ Access token for extension endpoint. Only used to propagate token from \[\[Execu
 The service account used to generate access tokens for executing the Extension.
 
   - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents> ) on the provided service account.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -392,7 +398,7 @@ Fields
 
 `oidc_config` `Union type`
 
-`oidc_config` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `idToken` `string`
 
@@ -405,6 +411,8 @@ The service account used to generate an OpenID Connect (OIDC)-compatible JWT tok
   - The audience for the token will be set to the URL in the server url defined in the OpenApi spec.
 
   - If the service account is provided, the service account should grant `iam.serviceAccounts.getOpenIdToken` permission to Agent Platform Extension service Agent ( <https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)> .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -506,7 +514,7 @@ The struct should be in a form of map with param name as the key and actual para
 
 `GoogleFirstPartyExtensionConfig` `Union type`
 
-Runtime configurations for Google first party extensions. `GoogleFirstPartyExtensionConfig` can be only one of the following:
+Runtime configurations for Google first party extensions. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `codeInterpreterRuntimeConfig` ` object ( CodeInterpreterRuntimeConfig  ` )
 
@@ -515,6 +523,8 @@ code execution runtime configurations for code interpreter extension.
 `vertexAiSearchRuntimeConfig` ` object ( VertexAISearchRuntimeConfig  ` )
 
 Runtime configuration for Agent Platform Search extension.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -622,7 +632,7 @@ Summary of the tool response to the user query.
 
 `Target` `Union type`
 
-Target tool to use. `Target` can be only one of the following:
+Target tool to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `extensionOperation` ` object ( ExtensionOperation  ` )
 
@@ -631,6 +641,8 @@ Extension operation to call.
 `functionName` `string`
 
 Function name to call.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
