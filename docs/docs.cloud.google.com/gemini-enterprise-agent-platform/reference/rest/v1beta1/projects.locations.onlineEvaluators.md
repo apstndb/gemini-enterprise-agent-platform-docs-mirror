@@ -66,11 +66,13 @@ The name can consist of any UTF-8 characters. The maximum length is `63` charact
 
 Required. The data source used to query samples for evaluations. More data sources will be supported in the future.
 
-This field is immutable. Once set, it cannot be changed. `data_source` can be only one of the following:
+The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `cloudObservability` ` object ( CloudObservability  ` )
 
 data source for the OnlineEvaluator, based on Google Cloud Observability stack (Cloud Trace & Cloud Logging).
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -96,29 +98,35 @@ Fields
 
 `logView` `string`
 
-Optional. Optional log view that will be used to query logs. If empty, the `_Default` view will be used.
+Optional. Optional log view that will be used to query logs. If empty, the project's default view ( `projects/{projectId}` ) will be used.
 
 `traceView` `string`
 
-Optional. Optional trace view that will be used to query traces. If empty, the `_Default` view will be used.
-
-NOTE: This field is not supported yet and will be ignored if set.
+Optional. Optional trace view that will be used to query traces. If empty, the `_AllSpans` view from `_Trace` US bucket will be used, i.e. `projects/{projectId}/locations/us/buckets/_Trace/datasets/Spans/views/_AllSpans` .
 
 `eval_scope` `Union type`
 
-Required. Defines the scope of data to be evaluated. `eval_scope` can be only one of the following:
+Required. Defines the scope of data to be evaluated.
+
+This field is immutable. Once set, it cannot be changed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `traceScope` ` object ( TraceScope  ` )
 
 scope online evaluation to single traces.
 
+End of mutually exclusive fields.
+
 `convention` `Union type`
 
-Required. Defines which convention the data source follows. `convention` can be only one of the following:
+Required. Defines which convention the data source follows.
+
+This field is immutable. Once set, it cannot be changed. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `openTelemetry` ` object ( OpenTelemetry  ` )
 
 data source follows OpenTelemetry convention.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -172,7 +180,7 @@ Fields
 
 `predicate` `Union type`
 
-The type of predicate. `predicate` can be only one of the following:
+The type of predicate. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `duration` ` object ( NumericPredicate  ` )
 
@@ -181,6 +189,8 @@ Filter on the duration of a trace (in seconds).
 `totalTokenUsage` ` object ( NumericPredicate  ` )
 
 Filter on the total token usage within a trace.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -298,7 +308,7 @@ Fields
 
 `metric_source` `Union type`
 
-The source of the metric. `metric_source` can be only one of the following:
+The source of the metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `metric` ` object ( Metric  ` )
 
@@ -307,6 +317,8 @@ Inline metric config.
 `metricResourceName` `string`
 
 Optional. Resource name for registered metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -336,11 +348,13 @@ Optional. The maximum number of evaluations to perform per run. If set to 0, the
 
 `sampling_method` `Union type`
 
-Required. The sampling method used to select traces for evaluation. `sampling_method` can be only one of the following:
+Required. The sampling method used to select traces for evaluation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `randomSampling` ` object ( RandomSampling  ` )
 
 Random sampling method.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

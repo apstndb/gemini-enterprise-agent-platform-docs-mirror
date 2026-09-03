@@ -22,6 +22,14 @@ Where `{service-endpoint}` is one of the [supported service endpoints](https://d
 
 Required. The resource name of the agent to delete. Format: `projects/{project}/locations/{location}/agents/{agent}` .
 
+### Query parameters
+
+`force` `boolean`
+
+Optional. If true, any `Task` belonging to this agent is deleted along with it. If false or unset and the agent still has at least one `Task` , the request fails with `FAILED_PRECONDITION` and nothing is deleted.
+
+This governs `Task` and nothing else. Resources the agent owns but a caller never named -- its AI Application and the tenant project bound to it, its Workspace identity, its service-extension binding -- are torn down with the agent on every delete, whatever this field says.
+
 ### Request body
 
 The request body must be empty.

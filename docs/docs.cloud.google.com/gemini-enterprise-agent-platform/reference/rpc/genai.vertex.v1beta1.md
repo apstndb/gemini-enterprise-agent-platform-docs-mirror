@@ -182,14 +182,12 @@ data_source: docs.cloud.google.com
   - `  SafetySetting.HarmBlockThreshold  ` (enum)
   - `  ServerToolCallDelta  ` (message)
   - `  ServerToolResultDelta  ` (message)
-  - `  SpeechConfig  ` (message)
   - `  Step  ` (message)
   - `  StepDelta  ` (message)
   - `  StepDeltaData  ` (message)
   - `  StepList  ` (message)
   - `  StepStart  ` (message)
   - `  StepStop  ` (message)
-  - `  StreamMetadata  ` (message)
   - `  Struct  ` (message)
   - `  TextAnnotationDelta  ` (message)
   - `  TextContent  ` (message)
@@ -241,6 +239,7 @@ data_source: docs.cloud.google.com
   - `  VideoResponseFormat  ` (message)
   - `  VideoResponseFormat.AspectRatio  ` (enum)
   - `  VideoResponseFormat.Delivery  ` (enum)
+  - `  VideoResponseFormat.Resolution  ` (enum)
   - `  WordInfo  ` (message)
 
 ## InteractionsHttpService
@@ -268,6 +267,15 @@ API that acts as the transcoder for users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -292,6 +300,15 @@ API that acts as the transcoder for users to interact with models and agents.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -319,6 +336,15 @@ API that acts as the transcoder for users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -344,6 +370,15 @@ API that acts as the transcoder for users to interact with models and agents.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -406,17 +441,21 @@ Configuration for the Antigravity agent runtime. Provides server-side control ov
 
 Fields
 
-`model`
-
-`string`
-
-The model to use for agent reasoning.
-
 `max_total_tokens`
 
 `int64`
 
 Max total tokens for the agent run.
+
+Union field `model_config` .
+
+`model_config` can be only one of the following:
+
+`model`
+
+`string`
+
+The model to use for agent reasoning.
 
 ## ArgumentsDelta
 
@@ -432,11 +471,11 @@ An audio content block.
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
-The mime type of the audio.
+Flexible MIME type string of the audio, superseding mime\_type = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mime\_type" JSON key.
 
 `channels`
 
@@ -1334,11 +1373,11 @@ A document content block.
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
-The mime type of the document.
+Flexible MIME type string of the document, superseding mime\_type = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mime\_type" JSON key.
 
 Union field `data_or_uri` . The document content. `data_or_uri` can be only one of the following:
 
@@ -1524,7 +1563,7 @@ Inline content.
 
 `REPOSITORY`
 
-A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, <gcs://)> .
+A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, gcs://).
 
 `SKILL_REGISTRY`
 
@@ -1684,7 +1723,7 @@ Fields
 
 `  FileSearchResult  `
 
-Optional. The results of the File Search.
+The results of the File Search.
 
 ## FileSearchResult
 
@@ -1926,12 +1965,6 @@ Whether to include thought summaries in the response.
 
 The maximum number of tokens to include in the response.
 
-`speech_config[]`
-
-`  SpeechConfig  `
-
-Configuration for speech interaction.
-
 ` image_config (deprecated)  `
 
 `  ImageConfig  `
@@ -1982,13 +2015,13 @@ Required. The name of the interaction to retrieve. Format: interactionsHttp/{int
 
 `bool`
 
-Optional. If true, streams the interaction events as Server-Sent Events.
+If true, streams the interaction events as Server-Sent Events.
 
 `last_event_id`
 
 `string`
 
-Optional. If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
+If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
 
 ` include_input (deprecated)  `
 
@@ -1996,7 +2029,7 @@ Optional. If set, resumes the interaction stream from the chunk after the event 
 
 > This item is deprecated\!
 
-Optional. If true, includes the input in the response.
+If true, includes the input in the response.
 
 ## GetInteractionRequest
 
@@ -2014,13 +2047,13 @@ Required. The name of the interaction to retrieve. Format: interactions/{interac
 
 `bool`
 
-Optional. If true, streams the interaction events as Server-Sent Events.
+If true, streams the interaction events as Server-Sent Events.
 
 `last_event_id`
 
 `string`
 
-Optional. If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
+If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
 
 ` include_input (deprecated)  `
 
@@ -2028,7 +2061,7 @@ Optional. If set, resumes the interaction stream from the chunk after the event 
 
 > This item is deprecated\!
 
-Optional. If true, includes the input in the response.
+If true, includes the input in the response.
 
 ## GoogleMaps
 
@@ -2484,11 +2517,11 @@ An image content block.
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
-The mime type of the image.
+Flexible MIME type string of the image, superseding mime\_type = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mime\_type" JSON key.
 
 `resolution`
 
@@ -2782,12 +2815,6 @@ Output only. The role of the interaction.
 
 Output only. Responses from the model.
 
-`system_instruction`
-
-`string`
-
-System instruction for the interaction.
-
 `tools[]`
 
 `  Tool  `
@@ -2844,9 +2871,25 @@ Safety settings for the interaction.
 
 `map<string, string>`
 
-Optional. The labels with user-defined metadata for the request. It is used for billing and reporting only.
+The labels with user-defined metadata for the request. It is used for billing and reporting only.
 
 Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
+
+`errors[]`
+
+`  Error  `
+
+Output only. Diagnostic faults / platform errors recorded on the interaction.
+
+Union field `system_instruction_config` .
+
+`system_instruction_config` can be only one of the following:
+
+`system_instruction`
+
+`string`
+
+System instruction for the interaction.
 
 Union field `input` . The input for the interaction. `input` can be only one of the following:
 
@@ -3200,12 +3243,6 @@ Fields
 
 The event\_id token to be used to resume the interaction stream, from this event.
 
-`metadata`
-
-`  StreamMetadata  `
-
-Optional metadata accompanying ANY streamed event.
-
 Union field `event_type` . The event data. `event_type` can be only one of the following:
 
 ` interaction_start_event (deprecated)  `
@@ -3242,21 +3279,27 @@ The interaction data, used for interaction.completed events. Used when steps are
 
 The interaction status data, used for interaction.status\_update events.
 
-`content_start`
+` content_start (deprecated)  `
 
 `  ContentStart  `
 
+> This item is deprecated\!
+
 The content block start data, used for content.start events. Legacy content-based streaming event, used when steps are disabled.
 
-`content_delta`
+` content_delta (deprecated)  `
 
 `  ContentDelta  `
 
+> This item is deprecated\!
+
 The content block delta data, used for content.delta events. Legacy content-based streaming event, used when steps are disabled.
 
-`content_stop`
+` content_stop (deprecated)  `
 
 `  ContentStop  `
+
+> This item is deprecated\!
 
 The content block stop data, used for content.stop events. Legacy content-based streaming event, used when steps are disabled.
 
@@ -3290,9 +3333,9 @@ The step stop data, used for step.stop events. Step-based streaming event, used 
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
 `rate`
 
@@ -3324,9 +3367,9 @@ Union field `data_or_uri` .
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
 Union field `data_or_uri` .
 
@@ -3346,9 +3389,9 @@ Union field `data_or_uri` .
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
 `resolution`
 
@@ -3386,13 +3429,17 @@ Fields
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
 `resolution`
 
 `  MediaResolution  `
+
+`name`
+
+`string`
 
 Union field `data_or_uri` .
 
@@ -3424,7 +3471,7 @@ Supported only by the Agent Platform Platform.
 
 `int32`
 
-Optional. The maximum number of `Interactions` to return (per page). The service may return fewer `Interactions` .
+The maximum number of `Interactions` to return (per page). The service may return fewer `Interactions` .
 
 If unspecified, at most 10 `Interactions` will be returned. The maximum size limit is 20 `Interactions` per page.
 
@@ -3432,7 +3479,7 @@ If unspecified, at most 10 `Interactions` will be returned. The maximum size lim
 
 `string`
 
-Optional. A page token, received from a previous `ListInteractions` call.
+A page token, received from a previous `ListInteractions` call.
 
 Provide the `next_page_token` returned in the response as an argument to the next request to retrieve the next page.
 
@@ -3454,7 +3501,7 @@ Supported only by the Agent Platform Platform.
 
 `int32`
 
-Optional. The maximum number of `Interactions` to return (per page). The service may return fewer `Interactions` .
+The maximum number of `Interactions` to return (per page). The service may return fewer `Interactions` .
 
 If unspecified, at most 10 `Interactions` will be returned. The maximum size limit is 20 `Interactions` per page. Note: Vertex API does supports page size up to 500.
 
@@ -3462,7 +3509,7 @@ If unspecified, at most 10 `Interactions` will be returned. The maximum size lim
 
 `string`
 
-Optional. A page token, received from a previous `ListInteractions` call.
+A page token, received from a previous `ListInteractions` call.
 
 Provide the `next_page_token` returned in the response as an argument to the next request to retrieve the next page.
 
@@ -3520,12 +3567,6 @@ Fields
 
 The name of the MCPServer.
 
-`url`
-
-`string`
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 `headers`
 
 `map<string, string>`
@@ -3537,6 +3578,16 @@ Optional: Fields for authentication headers, timeouts, etc., if needed.
 `  AllowedTools  `
 
 The allowed tools.
+
+Union field `transport` .
+
+`transport` can be only one of the following:
+
+`url`
+
+`string`
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 ## McpServerToolCallContent
 
@@ -3728,9 +3779,11 @@ Fields
 
 `  Content  `
 
-`error`
+` error (deprecated)  `
 
 `  Status  `
+
+> This item is deprecated\!
 
 The error result of the operation in case of failure or cancellation.
 
@@ -3914,7 +3967,7 @@ Union field `ranking_config` . Config options for ranking. `ranking_config` can 
 
 `  RankService  `
 
-Optional. Config for Rank Service.
+Config for Rank Service.
 
 ## RankService
 
@@ -4302,30 +4355,6 @@ Union field `type` .
 
 `  RetrievalResultDelta  `
 
-## SpeechConfig
-
-The configuration for speech interaction.
-
-Fields
-
-`voice`
-
-`string`
-
-The voice of the speaker.
-
-`language`
-
-`string`
-
-The language of the speech.
-
-`speaker`
-
-`string`
-
-The speaker's name, it should match the speaker name given in the prompt.
-
 ## Step
 
 A step in the interaction.
@@ -4499,14 +4528,6 @@ Cumulative model usage stats from the start of the session.
 `  Usage  `
 
 Model usage stats for this specific step.
-
-## StreamMetadata
-
-Fields
-
-`total_usage`
-
-`  Usage  `
 
 ## Struct
 
@@ -5170,23 +5191,33 @@ Configuration for speech recognition (transcription).
 
 Fields
 
-`timestamp_granularities[]`
-
-`string`
-
-Optional. The granularity of timestamps to include in the transcription output. Supported values: "word". If empty, no timestamps are generated.
-
-`diarization_mode`
-
-`string`
-
-Optional. Configures speaker diarization. Supported values: "speaker".
-
 `language_codes[]`
 
 `string`
 
 Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
+
+`custom_vocabulary[]`
+
+`string`
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
+` timestamp_granularities[] (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Optional. The granularity of timestamps to include in the transcription output. Supported values: "word". If empty, no timestamps are generated.
+
+` diarization_mode (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Optional. Configures speaker diarization. Supported values: "speaker".
 
 ` adaptation_phrases[] (deprecated)  `
 
@@ -5195,12 +5226,6 @@ Optional. BCP-47 language codes providing hints about the languages present in t
 > This item is deprecated\!
 
 Optional. A list of phrases to bias the ASR model towards.
-
-`custom_vocabulary[]`
-
-`string`
-
-Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
 
 ## Turn
 
@@ -5232,15 +5257,11 @@ The content of the turn. A single string.
 
 ## TurnList
 
+This type has no fields.
+
 > This item is deprecated\!
 
 A list of Turns.
-
-Fields
-
-`turns[]`
-
-`  Turn  `
 
 ## UrlCitation
 
@@ -5580,23 +5601,33 @@ Generates video using reference media (such as images, audio, or video).
 
 Modifies an existing input video.
 
+`EXTEND`
+
+Extends an existing input video.
+
 ## VideoContent
 
 A video content block.
 
 Fields
 
-`mime_type`
+`mime_type_string`
 
-`  MimeType  `
+`string`
 
-The mime type of the video.
+Flexible MIME type string of the video, superseding mime\_type = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mime\_type" JSON key.
 
 `resolution`
 
 `  MediaResolution  `
 
 The resolution of the media.
+
+`name`
+
+`string`
+
+A user-defined name for this content block. Can be referenced by the model in the final response.
 
 Union field `data_or_uri` . The video content. `data_or_uri` can be only one of the following:
 
@@ -5658,6 +5689,10 @@ WMV video format
 
 YouTube video format (internal)
 
+`TYPE_JPEG2000`
+
+JPEG 2000 video format
+
 ## VideoDelta
 
 Fields
@@ -5714,6 +5749,12 @@ The aspect ratio for the video output.
 
 The duration for the video output.
 
+`resolution`
+
+`  Resolution  `
+
+The video output resolution. Defaults to 720p.
+
 ## AspectRatio
 
 Supported aspect ratios for video output.
@@ -5749,6 +5790,32 @@ Video data is returned inline in the response.
 `URI`
 
 Video data is returned as a URI.
+
+## Resolution
+
+Supported resolutions for video output.
+
+Enums
+
+`RESOLUTION_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`RESOLUTION_THREE_SIXTY_P`
+
+360p resolution.
+
+`RESOLUTION_SEVEN_TWENTY_P`
+
+720p resolution.
+
+`RESOLUTION_TEN_EIGHTY_P`
+
+1080p resolution.
+
+`RESOLUTION_FOUR_K`
+
+4K resolution.
 
 ## WordInfo
 

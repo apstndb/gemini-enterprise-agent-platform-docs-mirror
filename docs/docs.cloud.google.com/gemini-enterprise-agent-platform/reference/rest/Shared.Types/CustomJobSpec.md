@@ -144,7 +144,7 @@ Disk spec.
 
 `task` `Union type`
 
-The custom task to be executed in this worker pool. `task` can be only one of the following:
+The custom task to be executed in this worker pool. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `containerSpec` ` object ( ContainerSpec  ` )
 
@@ -153,6 +153,8 @@ The custom container task.
 `pythonPackageSpec` ` object ( PythonPackageSpec  ` )
 
 The Python packaged task.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -294,7 +296,7 @@ Optional. Corresponds to the label key of a reservation resource. To target a SP
 
 `values[]` `string`
 
-Optional. Corresponds to the label values of a reservation resource. This must be the full resource name of the reservation or reservation block.
+Optional. Corresponds to the label values of a reservation resource. This must be the resource name of the reservation, reservation block, or reservation sub- block.
 
 <table>
 <colgroup>

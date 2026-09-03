@@ -2266,12 +2266,16 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">dataform.repositories.commit</code></li>
 <li><code dir="ltr" translate="no">dataform.  repositories.  computeAccessTokenStatus</code></li>
 <li><code dir="ltr" translate="no">dataform.repositories.create</code></li>
+<li><code dir="ltr" translate="no">dataform.  repositories.  createTagBinding</code></li>
 <li><code dir="ltr" translate="no">dataform.repositories.delete</code></li>
+<li><code dir="ltr" translate="no">dataform.  repositories.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">dataform.  repositories.  fetchHistory</code></li>
 <li><code dir="ltr" translate="no">dataform.  repositories.  fetchRemoteBranches</code></li>
 <li><code dir="ltr" translate="no">dataform.repositories.get</code></li>
 <li><code dir="ltr" translate="no">dataform.  repositories.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">dataform.repositories.list</code></li>
+<li><code dir="ltr" translate="no">dataform.  repositories.  listEffectiveTags</code></li>
+<li><code dir="ltr" translate="no">dataform.  repositories.  listTagBindings</code></li>
 <li><code dir="ltr" translate="no">dataform.repositories.move</code></li>
 <li><code dir="ltr" translate="no">dataform.  repositories.  queryDirectoryContents</code></li>
 <li><code dir="ltr" translate="no">dataform.repositories.readFile</code></li>
@@ -4001,23 +4005,17 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">vectorsearch.collections.list</code></li>
 <li><code dir="ltr" translate="no">vectorsearch.  collections.  update</code></li>
 </ul>
-<p><code dir="ltr" translate="no">vectorsearch.dataObjects.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">vectorsearch.  dataObjects.  create</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.  dataObjects.  delete</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.dataObjects.get</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.  dataObjects.  import</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.dataObjects.query</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.  dataObjects.  search</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.  dataObjects.  update</code></li>
-</ul>
-<p><code dir="ltr" translate="no">vectorsearch.indexes.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">vectorsearch.indexes.create</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.indexes.delete</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.indexes.get</code></li>
-<li><code dir="ltr" translate="no">vectorsearch.indexes.list</code></li>
-</ul>
+<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  create</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  delete</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.dataObjects.get</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  import</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.dataObjects.query</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  search</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.  dataObjects.  update</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.indexes.create</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.indexes.delete</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.indexes.get</code></p>
+<p><code dir="ltr" translate="no">vectorsearch.indexes.list</code></p>
 <p><code dir="ltr" translate="no">vectorsearch.operations.get</code></p>
 <p><code dir="ltr" translate="no">vectorsearch.operations.list</code></p></td>
 </tr>
@@ -6458,22 +6456,27 @@ Vertex AI Service Agent used by Vertex RAG to access user imported data, Vertex 
   - `vectorsearch.collections.list`
   - `vectorsearch. collections. update`
 
-`vectorsearch.dataObjects.*`
+`vectorsearch. dataObjects. create`
 
-  - `vectorsearch. dataObjects. create`
-  - `vectorsearch. dataObjects. delete`
-  - `vectorsearch.dataObjects.get`
-  - `vectorsearch. dataObjects. import`
-  - `vectorsearch.dataObjects.query`
-  - `vectorsearch. dataObjects. search`
-  - `vectorsearch. dataObjects. update`
+`vectorsearch. dataObjects. delete`
 
-`vectorsearch.indexes.*`
+`vectorsearch.dataObjects.get`
 
-  - `vectorsearch.indexes.create`
-  - `vectorsearch.indexes.delete`
-  - `vectorsearch.indexes.get`
-  - `vectorsearch.indexes.list`
+`vectorsearch. dataObjects. import`
+
+`vectorsearch.dataObjects.query`
+
+`vectorsearch. dataObjects. search`
+
+`vectorsearch. dataObjects. update`
+
+`vectorsearch.indexes.create`
+
+`vectorsearch.indexes.delete`
+
+`vectorsearch.indexes.get`
+
+`vectorsearch.indexes.list`
 
 `vectorsearch.operations.get`
 
@@ -8461,7 +8464,7 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `ml.jobs.list`
 
-`notebooks.*`
+`notebooks.environments.*`
 
   - `notebooks.environments.create`
   - `notebooks.environments.delete`
@@ -8469,38 +8472,74 @@ Provide access for notebooks service agent to manage notebook instances in user 
   - `notebooks. environments. getIamPolicy`
   - `notebooks.environments.list`
   - `notebooks. environments. setIamPolicy`
+
+`notebooks.executions.*`
+
   - `notebooks.executions.create`
   - `notebooks.executions.delete`
   - `notebooks.executions.get`
   - `notebooks. executions. getIamPolicy`
   - `notebooks.executions.list`
   - `notebooks. executions. setIamPolicy`
-  - `notebooks. instances. checkUpgradability`
-  - `notebooks.instances.create`
-  - `notebooks.instances.delete`
-  - `notebooks.instances.diagnose`
-  - `notebooks.instances.get`
-  - `notebooks.instances.getHealth`
-  - `notebooks. instances. getIamPolicy`
-  - `notebooks.instances.list`
-  - `notebooks.instances.reset`
-  - `notebooks. instances. setAccelerator`
-  - `notebooks. instances. setIamPolicy`
-  - `notebooks.instances.setLabels`
-  - `notebooks. instances. setMachineType`
-  - `notebooks.instances.start`
-  - `notebooks.instances.stop`
-  - `notebooks.instances.update`
-  - `notebooks. instances. updateConfig`
-  - `notebooks. instances. updateShieldInstanceConfig`
-  - `notebooks.instances.upgrade`
-  - `notebooks.instances.use`
+
+`notebooks. instances. checkUpgradability`
+
+`notebooks.instances.create`
+
+`notebooks.instances.delete`
+
+`notebooks.instances.diagnose`
+
+`notebooks.instances.get`
+
+`notebooks.instances.getHealth`
+
+`notebooks. instances. getIamPolicy`
+
+`notebooks.instances.list`
+
+`notebooks. instances. listEffectiveTags`
+
+`notebooks. instances. listTagBindings`
+
+`notebooks.instances.reset`
+
+`notebooks. instances. setAccelerator`
+
+`notebooks. instances. setIamPolicy`
+
+`notebooks.instances.setLabels`
+
+`notebooks. instances. setMachineType`
+
+`notebooks.instances.start`
+
+`notebooks.instances.stop`
+
+`notebooks.instances.update`
+
+`notebooks. instances. updateConfig`
+
+`notebooks. instances. updateShieldInstanceConfig`
+
+`notebooks.instances.upgrade`
+
+`notebooks.instances.use`
+
+`notebooks.locations.*`
+
   - `notebooks.locations.get`
   - `notebooks.locations.list`
+
+`notebooks.operations.*`
+
   - `notebooks.operations.cancel`
   - `notebooks.operations.delete`
   - `notebooks.operations.get`
   - `notebooks.operations.list`
+
+`notebooks.runtimes.*`
+
   - `notebooks.runtimes.create`
   - `notebooks.runtimes.delete`
   - `notebooks.runtimes.diagnose`
@@ -8514,6 +8553,9 @@ Provide access for notebooks service agent to manage notebook instances in user 
   - `notebooks.runtimes.switch`
   - `notebooks.runtimes.update`
   - `notebooks.runtimes.upgrade`
+
+`notebooks.schedules.*`
+
   - `notebooks.schedules.create`
   - `notebooks.schedules.delete`
   - `notebooks.schedules.get`

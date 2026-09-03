@@ -95,6 +95,6 @@ An object containing fields of an arbitrary type. An additional field `"@type"` 
 
 Creates an interaction and streams the response.
 
-### `            delete           `
+### `            delete             (deprecated)  `
 
 Deletes an interaction.

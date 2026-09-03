@@ -38,7 +38,9 @@ Output only. The object type of the resource. For agents, the value is `agent` .
 
 `base_agent` `string`
 
-Required. The base agent for the agent. Supported values: \* `antigravity-preview-05-2026`
+Required. Immutable. The base agent for the agent. Supported values: \* `antigravity-preview-05-2026`
+
+Immutable: `agents.patch` rejects a change, including clearing it. The kind of agent this is gets derived from this field when the agent is created and is recorded then; nothing recomputes it afterwards, so a later change would leave the agent described as one kind and behaving as another. Create a new agent instead.
 
 `metadata` `map (key: string, value: string)`
 
@@ -58,7 +60,7 @@ Optional. The tools available to the agent.
 
 `environment` `Union type`
 
-The environment configuration for the agent. `environment` can be only one of the following:
+The environment configuration for the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `base_environment` ` value ( Value  ` format)
 
@@ -66,6 +68,8 @@ Optional. The base environment configuration for the agent. Valid types:
 
   - A string value for the environment id, or `remote` for the default.
   - A struct value for the `environment_config` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -94,6 +98,7 @@ Fields
 Required. The type of the tool. Supported types:
 
   - `code_execution`
+  - `endpoint`
   - `filesystem`
   - `google_search`
   - `mcp_server`
@@ -101,11 +106,11 @@ Required. The type of the tool. Supported types:
 
 `name` `string`
 
-Optional. The name of the MCP server. Only applicable when `type` is `mcp_server` .
+Optional. The tool's Google Cloud resource name, used to resolve the tool. Applicable when `type` is `mcp_server` or `endpoint` (a tool registered in Agent Registry), for example `projects/{project}/locations/{location}/.../mcpServers/{id}` or `projects/{project}/locations/{location}/.../endpoints/{id}` .
 
 `url` `string`
 
-Optional. The URL for the MCP server endpoint. Only applicable when `type` is `mcp_server` .
+Optional. Temporary: the tool's runtime reference, consumed by agents.create to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` . It is duplicated here (the resource name is already in `name` ) only because the Agent service is not yet connected to Agent Registry to derive it from `name` ; the Task service instead resolves it from Agent Registry (GetMcpServer / GetEndpoint) at task creation.
 
 `headers` `map (key: string, value: string)`
 
@@ -151,7 +156,7 @@ Retrieves an agent.
 
 ### `            list           `
 
-Lists agents in a location.
+Lists the agents in a location that belong to the caller.
 
 ### `            patch           `
 

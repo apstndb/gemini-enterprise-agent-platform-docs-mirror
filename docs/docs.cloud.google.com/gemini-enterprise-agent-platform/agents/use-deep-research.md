@@ -65,9 +65,14 @@ You can access the Gemini Deep Research Agent using the global endpoint ( **v1be
 
 ## Start a Deep Research task
 
-Research tasks involve iterative searching and reading, and can take several minutes to complete. You must run the Gemini Deep Research Agent asynchronously.
+Research tasks involve iterative searching and reading, and can take several minutes to complete. You must run Gemini Deep Research Agent asynchronously by setting `background` to `True` .
 
-You must use background execution and streaming mode. To do this, set the `background` and `stream` fields to `True` in the response configuration when you run the agent. The API returns a partial `Interaction` object immediately. You can use the `id` property to retrieve an interaction for polling. The interaction state will transition from `in_progress` to `completed` or `failed` .
+You can use Gemini Deep Research Agent with or without streaming:
+
+  - **Polling (non-streaming)** : Set `background=True` (and optionally `stream=False` ). The API returns an `Interaction` object immediately. You can use the `id` property to poll the interaction until the state transitions from `in_progress` to `completed` or `failed` .
+  - **Streaming** : Set `background=True` and `stream=True` to receive real-time updates as the research progresses. For more information, see [Streaming](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research#streaming) .
+
+You can also configure the agent to use the [deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) , which automatically schedules background jobs for off-peak hours at a 50% discount rate. To use the deferred tier, `stream` must be set to `False` during task creation.
 
 ### Python
 
@@ -81,7 +86,8 @@ interaction = client.interactions.create(
   input="Analyze competitive positioning for solar energy providers.",
   agent="deep-research-preview-04-2026",
   background=True,
-  stream=False
+  stream=False,
+  service_tier="deferred"
 )
 
 print(f"Research started: {interaction.id}")
@@ -110,15 +116,16 @@ curl --max-time 3600 --keepalive-time 10 -X POST \
       "input": "Research the history of Google TPUs.",
       "agent": "deep-research-preview-04-2026",
       "background": true,
-      "stream": true
+      "stream": false,
+      "service_tier": "deferred"
     }'
 ```
 
-The API returns an `interaction_id` immediately. This ID is required to reconnect to the stream.
+The API returns an `interaction_id` immediately. You can use this ID to poll for status or reconnect to a stream.
 
 ## Streaming
 
-Deep Research supports streaming to receive real-time updates on research progress including thought summaries, text output, and generated images. You must set `background=True` and `stream=True` .
+Deep Research supports streaming to receive real-time updates on research progress including thought summaries, text output, and generated images. When using streaming, set `background=True` and `stream=True` .
 
 The following example starts a research task and processes the stream with automatic reconnection. It tracks the `interaction_id` and `last_event_id` so that if the connection drops, it can resume from where it left off.
 
@@ -381,13 +388,14 @@ post `https: / /aiplatform.googleapis.com /v1beta1 /{parent}/interactions`
 
 Request body parameters can include the following:
 
-| Parameter    | Type                | Description                                                                                          |
-| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `agent`      | `string`            | Required. Specifies the agent ID code (such as `deep-research-preview-04-2026` ).                    |
-| `background` | `boolean`           | Required. Runs the interaction asynchronously. Must be set to `true` .                               |
-| `stream`     | `boolean`           | Required. Enables streaming. Must be set to `true` .                                                 |
-| `input`      | `array` or `string` | Required. A list containing user input. Only a single object is supported.                           |
-| `tools`      | `array`             | Overrides the default tools. Supports `google_search` , `external_data_mcp` , `vertex_search` , etc. |
+| Parameter      | Type                | Description                                                                                                                                                                                                             |
+| -------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `agent`        | `string`            | Required. Specifies the agent ID code (such as `deep-research-preview-04-2026` ).                                                                                                                                       |
+| `background`   | `boolean`           | Required. Runs the interaction asynchronously. Must be set to `true` .                                                                                                                                                  |
+| `stream`       | `boolean`           | Optional. Enables streaming. Defaults to `false` .                                                                                                                                                                      |
+| `input`        | `array` or `string` | Required. A list containing user input. Only a single object is supported.                                                                                                                                              |
+| `tools`        | `array`             | Overrides the default tools. Supports `google_search` , `external_data_mcp` , `vertex_search` , etc.                                                                                                                    |
+| `service_tier` | `string`            | Set to `deferred` to use the [deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) , which automatically schedules background jobs for off-peak hours. |
 
 ## Timeouts and error handling
 
@@ -432,6 +440,8 @@ Consider the following limitations as you plan your project:
 ## Pricing
 
 Deep Research uses Gemini's advanced reasoning features to perform multi-step agentic research tasks. Billing comprises model usage (tokens) and tool execution (search and grounding).
+
+For background jobs, you can use the [deferred tier](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) for a discount.
 
 For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) .
 

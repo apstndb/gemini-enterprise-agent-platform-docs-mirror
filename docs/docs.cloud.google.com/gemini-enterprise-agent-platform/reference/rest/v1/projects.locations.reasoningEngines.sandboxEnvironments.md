@@ -62,7 +62,7 @@ Optional. The resource name of the SandboxEnvironmentSnapshot to use for creatin
 
 `expiration` `Union type`
 
-The expiration of the SandboxEnvironment. If not set, the SandboxEnvironment will not be automatically deleted. `expiration` can be only one of the following:
+The expiration of the SandboxEnvironment. If not set, the SandboxEnvironment will not be automatically deleted. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -75,6 +75,8 @@ Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 
 Optional. Input only. The TTL for the sandbox environment. The expiration time is computed: now + TTL.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -122,6 +124,22 @@ Sandbox has terminated with underlying runtime failure.
 
 Sandbox runtime has been deleted.
 
+`STATE_PAUSED`
+
+Sandbox runtime is paused.
+
+`STATE_PAUSING`
+
+Sandbox runtime is pausing.
+
+`STATE_RESUMING`
+
+Sandbox runtime is resuming.
+
+`STATE_STOPPING`
+
+Sandbox runtime is stopping.
+
 ## SandboxEnvironmentSpec
 
 The specification of a SandboxEnvironment.
@@ -130,11 +148,17 @@ Fields
 
 `sandbox_environment_category` `Union type`
 
-The supported sandbox runtime environment categories. `sandbox_environment_category` can be only one of the following:
+The supported sandbox runtime environment categories. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `codeExecutionEnvironment` ` object ( CodeExecutionEnvironment  ` )
 
 Optional. The code execution environment.
+
+`shellEnvironment` ` object ( ShellEnvironment  ` )
+
+Optional. The shell environment for executing shell commands and scripts.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -147,7 +171,7 @@ Optional. The code execution environment.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// sandbox_environment_category&quot;codeExecutionEnvironment&quot;: {object (CodeExecutionEnvironment)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// sandbox_environment_category&quot;codeExecutionEnvironment&quot;: {object (CodeExecutionEnvironment)},&quot;shellEnvironment&quot;: {object (ShellEnvironment)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -214,6 +238,12 @@ The coding language is Python.
 
 The coding language is JavaScript.
 
+## ShellEnvironment
+
+This type has no fields.
+
+The shell environment.
+
 ## ConnectionInfo
 
 The connection information of the SandboxEnvironment.
@@ -236,6 +266,10 @@ Output only. The internal IP address of the SandboxEnvironment.
 
 Output only. The routing token for the SandboxEnvironment.
 
+`serviceAttachment` `string`
+
+Output only. The name of the PSC-E service attachment created for private ingress to this SandboxEnvironment. Only populated when the template enables private ingress (see SandboxEnvironmentTemplate.ingress\_control\_config). VPC-SC customers use this to create a PSC endpoint in their VPC.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -251,13 +285,18 @@ Output only. The routing token for the SandboxEnvironment.
   &quot;loadBalancerIp&quot;: string,
   &quot;loadBalancerHostname&quot;: string,
   &quot;sandboxInternalIp&quot;: string,
-  &quot;routingToken&quot;: string
+  &quot;routingToken&quot;: string,
+  &quot;serviceAttachment&quot;: string
 }</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 ## Methods
+
+### `            authorizeAccess           `
+
+Checks whether the caller is authorized to access the sandbox environment.
 
 ### `            create           `
 

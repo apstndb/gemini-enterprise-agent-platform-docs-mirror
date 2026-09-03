@@ -1066,6 +1066,10 @@ Lists TrainingPipelines in a Location.
 
 Methods
 
+`  DeleteResponse  `
+
+Deletes the response from the endpoint.
+
 `  DirectPredict  `
 
 Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
@@ -1085,6 +1089,10 @@ Perform an online explanation.
 `  GenerateContent  `
 
 Generate content with multimodal inputs.
+
+`  GetResponse  `
+
+Gets the response from the endpoint.
 
 `  Predict  `
 
@@ -1178,6 +1186,10 @@ Updates a reasoning engine.
 ## `        google.cloud.aiplatform.v1.SandboxEnvironmentExecutionService       `
 
 Methods
+
+`  AuthorizeSandboxEnvironmentAccess  `
+
+Checks whether the caller is authorized to access the sandbox environment.
 
 `  ExecuteCode  `
 
@@ -1653,7 +1665,7 @@ Retrieves an agent.
 
 `  ListAgents  `
 
-Lists agents in a location.
+Lists the agents in a location that belong to the caller.
 
 `  UpdateAgent  `
 
@@ -3143,6 +3155,14 @@ Updates a reasoning engine.
 
 Methods
 
+`  AuthorizeSandboxEnvironmentAccess  `
+
+Checks whether the caller is authorized to access the sandbox environment.
+
+`  BidiExecuteSandboxEnvironment  `
+
+Executes using a sandbox environment with bidirectional streaming.
+
 `  ExecuteCode  `
 
 Executes code statelessly.
@@ -3727,7 +3747,8 @@ Generates a set of responses from the model.
 
 Creates an interaction and streams the response.
 
-`  DeleteInteraction  `
+`  DeleteInteraction  `  
+**(deprecated)**
 
 Deletes an interaction.
 

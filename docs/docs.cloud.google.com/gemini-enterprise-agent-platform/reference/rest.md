@@ -584,6 +584,20 @@ Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freein
 `POST /v1/{endpoint.name}:update`  
 Updates an Endpoint with a long running operation.
 
+## REST Resource: [v1.projects.locations.endpoints.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints.responses)
+
+Methods
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes the response from the endpoint.
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets the response from the endpoint.
+
 ## REST Resource: [v1.projects.locations.featureGroups](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureGroups)
 
 Methods
@@ -1719,6 +1733,20 @@ Generate content with multimodal inputs with streaming support.
 `POST /v1/{endpoint}:streamRawPredict`  
 Perform a streaming online prediction with an arbitrary HTTP payload.
 
+## REST Resource: [v1.projects.locations.publishers.v1.responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.publishers.v1.responses)
+
+Methods
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes the response from the endpoint.
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets the response from the endpoint.
+
 ## REST Resource: [v1.projects.locations.ragCorpora](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.ragCorpora)
 
 Methods
@@ -1806,6 +1834,11 @@ Executes code statelessly.
 `GET /v1/{name}`  
 Gets a reasoning engine.
 
+`  getIamPolicy  `
+
+`POST /v1/{resource}:getIamPolicy`  
+Gets the access control policy for a resource.
+
 `  list  `
 
 `GET /v1/{parent}/reasoningEngines`  
@@ -1821,10 +1854,20 @@ Updates a reasoning engine.
 `POST /v1/{name}:query`  
 Queries using a reasoning engine.
 
+`  setIamPolicy  `
+
+`POST /v1/{resource}:setIamPolicy`  
+Sets the access control policy on the specified resource.
+
 `  streamQuery  `
 
 `POST /v1/{name}:streamQuery`  
 Streams queries using a reasoning engine.
+
+`  testIamPermissions  `
+
+`POST /v1/{resource}:testIamPermissions`  
+Returns permissions that a caller has on the specified resource.
 
 ## REST Resource: [v1.projects.locations.reasoningEngines.runtimeRevisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.runtimeRevisions)
 
@@ -1886,6 +1929,11 @@ Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
 ## REST Resource: [v1.projects.locations.reasoningEngines.sandboxEnvironments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments)
 
 Methods
+
+`  authorizeAccess  `
+
+`POST /v1/{name}:authorizeAccess`  
+Checks whether the caller is authorized to access the sandbox environment.
 
 `  create  `
 
@@ -2575,7 +2623,7 @@ Retrieves an agent.
 `  list  `
 
 `GET /v1beta1/{parent}/agents`  
-Lists agents in a location.
+Lists the agents in a location that belong to the caller.
 
 `  patch  `
 
@@ -3612,10 +3660,29 @@ Methods
 `POST /v1beta1/projects/*/locations/*/interactions:createStream`  
 Creates an interaction and streams the response.
 
-`  delete  `
+`  delete (deprecated)  `
 
 `DELETE /v1beta1/{name}`  
 Deletes an interaction.
+
+## REST Resource: [v1beta1.projects.locations.interactionsHttp](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.interactionsHttp)
+
+Methods
+
+`  cancel  `
+
+`POST /v1beta1/{name}/cancel`  
+Cancels an interaction.
+
+`  create  `
+
+`POST /v1beta1/{parent}/interactionsHttp`  
+Generates a set of responses from the model.
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets an interaction.
 
 ## REST Resource: [v1beta1.projects.locations.memoryBanks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks)
 
@@ -4583,6 +4650,11 @@ Executes code statelessly.
 `GET /v1beta1/{name}`  
 Gets a reasoning engine.
 
+`  getIamPolicy  `
+
+`POST /v1beta1/{resource}:getIamPolicy`  
+Gets the access control policy for a resource.
+
 `  list  `
 
 `GET /v1beta1/{parent}/reasoningEngines`  
@@ -4598,10 +4670,20 @@ Updates a reasoning engine.
 `POST /v1beta1/{name}:query`  
 Queries using a reasoning engine.
 
+`  setIamPolicy  `
+
+`POST /v1beta1/{resource}:setIamPolicy`  
+Sets the access control policy on the specified resource.
+
 `  streamQuery  `
 
 `POST /v1beta1/{name}:streamQuery`  
 Streams queries using a reasoning engine.
+
+`  testIamPermissions  `
+
+`POST /v1beta1/{resource}:testIamPermissions`  
+Returns permissions that a caller has on the specified resource.
 
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.feedbackEntries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.feedbackEntries)
 
@@ -4766,6 +4848,16 @@ Lists `  SandboxEnvironmentTemplate  ` s in a given reasoning engine.
 ## REST Resource: [v1beta1.projects.locations.reasoningEngines.sandboxEnvironments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.reasoningEngines.sandboxEnvironments)
 
 Methods
+
+`  authorizeAccess  `
+
+`POST /v1beta1/{name}:authorizeAccess`  
+Checks whether the caller is authorized to access the sandbox environment.
+
+`  bidiExecute  `
+
+`POST /v1beta1/{name}:bidiExecute`  
+Executes using a sandbox environment with bidirectional streaming.
 
 `  create  `
 

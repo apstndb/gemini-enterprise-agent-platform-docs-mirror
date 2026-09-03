@@ -37,6 +37,15 @@ API that allows users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -89,6 +98,15 @@ API that allows users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -114,6 +132,15 @@ API that allows users to interact with models and agents.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -141,6 +168,15 @@ API that allows users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -157,7 +193,10 @@ API that allows users to interact with models and agents.
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc DeleteInteraction(              DeleteInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             DeleteInteractionResponse            </code> )</p>
+<td><blockquote>
+<p>This item is deprecated!</p>
+</blockquote>
+<p><code dir="ltr" translate="no">rpc DeleteInteraction(              DeleteInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             DeleteInteractionResponse            </code> )</p>
 <p>Deletes an interaction.</p>
 <dl>
 <dt>Authorization scopes</dt>
@@ -166,6 +205,15 @@ API that allows users to interact with models and agents.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -192,6 +240,15 @@ API that allows users to interact with models and agents.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -245,6 +302,15 @@ API that allows users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -270,6 +336,15 @@ API that allows users to interact with models and agents.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
 </dl></td>
 </tr>
@@ -297,6 +372,15 @@ API that allows users to interact with models and agents.
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">parent</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
 </dl></td>
 </tr>
 </tbody>
@@ -307,3 +391,5 @@ API that allows users to interact with models and agents.
 ## VoicesService
 
 VoicesService defines typed RPCs for future SDK generation. NOTE: No handlers are currently registered for these RPCs. All traffic is served via VoicesHttpService (the HttpBody-wrapping service). When handlers are added, the scaffolding\_registration\_test in labs/language/genai/Voices/ must be updated to include "VoicesService" in its services argument.
+
+Because this service ships in the same proto\_library as VoicesHttpService, both are registered into the live ESF config together. A method here must therefore NOT declare a method\_http\_map matching one of VoicesHttpService's REST templates: ESF resolves on (path, verb), and two methods claiming one route make it reject every request to that route as ambiguous rather than pick one. Every method below uses a distinct custom-verb suffix (":create", ":get", ":list", ":delete") so its REST template never matches VoicesHttpService's bare-path templates, mirroring the convention InteractionsService's typed RPCs use for the same reason (e.g. ListInteractions -\> "interactions:list").

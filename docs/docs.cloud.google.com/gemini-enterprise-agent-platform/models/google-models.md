@@ -8,15 +8,15 @@ data_source: docs.cloud.google.com
 
 ## Featured Gemini models
 
-3.7 Flash
+3.8 Flash
 
-Enhanced efficiency and practical reasoning, helping you build and iterate with greater ease
+Built for long-horizon coding and autonomous agents
 
-  - Greater token efficiency
+  - Improved response quality
   - More reliable code generation
   - Stronger multimodal reasoning
 
-[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
+[](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 
 3.5 Flash-Lite
 
@@ -40,7 +40,9 @@ Turn ideas into production-ready assets
 
 ## Generally available Gemini models
 
-spark [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) Optimized for complex, multi-step workflows, improved code generation, and improved multimodal reasoning—all while using fewer tokens.
+spark [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) Our most intelligent workhorse model yet, built for long-horizon coding and autonomous agents.
+
+spark [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) Our intelligent everyday driver for developers, delivering a step forward in software engineering and feeling distinctly better to build with.
 
 spark [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash) Optimized for complex, multi-step workflows, improved code generation, and improved multimodal reasoning—all while using fewer tokens.
 

@@ -38,9 +38,10 @@ When an API method normally takes long time to complete, it can be designed to r
 <p>Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns <code dir="ltr" translate="no">google.rpc.Code.UNIMPLEMENTED</code> . Clients can use <code dir="ltr" translate="no">            Operations.GetOperation           </code> or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an <code dir="ltr" translate="no">            Operation.error           </code> value with a <code dir="ltr" translate="no">            google.rpc.Status.code           </code> of <code dir="ltr" translate="no">1</code> , corresponding to <code dir="ltr" translate="no">Code.CANCELLED</code> .</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -90,9 +91,10 @@ When an API method normally takes long time to complete, it can be designed to r
 <p>Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -116,9 +118,10 @@ When an API method normally takes long time to complete, it can be designed to r
 <p>Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns <code dir="ltr" translate="no">UNIMPLEMENTED</code> .</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -142,9 +145,10 @@ When an API method normally takes long time to complete, it can be designed to r
 <p>Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns <code dir="ltr" translate="no">google.rpc.Code.UNIMPLEMENTED</code> . Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>

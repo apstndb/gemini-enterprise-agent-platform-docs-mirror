@@ -46,7 +46,7 @@ Optional. Autorater config used for evaluation. Not applicable for predefined me
 
 `metric_inputs` `Union type`
 
-Instances and specs for evaluation `metric_inputs` can be only one of the following:
+Instances and specs for evaluation The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `exactMatchInput` ` object ( ExactMatchInput  ` )
 
@@ -176,6 +176,8 @@ Input for trajectory single tool use metric.
 
 Rubric Based Instruction Following metric.
 
+End of mutually exclusive fields.
+
 ### Response body
 
 Response message for EvaluationService.EvaluateInstances.
@@ -190,7 +192,7 @@ Metric results for each instance. The order of the metric results is guaranteed 
 
 `evaluation_results` `Union type`
 
-Evaluation results will be served in the same order as presented in EvaluationRequest.instances. `evaluation_results` can be only one of the following:
+Evaluation results will be served in the same order as presented in EvaluationRequest.instances. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `exactMatchResults` ` object ( ExactMatchResults  ` )
 
@@ -319,6 +321,8 @@ Results for trajectory single tool use metric.
 `rubricBasedInstructionFollowingResult` ` object ( RubricBasedInstructionFollowingResult  ` )
 
 result for rubric based instruction following metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1967,7 +1971,7 @@ Fields
 
 `instance` `Union type`
 
-Instance for pointwise metric. `instance` can be only one of the following:
+Instance for pointwise metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `jsonInstance` `string`
 
@@ -1976,6 +1980,8 @@ Instance specified as a json string. String key-value pairs are expected in the 
 `contentMapInstance` ` object ( ContentMap  ` )
 
 Key-value contents for the mutlimodality input, including text, image, video, audio, and pdf, etc. The key is placeholder in metric prompt template, and the value is the multimodal content.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2083,7 +2089,7 @@ Fields
 
 `instance` `Union type`
 
-Instance for pairwise metric. `instance` can be only one of the following:
+Instance for pairwise metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `jsonInstance` `string`
 
@@ -2092,6 +2098,8 @@ Instance specified as a json string. String key-value pairs are expected in the 
 `contentMapInstance` ` object ( ContentMap  ` )
 
 Key-value contents for the mutlimodality input, including text, image, video, audio, and pdf, etc. The key is placeholder in metric prompt template, and the value is the multimodal content.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -3164,11 +3172,13 @@ Fields
 
 `instance` `Union type`
 
-Instance for RubricBasedInstructionFollowing metric. `instance` can be only one of the following:
+Instance for RubricBasedInstructionFollowing metric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `jsonInstance` `string`
 
 Required. Instance specified as a json string. String key-value pairs are expected in the jsonInstance to render RubricBasedInstructionFollowing prompt templates.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -3331,7 +3341,7 @@ Optional. Deprecated: Use `agentEvalData` instead. Agent configuration.
 
 `tools_data` `Union type`
 
-\--- Legacy fields below. To be deprecated. --- Deprecated: Use `agents` instead. Data for the tools available to the agent. `tools_data` can be only one of the following:
+\--- Legacy fields below. To be deprecated. --- Deprecated: Use `agents` instead. Data for the tools available to the agent. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` toolsText (deprecated)  ` `string`
 
@@ -3345,13 +3355,17 @@ A JSON string containing a list of tools available to an agent with info such as
 
 List of tools.
 
+End of mutually exclusive fields.
+
 `events_data` `Union type`
 
-The sequence of function calls and function responses that form the agent's trajectory. `events_data` can be only one of the following:
+The sequence of function calls and function responses that form the agent's trajectory. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `events` ` object ( Events  ` )
 
 A list of events.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

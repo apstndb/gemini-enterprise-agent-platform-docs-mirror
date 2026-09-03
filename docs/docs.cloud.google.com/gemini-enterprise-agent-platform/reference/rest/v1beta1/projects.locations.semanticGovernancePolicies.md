@@ -60,6 +60,10 @@ Format: `principal://TRUST_DOMAIN/NAMESPACE/AGENT_NAME`
 
 Example: `principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/AGENT_ENGINE_ID`
 
+`agentResponseCustomization` ` object ( AgentResponseCustomization  ` )
+
+Optional. Settings for customizing the agent's response to end users when this policy is evaluated, such as messages displayed when the policy denies a request.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -71,7 +75,7 @@ Example: `principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;etag&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;naturalLanguageConstraint&quot;: string,&quot;agent&quot;: string,&quot;mcpTools&quot;: [{object (McpTool)}],&quot;agentIdentity&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;etag&quot;: string,&quot;displayName&quot;: string,&quot;description&quot;: string,&quot;naturalLanguageConstraint&quot;: string,&quot;agent&quot;: string,&quot;mcpTools&quot;: [{object (McpTool)}],&quot;agentIdentity&quot;: string,&quot;agentResponseCustomization&quot;: {object (AgentResponseCustomization)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -106,6 +110,34 @@ Optional. The resource names of the McpTools used by the Agent that is affected 
   &quot;tools&quot;: [
     string
   ]
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## AgentResponseCustomization
+
+Customizes the agent's response to the end user when a `SemanticGovernancePolicy` is evaluated (for example, with a custom message shown on denial).
+
+Fields
+
+`denialMessage` `string`
+
+Optional. Custom message shown to the end user when the policy check results in a denial. Use this to explain the rationale to the user. Max 1000 characters.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;denialMessage&quot;: string
 }</code></pre></td>
 </tr>
 </tbody>

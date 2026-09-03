@@ -145,6 +145,7 @@ Selecting a global endpoint for your requests can improve overall availability w
 
 Usage of the global endpoint is supported for the following Google models in specified regions. For details about which models support the global endpoint, see the **Global** tab in the [Google model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models) .
 
+  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
   - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) (Preview)
   - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
@@ -162,6 +163,7 @@ Usage of the global endpoint is supported for the following Google models in spe
   - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
   - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
   - [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) (Preview)
+  - [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) (Preview)
 
 For information about global endpoint availability for partner models, see the **Global** tab in the [Google Cloud partner model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models) .
 
@@ -179,6 +181,7 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 | Model                                                                                                                                                 | Latest supported model version |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `gemini-3.8-flash`             |
 | [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `gemini-3.7-flash`             |
 | [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`             |
 | [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)                                  | `gemini-3.5-flash-lite`        |
@@ -204,6 +207,9 @@ Global
 (global)
 
 Gemini models
+
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
 
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
@@ -261,6 +267,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 
@@ -322,6 +331,9 @@ European Union multi-region
 
 Gemini models
 
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
+
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
 
@@ -378,6 +390,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 
@@ -454,6 +469,9 @@ Dallas
 
 Gemini models
 
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
+
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
 
@@ -510,6 +528,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 
@@ -571,6 +592,9 @@ São Paulo
 
 Gemini models
 
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
+
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
 
@@ -627,6 +651,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 
@@ -712,6 +739,9 @@ Paris
 
 Gemini models
 
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
+
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
 
@@ -768,6 +798,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 
@@ -844,6 +877,9 @@ Seoul
 
 Gemini models
 
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
+
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
 
@@ -900,6 +936,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 
@@ -964,6 +1003,9 @@ Dammam
 
 Gemini models
 
+[Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
+`(gemini-3.8-flash)`
+
 [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview  
 `(gemini-omni-1.1-flash-preview)`
 
@@ -1020,6 +1062,9 @@ Gemini models
 
 [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) preview  
 `(['gemini-3.5-transcribe-preview', 'gemini-3.5-transcribe-live-preview'])`
+
+[Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
+`(['gemini-3.5-live-translate-preview'])`
 
 Embeddings models
 

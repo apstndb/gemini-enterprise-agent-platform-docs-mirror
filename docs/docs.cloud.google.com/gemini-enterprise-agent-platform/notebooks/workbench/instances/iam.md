@@ -534,12 +534,16 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">notebooks.  executions.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  checkUpgradability</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.create</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  createTagBinding</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.delete</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.diagnose</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.get</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.getHealth</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.list</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.reset</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  setAccelerator</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  setIamPolicy</code></li>
@@ -1060,6 +1064,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">notebooks.instances.getHealth</code></p>
 <p><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.list</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.reset</code></p>
 <p><code dir="ltr" translate="no">notebooks.  instances.  setAccelerator</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.setLabels</code></p>
@@ -1579,6 +1585,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">notebooks.instances.getHealth</code></p>
 <p><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.list</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">notebooks.locations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">notebooks.locations.get</code></li>
@@ -2717,12 +2725,16 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">notebooks.  executions.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  checkUpgradability</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.create</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  createTagBinding</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.delete</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.diagnose</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.get</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.getHealth</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.list</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></li>
+<li><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></li>
 <li><code dir="ltr" translate="no">notebooks.instances.reset</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  setAccelerator</code></li>
 <li><code dir="ltr" translate="no">notebooks.  instances.  setIamPolicy</code></li>
@@ -3232,6 +3244,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">notebooks.instances.getHealth</code></p>
 <p><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.list</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">notebooks.locations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">notebooks.locations.get</code></li>
@@ -3735,6 +3749,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">notebooks.instances.getHealth</code></p>
 <p><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">notebooks.instances.list</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">notebooks.locations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">notebooks.locations.get</code></li>
@@ -4516,7 +4532,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">ml.jobs.create</code></p>
 <p><code dir="ltr" translate="no">ml.jobs.get</code></p>
 <p><code dir="ltr" translate="no">ml.jobs.list</code></p>
-<p><code dir="ltr" translate="no">notebooks.*</code></p>
+<p><code dir="ltr" translate="no">notebooks.environments.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">notebooks.environments.create</code></li>
 <li><code dir="ltr" translate="no">notebooks.environments.delete</code></li>
@@ -4524,38 +4540,52 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">notebooks.  environments.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">notebooks.environments.list</code></li>
 <li><code dir="ltr" translate="no">notebooks.  environments.  setIamPolicy</code></li>
+</ul>
+<p><code dir="ltr" translate="no">notebooks.executions.*</code></p>
+<ul>
 <li><code dir="ltr" translate="no">notebooks.executions.create</code></li>
 <li><code dir="ltr" translate="no">notebooks.executions.delete</code></li>
 <li><code dir="ltr" translate="no">notebooks.executions.get</code></li>
 <li><code dir="ltr" translate="no">notebooks.  executions.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">notebooks.executions.list</code></li>
 <li><code dir="ltr" translate="no">notebooks.  executions.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  checkUpgradability</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.create</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.delete</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.diagnose</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.get</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.getHealth</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.list</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.reset</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  setAccelerator</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  setIamPolicy</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.setLabels</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  setMachineType</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.start</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.stop</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.update</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  updateConfig</code></li>
-<li><code dir="ltr" translate="no">notebooks.  instances.  updateShieldInstanceConfig</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.upgrade</code></li>
-<li><code dir="ltr" translate="no">notebooks.instances.use</code></li>
+</ul>
+<p><code dir="ltr" translate="no">notebooks.  instances.  checkUpgradability</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.create</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.delete</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.diagnose</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.get</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.getHealth</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  getIamPolicy</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.list</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listEffectiveTags</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  listTagBindings</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.reset</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  setAccelerator</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  setIamPolicy</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.setLabels</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  setMachineType</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.start</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.stop</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.update</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  updateConfig</code></p>
+<p><code dir="ltr" translate="no">notebooks.  instances.  updateShieldInstanceConfig</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.upgrade</code></p>
+<p><code dir="ltr" translate="no">notebooks.instances.use</code></p>
+<p><code dir="ltr" translate="no">notebooks.locations.*</code></p>
+<ul>
 <li><code dir="ltr" translate="no">notebooks.locations.get</code></li>
 <li><code dir="ltr" translate="no">notebooks.locations.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">notebooks.operations.*</code></p>
+<ul>
 <li><code dir="ltr" translate="no">notebooks.operations.cancel</code></li>
 <li><code dir="ltr" translate="no">notebooks.operations.delete</code></li>
 <li><code dir="ltr" translate="no">notebooks.operations.get</code></li>
 <li><code dir="ltr" translate="no">notebooks.operations.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">notebooks.runtimes.*</code></p>
+<ul>
 <li><code dir="ltr" translate="no">notebooks.runtimes.create</code></li>
 <li><code dir="ltr" translate="no">notebooks.runtimes.delete</code></li>
 <li><code dir="ltr" translate="no">notebooks.runtimes.diagnose</code></li>
@@ -4569,6 +4599,9 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">notebooks.runtimes.switch</code></li>
 <li><code dir="ltr" translate="no">notebooks.runtimes.update</code></li>
 <li><code dir="ltr" translate="no">notebooks.runtimes.upgrade</code></li>
+</ul>
+<p><code dir="ltr" translate="no">notebooks.schedules.*</code></p>
+<ul>
 <li><code dir="ltr" translate="no">notebooks.schedules.create</code></li>
 <li><code dir="ltr" translate="no">notebooks.schedules.delete</code></li>
 <li><code dir="ltr" translate="no">notebooks.schedules.get</code></li>

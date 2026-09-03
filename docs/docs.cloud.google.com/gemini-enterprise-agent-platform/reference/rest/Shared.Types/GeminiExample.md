@@ -156,7 +156,7 @@ Optional. Deprecated. This option is no longer supported.
 
 `source` `Union type`
 
-The source of the retrieval. `source` can be only one of the following:
+The source of the retrieval. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vertexAiSearch` ` object ( VertexAISearch  ` )
 
@@ -165,6 +165,8 @@ Set to use data source powered by Agent Platform Search.
 `vertexRagStore` ` object ( VertexRagStore  ` )
 
 Set to use data source powered by Vertex RAG store. user data is uploaded via the VertexRagDataService.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -424,7 +426,7 @@ Optional. String for metadata filtering.
 
 `vector_db_threshold` `Union type`
 
-Filter contexts retrieved from the vector DB based on either vector distance or vector similarity. `vector_db_threshold` can be only one of the following:
+Filter contexts retrieved from the vector DB based on either vector distance or vector similarity. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `vectorDistanceThreshold` `number`
 
@@ -433,6 +435,8 @@ Optional. Only returns contexts with vector distance smaller than the threshold.
 `vectorSimilarityThreshold` `number`
 
 Optional. Only returns contexts with vector similarity larger than the threshold.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -465,7 +469,7 @@ Fields
 
 `ranking_config` `Union type`
 
-Config options for ranking. Currently only Rank Service is supported. `ranking_config` can be only one of the following:
+Config options for ranking. Currently only Rank Service is supported. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `rankService` ` object ( RankService  ` )
 
@@ -474,6 +478,8 @@ Optional. Config for Rank service.
 `llmRanker` ` object ( LlmRanker  ` )
 
 Optional. Config for LlmRanker.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1036,7 +1042,7 @@ Fields
 
 `routing_config` `Union type`
 
-The routing mode for the request. `routing_config` can be only one of the following:
+The routing mode for the request. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `autoMode` ` object ( AutoRoutingMode  ` )
 
@@ -1045,6 +1051,8 @@ In this mode, the model is selected automatically based on the content of the re
 `manualMode` ` object ( ManualRoutingMode  ` )
 
 In this mode, the model is specified manually.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1162,7 +1170,7 @@ Fields
 
 `voice_config` `Union type`
 
-The configuration for the speaker to use. `voice_config` can be only one of the following:
+The configuration for the speaker to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `prebuiltVoiceConfig` ` object ( PrebuiltVoiceConfig  ` )
 
@@ -1171,6 +1179,8 @@ The configuration for a prebuilt voice.
 `replicatedVoiceConfig` ` object ( ReplicatedVoiceConfig  ` )
 
 Optional. The configuration for a replicated voice. This enables users to replicate a voice from an audio sample.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1377,6 +1387,10 @@ This message allows you to control various aspects of image generation, such as 
 
 Fields
 
+`prominentPeople` ` enum ( ProminentPeople  ` )
+
+Optional. Controls whether prominent people (celebrities) generation is allowed. If used with personGeneration, personGeneration enum would take precedence. For instance, if ALLOW\_NONE is set, all person generation would be blocked. If this field is unspecified, the default behavior is to allow prominent people.
+
 `imageOutputOptions` ` object ( ImageOutputOptions  ` )
 
 Optional. The image output format for generated images.
@@ -1406,7 +1420,7 @@ Optional. Specifies the size of generated images. Supported values are `1K` , `2
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;imageOutputOptions&quot;: {object (ImageOutputOptions)},&quot;aspectRatio&quot;: string,&quot;personGeneration&quot;: enum (PersonGeneration),&quot;imageSize&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;prominentPeople&quot;: enum (ProminentPeople),&quot;imageOutputOptions&quot;: {object (ImageOutputOptions)},&quot;aspectRatio&quot;: string,&quot;personGeneration&quot;: enum (PersonGeneration),&quot;imageSize&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1452,7 +1466,7 @@ Fields
 
 `format` `Union type`
 
-The format of the output content. `format` can be only one of the following:
+The format of the output content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextResponseFormat  ` )
 
@@ -1469,6 +1483,8 @@ Image output format.
 `video` ` object ( VideoResponseFormat  ` )
 
 Video output format.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1572,6 +1588,10 @@ Optional. The Google Cloud Storage URI to store the video output. Required for V
 
 The aspect ratio for the video output.
 
+`resolution` `string`
+
+Optional. The video output resolution. Supported values: "360p", "720p", "1080p", "4k".
+
 `duration` ` string ( Duration  ` format)
 
 Optional. The duration for the video output.
@@ -1589,7 +1609,7 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;duration&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;resolution&quot;: string,&quot;duration&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>

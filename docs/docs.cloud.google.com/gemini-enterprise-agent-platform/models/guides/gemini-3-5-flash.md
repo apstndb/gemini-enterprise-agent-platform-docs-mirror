@@ -100,7 +100,7 @@ The recommended strategy for agentic workflows uses a tiered approach to optimiz
   - **Gemini Flash** : Use as the primary "workhorse" for execution tasks, tool calling, and intermediate reasoning steps, offering the best balance of performance and efficiency.
   - **Gemini Flash-Lite** : Deploy for high-volume, low-latency preprocessing and structural tasks where speed and cost are paramount, such as intent routing, data extraction, tagging, and classification.
 
-## What's new in Gemini 3.6 Flash?
+## What's new in Gemini 3.5 Flash?
 
 Gemini 3.5 Flash brings the following changes and improvements to the Gemini model lineup:
 

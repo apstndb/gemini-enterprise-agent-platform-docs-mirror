@@ -58,7 +58,7 @@ Optional. Represents the structured content of the memory.
 
 `expiration` `Union type`
 
-The expiration of the Memory. If not set, the Memory will not be automatically deleted. `expiration` can be only one of the following:
+The expiration of the Memory. If not set, the Memory will not be automatically deleted. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -72,9 +72,11 @@ Optional. Input only. Represents the TTL for this resource. The expiration time 
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
+End of mutually exclusive fields.
+
 `revision_expiration` `Union type`
 
-(Input-only) The expiration of the Memory Revision created as a result of this request. If not set, Memory Bank will defer to `MemoryBankConfig.memory_revision_default_ttl` or the global default, 365 days. `revision_expiration` can be only one of the following:
+(Input-only) The expiration of the Memory Revision created as a result of this request. If not set, Memory Bank will defer to `MemoryBankConfig.memory_revision_default_ttl` or the global default, 365 days. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `revisionExpireTime` ` string ( Timestamp  ` format)
 
@@ -91,6 +93,8 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 `disableMemoryRevisions` `boolean`
 
 Optional. Input only. Indicates whether no revision will be created for this request.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

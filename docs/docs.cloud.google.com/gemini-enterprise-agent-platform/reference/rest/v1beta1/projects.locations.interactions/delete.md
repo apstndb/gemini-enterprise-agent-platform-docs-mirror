@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> This item is deprecated\!
+
 **Full name** : projects.locations.interactions.delete
 
 Deletes an interaction.

@@ -72,6 +72,7 @@ data_source: docs.cloud.google.com
   - `  AgentConfig  ` (message)
   - `  AgentData  ` (message)
   - `  AgentEvent  ` (message)
+  - `  AgentResponseCustomization  ` (message)
   - `  AgentTool  ` (message)
   - `  AggregationOutput  ` (message)
   - `  AggregationResult  ` (message)
@@ -122,6 +123,8 @@ data_source: docs.cloud.google.com
   - `  AuthConfig.OauthConfig  ` (message)
   - `  AuthConfig.OidcConfig  ` (message)
   - `  AuthType  ` (enum)
+  - `  AuthorizeSandboxEnvironmentAccessRequest  ` (message)
+  - `  AuthorizeSandboxEnvironmentAccessResponse  ` (message)
   - `  AutomaticResources  ` (message)
   - `  AutoraterConfig  ` (message)
   - `  AutoscalingMetricSpec  ` (message)
@@ -167,6 +170,8 @@ data_source: docs.cloud.google.com
   - `  BatchReadFeatureValuesResponse  ` (message)
   - `  BatchReadTensorboardTimeSeriesDataRequest  ` (message)
   - `  BatchReadTensorboardTimeSeriesDataResponse  ` (message)
+  - `  BidiExecuteSandboxEnvironmentRequest  ` (message)
+  - `  BidiExecuteSandboxEnvironmentResponse  ` (message)
   - `  BidiInvokeReasoningEngineRequest  ` (message)
   - `  BigQueryDestination  ` (message)
   - `  BigQuerySource  ` (message)
@@ -833,6 +838,7 @@ data_source: docs.cloud.google.com
   - `  ImageConfig  ` (message)
   - `  ImageConfig.ImageOutputOptions  ` (message)
   - `  ImageConfig.PersonGeneration  ` (enum)
+  - `  ImageConfig.ProminentPeople  ` (enum)
   - `  ImageResponseFormat  ` (message)
   - `  ImageResponseFormat.AspectRatio  ` (enum)
   - `  ImageResponseFormat.ImageSize  ` (enum)
@@ -1567,6 +1573,7 @@ data_source: docs.cloud.google.com
   - `  SandboxEnvironmentSpec.CodeExecutionEnvironment.Language  ` (enum)
   - `  SandboxEnvironmentSpec.ComputerUseEnvironment  ` (message)
   - `  SandboxEnvironmentSpec.MachineConfig  ` (enum)
+  - `  SandboxEnvironmentSpec.ShellEnvironment  ` (message)
   - `  SandboxEnvironmentTemplate  ` (message)
   - `  SandboxEnvironmentTemplate.CustomContainerEnvironment  ` (message)
   - `  SandboxEnvironmentTemplate.CustomContainerSpec  ` (message)
@@ -2073,7 +2080,8 @@ The service that manages Vertex Agent related resources.
 <tbody>
 <tr class="odd">
 <td><p><code dir="ltr" translate="no">rpc ListAgents(              ListAgentsRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListAgentsResponse            </code> )</p>
-<p>Lists agents in a location.</p>
+<p>Lists the agents in a location that belong to the caller.</p>
+<p>An agent belongs to the end user recorded as its owner when it was created, so the response holds that caller's agents and no others. It is empty for a caller that is not an end user, and an agent with no recorded owner is listed for nobody.</p>
 <dl>
 <dt>Authorization scopes</dt>
 <dd><p>Requires the following OAuth scope:</p>
@@ -2150,9 +2158,10 @@ Service for generating and preparing datasets for Gen AI evaluation.
 <p>Generates synthetic (artificial) data based on a description</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2180,9 +2189,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Assembles each row of a multimodal dataset and writes the result into a BigQuery table.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2206,9 +2216,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Assesses the state or validity of the dataset with respect to a given use case.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2232,9 +2243,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Creates a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2267,9 +2279,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Create a version from a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2302,9 +2315,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Deletes a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2337,9 +2351,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Deletes a Dataset version.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2372,9 +2387,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Deletes a SavedQuery.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2407,9 +2423,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Exports data from a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2442,9 +2459,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Gets an AnnotationSpec.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2477,9 +2495,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Gets a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2512,9 +2531,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Gets a Dataset version.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2547,9 +2567,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Imports data into a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2582,9 +2603,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Lists Annotations belongs to a dataitem.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2617,9 +2639,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Lists DataItems in a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2652,9 +2675,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Lists DatasetVersions in a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2687,9 +2711,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Lists Datasets in a Location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2722,9 +2747,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Lists SavedQueries in a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2757,9 +2783,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Restores a dataset version.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2792,9 +2819,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Searches DataItems in a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2827,9 +2855,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Updates a Dataset.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2862,9 +2891,10 @@ The service that manages Agent Platform Dataset and its child resources.
 <p>Updates a DatasetVersion.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3106,9 +3136,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Creates an Endpoint.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3141,9 +3172,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Deletes an Endpoint.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3176,9 +3208,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Deploys a Model into this Endpoint, creating a DeployedModel within it.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3211,9 +3244,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Fetches the configs of publisher models.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3237,9 +3271,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Gets an Endpoint.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3272,9 +3307,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Lists Endpoints in a Location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3307,9 +3343,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Updates an existing deployed model. Updatable fields include <code dir="ltr" translate="no">min_replica_count</code> , <code dir="ltr" translate="no">max_replica_count</code> , <code dir="ltr" translate="no">required_replica_count</code> , <code dir="ltr" translate="no">autoscaling_metric_specs</code> , <code dir="ltr" translate="no">disable_container_logging</code> (v1 only), and <code dir="ltr" translate="no">enable_container_logging</code> (v1beta1 only).</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3342,9 +3379,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Sets (creates or updates) configs of publisher models. For example, sets the request/response logging config.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3368,9 +3406,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3403,9 +3442,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Updates an Endpoint.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3438,9 +3478,10 @@ A service for managing Agent Platform's Endpoints.
 <p>Updates an Endpoint with a long running operation.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3507,9 +3548,10 @@ Agent Platform Online Evaluation Service.
 <p>Evaluates a dataset based on a set of given metrics.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3533,9 +3575,10 @@ Agent Platform Online Evaluation Service.
 <p>Evaluates instances based on a given metric.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -3568,9 +3611,10 @@ Agent Platform Online Evaluation Service.
 <p>Generates rubrics for a given prompt. A rubric represents a single testable criterion for evaluation. One input prompt could have multiple rubrics This RPC allows users to get suggested rubrics based on provided prompt, which can then be reviewed and used for subsequent evaluations.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -6708,9 +6752,10 @@ A tuning job is a process that takes a base model and further trains it on a use
 <p>Starts an asynchronous cancellation request. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use <code dir="ltr" translate="no">            GenAiTuningService.GetTuningJob           </code> or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the tuning job is not deleted. Instead, its state is set to <code dir="ltr" translate="no">CANCELLED</code> , and <code dir="ltr" translate="no">error</code> is set to a status with a <code dir="ltr" translate="no">google.rpc.Status.code</code> of 1, corresponding to <code dir="ltr" translate="no">Code.CANCELLED</code> .</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -6743,9 +6788,10 @@ A tuning job is a process that takes a base model and further trains it on a use
 <p>Creates a tuning job. A created tuning job will be subsequently executed to start the model tuning process.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -6778,9 +6824,10 @@ A tuning job is a process that takes a base model and further trains it on a use
 <p>Gets a tuning job.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -6813,9 +6860,10 @@ A tuning job is a process that takes a base model and further trains it on a use
 <p>Lists tuning jobs in a location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -6849,9 +6897,10 @@ A tuning job is a process that takes a base model and further trains it on a use
 <p>A rebase operation takes a model that was previously tuned on a base model version, and retunes it on a new base model version. The rebase operation creates a new tuning job and a new tuned model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -6884,9 +6933,10 @@ A tuning job is a process that takes a base model and further trains it on a use
 <p>Validates a reward on a given example.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -8052,9 +8102,10 @@ A service for creating and managing Agent Platform's jobs.
 <p>Lists CustomJobs in a Location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9789,9 +9840,10 @@ The interface of Model Garden Service.
 <p>Accepts the EULA acceptance status of a publisher model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9824,9 +9876,10 @@ The interface of Model Garden Service.
 <p>Checks the EULA acceptance status of a publisher model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9859,9 +9912,10 @@ The interface of Model Garden Service.
 <p>Deploys a model to a new endpoint.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9899,9 +9953,10 @@ The interface of Model Garden Service.
 <p>Deploys publisher models.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9936,9 +9991,10 @@ The interface of Model Garden Service.
 <p>Enables model for the project if prerequisites are met (e.g. completed questionnaire and consents, or an active Private Offer).</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9971,9 +10027,10 @@ The interface of Model Garden Service.
 <p>Exports a publisher model to a user provided Google Cloud Storage bucket.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -9997,9 +10054,10 @@ The interface of Model Garden Service.
 <p>Gets a Model Garden publisher model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10023,9 +10081,10 @@ The interface of Model Garden Service.
 <p>Lists publisher models in Model Garden.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10442,9 +10501,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Imports a list of externally generated EvaluatedAnnotations.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10477,9 +10537,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Imports a list of externally generated ModelEvaluationSlice.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10512,9 +10573,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Copies an already existing Agent Platform Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible for <code dir="ltr" translate="no">            Model.metadata           </code> content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10548,9 +10610,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>A model cannot be deleted if any <code dir="ltr" translate="no">            Endpoint           </code> resource has a <code dir="ltr" translate="no">            DeployedModel           </code> based on the model in its <code dir="ltr" translate="no">            deployed_models           </code> field.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10584,9 +10647,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Model version can only be deleted if there are no <code dir="ltr" translate="no">            DeployedModels           </code> created from it. Deleting the only version in the Model is not allowed. Use <code dir="ltr" translate="no">            DeleteModel           </code> for deleting the Model instead.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10619,9 +10683,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Exports a trained, exportable Model to a location specified by the user. A Model is considered to be exportable if it has at least one <code dir="ltr" translate="no">            supported export format           </code> .</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10654,9 +10719,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Gets a Model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10689,9 +10755,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Gets a ModelEvaluation.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10724,9 +10791,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Gets a ModelEvaluationSlice.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10759,9 +10827,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Imports an externally generated ModelEvaluation.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10794,9 +10863,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Lists ModelEvaluationSlices in a ModelEvaluation.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10829,9 +10899,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Lists ModelEvaluations in a Model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10864,9 +10935,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Lists checkpoints of the specified model version.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10899,9 +10971,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Lists versions of the specified model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10934,9 +11007,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Lists Models in a Location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -10969,9 +11043,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Merges a set of aliases for a Model version.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -11004,9 +11079,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Gets a Model's spec recommendations. This API is called by UI, SDK, and internal.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -11030,9 +11106,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Incrementally update the dataset used for an examples model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -11065,9 +11142,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Updates a Model.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -11100,9 +11178,10 @@ A service for managing Agent Platform's machine learning Models.
 <p>Uploads a Model artifact into Agent Platform.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12568,6 +12647,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12605,6 +12685,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12642,6 +12723,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12670,6 +12752,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12707,6 +12790,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12744,6 +12828,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12782,6 +12867,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12819,6 +12905,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12856,6 +12943,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12885,6 +12973,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12921,6 +13010,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -12963,6 +13053,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13000,6 +13091,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13037,6 +13129,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13074,6 +13167,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13111,6 +13205,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13148,6 +13243,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13188,6 +13284,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13225,6 +13322,7 @@ A service for online predictions and explanations.
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform.read-only</code></li>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-vertex-ai.firstparty.predict</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13588,9 +13686,10 @@ A service for managing Agent Platform's Reasoning Engines.
 <p>Creates a reasoning engine.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13623,9 +13722,10 @@ A service for managing Agent Platform's Reasoning Engines.
 <p>Deletes a reasoning engine.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13658,9 +13758,10 @@ A service for managing Agent Platform's Reasoning Engines.
 <p>Gets a reasoning engine.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13693,9 +13794,10 @@ A service for managing Agent Platform's Reasoning Engines.
 <p>Lists reasoning engines in a location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13728,9 +13830,10 @@ A service for managing Agent Platform's Reasoning Engines.
 <p>Updates a reasoning engine.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -13751,6 +13854,77 @@ A service for managing Agent Platform's Reasoning Engines.
 ## SandboxEnvironmentExecutionService
 
 A service for execution on Sandbox Environments.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AuthorizeSandboxEnvironmentAccess</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc AuthorizeSandboxEnvironmentAccess(              AuthorizeSandboxEnvironmentAccessRequest            </code> ) returns ( <code dir="ltr" translate="no">             AuthorizeSandboxEnvironmentAccessResponse            </code> )</p>
+<p>Checks whether the caller is authorized to access the sandbox environment.</p>
+<p>Authorization is performed entirely by the API infrastructure from the <code dir="ltr" translate="no">method_policy</code> below; the handler is a no-op. A successful response means the caller holds <code dir="ltr" translate="no">sandboxEnvironments.execute</code> on the named sandbox. Used by the sandbox data-plane proxy, which forwards the caller's credential and proxies traffic only on success.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.execute</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>BidiExecuteSandboxEnvironment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc BidiExecuteSandboxEnvironment(              BidiExecuteSandboxEnvironmentRequest            </code> ) returns ( <code dir="ltr" translate="no">             BidiExecuteSandboxEnvironmentResponse            </code> )</p>
+<p>Executes using a sandbox environment with bidirectional streaming.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.sandboxEnvironments.execute</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
 
 <table>
 <colgroup>
@@ -16402,9 +16576,10 @@ A service for managing user data for RAG.
 <p>Batch Create one or more RagDataSchemas</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16428,9 +16603,10 @@ A service for managing user data for RAG.
 <p>Batch Create one or more RagMetadatas</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16454,9 +16630,10 @@ A service for managing user data for RAG.
 <p>Batch Deletes one or more RagDataSchemas</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16480,9 +16657,10 @@ A service for managing user data for RAG.
 <p>Batch Deletes one or more RagMetadata.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16506,9 +16684,10 @@ A service for managing user data for RAG.
 <p>Creates a RagCorpus.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16541,9 +16720,10 @@ A service for managing user data for RAG.
 <p>Creates a RagDataSchema.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16567,9 +16747,10 @@ A service for managing user data for RAG.
 <p>Creates a RagMetadata.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16593,9 +16774,10 @@ A service for managing user data for RAG.
 <p>Deletes a RagCorpus.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16628,9 +16810,10 @@ A service for managing user data for RAG.
 <p>Deletes a RagDataSchema.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16654,9 +16837,10 @@ A service for managing user data for RAG.
 <p>Deletes a RagFile.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16689,9 +16873,10 @@ A service for managing user data for RAG.
 <p>Deletes a RagMetadata.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16715,9 +16900,10 @@ A service for managing user data for RAG.
 <p>Gets a RagCorpus.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16750,9 +16936,10 @@ A service for managing user data for RAG.
 <p>Gets a RagDataSchema.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16776,9 +16963,10 @@ A service for managing user data for RAG.
 <p>Gets a RagEngineConfig.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16811,9 +16999,10 @@ A service for managing user data for RAG.
 <p>Gets a RagFile.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16846,9 +17035,10 @@ A service for managing user data for RAG.
 <p>Gets a RagMetadata.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16872,9 +17062,10 @@ A service for managing user data for RAG.
 <p>Import files from Google Cloud Storage or Google Drive into a RagCorpus.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16907,9 +17098,10 @@ A service for managing user data for RAG.
 <p>Lists RagCorpora in a Location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16942,9 +17134,10 @@ A service for managing user data for RAG.
 <p>Lists RagDataSchemas in a Location.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -16968,9 +17161,10 @@ A service for managing user data for RAG.
 <p>Lists RagFiles in a RagCorpus.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17003,9 +17197,10 @@ A service for managing user data for RAG.
 <p>Lists RagMetadata in a RagFile.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17029,9 +17224,10 @@ A service for managing user data for RAG.
 <p>Updates a RagCorpus.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17064,9 +17260,10 @@ A service for managing user data for RAG.
 <p>Updates a RagEngineConfig.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17099,9 +17296,10 @@ A service for managing user data for RAG.
 <p>Updates a RagMetadata.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17129,9 +17327,10 @@ A service for retrieving relevant contexts.
 <p>Agentic Retrieval Ask API for RAG.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17164,9 +17363,10 @@ A service for retrieving relevant contexts.
 <p>Asynchronous API to retrieves relevant contexts for a query.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17199,9 +17399,10 @@ A service for retrieving relevant contexts.
 <p>Given an input prompt, it returns augmented prompt from vertex rag store to guide LLM towards generating grounded responses.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17234,9 +17435,10 @@ A service for retrieving relevant contexts.
 <p>Given an input text, it returns a score that evaluates the factuality of the text. It also extracts and returns claims from the text and provides supporting facts.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -17269,9 +17471,10 @@ A service for retrieving relevant contexts.
 <p>Retrieves relevant contexts for a query.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -18088,7 +18291,9 @@ Output only. The object type of the resource. For agents, the value is `agent` .
 
 `string`
 
-Required. The base agent for the agent. Supported values: \* `antigravity-preview-05-2026`
+Required. Immutable. The base agent for the agent. Supported values: \* `antigravity-preview-05-2026`
+
+Immutable: `UpdateAgent` rejects a change, including clearing it. The kind of agent this is gets derived from this field when the agent is created and is recorded then; nothing recomputes it afterwards, so a later change would leave the agent described as one kind and behaving as another. Create a new agent instead.
 
 `metadata`
 
@@ -18221,6 +18426,18 @@ Required. The ID of the agent or entity that generated this event. Use "user" to
 
 Required. The content of the event (e.g., text response, tool call, tool response).
 
+## AgentResponseCustomization
+
+Customizes the agent's response to the end user when a `SemanticGovernancePolicy` is evaluated (for example, with a custom message shown on denial).
+
+Fields
+
+`denial_message`
+
+`string`
+
+Optional. Custom message shown to the end user when the policy check results in a denial. Use this to explain the rationale to the user. Max 1000 characters.
+
 ## AgentTool
 
 A tool provides a list of actions available to the `  Agent  ` during the process of executing a task.
@@ -18234,6 +18451,7 @@ Fields
 Required. The type of the tool. Supported types:
 
   - `code_execution`
+  - `endpoint`
   - `filesystem`
   - `google_search`
   - `mcp_server`
@@ -18243,13 +18461,13 @@ Required. The type of the tool. Supported types:
 
 `string`
 
-Optional. The name of the MCP server. Only applicable when `type` is `mcp_server` .
+Optional. The tool's Google Cloud resource name, used to resolve the tool. Applicable when `type` is `mcp_server` or `endpoint` (a tool registered in Agent Registry), for example `projects/{project}/locations/{location}/.../mcpServers/{id}` or `projects/{project}/locations/{location}/.../endpoints/{id}` .
 
 `url`
 
 `string`
 
-Optional. The URL for the MCP server endpoint. Only applicable when `type` is `mcp_server` .
+Optional. Temporary: the tool's runtime reference, consumed by CreateAgent to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` . It is duplicated here (the resource name is already in `name` ) only because the Agent service is not yet connected to Agent Registry to derive it from `name` ; the Task Service instead resolves it from Agent Registry (GetMcpServer / GetEndpoint) at task creation.
 
 `headers`
 
@@ -19455,6 +19673,24 @@ OAuth auth.
 
 OpenID Connect (OIDC) Auth.
 
+## AuthorizeSandboxEnvironmentAccessRequest
+
+Request message for `  SandboxEnvironmentExecutionService.AuthorizeSandboxEnvironmentAccess  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to authorize access to. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
+## AuthorizeSandboxEnvironmentAccessResponse
+
+This type has no fields.
+
+Response message for `  SandboxEnvironmentExecutionService.AuthorizeSandboxEnvironmentAccess  ` . Intentionally empty: a successful response is the authorization result.
+
 ## AutomaticResources
 
 A description of resources that to large degree are decided by Agent Platform, and require only a modest additional configuration. Each Model supporting these resources documents its specific guidelines.
@@ -20561,6 +20797,36 @@ Fields
 `  TimeSeriesData  `
 
 The returned time series data.
+
+## BidiExecuteSandboxEnvironmentRequest
+
+Request message for `  SandboxEnvironmentExecutionService.BidiExecuteSandboxEnvironment  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The resource name of the sandbox environment to execute. Format: `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+
+`inputs[]`
+
+`  Chunk  `
+
+Required. The inputs to the sandbox environment.
+
+## BidiExecuteSandboxEnvironmentResponse
+
+Response message for `  SandboxEnvironmentExecutionService.BidiExecuteSandboxEnvironment  ` .
+
+Fields
+
+`outputs[]`
+
+`  Chunk  `
+
+The outputs from the sandbox environment.
 
 ## BidiInvokeReasoningEngineRequest
 
@@ -23916,6 +24182,12 @@ Specificies a metric that is populated by evaluating user-defined Python code.
 
 Fields
 
+`code_execution_region`
+
+`string`
+
+Optional. The region to use for code execution. If set, the Code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the Code Execution Sandbox is available. Supported regions: northamerica-northeast1, southamerica-east1, us-central1, us-east1, us-east4, us-west1, us-west4, europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west6, europe-west8, europe-west9, me-west1, asia-east1, asia-east2, asia-northeast1, asia-northeast3, asia-south1, asia-south2, asia-southeast1, australia-southeast2. If unset, the request's originating region is used; requests from regions where the sandbox is unavailable will fail with UNIMPLEMENTED.
+
 `evaluation_function`
 
 `string`
@@ -24701,6 +24973,14 @@ Fields
 `string`
 
 Required. The resource name of the agent to delete. Format: `projects/{project}/locations/{location}/agents/{agent}` .
+
+`force`
+
+`bool`
+
+Optional. If true, any `Task` belonging to this agent is deleted along with it. If false or unset and the agent still has at least one `Task` , the request fails with `FAILED_PRECONDITION` and nothing is deleted.
+
+This governs `Task` and nothing else. Resources the agent owns but a caller never named -- its AI Application and the tenant project bound to it, its Workspace identity, its service-extension binding -- are torn down with the agent on every delete, whatever this field says.
 
 ## DeleteArtifactRequest
 
@@ -28728,6 +29008,12 @@ Optional. Use custom code to parse the LLM response.
 Configuration for parsing the LLM response using custom code.
 
 Fields
+
+`code_execution_region`
+
+`string`
+
+Optional. The region to use for code execution. If set, the Code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the Code Execution Sandbox is available. Supported regions: northamerica-northeast1, southamerica-east1, us-central1, us-east1, us-east4, us-west1, us-west4, europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west6, europe-west8, europe-west9, me-west1, asia-east1, asia-east2, asia-northeast1, asia-northeast3, asia-south1, asia-south2, asia-southeast1, australia-southeast2. If unset, the request's originating region is used.
 
 `parsing_function`
 
@@ -33652,7 +33938,9 @@ Optional. The URI of the subnetwork resource where PSC-E will be provisioned. if
 
 `string`
 
-Optional. FQDN of the private DNS zone to create DNS record set for PSC endpoint.
+Optional. Name of the private Cloud DNS managed zone in which to create the gateway's A-record. This is the managed zone's own name, not its DNS name: for a zone serving `example.internal.` , this field takes the zone name, such as `my-private-zone` .
+
+The zone's DNS name is combined with a generated per-gateway label to form the record's fully qualified name, which must stay within the 255-octet DNS limit. If the full name is too long, gateway provisioning fails when it attempts to create the DNS record.
 
 `state`
 
@@ -33682,7 +33970,7 @@ Output only. The fully qualified record name of the created A-record in Cloud DN
 
 `string`
 
-Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: project ID or number.
+Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: `projects/{project}` (ID or number).
 
 ## State
 
@@ -36559,6 +36847,12 @@ This message allows you to control various aspects of image generation, such as 
 
 Fields
 
+`prominent_people`
+
+`  ProminentPeople  `
+
+Optional. Controls whether prominent people (celebrities) generation is allowed. If used with personGeneration, personGeneration enum would take precedence. For instance, if ALLOW\_NONE is set, all person generation would be blocked. If this field is unspecified, the default behavior is to allow prominent people.
+
 `image_output_options`
 
 `  ImageOutputOptions  `
@@ -36624,6 +36918,24 @@ Allows the model to generate images of adults, but not children.
 `ALLOW_NONE`
 
 Prevents the model from generating images of people.
+
+## ProminentPeople
+
+Enum for controlling whether the model can generate images of prominent people (celebrities).
+
+Enums
+
+`PROMINENT_PEOPLE_UNSPECIFIED`
+
+Unspecified value. The model will proceed with the default behavior, which is to allow generation of prominent people.
+
+`ALLOW_PROMINENT_PEOPLE`
+
+Allows the model to generate images of prominent people.
+
+`BLOCK_PROMINENT_PEOPLE`
+
+Prevents the model from generating images of prominent people.
 
 ## ImageResponseFormat
 
@@ -38443,6 +38755,31 @@ Optional. The maximum number of agents to return. The service may return fewer t
 `string`
 
 Optional. A page token, received from a previous `  AgentService.ListAgents  ` call. Provide this to retrieve the subsequent page.
+
+`filter`
+
+`string`
+
+Optional. An [AIP-160](https://google.aip.dev/160) filter over the returned agents. An empty filter returns the unfiltered collection.
+
+Supported fields, and the operators each accepts:
+
+  - `created`
+  - `updated`
+  - `base_agent`
+  - `metadata.agent_type`
+
+`created` and `updated` are timestamps and take an RFC-3339 value, for example `2026-08-01T00:00:00Z` . Supported operators: `=` , `!=` , `<` , `>` , `<=` , `>=` , `:` , `AND` , `OR` , `NOT` (equivalently `-` ), and parentheses. Note that `OR` binds more tightly than `AND` , so `a AND b OR c` means `a AND (b OR c)` ; parentheses are recommended, not required.
+
+`metadata.agent_type` accepts only the value `"default_agent"` , matched exactly: `metadata.agent_type:"default_agent"` selects the caller's default agent, of which there is at most one, and the negated form selects the rest. Any other value is `INVALID_ARGUMENT` rather than an empty page -- `metadata` is an opaque blob, so only this one marker is indexed, and the server cannot answer a question about the others. An agent designated before the server began recording the marker is not matched by the positive form; there is no backfill.
+
+`base_agent` accepts `=` and `!=` against the value an agent was created with, and selects only among the agents you own: an agent that belongs to the project rather than to a user is never returned by a filter naming it, including the negated form. An agent created before the server began recording the value is not matched either.
+
+Example: `created > "2026-08-01T00:00:00Z" AND updated < "2026-08-09T00:00:00Z"` .
+
+IMPORTANT -- `base_agent` and `metadata.agent_type` select only among the agents you own. An agent that belongs to the project rather than to a user is never returned by a filter naming either of them, including a negated one: `base_agent != "some-value"` returns your matching agents and no project-owned agents at all. Filtering on `created` or `updated` alone is unaffected and still spans both. If you want every agent in the project, do not filter on these two fields.
+
+Not supported: any field other than those listed above, wildcards other than `field:*` , bare literals with no field name, functions, and the regular-expression operators `=~` and `!~` . A filter that names an unsupported field, exceeds 1000 characters, or nests parentheses more than 5 deep fails with `INVALID_ARGUMENT` .
 
 `order_by`
 
@@ -48060,7 +48397,7 @@ The name can consist of any UTF-8 characters. The maximum length is `63` charact
 
 Union field `data_source` . Required. The data source used to query samples for evaluations. More data sources will be supported in the future.
 
-This field is immutable. Once set, it cannot be changed. `data_source` can be only one of the following:
+The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. `data_source` can be only one of the following:
 
 `cloud_observability`
 
@@ -48078,17 +48415,17 @@ Fields
 
 `string`
 
-Optional. Optional log view that will be used to query logs. If empty, the `_Default` view will be used.
+Optional. Optional log view that will be used to query logs. If empty, the project's default view ( `projects/{project_id}` ) will be used.
 
 `trace_view`
 
 `string`
 
-Optional. Optional trace view that will be used to query traces. If empty, the `_Default` view will be used.
+Optional. Optional trace view that will be used to query traces. If empty, the `_AllSpans` view from `_Trace` US bucket will be used, i.e. `projects/{project_id}/locations/us/buckets/_Trace/datasets/Spans/views/_AllSpans` .
 
-NOTE: This field is not supported yet and will be ignored if set.
+Union field `eval_scope` . Required. Defines the scope of data to be evaluated.
 
-Union field `eval_scope` . Required. Defines the scope of data to be evaluated. `eval_scope` can be only one of the following:
+This field is immutable. Once set, it cannot be changed. `eval_scope` can be only one of the following:
 
 `trace_scope`
 
@@ -48096,7 +48433,9 @@ Union field `eval_scope` . Required. Defines the scope of data to be evaluated. 
 
 Scope online evaluation to single traces.
 
-Union field `convention` . Required. Defines which convention the data source follows. `convention` can be only one of the following:
+Union field `convention` . Required. Defines which convention the data source follows.
+
+This field is immutable. Once set, it cannot be changed. `convention` can be only one of the following:
 
 `open_telemetry`
 
@@ -51543,7 +51882,7 @@ Failure message if any.
 
 ## QueryReasoningEngineRequest
 
-Request message for \[ReasoningEngineExecutionService.Query\]\[\].
+Request message for `  ReasoningEngineExecutionService.QueryReasoningEngine  ` .
 
 Fields
 
@@ -51567,7 +51906,7 @@ Optional. Class method to be used for the query. It is optional and defaults to 
 
 ## QueryReasoningEngineResponse
 
-Response message for \[ReasoningEngineExecutionService.Query\]\[\]
+Response message for `  ReasoningEngineExecutionService.QueryReasoningEngine  ` .
 
 Fields
 
@@ -55270,7 +55609,7 @@ Optional. Corresponds to the label key of a reservation resource. To target a SP
 
 `string`
 
-Optional. Corresponds to the label values of a reservation resource. This must be the full resource name of the reservation or reservation block.
+Optional. Corresponds to the label values of a reservation resource. This must be the resource name of the reservation, reservation block, or reservation sub- block.
 
 ## Type
 
@@ -56765,6 +57104,12 @@ Output only. The internal IP address of the SandboxEnvironment.
 
 Output only. The routing token for the SandboxEnvironment.
 
+`service_attachment`
+
+`string`
+
+Output only. The name of the PSC-E service attachment created for private ingress to this SandboxEnvironment. Only populated when the template enables private ingress (see SandboxEnvironmentTemplate.ingress\_control\_config). VPC-SC customers use this to create a PSC endpoint in their VPC.
+
 ## State
 
 The state of the SandboxEnvironment.
@@ -56794,6 +57139,22 @@ Sandbox has terminated with underlying runtime failure.
 `STATE_DELETED`
 
 Sandbox runtime has been deleted.
+
+`STATE_PAUSED`
+
+Sandbox runtime is paused.
+
+`STATE_PAUSING`
+
+Sandbox runtime is pausing.
+
+`STATE_RESUMING`
+
+Sandbox runtime is resuming.
+
+`STATE_STOPPING`
+
+Sandbox runtime is stopping.
 
 ## SandboxEnvironmentSnapshot
 
@@ -56855,6 +57216,12 @@ Optional. Owner information for this sandbox snapshot. Different owners will hav
 
 Optional. Input only. Action to take on the source SandboxEnvironment after the snapshot is taken. This field is only used in CreateSandboxEnvironmentSnapshotRequest and it is not stored in the resource.
 
+`use_gke_td`
+
+`bool`
+
+Output only. Whether the source SandboxEnvironment uses the GKE TD pool.
+
 Union field `expiration` . The expiration of the SandboxEnvironmentSnapshot. If not set, the SandboxEnvironmentSnapshot will have a default TTL of 30 days. `expire_time` is recommended for specifying a precise expiration time. `expiration` can be only one of the following:
 
 `expire_time`
@@ -56893,6 +57260,12 @@ The specification of a SandboxEnvironment.
 
 Fields
 
+`use_gke_td`
+
+`bool`
+
+Optional. Immutable. Whether to provision the SandboxEnvironment via the GKE TD pool. Immutable.
+
 Union field `sandbox_environment_category` . The supported sandbox runtime environment categories. `sandbox_environment_category` can be only one of the following:
 
 `computer_use_environment`
@@ -56906,6 +57279,12 @@ Optional. The computer use environment.
 `  CodeExecutionEnvironment  `
 
 Optional. The code execution environment.
+
+`shell_environment`
+
+`  ShellEnvironment  `
+
+Optional. The shell environment for executing shell commands and scripts.
 
 ## CodeExecutionEnvironment
 
@@ -56963,6 +57342,12 @@ The default value: milligcu 2000, memory 1.5Gib
 
 The default value: milligcu 4000, memory 4 Gib
 
+## ShellEnvironment
+
+This type has no fields.
+
+The shell environment.
+
 ## SandboxEnvironmentTemplate
 
 The specification of a SandboxEnvironmentTemplate. A SandboxEnvironmentTemplate defines a template for creating SandboxEnvironments.
@@ -57004,6 +57389,20 @@ Output only. The state of the sandbox environment template.
 `  EgressControlConfig  `
 
 Optional. The configuration for egress control of this template.
+
+`ingress_control_config`
+
+`  PrivateServiceConnectConfig  `
+
+Optional. The configuration for private ingress (PSC-E) of this template. When set, the sandbox router is exposed privately via a PSC service attachment so VPC-SC customers can connect from their VPC over a private endpoint instead of the public internet. The resulting service attachment is surfaced on `SandboxEnvironment.connection_info.service_attachment` .
+
+Only the PSC-E (service-attachment/ingress) portion of `PrivateServiceConnectConfig` applies here: `enable_private_service_connect` and `project_allowlist` (the consumer projects allowed to connect). The nested `psc_interface_config` (PSC-I / egress) is not used for sandbox ingress; sandbox egress is configured via `egress_control_config` instead.
+
+`use_gke_td`
+
+`bool`
+
+Optional. Immutable. Whether to provision the SandboxEnvironmentTemplate via the GKE TD pool.
 
 Union field `sandbox_environment_category` . The supported sandbox environment template categories. `sandbox_environment_category` can be only one of the following:
 
@@ -57107,19 +57506,13 @@ Optional. Whether to allow internet access.
 
 `string`
 
-Optional. The name of the customer VPC NetworkAttachment used to draw a PSC interface IP into the customer VPC for sandbox egress.
+Optional. The name of the customer VPC `NetworkAttachment` used to draw a PSC interface IP into the customer VPC for sandbox egress.
 
 `dns_peering_configs[]`
 
 `  DnsPeeringConfig  `
 
 Optional. DNS peering configurations that allow sandbox egress to resolve customer-internal domains via the customer VPC.
-
-`customer_vpc_network`
-
-`string`
-
-Optional. The customer VPC network that sandbox egress is routed into.
 
 ## DnsPeeringConfig
 
@@ -57137,13 +57530,13 @@ Required. The DNS name suffix of the zone being peered to, e.g., "my-internal-do
 
 `string`
 
-Required. The project ID hosting the Cloud DNS managed zone that contains the 'domain'. The Agent Platform Service Agent requires the dns.peer role on this project.
+Required. The project ID hosting the Cloud DNS managed zone that contains the `domain` . The Agent Platform Service Agent requires the dns.peer role on this project.
 
 `target_network`
 
 `string`
 
-Required. The VPC network name in the target\_project where the DNS zone specified by 'domain' is visible.
+Required. The VPC network name in the target\_project where the DNS zone specified by `domain` is visible.
 
 ## NetworkPort
 
@@ -58542,6 +58935,12 @@ Format: `principal://TRUST_DOMAIN/NAMESPACE/AGENT_NAME`
 
 Example: `principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/AGENT_ENGINE_ID`
 
+`agent_response_customization`
+
+`  AgentResponseCustomization  `
+
+Optional. Settings for customizing the agent's response to end users when this policy is evaluated, such as messages displayed when the policy denies a request.
+
 ## McpTool
 
 Represents a governance policy applied to MCP tools used by an Agent.
@@ -59709,7 +60108,7 @@ The prediction output.
 
 ## StreamQueryReasoningEngineRequest
 
-Request message for \[ReasoningEngineExecutionService.StreamQuery\]\[\].
+Request message for `  ReasoningEngineExecutionService.StreamQueryReasoningEngine  ` .
 
 Fields
 
@@ -65956,6 +66355,12 @@ Optional. The Google Cloud Storage URI to store the video output. Required for V
 `  AspectRatio  `
 
 The aspect ratio for the video output.
+
+`resolution`
+
+`string`
+
+Optional. The video output resolution. Supported values: "360p", "720p", "1080p", "4k".
 
 `duration`
 

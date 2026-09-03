@@ -92,7 +92,7 @@ Output only. Evaluation runs for the Tuning Job.
 
 `source_model` `Union type`
 
-`source_model` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `baseModel` `string`
 
@@ -102,13 +102,17 @@ The base model that is being tuned. See [Supported models](https://cloud.google.
 
 The pre-tuned model for continuous tuning.
 
+End of mutually exclusive fields.
+
 `tuning_spec` `Union type`
 
-`tuning_spec` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `supervisedTuningSpec` ` object ( SupervisedTuningSpec  ` )
 
 Tuning Spec for Supervised Fine Tuning.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -332,7 +336,7 @@ Optional. The aggregation metrics to use.
 
 `metric_spec` `Union type`
 
-The spec for the metric. It would be either a pre-defined metric, or a inline metric spec. `metric_spec` can be only one of the following:
+The spec for the metric. It would be either a pre-defined metric, or a inline metric spec. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `predefinedMetricSpec` ` object ( PredefinedMetricSpec  ` )
 
@@ -365,6 +369,8 @@ Spec for bleu metric.
 `rougeSpec` ` object ( RougeSpec  ` )
 
 Spec for rouge metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -481,7 +487,7 @@ Optional. The parser config for the metric result.
 
 `rubrics_source` `Union type`
 
-Source of the rubrics to be used for evaluation. `rubrics_source` can be only one of the following:
+Source of the rubrics to be used for evaluation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `rubricGroupKey` `string`
 
@@ -490,6 +496,8 @@ Use a pre-defined group of rubrics associated with the input. Refers to a key in
 `predefinedRubricGenerationSpec` ` object ( PredefinedMetricSpec  ` )
 
 Dynamically generate rubrics using a predefined spec.
+
+End of mutually exclusive fields.
 
 `metricPromptTemplate` `string`
 
@@ -709,7 +717,7 @@ Fields
 
 `routing_config` `Union type`
 
-The routing mode for the request. `routing_config` can be only one of the following:
+The routing mode for the request. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `autoMode` ` object ( AutoRoutingMode  ` )
 
@@ -718,6 +726,8 @@ In this mode, the model is selected automatically based on the content of the re
 `manualMode` ` object ( ManualRoutingMode  ` )
 
 In this mode, the model is specified manually.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -905,7 +915,7 @@ Fields
 
 `voice_config` `Union type`
 
-The configuration for the speaker to use. `voice_config` can be only one of the following:
+The configuration for the speaker to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `prebuiltVoiceConfig` ` object ( PrebuiltVoiceConfig  ` )
 
@@ -914,6 +924,8 @@ The configuration for a prebuilt voice.
 `replicatedVoiceConfig` ` object ( ReplicatedVoiceConfig  ` )
 
 Optional. The configuration for a replicated voice. This enables users to replicate a voice from an audio sample.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1120,6 +1132,10 @@ This message allows you to control various aspects of image generation, such as 
 
 Fields
 
+`prominentPeople` ` enum ( ProminentPeople  ` )
+
+Optional. Controls whether prominent people (celebrities) generation is allowed. If used with personGeneration, personGeneration enum would take precedence. For instance, if ALLOW\_NONE is set, all person generation would be blocked. If this field is unspecified, the default behavior is to allow prominent people.
+
 `imageOutputOptions` ` object ( ImageOutputOptions  ` )
 
 Optional. The image output format for generated images.
@@ -1149,7 +1165,7 @@ Optional. Specifies the size of generated images. Supported values are `1K` , `2
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;imageOutputOptions&quot;: {object (ImageOutputOptions)},&quot;aspectRatio&quot;: string,&quot;personGeneration&quot;: enum (PersonGeneration),&quot;imageSize&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;prominentPeople&quot;: enum (ProminentPeople),&quot;imageOutputOptions&quot;: {object (ImageOutputOptions)},&quot;aspectRatio&quot;: string,&quot;personGeneration&quot;: enum (PersonGeneration),&quot;imageSize&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1209,6 +1225,24 @@ Allows the model to generate images of adults, but not children.
 
 Prevents the model from generating images of people.
 
+## ProminentPeople
+
+Enum for controlling whether the model can generate images of prominent people (celebrities).
+
+Enums
+
+`PROMINENT_PEOPLE_UNSPECIFIED`
+
+Unspecified value. The model will proceed with the default behavior, which is to allow generation of prominent people.
+
+`ALLOW_PROMINENT_PEOPLE`
+
+Allows the model to generate images of prominent people.
+
+`BLOCK_PROMINENT_PEOPLE`
+
+Prevents the model from generating images of prominent people.
+
 ## ResponseFormat
 
 Configuration for the model to configure output formatting and delivery.
@@ -1217,7 +1251,7 @@ Fields
 
 `format` `Union type`
 
-The format of the output content. `format` can be only one of the following:
+The format of the output content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextResponseFormat  ` )
 
@@ -1234,6 +1268,8 @@ Image output format.
 `video` ` object ( VideoResponseFormat  ` )
 
 Video output format.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1551,6 +1587,10 @@ Optional. The Google Cloud Storage URI to store the video output. Required for V
 
 The aspect ratio for the video output.
 
+`resolution` `string`
+
+Optional. The video output resolution. Supported values: "360p", "720p", "1080p", "4k".
+
 `duration` ` string ( Duration  ` format)
 
 Optional. The duration for the video output.
@@ -1568,7 +1608,7 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;duration&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (DeliveryMode),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;resolution&quot;: string,&quot;duration&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1599,11 +1639,13 @@ Fields
 
 `parser` `Union type`
 
-The parser to use. `parser` can be only one of the following:
+The parser to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `customCodeParserConfig` ` object ( CustomCodeParserConfig  ` )
 
 Optional. Use custom code to parse the LLM response.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1701,11 +1743,13 @@ Fields
 
 `custom_output_format_config` `Union type`
 
-Custom output format configuration. `custom_output_format_config` can be only one of the following:
+Custom output format configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `returnRawOutput` `boolean`
 
 Optional. Whether to return raw output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1900,11 +1944,13 @@ Fields
 
 `destination` `Union type`
 
-The destination for evaluation output. `destination` can be only one of the following:
+The destination for evaluation output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsDestination` ` object ( GcsDestination  ` )
 
 Cloud storage destination for evaluation output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2015,11 +2061,13 @@ Fields
 
 `tuning_data_stats` `Union type`
 
-`tuning_data_stats` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `supervisedTuningDataStats` ` object ( SupervisedTuningDataStats  ` )
 
 The SFT Tuning data stats.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2317,7 +2365,7 @@ Fields
 
 `source` `Union type`
 
-The source of the dataset. `source` can be only one of the following:
+The source of the dataset. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
@@ -2326,6 +2374,8 @@ Cloud storage source holds the dataset. Currently only one Cloud Storage file pa
 `bigquerySource` ` object ( BigQuerySource  ` )
 
 BigQuery source holds the dataset.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2351,7 +2401,7 @@ Fields
 
 `aggregation_result` `Union type`
 
-The aggregation result. `aggregation_result` can be only one of the following:
+The aggregation result. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `pointwiseMetricResult` ` object ( PointwiseMetricResult  ` )
 
@@ -2372,6 +2422,8 @@ Results for bleu metric.
 `rougeMetricValue` ` object ( RougeMetricValue  ` )
 
 Results for rouge metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2431,11 +2483,13 @@ Fields
 
 `custom_output` `Union type`
 
-Custom output. `custom_output` can be only one of the following:
+Custom output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `rawOutputs` ` object ( RawOutput  ` )
 
 Output only. List of raw output strings.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2631,11 +2685,13 @@ Fields
 
 `output_location` `Union type`
 
-The output location into which evaluation output is written. `output_location` can be only one of the following:
+The output location into which evaluation output is written. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsOutputDirectory` `string`
 
 Output only. The full path of the Cloud Storage directory created, into which the evaluation results and aggregation results are written.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

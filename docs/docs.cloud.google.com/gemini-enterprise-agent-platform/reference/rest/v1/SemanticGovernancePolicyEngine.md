@@ -110,7 +110,9 @@ Optional. The URI of the subnetwork resource where PSC-E will be provisioned. if
 
 `dnsZoneName` `string`
 
-Optional. FQDN of the private DNS zone to create DNS record set for PSC endpoint.
+Optional. name of the private Cloud DNS managed zone in which to create the gateway's A-record. This is the managed zone's own name, not its DNS name: for a zone serving `example.internal.` , this field takes the zone name, such as `my-private-zone` .
+
+The zone's DNS name is combined with a generated per-gateway label to form the record's fully qualified name, which must stay within the 255-octet DNS limit. If the full name is too long, gateway provisioning fails when it attempts to create the DNS record.
 
 `state` ` enum ( State  ` )
 
@@ -130,7 +132,7 @@ Output only. The fully qualified record name of the created A-record in Cloud DN
 
 `allowedProjects[]` `string`
 
-Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: project id or number.
+Optional. Additional consumer projects permitted to attach their own PSC endpoint to this gateway's ServiceAttachment. This is the "decoupled" mode, where the customer creates the PSC endpoint in a project other than this gateway's `network` project. Each listed project is VPC-SC enforced: it must be within the caller's service perimeter. The owning SemanticGovernancePolicyEngine's own project is always permitted implicitly and need not be listed. Format: `projects/{project}` (id or number).
 
 <table>
 <colgroup>

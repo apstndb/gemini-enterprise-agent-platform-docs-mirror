@@ -6,7 +6,7 @@ description: Developer guide for Gemini 3.7 Flash, covering model specifications
 data_source: docs.cloud.google.com
 ---
 
-**Gemini 3.7 Flash** is the high-efficiency, cost-effective powerhouse of the Gemini 3 family. It delivers near-Pro agentic capabilities, major leaps in code generation and terminal execution while maintaining the exact same price tier as Gemini 3.6 Flash.
+**Gemini 3.7 Flash** is our intelligent everyday driver for developers, and delivers a step forward in software engineering, feeling distinctly better to build with. This model brings better intelligence for complex tasks, instruction following, and tool calling into your daily workflows.
 
 This document covers what's new with 3.7 Flash, how it fits within the Gemini model family, how to migrate to 3.7 Flash, and provides a quickstart for using 3.7 Flash.
 

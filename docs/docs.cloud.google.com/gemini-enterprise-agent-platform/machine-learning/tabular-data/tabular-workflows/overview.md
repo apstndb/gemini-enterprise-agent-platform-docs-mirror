@@ -29,11 +29,11 @@ In most cases, define and run the pipeline using the [Google Cloud Pipeline Comp
 
 ``` 
   // Define the pipeline and the parameters
-  template_path, parameter_values = tabular_utils.get_default_pipeline_and_parameters(
+  template_path, parameter_values = tabular_utils.get_automl_tabular_pipeline_and_parameters(
      …
       optimization_objective=optimization_objective,
-      data_source=data_source,
-      target_column_name=target_column_name
+      data_source_bigquery_table_path=data_source_bigquery_table_path,
+      target_column=target_column
      …)
 ```
 

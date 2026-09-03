@@ -212,7 +212,7 @@ Optional. Specifies to trigger generation when the event count reaches this limi
 
 `time_based_condition` `Union type`
 
-Represents the time based condition that triggers generation. `time_based_condition` can be only one of the following:
+Represents the time based condition that triggers generation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `idleDuration` ` string ( Duration  ` format)
 
@@ -226,13 +226,17 @@ Optional. Specifies to trigger generation at a fixed interval. The duration must
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
+End of mutually exclusive fields.
+
 `overlap_window` `Union type`
 
-Specifies how much context to carry over from one generation window into the next, so that memories stay coherent across GenerateMemories calls. Carried-over events do not count toward the trigger rule. `overlap_window` can be only one of the following:
+Specifies how much context to carry over from one generation window into the next, so that memories stay coherent across GenerateMemories calls. Carried-over events do not count toward the trigger rule. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `overlapEventCount` `integer`
 
 Optional. Re-include the last N already-processed events in the next window.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -297,7 +301,7 @@ Fields
 
 `ttl` `Union type`
 
-Configuration for automatically setting the TTL of the memories in the Memory Bank. `ttl` can be only one of the following:
+Configuration for automatically setting the TTL of the memories in the Memory Bank. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `defaultTtl` ` string ( Duration  ` format)
 
@@ -309,15 +313,19 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 Optional. The granular TTL configuration of the memories in the Memory Bank.
 
+End of mutually exclusive fields.
+
 `memory_revision_ttl` `Union type`
 
-Configuration for automatically setting the TTL of the memory revisions in the Memory Bank. `memory_revision_ttl` can be only one of the following:
+Configuration for automatically setting the TTL of the memory revisions in the Memory Bank. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `memoryRevisionDefaultTtl` ` string ( Duration  ` format)
 
 Optional. The default TTL duration of the memory revisions in the Memory Bank. This applies to all operations that create a memory revision. If not set, a default TTL of 365 days will be used.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -455,7 +463,7 @@ Fields
 
 `traffic_split` `Union type`
 
-Traffic distribution configuration. `traffic_split` can be only one of the following:
+Traffic distribution configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `trafficSplitManual` ` object ( TrafficSplitManual  ` )
 
@@ -464,6 +472,8 @@ Optional. Manual traffic distribution configuration, where the user specifies th
 `trafficSplitAlwaysLatest` ` object ( TrafficSplitAlwaysLatest  ` )
 
 Optional. Traffic distribution configuration, where all traffic is sent to the latest Runtime Revision.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -572,6 +582,10 @@ Executes code statelessly.
 
 Gets a reasoning engine.
 
+### `            getIamPolicy           `
+
+Gets the access control policy for a resource.
+
 ### `            list           `
 
 Lists reasoning engines in a location.
@@ -584,6 +598,14 @@ Updates a reasoning engine.
 
 Queries using a reasoning engine.
 
+### `            setIamPolicy           `
+
+Sets the access control policy on the specified resource.
+
 ### `            streamQuery           `
 
 Streams queries using a reasoning engine.
+
+### `            testIamPermissions           `
+
+Returns permissions that a caller has on the specified resource.

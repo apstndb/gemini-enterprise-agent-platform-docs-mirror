@@ -52,9 +52,13 @@ Optional. owner information for this sandbox snapshot. Different owners will hav
 
 Optional. Input only. Action to take on the source SandboxEnvironment after the snapshot is taken. This field is only used in CreateSandboxEnvironmentSnapshotRequest and it is not stored in the resource.
 
+`useGkeTd` `boolean`
+
+Output only. Whether the source SandboxEnvironment uses the GKE TD pool.
+
 `expiration` `Union type`
 
-The expiration of the SandboxEnvironmentSnapshot. If not set, the SandboxEnvironmentSnapshot will have a default TTL of 30 days. `expire_time` is recommended for specifying a precise expiration time. `expiration` can be only one of the following:
+The expiration of the SandboxEnvironmentSnapshot. If not set, the SandboxEnvironmentSnapshot will have a default TTL of 30 days. `expire_time` is recommended for specifying a precise expiration time. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `expireTime` ` string ( Timestamp  ` format)
 
@@ -68,6 +72,8 @@ Optional. Input only. The TTL for the sandbox environment snapshot. The expirati
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -79,7 +85,7 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;sourceSandboxEnvironment&quot;: string,&quot;parentSnapshot&quot;: string,&quot;sizeBytes&quot;: string,&quot;owner&quot;: string,&quot;postSnapshotAction&quot;: enum (PostSnapshotAction),// expiration&quot;expireTime&quot;: string,&quot;ttl&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;sourceSandboxEnvironment&quot;: string,&quot;parentSnapshot&quot;: string,&quot;sizeBytes&quot;: string,&quot;owner&quot;: string,&quot;postSnapshotAction&quot;: enum (PostSnapshotAction),&quot;useGkeTd&quot;: boolean,// expiration&quot;expireTime&quot;: string,&quot;ttl&quot;: string// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>

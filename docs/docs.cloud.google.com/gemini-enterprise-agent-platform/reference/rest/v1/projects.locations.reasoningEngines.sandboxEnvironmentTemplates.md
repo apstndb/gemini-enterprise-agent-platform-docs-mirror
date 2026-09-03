@@ -40,9 +40,15 @@ Output only. The state of the sandbox environment template.
 
 Optional. The configuration for egress control of this template.
 
+`ingressControlConfig` ` object ( PrivateServiceConnectConfig  ` )
+
+Optional. The configuration for private ingress (PSC-E) of this template. When set, the sandbox router is exposed privately via a PSC service attachment so VPC-SC customers can connect from their VPC over a private endpoint instead of the public internet. The resulting service attachment is surfaced on `SandboxEnvironment.connection_info.service_attachment` .
+
+Only the PSC-E (service-attachment/ingress) portion of `PrivateServiceConnectConfig` applies here: `enablePrivateServiceConnect` and `projectAllowlist` (the consumer projects allowed to connect). The nested `pscInterfaceConfig` (PSC-I / egress) is not used for sandbox ingress; sandbox egress is configured via `egressControlConfig` instead.
+
 `sandbox_environment_category` `Union type`
 
-The supported sandbox environment template categories. `sandbox_environment_category` can be only one of the following:
+The supported sandbox environment template categories. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `customContainerEnvironment` ` object ( CustomContainerEnvironment  ` )
 
@@ -51,6 +57,8 @@ The sandbox environment for custom container workloads.
 `defaultContainerEnvironment` ` object ( DefaultContainerEnvironment  ` )
 
 The sandbox environment for default container workloads.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -63,7 +71,7 @@ The sandbox environment for default container workloads.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;state&quot;: enum (State),&quot;egressControlConfig&quot;: {object (EgressControlConfig)},// sandbox_environment_category&quot;customContainerEnvironment&quot;: {object (CustomContainerEnvironment)},&quot;defaultContainerEnvironment&quot;: {object (DefaultContainerEnvironment)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;displayName&quot;: string,&quot;createTime&quot;: string,&quot;updateTime&quot;: string,&quot;state&quot;: enum (State),&quot;egressControlConfig&quot;: {object (EgressControlConfig)},&quot;ingressControlConfig&quot;: {object (PrivateServiceConnectConfig)},// sandbox_environment_category&quot;customContainerEnvironment&quot;: {object (CustomContainerEnvironment)},&quot;defaultContainerEnvironment&quot;: {object (DefaultContainerEnvironment)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -307,15 +315,11 @@ Optional. Whether to allow internet access.
 
 `networkAttachment` `string`
 
-Optional. The name of the customer VPC NetworkAttachment used to draw a PSC interface IP into the customer VPC for sandbox egress.
+Optional. The name of the customer VPC `NetworkAttachment` used to draw a PSC interface IP into the customer VPC for sandbox egress.
 
 `dnsPeeringConfigs[]` ` object ( DnsPeeringConfig  ` )
 
 Optional. DNS peering configurations that allow sandbox egress to resolve customer-internal domains via the customer VPC.
-
-`customerVpcNetwork` `string`
-
-Optional. The customer VPC network that sandbox egress is routed into.
 
 <table>
 <colgroup>
@@ -328,7 +332,7 @@ Optional. The customer VPC network that sandbox egress is routed into.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;internetAccess&quot;: boolean,&quot;networkAttachment&quot;: string,&quot;dnsPeeringConfigs&quot;: [{object (DnsPeeringConfig)}],&quot;customerVpcNetwork&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;internetAccess&quot;: boolean,&quot;networkAttachment&quot;: string,&quot;dnsPeeringConfigs&quot;: [{object (DnsPeeringConfig)}]}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -345,11 +349,11 @@ Required. The DNS name suffix of the zone being peered to, e.g., "my-internal-do
 
 `targetProject` `string`
 
-Required. The project id hosting the Cloud DNS managed zone that contains the 'domain'. The Agent Platform service Agent requires the dns.peer role on this project.
+Required. The project id hosting the Cloud DNS managed zone that contains the `domain` . The Agent Platform service Agent requires the dns.peer role on this project.
 
 `targetNetwork` `string`
 
-Required. The VPC network name in the targetProject where the DNS zone specified by 'domain' is visible.
+Required. The VPC network name in the targetProject where the DNS zone specified by `domain` is visible.
 
 <table>
 <colgroup>

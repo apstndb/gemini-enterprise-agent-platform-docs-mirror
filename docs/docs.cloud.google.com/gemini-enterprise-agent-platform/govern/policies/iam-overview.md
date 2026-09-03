@@ -26,13 +26,15 @@ When you are satisfied that the policies are functioning correctly, you can upda
 
 Policies have the following components:
 
-  - **Agents** : In your IAM allow policies, source agents are defined by their agent identity (the identity of the agent initiating communication with a service). To learn how different types of agents receive identities, see [Agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) . Agent identities are represented by [principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) that contain the SPIFFE-formatted identity of the agent. When you use the gcloud CLI to configure the IAM policy, the agent is the member that you grant access to.
+  - **Agents** : In your IAM allow policies, source agents are defined by their agent identity (the identity of the agent initiating communication with a service). To learn how different types of agents receive identities, see [Agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) . Agent identities are represented by [principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers) that contain the SPIFFE-formatted identity of the agent (for example, `principal://agents.global.org-...` ). Note that agent identifiers in URN format (such as `urn:agent:...` ) are used solely for inventory and catalog lookup and are not used in IAM policy bindings. When you use the gcloud CLI to configure the IAM policy, the agent principal is the member that you grant access to.
     
     Gemini Enterprise agents and Agent Runtime instances are automatically assigned an Agent Identity and registered in Agent Registry.
 
   - **Agent Registry resource** : The Agent Registry service that you're granting allow or deny access on. In IAM allow and deny policies, Agent Registry services are referred to as *resources* . The resource can be an entire registry within a project or an individual service, which can be an MCP server, agent, or endpoint.
     
     Individual services must be registered in Agent Registry before they can be referenced in an IAM policy. This registration is validated at bind time (when the policy binding is created or updated). If you reference a service that is not registered, policy creation fails immediately with a requested entity not found ( `NOT_FOUND` ) error.
+    
+    When you configure policies using the gcloud CLI CLI or Terraform, target resources are specified by their registry-minted paths or IDs (using flags like `--agent` , `--endpoint` , or `--mcp-server` ), rather than their logical URN identifiers. At runtime, the security gateway matches traffic destinations by their exact hostname instead of using URNs.
     
     If you regionalize your agent registries, then your IAM allow policy applies only to the resources that are in the registry's region.
 

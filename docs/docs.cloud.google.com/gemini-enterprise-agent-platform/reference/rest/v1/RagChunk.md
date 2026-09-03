@@ -14,6 +14,14 @@ Fields
 
 The content of the chunk.
 
+`fileId` `string`
+
+The id of the file that the chunk belongs to.
+
+`chunkId` `string`
+
+The id of the chunk.
+
 `pageSpan` ` object ( PageSpan  ` )
 
 If populated, represents where the chunk starts and ends in the document.
@@ -29,7 +37,7 @@ If populated, represents where the chunk starts and ends in the document.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;text&quot;: string,&quot;pageSpan&quot;: {object (PageSpan)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;text&quot;: string,&quot;fileId&quot;: string,&quot;chunkId&quot;: string,&quot;pageSpan&quot;: {object (PageSpan)}}</code></pre></td>
 </tr>
 </tbody>
 </table>

@@ -125,6 +125,12 @@ To configure Model Armor on a gateway, follow these steps:
     
     For general information about how to grant a role, see [Grant a single IAM role](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#grant-single-role) .
 
+### Optional: Pre-deployment template validation check
+
+Before you deploy your templates to a gateway, you can run a pre-deployment check to verify that your template configuration is enforcing your security policies correctly.
+
+You can validate your template by querying the `sanitizeUserPrompt` method directly using a set of test prompts. For more information about how to run this pre-deployment check and a list of verified test prompts, see [Validate your template configuration](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#validate-template-configuration) .
+
 ## Redact sensitive data from requests and responses
 
 You can instruct Model Armor to redact sensitive data—such as national ID numbers and phone numbers—from payloads. To use this feature, follow these steps:
@@ -147,7 +153,7 @@ For a complete list of Model Armor detectors (also called *filters* ), see [Mode
 
 ## Supported and unsupported payloads
 
-This section lists that specific payloads that Model Armor sanitizes.
+This section lists the types of payloads that Model Armor sanitizes.
 
 ### Client-to-Agent (ingress) traffic
 

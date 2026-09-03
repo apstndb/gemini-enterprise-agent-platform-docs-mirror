@@ -28,7 +28,7 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 
 `scheduleResourceName` `string`
 
-The Schedule resource name if this job is triggered by one. Format: `projects/{projectId}/locations/{location}/schedules/{schedule_id}`
+The Schedule resource name if this job is triggered by one. Format: `projects/{projectId}/locations/{location}/schedules/{scheduleId}`
 
 `jobState` ` enum ( JobState  ` )
 
@@ -68,7 +68,7 @@ Customer-managed encryption key spec for the notebook execution job. This field 
 
 `notebook_source` `Union type`
 
-The input notebook. `notebook_source` can be only one of the following:
+The input notebook. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dataformRepositorySource` ` object ( DataformRepositorySource  ` )
 
@@ -82,9 +82,11 @@ The Cloud Storage url pointing to the ipynb file. Format: `gs://bucket/notebookF
 
 The contents of an input notebook file.
 
+End of mutually exclusive fields.
+
 `environment_spec` `Union type`
 
-The compute config to use for an execution job. `environment_spec` can be only one of the following:
+The compute config to use for an execution job. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `notebookRuntimeTemplateResourceName` `string`
 
@@ -94,17 +96,21 @@ The NotebookRuntimeTemplate to source compute configuration from.
 
 The custom compute configuration for an execution job.
 
+End of mutually exclusive fields.
+
 `execution_sink` `Union type`
 
-The location to store the notebook execution result. `execution_sink` can be only one of the following:
+The location to store the notebook execution result. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsOutputUri` `string`
 
 The Cloud Storage location to upload the result to. Format: `gs://bucket-name`
 
+End of mutually exclusive fields.
+
 `execution_identity` `Union type`
 
-The identity to run the execution as. `execution_identity` can be only one of the following:
+The identity to run the execution as. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `executionUser` `string`
 
@@ -114,13 +120,17 @@ The user email to run the execution as. Only supported by Colab runtimes.
 
 The service account to run the execution as.
 
+End of mutually exclusive fields.
+
 `runtime_environment` `Union type`
 
-Runtime environment for the notebook execution job. If unspecified, the default runtime of Colab is used. `runtime_environment` can be only one of the following:
+Runtime environment for the notebook execution job. If unspecified, the default runtime of Colab is used. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `workbenchRuntime` ` object ( WorkbenchRuntime  ` )
 
 The Workbench runtime configuration to use for the notebook execution.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

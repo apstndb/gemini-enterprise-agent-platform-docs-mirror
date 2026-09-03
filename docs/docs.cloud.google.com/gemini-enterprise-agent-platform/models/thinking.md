@@ -18,6 +18,7 @@ Thinking is supported in the following models:
 
   - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) preview
   - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview) preview
+  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
   - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
@@ -44,6 +45,7 @@ The following table summarizes which `thinking_level` values are supported by ea
 
 | Model                                            | Supported `thinking_level` values     | Default   |
 | ------------------------------------------------ | ------------------------------------- | --------- |
+| Gemini 3.8 Flash                                 | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | Gemini 3.7 Flash                                 | `LOW` , `MEDIUM` , `HIGH`             | `MEDIUM`  |
 | Gemini 3.6 Flash                                 | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MEDIUM`  |
 | Gemini 3.5 Flash-Lite                            | `MINIMAL` , `LOW` , `MEDIUM` , `HIGH` | `MINIMAL` |

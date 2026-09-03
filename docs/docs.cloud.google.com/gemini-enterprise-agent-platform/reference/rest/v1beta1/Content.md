@@ -12,7 +12,7 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextContent  ` )
 
@@ -35,6 +35,8 @@ Fields
 ` toolResult (deprecated)  ` ` object ( ToolResultContent  ` )
 
 > This item is deprecated\!
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -88,9 +90,9 @@ An image content block.
 
 Fields
 
-`mimeType` `enum ( MimeType` )
+`mimeTypeString` `string`
 
-The mime type of the image.
+Flexible MIME type string of the image, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
 
 `resolution` ` enum ( MediaResolution  ` )
 
@@ -98,7 +100,7 @@ The resolution of the media.
 
 `data_or_uri` `Union type`
 
-The image content. `data_or_uri` can be only one of the following:
+The image content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
@@ -110,6 +112,8 @@ A base64-encoded string.
 
 The URI of the image.
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -121,7 +125,7 @@ The URI of the image.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),&quot;resolution&quot;: enum (MediaResolution),// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeTypeString&quot;: string,&quot;resolution&quot;: enum (MediaResolution),// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -132,9 +136,9 @@ An audio content block.
 
 Fields
 
-`mimeType` ` enum ( MimeType  ` )
+`mimeTypeString` `string`
 
-The mime type of the audio.
+Flexible MIME type string of the audio, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
 
 `channels` `integer`
 
@@ -146,7 +150,7 @@ The sample rate of the audio.
 
 `data_or_uri` `Union type`
 
-The audio content. `data_or_uri` can be only one of the following:
+The audio content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
@@ -158,6 +162,8 @@ A base64-encoded string.
 
 The URI of the audio.
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -169,7 +175,16 @@ The URI of the audio.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),&quot;channels&quot;: integer,&quot;sampleRate&quot;: integer,// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;mimeTypeString&quot;: string,
+  &quot;channels&quot;: integer,
+  &quot;sampleRate&quot;: integer,
+
+  // data_or_uri
+  &quot;data&quot;: string,
+  &quot;uri&quot;: string
+  // Union type
+}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -180,13 +195,13 @@ A document content block.
 
 Fields
 
-`mimeType` `enum ( MimeType` )
+`mimeTypeString` `string`
 
-The mime type of the document.
+Flexible MIME type string of the document, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
 
 `data_or_uri` `Union type`
 
-The document content. `data_or_uri` can be only one of the following:
+The document content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
@@ -198,6 +213,8 @@ A base64-encoded string.
 
 The URI of the document.
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -209,7 +226,14 @@ The URI of the document.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;mimeTypeString&quot;: string,
+
+  // data_or_uri
+  &quot;data&quot;: string,
+  &quot;uri&quot;: string
+  // Union type
+}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -220,17 +244,21 @@ A video content block.
 
 Fields
 
-`mimeType` `enum ( MimeType` )
+`mimeTypeString` `string`
 
-The mime type of the video.
+Flexible MIME type string of the video, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
 
 `resolution` ` enum ( MediaResolution  ` )
 
 The resolution of the media.
 
+`name` `string`
+
+A user-defined name for this content block. Can be referenced by the model in the final response.
+
 `data_or_uri` `Union type`
 
-The video content. `data_or_uri` can be only one of the following:
+The video content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
@@ -242,6 +270,8 @@ A base64-encoded string.
 
 The URI of the video.
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -253,7 +283,7 @@ The URI of the video.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeType&quot;: enum (MimeType),&quot;resolution&quot;: enum (MediaResolution),// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeTypeString&quot;: string,&quot;resolution&quot;: enum (MediaResolution),&quot;name&quot;: string,// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -298,11 +328,13 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextContent  ` )
 
 `image` ` object ( ImageContent  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -340,7 +372,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `functionCall` ` object ( FunctionCallContent  ` )
 
@@ -355,6 +387,8 @@ A base64-encoded string.
 `fileSearchCall` ` object ( FileSearchCallContent  ` )
 
 `googleMapsCall` ` object ( GoogleMapsCallContent  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -582,7 +616,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `functionResult` ` object ( FunctionResultContent  ` )
 
@@ -597,6 +631,8 @@ A base64-encoded string.
 `fileSearchResult` ` object ( FileSearchResultContent  ` )
 
 `googleMapsResult` ` object ( GoogleMapsResultContent  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -632,13 +668,15 @@ Whether the tool call resulted in an error.
 
 `result` `Union type`
 
-The result of the tool call. `result` can be only one of the following:
+The result of the tool call. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `structResult` ` object ( Struct  ` )
 
 `contentList` ` object ( FunctionResultSubcontentList  ` )
 
 `stringResult` `string`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -684,11 +722,13 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextContent  ` )
 
 `image` ` object ( ImageContent  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -821,13 +861,15 @@ The name of the used MCP server.
 
 `result` `Union type`
 
-The output from the MCP server call. Can be simple text or rich content. `result` can be only one of the following:
+The output from the MCP server call. Can be simple text or rich content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `structResult` ` object ( Struct  ` )
 
 `contentList` ` object ( FunctionResultSubcontentList  ` )
 
 `stringResult` `string`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -855,7 +897,7 @@ Fields
 
 `result[]` ` object ( FileSearchResult  ` )
 
-Optional. The results of the File Search.
+The results of the File Search.
 
 <table>
 <colgroup>

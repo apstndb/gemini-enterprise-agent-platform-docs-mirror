@@ -114,7 +114,7 @@ Output only. reserved for future use.
 
 `source_model` `Union type`
 
-`source_model` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `baseModel` `string`
 
@@ -124,9 +124,11 @@ The base model that is being tuned. See [Supported models](https://cloud.google.
 
 The pre-tuned model for continuous tuning.
 
+End of mutually exclusive fields.
+
 `tuning_spec` `Union type`
 
-`tuning_spec` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `supervisedTuningSpec` ` object ( SupervisedTuningSpec  ` )
 
@@ -151,6 +153,8 @@ Tuning Spec for Veo Tuning.
 `veoLoraTuningSpec` ` object ( VeoLoraTuningSpec  ` )
 
 Tuning Spec for Veo LoRA Tuning.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -382,11 +386,13 @@ Fields
 
 `destination` `Union type`
 
-The destination for evaluation output. `destination` can be only one of the following:
+The destination for evaluation output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsDestination` `object ( GcsDestination` )
 
 Cloud storage destination for evaluation output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -460,7 +466,7 @@ Optional. Specifies the tuning mode for distillation (sft part). This feature is
 
 `teacher_model` `Union type`
 
-The teacher model that is being distilled from. See [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning#supported_models) . `teacher_model` can be only one of the following:
+The teacher model that is being distilled from. See [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning#supported_models) . The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `baseTeacherModel` `string`
 
@@ -469,6 +475,8 @@ The base teacher model that is being distilled. See [Supported models](https://c
 `tunedTeacherModelSource` `string`
 
 The resource name of the Tuned teacher model. Format: `projects/{project}/locations/{location}/models/{model}` .
+
+End of mutually exclusive fields.
 
 `validationDatasetUri` `string`
 
@@ -585,23 +593,27 @@ Optional. Hyper-parameters for reinforcement tuning.
 
 `training_dataset` `Union type`
 
-The dataset to use for training. `training_dataset` can be only one of the following:
+The dataset to use for training. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `trainingDatasetUri` `string`
 
 Cloud Storage path to the file containing training dataset for tuning. The dataset must be formatted as a JSONL file.
 
+End of mutually exclusive fields.
+
 `validation_dataset` `Union type`
 
-The dataset to use for validation. `validation_dataset` can be only one of the following:
+The dataset to use for validation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `validationDatasetUri` `string`
 
 Cloud Storage path to the file containing validation dataset for tuning. The dataset must be formatted as a JSONL file.
 
+End of mutually exclusive fields.
+
 `reward_config` `Union type`
 
-Reward function configuration for reinforcement tuning. `reward_config` can be only one of the following:
+Reward function configuration for reinforcement tuning. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `singleRewardConfig` ` object ( SingleReinforcementTuningRewardConfig  ` )
 
@@ -610,6 +622,8 @@ Single Reward function configuration for reinforcement tuning.
 `compositeRewardConfig` ` object ( CompositeReinforcementTuningRewardConfig  ` )
 
 Composite reward function configuration for reinforcement tuning.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -648,7 +662,7 @@ For example, given a sample response for evaluating the reward, users might want
 
 `reward_scorer` `Union type`
 
-After parsing the sample response, the RL Tuning passes the original training/validation data `example` and the parsed response to the configured reward scorer for evaluating a reward. `reward_scorer` can be only one of the following:
+After parsing the sample response, the RL Tuning passes the original training/validation data `example` and the parsed response to the configured reward scorer for evaluating a reward. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `codeExecutionRewardScorer` ` object ( ReinforcementTuningCodeExecutionRewardScorer  ` )
 
@@ -665,6 +679,8 @@ After parsing the sample response, the RL Tuning passes the original training/va
 `cloudRunRewardScorer` ` object ( ReinforcementTuningCloudRunRewardScorer  ` )
 
 `  ReinforcementTuningCloudRunRewardScorer  ` is used to score parsed responses by calling a Cloud Run service.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -741,7 +757,7 @@ Fields
 
 `expression` `Union type`
 
-Evaluates parsed response using either string match expression or json match expression. `expression` can be only one of the following:
+Evaluates parsed response using either string match expression or json match expression. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `stringMatchExpression` ` object ( StringMatchExpression  ` )
 
@@ -750,6 +766,8 @@ uses string match expression to evaluate parsed response.
 `jsonMatchExpression` ` object ( JsonMatchExpression  ` )
 
 uses json match expression to evaluate parsed response.
+
+End of mutually exclusive fields.
 
 `wrongAnswerReward` `number`
 
@@ -910,7 +928,7 @@ Parses autorater returned response for scoring. For example, if the autorater re
 
 `autorater_scorer` `Union type`
 
-Scorer to be used for scoring autorater responses. `autorater_scorer` can be only one of the following:
+Scorer to be used for scoring autorater responses. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `parsedResponseConversionScorer` ` object ( ParsedResponseConversionScorer  ` )
 
@@ -921,6 +939,8 @@ Note: Reward is clipped to be within `[-1, 1]` , i.e., `reward = max(min(reward,
 `exactMatchScorer` ` object ( ExactMatchScorer  ` )
 
 Scores autorater responses by using string match reward scorer.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1250,13 +1270,15 @@ Optional. Adapter size for Reinforcement Tuning.
 
 `checkpoint_config` `Union type`
 
-Configurations of checkpointing during training. `checkpoint_config` can be only one of the following:
+Configurations of checkpointing during training. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `checkpointInterval` `integer`
 
 Optional. How often at steps to save checkpoints during training. If not set, one checkpoint per epoch will be set.
 
-`total_steps = epochCount * samplesPerPrompt / total_prompts_in_dataset`
+`totalSteps = epochCount * samplesPerPrompt / total_prompts_in_dataset`
+
+End of mutually exclusive fields.
 
 `epochCount` `string ( int64 format)`
 
@@ -1290,7 +1312,7 @@ Optional. Batch size for the tuning job. How many prompts to process at a train 
 
 `evaluateInterval` `integer`
 
-Optional. How often at steps to evaluate the tuning job during training. If not set, evel will be run per epoch. `total_steps = epochCount * samplesPerPrompt / total_prompts_in_dataset`
+Optional. How often at steps to evaluate the tuning job during training. If not set, evel will be run per epoch. `totalSteps = epochCount * samplesPerPrompt / total_prompts_in_dataset`
 
 `maxOutputTokens` `integer`
 
@@ -1611,7 +1633,7 @@ Fields
 
 `tuning_data_stats` `Union type`
 
-`tuning_data_stats` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `supervisedTuningDataStats` ` object ( SupervisedTuningDataStats  ` )
 
@@ -1620,6 +1642,8 @@ The SFT Tuning data stats.
 `distillationDataStats` ` object ( DistillationDataStats  ` )
 
 Output only. Statistics for distillation prompt dataset. These statistics do not include the responses sampled from the teacher model.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1879,11 +1903,13 @@ Output only. For each index in `droppedExampleIndices` , the user-facing reason 
 
 `dataset_examples` `Union type`
 
-Sample user dataset examples in the training dataset uri. This will replace the old `user_dataset_examples` field. `dataset_examples` can be only one of the following:
+Sample user dataset examples in the training dataset uri. This will replace the old `user_dataset_examples` field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `reinforcementTuningUserDatasetExamples` ` object ( ReinforcementTuningUserDatasetExamples  ` )
 
 Output only. Sample user dataset examples in the training dataset uri for Reinforcement Tuning.
+
+End of mutually exclusive fields.
 
 `userOutputTokenDistribution` ` object ( DatasetDistribution  ` )
 
@@ -2186,7 +2212,7 @@ Fields
 
 `source` `Union type`
 
-The source of the dataset. `source` can be only one of the following:
+The source of the dataset. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsSource` ` object ( GcsSource  ` )
 
@@ -2195,6 +2221,8 @@ Cloud storage source holds the dataset. Currently only one Cloud Storage file pa
 `bigquerySource` ` object ( BigQuerySource  ` )
 
 BigQuery source holds the dataset.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2224,7 +2252,7 @@ Aggregation metric.
 
 `aggregation_result` `Union type`
 
-The aggregation result. `aggregation_result` can be only one of the following:
+The aggregation result. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `pointwiseMetricResult` ` object ( PointwiseMetricResult  ` )
 
@@ -2249,6 +2277,8 @@ Results for rouge metric.
 `customCodeExecutionResult` ` object ( CustomCodeExecutionResult  ` )
 
 result for code execution metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2308,11 +2338,13 @@ Fields
 
 `custom_output` `Union type`
 
-Custom output. `custom_output` can be only one of the following:
+Custom output. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `rawOutputs` ` object ( RawOutput  ` )
 
 Output only. List of raw output strings.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2536,11 +2568,13 @@ Fields
 
 `output_location` `Union type`
 
-The output location into which evaluation output is written. `output_location` can be only one of the following:
+The output location into which evaluation output is written. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `gcsOutputDirectory` `string`
 
 Output only. The full path of the Cloud Storage directory created, into which the evaluation results and aggregation results are written.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

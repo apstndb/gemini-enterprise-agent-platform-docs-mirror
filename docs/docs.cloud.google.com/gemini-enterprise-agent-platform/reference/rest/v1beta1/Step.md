@@ -12,7 +12,7 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `thought` ` object ( ThoughtStep  ` )
 
@@ -45,6 +45,8 @@ DO NOT USE -- These are for 3P JSON only
 ` video (deprecated)  ` `object ( LegacyVideoContent` )
 
 > This item is deprecated\!
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -112,7 +114,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `functionCall` ` object ( FunctionCallStep  ` )
 
@@ -129,6 +131,8 @@ A base64-encoded string.
 `googleMapsCall` ` object ( GoogleMapsCallStep  ` )
 
 `retrievalCall` ` object ( RetrievalCallStep  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -506,7 +510,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `functionResult` ` object ( FunctionResultStep  ` )
 
@@ -523,6 +527,8 @@ A base64-encoded string.
 `googleMapsResult` ` object ( GoogleMapsResultStep  ` )
 
 `retrievalResult` ` object ( RetrievalResultStep  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -895,7 +901,7 @@ Fields
 
 `content` `Union type`
 
-`content` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `contentList` ` object ( ContentList  ` )
 
@@ -904,6 +910,8 @@ The content of the step. An array of Content objects.
 `contentString` `string`
 
 The content of the step. A single string.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -929,7 +937,9 @@ Fields
 
 `content[]` ` object ( Content  ` )
 
-`error` ` object ( Status  ` )
+` error (deprecated)  ` ` object ( Status  ` )
+
+> This item is deprecated\!
 
 The error result of the operation in case of failure or cancellation.
 

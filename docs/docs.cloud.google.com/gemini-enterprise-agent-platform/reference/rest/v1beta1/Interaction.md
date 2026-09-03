@@ -38,10 +38,6 @@ Output only. The role of the interaction.
 
 Output only. Responses from the model.
 
-`systemInstruction` `string`
-
-System instruction for the interaction.
-
 `tools[]` ` object ( Tool  ` )
 
 A list of tool declarations the model may call during interaction.
@@ -74,19 +70,33 @@ Output only. The environment id for the interaction. Only populated if environme
 
 Required. Output only. The steps that make up the interaction.
 
-`safety_settings[]` ` object ( SafetySetting  ` )
+`safetySettings[]` ` object ( SafetySetting  ` )
 
 Safety settings for the interaction.
 
 `labels` `map (key: string, value: string)`
 
-Optional. The labels with user-defined metadata for the request. It is used for billing and reporting only.
+The labels with user-defined metadata for the request. It is used for billing and reporting only.
 
 label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. label values are optional. label keys must start with a letter.
 
+`errors[]` ` object ( Error  ` )
+
+Output only. Diagnostic faults / platform errors recorded on the interaction.
+
+`system_instruction_config` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`systemInstruction` `string`
+
+System instruction for the interaction.
+
+End of mutually exclusive fields.
+
 `input` `Union type`
 
-The input for the interaction. `input` can be only one of the following:
+The input for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` contentList (deprecated)  ` ` object ( ContentList  ` )
 
@@ -98,7 +108,7 @@ The inputs for the interaction.
 
 A string input for the interaction, it will be processed as a single text input.
 
-` turnList (deprecated)  ` ` object ( TurnList  ` )
+` turnList (deprecated)  ` `object ( TurnList` )
 
 > This item is deprecated\!
 
@@ -112,9 +122,11 @@ Input only. The steps for the interaction.
 
 The content for the interaction.
 
+End of mutually exclusive fields.
+
 `response_format_config` `Union type`
 
-`response_format_config` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` responseFormat (deprecated)  ` ` object ( Value  ` )
 
@@ -126,9 +138,11 @@ Enforces that the generated response is a JSON object that complies with the JSO
 
 `responseFormatSingleton` ` object ( ResponseFormat  ` )
 
+End of mutually exclusive fields.
+
 `request_type` `Union type`
 
-The request type for the interaction. `request_type` can be only one of the following:
+The request type for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `modelInteraction` ` object ( ModelInteraction  ` )
 
@@ -138,9 +152,11 @@ Interaction for generating the completion using models.
 
 Interaction for generating the completion using agents.
 
+End of mutually exclusive fields.
+
 `environment` `Union type`
 
-The environment configuration for the interaction. `environment` can be only one of the following:
+The environment configuration for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `envId` `string`
 
@@ -152,31 +168,7 @@ The environment id for the interaction. Can be 'remote' for default environment.
 
 The agent's environment lives on the client connection: its built-in environment operations (filesystem ops and running commands) are yielded to the client to execute, instead of running in a server-managed sandbox. Mutually exclusive with `remoteEnvironment` . (Independent of any client-declared function tools, which are always executed on the client regardless of this field.)
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;status&quot;: enum (Status),&quot;created&quot;: string,&quot;updated&quot;: string,&quot;role&quot;: string,&quot;outputs&quot;: [{object (Content)}],&quot;systemInstruction&quot;: string,&quot;tools&quot;: [{object (Tool)}],&quot;usage&quot;: {object (Usage)},&quot;responseModalities&quot;: [enum (ResponseModality)],&quot;responseMimeType&quot;: string,&quot;previousInteractionId&quot;: string,&quot;environmentId&quot;: string,&quot;steps&quot;: [{object (Step)}],&quot;safety_settings&quot;: [{object (SafetySetting)}],&quot;labels&quot;: {string: string,...},// input&quot;contentList&quot;: {object (ContentList)},&quot;stringContent&quot;: string,&quot;turnList&quot;: {object (TurnList)},&quot;stepList&quot;: {object (StepList)},&quot;content&quot;: {object (Content)}// Union type// response_format_config&quot;responseFormat&quot;: {object (Value)},&quot;responseFormatList&quot;: {object (ResponseFormatList)},&quot;responseFormatSingleton&quot;: {object (ResponseFormat)}// Union type// request_type&quot;modelInteraction&quot;: {object (ModelInteraction)},&quot;agentInteraction&quot;: {object (AgentInteraction)}// Union type// environment&quot;envId&quot;: string,&quot;remoteEnvironment&quot;: {object (EnvironmentConfig)},&quot;localEnvironment&quot;: {object (LocalEnvironmentConfig)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## TurnList
-
-> This item is deprecated\!
-
-A list of Turns.
-
-Fields
-
-`turns[]` ` object ( Turn  ` )
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -189,45 +181,7 @@ Fields
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;turns&quot;: [{object (Turn)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## Turn
-
-> This item is deprecated\!
-
-Fields
-
-`role` `string`
-
-The originator of this turn. Must be user for input or model for model output.
-
-`content` `Union type`
-
-`content` can be only one of the following:
-
-`contentList` ` object ( ContentList  ` )
-
-The content of the turn. An array of Content objects.
-
-`contentString` `string`
-
-The content of the turn. A single string.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;role&quot;: string,// content&quot;contentList&quot;: {object (ContentList)},&quot;contentString&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;status&quot;: enum (Status),&quot;created&quot;: string,&quot;updated&quot;: string,&quot;role&quot;: string,&quot;outputs&quot;: [{object (Content)}],&quot;tools&quot;: [{object (Tool)}],&quot;usage&quot;: {object (Usage)},&quot;responseModalities&quot;: [enum (ResponseModality)],&quot;responseMimeType&quot;: string,&quot;previousInteractionId&quot;: string,&quot;environmentId&quot;: string,&quot;steps&quot;: [{object (Step)}],&quot;safetySettings&quot;: [{object (SafetySetting)}],&quot;labels&quot;: {string: string,...},&quot;errors&quot;: [{object (Error)}],// system_instruction_config&quot;systemInstruction&quot;: string// Union type// input&quot;contentList&quot;: {object (ContentList)},&quot;stringContent&quot;: string,&quot;turnList&quot;: {object (TurnList)},&quot;stepList&quot;: {object (StepList)},&quot;content&quot;: {object (Content)}// Union type// response_format_config&quot;responseFormat&quot;: {object (Value)},&quot;responseFormatList&quot;: {object (ResponseFormatList)},&quot;responseFormatSingleton&quot;: {object (ResponseFormat)}// Union type// request_type&quot;modelInteraction&quot;: {object (ModelInteraction)},&quot;agentInteraction&quot;: {object (AgentInteraction)}// Union type// environment&quot;envId&quot;: string,&quot;remoteEnvironment&quot;: {object (EnvironmentConfig)},&quot;localEnvironment&quot;: {object (LocalEnvironmentConfig)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -286,7 +240,7 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `audio` ` object ( AudioResponseFormat  ` )
 
@@ -299,6 +253,8 @@ Fields
 `structValue` ` object ( Struct  ` )
 
 Multi-discriminator values is already enabled in GAOS
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -640,6 +596,10 @@ The duration for the video output.
 
 A duration in seconds with up to nine fractional digits, ending with ' `s` '. Example: `"3.5s"` .
 
+`resolution` ` enum ( Resolution  ` )
+
+The video output resolution. Defaults to 720p.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -651,7 +611,7 @@ A duration in seconds with up to nine fractional digits, ending with ' `s` '. Ex
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (Delivery),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;duration&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;delivery&quot;: enum (Delivery),&quot;gcsUri&quot;: string,&quot;aspectRatio&quot;: enum (AspectRatio),&quot;duration&quot;: string,&quot;resolution&quot;: enum (Resolution)}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -691,6 +651,32 @@ Default value. This value is unused.
 `ASPECT_RATIO_NINE_BY_SIXTEEN`
 
 9:16 aspect ratio.
+
+## Resolution
+
+Supported resolutions for video output.
+
+Enums
+
+`RESOLUTION_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`RESOLUTION_THREE_SIXTY_P`
+
+360p resolution.
+
+`RESOLUTION_SEVEN_TWENTY_P`
+
+720p resolution.
+
+`RESOLUTION_TEN_EIGHTY_P`
+
+1080p resolution.
+
+`RESOLUTION_FOUR_K`
+
+4K resolution.
 
 ## ModelInteraction
 
@@ -756,10 +742,6 @@ Whether to include thought summaries in the response.
 
 The maximum number of tokens to include in the response.
 
-`speechConfig[]` ` object ( SpeechConfig  ` )
-
-Configuration for speech interaction.
-
 ` imageConfig (deprecated)  ` ` object ( ImageConfig  ` )
 
 > This item is deprecated\!
@@ -776,7 +758,7 @@ Optional. Configuration for speech recognition (transcription). If present, ASR 
 
 `tool_choice` `Union type`
 
-The tool choice configuration. `tool_choice` can be only one of the following:
+The tool choice configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `toolChoiceMode` ` enum ( ToolChoiceType  ` )
 
@@ -785,6 +767,8 @@ The mode of the tool choice.
 `toolChoiceConfig` ` object ( ToolChoiceConfig  ` )
 
 The config for the tool choice.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -797,7 +781,7 @@ The config for the tool choice.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;seed&quot;: integer,&quot;stopSequences&quot;: [string],&quot;thinkingLevel&quot;: enum (ThinkingLevel),&quot;thinkingSummaries&quot;: enum (ThinkingSummaries),&quot;maxOutputTokens&quot;: integer,&quot;speechConfig&quot;: [{object (SpeechConfig)}],&quot;imageConfig&quot;: {object (ImageConfig)},&quot;videoConfig&quot;: {object (VideoConfig)},&quot;transcriptionConfig&quot;: {object (TranscriptionConfig)},// tool_choice&quot;toolChoiceMode&quot;: enum (ToolChoiceType),&quot;toolChoiceConfig&quot;: {object (ToolChoiceConfig)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;temperature&quot;: number,&quot;topP&quot;: number,&quot;seed&quot;: integer,&quot;stopSequences&quot;: [string],&quot;thinkingLevel&quot;: enum (ThinkingLevel),&quot;thinkingSummaries&quot;: enum (ThinkingSummaries),&quot;maxOutputTokens&quot;: integer,&quot;imageConfig&quot;: {object (ImageConfig)},&quot;videoConfig&quot;: {object (VideoConfig)},&quot;transcriptionConfig&quot;: {object (TranscriptionConfig)},// tool_choice&quot;toolChoiceMode&quot;: enum (ToolChoiceType),&quot;toolChoiceConfig&quot;: {object (ToolChoiceConfig)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -928,44 +912,6 @@ Auto thinking summaries.
 
 No thinking summaries.
 
-## SpeechConfig
-
-The configuration for speech interaction.
-
-Fields
-
-`voice` `string`
-
-The voice of the speaker.
-
-`language` `string`
-
-The language of the speech.
-
-`speaker` `string`
-
-The speaker's name, it should match the speaker name given in the prompt.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;voice&quot;: string,
-  &quot;language&quot;: string,
-  &quot;speaker&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
 ## ImageConfig
 
 The configuration for image interaction.
@@ -1053,33 +999,41 @@ Generates video using reference media (such as images, audio, or video).
 
 Modifies an existing input video.
 
+`EXTEND`
+
+Extends an existing input video.
+
 ## TranscriptionConfig
 
 Configuration for speech recognition (transcription).
 
 Fields
 
-`timestampGranularities[]` `string`
-
-Optional. The granularity of timestamps to include in the transcription output. Supported values: "word". If empty, no timestamps are generated.
-
-`diarizationMode` `string`
-
-Optional. Configures speaker diarization. Supported values: "speaker".
-
 `languageCodes[]` `string`
 
 Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
+
+`customVocabulary[]` `string`
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
+` timestampGranularities[] (deprecated)  ` `string`
+
+> This item is deprecated\!
+
+Optional. The granularity of timestamps to include in the transcription output. Supported values: "word". If empty, no timestamps are generated.
+
+` diarizationMode (deprecated)  ` `string`
+
+> This item is deprecated\!
+
+Optional. Configures speaker diarization. Supported values: "speaker".
 
 ` adaptationPhrases[] (deprecated)  ` `string`
 
 > This item is deprecated\!
 
 Optional. A list of phrases to bias the ASR model towards.
-
-`customVocabulary[]` `string`
-
-Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
 
 <table>
 <colgroup>
@@ -1093,17 +1047,17 @@ Optional. A list of custom vocabulary phrases to bias the speech recognition mod
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;languageCodes&quot;: [
+    string
+  ],
+  &quot;customVocabulary&quot;: [
+    string
+  ],
   &quot;timestampGranularities&quot;: [
     string
   ],
   &quot;diarizationMode&quot;: string,
-  &quot;languageCodes&quot;: [
-    string
-  ],
   &quot;adaptationPhrases&quot;: [
-    string
-  ],
-  &quot;customVocabulary&quot;: [
     string
   ]
 }</code></pre></td>
@@ -1123,7 +1077,7 @@ The name of the `Agent` used for generating the completion.
 
 `agent_config` `Union type`
 
-Parameters for the agent interaction. `agent_config` can be only one of the following:
+Parameters for the agent interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dynamicConfig` ` object ( DynamicAgentConfig  ` )
 
@@ -1134,6 +1088,8 @@ Parameters for the agent interaction. `agent_config` can be only one of the foll
 `antigravityConfig` ` object ( AntigravityAgentConfig  ` )
 
 Antigravity agent configuration. This configuration is session-level settings that are passed to the agent runtime on a per-request basis.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1239,11 +1195,11 @@ Configuration for the CodeMender agent.
 
 Fields
 
-`session_id` `string`
+`sessionId` `string`
 
 Parameter for grouping multiple interactions that belong to the same CodeMender session.
 
-`session_config` ` object ( SessionConfig  ` )
+`sessionConfig` ` object ( SessionConfig  ` )
 
 Optional session-specific configurations to override default agent behavior.
 
@@ -1253,15 +1209,17 @@ The name of the model to use for the CodeMender agent. One CodeMender session wi
 
 `request` `Union type`
 
-CodeMender's request type. Set exactly one of find\_request/fix\_request only on the first round to start a session; on subsequent rounds (e.g. submitting tool results), leave this unset and identify the session via session\_id. This oneof is intentionally not a subtype\_source discriminator so it can be omitted on resume rounds. `request` can be only one of the following:
+CodeMender's request type. Set exactly one of find\_request/fix\_request only on the first round to start a session; on subsequent rounds (e.g. submitting tool results), leave this unset and identify the session via session\_id. This oneof is intentionally not a subtype\_source discriminator so it can be omitted on resume rounds. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`find_request` ` object ( FindRequest  ` )
+`findRequest` ` object ( FindRequest  ` )
 
 Parameters for finding vulnerabilities.
 
-`fix_request` ` object ( FixRequest  ` )
+`fixRequest` ` object ( FixRequest  ` )
 
 Parameters for fixing vulnerabilities.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1274,7 +1232,7 @@ Parameters for fixing vulnerabilities.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;session_id&quot;: string,&quot;session_config&quot;: {object (SessionConfig)},&quot;model&quot;: string,// request&quot;find_request&quot;: {object (FindRequest)},&quot;fix_request&quot;: {object (FixRequest)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sessionId&quot;: string,&quot;sessionConfig&quot;: {object (SessionConfig)},&quot;model&quot;: string,// request&quot;findRequest&quot;: {object (FindRequest)},&quot;fixRequest&quot;: {object (FixRequest)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1285,11 +1243,11 @@ Request parameters specific to FIND sessions, used for discovering vulnerabiliti
 
 Fields
 
-`source_files[]` ` object ( FileContent  ` )
+`sourceFiles[]` ` object ( FileContent  ` )
 
 A list of source files to provide as context for the scan.
 
-`finding_id` `string`
+`findingId` `string`
 
 The identifier of a specific finding to verify. This is primarily used in VERIFY mode to focus the agent's execution-based validation on a single vulnerability.
 
@@ -1312,7 +1270,7 @@ The mode of the find session.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;source_files&quot;: [{object (FileContent)}],&quot;finding_id&quot;: string,&quot;description&quot;: string,&quot;mode&quot;: enum (Mode)}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sourceFiles&quot;: [{object (FileContent)}],&quot;findingId&quot;: string,&quot;description&quot;: string,&quot;mode&quot;: enum (Mode)}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1374,11 +1332,11 @@ Request parameters specific to FIX sessions, used for generating and validating 
 
 Fields
 
-`source_files[]` ` object ( FileContent  ` )
+`sourceFiles[]` ` object ( FileContent  ` )
 
 A list of source files providing context for the remediation. These files are typically the ones containing the identified vulnerability.
 
-`finding_id` `string`
+`findingId` `string`
 
 The identifier of the specific security finding to be remediated. This id maps to a previously discovered vulnerability.
 
@@ -1397,7 +1355,7 @@ Additional context or custom instructions provided by the user to guide the patc
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;source_files&quot;: [{object (FileContent)}],&quot;finding_id&quot;: string,&quot;description&quot;: string}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sourceFiles&quot;: [{object (FileContent)}],&quot;findingId&quot;: string,&quot;description&quot;: string}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1408,7 +1366,7 @@ The configuration of CodeMender sessions.
 
 Fields
 
-`max_rounds` `integer`
+`maxRounds` `integer`
 
 The maximum number of interaction rounds the agent is allowed to perform before reaching a timeout.
 
@@ -1424,7 +1382,7 @@ The maximum number of interaction rounds the agent is allowed to perform before 
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;max_rounds&quot;: integer
+  &quot;maxRounds&quot;: integer
 }</code></pre></td>
 </tr>
 </tbody>
@@ -1436,13 +1394,19 @@ Configuration for the Antigravity agent runtime. Provides server-side control ov
 
 Fields
 
+`maxTotalTokens` `string ( int64 format)`
+
+Max total tokens for the agent run.
+
+`model_config` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
 `model` `string`
 
 The model to use for agent reasoning.
 
-`maxTotalTokens` `string ( int64 format)`
-
-Max total tokens for the agent run.
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1456,8 +1420,11 @@ Max total tokens for the agent run.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;model&quot;: string,
-  &quot;maxTotalTokens&quot;: string
+  &quot;maxTotalTokens&quot;: string,
+
+  // model_config
+  &quot;model&quot;: string
+  // Union type
 }</code></pre></td>
 </tr>
 </tbody>
@@ -1477,15 +1444,17 @@ Optional. The environment id for the interaction. If specified, the request will
 
 `network` `Union type`
 
-Network configuration for the environment. `network` can be only one of the following:
+Network configuration for the environment. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`network_allowlist` ` object ( EnvironmentNetworkEgressAllowlist  ` )
+`networkAllowlist` ` object ( EnvironmentNetworkEgressAllowlist  ` )
 
 Allow only specific domains.
 
-`network_mode` ` enum ( NetworkMode  ` )
+`networkMode` ` enum ( NetworkMode  ` )
 
 Network egress mode.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1498,7 +1467,7 @@ Network egress mode.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sources&quot;: [{object (Source)}],&quot;environmentId&quot;: string,// network&quot;network_allowlist&quot;: {object (EnvironmentNetworkEgressAllowlist)},&quot;network_mode&quot;: enum (NetworkMode)// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;sources&quot;: [{object (Source)}],&quot;environmentId&quot;: string,// network&quot;networkAllowlist&quot;: {object (EnvironmentNetworkEgressAllowlist)},&quot;networkMode&quot;: enum (NetworkMode)// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -1635,7 +1604,7 @@ Inline content.
 
 `REPOSITORY`
 
-A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, <gcs://)> .
+A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, gcs://).
 
 `SKILL_REGISTRY`
 
@@ -1659,7 +1628,7 @@ Fields
 
 `type` `Union type`
 
-The tool to use. `type` can be only one of the following:
+The tool to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `function` ` object ( Function  ` )
 
@@ -1696,6 +1665,8 @@ A tool that can be used by the model to search Google Maps.
 `retrieval` ` object ( Retrieval  ` )
 
 A tool that can be used by the model to retrieve files.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1865,10 +1836,6 @@ Fields
 
 The name of the MCPServer.
 
-`url` `string`
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 `headers` `map (key: string, value: string)`
 
 Optional: Fields for authentication headers, timeouts, etc., if needed.
@@ -1876,6 +1843,16 @@ Optional: Fields for authentication headers, timeouts, etc., if needed.
 `allowedTools[]` ` object ( AllowedTools  ` )
 
 The allowed tools.
+
+`transport` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`url` `string`
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1888,7 +1865,7 @@ The allowed tools.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;url&quot;: string,&quot;headers&quot;: {string: string,...},&quot;allowedTools&quot;: [{object (AllowedTools)}]}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;headers&quot;: {string: string,...},&quot;allowedTools&quot;: [{object (AllowedTools)}],// transport&quot;url&quot;: string// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -2007,19 +1984,19 @@ Fields
 
 The types of file retrieval to enable.
 
-`vertex_ai_search_config` ` object ( VertexAISearchConfig  ` )
+`vertexAiSearchConfig` ` object ( VertexAISearchConfig  ` )
 
 Used to specify configuration for VertexAISearch.
 
-`exa_ai_search_config` ` object ( ExaAISearchConfig  ` )
+`exaAiSearchConfig` ` object ( ExaAISearchConfig  ` )
 
 Used to specify configuration for ExaAISearch.
 
-`parallel_ai_search_config` ` object ( ParallelAISearchConfig  ` )
+`parallelAiSearchConfig` ` object ( ParallelAISearchConfig  ` )
 
 Used to specify configuration for ParallelAISearch.
 
-`rag_store_config` ` object ( RagStoreConfig  ` )
+`ragStoreConfig` ` object ( RagStoreConfig  ` )
 
 Used to specify configuration for RagStore.
 
@@ -2034,7 +2011,7 @@ Used to specify configuration for RagStore.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;retrievalTypes&quot;: [enum (RetrievalType)],&quot;vertex_ai_search_config&quot;: {object (VertexAISearchConfig)},&quot;exa_ai_search_config&quot;: {object (ExaAISearchConfig)},&quot;parallel_ai_search_config&quot;: {object (ParallelAISearchConfig)},&quot;rag_store_config&quot;: {object (RagStoreConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;retrievalTypes&quot;: [enum (RetrievalType)],&quot;vertexAiSearchConfig&quot;: {object (VertexAISearchConfig)},&quot;exaAiSearchConfig&quot;: {object (ExaAISearchConfig)},&quot;parallelAiSearchConfig&quot;: {object (ParallelAISearchConfig)},&quot;ragStoreConfig&quot;: {object (RagStoreConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -2080,11 +2057,11 @@ Used to specify configuration for ExaAISearch.
 
 Fields
 
-`api_key` `string`
+`apiKey` `string`
 
 Required. The API key for ExaAiSearch.
 
-`custom_config` ` object ( Struct  ` format)
+`customConfig` ` object ( Struct  ` format)
 
 Optional. This field can be used to pass any parameter from the Exa.ai Search API.
 
@@ -2100,8 +2077,8 @@ Optional. This field can be used to pass any parameter from the Exa.ai Search AP
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;api_key&quot;: string,
-  &quot;custom_config&quot;: {
+  &quot;apiKey&quot;: string,
+  &quot;customConfig&quot;: {
     object
   }
 }</code></pre></td>
@@ -2115,11 +2092,11 @@ Used to specify configuration for ParallelAISearch.
 
 Fields
 
-`api_key` `string`
+`apiKey` `string`
 
 Optional. The API key for ParallelAiSearch.
 
-`custom_config` ` object ( Struct  ` format)
+`customConfig` ` object ( Struct  ` format)
 
 Optional. Custom configs for ParallelAiSearch.
 
@@ -2135,8 +2112,8 @@ Optional. Custom configs for ParallelAiSearch.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;api_key&quot;: string,
-  &quot;custom_config&quot;: {
+  &quot;apiKey&quot;: string,
+  &quot;customConfig&quot;: {
     object
   }
 }</code></pre></td>
@@ -2150,23 +2127,23 @@ Use to specify configuration for RAG Store.
 
 Fields
 
-`rag_resources[]` ` object ( RagResource  ` )
+`ragResources[]` ` object ( RagResource  ` )
 
 Optional. The representation of the rag source.
 
-` similarity_top_k (deprecated)  ` `integer`
+` similarityTopK (deprecated)  ` `integer`
 
 > This item is deprecated\!
 
 Optional. Number of top k results to return from the selected corpora.
 
-` vector_distance_threshold (deprecated)  ` `number`
+` vectorDistanceThreshold (deprecated)  ` `number`
 
 > This item is deprecated\!
 
 Optional. Only return results with vector distance smaller than the threshold.
 
-`rag_retrieval_config` ` object ( RagRetrievalConfig  ` )
+`ragRetrievalConfig` ` object ( RagRetrievalConfig  ` )
 
 Optional. The retrieval config for the Rag query.
 
@@ -2181,7 +2158,7 @@ Optional. The retrieval config for the Rag query.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;rag_resources&quot;: [{object (RagResource)}],&quot;similarity_top_k&quot;: integer,&quot;vector_distance_threshold&quot;: number,&quot;rag_retrieval_config&quot;: {object (RagRetrievalConfig)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;ragResources&quot;: [{object (RagResource)}],&quot;similarityTopK&quot;: integer,&quot;vectorDistanceThreshold&quot;: number,&quot;ragRetrievalConfig&quot;: {object (RagRetrievalConfig)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -2192,11 +2169,11 @@ The definition of the Rag resource.
 
 Fields
 
-`rag_corpus` `string`
+`ragCorpus` `string`
 
 Optional. RagCorpora resource name.
 
-`rag_file_ids[]` `string`
+`ragFileIds[]` `string`
 
 Optional. ragFileId. The files should be in the same ragCorpus set in ragCorpus field.
 
@@ -2212,8 +2189,8 @@ Optional. ragFileId. The files should be in the same ragCorpus set in ragCorpus 
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;rag_corpus&quot;: string,
-  &quot;rag_file_ids&quot;: [
+  &quot;ragCorpus&quot;: string,
+  &quot;ragFileIds&quot;: [
     string
   ]
 }</code></pre></td>
@@ -2227,11 +2204,11 @@ Specifies the context retrieval config.
 
 Fields
 
-`top_k` `integer`
+`topK` `integer`
 
 Optional. The number of contexts to retrieve.
 
-`hybrid_search` ` object ( HybridSearch  ` )
+`hybridSearch` ` object ( HybridSearch  ` )
 
 Optional. Config for Hybrid Search.
 
@@ -2254,7 +2231,7 @@ Optional. Config for ranking and reranking.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;top_k&quot;: integer,&quot;hybrid_search&quot;: {object (HybridSearch)},&quot;filter&quot;: {object (Filter)},&quot;ranking&quot;: {object (Ranking)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;topK&quot;: integer,&quot;hybridSearch&quot;: {object (HybridSearch)},&quot;filter&quot;: {object (Filter)},&quot;ranking&quot;: {object (Ranking)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -2293,21 +2270,23 @@ Config for filters.
 
 Fields
 
-`metadata_filter` `string`
+`metadataFilter` `string`
 
 Optional. String for metadata filtering.
 
 `vector_db_threshold` `Union type`
 
-Filter contexts retrieved from the vector DB based on either vector distance or vector similarity. `vector_db_threshold` can be only one of the following:
+Filter contexts retrieved from the vector DB based on either vector distance or vector similarity. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`vector_distance_threshold` `number`
+`vectorDistanceThreshold` `number`
 
 Optional. Only returns contexts with vector distance smaller than the threshold.
 
-`vector_similarity_threshold` `number`
+`vectorSimilarityThreshold` `number`
 
 Optional. Only returns contexts with vector similarity larger than the threshold.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2321,11 +2300,11 @@ Optional. Only returns contexts with vector similarity larger than the threshold
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;metadata_filter&quot;: string,
+  &quot;metadataFilter&quot;: string,
 
   // vector_db_threshold
-  &quot;vector_distance_threshold&quot;: number,
-  &quot;vector_similarity_threshold&quot;: number
+  &quot;vectorDistanceThreshold&quot;: number,
+  &quot;vectorSimilarityThreshold&quot;: number
   // Union type
 }</code></pre></td>
 </tr>
@@ -2340,11 +2319,13 @@ Fields
 
 `ranking_config` `Union type`
 
-Config options for ranking. `ranking_config` can be only one of the following:
+Config options for ranking. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-`rank_service` ` object ( RankService  ` )
+`rankService` ` object ( RankService  ` )
 
-Optional. Config for Rank service.
+Config for Rank service.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -2357,7 +2338,7 @@ Optional. Config for Rank service.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// ranking_config&quot;rank_service&quot;: {object (RankService)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// ranking_config&quot;rankService&quot;: {object (RankService)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -2368,7 +2349,7 @@ Config for Rank service.
 
 Fields
 
-`model_name` `string`
+`modelName` `string`
 
 Optional. The model name of the rank service.
 
@@ -2384,7 +2365,7 @@ Optional. The model name of the rank service.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;model_name&quot;: string
+  &quot;modelName&quot;: string
 }</code></pre></td>
 </tr>
 </tbody>

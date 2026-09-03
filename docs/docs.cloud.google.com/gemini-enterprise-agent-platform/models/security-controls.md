@@ -20,6 +20,14 @@ The following table lists the security controls available for Generative AI feat
 
 [Access Transparency (AXT)](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/overview)
 
+**Gemini 3.8 Flash**
+
+Online prediction
+
+Batch inference
+
+Context caching
+
 **Gemini 3.7 Flash**
 
 Online prediction

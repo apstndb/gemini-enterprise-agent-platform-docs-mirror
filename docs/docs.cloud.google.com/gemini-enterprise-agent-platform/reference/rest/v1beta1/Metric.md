@@ -20,7 +20,7 @@ Optional. metadata about the metric, used for visualization and organization.
 
 `metric_spec` `Union type`
 
-The spec for the metric. It would be either a pre-defined metric, or a inline metric spec. `metric_spec` can be only one of the following:
+The spec for the metric. It would be either a pre-defined metric, or a inline metric spec. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `predefinedMetricSpec` ` object ( PredefinedMetricSpec  ` )
 
@@ -57,6 +57,8 @@ Spec for bleu metric.
 `rougeSpec` ` object ( RougeSpec  ` )
 
 Spec for rouge metric.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -173,7 +175,7 @@ Optional. The parser config for the metric result.
 
 `rubrics_source` `Union type`
 
-Source of the rubrics to be used for evaluation. `rubrics_source` can be only one of the following:
+Source of the rubrics to be used for evaluation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `rubricGroupKey` `string`
 
@@ -186,6 +188,8 @@ Dynamically generate rubrics using this specification.
 `predefinedRubricGenerationSpec` ` object ( PredefinedMetricSpec  ` )
 
 Dynamically generate rubrics using a predefined spec.
+
+End of mutually exclusive fields.
 
 `metricPromptTemplate` `string`
 
@@ -287,11 +291,13 @@ Fields
 
 `parser` `Union type`
 
-The parser to use. `parser` can be only one of the following:
+The parser to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `customCodeParserConfig` ` object ( CustomCodeParserConfig  ` )
 
 Optional. Use custom code to parse the LLM response.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -314,6 +320,10 @@ Optional. Use custom code to parse the LLM response.
 Configuration for parsing the LLM response using custom code.
 
 Fields
+
+`codeExecutionRegion` `string`
+
+Optional. The region to use for code execution. If set, the code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the code Execution Sandbox is available. Supported regions: northamerica-northeast1, southamerica-east1, us-central1, us-east1, us-east4, us-west1, us-west4, europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west6, europe-west8, europe-west9, me-west1, asia-east1, asia-east2, asia-northeast1, asia-northeast3, asia-south1, asia-south2, asia-southeast1, australia-southeast2. If unset, the request's originating region is used.
 
 `parsingFunction` `string`
 
@@ -341,6 +351,7 @@ When parsing critique results, return a dictionary representing a MetricResult. 
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;codeExecutionRegion&quot;: string,
   &quot;parsingFunction&quot;: string
 }</code></pre></td>
 </tr>
@@ -352,6 +363,10 @@ When parsing critique results, return a dictionary representing a MetricResult. 
 Specificies a metric that is populated by evaluating user-defined Python code.
 
 Fields
+
+`codeExecutionRegion` `string`
+
+Optional. The region to use for code execution. If set, the code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the code Execution Sandbox is available. Supported regions: northamerica-northeast1, southamerica-east1, us-central1, us-east1, us-east4, us-west1, us-west4, europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west6, europe-west8, europe-west9, me-west1, asia-east1, asia-east2, asia-northeast1, asia-northeast3, asia-south1, asia-south2, asia-southeast1, australia-southeast2. If unset, the request's originating region is used; requests from regions where the sandbox is unavailable will fail with UNIMPLEMENTED.
 
 `evaluationFunction` `string`
 
@@ -383,6 +398,7 @@ CustomCodeExecutionSpec is also supported in Batch Evaluation (EvalDataset RPC) 
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;codeExecutionRegion&quot;: string,
   &quot;evaluationFunction&quot;: string
 }</code></pre></td>
 </tr>
@@ -431,11 +447,13 @@ Fields
 
 `custom_output_format_config` `Union type`
 
-Custom output format configuration. `custom_output_format_config` can be only one of the following:
+Custom output format configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `returnRawOutput` `boolean`
 
 Optional. Whether to return raw output.
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>

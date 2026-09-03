@@ -26,15 +26,15 @@ Required. The name of the interaction to retrieve. Format: interactions/{interac
 
 `stream` `boolean`
 
-Optional. If true, streams the interaction events as Server-Sent events.
+If true, streams the interaction events as Server-Sent events.
 
 `lastEventId` `string`
 
-Optional. If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
+If set, resumes the interaction stream from the chunk after the event marked by the event id. Can only be used if `stream` is true.
 
 ` includeInput (deprecated)  ` `boolean`
 
-Optional. If true, includes the input in the response.
+If true, includes the input in the response.
 
 ### Request body
 

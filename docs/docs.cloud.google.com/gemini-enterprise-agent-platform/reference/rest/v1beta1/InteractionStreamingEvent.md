@@ -12,13 +12,9 @@ Fields
 
 The eventId token to be used to resume the interaction stream, from this event.
 
-`metadata` ` object ( StreamMetadata  ` )
-
-Optional metadata accompanying ANY streamed event.
-
 `event_type` `Union type`
 
-The event data. `event_type` can be only one of the following:
+The event data. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` interactionStartEvent (deprecated)  ` ` object ( InteractionStartEvent  ` )
 
@@ -44,15 +40,21 @@ The interaction data, used for interaction.completed events. Used when steps are
 
 The interaction status data, used for interaction.status\_update events.
 
-`contentStart` ` object ( ContentStart  ` )
+` contentStart (deprecated)  ` ` object ( ContentStart  ` )
+
+> This item is deprecated\!
 
 The content block start data, used for content.start events. Legacy content-based streaming event, used when steps are disabled.
 
-`contentDelta` ` object ( ContentDelta  ` )
+` contentDelta (deprecated)  ` ` object ( ContentDelta  ` )
+
+> This item is deprecated\!
 
 The content block delta data, used for content.delta events. Legacy content-based streaming event, used when steps are disabled.
 
-`contentStop` ` object ( ContentStop  ` )
+` contentStop (deprecated)  ` ` object ( ContentStop  ` )
+
+> This item is deprecated\!
 
 The content block stop data, used for content.stop events. Legacy content-based streaming event, used when steps are disabled.
 
@@ -72,6 +74,8 @@ The step delta data, used for step.delta events. Step-based streaming event, use
 
 The step stop data, used for step.stop events. Step-based streaming event, used when steps are enabled.
 
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -83,7 +87,7 @@ The step stop data, used for step.stop events. Step-based streaming event, used 
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;eventId&quot;: string,&quot;metadata&quot;: {object (StreamMetadata)},// event_type&quot;interactionStartEvent&quot;: {object (InteractionStartEvent)},&quot;interactionCompleteEvent&quot;: {object (InteractionCompleteEvent)},&quot;interactionCreatedEvent&quot;: {object (InteractionCreatedSseEvent)},&quot;interactionCompletedEvent&quot;: {object (InteractionCompletedSseEvent)},&quot;interactionStatusUpdate&quot;: {object (InteractionStatusUpdate)},&quot;contentStart&quot;: {object (ContentStart)},&quot;contentDelta&quot;: {object (ContentDelta)},&quot;contentStop&quot;: {object (ContentStop)},&quot;errorEvent&quot;: {object (ErrorEvent)},&quot;stepStart&quot;: {object (StepStart)},&quot;stepDelta&quot;: {object (StepDelta)},&quot;stepStop&quot;: {object (StepStop)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;eventId&quot;: string,// event_type&quot;interactionStartEvent&quot;: {object (InteractionStartEvent)},&quot;interactionCompleteEvent&quot;: {object (InteractionCompleteEvent)},&quot;interactionCreatedEvent&quot;: {object (InteractionCreatedSseEvent)},&quot;interactionCompletedEvent&quot;: {object (InteractionCompletedSseEvent)},&quot;interactionStatusUpdate&quot;: {object (InteractionStatusUpdate)},&quot;contentStart&quot;: {object (ContentStart)},&quot;contentDelta&quot;: {object (ContentDelta)},&quot;contentStop&quot;: {object (ContentStop)},&quot;errorEvent&quot;: {object (ErrorEvent)},&quot;stepStart&quot;: {object (StepStart)},&quot;stepDelta&quot;: {object (StepDelta)},&quot;stepStop&quot;: {object (StepStop)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -264,7 +268,7 @@ Fields
 
 `type` `Union type`
 
-The type of the delta content. `type` can be only one of the following:
+The type of the delta content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextDelta  ` )
 
@@ -285,6 +289,8 @@ The type of the delta content. `type` can be only one of the following:
 `toolResult` ` object ( ToolResultDelta  ` )
 
 `textAnnotation` ` object ( TextAnnotationDelta  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -338,13 +344,15 @@ The resolution of the media.
 
 `data_or_uri` `Union type`
 
-`data_or_uri` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
 A base64-encoded string.
 
 `uri` `string`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -384,13 +392,15 @@ The number of audio channels.
 
 `data_or_uri` `Union type`
 
-`data_or_uri` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
 A base64-encoded string.
 
 `uri` `string`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -416,13 +426,15 @@ Fields
 
 `data_or_uri` `Union type`
 
-`data_or_uri` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
 A base64-encoded string.
 
 `uri` `string`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -452,13 +464,15 @@ The resolution of the media.
 
 `data_or_uri` `Union type`
 
-`data_or_uri` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `data` `string ( bytes format)`
 
 A base64-encoded string.
 
 `uri` `string`
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -544,7 +558,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `functionCall` ` object ( FunctionCallDelta  ` )
 
@@ -559,6 +573,8 @@ A base64-encoded string.
 `fileSearchCall` ` object ( FileSearchCallDelta  ` )
 
 `googleMapsCall` ` object ( GoogleMapsCallDelta  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -736,7 +752,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `functionResult` ` object ( FunctionResultDelta  ` )
 
@@ -751,6 +767,8 @@ A base64-encoded string.
 `fileSearchResult` ` object ( FileSearchResultDelta  ` )
 
 `googleMapsResult` ` object ( GoogleMapsResultDelta  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1011,39 +1029,6 @@ Fields
 </tbody>
 </table>
 
-## Error
-
-Error message from an interaction.
-
-Fields
-
-`code` `string`
-
-A URI that identifies the error type.
-
-`message` `string`
-
-A human-readable error message.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;code&quot;: string,
-  &quot;message&quot;: string
-}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
 ## StepStart
 
 Fields
@@ -1098,7 +1083,7 @@ Fields
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `text` ` object ( TextDelta  ` )
 
@@ -1123,6 +1108,8 @@ Fields
 `serverToolResult` ` object ( ServerToolResultDelta  ` )
 
 `functionResult` ` object ( FunctionResultDelta  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1176,7 +1163,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `codeExecutionCall` ` object ( CodeExecutionCallDelta  ` )
 
@@ -1191,6 +1178,8 @@ A base64-encoded string.
 `googleMapsCall` ` object ( GoogleMapsCallDelta  ` )
 
 `retrievalCall` ` object ( RetrievalCallDelta  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1250,7 +1239,7 @@ A base64-encoded string.
 
 `type` `Union type`
 
-`type` can be only one of the following:
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `codeExecutionResult` ` object ( CodeExecutionResultDelta  ` )
 
@@ -1265,6 +1254,8 @@ A base64-encoded string.
 `googleMapsResult` ` object ( GoogleMapsResultDelta  ` )
 
 `retrievalResult` ` object ( RetrievalResultDelta  ` )
+
+End of mutually exclusive fields.
 
 <table>
 <colgroup>
@@ -1336,28 +1327,6 @@ Model usage stats for this specific step.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;index&quot;: integer,&quot;usage&quot;: {object (Usage)},&quot;stepUsage&quot;: {object (Usage)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## StreamMetadata
-
-Fields
-
-`totalUsage` ` object ( Usage  ` )
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;totalUsage&quot;: {object (Usage)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
