@@ -28,7 +28,7 @@ photo
 Image  
 Input and output
 
-mic
+mic\_off
 
 Audio  
 Not supported

@@ -83,6 +83,8 @@ On the **Security** tab, view the number of interactions, including flagged and 
   - **Interactions flagged** : The number of interactions that violated a configured policy in your Model Armor template or floor settings.
   - **Interactions blocked** : The number of interactions blocked if you configured Model Armor in the [`INSPECT_AND_BLOCK`](https://docs.cloud.google.com/model-armor/manage-templates#templates-metadata) mode. These blocked interactions violated floor settings or templates.
 
+> **Note:** When Model Armor is configured in `INSPECT_ONLY` mode, violations are logged, but requests proceed to the model. In this mode, you can check what actions Model Armor might take, and because requests aren't blocked, you can also check if the model refused the request independently. Check the `SanitizeOperationLogEntry` records in Cloud Logging and not just the response body.
+
 ## Monitor content security violations
 
 Go to the [top-level](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-all-agents) or [agent-level](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security#view-security-insights-single-agent) **Security** tab.

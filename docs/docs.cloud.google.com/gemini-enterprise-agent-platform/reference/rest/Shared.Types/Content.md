@@ -64,6 +64,10 @@ A base64-encoded string.
 
 per part media resolution. Media resolution for the input media.
 
+`mediaProcessing` ` enum ( MediaProcessing  ` )
+
+Optional. How the model processes this part's media for understanding. Only meaningful for video parts ( `inlineData` or `fileData` with video mime). Non-video parts ignore this field.
+
 `data` `Union type`
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
@@ -119,7 +123,7 @@ End of mutually exclusive fields.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;thought&quot;: boolean,&quot;thoughtSignature&quot;: string,&quot;mediaResolution&quot;: {object (MediaResolution)},// data&quot;text&quot;: string,&quot;inlineData&quot;: {object (Blob)},&quot;fileData&quot;: {object (FileData)},&quot;functionCall&quot;: {object (FunctionCall)},&quot;functionResponse&quot;: {object (FunctionResponse)},&quot;executableCode&quot;: {object (ExecutableCode)},&quot;codeExecutionResult&quot;: {object (CodeExecutionResult)}// Union type// metadata&quot;videoMetadata&quot;: {object (VideoMetadata)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;thought&quot;: boolean,&quot;thoughtSignature&quot;: string,&quot;mediaResolution&quot;: {object (MediaResolution)},&quot;mediaProcessing&quot;: enum (MediaProcessing),// data&quot;text&quot;: string,&quot;inlineData&quot;: {object (Blob)},&quot;fileData&quot;: {object (FileData)},&quot;functionCall&quot;: {object (FunctionCall)},&quot;functionResponse&quot;: {object (FunctionResponse)},&quot;executableCode&quot;: {object (ExecutableCode)},&quot;codeExecutionResult&quot;: {object (CodeExecutionResult)}// Union type// metadata&quot;videoMetadata&quot;: {object (VideoMetadata)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>

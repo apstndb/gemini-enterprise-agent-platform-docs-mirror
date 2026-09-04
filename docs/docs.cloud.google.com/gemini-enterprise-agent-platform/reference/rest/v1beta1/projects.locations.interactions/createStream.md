@@ -324,6 +324,16 @@ The URI of the video.
 
 End of mutually exclusive fields.
 
+`processing` `Union type`
+
+How the model processes this video for understanding. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.contentList (deprecated) .contents[].video.processingType` ` enum ( Processing  ` )
+
+`interaction.contentList (deprecated) .contents[].video.processingConfig` ` object ( MediaProcessing  ` )
+
+End of mutually exclusive fields.
+
 `type` `Union type`
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
@@ -445,6 +455,16 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 A base64-encoded string.
 
 `interaction.stepList.steps[].video (deprecated) .uri` `string`
+
+End of mutually exclusive fields.
+
+`processing` `Union type`
+
+The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.stepList.steps[].video (deprecated) .processingType` ` enum ( Processing  ` )
+
+`interaction.stepList.steps[].video (deprecated) .processingConfig` ` object ( MediaProcessing  ` )
 
 End of mutually exclusive fields.
 

@@ -32,7 +32,7 @@ photo
 Image  
 Input only
 
-mic
+mic\_off
 
 Audio  
 Not supported

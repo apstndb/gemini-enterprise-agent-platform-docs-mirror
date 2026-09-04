@@ -26,7 +26,7 @@ Gemini Enterprise app gives you centralized visibility and control over all of y
 
 ## Create and deploy your own custom agents
 
-**Empower every employee to transform their expertise into an “AI helper” using our no-code** [**Agent Designer**](https://docs.cloud.google.com/gemini/enterprise/docs/agent-designer). This tool turns unique team knowledge into a scalable, automated process without anyone needing to write a single line of code.
+**Empower every employee to transform their expertise into an “AI helper” using our no-code** [**Workflow Builder**](https://docs.cloud.google.com/gemini/enterprise/docs/agent-designer). This tool turns unique team knowledge into a scalable, automated process without anyone needing to write a single line of code.
 
 **Build custom agents using the new Agent Studio or** [**Agent Development Kit (ADK)**](https://docs.cloud.google.com/agent-builder/agent-development-kit/overview) **in Gemini Enterprise Agent Platform and govern them in Gemini Enterprise app**.\* Agent Platform provides a single destination for your technical teams to safely create custom agents using the models of your choice for your industry and business.
 

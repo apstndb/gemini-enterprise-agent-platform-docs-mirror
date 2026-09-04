@@ -31,12 +31,12 @@ description
 Text  
 Input only
 
-photo
+hide\_image
 
 Image  
 Not supported
 
-mic
+mic\_off
 
 Audio  
 Not supported
@@ -132,12 +132,12 @@ description
 Text  
 Input only
 
-photo
+hide\_image
 
 Image  
 Not supported
 
-mic
+mic\_off
 
 Audio  
 Not supported

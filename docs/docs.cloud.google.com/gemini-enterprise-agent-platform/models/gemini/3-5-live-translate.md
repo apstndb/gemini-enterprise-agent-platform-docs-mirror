@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 Gemini 3.5 Live Translate supports low-latency, real-time speech-to-speech translation between 70+ languages using the `gemini-3.5-live-translate-preview` model, available through Agent Platform. By configuring the Live API with translation settings, you can stream audio in one language and receive translated audio output in another language, enabling seamless real-time voice-to-voice translation.
 
-To get started, view the [introductory notebook for Gemini 3.5 Live Translate](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/getting-started/gemini_3_5_translate.ipynb)
+To get started, view the [introductory notebook for Gemini 3.5 Live Translate](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/getting-started/gemini_3_5_live_translate.ipynb)
 
 ## Live streaming translation
 
@@ -157,7 +157,7 @@ description
 Text  
 Output only
 
-photo
+hide\_image
 
 Image  
 Not supported
@@ -167,7 +167,7 @@ mic
 Audio  
 Input and output
 
-videocam
+videocam\_off
 
 Video  
 Not supported

@@ -27,17 +27,17 @@ description
 Text  
 Input and output
 
-photo
+hide\_image
 
 Image  
 Not supported
 
-mic
+mic\_off
 
 Audio  
 Not supported
 
-videocam
+videocam\_off
 
 Video  
 Not supported

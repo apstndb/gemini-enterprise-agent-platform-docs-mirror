@@ -160,7 +160,7 @@ Container images must be stored in Artifact Registry ( `{LOCATION}-docker.pkg.de
           display_name = "byoc_weather_agent_tf"
           description  = "BYOC weather agent deployed using Terraform"
           project      = var.project_id
-          location     = var.location
+          region       = var.location
         
           spec {
             agent_framework = "google-adk"
@@ -238,7 +238,7 @@ For more details about how deployment works, see [Deploy from Dockerfile](https:
           display_name = "dockerfile_weather_agent_tf"
           description  = "BYOC weather agent deployed using Dockerfile"
           project      = var.project_id
-          location     = var.location
+          region       = var.location
         
           spec {
             agent_framework = "google-adk"
@@ -358,7 +358,7 @@ For more details about how deployment works, see [Deploy from Python object](htt
           display_name = "weather_agent_package_tf"
           description  = "Agent Runtime instance deployed using package_spec"
           project      = var.project_id
-          location     = var.location
+          region       = var.location
         
           spec {
             agent_framework = "google-adk"

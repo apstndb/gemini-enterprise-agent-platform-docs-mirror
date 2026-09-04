@@ -1,8 +1,1 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/MediaProcessing
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/MediaProcessing
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/Processing
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial
-404 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/video-understanding
+

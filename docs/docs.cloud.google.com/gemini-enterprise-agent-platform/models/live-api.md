@@ -30,7 +30,7 @@ Gemini Live API offers a comprehensive set of features for building robust voice
   - [**Barge-in**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voice-activity-detection) : Users can interrupt the model at any time for responsive interactions.
   - [**Affective dialog**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-affective-dialog) : Adapts response style and tone to match the user's input expression.
   - [**Tool use**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#configure-tool-use) : Integrates tools like function calling and Google Search for dynamic interactions.
-  - [**Audio transcriptions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription) : Provides text transcripts of both user input and model output.
+  - [**Audio transcriptions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription) : Provides text transcripts of both user input and model output. For transcription as the end goal rather than as a side channel of a conversation, see [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) .
   - [**Proactive audio**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-proactive-audio) : (Preview) Lets you control when the model responds and in what contexts.
 
 ## Technical specifications
@@ -74,6 +74,17 @@ The following models support Gemini Live API. Select the appropriate model based
 <li>Affective dialog</li>
 <li>Proactive audio</li>
 <li>Tool use</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe"><code dir="ltr" translate="no">gemini-3.5-transcribe-live-preview</code></a></td>
+<td>Preview</td>
+<td>Speech-to-text only. Real-time captioning, dictation, and call transcription. Returns text, not audio, so it does not hold a conversation.</td>
+<td><ul>
+<li>Interim and final transcripts</li>
+<li>Automatic language detection with code-switching</li>
+<li>Utterance-level timestamps</li>
+<li>Custom vocabulary biasing</li>
 </ul></td>
 </tr>
 </tbody>

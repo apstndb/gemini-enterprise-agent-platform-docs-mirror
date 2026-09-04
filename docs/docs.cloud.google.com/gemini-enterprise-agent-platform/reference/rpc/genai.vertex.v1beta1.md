@@ -234,7 +234,10 @@ data_source: docs.cloud.google.com
   - `  VideoConfig  ` (message)
   - `  VideoConfig.Task  ` (enum)
   - `  VideoContent  ` (message)
+  - `  VideoContent.MediaProcessing  ` (message)
   - `  VideoContent.MimeType  ` (enum)
+  - `  VideoContent.Processing  ` (enum)
+  - `  VideoContent.StaticMediaProcessing  ` (message)
   - `  VideoDelta  ` (message)
   - `  VideoResponseFormat  ` (message)
   - `  VideoResponseFormat.AspectRatio  ` (enum)
@@ -3453,6 +3456,18 @@ Union field `data_or_uri` .
 
 `string`
 
+Union field `processing` .
+
+`processing` can be only one of the following:
+
+`processing_type`
+
+`  Processing  `
+
+`processing_config`
+
+`  MediaProcessing  `
+
 ## ListInteractionsHttpTranscoderRequest
 
 Request message for InteractionsHttpService.ListInteractionsHttp.
@@ -5643,6 +5658,28 @@ The video content.
 
 The URI of the video.
 
+Union field `processing` . How the model processes this video for understanding. `processing` can be only one of the following:
+
+`processing_type`
+
+`  Processing  `
+
+`processing_config`
+
+`  MediaProcessing  `
+
+## MediaProcessing
+
+Fields
+
+Union field `type` .
+
+`type` can be only one of the following:
+
+`static`
+
+`  StaticMediaProcessing  `
+
 ## MimeType
 
 Enums
@@ -5692,6 +5729,46 @@ YouTube video format (internal)
 `TYPE_JPEG2000`
 
 JPEG 2000 video format
+
+## Processing
+
+How the model processes input media for understanding.
+
+Enums
+
+`PROCESSING_UNSPECIFIED`
+
+Default. Uses model-specific processing (3.5 Pro+ --\> AGENTIC, older models --\> STATIC)
+
+`STATIC`
+
+Fixed-rate frame extraction. All frames placed in context.
+
+`AGENTIC`
+
+Model-driven dynamic navigation.
+
+## StaticMediaProcessing
+
+Fields
+
+`start_offset`
+
+`  Duration  `
+
+Optional. Segment start time. Specified as a decimal number of seconds followed by an 's' suffix, e.g., "10.5s". Must be non-negative.
+
+`end_offset`
+
+`  Duration  `
+
+Optional. Segment end time. Specified as a decimal number of seconds followed by an 's' suffix, e.g., "30s". Must be non-negative and greater than `start_offset` if `start_offset` is set.
+
+`fps`
+
+`double`
+
+Optional. Video frame-rate sampling density.
 
 ## VideoDelta
 

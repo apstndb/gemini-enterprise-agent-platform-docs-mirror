@@ -72,6 +72,8 @@ The supported type of caching is implicit caching, which is automatic caching th
   - deepseek-v3.1-maas
   - deepseek-v3.2-maas
   - gemma-4-26b-a4b-it-maas
+  - glm-5-maas
+  - glm-5.2-maas
 
 The [`cachedContentTokenCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse) field in your response's metadata indicates the number of tokens in the cached part of your input. Caching requests must contain a minimum of 4096 tokens (this minimum is subject to change during Preview).
 

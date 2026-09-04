@@ -272,6 +272,16 @@ The URI of the video.
 
 End of mutually exclusive fields.
 
+`processing` `Union type`
+
+How the model processes this video for understanding. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`processingType` ` enum ( Processing  ` )
+
+`processingConfig` ` object ( MediaProcessing  ` )
+
+End of mutually exclusive fields.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -283,7 +293,7 @@ End of mutually exclusive fields.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeTypeString&quot;: string,&quot;resolution&quot;: enum (MediaResolution),&quot;name&quot;: string,// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;mimeTypeString&quot;: string,&quot;resolution&quot;: enum (MediaResolution),&quot;name&quot;: string,// data_or_uri&quot;data&quot;: string,&quot;uri&quot;: string// Union type// processing&quot;processingType&quot;: enum (Processing),&quot;processingConfig&quot;: {object (MediaProcessing)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>

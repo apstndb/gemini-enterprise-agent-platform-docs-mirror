@@ -32,12 +32,12 @@ photo
 Image  
 Input and output
 
-mic
+mic\_off
 
 Audio  
 Not supported
 
-videocam
+videocam\_off
 
 Video  
 Not supported

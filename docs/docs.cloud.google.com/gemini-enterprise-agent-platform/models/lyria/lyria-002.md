@@ -21,7 +21,7 @@ description
 Text  
 Input only
 
-photo
+hide\_image
 
 Image  
 Not supported
@@ -31,7 +31,7 @@ mic
 Audio  
 Output only
 
-videocam
+videocam\_off
 
 Video  
 Not supported

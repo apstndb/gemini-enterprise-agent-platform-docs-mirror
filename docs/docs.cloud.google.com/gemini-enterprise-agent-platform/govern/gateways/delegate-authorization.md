@@ -40,13 +40,13 @@ You can configure a request authorization extension to delegate access decisions
 
 The following steps show you how to configure an authorization extension with an authorization policy for an Agent Gateway instance.
 
-1.  Create the required IAM egress policies for your agents and tools. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
+1.  **Before you begin** : Turn off enforcement for the **Disable binding access policy to resource** ( `constraints/iam.managed.disableAccessPolicyBindings` ) managed organization policy constraint. By default, this boolean constraint is enabled for new organizations, and will prevent you from binding an [IAM Unified Access Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) to a resource. For more information, see [Updating policies with boolean rules](https://docs.cloud.google.com/organization-policy/apply-policies#boolean_constraints) .
 
-2.  See [Configure Agent Gateway in Agent-to-Anywhere (Egress) mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) to enable IAP while creating the Agent Gateway (by using the **Access authorization** parameter).
-    
-    IAP requires that your agents be registered with the Agent Registry resource bound to the gateway.
+2.  Create the required IAM egress policies for your agents and tools. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
-3.  Configure an authorization extension to point to IAP.
+3.  See [Configure Agent Gateway in Agent-to-Anywhere (Egress) mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#config-agent-to-anywhere) to enable IAP while creating the Agent Gateway (by using the **Access authorization** parameter).
+
+4.  Configure an authorization extension to point to IAP.
     
     1.  Define the extension in a YAML file. Use the sample values provided. If you want to deploy the extension in a dry run *audit-only* mode, to test the authorization policy without enforcing it, you can specify the `iamEnforcementMode` field inside the `metadata` block.
         
@@ -56,7 +56,7 @@ The following steps show you how to configure an authorization extension with an
             failOpen: false
             timeout: 1s
             metadata:
-              iapPolicyVersion: "V1"
+              iapPolicyVersion: "V2"
             EOF
         
         If you want to deploy the extension in a dry run *audit-only* mode, to test the authorization policy without enforcing it, you can specify the `iamEnforcementMode` field inside the `metadata` block. This lets you verify your policy and minimize the risk of disrupting traffic due to configuration errors:
@@ -67,11 +67,13 @@ The following steps show you how to configure an authorization extension with an
             failOpen: false
             timeout: 1s
             metadata:
-              iapPolicyVersion: "V1"
+              iapPolicyVersion: "V2"
               iamEnforcementMode: "DRY_RUN"
             EOF
         
         Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
+        
+        > **Note:** We strongly recommend using Unified Access Policy ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the Unified Access Policy tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
     
     2.  Import the authorization extension. Use the [`gcloud service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/authz-extensions/import) with the following sample values.
         
@@ -79,7 +81,7 @@ The following steps show you how to configure an authorization extension with an
                 --source=iap-request-authz-extension.yaml \
                 --location=LOCATION
 
-4.  In the same project, configure an authorization policy that delegates the decision to the extension.
+5.  In the same project, configure an authorization policy that delegates the decision to the extension.
     
     1.  Define an authorization policy that associates the `my-iap-request-authz-ext` extension with your gateway. Use the sample values provided.
         
@@ -306,7 +308,7 @@ The following example uses IAP as a centralized request authorization system and
 
 1.  Configure a `REQUEST_AUTHZ` authorization extension that delegates to IAP and an authorization policy that points to the extension.
     
-    1.  Define the authorization extension. The `iapPolicyVersion` field under `metadata` is mandatory and must be set to `"V1"` .
+    1.  Define the authorization extension. The `iapPolicyVersion` field under `metadata` is mandatory.
         
             cat >iap-extension.yaml <<EOF
             name: iap-extension
@@ -314,7 +316,7 @@ The following example uses IAP as a centralized request authorization system and
             failOpen: false
             timeout: 1s
             metadata:
-              iapPolicyVersion: "V1"
+              iapPolicyVersion: "V2"
             EOF
     
     2.  Create the authorization extension.

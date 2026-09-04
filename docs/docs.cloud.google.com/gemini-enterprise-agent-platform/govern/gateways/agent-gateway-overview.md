@@ -86,8 +86,8 @@ When agents interact with tools or other agents through the Agent Gateway, you c
 
 Note the following:
 
-  - IAM policies must be configured for any agents, tools, MCP servers, or endpoints that should be governed by the gateway. By default, the gateway only allows traffic for resources that have been explicitly authorized using IAM.
-  - By default, access to any remote MCP servers, agents, or tools that have not been registered in the local Agent Registry is blocked. You can optionally choose to allow access to unregistered MCP servers and unregistered tools.
+  - IAM Unified Access Policies (Access policies) must be configured for any agents, tools, MCP servers, or endpoints that should be governed by the gateway. By default, the gateway only allows traffic for resources that have been explicitly authorized using IAM.
+  - Agent access to [destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#destination-resources) , such as agent registries, MCP servers, specific agents, and endpoints, always requires an IAM access policy that grants the `iap.resources.egressViaIAP` permission to the agent identity. Registering destinations in Agent Registry is recommended because it lets you scope policies to specific resources and apply fine-grained tool controls. If destinations are not registered in Agent Registry, you must grant the `iap.resources.egressViaIAP` permission to the agent by configuring a policy for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) .
   - You can grant and deny individual agents or clients access to MCP servers and tools based on the tool name, and whether the tool is read-only or read-write. Permissions can be granted at the organization, folder, or project level.
 
 Note that access control capabilities differ based on the deployment mode. Use the following table to see which policies can be used for your gateway.

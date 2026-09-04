@@ -35,6 +35,8 @@ Gemini 3.5 Transcribe supports the following features across its two endpoints:
 
 The `BidiGenerateContent (Live) API` stays open while you stream small chunks of audio to the model and receive transcription results incrementally, as they become available. This is used for near real-time captioning or transcribing microphone input.
 
+To try streaming transcription without writing any code, open `gemini-3.5-transcribe-live-preview` on the Gemini Live API page of Agent Studio, then record or upload audio and watch the transcript stream back.
+
 To transcribe streaming audio, build a `LiveConnectConfig` and set the response\_modalities to \["TEXT"\] alongside your input\_audio\_transcription configuration.
 
     import asyncio
@@ -208,7 +210,7 @@ Gemini 3.5 Transcribe is available in the following Google Cloud locations, with
   - **Provide language hints when known:** If you know the audio language in advance, specify `language_codes` to maximize accuracy.
   - **Target custom vocabulary:** Include only distinct domain terms, brand names, or proper nouns in `custom_vocabulary` rather than common everyday words.
 
-[Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.5-transcribe-live-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 
 Model ID
 
@@ -221,7 +223,7 @@ description
 Text  
 Output only
 
-photo
+hide\_image
 
 Image  
 Not supported
@@ -231,7 +233,7 @@ mic
 Audio  
 Input only
 
-videocam
+videocam\_off
 
 Video  
 Not supported

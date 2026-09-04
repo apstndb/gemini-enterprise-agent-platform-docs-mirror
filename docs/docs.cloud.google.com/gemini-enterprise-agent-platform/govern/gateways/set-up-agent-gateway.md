@@ -228,10 +228,8 @@ To enable secure communication, you must identify your Agent Registry instance a
       - For Gemini Enterprise, you reference either the global, multi-region, or regional registry in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed. See the [Plan your deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section for guidance on which registry is suitable for your deployment.
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
-    
-    Runtime agents in a different project than the gateway must be registered with the Agent Registry in the gateway project.
 
-3.  Identify and register all tools, MCP servers, and API endpoints your agents will call. Registering these resources is required because Agent Gateway blocks all outbound traffic to hosts not registered in Agent Registry.
+3.  Recommended: Identify and register all tools, MCP servers, and API endpoints your agents will call. Agent access to destinations always requires an IAM Access policy granting the `iap.resources.egressViaIAP` permission to the agent identity. We recommend registering resources in Agent Registry so that you can enforce granular, per-resource policies and tool-level controls. For destinations that are not registered, you must grant this permission to the agent by configuring policies for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources) .
     
     Destinations in a different project than the gateway must be registered with the Agent Registry in the gateway project. Such destinations are only valid for Runtime agents in Agent-to-Anywhere mode.
     
@@ -273,16 +271,18 @@ The following steps are required to enable communications between the agent and 
 
 1.  Create an agent identity for your agent. You can do this during deployment or after the agent is deployed. For instructions, see [Use Agent Identity with Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) .
 
-2.  Grant the agent identity principal the `roles/iap.egressor` (IAP-secured Egressor) role for each of the endpoints and servers you registered in Agent Registry.
+2.  Turn off enforcement for the **Disable binding access policy to resource** ( `constraints/iam.managed.disableAccessPolicyBindings` ) managed organization policy constraint. By default, this boolean constraint is enabled for new organizations, and will prevent you from binding an IAM Unified Access Policy to a resource. For more information, see [Updating policies with boolean rules](https://docs.cloud.google.com/organization-policy/apply-policies#boolean_constraints) .
+
+3.  Configure an IAM policy that assigns the `iap.resources.egressViaIAP` permission to your agent identity principal for each of the destination resources that you registered in Agent Registry.
     
-    You can grant this role at either the registry level or the individual resource level. Because registries can be global or regional, ensure that any registry-wide binding matches the agent type:
+    You can configure the policy to manage access to entire registries or individual resources. Because registries can be global, multi-region, or regional, ensure that access to entire registries match the agent type:
     
-      - For Gemini Enterprise agents, use the global registry.
+      - For Gemini Enterprise agents, use the global or multi-region registry.
       - For Agent Runtime agents, use a regional registry.
     
-    Agent Gateway checks specifically for the `iap.webServiceVersions.egressViaIAP` permission, which is only granted by the `roles/iap.egressor` role. By default, all egress traffic is denied unless explicitly allowed by this IAM policy.
+    Agent Gateway checks specifically for the `iap.resources.egressViaIAP` permission. By default, all egress traffic is denied unless explicitly allowed by this IAM policy.
     
-    For instructions, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .
+    For instructions, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
 ## Configure Agent Gateway in Agent-to-Anywhere (egress) mode
 
@@ -310,6 +310,9 @@ Use the following steps to create an Agent Gateway resource.
     
       - To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway) , select **Audit-only** . Your IAM policies are not enforced by IAP in dry-run mode. Once you gain confidence, you can disable dry-run mode to enforce IAM policies.
       - To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies** . This option is recommended for production environments.
+      - For **Policy model** , select **Unified Access Policy** .
+    
+    > **Note:** We strongly recommend using Unified Access Policy for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy on an existing gateway, navigate to the Policies UI and manually redefine your rules under the Unified Access Policy tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
 9.  Optional: In the **AI Security** section, configure additional security:
     
@@ -362,7 +365,7 @@ You define Agent Gateways declaratively using YAML.
             failOpen: false
             timeout: 1s
             metadata:
-              iapPolicyVersion: "V1"
+              iapPolicyVersion: "V2"
             EOF
         
         If you want to deploy the extension in a dry run *audit-only* mode to test the authorization policy without enforcing it, you can specify the `iamEnforcementMode` field inside the `metadata` block. This lets you verify your policy and minimize the risk of disrupting traffic due to configuration errors:
@@ -373,11 +376,13 @@ You define Agent Gateways declaratively using YAML.
             failOpen: false
             timeout: 1s
             metadata:
-              iapPolicyVersion: "V1"
+              iapPolicyVersion: "V2"
               iamEnforcementMode: "DRY_RUN"
             EOF
         
         Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
+        
+        > **Note:** We strongly recommend using Unified Access Policy ( `iapPolicyVersion: "V2"` ) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy ( `iapPolicyVersion: "V1"` ) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the Unified Access Policy tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
     
     2.  Import the YAML configuration file to an authorization extension.
         
@@ -415,7 +420,11 @@ You define Agent Gateways declaratively using YAML.
 
 4.  Optional: If you want to configure Model Armor guardrails to help protect your deployment against prompt injection attacks and sensitive data leaks, see [Delegate authorization to Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma) .
 
-After an Agent Gateway has been created, it serves as the primary connection point for routing agent traffic within your project and chosen region. You can now use this endpoint to establish secure, encrypted, and authenticated communication channels between agents and their destinations (tools, other agents, or other endpoints).
+<!-- end list -->
+
+1.  After an Agent Gateway has been created, it serves as the primary connection point for routing agent traffic within your project and chosen region. You can now use this endpoint to establish secure, encrypted, and authenticated communication channels between agents and their destinations (tools, other agents, or other endpoints).
+    
+    Review the [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section on this page again and make sure that your agents are registered with Agent Registry and that your agent has been granted the `iap.resources.egressViaIAP` permission for all the destinations it is attempting to connect to. If you encounter connectivity issues, see [Troubleshoot Agent Gateway connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway) .
 
 Next, learn how to [deploy agents and route traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#route-traffic) .
 

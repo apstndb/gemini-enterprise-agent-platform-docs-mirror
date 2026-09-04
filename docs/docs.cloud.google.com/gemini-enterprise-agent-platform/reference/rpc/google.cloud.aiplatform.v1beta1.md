@@ -1239,6 +1239,7 @@ data_source: docs.cloud.google.com
   - `  PairwiseSummarizationQualityResult  ` (message)
   - `  PairwiseSummarizationQualitySpec  ` (message)
   - `  Part  ` (message)
+  - `  Part.MediaProcessing  ` (enum)
   - `  Part.MediaResolution  ` (message)
   - `  Part.MediaResolution.Level  ` (enum)
   - `  PartialArg  ` (message)
@@ -49091,6 +49092,12 @@ Optional. An opaque signature for the thought so it can be reused in subsequent 
 
 per part media resolution. Media resolution for the input media.
 
+`media_processing`
+
+`  MediaProcessing  `
+
+Optional. How the model processes this part's media for understanding. Only meaningful for video parts ( `inline_data` or `file_data` with video mime). Non-video parts ignore this field.
+
 Union field `data` .
 
 `data` can be only one of the following:
@@ -49146,6 +49153,24 @@ Union field `metadata` .
 `  VideoMetadata  `
 
 Optional. Video metadata. The metadata should only be specified while the video data is presented in inline\_data or file\_data.
+
+## MediaProcessing
+
+How the model processes input media for understanding.
+
+Enums
+
+`MEDIA_PROCESSING_UNSPECIFIED`
+
+Defaults to model-specific processing.
+
+`STATIC`
+
+Fixed-rate frame extraction. All frames placed in context.
+
+`AGENTIC`
+
+Model-driven dynamic navigation. Recommended for most use cases.
 
 ## MediaResolution
 

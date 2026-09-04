@@ -37,7 +37,7 @@ mic
 Audio  
 Output only
 
-videocam
+videocam\_off
 
 Video  
 Not supported
@@ -128,7 +128,7 @@ mic
 Audio  
 Output only
 
-videocam
+videocam\_off
 
 Video  
 Not supported

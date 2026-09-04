@@ -28,7 +28,7 @@ photo
 Image  
 Input only
 
-mic
+mic\_off
 
 Audio  
 Not supported
@@ -131,7 +131,7 @@ photo
 Image  
 Input only
 
-mic
+mic\_off
 
 Audio  
 Not supported
@@ -233,12 +233,12 @@ description
 Text  
 Input only
 
-photo
+hide\_image
 
 Image  
 Not supported
 
-mic
+mic\_off
 
 Audio  
 Not supported

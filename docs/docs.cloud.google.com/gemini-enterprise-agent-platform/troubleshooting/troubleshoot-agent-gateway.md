@@ -14,10 +14,10 @@ Agent Platform adopts a *default-deny* policy for all outgoing traffic. For an a
 
 For a request to succeed, it must meet all of the following conditions:
 
-  - **Agent Registry** : The destination must be registered as an endpoint, Model Context Protocol (MCP) server, or agent.
+  - **IAM Access policy** : The *agent identity* assigned to the agent must be granted the `iap.resources.egressViaIAP` permission on the destination resource, directly or through a principal set. For details, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) . Learn how to [Troubleshoot IAP policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-iam-policies-uap) .
+  - **Agent Registry** : Registering destinations in Agent Registry is recommended to enforce granular, per-resource access policies and tool-level controls. If the agent is trying to reach a destination that isn't registered, you must grant the `iap.resources.egressViaIAP` permission to the agent identity by configuring a policy for an [unregistered endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) .
   - **Agent Gateway** : The gateway must be associated with an authorization policy that explicitly targets it. By default, the gateway uses IAP and Model Armor to secure requests.
   - **Delegated authorization with Service Extensions** : You can delegate authorization decisions to a custom authorization engine by using Service Extensions. Depending on the configured authorization policy, one or more of these authorization engines will allow or deny the request.
-  - **IAM allow policies** : The *agent identity* assigned to the agent must hold the `roles/iap.egressor` role on the registered destination resource, either directly or through a principal set. For details, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam) .
 
 ## Common issues
 
@@ -33,7 +33,7 @@ If your Agent Runtime instances fail to start or deploy then it might mean that 
     
     **Cause** : Agent Gateway uses a *default deny* policy for all traffic. Therefore, when IAP is in enforcement mode, it blocks calls even to internal services (such as `aiplatform` or `logging` ) unless they are registered and the agent has the required IAM permissions.
     
-    **Fix** : Temporarily switch IAP to dry-run mode to see which connections are failing without blocking startup, or query Cloud Logging to identify the exact blocked hostnames. After you identify the target service hostnames, register them in Agent Registry and grant the `roles/iap.egressor` role to the agent.
+    **Fix** : Temporarily switch IAP to dry-run mode to see which connections are failing without blocking startup, or query Cloud Logging to identify the exact blocked hostnames. After you identify the target service hostnames, register them in Agent Registry and grant the `iap.resources.egressViaIAP` permission to the agent.
     
     To find specific blocked hostnames using Cloud Logging, run the following query in the Logs Explorer:
     
@@ -129,7 +129,7 @@ If any of the conditions described in the [Egress request flow section](https://
 To narrow your log search to IAP egress decisions, run the following query in Logging:
 
     protoPayload.serviceName="iap.googleapis.com"
-    protoPayload.authorizationInfo.permission="iap.webServiceVersions.egressViaIAP"
+    protoPayload.authorizationInfo.permission="iap.resources.egressViaIAP"
     protoPayload.metadata.mcp_attributes.base_protocol_method="true"
 
 If you don't see a matching IAP log entry at all, then the gateway might have denied the request before IAP evaluated it. Move on to the next step.
@@ -141,7 +141,7 @@ If you do see a matching log entry, review the following fields:
   - `protoPayload.authorizationInfo[].granted` : Indicates whether the request was allowed ( `true` ) or denied ( `false` ).
   - `protoPayload.authenticationInfo.principalSubject` : The SPIFFE ID or `principal://...` identity of the caller. Verify that this matches your agent's identity.
   - `protoPayload.authorizationInfo[].resource` : The registered destination resource that the call resolved to.
-  - `labels."iap.googleapis.com/audited_resource_name"` : If this value is `unregisteredResource` , the destination hostname isn't registered. Register the destination hostname with Agent Registry and make sure the agent has the `roles/iap.egressor` role for this destination.
+  - `labels."iap.googleapis.com/audited_resource_name"` : If this value is `unregisteredResource` , the destination hostname isn't registered. Register the destination hostname with Agent Registry and make sure the agent has the `iap.resources.egressViaIAP` permission for this destination.
   - **Enforcement mode** : Review the request's enforcement mode. To filter for dry-run requests, you can add `protoPayload.metadata.iamEnforcementMode="DRY_RUN"` to the query. In `DRY_RUN` mode, IAP logs denials but does not enforce them. So if the agent fails with a `403` error in dry-run mode, the denial likely comes from either the gateway's egress proxy or the destination resource.
 
 ### Review the Agent Gateway decision
@@ -160,11 +160,13 @@ Review the following fields in the matching log entry:
   - `jsonPayload.authzPolicyInfo.policies.result` : The overall authorization result, either `ALLOWED` or `DENIED` .
   - `httpRequest.requestUrl` : Note the exact destination URL that the agent attempted to reach. In the next step, we check to see whether the hostname used by the destination resource has been registered in Agent Registry.
 
-### Verify that the destination is registered in Agent Registry
+### Verify destination registration and IAM access policy coverage
 
-Every destination hostname, and any variations of the hostname that the agent attempts to reach, must be registered in Agent Registry. This is because a Google API such as `aiplatform.googleapis.com` can resolve through multiple hostnames depending on the SDK version, regional client configuration, or mTLS usage. For example, `us-central1-aiplatform.googleapis.com` , or `us-central1-aiplatform.mtls.googleapis.com` , or `aiplatform.googleapis.com` .
+Access to destinations always requires an IAM allow policy granting the `iap.resources.egressViaIAP` permission to the agent identity. Registering destinations in Agent Registry is recommended to enforce granular, per-resource access policies and ensure accurate hostname matching. For destinations that are not registered, verify whether a policy for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) grants the required permission to the agent identity.
 
-However, the gateway only matches hostnames exactly. Therefore, if you register `aiplatform.googleapis.com` but the agent calls `us-central1-aiplatform.googleapis.com` , the gateway denies the request. The gateway considers it an unregistered resource.
+If you rely on per-resource policies, every destination hostname and any variations of the hostname that the agent attempts to reach must be registered in Agent Registry. This is because a Google API such as `aiplatform.googleapis.com` can resolve through multiple hostnames depending on the SDK version, regional client configuration, or mTLS usage (for example, `us-central1-aiplatform.googleapis.com` or `us-central1-aiplatform.mtls.googleapis.com` ).
+
+Because the gateway matches hostnames exactly, if you register `aiplatform.googleapis.com` but the agent calls `us-central1-aiplatform.googleapis.com` , the gateway considers it an unregistered resource and denies the request.
 
 > **Note:** You can view logs for outbound traffic to unregistered destinations by using the built-in [observability dashboard](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#observability-dashboard) .
 
@@ -204,7 +206,7 @@ If the hostname exists in an Agent Registry entry, you see output similar to the
     Checking MCP Servers...
     Checking Agents...
 
-Move on to the next step.
+Proceed to [Verify IAM bindings on the destination resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#verify-iam-bindings) to check whether a per-resource or registry-wide policy grants access to the agent identity.
 
 #### Output 2: Hostname does not exist in the registry
 
@@ -214,12 +216,7 @@ If the hostname does not exist in the registry, you see output similar to the fo
     Checking MCP Servers...
     Checking Agents...
 
-To fix the issue, register the missing MCP server or endpoint, and then grant the `roles/iap.egressor` role on the new registry entry to your agent.
-
-  - [Register MCP servers](https://docs.cloud.google.com/agent-registry/register-mcp-servers)
-      - [Create an agent-to-MCP server egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-mcp-server)
-  - [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints)
-      - [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-endpoint)
+If you plan to use per-resource or registry-wide policies, register the destination in Agent Registry first. If you use policies for unregistered endpoints, proceed to [Verify IAM bindings on the destination resource](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#verify-iam-bindings) .
 
 > **Note:** In a production environment, you should authorize only the exact endpoints needed by the agent. To do this:
 > 
@@ -229,12 +226,13 @@ To fix the issue, register the missing MCP server or endpoint, and then grant th
 
 ### Verify IAM bindings on the destination resource
 
-Ensure that the agent identity or its principal set has the `roles/iap.egressor` role on the destination. Agent Gateway specifically looks for the `iap.webServiceVersions.egressViaIAP` permission, which is only granted by the `roles/iap.egressor` role.
+Ensure that the agent identity or its principal set has the `iap.resources.egressViaIAP` permission on the destination.
 
-You can bind the role at two scopes:
+You can configure policy bindings across three scopes:
 
-  - **Registry-wide** : Access to every agent, MCP server, and endpoint in the registry.
+  - **Registry-wide** : Access to every agent, MCP server, and endpoint registered in the registry.
   - **Per-resource** : Narrow access. A per-resource binding replaces the registry-wide binding for that specific resource instead of merging with it.
+  - **Policies for unregistered endpoints** : Access to destinations that are not registered in Agent Registry.
 
 Use one of the following examples to check for bindings:
 
@@ -283,14 +281,15 @@ Use one of the following examples to check for bindings:
     
     Replace MCP\_SERVER with the URL of the MCP server (for example, `https://example-abc12345-uc.a.run.app/mcp` ).
 
-In the returned policy information, look for a binding with the `roles/iap.egressor` role that matches the agent's identity or principal set. If the returned output contains an `"etag"` field but no bindings, that means that no IAM policy exists.
+In the returned policy information, look for a binding with the `iap.resources.egressViaIAP` permission that matches the agent's identity or principal set. If the returned output contains an `"etag"` field but no bindings, that means that no IAM policy exists.
 
 If a binding exists but includes a `condition` , verify that the Common Expression Language (CEL) expression is not excluding the agent. A condition that filters by an attribute the agent lacks might be silently excluding the agent.
 
-If the endpoint or MCP server does not have a matching binding for your agent ID or principal, grant your agent the role on the resource:
+If the target destination does not have a matching policy binding granting the `iap.resources.egressViaIAP` permission to your agent identity or principal set, grant the permission using one of the following policy options:
 
-  - [Create an agent-to-MCP server egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-mcp-server)
-  - [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam#agent-to-endpoint)
+  - **Registry-level policy (recommended)** : [Configure an agent-to-registry policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-registry) to grant access to all resources registered in Agent Registry.
+  - **Per-resource policy (MCP server or endpoint)** : [Register the MCP server](https://docs.cloud.google.com/agent-registry/register-mcp-servers) or [register the endpoint](https://docs.cloud.google.com/agent-registry/register-endpoints) in Agent Registry, and create an [agent-to-MCP server policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-mcp-server) or [agent-to-endpoint policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint) .
+  - **Policy for unregistered endpoints** : [Configure a policy for unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap) to grant access without registering the resource.
 
 ### Inspect the authorization policy and extension
 
