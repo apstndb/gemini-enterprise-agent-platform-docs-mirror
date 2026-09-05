@@ -32,11 +32,49 @@ You might also be able to get the required permissions through [custom roles](ht
 
 > **Note:** All configuration files for created agents are stored in the `us-west1` region. If your organization has policies that prevent you from using this region, you might be unable to create an agent. For more information, see [Restrict resource locations](https://docs.cloud.google.com/organization-policy/restrict-locations) .
 
-Use the following steps to design and test an agent in Agent Studio:
+You can create an agent in Agent Studio using prompts or the flow builder.
+
+### Create an agent using prompts
+
+Use the following steps to create an agent using prompts:
 
 1.  In the Google Cloud console, go to the **Agents** page.  
 
 2.  Click **Create agent** to open the Agent Studio canvas for a new agent.
+
+3.  In the chat box, enter a prompt that describes the purpose and intended behavior of your agent.
+
+4.  Click send .
+
+5.  Depending on your prompt, one of the following happens:
+    
+      - **Success** : The flow builder updates immediately to display the live preview of your agent, and the chat provides a summary of the modifications made. All changes are saved automatically.
+    
+      - **Clarification needed** : If your prompt is ambiguous, the assistant asks a clarifying question in the chat to better understand what you want to build.
+    
+      - **Error:** If the assistant cannot apply your prompt, an error message tells you to rephrase your request.
+
+6.  You can continue to update the agent using prompts or the [flow builder](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#create-agent-flow-builder) .
+
+7.  To save your agent, click **Save** in the canvas header and follow the prompts. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
+
+8.  To test the agent's capabilities and responses as you build your agent, click the **Preview** tab and chat with your agent.
+
+#### Limitations
+
+The following limitations apply when you create an agent using prompts:
+
+| Capability | Limitation                                                                                                |
+| ---------- | --------------------------------------------------------------------------------------------------------- |
+| Knowledge  | Unable to add knowledge to an agent. You can use the flow builder interface to add knowledge to an agent. |
+
+### Create an agent using the flow builder
+
+Use the following steps to design and test an agent using the flow builder:
+
+1.  In the Google Cloud console, go to the **Agents** page.  
+
+2.  Click **Create agent** to open the Agent Studio canvas. for a new agent.
 
 3.  Design and save your agent in the Agent Studio canvas. You can switch between the following tabs:
     
@@ -45,24 +83,45 @@ Use the following steps to design and test an agent in Agent Studio:
         1.  Click an agent to open the **Details** panel for that agent. You can also click **Add a subagent** (+) to add subagents.
         
         2.  Configure your main agent and subagents in the **Details** panel:
-            
-            1.  **Name:** Add a name to help identify the agent.
-            
-            2.  **Description:** A summary of your agent's purpose.
-            
-            3.  **Instructions:** Add instructions to guide your agent.
-            
-            4.  **Model:** Select the model to power your agent.
-            
-            5.  **Tools:** Click **Add tools** (+) to add tools that let the agent complete tasks. For more information, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
         
-        3.  To save your agent, click **Save** in the canvas header and follow the prompts. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
+        3.  **Name:** Add a name to help identify the agent.
+        
+        4.  **Description:** A summary of your agent's purpose.
+        
+        5.  **Instructions:** Add instructions to guide your agent.
+        
+        6.  **Model:** Select the model to power your agent.
+            
+            1.  **Tools:** Click **Add tools** (+) to add tools that let the agent complete tasks. For more information, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
+        
+        7.  To save your agent, click **Save** in the canvas header and follow the prompts. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
     
-      - **Preview tab:** Chat with your agent in the preview pane to test its capabilities and responses.
+      - **Preview tab:** Chat with your agent in the preview pane to test its capabilities and responses. You can also inspect the events from each run to debug your agent's behavior. For more information, see [Inspect agent events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#inspect-agent-events) .
 
 4.  Click **Get code** to see your agent code. If you want to continue developing your agent elsewhere, you can copy the code and paste it to a code editor of your choice.
 
 When your agent is complete, you can deploy it directly from Agent Studio. For more information, see [Deploy an Agent from Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#deploy-agent) .
+
+## Inspect agent events
+
+Inspecting events helps you debug your agent's behavior, and troubleshoot and trace your agent's reasoning process and model requests.
+
+You can debug agent execution by inspecting agent events in the **Preview** tab of Agent Studio. This action lets you diagnose issues in the individual events that the agent produces during a run.
+
+To inspect agent events, follow these steps:
+
+1.  Open your agent in the Agent Studio canvas and open the **Preview** tab.
+
+2.  Start a chat with your agent in the preview pane to start a run.
+
+3.  Select an event in the conversation to open its details. The available details depend on the event and can include the following:
+    
+      - **Author:** The agent or subagent that produced the event. Use the author to identify which subagent performed a step in a multi-agent workflow.
+      - **Request and response:** The payload sent to the model and the response returned.
+      - **Tool calls:** The arguments passed to tools during the agent's execution.
+      - **Metadata:** Additional diagnostic information, such as the model name, token usage, and timestamp.
+
+If the agent returns an error during preview, the error appears in the **Preview** tab so that you can diagnose the issue.
 
 ## Save an agent
 
@@ -75,6 +134,18 @@ You must save an agent before you can preview or deploy it, because an unsaved a
 3.  Click **Save** .
 
 After the first save, Agent Studio automatically saves any further changes that you make. If you try to leave the canvas before you save a new agent, Agent Studio prompts you to save it first.
+
+## Update an agent
+
+Use the following steps to update an agent:
+
+1.  In the Google Cloud console, go to the **Agents** page.  
+
+2.  On the agent you want to update, click more\_vert , and then click **Edit** .
+
+3.  Update the agent using prompts or the flow builder.
+
+Agent Studio automatically saves your changes.
 
 ## Set up and add tools in Agent Studio
 
@@ -123,7 +194,10 @@ After you create and preview an agent, you can deploy it to production. Use the 
 
 2.  Click **Deploy** to open the **Deploy to an Agent Runtime instance** dialog.
 
-3.  (Optional) Edit the **Display name** or **Description** for your agent.
+3.  In the deployment configuration window, configure the following options:
+    
+      - **Display name** and **Description** : Edit the display name and, optionally, add a description for your agent.
+      - **Deploy as A2A** : Select this checkbox to deploy the agent as an Agent-to-Agent (A2A) asset that other agents can reuse. For standalone applications, leave the checkbox unselected to package the agent as a standard ADK application.
 
 4.  Select a deployment region from the list of available regions, then click **OK** .
 

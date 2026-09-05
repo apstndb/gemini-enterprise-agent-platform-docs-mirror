@@ -170,6 +170,10 @@ Create an [IAM allow policy](https://docs.cloud.google.com/iam/docs/allow-polici
 
 Replace the following:
 
+  - RESOURCE\_TYPE : The type of resource (for example, `projects` or `organizations` ).
+
+  - RESOURCE\_ID : The ID of the resource to which you want to grant access.
+
   - ORGANIZATION\_ID : The ID for your organization.
 
   - PROJECT\_NUMBER : Your project number.

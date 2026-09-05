@@ -1760,6 +1760,7 @@ data_source: docs.cloud.google.com
   - `  Tool.CodeExecution  ` (message)
   - `  Tool.ComputerUse  ` (message)
   - `  Tool.ComputerUse.Environment  ` (enum)
+  - `  Tool.ExaAiSearch  ` (message)
   - `  Tool.GoogleSearch  ` (message)
   - `  Tool.ParallelAiSearch  ` (message)
   - `  Tool.PhishBlockThreshold  ` (enum)
@@ -20298,6 +20299,12 @@ Output only. The version ID of the Model that produces the predictions via this 
 `  UnmanagedContainerModel  `
 
 Contains model information necessary to perform batch prediction without requiring uploading to model registry. Exactly one of model, unmanaged\_container\_model, or endpoint must be set.
+
+`endpoint`
+
+`string`
+
+For Bring-Your-Own-Endpoint (BYOE), the name of the Endpoint resource that produces the predictions via this job, must share the same ancestor Location. Exactly one of model, unmanaged\_container\_model, or endpoint must be set. Example: `projects/193595526740/locations/us-central1/endpoints/4203439000301600768`
 
 `input_config`
 
@@ -62571,6 +62578,12 @@ Optional. Tool to support searching public web data, powered by Agent Platform S
 
 Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
 
+`exa_ai_search`
+
+`  ExaAiSearch  `
+
+Optional. Uses Exa.ai to search for information to answer user queries. The search results will be grounded on Exa.ai and presented to the model for response generation
+
 `code_execution`
 
 `  CodeExecution  `
@@ -62628,6 +62641,24 @@ Defaults to browser.
 `ENVIRONMENT_BROWSER`
 
 Operates in a web browser.
+
+## ExaAiSearch
+
+ExaAiSearch tool type. A tool that uses the Exa.ai search engine for grounding.
+
+Fields
+
+`api_key`
+
+`string`
+
+Required. The API key for ExaAiSearch.
+
+`custom_configs`
+
+`  Struct  `
+
+Optional. This field can be used to pass any parameter from the Exa.ai Search API.
 
 ## GoogleSearch
 

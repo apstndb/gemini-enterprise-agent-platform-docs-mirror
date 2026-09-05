@@ -39,15 +39,15 @@ Enable and configure the following Security Command Center features:
   - **Agent Platform Vulnerability Assessment** : Enable this service in your Security Command Center Premium or Enterprise settings to identify vulnerabilities that are specific to AI agents.
   - **Compliance monitoring** : Ensure that compliance monitoring is enabled for your organization or project. Compliance monitoring is enabled by default for organizations and projects with Security Command Center Premium or Enterprise, but might be explicitly disabled in some environments. For more information, see [Enable Compliance Manager](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-enable) .
   - **Sensitive data discovery** : Enable discovery for AI resources to identify if datasets used in training or fine-tuning contain sensitive data. For more information, see [Enable discovery](https://docs.cloud.google.com/security-command-center/docs/activate-sensitive-data-discovery) .
-  - **Model Armor** : Enable Model Armor on your Agent Gateway instances and configure at least one template. Because Model Armor widgets use observability spans to aggregate data, ensure that Cloud Trace is enabled for your agent runtimes. If no relevant telemetry data is detected, the dashboard hides the related widgets behind a banner. For more information, see [Configure Model Armor](https://docs.cloud.google.com/model-armor/help/configure-model-armor-gateway) .
-  - **AI Discovery** : Ensure that AI Discovery is configured to populate the AI Inventory data, including agents, models, and endpoints. For more information, see [Configure AI Discovery service](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection#configure-ai-discovery) .
+  - **Model Armor** : Enable Model Armor on your Agent Gateway instances and configure at least one template. Because Model Armor widgets use observability spans to aggregate data, ensure that Cloud Trace is enabled for your agent runtimes. If no relevant telemetry data is detected, the dashboard hides the related widgets behind a banner. For more information, see [Configure Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor#configure-model-armor-gateway) .
+  - **AI Discovery** : Ensure that AI Discovery is configured to populate the AI Inventory data, including agents, models, and endpoints. For more information, see [Configure AI Discovery service](https://docs.cloud.google.com/security-command-center/docs/configure-ai-protection#config-ai-discovery) .
   - **Attack path simulations** : If you're using Security Command Center Premium or Enterprise, attack path simulations are enabled by default and help you identify the most risky findings.
 
 ## Access the Security tab
 
 To access the **Security** tab, follow these steps:
 
-1.  In the Google Cloud console, go to the Agent Platform **Security** tab.
+1.  In the Google Cloud console, go to the **Agent Platform** page.
 2.  Select your project.
 3.  In the navigation menu, click **Security** .
 

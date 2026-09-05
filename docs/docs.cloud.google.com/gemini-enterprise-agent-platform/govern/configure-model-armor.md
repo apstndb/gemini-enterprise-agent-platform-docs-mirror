@@ -10,7 +10,7 @@ Model Armor helps you ensure that your AI agents follow your security and govern
 
 ### Model Armor templates
 
-To configure Model Armor on a gateway, create templates that specify how to screen the prompts and responses that your AI agents receive and return. The templates provide customized filters and thresholds for multiple safety and security categories. For more information, see [Model Armor templates](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview#ma-templates) .
+To configure Model Armor on a gateway, create templates that specify how to screen the prompts and responses that your AI agents receive and return. The templates provide customized filters and thresholds for multiple safety and security categories. For more information, see [Model Armor templates](https://docs.cloud.google.com/model-armor/overview#ma-templates) .
 
 Model Armor embeds screening capabilities directly into the communication pathways governed by Agent Gateway. By passing the content through Model Armor, the gateway enforces your content security templates. In your template, you can configure Model Armor to redact or block content that violates your templates.
 
@@ -47,7 +47,7 @@ If the outbound data violates your safety policies, Model Armor issues a `BLOCK`
 
 ## Before you begin
 
-Enable the "Model Armor API.
+Enable the Model Armor API.
 
 **Roles required to enable APIs**
 
@@ -217,13 +217,13 @@ Model Armor sanitizes only the following payloads of the OpenAI API protocol (eg
   - [Legacy Threads](https://developers.openai.com/api/reference/resources/beta/subresources/threads/methods/create) : Create, Delete, Modify, and Retrieve
   - [Embeddings](https://developers.openai.com/api/reference/resources/embeddings/methods/create) : Create
 
-## Supported documents
+## Document screening
 
-Model Armor can screen files that are sent to the agent. For information about supported file types and sizes, see [Document screening](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs) .
+Sanitizing prompts and responses that contain documents or file uploads (such as PDFs) isn't supported in this integration. To screen documents, call the [Model Armor REST API](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#file-prompts) directly. For more information, see [Document screening](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs) in the Model Armor documentation.
 
 ## Quotas and system limits
 
-Quota is consumed in the project where the Model Armor templates reside. If the gateway is in a different project, then `ExternalProcess` quota is consumed in the gateway project as well.
+Quota is consumed in the project where the Model Armor templates reside. If the gateway is in a different project, then `ExternalProcessor` quota is consumed in the gateway project as well.
 
 For more information about quotas that apply when you use Model Armor with other services, see [Manage quotas](https://docs.cloud.google.com/model-armor/integrations#manage-quota) .
 

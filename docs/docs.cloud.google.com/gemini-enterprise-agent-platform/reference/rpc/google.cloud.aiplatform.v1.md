@@ -1321,6 +1321,7 @@ data_source: docs.cloud.google.com
   - `  Tool.CodeExecution  ` (message)
   - `  Tool.ComputerUse  ` (message)
   - `  Tool.ComputerUse.Environment  ` (enum)
+  - `  Tool.ExaAiSearch  ` (message)
   - `  Tool.GoogleSearch  ` (message)
   - `  Tool.ParallelAiSearch  ` (message)
   - `  Tool.PhishBlockThreshold  ` (enum)
@@ -48508,6 +48509,12 @@ Optional. Tool to support searching public web data, powered by Agent Platform S
 
 Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
 
+`exa_ai_search`
+
+`  ExaAiSearch  `
+
+Optional. Uses Exa.ai to search for information to answer user queries. The search results will be grounded on Exa.ai and presented to the model for response generation
+
 `code_execution`
 
 `  CodeExecution  `
@@ -48565,6 +48572,24 @@ Defaults to browser.
 `ENVIRONMENT_BROWSER`
 
 Operates in a web browser.
+
+## ExaAiSearch
+
+ExaAiSearch tool type. A tool that uses the Exa.ai search engine for grounding.
+
+Fields
+
+`api_key`
+
+`string`
+
+Required. The API key for ExaAiSearch.
+
+`custom_configs`
+
+`  Struct  `
+
+Optional. This field can be used to pass any parameter from the Exa.ai Search API.
 
 ## GoogleSearch
 

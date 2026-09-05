@@ -25,7 +25,7 @@ You can view the results of Model Armor operations at the following levels:
 2.  To monitor agents that communicate with a Google Cloud MCP server, [configure Model Armor with MCP servers](https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration) .
 3.  [Set up tracing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing) for your agent.
 
-### Required role
+### Required roles
 
 To get the permissions that you need to monitor content security violations, ask your administrator to grant you the following IAM roles on the project:
 
@@ -148,7 +148,7 @@ To query these logs, complete the following steps:
 
 4.  Click **Run query** .
 
-For more information about how logging filters and freshness windows can impact your results, see the [log freshness warning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#query-log-name) on the gateway monitoring page.
+For more information about how logging filters and freshness windows can impact your results, see the [log freshness warning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#log-names) on the gateway monitoring page.
 
 ## What's next
 

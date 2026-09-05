@@ -6,7 +6,7 @@ description: Learn how to share a single agent in your project using IAM permiss
 data_source: docs.cloud.google.com
 ---
 
-This page describes how to share a single agent in your project by granting Identity and Access Management permissions to users or service accounts.
+This page describes how to share a single agent in your project by granting Identity and Access Management (IAM) permissions to users or service accounts.
 
 To share an agent, you grant the `aiplatform.reasoningEngines.query` permission on the specific agent resource.
 
@@ -51,7 +51,7 @@ gcloud iam roles create ROLE_ID --organization=ORGANIZATION_ID \
 Replace the following:
 
   - `ROLE_ID` : The ID of the role, such as `agentUser` .
-  - `ROLE_TITLE` : A title for the role, such as `Agent runtime user` .
+  - `ROLE_TITLE` : A title for the role, such as `Agent Runtime user` .
   - `ROLE_DESCRIPTION` : A short description of the role, such as `Allows querying agents` .
   - `PROJECT_ID` : The project ID.
   - `ORGANIZATION_ID` : The organization ID.
@@ -72,7 +72,7 @@ permissions = ["aiplatform.reasoningEngines.query"]
 Replace the following:
 
   - `ROLE_ID` : The ID of the role, such as `agentUser` .
-  - `ROLE_TITLE` : A title for the role, such as `Agent runtime user` .
+  - `ROLE_TITLE` : A title for the role, such as `Agent Runtime user` .
   - `PROJECT_ID` : The project ID.
 
 The custom role name will be `projects/PROJECT_ID/roles/ROLE_ID` or `organizations/ORGANIZATION_ID/roles/ROLE_ID` .
@@ -123,7 +123,7 @@ To grant the role using Terraform, use the `google_vertex_ai_reasoning_engine_ia
 resource "google_vertex_ai_reasoning_engine_iam_member" "example" {
 project          = "PROJECT_ID"
 region           = "REGION"
-reasoning_engine = google_vertex_ai_reasoning_engine.my_engine.name
+reasoning_engine = "REASONING_ENGINE_ID"
 role             = google_project_iam_custom_role.reasoning_engine_query.name
 member           = "USER_OR_SA"
 }
@@ -133,11 +133,18 @@ Replace the following:
 
   - `PROJECT_ID` : The project ID.
   - `REGION` : The region.
+  - `REASONING_ENGINE_ID` : The reasoning engine ID of the agent.
   - `USER_OR_SA` : The user or service account.
 
 ## Security considerations
 
-Granting access to the agent provides direct access to send messages to the agent's FastAPI endpoint. The security guarantees are determined by the code of the receiving agent.
+Granting access to the agent provides direct access to send messages to the agent's endpoint. The security controls are determined by the code of the receiving agent.
 
-  - **Trusted frontend** : Most default ADK agents operate from a trusted frontend. The agent trusts the frontend commands, which gives the frontend full control of sessions and users. In these cases, don't grant direct access to the agent to untrusted entities.
-  - **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. The agent runtime only provides coarse access control to the agent interface.
+  - **Trusted frontend** : Most default Agent Development Kit (ADK) agents operate from a trusted frontend. The agent trusts the frontend commands, which gives the frontend full control of sessions and users. In these cases, don't grant direct access to the agent to untrusted entities.
+  - **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime only provides coarse access control to the agent interface.
+
+## What's next
+
+  - Learn about [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) .
+  - Learn about [managing access for deployed agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-agent-access) .
+  - Learn about [creating IAM policies for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies) .

@@ -114,6 +114,10 @@ Optional. Tool to support searching public web data, powered by Agent Platform S
 
 Optional. If specified, Agent Platform will use Parallel.ai to search for information to answer user queries. The search results will be grounded on Parallel.ai and presented to the model for response generation
 
+`exaAiSearch` ` object ( ExaAiSearch  ` )
+
+Optional. uses Exa.ai to search for information to answer user queries. The search results will be grounded on Exa.ai and presented to the model for response generation
+
 `codeExecution` ` object ( CodeExecution  ` )
 
 Optional. CodeExecution tool type. Enables the model to execute code as part of generation.
@@ -137,7 +141,7 @@ Optional. Tool to support the model interacting directly with the computer. If e
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionDeclarations&quot;: [{object (FunctionDeclaration)}],&quot;retrieval&quot;: {object (Retrieval)},&quot;googleSearch&quot;: {object (GoogleSearch)},&quot;googleSearchRetrieval&quot;: {object (GoogleSearchRetrieval)},&quot;googleMaps&quot;: {object (GoogleMaps)},&quot;enterpriseWebSearch&quot;: {object (EnterpriseWebSearch)},&quot;parallelAiSearch&quot;: {object (ParallelAiSearch)},&quot;codeExecution&quot;: {object (CodeExecution)},&quot;urlContext&quot;: {object (UrlContext)},&quot;computerUse&quot;: {object (ComputerUse)}}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;functionDeclarations&quot;: [{object (FunctionDeclaration)}],&quot;retrieval&quot;: {object (Retrieval)},&quot;googleSearch&quot;: {object (GoogleSearch)},&quot;googleSearchRetrieval&quot;: {object (GoogleSearchRetrieval)},&quot;googleMaps&quot;: {object (GoogleMaps)},&quot;enterpriseWebSearch&quot;: {object (EnterpriseWebSearch)},&quot;parallelAiSearch&quot;: {object (ParallelAiSearch)},&quot;exaAiSearch&quot;: {object (ExaAiSearch)},&quot;codeExecution&quot;: {object (CodeExecution)},&quot;urlContext&quot;: {object (UrlContext)},&quot;computerUse&quot;: {object (ComputerUse)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -654,6 +658,41 @@ Optional. The API key for ParallelAiSearch. If an API key is not provided, the s
 `customConfigs` ` object ( Struct  ` format)
 
 Optional. Custom configs for ParallelAiSearch. This field can be used to pass any parameter from the Parallel.ai Search API. See the Parallel.ai documentation for the full list of available parameters and their usage: <https://docs.parallel.ai/api-reference/search-beta/search> Currently only `source_policy` , `excerpts` , `maxResults` , `mode` , `fetch_policy` can be set via this field. For example: { "source\_policy": { "include\_domains": \["google.com", "wikipedia.org"\], "excludeDomains": \["example.com"\] }, "fetch\_policy": { "max\_age\_seconds": 3600 } }
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>JSON representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
+  &quot;apiKey&quot;: string,
+  &quot;customConfigs&quot;: {
+    object
+  }
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
+## ExaAiSearch
+
+ExaAiSearch tool type. A tool that uses the Exa.ai search engine for grounding.
+
+Fields
+
+`apiKey` `string`
+
+Required. The API key for ExaAiSearch.
+
+`customConfigs` ` object ( Struct  ` format)
+
+Optional. This field can be used to pass any parameter from the Exa.ai Search API.
 
 <table>
 <colgroup>

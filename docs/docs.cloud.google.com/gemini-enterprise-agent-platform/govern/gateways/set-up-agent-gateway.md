@@ -93,8 +93,8 @@ To centralize governance of agents across Gemini Enterprise and Runtime, you can
 
 Here are some sample deployment patterns for your consideration:
 
-  - Centralized cross-project governance for Runtime agents  
-    In this deployment pattern, you deploy an Agent-to-Anywhere (egress) Agent Gateway in a dedicated governance project to centralize egress control. Runtime agents are deployed in separate projects in the same region as the gateway and can belong to any folder within your organization.
+  - Cross-project governance for Runtime agents  
+    In this deployment pattern, you deploy an Agent-to-Anywhere (egress) Agent Gateway in a dedicated governance project. Runtime agents are deployed in separate projects in the same region as the gateway and can belong to any folder within your organization.
     
     To set up cross-project egress governance, you configure the following resources:
     

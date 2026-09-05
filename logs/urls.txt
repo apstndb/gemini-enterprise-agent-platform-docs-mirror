@@ -1,10 +1,11 @@
 https://cloud.google.com/gemini-enterprise/agents	
 https://cloud.google.com/gemini-enterprise/faq	
 https://docs.cloud.google.com/gemini-enterprise-agent-platform	2026-08-31T16:22:47Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-anomalies-overview	2026-09-05T00:17:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio	2026-09-02T15:03:05Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities	2026-09-02T15:02:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/deploy-vais-prompt	2026-09-02T15:03:36Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents	2026-09-02T15:02:45Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents	2026-09-04T18:09:55Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents	2026-09-02T15:03:05Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/google/deep-research	2026-09-02T15:03:36Z
@@ -197,17 +198,17 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/import
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/manage-sessions	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/scan-and-verify	2026-09-02T15:03:05Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment	2026-09-02T15:03:53Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern	2026-09-02T15:03:21Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-09-03T05:55:11Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry	2026-09-02T15:03:05Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor	2026-09-02T21:43:23Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern	2026-09-04T19:55:20Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview	2026-09-04T17:01:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry	2026-09-04T17:01:10Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor	2026-09-04T19:55:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy	2026-09-02T15:03:53Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview	2026-09-03T19:44:09Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization	2026-09-03T19:44:09Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway	2026-09-02T15:02:45Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway	2026-09-03T19:44:09Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway	2026-09-04T20:33:00Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity	2026-09-02T15:03:53Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security	2026-09-03T17:54:01Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/monitor-content-security	2026-09-04T19:55:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/cel-attributes-uap	2026-09-03T19:39:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap	2026-09-03T19:39:49Z
@@ -218,11 +219,11 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/m
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/monitor-semantic-governance	2026-09-02T15:03:53Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview-uap	2026-09-03T19:39:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview	2026-09-02T15:03:36Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/safety	2026-09-02T15:03:05Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent	2026-09-02T15:02:45Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/safety	2026-09-04T19:55:20Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent	2026-09-04T19:55:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology	2026-09-02T15:02:45Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-model-armor-spans	2026-09-02T15:03:21Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings	2026-09-02T15:03:05Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-model-armor-spans	2026-09-04T19:55:20Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/view-security-findings	2026-09-04T19:55:20Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ai-agent-ecosystem-overview	2026-09-02T15:03:53Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ai-agent-ecosystem-partners	2026-09-02T15:03:53Z
@@ -679,9 +680,9 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/connect-to
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/content-credentials	2026-09-03T18:12:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-delete	2026-09-02T15:03:21Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-for-tuned-gemini	2026-09-02T15:03:05Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-for-tuned-gemini	2026-09-05T00:17:28Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-getinfo	2026-09-02T15:02:45Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview	2026-09-03T18:12:15Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview	2026-09-04T17:23:02Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-update	2026-09-02T15:03:53Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-use	2026-09-02T15:02:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access	2026-09-02T15:03:05Z
@@ -1301,7 +1302,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Sh
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/ForecastingEvaluationMetrics	2026-06-09T17:56:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/FunctionCallingConfig	2026-06-09T17:56:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/FunctionDeclaration	2026-06-09T17:57:29Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample	2026-09-03T03:12:27Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample	2026-09-04T18:40:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiRequestReadConfig	2026-09-01T18:06:28Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeneralTextGenerationEvaluationMetrics	2026-06-09T17:57:15Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GenerateVideoResponse	2026-09-01T18:06:28Z
@@ -1598,7 +1599,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/delete	2026-06-09T17:56:26Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/get	2026-06-09T17:56:26Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.batchPredictionJobs/list	2026-06-09T17:57:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents	2026-09-01T18:06:28Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents	2026-09-04T18:40:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/create	2026-06-09T17:56:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/delete	2026-06-09T17:57:34Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents/get	2026-06-09T17:57:29Z
@@ -2332,7 +2333,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/get	2026-06-09T17:57:24Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/list	2026-09-02T20:34:10Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.agents/patch	2026-06-09T17:57:02Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs	2026-09-01T18:06:28Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs	2026-09-04T18:40:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/cancel	2026-06-09T17:57:25Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/create	2026-06-09T17:57:07Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.batchPredictionJobs/delete	2026-06-09T17:56:36Z
@@ -2935,14 +2936,14 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc	202
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/cloud.ai.large_models.vision	2026-06-09T17:57:02Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/genai.vertex.v1beta1	2026-09-03T16:04:13Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.api	2026-06-09T17:57:34Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1	2026-09-03T03:12:27Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1	2026-09-04T18:40:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema	2026-06-09T17:57:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/modelevaluation.metrics	2026-06-09T17:56:22Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/predict.instance	2026-07-22T17:38:06Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/predict.params	2026-07-22T17:38:06Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/predict.prediction	2026-07-22T17:38:06Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1/schema/trainingjob.definition	2026-06-09T17:56:22Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1	2026-09-03T16:04:13Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1	2026-09-04T18:40:49Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1/schema	2026-06-09T17:56:32Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1/schema/modelevaluation.metrics	2026-06-09T17:56:58Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1/schema/predict.instance	2026-07-22T17:38:06Z
@@ -2982,7 +2983,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup	2026-09-02T15:03:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy	2026-09-03T19:44:09Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity	2026-09-02T15:03:36Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity	2026-09-04T15:13:09Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/bidirectional-streaming	2026-09-02T15:02:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent	2026-09-02T15:03:53Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging	2026-09-02T15:03:53Z

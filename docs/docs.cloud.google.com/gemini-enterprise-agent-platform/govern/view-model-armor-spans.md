@@ -6,7 +6,7 @@ description: Learn about Model Armor trace spans.
 data_source: docs.cloud.google.com
 ---
 
-> **Private Preview — Model Armor trace spans**
+> **Preview — Model Armor trace spans**
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
@@ -16,7 +16,7 @@ This document describes the Model Armor spans within traces and how to view thei
 
 A [*trace*](https://docs.cloud.google.com/trace/docs/traces-and-spans) represents the path of a request across the parts of your distributed application. That is, each trace represents a single end-to-end operation. Because traces are composed of *spans* , which are records for a single function or operation, they let you follow the flow of requests and examine latency data. This information can help you to identify the root cause of an issue.
 
-Cloud Trace is the distributed tracing system for Google Cloud, and it provides features to [explore traces](https://docs.cloud.google.com/trace/docs/finding-traces) or to [analyze trace data with SQL](https://docs.cloud.google.com/trace/docs/analytics) . However, many Google Cloud services, such as [Application Monitoring](https://docs.cloud.google.com/stackdriver/docs/observability/about-application-monitoring) and Agent Registry, can display the data managed by Cloud Trace. These services let you view trace data in the context of the service that you are using.
+Cloud Trace is the distributed tracing system for Google Cloud, and it provides features to [explore traces](https://docs.cloud.google.com/trace/docs/finding-traces) or to [analyze trace data with SQL](https://docs.cloud.google.com/trace/docs/analytics) . However, many Google Cloud services, such as [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/about-application-monitoring) and Agent Registry, can display the data managed by Cloud Trace. These services let you view trace data in the context of the service that you are using.
 
 ## Before you begin
 
@@ -81,7 +81,8 @@ The `Request Path` child span has the following attributes:
   - `gen_ai.security.policy.name` : the name of the Model Armor template that was used for the operation.
   - `gcp.modelarmor.filter.match.state` : whether the content violated any of the [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters) (also called *detectors* ).
   - `gcp.modelarmor.violations` : the Model Armor filters that the content violated. A value of `deidentified` indicates that Model Armor redacted sensitive data from the content according to the template provided.
-  - `gcp.modelarmor.rai.violation` : the responsible AI categories that the content violated. For more information, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
+  - `gcp.modelarmor.rai.violations` : the responsible AI categories that the content violated. For more information, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
+  - `gcp.modelarmor.sdp.info_types` : the sensitive data types (such as `EMAIL_ADDRESS` or `PHONE_NUMBER` ) identified by Sensitive Data Protection filters.
   - `error.type` : an identifier for the error encountered.
 
 ### Response Path attributes
@@ -96,7 +97,8 @@ The `Response Path` child span has the following attributes:
   - `gen_ai.security.policy.name` : the name of the Model Armor template that was used for the operation.
   - `gcp.modelarmor.filter.match.state` : whether the content violated any of the [Model Armor filters](https://docs.cloud.google.com/model-armor/overview#ma-filters) (also called *detectors* ).
   - `gcp.modelarmor.violations` : the Model Armor filters that the content violated. A value of `deidentified` indicates that Model Armor redacted sensitive data from the content according to the template provided.
-  - `gcp.modelarmor.rai.violation` : the responsible AI categories that the content violated. For more information, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
+  - `gcp.modelarmor.rai.violations` : the responsible AI categories that the content violated. For more information, see [Responsible AI safety filter](https://docs.cloud.google.com/model-armor/overview#ma-responsible-ai-safety-categories) .
+  - `gcp.modelarmor.sdp.info_types` : the sensitive data types (such as `EMAIL_ADDRESS` or `PHONE_NUMBER` ) identified by Sensitive Data Protection filters.
   - `error.type` : an identifier for the error encountered.
 
 ## View the details of a Model Armor span

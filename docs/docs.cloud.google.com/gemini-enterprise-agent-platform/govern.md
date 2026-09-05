@@ -10,7 +10,7 @@ Governance provides the framework for discovering, securing, and auditing AI age
 
   - **Visibility:** Maintaining a unified Agent Registry to discover agents, endpoints, and Model Context Protocol (MCP) servers across the organization. You can also view topology graphs of agent and MCP server traffic to understand agent relationships and complex dependencies.
   - **Identity and Access:** Defining Agent Identity and deploying Agent Gateways to ensure that every interaction—from the user to the model—is authenticated and policy-driven.
-  - **Security and Compliance:** Implementing the AI Security Framework, managing metadata labels for organization, and maintaining a rigorous audit trail of data access and request-response logs.
+  - **Security and Compliance:** Implementing the Secure AI Framework (SAIF), managing metadata labels for organization, and maintaining a rigorous audit trail of data access and request-response logs.
   - **Operational Oversight:** Monitoring the performance, utilization, and health of models and infrastructure to ensure reliability and cost-efficiency.
 
 ## Agent Registry, safety, and sharing
@@ -20,6 +20,12 @@ Overview
 ### [Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry)
 
 Agent Registry is a centralized catalog that lets you store, discover, and govern servers, tools, and AI agents in Google Cloud.
+
+Overview
+
+### [Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview)
+
+Agent identity allows agents to securely authenticate to cloud resources, endpoints, and other agents, acting as themselves or on behalf of the end user.
 
 Guide
 
@@ -43,12 +49,6 @@ View real-time relationships and traffic flows across all agents and MCP servers
 
 Guide
 
-### [Assign identity and IAM policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/assign-identity-iam)
-
-Learn how to create policies that govern agentic communication with services.
-
-Guide
-
 ### [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance)
 
 Semantic Governance policies add an additional security layer to ensure agent actions match user intent and organizational constraints.
@@ -58,12 +58,6 @@ Overview
 ### [Policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview)
 
 Get an overview of policies in Google Agent Platform.
-
-Guide
-
-### [Test policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/test-policies)
-
-Learn how to test policies.
 
 ## Agent Gateway
 
