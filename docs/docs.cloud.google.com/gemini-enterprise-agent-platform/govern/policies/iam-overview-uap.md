@@ -126,11 +126,11 @@ Agent identities are provisioned with an X.509 certificate and a certificate-bou
 
 In your Access policies, you can define conditions with conditional expressions. The expressions can contain multiple sub-expressions. The destination resource type that you use in each relational sub-condition determines which attributes you can use.
 
-For example, in the following condition, in the sub-expression `destination.agent_registry.mcp_server.tool.name.startsWith('getStatements')` , the resource type is MCP server, the attribute is `destination.agent_registry.mcp_server.tool.name` , and `startsWith()` is the CEL function.
+For example, in the following condition, in the sub-expression `destination.unregistered.path.startsWith('/v1/statements')` , the resource type is an unregistered destination, the attribute is `destination.unregistered.path` , and `startsWith()` is the CEL function.
 
 ```text
-destination.agent_registry.mcp_server.name == '/projects/my-project/locations/us-central1/mcpServers/finance-data-service' &&
-destination.agent_registry.mcp_server.tool.name.startsWith('getStatements')
+destination.unregistered.host == 'finance.example.com' &&
+destination.unregistered.path.startsWith('/v1/statements')
 ```
 
 The attributes described in the following table are available for each resource type:
@@ -153,11 +153,11 @@ Details
 
 `destination.agent_registry.resource_type`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | `'AGENT'` , `'ENDPOINT'` , `'MCP_SERVER'` , `'SKILL'`               |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                                                       |
+| -------------------- | ----------------------------------------------------- |
+| Value type           | String                                                |
+| Supported values     | `'AGENT'` , `'ENDPOINT'` , `'MCP_SERVER'` , `'SKILL'` |
+| Supported operations | `==` , `!=` , `in`                                    |
 
 `destination.agent_registry.location`
 
@@ -165,15 +165,15 @@ Details
 | -------------------- | --------------------------------------------------------------------- |
 | Value type           | String                                                                |
 | Supported values     | Google Cloud location ID (for example, `'global'` , `'us-central1'` ) |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()`   |
+| Supported operations | `==` , `!=` , `in`                                                    |
 
 `destination.agent_registry.project_id`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | Google Cloud project ID                                             |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                         |
+| -------------------- | ----------------------- |
+| Value type           | String                  |
+| Supported values     | Google Cloud project ID |
+| Supported operations | `==` , `!=` , `in`      |
 
 ### Agent
 
@@ -183,7 +183,7 @@ Details
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value type           | String                                                                                                                                                         |
 | Supported values     | Agent resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /agents/             AGENT_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()`                                                                                            |
+| Supported operations | `==` , `!=` , `in`                                                                                                                                             |
 
 ### MCP Server
 
@@ -193,7 +193,7 @@ Details
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value type           | String                                                                                                                                                                       |
 | Supported values     | MCP server resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /mcpServers/             MCP_SERVER_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()`                                                                                                          |
+| Supported operations | `==` , `!=` , `in`                                                                                                                                                           |
 
 `destination.agent_registry.mcp_server.method`
 
@@ -201,15 +201,15 @@ Details
 | -------------------- | ----------------------------------------------------------------------- |
 | Value type           | String                                                                  |
 | Supported values     | MCP method name (for example, `'tools'` , `'prompts'` , `'resources'` ) |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()`     |
+| Supported operations | `==` , `!=` , `in`                                                      |
 
 `destination.agent_registry.mcp_server.tool.name`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | Tool name (for example, `'search_code'` , `'execute'` )             |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                                                         |
+| -------------------- | ------------------------------------------------------- |
+| Value type           | String                                                  |
+| Supported values     | Tool name (for example, `'search_code'` , `'execute'` ) |
+| Supported operations | `==` , `!=` , `in`                                      |
 
 `destination.agent_registry.mcp_server.tool.annotations.read_only_hint`
 
@@ -245,19 +245,19 @@ Details
 
 `destination.agent_registry.mcp_server.prompt.name`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | Prompt name                                                         |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                    |
+| -------------------- | ------------------ |
+| Value type           | String             |
+| Supported values     | Prompt name        |
+| Supported operations | `==` , `!=` , `in` |
 
 `destination.agent_registry.mcp_server.resource.name`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | Resource name                                                       |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                    |
+| -------------------- | ------------------ |
+| Value type           | String             |
+| Supported values     | Resource name      |
+| Supported operations | `==` , `!=` , `in` |
 
 ### Endpoint
 
@@ -267,25 +267,25 @@ Details
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Value type           | String                                                                                                                                                                  |
 | Supported values     | Endpoint resource name ( ` projects/             PROJECT_ID            /locations/             LOCATION            /endpoints/             ENDPOINT_NAME            ` ) |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()`                                                                                                     |
+| Supported operations | `==` , `!=` , `in`                                                                                                                                                      |
 
 ### Unregistered Destination
 
 `destination.unregistered.host`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | Hostname (for example, `'google.com'` , `'example.com'` )           |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                                                                      |
+| -------------------- | -------------------------------------------------------------------- |
+| Value type           | String                                                               |
+| Supported values     | Hostname (for example, `'google.com'` , `'example.com'` )            |
+| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.contains()` |
 
 `destination.unregistered.path`
 
-|                      |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Value type           | String                                                              |
-| Supported values     | Request path (for example, `'/admin'` , `'/api/v1'` )               |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()` |
+|                      |                                                                      |
+| -------------------- | -------------------------------------------------------------------- |
+| Value type           | String                                                               |
+| Supported values     | Request path (for example, `'/admin'` , `'/api/v1'` )                |
+| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.contains()` |
 
 `destination.unregistered.method`
 
@@ -293,9 +293,9 @@ Details
 | -------------------- | --------------------------------------------------------------------- |
 | Value type           | String                                                                |
 | Supported values     | HTTP method (for example, `'get'` , `'post'` , `'put'` , `'delete'` ) |
-| Supported operations | `==` , `!=` , `in` , `.startsWith()` , `.endsWith()` , `.matches()`   |
+| Supported operations | `==` , `!=` , `in`                                                    |
 
-> **Note:** Unregistered `host` and `path` attributes support the following CEL functions: `STARTS_WITH` , `ENDS_WITH` , and `CONTAINS` .
+> **Note:** The `startsWith()` , `endsWith()` , and `contains()` functions (or `STARTS_WITH` , `ENDS_WITH` , and `CONTAINS` ) are supported only for the `destination.unregistered.host` and `destination.unregistered.path` attributes. Other attributes don't support these string functions.
 
 ## What's next
 

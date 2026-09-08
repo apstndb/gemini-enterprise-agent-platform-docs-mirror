@@ -12,7 +12,37 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## August 30, 2026
+
+Change
+
+### M148 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed an issue where a notebook's cells and their outputs could be unexpectedly erased. The automatic reload of an open notebook (which keeps it in sync with changes made to its file on disk) is now restricted to run only while the Gemini CLI is in use, so notebooks are no longer overwritten at other times.
+
+Fixed
+
+The terminal and file browser are now more responsive when working in a Cloud Storage bucket that is mounted through the file browser. Frequent background checks for non-existent files are now cached instead of repeatedly querying Cloud Storage, which previously could make actions such as listing files or running terminal commands take several seconds.
+
+Fixed
+
+Cloud Storage buckets that you mount through the file browser are now automatically re-mounted after the instance is restarted or is stopped and started. Previously the mounted folder could be left behind as an empty, unusable directory that had to be manually removed and re-mounted.
+
+Change
+
+Agent Platform Workbench instances internal agents now honor custom CA certificates installed on the host OS (e.g. via a custom VM image), fixing TLS certificate verification failures when Google API traffic is routed through a customer-managed proxy.
+
 ## August 23, 2026
+
+Change
+
+### M147 Release
 
 Fixed
 
@@ -22,11 +52,11 @@ Change
 
 Installed latest packages from upstream dependencies.
 
+## August 16, 2026
+
 Change
 
-### M147 Release
-
-## August 16, 2026
+### M146 Release
 
 Change
 
@@ -35,10 +65,6 @@ Installed latest packages from upstream dependencies.
 Fixed
 
 Fixed the Git panel's grayed out buttons, which were disabled due to an issue with the Jupyter Lab's Git plugin introduced in version 0.54.0.
-
-Change
-
-### M146 Release
 
 ## July 30, 2026
 

@@ -510,7 +510,8 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     #
     #     Always, *always* confirm! Let's substitute x = -2 back into the original
     #     equation: (-2)² + 4(-2) + 4 = 0. That's 4 - 8 + 4 = 0. It checks out.
-    ##     Conclusion: the solution is x = -2. Confirmed.
+    #
+    #     Conclusion: the solution is x = -2. Confirmed.
 
 ### Node.js
 
@@ -560,8 +561,8 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       //  **Answer:**
       //  The solution to the equation x² + 4x + 4 = 0 is x = -2. This is a repeated root (or a root with multiplicity 2).
     
-      for (const part of response.candidat&&es[0].content.parts) {
-        if (part  part.thought) {
+      for (const part of response.candidates[0].content.parts) {
+        if (part && part.thought) {
           console.log(part.text);
         }
       }
@@ -599,7 +600,11 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       //
       // Always, *always* confirm! Let's substitute x = -2 back into the original
       // equation: (-2)² + 4(-2) + 4 = 0. That's 4 - 8 + 4 = 0. It checks out.
-      //  // Conclusion: the solution is x = -2. Confirmed.  return response.text;}
+      //
+      // Conclusion: the solution is x = -2. Confirmed.
+    
+      return response.text;
+    }
 
 ### Go
 
@@ -625,9 +630,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     // generateContentWithThoughts demonstrates how to generate text including the model's thought process.
     func generateContentWithThoughts(w io.Writer) error {
-        ctx := context.Backgro&und()
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -640,15 +645,15 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
                 Parts: []*genai.Part{
                     {Text: "solve x^2 + 4x + 4 = 0"},
                 },
-                Role: "use&r",
+                Role: "user",
             },
         }
     
-        resp, err := client.Models.Ge&nerateContent(ctx,
+        resp, err := client.Models.GenerateContent(ctx,
             modelName,
             contents,
-            genai.GenerateContentConfig{
-                ThinkingConfig: genai.ThinkingConfig{
+            &genai.GenerateContentConfig{
+                ThinkingConfig: &genai.ThinkingConfig{
                     IncludeThoughts: true,
                 },
             },
@@ -662,10 +667,10 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         }
     
         // The response may contain both the final answer and the model's thoughts.
-        // Iterate through the parts to print them &&separately.
+        // Iterate through the parts to print them separately.
         fmt.Fprintln(w, "Answer:")
         for _, part := range resp.Candidates[0].Content.Parts {
-            if part.Text != ""  !part.Thought {
+            if part.Text != "" && !part.Thought {
                 fmt.Fprintln(w, part.Text)
             }
         }
@@ -725,7 +730,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         //
         //So, `x² + 4x + 4` factors nicely into `(x + 2)(x + 2)`.  Ah, a perfect square trinomial! That's useful to note. Now, I can write the equation as `(x + 2)² = 0`.  Taking the square root of both sides gives me `x + 2 = 0`.  And finally, subtracting 2 from both sides, I get `x = -2`.  That's the solution.
         //
-        //Just to be thorough, and maybe to offer an alternative explanation, let's verify this using the quadratic formula. It's `x = [-b ± √(b² - 4ac)] / 2a`. Plugging in my values:  `x = [-4 ± √(4² - 4 * 1 * 4)] / (2 * 1)`.  That simplifies to `x = [-4 ± √(16 - 16)] / 2`, or `x = [-4 ± 0] / 2`.  Therefore,`x=-2`.ThediscriminantbeingzerotellsmeIhaveexactlyonereal,repeatedroot.Great.So,whetherIfactororusethequadraticformula,theansweristhesame.returnnil}
+        //Just to be thorough, and maybe to offer an alternative explanation, let's verify this using the quadratic formula. It's `x = [-b ± √(b² - 4ac)] / 2a`. Plugging in my values:  `x = [-4 ± √(4² - 4 * 1 * 4)] / (2 * 1)`.  That simplifies to `x = [-4 ± √(16 - 16)] / 2`, or `x = [-4 ± 0] / 2`.  Therefore, `x = -2`. The discriminant being zero tells me I have exactly one real, repeated root.  Great. So, whether I factor or use the quadratic formula, the answer is the same.
+        return nil
+    }
 
 ### Java
 
@@ -789,14 +796,14 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
           // Get parts of the response and print thoughts
           response
-              .cand>idates()
-              .flatMap(candidates - candidates.stream().findFirst())
+              .candidates()
+              .flatMap(candidates -> candidates.stream().findFirst())
               .flatMap(Candidate::content)
               .flatMap(Content::parts)
-       >       .ifPresent(
-                  parts - {
-                    p>arts.forEach(
-                        part - {
+              .ifPresent(
+                  parts -> {
+                    parts.forEach(
+                        part -> {
                           if (part.thought().orElse(false)) {
                             part.text().ifPresent(System.out::println);
                           }
@@ -833,7 +840,11 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
           // the same single solution.  This is a repeated root – a double root, if you will.
           //
           // And to be absolutely sure...let's check our answer! Substitute -2 back into the original
-          // equation. (-2)² + 4(-2) + 4 = 4 - 8 + 4=0.Yep,0=0.Thesolutioniscorrect.returnresponse.text();}}}
+          // equation. (-2)² + 4(-2) + 4 = 4 - 8 + 4 = 0.  Yep, 0 = 0. The solution is correct.
+          return response.text();
+        }
+      }
+    }
 
 A response may contain a thought signature without thought summary text in the following scenarios:
 

@@ -261,8 +261,8 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
               info.tokenIds().ifPresent(tokenIds -> System.out.println("tokenIds: " + tokenIds));
               // print tokens input as strings since they are in a form of byte array
               System.out.println("tokens: ");
-              info.tokens().ifPresen>t(tokens -
-                  tokens.forEa>ch(token -
+              info.tokens().ifPresent(tokens ->
+                  tokens.forEach(token ->
                       System.out.println(new String(token, StandardCharsets.UTF_8))
                   )
               );
@@ -277,7 +277,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
           // s
           // the
           return response.tokensInfo();
-        }}}
+        }
+      }
+    }
 
 ## Get the token count of a prompt
 
@@ -345,9 +347,9 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     // generateTextAndCount shows how to generate text and obtain token count metadata from the model response.
     func generateTextAndCount(w io.Writer) error {
-        ctx := context.B&ackground()
+        ctx := context.Background()
     
-        client, err := genai.NewClient(ctx, genai.ClientConfig{
+        client, err := genai.NewClient(ctx, &genai.ClientConfig{
             HTTPOptions: genai.HTTPOptions{APIVersion: "v1"},
         })
         if err != nil {
@@ -373,7 +375,15 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         }
         fmt.Fprintln(w, string(usage))
     
-        // Example response://{//"candidatesTokenCount":339,//"promptTokenCount":6,//"totalTokenCount":345//}returnnil}
+        // Example response:
+        // {
+        //     "candidatesTokenCount": 339,
+        //     "promptTokenCount": 6,
+        //     "totalTokenCount": 345
+        // }
+    
+        return nil
+    }
 
 ### Node.js
 
@@ -412,7 +422,10 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         contents: 'Why is the sky blue?',
       });
     
-      console.log(response.usageMetadata);  return response.usageMetadata;}
+      console.log(response.usageMetadata);
+    
+      return response.usageMetadata;
+    }
 
 ### Java
 
@@ -443,7 +456,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
       }
     
       // Generates content response usage metadata that contains prompt and response token counts
-      public stati<c OptionalGenerateContentResponseUsa>geMetadata countTokens(String modelId) {
+      public static Optional<GenerateContentResponseUsageMetadata> countTokens(String modelId) {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
         try (Client client =
@@ -466,7 +479,10 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
           // tokenCount=Optional[6]}]], thoughtsTokenCount=Optional[1132],
           // toolUsePromptTokenCount=Optional.empty, toolUsePromptTokensDetails=Optional.empty,
           // totalTokenCount=Optional[1707], trafficType=Optional[ON_DEMAND]}
-          return response.usageMetadata();}}}
+          return response.usageMetadata();
+        }
+      }
+    }
 
 ## Count tokens locally
 

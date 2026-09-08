@@ -837,7 +837,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -856,7 +856,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -875,7 +875,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1015,7 +1015,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1164,7 +1164,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1183,7 +1183,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1202,7 +1202,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1297,7 +1297,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1316,7 +1316,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1463,7 +1463,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1612,7 +1612,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.contains()</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1631,7 +1631,7 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.contains()</code></td>
 </tr>
 </tbody>
 </table></td>
@@ -1650,13 +1650,15 @@ The following table describes the CEL attributes that you can use in an agent-to
 </tr>
 <tr class="odd">
 <td>Supported operations</td>
-<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code> , <code dir="ltr" translate="no">.startsWith()</code> , <code dir="ltr" translate="no">.endsWith()</code> , <code dir="ltr" translate="no">.matches()</code></td>
+<td><code dir="ltr" translate="no">==</code> , <code dir="ltr" translate="no">!=</code> , <code dir="ltr" translate="no">in</code></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 </tbody>
 </table>
+
+> **Note:** The `startsWith()` , `endsWith()` , and `contains()` functions (or `STARTS_WITH` , `ENDS_WITH` , and `CONTAINS` ) are supported only for the `destination.unregistered.host` and `destination.unregistered.path` attributes. Other attributes don't support these string functions.
 
 ## What's next
 
