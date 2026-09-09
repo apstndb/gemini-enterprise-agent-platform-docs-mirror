@@ -126,7 +126,7 @@ For information about features and their respective metadata keys, see the follo
 <td>Scheduled upgrades</td>
 <td><p>Schedules automatic upgrades of the instance.</p></td>
 <td><code dir="ltr" translate="no">notebook-upgrade-schedule</code></td>
-<td>The weekly or monthly schedule that you set, in <a href="https://man7.org/linux/man-pages/man5/crontab.5.html">unix-cron format</a> , for example, <code dir="ltr" translate="no">00 19 * * MON</code> means weekly on Monday, at 1900 hours Greenwich Mean Time (GMT). This feature is off by default.</td>
+<td>The weekly or monthly schedule that you set, in <a href="https://man7.org/linux/man-pages/man5/crontab.5.html">unix-cron format</a> , for example, <code dir="ltr" translate="no">00 19 * * MON</code> means weekly on Monday, at 1900 hours Greenwich Mean Time (GMT). This feature is off by default. To disable this feature or keep it turned off, omit the <code dir="ltr" translate="no">notebook-upgrade-schedule</code> metadata key from your configuration or set its value to an empty string ( <code dir="ltr" translate="no">""</code> ).</td>
 </tr>
 <tr class="odd">
 <td>Post-startup script</td>

@@ -97,6 +97,12 @@ The identifiers use the following:
 
 Because the agent itself is the principal, you grant permissions directly to this identifier to control which resources the agent can access.
 
+#### Identity and permission lifecycle
+
+You must manage the IAM bindings for your agent identities. Deleting an agent doesn't remove the IAM bindings that reference its principal. These bindings remain in your policies as inactive grants, and you must manually remove them as part of decommissioning an agent.
+
+An agent's identity is derived from the ID of the resource that hosts it, such as the `reasoningEngines` resource ID. If you delete an agent and deploy a replacement, even with the same display name, code, and configuration, the new agent receives a new resource ID and therefore a new principal identifier. Existing IAM bindings that referenced the previous identity don't apply to the new principal. You must grant the required roles to the new principal.
+
 ### Agent credentials
 
 Agent credentials provide cryptographic proof of an agent's identity. The system supports X.509 certificates and Google Cloud access tokens. An X.509 certificate is auto-provisioned and managed on the agent to help support stronger authentication.

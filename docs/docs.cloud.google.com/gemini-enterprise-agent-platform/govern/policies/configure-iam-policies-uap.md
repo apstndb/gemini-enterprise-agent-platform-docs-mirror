@@ -1070,7 +1070,7 @@ The following example policy shows an IAM allow rule that allows a Workload Iden
       "description": "Allow read-only access to GitHubTool on MCP server",
       "effect": "ALLOW",
       "principals": [
-        "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/my-pool.svc.id.goog/subject/ns/default/sa/my-ae-agent"
+        "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
       ],
       "operation": {
         "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
@@ -1084,6 +1084,12 @@ The following example policy shows an IAM allow rule that allows a Workload Iden
   ]
 }
 ```
+
+Replace the following:
+
+  - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+  - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
+  - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
 
 To create and bind the policy by using the gcloud CLI, see [Create IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#create-ag-iam-policy) .
 
@@ -1101,7 +1107,7 @@ To create an IAM Access policy that allows an agent using Workload Identity Fede
             "description": "Allow read-only access to GitHubTool on MCP server",
             "effect": "ALLOW",
             "principals": [
-              "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/my-pool.svc.id.goog/subject/ns/default/sa/my-ae-agent"
+              "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
             ],
             "operation": {
               "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
@@ -1129,6 +1135,9 @@ To create an IAM Access policy that allows an agent using Workload Identity Fede
     
     Replace the following:
     
+      - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+      - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
+      - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
       - `  PROJECT_ID  ` : the project ID
       - `  POLICY_NAME  ` : the policy name
 
@@ -1519,7 +1528,7 @@ The following example shows an Access policy that allows an agent to access an u
     "description": "Allow POST access to unregistered OCR endpoint",
     "effect": "ALLOW",
     "principals": [
-      "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/my-pool.svc.id.goog/subject/ns/default/sa/my-ae-agent"
+      "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
     ],
     "operation": {
       "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
@@ -1532,6 +1541,12 @@ The following example shows an Access policy that allows an agent to access an u
   }
 ]
 ```
+
+Replace the following:
+
+  - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+  - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
+  - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
 
 To activate the policy, [bind the Access policy to your project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#bind-uap) .
 
@@ -1549,7 +1564,7 @@ To create an Access policy that allows an agent to access an unregistered endpoi
             "description": "Allow POST access to unregistered OCR endpoint",
             "effect": "ALLOW",
             "principals": [
-              "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/my-pool.svc.id.goog/subject/ns/default/sa/my-ae-agent"
+              "principal://iam.googleapis.com/projects/9876543210/locations/global/workloadIdentityPools/POOL_ID/subject/ns/default/sa/my-ae-agent"
             ],
             "operation": {
               "permissions": ["iap.googleapis.com/resources.egressViaIAP"]
@@ -1577,6 +1592,9 @@ To create an Access policy that allows an agent to access an unregistered endpoi
     
     Replace the following:
     
+      - `  POOL_ID  ` : the workload identity pool ID. Depending on your pool type, format the ID as follows:
+      - **Google-managed pool:** `  PROJECT_ID .svc.id.goog `
+      - **Self-managed pool:** `  POOL_NAME .global. POOL_HOST_PROJECT_NUMBER .workload.id.goog `
       - `  PROJECT_ID  ` : the project ID
       - `  POLICY_NAME  ` : the policy name
 

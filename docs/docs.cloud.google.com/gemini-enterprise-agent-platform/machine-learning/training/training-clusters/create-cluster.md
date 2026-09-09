@@ -495,7 +495,7 @@ The following parameters are used to define the node pools for both login and wo
 
   - ID : A unique identifier for the node pool within the cluster (for example, " `login` ", " `a4` ", " `cpu` ").
   - PROVISIONING\_MODEL : The provisioning model for the worker node (for example, `ON_DEMAND` , `SPOT` , `RESERVATION` , `FLEX_START` ).
-  - MACHINE\_TYPE : The machine type for the worker node. Supported values are `a3-megagpu-8g` , `a3-ultragpu-8g` , `a4-highgpu-8g` .
+  - MACHINE\_TYPE : The machine type for the worker node (for example, `a3-highgpu-8g` , `a3-megagpu-8g` , `a3-ultragpu-8g` , `a4-highgpu-8g` ). For the full list of supported machine types, see [Compute resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/compute-resources) .
   - MIN\_NODE\_COUNT : The `MIN_NODE_COUNT` must be the same as the `MAX_NODE_COUNT` .
   - MAX\_NODE\_COUNT : For the login node pool, the `MAX_NODE_COUNT` must be the same as the `MIN_NODE_COUNT` .
   - ENABLE\_PUBLIC\_IPS : A boolean ( `true` or `false` ) to determine if the login node has a public IP address.
@@ -512,6 +512,7 @@ The following parameters are used to define the node pools for both login and wo
 ### Worker-Specific Settings
 
   - ACCELERATOR\_TYPE : The corresponding GPU accelerator to attach to the worker nodes. Supported values are:
+      - `NVIDIA_H100_80GB`
       - `NVIDIA_H100_MEGA_80GB`
       - `NVIDIA_H200_141GB`
       - `NVIDIA_B200`

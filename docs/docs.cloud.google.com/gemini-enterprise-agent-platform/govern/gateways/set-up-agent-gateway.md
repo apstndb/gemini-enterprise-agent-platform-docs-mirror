@@ -430,7 +430,9 @@ Next, learn how to [deploy agents and route traffic through Agent Gateway](https
 
 ### Optional: Configure VPC connectivity
 
-To learn how to configure your Agent Gateway so that it can privately communicate with a VPC network in your organization, see [Set up VPC connectivity for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) .
+To configure your Agent Gateway so that it can privately communicate with a VPC network in your organization, see [Set up VPC connectivity for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) .
+
+**VPC Service Controls enforcement** : Setting up VPC connectivity is required to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. The connectivity template must be configured in `ALL_TRAFFIC` egress mode.
 
 ## Configure Agent Gateway in Client-to-Agent (ingress) mode
 

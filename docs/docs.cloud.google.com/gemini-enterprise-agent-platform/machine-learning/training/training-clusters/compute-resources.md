@@ -18,10 +18,13 @@ Gemini Enterprise Agent Platform training clusters supports a variety of machine
 | `a4-highgpu-8g`   | NVIDIA B200                   | 8             |
 | `a3-ultragpu-8g`  | NVIDIA H200                   | 8             |
 | `a3-megagpu-8g`   | NVIDIA H100                   | 8             |
+| `a3-highgpu-8g`   | NVIDIA H100                   | 8             |
 | `g4-standard-48`  | NVIDIA RTX PRO 6000 Blackwell | 1             |
 | `g4-standard-96`  | NVIDIA RTX PRO 6000 Blackwell | 2             |
 | `g4-standard-192` | NVIDIA RTX PRO 6000 Blackwell | 4             |
 | `g4-standard-384` | NVIDIA RTX PRO 6000 Blackwell | 8             |
+
+> **Note:** The `a3-highgpu-8g` machine type requires a separate allowlist, in addition to the one that grants access to Gemini Enterprise Agent Platform training clusters. To request access to A3 High, contact your sales representative.
 
 ## CPU and HPC machine types
 

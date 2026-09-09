@@ -291,6 +291,69 @@ To deny an agent access to resources, you can use the [IAM deny policy](https://
               --organization=organizations/ORGANIZATION_ID \
               --policy=example-policy \ --target-principal-set=cloudresourcemanager.googleapis.com/organizations/ORGANIZATION_ID
 
+## CI/CD and automation guidance
+
+Automated deployment pipelines that delete and re-create agents (such as blue-green deployments, ephemeral testing environments, or Terraform workflows) can experience silent runtime access loss. Because each redeployment creates a new `reasoningEngines` resource with a unique ID, the agent receives a new principal identifier. Any prior IAM permissions granted to the previous principal are not inherited by the new principal.
+
+To manage permissions in automated pipelines, use the following strategies:
+
+  - **Retrieve the new principal ID dynamically:** Capture the `spec.effectiveIdentity` value from the deployment response, or query the REST API after deployment to obtain the active identity of the agent. Apply the required IAM bindings to this new principal as a post-deployment step.
+    
+    For example, you can query the active identity with `gcloud` by using the following command:
+    
+        gcloud ai reasoning-engines describe RESOURCE_ID \
+          --project=PROJECT_ID \
+          --location=LOCATION \
+          --format="value(spec.effectiveIdentity)"
+    
+    In Terraform, you can dynamically construct the agent identity principal from the deployed `google_vertex_ai_reasoning_engine` resource ID and reference it in IAM bindings:
+    
+        resource "google_vertex_ai_reasoning_engine" "reasoning_engine" {
+          provider = google-beta
+        
+          project      = var.project_id
+          region       = var.region
+          display_name = var.display_name
+          description  = var.agent_description
+        
+          spec {
+            agent_framework = "google-adk"
+            identity_type   = "AGENT_IDENTITY"
+        
+            source_code_spec {
+              inline_source {
+                source_archive = filebase64(data.archive_file.agent_tarball.output_path)
+              }
+        
+              python_spec {
+                entrypoint_module = var.agent_python_spec.entrypoint_module
+                entrypoint_object = var.agent_python_spec.entrypoint_object
+                requirements_file = var.agent_python_spec.requirements_path
+                version           = var.agent_python_spec.version
+              }
+            }
+        
+            deployment_spec {
+              env {
+                name  = "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY"
+                value = "true"
+              }
+        
+              env {
+                name  = "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"
+                value = "true"
+              }
+            }
+          }
+        }
+        
+        locals {
+          agent_resource_id        = element(split("/", google_vertex_ai_reasoning_engine.reasoning_engine.id), -1)
+          agent_identity_principal = "principal://agents.global.org-${data.google_organization.org.org_id}.system.id.goog/resources/aiplatform/projects/${data.google_project.project.number}/locations/${var.region}/reasoningEngines/${local.agent_resource_id}"
+        }
+
+  - **Use project-scoped `principalSets` for baseline permissions:** Because `principalSet` bindings target all agents in a project, they survive agent deletion and re-creation. Grant common, non-sensitive roles (such as service usage, logging, and general model inference) to the project-wide `principalSet` instead of individual agent principals. Limit individual `principal://` bindings to highly sensitive data sources.
+
 ## Log agent activity
 
 If you enable Cloud Logging, you can [view logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging#query-logs) of which agent and users have accessed a Google Cloud resource.

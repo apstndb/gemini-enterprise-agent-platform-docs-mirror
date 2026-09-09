@@ -10,6 +10,14 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 08, 2026
+
+Feature
+
+**Agent connectivity templates for VPC connectivity in Agent Gateway**
+
+Agent Gateway now uses *agent connectivity templates* ( `agentConnectivityTemplate` ) to configure and manage egress connectivity to VPC networks. Connectivity templates let you choose whether to route all outbound agent traffic ( `ALL_TRAFFIC` ) or only traffic to certain private IP address ranges ( `PRIVATE_RANGES_ONLY` ) into your VPC network. For more information, see [Set up VPC connectivity for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) .
+
 ## September 02, 2026
 
 Feature

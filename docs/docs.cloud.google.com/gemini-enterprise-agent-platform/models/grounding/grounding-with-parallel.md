@@ -131,6 +131,10 @@ Before running the sample, make the following replacements:
                         # Optional. Omit api_key if you subscribed to Grounding with
                         # Parallel Web Search on Google Cloud Marketplace.
                         api_key="API_KEY",
+                        # Optional. Set to True to use Zero Data Retention (ZDR) for
+                        # sensitive workloads. Requires a separate ZDR Marketplace
+                        # subscription; defaults to the standard subscription.
+                        enable_zero_data_retention=True,
                         # Optional. Customize the search. Click a placeholder to
                         # enter a value, or remove the line to accept the default.
                         custom_configs={
@@ -210,6 +214,12 @@ Before running the sample, make the following replacements:
                                   // Grounding with Parallel Web Search on Google
                                   // Cloud Marketplace.
                                   .apiKey("API_KEY")
+                                  // Optional. Set to true to use Zero Data
+                                  // Retention (ZDR) for sensitive workloads.
+                                  // Requires a separate ZDR Marketplace
+                                  // subscription; defaults to the standard
+                                  // subscription.
+                                  .enableZeroDataRetention(true)
                                   // Optional. Customize the search. Click a
                                   // placeholder to enter a value, or remove the
                                   // entry to accept the default.
@@ -288,6 +298,10 @@ Before running the sample, make the following replacements:
               // Optional. Omit apiKey if you subscribed to Grounding with Parallel
               // Web Search on Google Cloud Marketplace.
               apiKey: 'API_KEY',
+              // Optional. Set to true to use Zero Data Retention (ZDR) for
+              // sensitive workloads. Requires a separate ZDR Marketplace
+              // subscription; defaults to the standard subscription.
+              enableZeroDataRetention: true,
               // Optional. Customize the search. Click a placeholder to enter a
               // value, or remove the line to accept the default.
               customConfigs: {

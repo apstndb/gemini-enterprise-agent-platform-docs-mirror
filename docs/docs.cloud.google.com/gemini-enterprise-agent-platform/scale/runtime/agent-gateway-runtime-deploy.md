@@ -197,7 +197,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
       - `  RUNTIME_AGENT_PROJECT_NUMBER  ` : the project number of the project where the Runtime agent is deployed
       - `  ENGINE_ID  ` : the [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) of the agent
     
-    For more information, see [Register an agent](https://docs.cloud.google.com/agent-registry/register-endpoints) .
+    For more information, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) . To learn about manual registration of agents in multi-project setups, see [Register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project) .
 
 5.  **Create an agent-to-registry IAM policy binding**
     
@@ -215,9 +215,14 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     
       - `  AGENT_ENDPOINT_ID  ` : The service endpoint ID of the registered agent. You get this from the output of the previous step.
     
-      - `  MEMBER  ` : The agent identity principal to grant the role to. The format is typically: ` principal:// TRUST_DOMAIN /resources/aiplatform/projects/ PROJECT_ID /locations/ REGION /reasoningEngines/ ENGINE_ID  ` .
+      - `  MEMBER  ` : The agent identity principal to grant the role to. The format for an individual reasoning engine is: ` principal:// TRUST_DOMAIN /resources/aiplatform/projects/ AGENT_RUNTIME_PROJECT_NUMBER /locations/ REGION /reasoningEngines/ ENGINE_ID  ` .
         
-        > **Note:** If you want to bind all the agents in a project to a registry (including all Runtime agents, Gemini Enterprise agents, and any other agents created in the future), you can bind the IAM policy to ` principal:// TRUST_DOMAIN /attribute.container/projects/ PROJECT_ID  ` .
+        If you want to grant egress access to all agents in a project or across the organization rather than binding individual instances, you can bind the IAM policy to a principal set:
+        
+          - To grant access to all agents in a project: ` principalSet:// TRUST_DOMAIN /attribute.platformContainer/aiplatform/projects/ AGENT_RUNTIME_PROJECT_NUMBER  `
+          - To grant access to all agents across the organization: `principalSet:// TRUST_DOMAIN /*`
+        
+        In these principal strings, `  TRUST_DOMAIN  ` is typically `agents.global.org- ORGANIZATION_ID .system.id.goog` .
 
 6.  <span id="allowlist-essential-apis"></span> **Allowlist essential APIs for Runtime operations**
     
@@ -321,7 +326,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     
     > **Caution:** While you can register a base URI (such as `https:// REGION -aiplatform.googleapis.com/` ) for convenience, doing so provides a broad access policy that lets the agent access any service under that domain. Note that even if you register a base URI, you are still required to register all its regional and mTLS variants.
     
-    To learn how to register endpoints, see [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) . You must also ensure that the agent has the `iap.resources.egressViaIAP` permission for these endpoints. For instructions, see [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint) .
+    To learn how to register endpoints, see [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) . If you have a multi-project setup, you can register multiple core Google API endpoints in a single Agent Registry service. For more information, see [Register a composite Google APIs endpoint](https://docs.cloud.google.com/agent-registry/register-endpoints#google-apis-endpoint) . You must also ensure that the agent has the `iap.resources.egressViaIAP` permission for these endpoints. For instructions, see [Create an agent-to-endpoint egress policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#agent-to-endpoint) .
 
 7.  **Verify agent configuration**
     
@@ -442,8 +447,6 @@ To configure a BYOC container image for Agent Gateway egress, perform the follow
 ## Restrict Agent Runtime to approved Agent Gateways
 
 You can create custom organization policy constraints to define the set of eligible Agent Gateway resources that can be used while deploying agents.
-
-> **Note:** VPC Service Controls are not supported with Agent Gateway. However, if VPC Service Controls are enforced on the project, then these organization policies are required to ensure that agents only use sanctioned egress paths, preventing data exfiltration through unauthorized gateways.
 
 ### Create custom organization policy constraints
 

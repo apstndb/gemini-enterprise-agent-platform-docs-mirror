@@ -40,6 +40,7 @@ For enterprise admins and security teams:
   - **Centralized governance for all agent interactions:** Configure and enforce consistent access policies across diverse agent runtimes and deployment models, ensuring enforcement of least-privilege permissions for agents at runtime.
   - **AI security guardrails:** Protect against novel risks like Model Context Protocol (MCP) prompt injection attacks using integrated services like Model Armor.
   - **Comprehensive observability:** Gain deep visibility into agentic interactions through Cloud Logging and Cloud Trace, facilitating security investigations and performance monitoring.
+  - **Perimeter security and data exfiltration protection:** Enforce VPC Service Controls service perimeters for agent communications. When you configure Agent Gateway with an [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , agent traffic is routed through your private VPC network attachment, ensuring that your organization's VPC Service Controls perimeter rules are applied to all agent traffic as well.
 
 ## Deployment modes
 
@@ -146,7 +147,6 @@ For MCP traffic only, Agent Gateway can parse request data to extract attributes
 ## Limitations
 
   - For Gemini Enterprise, Client-to-Agent mode is not supported by Agent Gateway.
-  - Agent Gateway doesn't support VPC Service Controls. To ensure that agents are only using the Agent Gateway resources you approve of, you can use custom organization policy constraints to restrict agent and gateway bindings. For details, see [Restrict Agent Runtime to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#restrict-ae) and [Restrict Gemini Enterprise to approved Agent Gateways only](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#restrict-ge) .
   - Agent Gateway doesn't support connections to public or private destinations with self-signed certificate chains. Use publicly trusted CA certificates for all destinations.
   - Each Agent Gateway instance can govern up to 5,000 resources registered in Agent Registry.
   - Review the [limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#limitations) associated with Agent Runtime.

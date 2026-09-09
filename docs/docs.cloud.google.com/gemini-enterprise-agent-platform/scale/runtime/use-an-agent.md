@@ -36,7 +36,7 @@ where
 
 If you have [deployed](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) an agent, then you would send requests to the corresponding endpoint:
 
-    https://LOCATION-aiplatform.googleapis.com/reasoningEngines/v1/projects/PROJECT_NUMBER/locations/<var>LOCATION</var>/reasoningEngines/RESOURCE_ID/api/API_PATH
+    https://LOCATION-aiplatform.googleapis.com/reasoningEngines/v1/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/RESOURCE_ID/api/API_PATH
 
 where
 
