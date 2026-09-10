@@ -270,6 +270,18 @@ The current Gemini Enterprise Agent Platform resources covered by CMEK are as fo
 <li><a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview">Agent Runtime overview</a></li>
 </ul></td>
 </tr>
+<tr class="even">
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.reasoningEngines.sandboxEnvironments">Agent Platform sandboxes</a></td>
+<td><ul>
+<li>Memory checkpoint states and disk storage of running sandbox instances</li>
+<li>Custom container overlays and environment configurations</li>
+<li>Saved sandbox snapshots and templates</li>
+</ul></td>
+<td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek">Configure customer-managed encryption keys (CMEK) for sandboxes</a></li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox">Sandboxes overview</a></li>
+</ul></td>
+</tr>
 </tbody>
 </table>
 

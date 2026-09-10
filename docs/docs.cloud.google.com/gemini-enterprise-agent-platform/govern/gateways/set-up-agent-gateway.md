@@ -39,34 +39,40 @@ The following permissions are required to create and manage Agent Gateways. You 
   - `networkservices.authzExtensions.use`
   - `networkservices.operations.get`
 
+> **Note:** Because Workforce Identity Federation is in Preview, it has limited support for Agent Platform and Agent Gateway. If you encounter loading, creation, or import errors in Google Cloud console or gcloud CLI, access the service using a standard Google Account managed through Cloud Identity or Google Workspace.
+
 ## Required APIs
 
-Enable the following APIs in the Google Cloud project that you are using for this guide. These APIs let you access the full suite of capabilities offered by Gemini Enterprise Agent Platform.
+Enable the following APIs in the Google Cloud project that you are using for this guide. These APIs let you access the full suite of capabilities offered by Gemini Enterprise Agent Platform. Review the rationale for each API to determine which services are required for your specific architecture and governance needs.
 
 #### Required APIs
 
-  - Compute Engine API ( `compute.googleapis.com` )
-  - Network Security API ( `networksecurity.googleapis.com` )
-  - Network Services API ( `networkservices.googleapis.com` )
-  - Cloud DNS API ( `dns.googleapis.com` )
-  - Identity and Access Management API ( `iam.googleapis.com` )
-  - Identity-Aware Proxy API ( `iap.googleapis.com` )
-  - Agent Registry API ( `agentregistry.googleapis.com` )
-  - Vertex AI API ( `aiplatform.googleapis.com` )
-  - Discovery Engine API ( `discoveryengine.googleapis.com` )
-  - Cloud Storage API ( `storage.googleapis.com` )
-  - Model Armor API ( `modelarmor.googleapis.com` )
-  - Observability API ( `observability.googleapis.com` )
-  - Telemetry API ( `telemetry.googleapis.com` )
-  - Cloud Monitoring API ( `monitoring.googleapis.com` )
-  - Cloud Trace API ( `cloudtrace.googleapis.com` )
-  - Cloud Logging API ( `logging.googleapis.com` )
-  - App Hub API ( `apphub.googleapis.com` )
-  - App Topology API ( `apptopology.googleapis.com` )
-  - Cloud API Registry ( `cloudapiregistry.googleapis.com` )
-  - Notebooks API ( `notebooks.googleapis.com` )
-  - Text-to-Speech API ( `texttospeech.googleapis.com` )
-  - Dataform API ( `dataform.googleapis.com` )
+  - **Core APIs for Agent Gateway operations:**
+      - **Compute Engine API ( `compute.googleapis.com` ):** Provides core networking infrastructure, subnets, routing, and Private Service Connect (PSC) network attachments.
+      - **Network Security API ( `networksecurity.googleapis.com` ):** Creates and enforces authorization policies ( `authzPolicies` ) for gateway traffic.
+      - **Network Services API ( `networkservices.googleapis.com` ):** Manages core Agent Gateway resources and authorization extensions ( `authzExtensions` ).
+      - **Identity and Access Management API ( `iam.googleapis.com` ):** Manages agent identities, service accounts, and IAM access policies.
+      - **Identity-Aware Proxy API ( `iap.googleapis.com` ):** Authenticates and verifies agent, endpoint, and server traffic.
+      - **Agent Registry API ( `agentregistry.googleapis.com` ):** Registers and manages agents, MCP servers, and tool endpoints governed by the gateway.
+      - **Model Armor API ( `modelarmor.googleapis.com` ):** Configures Model Armor guardrails to inspect and filter prompt injection, toxic content, and sensitive data.
+      - **Cloud DNS API ( `dns.googleapis.com` ):** Handles private DNS routing and domain resolution for private VPC egress.
+  - **Observability APIs:**
+      - **Cloud Logging API ( `logging.googleapis.com` ):** Captures gateway access logs, security audit logs, and dry-run policy evaluation events.
+      - **Cloud Monitoring API ( `monitoring.googleapis.com` ):** Tracks gateway health, latency, throughput, error rates, and configures operational alerts.
+      - **Observability API ( `observability.googleapis.com` ):** Provides unified observability and operational dashboards for agent and gateway activity.
+      - **Telemetry API ( `telemetry.googleapis.com` ):** Collects and streams runtime telemetry and performance metrics across platform components.
+      - **Cloud Trace API ( `cloudtrace.googleapis.com` ):** Provides distributed tracing to inspect multi-hop requests across agents and backends.
+  - **Agent runtime APIs:**
+      - **Vertex AI API ( `aiplatform.googleapis.com` ):** Powers Agent Runtime agents, foundation models, and integrated platform services.
+      - **Discovery Engine API ( `discoveryengine.googleapis.com` ):** Powers Gemini Enterprise apps, search, grounding, and knowledge retrieval tools.
+      - **Cloud Storage API ( `storage.googleapis.com` ):** Stores agent configurations, prompt templates, artifacts, and file attachments.
+  - **Full scope & platform integration APIs:**
+      - **App Hub API ( `apphub.googleapis.com` ):** Organizes, discovers, and governs application-centric agent platform resources.
+      - **App Topology API ( `apptopology.googleapis.com` ):** Visualizes dependency maps and service topologies across agents, gateways, and backends.
+      - **Cloud API Registry ( `cloudapiregistry.googleapis.com` ):** Catalogs enterprise APIs and services that agents connect to through the gateway.
+      - **Notebooks API ( `notebooks.googleapis.com` ):** Supports agent prototyping and evaluation in Vertex AI Workbench and Colab Enterprise.
+      - **Text-to-Speech API ( `texttospeech.googleapis.com` ):** Provides speech synthesis for voice-enabled agents and multimodal pipelines.
+      - **Dataform API ( `dataform.googleapis.com` ):** Manages data preparation and transformation workflows leveraged by data agents.
 
 ## Plan your Agent Gateway deployment
 
@@ -218,14 +224,18 @@ Here are some sample deployment patterns for your consideration:
     </tbody>
     </table>
 
-### Register your agents, endpoints, servers, and tools
+### Register your agents and destination resources
 
 To enable secure communication, you must identify your Agent Registry instance and register the resources that your gateway will govern.
 
-1.  Identify the Agent Registry instance that you will be using.
+1.  Identify the Agent Registry instances that you will be using. An Agent Gateway can be associated with up to two registries (one global registry and one regional or multi-regional registry):
     
-      - For Agent Runtime, you reference the regional registry ( ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  ` ) in the same project and region where the Agent Gateway will be deployed.
-      - For Gemini Enterprise, you reference either the global, multi-region, or regional registry in the same project where the Gemini Enterprise agents are deployed and where the gateway will be deployed. See the [Plan your deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) section for guidance on which registry is suitable for your deployment.
+      - **Agent Runtime agents** are regional resources and are typically registered in regional registries matching their deployment region. Note that cross-project agents must be registered in the registry associated with the central governance project where the Agent Gateway is deployed.
+      - **Gemini Enterprise agents** are global or multi-region resources and are registered in global or multi-regional registries (such as `global` , `us` , or `eu` ).
+    
+    Ensure that the registry instances you associate with your Agent Gateway are the ones where your agents, endpoints, and servers are registered.
+    
+    > **Note:** Regional and multi-regional entries take precedence over global entries when Agent Gateway resolves a destination URL to a registry entry. This is to help resolve conflicts that can occur when regional, multi-regional, and global registries contain entries with identical interface URLs.
 
 2.  Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents) .
 
@@ -275,10 +285,7 @@ The following steps are required to enable communications between the agent and 
 
 3.  Configure an IAM policy that assigns the `iap.resources.egressViaIAP` permission to your agent identity principal for each of the destination resources that you registered in Agent Registry.
     
-    You can configure the policy to manage access to entire registries or individual resources. Because registries can be global, multi-region, or regional, ensure that access to entire registries match the agent type:
-    
-      - For Gemini Enterprise agents, use the global or multi-region registry.
-      - For Agent Runtime agents, use a regional registry.
+    Because registries can be global, multi-regional, or regional, ensure that any registry-wide binding matches the registry instance (or instances) configured for your Agent Gateway.
     
     Agent Gateway checks specifically for the `iap.resources.egressViaIAP` permission. By default, all egress traffic is denied unless explicitly allowed by this IAM policy.
     
@@ -302,7 +309,7 @@ Use the following steps to create an Agent Gateway resource.
 
 5.  For **Deployment mode** , verify that **Google-managed** is selected.
 
-6.  For **Agent Registry** , select a registry from the list. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+6.  For **Agent registries** , select at least one registry from the list. If you want to select two registries, one must be a global registry and the other can be either a regional or multi-regional registry.For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
 
 7.  From the **Governed Access Path** list, select **Agent-to-Anywhere (Agent Egress)** .
 
@@ -338,12 +345,18 @@ You define Agent Gateways declaratively using YAML.
         googleManaged:
           governedAccessPath: AGENT_TO_ANYWHERE
         registries:
-          - AGENT_REGISTRY_PATH
+          - AGENT_REGISTRY_URI_1
+          - OPTIONAL_AGENT_REGISTRY_URI_2
     
     Replace the following:
     
       - `  AGENT_GATEWAY_NAME  ` : The name of the Agent Gateway resource.
-      - `  AGENT_REGISTRY_PATH  ` : The path to the Agent Registry. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) .
+    
+      - `  AGENT_REGISTRY_URI_1  ` and `  OPTIONAL_AGENT_REGISTRY_URI_2  ` : The paths to the Agent Registry instances to be associated with the gateway. You can configure up to two registries for an Agent Gateway. When configuring two registries, one must be a global registry and the other can be either a regional or multi-regional registry. For guidance on which registry to choose for your deployment, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) . The registry paths must be formatted as follows:
+        
+          - Regional registries: ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ REGION  `
+          - Global registries: `//agentregistry.googleapis.com/projects/ PROJECT_ID /locations/global`
+          - Multi-region registries: ` //agentregistry.googleapis.com/projects/ PROJECT_ID /locations/ MULTI_REGION  `
 
 2.  Run the following command to create an Agent Gateway resource based on the YAML specification:
     
@@ -433,6 +446,8 @@ Next, learn how to [deploy agents and route traffic through Agent Gateway](https
 To configure your Agent Gateway so that it can privately communicate with a VPC network in your organization, see [Set up VPC connectivity for Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) .
 
 **VPC Service Controls enforcement** : Setting up VPC connectivity is required to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. The connectivity template must be configured in `ALL_TRAFFIC` egress mode.
+
+> **Important:** VPC Service Controls is only supported for Agent Gateway deployments created after September 8, 2026 that use the agent connectivity template to configure VPC connectivity.
 
 ## Configure Agent Gateway in Client-to-Agent (ingress) mode
 

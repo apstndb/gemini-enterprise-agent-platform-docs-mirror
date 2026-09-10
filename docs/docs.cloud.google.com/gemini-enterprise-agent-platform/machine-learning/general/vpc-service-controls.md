@@ -173,6 +173,7 @@ Agent Platform APIs that you can incorporate into your service perimeter include
       - Colab Enterprise
       - Agent Runtime
       - Managed training clusters
+      - Agent Platform sandboxes
   - [Notebooks API](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_notebooks) supports the following service:
       - Gemini Enterprise Agent Platform Workbench
 

@@ -6,10 +6,6 @@ description: Guide on how to use sandbox snapshots in Gemini Enterprise Agent Pl
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Sandbox snapshots in Gemini Enterprise Agent Platform let you save the current state of a sandbox and restore it later. This is useful for lifecycle management tasks such as restoring a known good state or exploring variation branches.
 
 Snapshots provide several benefits for managing your agent workflows:
@@ -26,6 +22,10 @@ You cannot restore a sandbox snapshot to a new sandbox environment if any of the
   - The new sandbox uses a different server architecture (for example, `amd64` versus `arm64` ).
   - The new sandbox uses a different sandbox runtime version (for example, after a GKE cluster upgrade).
   - The new sandbox uses a different container image URI.
+
+### Retention
+
+When you create a snapshot, it's retained for the duration specified in the `ttl` property. To delete a snapshot before the TTL expires, see [Delete a snapshot](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots#delete-snapshot) .
 
 ## Create a snapshot
 

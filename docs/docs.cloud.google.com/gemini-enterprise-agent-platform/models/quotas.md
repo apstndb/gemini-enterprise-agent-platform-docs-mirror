@@ -6,7 +6,28 @@ description: Understand quotas and system limits for generative AI on Gemini Ent
 data_source: docs.cloud.google.com
 ---
 
-This page provides a list of quotas by region and model, and shows you how to view and edit your quotas in the Google Cloud console.
+This document lists the quotas and system limits that apply to Generative AI models on Agent Platform.
+
+  - **Quotas** have default values, but you can typically request adjustments.
+  - **System limits** are fixed values that can't be changed.
+
+Google Cloud uses quotas to help ensure fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
+
+The Cloud Quotas system does the following:
+
+  - Monitors your consumption of Google Cloud products and services
+  - Restricts your consumption of those resources
+  - Provides a way to [request changes to the quota value](https://docs.cloud.google.com/docs/quotas/help/request_increase) and [automate quota adjustments](https://docs.cloud.google.com/docs/quotas/quota-adjuster)
+
+In most cases, when you attempt to consume more of a resource than its quota allows, the system blocks access to the resource, and the task that you're trying to perform fails.
+
+Quotas generally apply at the Google Cloud project level. Your use of a resource in one project doesn't affect your available quota in another project. Within a Google Cloud project, quotas are shared across all applications and IP addresses.
+
+For more information, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview) .
+
+There are also *system limits* on Agent Platform resources. System limits can't be changed.
+
+There are also *limits* on Gemini Enterprise Agent Platform resources. System limits can't be changed.
 
 ## Tuned model quotas
 
@@ -62,6 +83,30 @@ The following quotas apply to multimodal input for `generateContent` and `stream
 | Generate content requests with document input per minute per base model and resolution | 1,200,000   | `aiplatform.googleapis.com/generate_content_document_input_per_base_model_id_and_resolution` |
 
 To request a higher limit for these quotas, contact your Google Cloud account team; they can't be increased from the Google Cloud console.
+
+## Generative media quotas
+
+To view and edit generative media quotas in the Google Cloud console, do the following:
+
+1.  Make sure that you have [enabled the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) for your project. If the API isn't enabled, the Agent Platform quotas won't display.
+
+2.  Go to the **Quotas and System Limits** page.
+
+3.  In the **Filter** text box, enter the following queries:
+    
+    ` Metric: METRIC_NAME Dimensions (e.g. location): MODEL_NAME  `
+    
+    Replace the following:
+    
+      - METRIC\_NAME : The metric name to search for, one of the following:
+          - **Gemini Omni** : `global_generate_content_requests_per_minute_per_project_per_base_model`
+          - **Veo** : `long_running_online_prediction_requests_per_base_model`
+          - **Lyria** : `global_generate_content_requests_per_minute_per_project_per_base_model`
+      - MODEL\_NAME : The name of the model that you are using.
+
+4.  To adjust the quota, click more\_vert **More** and then select **Edit quota** .
+
+5.  Enter a new quota value in the pane, and click **Submit request** .
 
 ## Batch inference
 

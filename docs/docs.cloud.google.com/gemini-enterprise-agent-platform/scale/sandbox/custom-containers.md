@@ -6,10 +6,6 @@ description: Guide on how to Bring Your Own Container (BYOC) for custom executio
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 The standard sandboxes provide a predefined set of libraries, which provide turnkey solutions for specific tasks like code execution and computer use. For agentic workloads that require specific dependencies, libraries, custom tools, or specialized data plane interfaces, you can provide your own container images (also known as bring your own container or BYOC). This feature lets you run custom workloads within the secure confines of a sandbox environment.
 
 ## Before you begin

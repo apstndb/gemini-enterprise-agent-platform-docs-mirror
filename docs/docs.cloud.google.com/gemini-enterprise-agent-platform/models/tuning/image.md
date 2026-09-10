@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 This page provides prerequisites and detailed instructions for fine-tuning Gemini models on image data using supervised learning.
 
+> **Note:** This page describes fine-tuning Gemini models for **image understanding and analysis** (using image data as input). Fine-tuning image generation models is not supported. To guide generated images toward a specific visual style or subject, see [Generate images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) or [Edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images) .
+
 ## Use cases
 
 Fine-tuning lets you adapt base Gemini models for specialized tasks. Here are some image use cases:
@@ -136,5 +138,6 @@ To use the sample validation dataset, specify its location as follows:
 ## What's next
 
   - To learn more about the image understanding capability of Gemini, see our [Image understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding) documentation.
+  - To learn about generating and editing images, see [Generate images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation) and [Edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images) .
   - To start tuning, see [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning)
   - To learn how supervised fine-tuning can be used in a solution that builds a generative AI knowledge base, see [Jump Start Solution: Generative AI knowledge base](https://docs.cloud.google.com/architecture/ai-ml/generative-ai-knowledge-base) .

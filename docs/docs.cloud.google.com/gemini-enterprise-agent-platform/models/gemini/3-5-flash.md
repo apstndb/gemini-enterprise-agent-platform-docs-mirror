@@ -152,21 +152,21 @@ Supported regions
   - Multi-region: `us` , `eu`
   - Americas: `northamerica-northeast1`
   - Europe: `europe-west2` , `europe-west3`
-  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
+  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1` , `australia-southeast1`
 
 **[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency)**
 
   - Multi-region: `us` , `eu`
   - Americas: `northamerica-northeast1`
   - Europe: `europe-west2` , `europe-west3`
-  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
+  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1` , `australia-southeast1`
 
 **[Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models)**
 
   - Global: `global`
   - Multi-region: `us` , `eu`
   - Europe: `europe-west2` , `europe-west3`
-  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1`
+  - Asia Pacific: `asia-northeast1` , `asia-south1` , `asia-southeast1` , `australia-southeast1`
 
 **[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)**
 
@@ -213,4 +213,4 @@ Security controls
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
 
-> **Note:** In `asia-northeast1` , `asia-south1` , `asia-southeast1` , and `europe-west2` , only Single Zone Provisioned Throughput is supported.
+> **Note:** In `asia-northeast1` , `asia-south1` , `asia-southeast1` , `australia-southeast1` , and `europe-west2` , only Single Zone Provisioned Throughput is supported.

@@ -353,6 +353,10 @@ The following are examples of the types of questions that Find Directions suppor
 
   - **Commute estimation** : "How long does it take to take public transit from Pike Place Market to Capitol Hill in Seattle?"
 
+### Enable Find Directions
+
+In the REST API and SDKs, Grounding with Google Maps defaults to Places data only when `grounding_types` is omitted. To enable directions capabilities, you must explicitly configure `routing` in `grounding_types` in your request configuration. If you want to use both Places and Routing tools, you must specify both `places` and `routing` in `grounding_types` .
+
 ### Understand the response
 
 When a prompt triggers Find Directions capability, the model generates a natural language answer backed by structured metadata. This lets you display precise travel information to the user.
@@ -402,6 +406,10 @@ The following examples illustrate the types of questions the Search Along Route 
   - **Basic route search** : "Find gas stations on the way from 1800 Amphibious Blvd. Mountain View, CA 94045, to 456 Sunny St, Sunnyvale CA." (Usually, the origin and destination addresses are derived from the chat history.)
   - **Search based on Place Properties** : "Are there any bakeries with at least a 4 star rating between San Francisco and 1800 Amphibious Blvd. Mountain View, CA 94045?"
   - **Multi-leg route search** : "I'm going on a roadtrip from San Francisco to San Luis Obispo to Los Angeles, suggest three EV charger options between San Francisco and San Luis Obispo, and then between San Luis Obispo and Los Angeles?"
+
+### Enable Search Along Route
+
+Search Along Route requires both **Places** and **Routing** capabilities to discover places situated along a travel route. In the REST API and SDKs, you must explicitly configure both `places` and `routing` in `grounding_types` in your request configuration.
 
 ### Understand the response
 

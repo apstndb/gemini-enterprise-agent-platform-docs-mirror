@@ -6,12 +6,6 @@ description: Learn how to create and use a Computer Use sandbox.
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides a sandbox environment for AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. To utilize this feature, you will need to enable full network access for your AI Agent so please consider applicable safeguards (including human supervision) and your organization's policies before doing so. For built-in computer use safeguards, consider the Agent Platform [Computer Use Tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#safety-and-security) .
-> 
-> Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) .
-
 This page demonstrates how to make direct API calls to create and use a Computer Use sandbox environment. In this quickstart, you perform the follow tasks:
 
   - Create an Agent Platform instance to access the sandbox.
@@ -36,7 +30,9 @@ To use the sandbox and generate tokens, you need the following roles:
 
 ### Install libraries
 
-Install the Agent Platform SDK: `posix-terminal pip install google-cloud-aiplatform>=1.112.0`
+Install the Agent Platform SDK:
+
+    pip install google-cloud-aiplatform>=1.112.0
 
 ## Create an Agent Platform instance
 
@@ -57,6 +53,8 @@ Replace the following:
 
   - `PROJECT_ID` : Your Google Cloud project ID.
   - `LOCATION` : The region for your instance (such as `us-central1` ).
+
+To encrypt your sandbox data using customer-managed encryption keys (CMEK), you must configure CMEK when you create your Agent Platform instance. For more information, see [Configure customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek) .
 
 ## Create a template for Computer Use
 
@@ -157,4 +155,6 @@ To avoid incurring charges, delete the resources created in this quickstart.
 
 ## What's next
 
-  - Explore [Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) for sandbox lifecycle management.
+  - [Overview of Computer Use sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use)
+  - [Configure VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc)
+  - [Configure customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek)

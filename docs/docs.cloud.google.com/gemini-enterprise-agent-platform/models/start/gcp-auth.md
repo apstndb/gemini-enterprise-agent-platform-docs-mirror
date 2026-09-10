@@ -2,7 +2,7 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth
 title: Configure application default credentials
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how to configure application default credentials.
 data_source: docs.cloud.google.com
 ---
 
@@ -28,7 +28,7 @@ If an authentication error is returned, and you are using an external identity p
 
 Run the following command to install and run `gcloud` to set up application default credentials:
 
-    curl -sSL https://storage.googleapis.com/cloud-samples-data/adc/setup_adc.sh
+    bash <(curl -sSL https://storage.googleapis.com/cloud-samples-data/adc/setup_adc.sh)
 
 > **Note:** You can set up application default credentials in different environments, such as for a resource with an attached service account, containerized environments, on-premises or other cloud providers, or a Google Cloud-based development environment. For more information, see [Set up Application Default Credentials](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc) .
 

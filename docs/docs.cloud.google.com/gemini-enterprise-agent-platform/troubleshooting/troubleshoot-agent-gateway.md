@@ -120,6 +120,23 @@ You can also view egress traffic logs, including `403` denials, by using the bui
   - **Cause:** The Identity-Aware Proxy API ( `iap.googleapis.com` ) is disabled in your project.
   - **Fix:** Enable the Identity-Aware Proxy API.
 
+### Failures when managing Agent Gateway with Workforce Identity Federation
+
+You might encounter this issue if you manage Agent Gateway in the Google Cloud console or use gcloud CLI when authenticated with Workforce Identity Federation (WIF).
+
+The console displays generic loading or creation errors, such as the following:
+
+  - "There was an error while loading..."
+  - "The server was not able to fulfill your request"
+  - "Failed to create agent gateway"
+  - "Failed to load"
+
+Additionally, `gcloud` commands (such as `gcloud network-services agent-gateways import` ) might return an internal error, such as `error 13: an internal error has occurred` .
+
+To resolve this issue, authenticate with a standard Google Account managed through Cloud Identity or Google Workspace that has the required permissions, such as `roles/networkservices.admin` .
+
+Federated identities have limited support across Agent Platform Governance and Gateway services in Preview. Granting broader IAM roles to a federated principal doesn't resolve the issue.
+
 ## Debugging workflow
 
 If any of the conditions described in the [Egress request flow section](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/troubleshoot-agent-gateway#request-flow) are missing, your requests might get blocked.

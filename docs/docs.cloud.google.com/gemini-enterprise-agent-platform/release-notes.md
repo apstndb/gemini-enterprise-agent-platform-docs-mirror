@@ -10,6 +10,38 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 09, 2026
+
+Feature
+
+**Computer Use and Shell sandboxes are generally available**
+
+[Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) and Shell sandboxes in Gemini Enterprise Agent Platform are now generally available (GA). This release also includes the following new features for Agent Platform sandboxes:
+
+  - **Shell sandboxes** : Run untrusted shell commands, install packages, and manipulate files in an isolated Linux container using direct API `/exec` calls. For more information, see the [Shell sandbox quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/shell-sandbox-quickstart) .
+
+  - **VPC Service Controls & Private Service Connect** : Protect sandbox data and isolate network boundaries with VPC Service Controls, private ingress endpoints (PSC-E), and private egress routing (PSC-I). For more information, see [Configure VPC Service Controls and Private Service Connect with sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc) .
+
+  - **Customer-Managed Encryption Keys (CMEK)** : Protect sandbox data at rest, including disk storage and snapshot checkpoints, using Cloud KMS keys. For more information, see [Configure customer-managed encryption keys (CMEK) for sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek) .
+
+  - **Pausing and resuming sandboxes** : Deschedule compute resources for idle sandboxes while preserving file system state and connection identity, and resume them in seconds. For more information, see [Manage sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-sandboxes#pause-a-sandbox) .
+
+Feature
+
+**Agent Gateway supports multiple Agent Registry instances**
+
+Agent Gateway now lets you associate up to two Agent Registry instances (one global registry and one regional or multi-region registry) with a single Agent Gateway instance. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry) .
+
+Feature
+
+**Agent Gateway supports VPC Service Controls**
+
+Agent Gateway now enforces VPC Service Controls perimeter rules for agent communications. When you [configure Agent Gateway with VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) , agent traffic is routed through your private VPC network, ensuring that your organization's VPC-SC perimeter rules are applied to all agent traffic as well.
+
+Note that setting up VPC connectivity is required to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. The connectivity template must be configured in `ALL_TRAFFIC` egress mode.
+
+> **Important:** VPC Service Controls is only supported for Agent Gateway deployments created after September 8, 2026 that use the [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) to configure VPC connectivity.
+
 ## September 08, 2026
 
 Feature

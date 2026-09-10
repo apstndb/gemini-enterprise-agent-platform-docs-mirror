@@ -20,7 +20,9 @@ Priority PayGo is ideal for business critical workloads with fluctuating or unpr
 
 ## Supported models and locations
 
-The following models support Priority PayGo in the `global` endpoint only. Priority PayGo doesn't support regional or multi-regional endpoints.
+Priority PayGo is supported on the `global` endpoint and on the `us` and `eu` multi-region endpoints. Priority PayGo doesn't support regional endpoints, such as `us-central1` .
+
+The following models support Priority PayGo:
 
   - [`gemini-3.8-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
   - [`gemini-3.7-flash`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
@@ -41,6 +43,8 @@ To send requests to the Gemini API using Priority PayGo, you must include the `X
   - Use Provisioned Throughput quota (if available) and spill over to Priority PayGo.
 
   - Use only Priority PayGo.
+
+The following samples use the `global` endpoint. To send your requests to a multi-region endpoint instead, replace `global` with `us` or `eu` . For REST requests, you must also replace the `aiplatform.googleapis.com` hostname with `aiplatform.us.rep.googleapis.com` or `aiplatform.eu.rep.googleapis.com` . For more information, see [Multi-region endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#multi-region_endpoints) .
 
 ### Use Priority PayGo while using Provisioned Throughput as default
 

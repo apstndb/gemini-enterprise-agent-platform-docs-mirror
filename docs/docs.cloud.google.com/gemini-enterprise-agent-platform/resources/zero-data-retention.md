@@ -36,6 +36,8 @@ To achieve zero data retention for agent products, customers must adhere to the 
 
   - **CodeMender session data** — To enable resumption of long-running find and fix scans, CodeMender stores session state in Spanner. While a scan is in progress, session data — including target source code snippets, diffs, configuration, and analysis checkpoints — is stored encrypted for up to seven (7) days from session creation. When a session reaches a terminal state, source code and related content are cleared within seconds; the remaining session record is deleted automatically at the seven-day TTL. Customers can delete a session (removing all associated data) before the TTL expires.
 
+  - **Agent Platform Sandbox Snapshots** : If you use the Snapshot API to persist Sandbox state, these snapshots are stored only for the duration of the Sandbox TTL. To achieve zero-data-retention, don't use the Sandbox API.
+
 ## Google models
 
 To achieve zero data retention for Google trained models, customers must take additional specific actions within each of these areas:

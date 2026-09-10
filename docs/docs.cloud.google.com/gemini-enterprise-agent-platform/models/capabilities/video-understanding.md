@@ -53,7 +53,7 @@ The following table lists the models that support video understanding:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash-preview">Gemini Omni 1.1 Flash</a> preview</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash">Gemini Omni 1.1 Flash</a> preview</li>
 </ul></td>
 <td style="text-align: left;"><ul>
 <li>Maximum video length (with audio): 10 seconds</li>

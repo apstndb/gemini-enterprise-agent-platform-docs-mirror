@@ -6,12 +6,6 @@ description: Guide on how to use Computer Use sandboxes in Gemini Enterprise Age
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) . This feature provides a sandbox environment for AI Agents, and so the "Agentic AI Services" Service Specific Terms apply. To utilize this feature, you will need to enable full network access for your AI Agent so please consider applicable safeguards (including human supervision) and your organization's policies before doing so. For built-in computer use safeguards, consider the Agent Platform [Computer Use Tool](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use#safety-and-security) .
-> 
-> Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages) .
-
 Agent Platform Computer Use sandboxes provide a secure, isolated browser environment that your agents can interact with. These sandboxes allow agents to automate tasks that mimic human interactions (such as clicking, navigating sites, and taking screenshots).
 
 ## How it works
@@ -20,10 +14,6 @@ When you create a Computer Use sandbox, Gemini Enterprise Agent Platform provisi
 
   - **API requests** : Send commands to the sandbox to perform actions like navigating to a URL, clicking on elements, or typing text.
   - **Browser control** : Connect to the browser by using a standard Chrome DevTools Protocol (CDP) connection, letting you use browser automation tools (such as Playwright) to automate the browser.
-
-### Considerations
-
-During Preview, Agent Platform Computer Use Sandbox latency is optimized for low traffic volumes. Higher traffic volumes might temporarily encounter elevated latency.
 
 ### Control the browser using API
 
@@ -96,4 +86,5 @@ For example, you can use noVNC to connect to the sandbox through WebSocket.
 ## What's next
 
   - [Computer Use quickstart](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use-quickstart)
-  - Explore [Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots) for sandbox lifecycle management.
+  - [Configure VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc)
+  - [Configure customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek)

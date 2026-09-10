@@ -23,9 +23,10 @@ The agent runtime and a sandbox differ in their purpose and usage:
 
 ## Features
 
-Sandboxes offer several features such as predefined sandboxes, custom containers, and snapshots:
+Sandboxes offer several features such as predefined sandboxes, custom containers, enterprise security controls, and lifecycle management:
 
   - **[Code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview)** : Allows the agent to generate and run code in a secure environment. This is useful for complex mathematical calculations, data analysis, and other tasks that require computation.
   - **[Computer use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use)** : Enables the agent to interact with a web browser to perform tasks such as filling out forms, searching the web, or navigating complex UI workflows.
   - **[Custom containers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers)** : You can "Bring Your Own Container" to customize the execution environment with specific libraries, tools, or configurations.
-  - **[Snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots)** : You can save the state of a sandbox and restore it later, enabling lifecycle management, such as restoring a checkpoint or known good state.
+  - **[VPC Service Controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-vpc-sc)** : Configure security perimeters to protect sensitive data and prevent unauthorized egress from sandbox environments.
+  - **[Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek)** : Protect sandbox data at rest with encryption keys managed in Cloud Key Management Service (Cloud KMS).
