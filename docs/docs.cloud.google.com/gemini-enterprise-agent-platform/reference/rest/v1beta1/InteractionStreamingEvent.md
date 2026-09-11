@@ -16,13 +16,13 @@ The eventId token to be used to resume the interaction stream, from this event.
 
 The event data. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
-` interactionStartEvent (deprecated)  ` ` object ( InteractionStartEvent  ` )
+` interactionStartEvent (deprecated)  ` `object ( InteractionStartEvent` )
 
 > This item is deprecated\!
 
 The interaction data, used for interaction.start events. Legacy event, used when steps are disabled.
 
-` interactionCompleteEvent (deprecated)  ` ` object ( InteractionCompleteEvent  ` )
+` interactionCompleteEvent (deprecated)  ` `object ( InteractionCompleteEvent` )
 
 > This item is deprecated\!
 
@@ -40,19 +40,19 @@ The interaction data, used for interaction.completed events. Used when steps are
 
 The interaction status data, used for interaction.status\_update events.
 
-` contentStart (deprecated)  ` ` object ( ContentStart  ` )
+` contentStart (deprecated)  ` `object ( ContentStart` )
 
 > This item is deprecated\!
 
 The content block start data, used for content.start events. Legacy content-based streaming event, used when steps are disabled.
 
-` contentDelta (deprecated)  ` ` object ( ContentDelta  ` )
+` contentDelta (deprecated)  ` `object ( ContentDelta` )
 
 > This item is deprecated\!
 
 The content block delta data, used for content.delta events. Legacy content-based streaming event, used when steps are disabled.
 
-` contentStop (deprecated)  ` ` object ( ContentStop  ` )
+` contentStop (deprecated)  ` `object ( ContentStop` )
 
 > This item is deprecated\!
 
@@ -88,56 +88,6 @@ End of mutually exclusive fields.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;eventId&quot;: string,// event_type&quot;interactionStartEvent&quot;: {object (InteractionStartEvent)},&quot;interactionCompleteEvent&quot;: {object (InteractionCompleteEvent)},&quot;interactionCreatedEvent&quot;: {object (InteractionCreatedSseEvent)},&quot;interactionCompletedEvent&quot;: {object (InteractionCompletedSseEvent)},&quot;interactionStatusUpdate&quot;: {object (InteractionStatusUpdate)},&quot;contentStart&quot;: {object (ContentStart)},&quot;contentDelta&quot;: {object (ContentDelta)},&quot;contentStop&quot;: {object (ContentStop)},&quot;errorEvent&quot;: {object (ErrorEvent)},&quot;stepStart&quot;: {object (StepStart)},&quot;stepDelta&quot;: {object (StepDelta)},&quot;stepStop&quot;: {object (StepStop)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## InteractionStartEvent
-
-> This item is deprecated\!
-
-Fields
-
-`interaction` ` object ( Interaction  ` )
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;interaction&quot;: {object (Interaction)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## InteractionCompleteEvent
-
-> This item is deprecated\!
-
-Fields
-
-`interaction` ` object ( Interaction  ` )
-
-Required. The completed interaction with empty outputs to reduce the payload size. Use the preceding ContentDelta events for the actual output.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;interaction&quot;: {object (Interaction)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -208,54 +158,6 @@ Fields
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;interactionId&quot;: string,&quot;status&quot;: enum (Status)}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## ContentStart
-
-Fields
-
-`index` `integer`
-
-`content` ` object ( Content  ` )
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;index&quot;: integer,&quot;content&quot;: {object (Content)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## ContentDelta
-
-Fields
-
-`index` `integer`
-
-`delta` ` object ( ContentDeltaData  ` )
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;index&quot;: integer,&quot;delta&quot;: {object (ContentDeltaData)}}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -979,30 +881,6 @@ Citation information for model-generated content.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;annotations&quot;: [{object (Annotation)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## ContentStop
-
-Fields
-
-`index` `integer`
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
-  &quot;index&quot;: integer
-}</code></pre></td>
 </tr>
 </tbody>
 </table>

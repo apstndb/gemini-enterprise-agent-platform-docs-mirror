@@ -24,15 +24,15 @@ The following is a list of mutually exclusive fields. At most one of the fields 
 
 `video` ` object ( VideoContent  ` )
 
-` thought (deprecated)  ` ` object ( ThoughtContent  ` )
+` thought (deprecated)  ` `object ( ThoughtContent` )
 
 > This item is deprecated\!
 
-` toolCall (deprecated)  ` ` object ( ToolCallContent  ` )
+` toolCall (deprecated)  ` `object ( ToolCallContent` )
 
 > This item is deprecated\!
 
-` toolResult (deprecated)  ` ` object ( ToolResultContent  ` )
+` toolResult (deprecated)  ` `object ( ToolResultContent` )
 
 > This item is deprecated\!
 
@@ -298,124 +298,6 @@ End of mutually exclusive fields.
 </tbody>
 </table>
 
-## ThoughtContent
-
-> This item is deprecated\!
-
-A thought content block.
-
-Fields
-
-`signature` `string ( bytes format)`
-
-signature to match the backend source to be part of the generation.
-
-A base64-encoded string.
-
-`summary[]` ` object ( ThoughtSummaryContent  ` )
-
-A summary of the thought.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;signature&quot;: string,&quot;summary&quot;: [{object (ThoughtSummaryContent)}]}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## ThoughtSummaryContent
-
-Fields
-
-`type` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`text` ` object ( TextContent  ` )
-
-`image` ` object ( ImageContent  ` )
-
-End of mutually exclusive fields.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// type&quot;text&quot;: {object (TextContent)},&quot;image&quot;: {object (ImageContent)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## ToolCallContent
-
-> This item is deprecated\!
-
-Tool call content.
-
-Fields
-
-`id` `string`
-
-Required. A unique id for this specific tool call.
-
-`signature` `string ( bytes format)`
-
-A signature hash for backend validation.
-
-A base64-encoded string.
-
-`type` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`functionCall` ` object ( FunctionCallContent  ` )
-
-`codeExecutionCall` ` object ( CodeExecutionCallContent  ` )
-
-`urlContextCall` ` object ( UrlContextCallContent  ` )
-
-`mcpServerToolCall` ` object ( McpServerToolCallContent  ` )
-
-`googleSearchCall` ` object ( GoogleSearchCallContent  ` )
-
-`fileSearchCall` ` object ( FileSearchCallContent  ` )
-
-`googleMapsCall` ` object ( GoogleMapsCallContent  ` )
-
-End of mutually exclusive fields.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;signature&quot;: string,// type&quot;functionCall&quot;: {object (FunctionCallContent)},&quot;codeExecutionCall&quot;: {object (CodeExecutionCallContent)},&quot;urlContextCall&quot;: {object (UrlContextCallContent)},&quot;mcpServerToolCall&quot;: {object (McpServerToolCallContent)},&quot;googleSearchCall&quot;: {object (GoogleSearchCallContent)},&quot;fileSearchCall&quot;: {object (FileSearchCallContent)},&quot;googleMapsCall&quot;: {object (GoogleMapsCallContent)}// Union type}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
 ## FunctionCallContent
 
 > This item is deprecated\!
@@ -602,60 +484,6 @@ The arguments to pass to the Google Maps tool.
 <tbody>
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;arguments&quot;: {object (GoogleMapsCallArguments)}}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-## ToolResultContent
-
-> This item is deprecated\!
-
-Tool result content.
-
-Fields
-
-`callId` `string`
-
-Required. id to match the id from the function call block.
-
-`signature` `string ( bytes format)`
-
-A signature hash for backend validation.
-
-A base64-encoded string.
-
-`type` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`functionResult` ` object ( FunctionResultContent  ` )
-
-`codeExecutionResult` ` object ( CodeExecutionResultContent  ` )
-
-`urlContextResult` ` object ( UrlContextResultContent  ` )
-
-`googleSearchResult` ` object ( GoogleSearchResultContent  ` )
-
-`mcpServerToolResult` ` object ( McpServerToolResultContent  ` )
-
-`fileSearchResult` ` object ( FileSearchResultContent  ` )
-
-`googleMapsResult` ` object ( GoogleMapsResultContent  ` )
-
-End of mutually exclusive fields.
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>JSON representation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;callId&quot;: string,&quot;signature&quot;: string,// type&quot;functionResult&quot;: {object (FunctionResultContent)},&quot;codeExecutionResult&quot;: {object (CodeExecutionResultContent)},&quot;urlContextResult&quot;: {object (UrlContextResultContent)},&quot;googleSearchResult&quot;: {object (GoogleSearchResultContent)},&quot;mcpServerToolResult&quot;: {object (McpServerToolResultContent)},&quot;fileSearchResult&quot;: {object (FileSearchResultContent)},&quot;googleMapsResult&quot;: {object (GoogleMapsResultContent)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>

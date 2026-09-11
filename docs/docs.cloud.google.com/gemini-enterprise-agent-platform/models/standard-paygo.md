@@ -36,15 +36,21 @@ $10 - $250
 
 Tier 2
 
-$250 - $2000
+$250 - $2,000
 
 1,000,000
 
 Tier 3
 
-\> $2000
+$2,000 - $50,000
 
 2,000,000
+
+Tier 4
+
+\> $50,000
+
+10,000,000
 
 Custom Tier
 
@@ -60,21 +66,27 @@ $10 - $250
 
 Tier 2
 
-$250 - $2000
+$250 - $2,000
 
 4,000,000
 
 Tier 3
 
-\> $2000
+$2,000 - $50,000
 
 10,000,000
+
+Tier 4
+
+\> $50,000
+
+50,000,000
 
 Custom Tier
 
 Contact your sales team for more information
 
-Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 2.5 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
+Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 3.5 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
 
 > **Note:** For mission-critical workloads that require a strict Service Level Agreement (SLA) and can't tolerate performance variation or throttling, we recommend using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . Provisioned Throughput provides dedicated and assured capacity with improved performance and reliability.
 

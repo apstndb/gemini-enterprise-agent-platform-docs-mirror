@@ -98,7 +98,7 @@ Consumption options
 
 [Standard PayGo with Usage Tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
 
-[Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
+[Priority PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo)
 
 [Flex PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo)
 

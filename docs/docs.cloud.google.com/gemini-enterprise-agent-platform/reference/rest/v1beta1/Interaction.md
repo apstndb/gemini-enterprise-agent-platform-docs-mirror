@@ -26,17 +26,9 @@ Required. Output only. The time at which the response was created in ISO 8601 fo
 
 Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
 
-` role (deprecated)  ` `string`
+`systemInstruction` `string`
 
-> This item is deprecated\!
-
-Output only. The role of the interaction.
-
-` outputs[] (deprecated)  ` ` object ( Content  ` )
-
-> This item is deprecated\!
-
-Output only. Responses from the model.
+System instruction for the interaction.
 
 `tools[]` ` object ( Tool  ` )
 
@@ -83,16 +75,6 @@ label keys and values can be no longer than 63 characters (Unicode codepoints) a
 `errors[]` ` object ( Error  ` )
 
 Output only. Diagnostic faults / platform errors recorded on the interaction.
-
-`system_instruction_config` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`systemInstruction` `string`
-
-System instruction for the interaction.
-
-End of mutually exclusive fields.
 
 `input` `Union type`
 
@@ -181,7 +163,7 @@ End of mutually exclusive fields.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;status&quot;: enum (Status),&quot;created&quot;: string,&quot;updated&quot;: string,&quot;role&quot;: string,&quot;outputs&quot;: [{object (Content)}],&quot;tools&quot;: [{object (Tool)}],&quot;usage&quot;: {object (Usage)},&quot;responseModalities&quot;: [enum (ResponseModality)],&quot;responseMimeType&quot;: string,&quot;previousInteractionId&quot;: string,&quot;environmentId&quot;: string,&quot;steps&quot;: [{object (Step)}],&quot;safetySettings&quot;: [{object (SafetySetting)}],&quot;labels&quot;: {string: string,...},&quot;errors&quot;: [{object (Error)}],// system_instruction_config&quot;systemInstruction&quot;: string// Union type// input&quot;contentList&quot;: {object (ContentList)},&quot;stringContent&quot;: string,&quot;turnList&quot;: {object (TurnList)},&quot;stepList&quot;: {object (StepList)},&quot;content&quot;: {object (Content)}// Union type// response_format_config&quot;responseFormat&quot;: {object (Value)},&quot;responseFormatList&quot;: {object (ResponseFormatList)},&quot;responseFormatSingleton&quot;: {object (ResponseFormat)}// Union type// request_type&quot;modelInteraction&quot;: {object (ModelInteraction)},&quot;agentInteraction&quot;: {object (AgentInteraction)}// Union type// environment&quot;envId&quot;: string,&quot;remoteEnvironment&quot;: {object (EnvironmentConfig)},&quot;localEnvironment&quot;: {object (LocalEnvironmentConfig)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;id&quot;: string,&quot;status&quot;: enum (Status),&quot;created&quot;: string,&quot;updated&quot;: string,&quot;systemInstruction&quot;: string,&quot;tools&quot;: [{object (Tool)}],&quot;usage&quot;: {object (Usage)},&quot;responseModalities&quot;: [enum (ResponseModality)],&quot;responseMimeType&quot;: string,&quot;previousInteractionId&quot;: string,&quot;environmentId&quot;: string,&quot;steps&quot;: [{object (Step)}],&quot;safetySettings&quot;: [{object (SafetySetting)}],&quot;labels&quot;: {string: string,...},&quot;errors&quot;: [{object (Error)}],// input&quot;contentList&quot;: {object (ContentList)},&quot;stringContent&quot;: string,&quot;turnList&quot;: {object (TurnList)},&quot;stepList&quot;: {object (StepList)},&quot;content&quot;: {object (Content)}// Union type// response_format_config&quot;responseFormat&quot;: {object (Value)},&quot;responseFormatList&quot;: {object (ResponseFormatList)},&quot;responseFormatSingleton&quot;: {object (ResponseFormat)}// Union type// request_type&quot;modelInteraction&quot;: {object (ModelInteraction)},&quot;agentInteraction&quot;: {object (AgentInteraction)}// Union type// environment&quot;envId&quot;: string,&quot;remoteEnvironment&quot;: {object (EnvironmentConfig)},&quot;localEnvironment&quot;: {object (LocalEnvironmentConfig)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>

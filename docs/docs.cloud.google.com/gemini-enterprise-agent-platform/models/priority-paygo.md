@@ -20,7 +20,7 @@ Priority PayGo is ideal for business critical workloads with fluctuating or unpr
 
 ## Supported models and locations
 
-Priority PayGo is supported on the `global` endpoint and on the `us` and `eu` multi-region endpoints. Priority PayGo doesn't support regional endpoints, such as `us-central1` .
+Priority PayGo is supported on the `global` endpoint and on the `us` and `eu` multi-region endpoints. Priority PayGo doesn't support regional endpoints.
 
 The following models support Priority PayGo:
 

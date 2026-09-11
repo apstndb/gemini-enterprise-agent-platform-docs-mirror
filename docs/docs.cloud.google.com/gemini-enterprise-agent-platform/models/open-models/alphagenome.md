@@ -48,6 +48,7 @@ Before deploying, administrators must ensure that the Google Cloud project has a
 
   - `aiplatform.googleapis.com/custom_model_serving_nvidia_h100_gpus`
   - `aiplatform.googleapis.com/custom_model_serving_nvidia_a100_gpus`
+  - `aiplatform.googleapis.com/custom_model_serving_nvidia_h100_mega_gpus`
   - `compute.googleapis.com/gpus_per_gpu_family`
 
 ## Deploy AlphaGenome

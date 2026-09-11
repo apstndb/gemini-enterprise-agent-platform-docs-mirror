@@ -568,6 +568,10 @@ MULAW audio format
 
 Video audio S16LE format (internal)
 
+`TYPE_WEBM`
+
+WEBM audio format
+
 ## AudioDelta
 
 Fields
@@ -2802,21 +2806,11 @@ Required. Output only. The time at which the response was created in ISO 8601 fo
 
 Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
 
-` role (deprecated)  `
+`system_instruction`
 
 `string`
 
-> This item is deprecated\!
-
-Output only. The role of the interaction.
-
-` outputs[] (deprecated)  `
-
-`  Content  `
-
-> This item is deprecated\!
-
-Output only. Responses from the model.
+System instruction for the interaction.
 
 `tools[]`
 
@@ -2883,16 +2877,6 @@ Label keys and values can be no longer than 63 characters (Unicode codepoints) a
 `  Error  `
 
 Output only. Diagnostic faults / platform errors recorded on the interaction.
-
-Union field `system_instruction_config` .
-
-`system_instruction_config` can be only one of the following:
-
-`system_instruction`
-
-`string`
-
-System instruction for the interaction.
 
 Union field `input` . The input for the interaction. `input` can be only one of the following:
 
@@ -4731,12 +4715,6 @@ Fields
 `bytes`
 
 Signature to match the backend source to be part of the generation.
-
-`summary[]`
-
-`  ThoughtSummaryContent  `
-
-A summary of the thought.
 
 ## ThoughtSignatureDelta
 

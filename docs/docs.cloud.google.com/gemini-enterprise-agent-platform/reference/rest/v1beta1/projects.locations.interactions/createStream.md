@@ -30,99 +30,49 @@ Input only. Whether the interaction will be streamed.
 
 Input only. Whether to store the response and request for later retrieval.
 
-`interaction.contentList (deprecated) .contents[].text.text` `string`
+`interaction.modelInteraction.model` `string`
 
-Required. The text content.
+The name of the `Model` used for generating the completion.
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.documentUri` `string`
+`interaction.modelInteraction.generationConfig.temperature` `number`
 
-The URI of the file.
+Controls the randomness of the output.
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.fileName` `string`
+`interaction.modelInteraction.generationConfig.topP` `number`
 
-The name of the file.
+The maximum cumulative probability of tokens to consider when sampling.
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.source` `string`
+`interaction.modelInteraction.generationConfig.seed` `integer`
 
-Source attributed for a portion of the text.
+Seed used in decoding for reproducibility.
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].name` `string`
+`interaction.modelInteraction.generationConfig.stopSequences[]` `string`
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.pageNumber` `integer`
+A list of character sequences that will stop output interaction.
 
-Page number of the cited document, if applicable.
+`interaction.modelInteraction.generationConfig.thinkingLevel` ` enum ( ThinkingLevel  ` )
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.mediaId` `string`
+The level of thought tokens that the model should generate.
 
-Media id in-case of image citations, if applicable.
+`interaction.modelInteraction.generationConfig.thinkingSummaries` ` enum ( ThinkingSummaries  ` )
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].startIndex` `integer`
+Whether to include thought summaries in the response.
 
-Start of segment of the response that is attributed to this source.
+`interaction.modelInteraction.generationConfig.maxOutputTokens` `integer`
 
-Index indicates the start of the segment, measured in bytes.
+The maximum number of tokens to include in the response.
 
-`interaction.contentList (deprecated) .contents[].text.annotations[].endIndex` `integer`
+` interaction.modelInteraction.generationConfig.imageConfig (deprecated)  ` ` object ( ImageConfig  ` )
 
-End of the attributed segment, exclusive.
+Configuration for image interaction.
 
-`interaction.contentList (deprecated) .contents[].image.mimeTypeString` `string`
+`interaction.modelInteraction.generationConfig.videoConfig` ` object ( VideoConfig  ` )
 
-Flexible MIME type string of the image, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
+Configuration for video generation.
 
-`interaction.contentList (deprecated) .contents[].image.resolution` ` enum ( MediaResolution  ` )
+`interaction.modelInteraction.generationConfig.transcriptionConfig` ` object ( TranscriptionConfig  ` )
 
-The resolution of the media.
-
-`interaction.contentList (deprecated) .contents[].audio.mimeTypeString` `string`
-
-Flexible MIME type string of the audio, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
-
-`interaction.contentList (deprecated) .contents[].audio.channels` `integer`
-
-The number of audio channels.
-
-`interaction.contentList (deprecated) .contents[].audio.sampleRate` `integer`
-
-The sample rate of the audio.
-
-`interaction.contentList (deprecated) .contents[].document.mimeTypeString` `string`
-
-Flexible MIME type string of the document, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
-
-`interaction.contentList (deprecated) .contents[].video.mimeTypeString` `string`
-
-Flexible MIME type string of the video, superseding mimeType = 1. Note: Bespoke logic in the GAOS parser/serializer maps this to the "mimeType" JSON key.
-
-`interaction.contentList (deprecated) .contents[].video.resolution` ` enum ( MediaResolution  ` )
-
-The resolution of the media.
-
-`interaction.contentList (deprecated) .contents[].video.name` `string`
-
-A user-defined name for this content block. Can be referenced by the model in the final response.
-
-`interaction.stepList.steps[].text (deprecated) .text` `string`
-
-`interaction.stepList.steps[].image (deprecated) .mimeTypeString` `string`
-
-`interaction.stepList.steps[].image (deprecated) .resolution` ` enum ( MediaResolution  ` )
-
-`interaction.stepList.steps[].audio (deprecated) .mimeTypeString` `string`
-
-`interaction.stepList.steps[].audio (deprecated) .rate` `integer`
-
-`interaction.stepList.steps[].audio (deprecated) .channels` `integer`
-
-`interaction.stepList.steps[].audio (deprecated) .sampleRate` `integer`
-
-`interaction.stepList.steps[].document (deprecated) .mimeTypeString` `string`
-
-`interaction.stepList.steps[].video (deprecated) .mimeTypeString` `string`
-
-`interaction.stepList.steps[].video (deprecated) .resolution` ` enum ( MediaResolution  ` )
-
-`interaction.stepList.steps[].video (deprecated) .name` `string`
+Optional. Configuration for speech recognition (transcription). If present, ASR is enabled.
 
 `interaction.id` `string`
 
@@ -140,13 +90,9 @@ Required. Output only. The time at which the response was created in ISO 8601 fo
 
 Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
 
-` interaction.role (deprecated)  ` `string`
+`interaction.systemInstruction` `string`
 
-Output only. The role of the interaction.
-
-` interaction.outputs[] (deprecated)  ` ` object ( Content  ` )
-
-Output only. Responses from the model.
+System instruction for the interaction.
 
 `interaction.tools[]` ` object ( Tool  ` )
 
@@ -193,168 +139,6 @@ Output only. Diagnostic faults / platform errors recorded on the interaction.
 `background` `boolean`
 
 Input only. Whether to run the model interaction in the background.
-
-`system_instruction_config` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.systemInstruction` `string`
-
-System instruction for the interaction.
-
-End of mutually exclusive fields.
-
-`type` `Union type`
-
-The type of annotation. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].urlCitation` ` object ( UrlCitation  ` )
-
-NOTE: We use these instead of the Citation message for historical reasons. A URL citation annotation.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation` ` object ( FileCitation  ` )
-
-A file citation annotation.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].placeCitation` ` object ( PlaceCitation  ` )
-
-A place citation annotation.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].wordInfo` ` object ( WordInfo  ` )
-
-word-level ASR annotation with timing and speaker info.
-
-End of mutually exclusive fields.
-
-`kind` `Union type`
-
-The kind of value. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.nullValue` `null`
-
-Represents a null value.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.numberValue` `number`
-
-Represents a double value.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.stringValue` `string`
-
-Represents a string value.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.boolValue` `boolean`
-
-Represents a boolean value.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.structValue` ` object ( Struct  ` )
-
-Represents a structured value.
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.listValue` ` object ( ListValue  ` )
-
-Represents a repeated `value` .
-
-`interaction.contentList (deprecated) .contents[].text.annotations[].fileCitation.customMetadata.fields[].value.contentValue` ` object ( Content  ` )
-
-Represents rich content (text, image, etc.).
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The image content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].image.data` `string ( bytes format)`
-
-The image content.
-
-A base64-encoded string.
-
-`interaction.contentList (deprecated) .contents[].image.uri` `string`
-
-The URI of the image.
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The audio content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].audio.data` `string ( bytes format)`
-
-The audio content.
-
-A base64-encoded string.
-
-`interaction.contentList (deprecated) .contents[].audio.uri` `string`
-
-The URI of the audio.
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The document content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].document.data` `string ( bytes format)`
-
-The document content.
-
-A base64-encoded string.
-
-`interaction.contentList (deprecated) .contents[].document.uri` `string`
-
-The URI of the document.
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The video content. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].video.data` `string ( bytes format)`
-
-The video content.
-
-A base64-encoded string.
-
-`interaction.contentList (deprecated) .contents[].video.uri` `string`
-
-The URI of the video.
-
-End of mutually exclusive fields.
-
-`processing` `Union type`
-
-How the model processes this video for understanding. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].video.processingType` ` enum ( Processing  ` )
-
-`interaction.contentList (deprecated) .contents[].video.processingConfig` ` object ( MediaProcessing  ` )
-
-End of mutually exclusive fields.
-
-`type` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.contentList (deprecated) .contents[].text` ` object ( TextContent  ` )
-
-`interaction.contentList (deprecated) .contents[].image` ` object ( ImageContent  ` )
-
-`interaction.contentList (deprecated) .contents[].audio` ` object ( AudioContent  ` )
-
-`interaction.contentList (deprecated) .contents[].document` ` object ( DocumentContent  ` )
-
-`interaction.contentList (deprecated) .contents[].video` ` object ( VideoContent  ` )
-
-` interaction.contentList (deprecated) .contents[].thought (deprecated)  ` ` object ( ThoughtContent  ` )
-
-` interaction.contentList (deprecated) .contents[].toolCall (deprecated)  ` ` object ( ToolCallContent  ` )
-
-` interaction.contentList (deprecated) .contents[].toolResult (deprecated)  ` ` object ( ToolResultContent  ` )
-
-End of mutually exclusive fields.
 
 `input` `Union type`
 
@@ -410,64 +194,6 @@ DO NOT USE -- These are for 3P JSON only
 
 End of mutually exclusive fields.
 
-`data_or_uri` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.stepList.steps[].image (deprecated) .data` `string ( bytes format)`
-
-A base64-encoded string.
-
-`interaction.stepList.steps[].image (deprecated) .uri` `string`
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.stepList.steps[].audio (deprecated) .data` `string ( bytes format)`
-
-A base64-encoded string.
-
-`interaction.stepList.steps[].audio (deprecated) .uri` `string`
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.stepList.steps[].document (deprecated) .data` `string ( bytes format)`
-
-A base64-encoded string.
-
-`interaction.stepList.steps[].document (deprecated) .uri` `string`
-
-End of mutually exclusive fields.
-
-`data_or_uri` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.stepList.steps[].video (deprecated) .data` `string ( bytes format)`
-
-A base64-encoded string.
-
-`interaction.stepList.steps[].video (deprecated) .uri` `string`
-
-End of mutually exclusive fields.
-
-`processing` `Union type`
-
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
-
-`interaction.stepList.steps[].video (deprecated) .processingType` ` enum ( Processing  ` )
-
-`interaction.stepList.steps[].video (deprecated) .processingConfig` ` object ( MediaProcessing  ` )
-
-End of mutually exclusive fields.
-
 `response_format_config` `Union type`
 
 The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
@@ -479,6 +205,20 @@ Enforces that the generated response is a JSON object that complies with the JSO
 `interaction.responseFormatList` ` object ( ResponseFormatList  ` )
 
 `interaction.responseFormatSingleton` ` object ( ResponseFormat  ` )
+
+End of mutually exclusive fields.
+
+`tool_choice` `Union type`
+
+The tool choice configuration. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+
+`interaction.modelInteraction.generationConfig.toolChoiceMode` ` enum ( ToolChoiceType  ` )
+
+The mode of the tool choice.
+
+`interaction.modelInteraction.generationConfig.toolChoiceConfig` ` object ( ToolChoiceConfig  ` )
+
+The config for the tool choice.
 
 End of mutually exclusive fields.
 

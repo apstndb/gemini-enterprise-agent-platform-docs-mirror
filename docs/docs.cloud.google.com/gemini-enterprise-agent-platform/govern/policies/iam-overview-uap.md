@@ -16,7 +16,7 @@ IAP also integrates with Context-Aware Access to [provide end-to-end agent ident
 
 To set up Access policies for Agent Gateway, see [Configure IAM Access policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap) .
 
-You can also create a principal access boundary (PAB) on the agent identity. Agent Gateway can use IAP to enforce principal access boundary policies.
+You can also create a Principal Access Boundary (PAB) on the agent identity. Agent Gateway can use IAP to enforce Principal Access Boundary policies.
 
 ## Enable Agent Gateway
 

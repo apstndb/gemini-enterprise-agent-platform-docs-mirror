@@ -57,3 +57,7 @@ ALAW audio format
 `TYPE_MULAW`
 
 MULAW audio format
+
+`TYPE_WEBM`
+
+WEBM audio format

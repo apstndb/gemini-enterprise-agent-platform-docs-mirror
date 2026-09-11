@@ -60,9 +60,9 @@ The unspecified state.
 
 Is deployed and ready to be used.
 
-`DEPRECATED`
+`ARCHIVED`
 
-Is deprecated, may not be used, only preserved for historical purposes.
+Is archived and can no longer receive traffic, only preserved for historical purposes.
 
 ## Methods
 
