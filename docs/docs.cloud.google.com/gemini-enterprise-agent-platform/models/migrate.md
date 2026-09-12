@@ -165,7 +165,7 @@ If your application uses fine-tuning, perform offline evaluation before re-tunin
 
 If your offline evaluation shows your application performing less effectively, improve your application until its performance matches the older model. Do this by:
 
-  - Iteratively refining your prompts to boost performance ("Hill Climbing"). If you're new to hill climbing, see the [Vertex Gemini hill climbing online training](https://cloudonair.withgoogle.com/events/vertex-gemini-hill-climbing-your-way-to-optimal-prompts) . The [Gemini Enterprise Agent Platform prompt optimizer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) ( [example notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/prompts/prompt_optimizer/vertex_ai_prompt_optimizer_sdk_custom_metric.ipynb) ) can also help.
+  - Iteratively refining your prompts to boost performance ("Hill Climbing"). If you're new to hill climbing, see the [Vertex Gemini hill climbing online training](https://cloudonair.withgoogle.com/events/vertex-gemini-hill-climbing-your-way-to-optimal-prompts) . The [Gemini Enterprise Agent Platform prompt optimizer](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/prompt-optimizer) ( [example notebook](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/prompts/prompt_optimizer/get_started_with_vertex_ai_prompt_optimizer_custom_metric.ipynb) ) can also help.
   - If your application is affected by Dynamic Retrieval and Top-K [breaking changes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate#breaking-changes) , experiment with adjusting your prompt and token sampling parameters.
 
 ### 5\. Run load tests

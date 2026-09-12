@@ -62628,6 +62628,12 @@ Required. The environment being operated.
 
 Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included in the final model call. Some of them can be explicitly excluded from being automatically included. This can serve two purposes: 1. Using a more restricted / different action space. 2. Improving the definitions / instructions of predefined functions.
 
+`enable_prompt_injection_detection`
+
+`bool`
+
+Optional. Enables the prompt injection detection check on computer-use request.
+
 ## Environment
 
 Represents the environment being operated, such as a web browser.
@@ -62641,6 +62647,14 @@ Defaults to browser.
 `ENVIRONMENT_BROWSER`
 
 Operates in a web browser.
+
+`ENVIRONMENT_MOBILE`
+
+Operates in a mobile environment.
+
+`ENVIRONMENT_DESKTOP`
+
+Operates in a desktop environment.
 
 ## ExaAiSearch
 

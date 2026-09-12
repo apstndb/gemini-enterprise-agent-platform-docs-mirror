@@ -743,6 +743,10 @@ Required. The environment being operated.
 
 Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included in the final model call. Some of them can be explicitly excluded from being automatically included. This can serve two purposes: 1. Using a more restricted / different action space. 2. Improving the definitions / instructions of predefined functions.
 
+`enablePromptInjectionDetection` `boolean`
+
+Optional. Enables the prompt injection detection check on computer-use request.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -754,7 +758,7 @@ Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;environment&quot;: enum (Environment),&quot;excludedPredefinedFunctions&quot;: [string]}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;environment&quot;: enum (Environment),&quot;excludedPredefinedFunctions&quot;: [string],&quot;enablePromptInjectionDetection&quot;: boolean}</code></pre></td>
 </tr>
 </tbody>
 </table>

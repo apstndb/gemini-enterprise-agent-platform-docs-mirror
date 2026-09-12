@@ -125,7 +125,7 @@ The following parts are auto-provisioned to you as part of agent identity:
     
       - If you have an organization, the trust domain is created at the organization level with the format `agents.global.org- ORGANIZATION_ID .system.id.goog` .
     
-      - If your project doesn't have an organization, a trust domain is created at the project level with the format `agents.global.project- PROJECT_NUMBER .system.id.goog` .
+      - If your project doesn't have an organization, a trust domain is created at the project level with the format `agents.global.proj- PROJECT_NUMBER .system.id.goog` .
 
   - NAMESPACE : The agent's immutable resource path.
 
@@ -186,6 +186,34 @@ Replace the following:
 
 Once IAM is configured, the Agent Platform SDK's [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) automatically uses the agent identity to perform authentication to Google Cloud resources.
 
+### Grant access for Agent-to-Agent (A2A) delegation
+
+When you design a multi-agent system where a parent agent invokes a remote subagent registered in [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) , the parent agent's identity must have permissions to discover the subagent in Agent Registry and to invoke its endpoint.
+
+To ensure that the parent agent's identity has the necessary permissions to discover and invoke a remote subagent, ask your administrator to grant the following IAM roles to the parent agent's identity:
+
+> **Important:** You must grant these roles to the parent agent's identity, *not* to your user account. Failure to grant the roles to the correct principal might result in permission errors.
+
+  - Let the parent agent look up the subagent's endpoint at runtime: [Agent Registry API Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/agentregistry#agentregistry.viewer) ( `roles/agentregistry.viewer` ) on the parent project or registry resource
+  - Let the parent agent send messages to the subagent: [Agent Platform User](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) ( `roles/aiplatform.user` ) on the target subagent's reasoning engine resource
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+Your administrator might also be able to give the parent agent's identity the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
+
+For example, to grant the `roles/agentregistry.viewer` role on the project, you can use the following Google Cloud CLI command:
+
+    gcloud projects add-iam-policy-binding PROJECT_NUMBER \
+        --member="principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/PARENT_AGENT_ENGINE_ID" \
+        --role="roles/agentregistry.viewer"
+
+Replace the following:
+
+  - `  ORGANIZATION_ID  ` : The ID for your organization.
+  - `  PROJECT_NUMBER  ` : Your project number.
+  - `  LOCATION  ` : The region where your parent agent is deployed.
+  - `  PARENT_AGENT_ENGINE_ID  ` : The resource ID of your parent agent's Agent Runtime instance.
+
 ### Grant access to multiple agents
 
 You can grant an IAM role to all Agent Runtime agents in a particular project or across an entire organization.
@@ -203,7 +231,7 @@ If your project does not belong to an organization:
 
     # Grant all agents in an orgless project the following role
     gcloud RESOURCE_TYPE add-iam-policy-binding RESOURCE_ID \
-    --member="principalSet://agents.global.project-PROJECT_NUMBER.system.id.goog/attribute.platformContainer/aiplatform/projects/PROJECT_NUMBER" \
+    --member="principalSet://agents.global.proj-PROJECT_NUMBER.system.id.goog/attribute.platformContainer/aiplatform/projects/PROJECT_NUMBER" \
     --role="ROLE_NAME"
 
 It can be easier to grant common permissions such as quota, logging, or access to models to all agents in the project to simplify deployments. Then grant specific narrow permissions to individual agents for more sensitive permissions such as access to data. Granting such permissions is possible at any time after the first usage of the agent identity feature within an organization or project, so it can be performed before the deployment of the agent.

@@ -38,7 +38,7 @@ When you deploy an agent, you can choose one of three options:
 
 #### Deploy with Agents CLI
 
-This method is the standard and most direct path for deploying agents from the Agent Garden. It is ideal for learners, prototyping, and rapid testing, as it offers a quick deployment solution with foundational resources for monitoring.
+This method is the standard and most direct path for deploying agents from the Agent Garden by using the [Agents CLI](https://google.github.io/agents-cli/guide/getting-started/) . It is good for learners, prototyping, and rapid testing because it offers a deployment solution with foundational resources for monitoring.
 
   - **Tool and method** : Pressing the **Deploy** button opens a command-line interface (CLI) with a filled command. Enter the region when asked.
   - **Target environment** : Deploys the agent into an Agent Runtime instance.
@@ -57,8 +57,10 @@ This option is for full-scale, enterprise-grade deployment. It uses App Design C
 
 This option focuses on making a production-ready agent discoverable and governed within the corporate ecosystem.
 
-  - **Process** : The agent is first deployed to a managed runtime (like Agent Runtime) using a tool like Agents CLI. The critical second step is registration with Gemini Enterprise.
+  - **Process** : The agent is first deployed to a managed runtime (like Agent Runtime) using a tool like [Agents CLI](https://google.github.io/agents-cli/guide/getting-started/) . The critical second step is registration with Gemini Enterprise.
+
   - **Target environment** : A Gemini Enterprise Application, using the Agent Platform Agent Runtime as the runtime.
+
   - **Use case** : Registration is the critical bridge that connects your agent's backend logic to the Gemini Enterprise orchestration layer.
 
 ## Post-deployment and testing

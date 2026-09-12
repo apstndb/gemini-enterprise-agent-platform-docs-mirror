@@ -6,10 +6,6 @@ description: Constrain Anthropic Claude model responses on Gemini Enterprise Age
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 Structured outputs let you constrain a Claude model's generated output to conform exactly to a specific JSON schema. This is useful for ensuring that responses from your Claude models are always in the precise format required for downstream applications, databases, and processing pipelines.
 
 Structured outputs provide two complementary features that you can use independently or together in the same request:

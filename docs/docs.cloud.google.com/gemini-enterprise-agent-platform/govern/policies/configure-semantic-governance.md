@@ -81,7 +81,7 @@ After you complete the provisioning, you must [connect the policy engine to Agen
 ### REST
 
     curl -X PATCH \
-        "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine?updateMask=SemanticGovernancePolicyEngine" \
+        "https://LOCATION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/semanticGovernancePolicyEngine?updateMask=gatewayConfigs" \
         -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
         -H "Content-Type: application/json" \
         -d '{ "gatewayConfigs": {

@@ -17,3 +17,11 @@ Defaults to browser.
 `ENVIRONMENT_BROWSER`
 
 Operates in a web browser.
+
+`ENVIRONMENT_MOBILE`
+
+Operates in a mobile environment.
+
+`ENVIRONMENT_DESKTOP`
+
+Operates in a desktop environment.

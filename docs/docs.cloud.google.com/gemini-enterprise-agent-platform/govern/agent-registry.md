@@ -31,7 +31,8 @@ Explore the Agent Registry documentation to learn how to integrate and govern yo
   - **[Search for agents, tools, and skills](https://docs.cloud.google.com/agent-registry/search-agents-and-tools)** : Perform keyword, prefix, and semantic searches to find specific capabilities across your organization.
   - **[Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets)** : Use the auth manager and bindings to securely authenticate agents to discovered tools.
 
-### Integrate with ADK
+### Compose and orchestrate agents
 
   - **[Resolve endpoints and build orchestrators](https://docs.cloud.google.com/agent-registry/resolve-endpoints-and-build-orchestrators)** : Resolve endpoints dynamically and build orchestrator agents using the Agent Development Kit (ADK).
   - **[Register a custom ADK agent](https://docs.cloud.google.com/agent-registry/register-custom-adk-agents)** : Expose and register custom ADK agents in Agent Registry.
+  - **[Use registered A2A agents in Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents)** : Visually compose and orchestrate your registered Agent-to-Agent (A2A) agents as subagents in Agent Studio.

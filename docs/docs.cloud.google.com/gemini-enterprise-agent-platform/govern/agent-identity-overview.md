@@ -10,6 +10,8 @@ Agent Identity provides a strongly attested, cryptographic identity for each age
 
 Unlike service accounts, agent identities are not shared by multiple workloads by default, can't be impersonated, and don't allow developers to generate long-lived service account keys. Access tokens generated for Google Cloud are cryptographically bound to the agent's unique X.509 certificates to prevent token theft.
 
+Agent Identity works with [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) and [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) to help secure and govern AI agents. Agent Identity provisions cryptographic identities and manages credentials, Agent Registry catalogs the tools and destinations in your environment, and Agent Gateway enforces access policies and inspects network traffic when agents call those destinations.
+
 When Agent Identity is used with Agent Gateway and Gemini Enterprise, end-user credentials, such as those provisioned by Gemini Enterprise connectors, are encrypted by the auth manager and decrypted at the gateway, ensuring that the agent can never access the raw credential.
 
 The following services support Agent Identity:
@@ -86,12 +88,15 @@ When an agent identity is used in an IAM allow policy, the principal identifier 
 
 Examples:
 
-  - **Agent Runtime:** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+  - **Vertex AI Agent Engine (organization):** `principal://agents.global.org-123456789012.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
+  - **Vertex AI Agent Engine (project without an organization):** `principal://agents.global.proj-9876543210.system.id.goog/resources/aiplatform/projects/9876543210/locations/us-central1/reasoningEngines/my-test-agent`
   - **Gemini Enterprise:** `principal://agents.global.org-123456789012.system.id.goog/resources/discoveryengine/projects/9876543210/locations/global/collections/default_collection/engines/my-test-agent`
 
 The identifiers use the following:
 
-  - `  TRUST_DOMAIN  ` : Your organization's trust domain (for example, `agents.global.org-123456789012.system.id.goog` ).
+  - `  TRUST_DOMAIN  ` : The trust domain for your resource hierarchy:
+      - For projects in an organization: `agents.global.org- ORGANIZATION_ID .system.id.goog`
+      - For projects without an organization: `agents.global.proj- PROJECT_NUMBER .system.id.goog`
   - `  SERVICE  ` : The short name of the Google Cloud service (for example, `aiplatform` or `discoveryengine` ).
   - `  RESOURCE_PATH  ` : The full path to the resource that hosts the agent.
 

@@ -8,6 +8,22 @@ data_source: docs.cloud.google.com
 
 This guide helps you debug and troubleshoot connectivity issues with the Gemini Enterprise Agent Platform, especially when you use Agent Gateway, agent identity, Identity and Access Management (IAM) policies, and delegated authorization with Service Extensions.
 
+## Troubleshoot using the Agent Platform Troubleshooting skill
+
+To diagnose connectivity, authorization, and startup issues interactively with an AI coding assistant, you can install the [`agent-platform-troubleshooting`](https://github.com/google/skills/tree/main/skills/cloud/agent-platform-troubleshooting) skill from the Google Cloud Agent Skills repository.
+
+This skill equips AI agents with domain-specific diagnostic playbooks, log filters, and resolution steps across the Agent Platform stack, including:
+
+  - **Agent Gateway egress denials** : Diagnosing `403 Forbidden` errors intercepted by the gateway and verifying IAP authorization decisions.
+  - **Agent Runtime startup failures** : Identifying missing roles (such as `roles/browser` or `resourcemanager.projects.get` ) and bootstrap exceptions.
+  - **Agent Registry destination issues** : Verifying service entries, endpoint interfaces, and consolidated Google APIs configurations.
+  - **IAM access policies** : Validating Unified Access Policy (UAP) bindings, condition expressions, and Principal Access Boundary (PAB) scoping.
+  - **Container trust** : Diagnosing TLS certificate and handshake errors for custom containers (BYOC) or private Certificate Authorities (CAs).
+
+To install the skill in your agent environment, run the following command:
+
+    npx skills add https://github.com/google/skills --skill agent-platform-troubleshooting
+
 ## Egress request flow
 
 Agent Platform adopts a *default-deny* policy for all outgoing traffic. For an agent to connect to external resources, you must explicitly allow access at every network and identity layer. When Agent Gateway is enabled, the gateway intercepts all requests from the agent and applies the configured policies.

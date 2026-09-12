@@ -76,29 +76,52 @@ Use the following steps to design and test an agent using the flow builder:
 
 2.  Click **Create agent** to open the Agent Studio canvas. for a new agent.
 
-3.  Design and save your agent in the Agent Studio canvas. You can switch between the following tabs:
+3.  Design and save your agent in the Agent Studio canvas. You can create a main agent and add subagents. The main agent is always a *local agent* . Subagents can be either *local agents* or *Agent Registry agents* :
     
-      - **Flow:** Create the main agent and subagents by using a visual representation of your agent's workflow and control logic.
+      - **Local agent:** An agent whose instructions, model, and tools are authored and configured directly within the Agent Studio canvas.
+      - **Agent Registry agent:** An agent that is registered and published in [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . You can use these agents as remote subagents within your main agent's flow.
+    
+    When designing, you can switch between the following **Flow** and **Preview** tabs:
+    
+    ### Flow
+    
+    Create the main agent and subagents by using a visual representation of your agent's workflow and control logic.
+    
+    1.  Click an agent to open the **Details** panel for that agent. You can also click **Add a subagent** (+) to add subagents.
+    
+    2.  Configure your main agent and subagents in the **Details** panel:
         
-        1.  Click an agent to open the **Details** panel for that agent. You can also click **Add a subagent** (+) to add subagents.
+        **For the main agent and local subagents:**
         
-        2.  Configure your main agent and subagents in the **Details** panel:
+        1.  **Name:** Add a name to help identify the agent.
+        2.  **Description:** A summary of your agent's purpose.
+        3.  **Instructions:** Add instructions to guide your agent.
+        4.  **Model:** Select the model to power your agent.
+        5.  **Tools:** Click **Add tools** (+) to add tools that let the agent complete tasks. For more information, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
         
-        3.  **Name:** Add a name to help identify the agent.
+        **For subagents (local or from Agent Registry):**
         
-        4.  **Description:** A summary of your agent's purpose.
-        
-        5.  **Instructions:** Add instructions to guide your agent.
-        
-        6.  **Model:** Select the model to power your agent.
+        1.  **Subagent source:** Select the source of the subagent:
             
-            1.  **Tools:** Click **Add tools** (+) to add tools that let the agent complete tasks. For more information, see [Set up and add tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#set-up-tools) .
-        
-        7.  To save your agent, click **Save** in the canvas header and follow the prompts. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
+              - **Local:** Author the subagent's instructions, model, and tools directly on the canvas.
+              - **Agent Registry:** Select a registered agent from [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) as a remote subagent. This option is only available after you save the agent. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
+            
+            When you select a registered agent, its name and description are imported from the registry and become read-only on the canvas. The parent agent routes tasks to this subagent based on its Agent Card.
+            
+            To run or deploy the parent agent, the parent agent's identity must have permissions to discover and invoke A2A subagents. The permissions dialog handles this action automatically. If you need to manage permissions manually, see [Grant access for Agent-to-Agent (A2A) delegation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#a2a-delegation) .
     
-      - **Preview tab:** Chat with your agent in the preview pane to test its capabilities and responses. You can also inspect the events from each run to debug your agent's behavior. For more information, see [Inspect agent events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#inspect-agent-events) .
+    3.  To save your agent, click **Save** in the canvas header and follow the prompts. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
+    
+    ### Preview
+    
+    Chat with your agent in the preview pane to test its capabilities and responses.
+    
+      - To preview a saved agent, Agent Studio verifies the agent's identity permissions. If required roles are missing, a notification appears. Click **Manage** to open the [permissions dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#permissions-dialog-behavior) and [manage agent identity permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#grant-permissions) .
+      - You can inspect the events from each agent run to debug your agent's behavior. For more information, see [Inspect agent events](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#inspect-agent-events) .
 
 4.  Click **Get code** to see your agent code. If you want to continue developing your agent elsewhere, you can copy the code and paste it to a code editor of your choice.
+    
+    If your agent uses a remote subagent from [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) , the generated Python code includes a call to `AgentRegistry.get_remote_a2a_agent` to dynamically resolve the subagent at runtime.
 
 When your agent is complete, you can deploy it directly from Agent Studio. For more information, see [Deploy an Agent from Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#deploy-agent) .
 
@@ -125,7 +148,9 @@ If the agent returns an error during preview, the error appears in the **Preview
 
 ## Save an agent
 
-You must save an agent before you can preview or deploy it, because an unsaved agent doesn't have an identity yet. To save an agent for the first time:
+You must save an agent before you can preview it, deploy it, or upload knowledge files, because an unsaved agent doesn't have an identity yet. This requirement also applies to [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) subagents.
+
+To save an agent for the first time:
 
 1.  In the Agent Studio canvas, click **Save** .
 
@@ -186,6 +211,89 @@ You can configure the following tools for your agent:
     
     Your agent can use all tools in your connected MCP server.
 
+## Ground agents with knowledge files
+
+Upload static reference documents to ground your agent's responses in Agent Studio:
+
+1.  Select the parent agent node on the canvas where you want to attach reference files. Note that you can't attach knowledge files to subagents.
+
+2.  In the node's **Details** panel, locate the **Knowledge** section. The **Knowledge** section appears only after you save the agent for the first time. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
+
+3.  Click the file upload component and browse to select your reference file. You can attach up to 10 files per agent. The file size must not exceed 2 megabytes (2 MB). The upload canvas supports the following file types:
+    
+      - PDF
+      - Plain text
+
+4.  In the canvas header, click **Save** to store files in a dedicated Cloud Storage bucket under a path prefix matching the parent agent's `AGENT_ID` .
+    
+    > **Caution:** Uploaded knowledge files are stored in a Cloud Storage bucket in your Google Cloud project. Anyone with access to the project or that bucket can view these files. Don't upload files that contain information you don't want shared with all principals who have access to the project.
+    
+    The permission dialog grants the Storage Object Viewer role ( `roles/storage.objectViewer` ) to the agent's identity on the bucket.
+
+5.  Navigate to the **Preview** tab and submit a test query to verify that the agent grounds its response using the file's contents without hallucinating.
+
+6.  Optional: You can click **Get code** to copy the generated Python code ( `agent.py` ) and inspect the grounding file configuration. You can skip this step.
+
+## Manage agent identity permissions
+
+Each agent in Agent Studio has a unique identity, which acts as an IAM principal to access other Google Cloud resources.
+
+The principal format is:
+
+    principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/REASONING_ENGINE_ID
+
+Replace the following:
+
+  - `  ORGANIZATION_ID  ` : the numeric ID of your organization.
+  - `  PROJECT_NUMBER  ` : the project number of your Google Cloud project.
+  - `  LOCATION  ` : the region where your agent is deployed.
+  - `  REASONING_ENGINE_ID  ` : the resource ID of your reasoning engine.
+
+For more context on agent identities, see [Create an agent with agent identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) and [Agent identity overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) .
+
+### Permissions dialog behavior
+
+When you click **Deploy** or open the **Preview** tab for a saved agent, Agent Studio automatically checks if the agent's identity has the set of IAM roles required to run successfully. Some missing permissions could cause your agent to fail if they aren't set up correctly. Granting these permissions to the agent's identity helps it work as expected.
+
+If the system detects any permission issues, the permissions dialog displays an error message.
+
+  - **Missing roles:** If required roles are missing, a dialog appears listing the detailed roles. Click **Grant All** in the dialog to automatically grant all necessary roles to the agent's identity in a single action. To preview or deploy the agent without granting the roles, click **Proceed anyway** .
+  - **All roles granted:** If all required roles are already granted, the permissions dialog does not appear.
+  - **Unsaved agents:** Unsaved agents do not have an identity yet. The permissions dialog does not appear, and the **Preview** tab and **Deploy** options are disabled until you save the agent.
+
+#### Required roles
+
+The permissions dialog automatically grants the following list of roles:
+
+  - `roles/storage.objectViewer` : Required if the agent uses uploaded files. This role must be granted on the specific Cloud Storage bucket for agent files (for example, `{projectNumber}_{location}_agent_studio_files` ).
+  - `roles/mcp.toolUser` : Required if the agent utilizes an Agent Registry MCP tool.
+  - `roles/agentregistry.viewer` : Required if the agent uses an Agent Registry MCP tool or subagent.
+  - `roles/iamconnectors.user` : Required if an Agent Registry MCP tool specifies an `authProviderName` .
+  - `roles/aiplatform.viewer` : Required if the agent invokes remote subagents through Agent-to-Agent (A2A) delegation.
+
+### Manage roles manually in the Google Cloud console
+
+The permissions dialog automatically grants required roles. However, if you prefer to manage roles manually or need to troubleshoot permission issues, follow these steps:
+
+1.  Copy the agent's unique identity principal. In the Agent Studio canvas header, click the drop-down menu next to the agent name, and copy the principal string.
+    
+    The principal format looks like the following example:
+    
+    ` principal://agents.global.org- ORG_ID .system.id.goog/resources/aiplatform/projects/ PROJECT_NUMBER /locations/ LOCATION /reasoningEngines/ REASONING_ENGINE_ID  `
+
+2.  In the Google Cloud console, go to **IAM** :
+
+3.  Search for the agent identity principal in the principal list. You can search using the specific `  REASONING_ENGINE_ID  ` from the end of the principal string. To get the agent identity principal, you have one of the following options:
+    
+      - If the agent identity principal is already listed, click edit **Edit principal** next to the agent identity.
+      - If the agent identity principal is not listed, click **Grant access** to add it as a new principal.
+
+4.  Add or modify the required roles for your configuration, such as `roles/storage.objectViewer` or `roles/mcp.toolUser` .
+
+5.  Click **Save** .
+
+Depending on your configuration, you might need to manually grant additional roles that the permissions dialog doesn't automatically handle. For example, if your registered MCP tool accesses other Google Cloud resources, such as querying data from BigQuery, you must manually grant the necessary roles, such as the BigQuery Data Viewer ( `roles/bigquery.dataViewer` ) role, to the agent's identity.
+
 ## Deploy an agent from Agent Studio
 
 After you create and preview an agent, you can deploy it to production. Use the following steps to deploy an agent from Agent Studio:
@@ -193,6 +301,8 @@ After you create and preview an agent, you can deploy it to production. Use the 
 1.  From the **Agents** list page, click the agent you want to deploy. The Agent detail page appears for the selected agent.
 
 2.  Click **Deploy** to open the **Deploy to an Agent Runtime instance** dialog.
+    
+    If the agent's identity is missing required permissions, the [permissions dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#permissions-dialog-behavior) appears and handles this action automatically. If you need to manage permissions manually, see [Manage agent identity permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#grant-permissions) and [Grant access for Agent-to-Agent (A2A) delegation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity#a2a-delegation) .
 
 3.  In the deployment configuration window, configure the following options:
     
