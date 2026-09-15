@@ -63,11 +63,23 @@ Supported regions
 
 Model availability
 
+United States
+
+  - `Multi-region`
+
 Global
 
   - `global endpoint`
 
+ML processing
+
+United States
+
+  - `Multi-region`
+
 Quota limits
+
+Multi-region:
 
 global endpoint:
 

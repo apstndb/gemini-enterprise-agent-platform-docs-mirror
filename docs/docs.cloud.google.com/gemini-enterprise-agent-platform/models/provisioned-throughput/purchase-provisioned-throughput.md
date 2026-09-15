@@ -90,7 +90,7 @@ Provisioned Throughput orders are processed based on the size of the order and t
 
 ### Multiple pending orders
 
-You can submit up to seven Google model orders for the same model and region, even if a prior order is in an approved or pending state, as long as the scheduled start time for each order is greater than 1 hour from the scheduled start time of another order. If an order was submitted without a start time, you won't be able to submit another unscheduled order.
+You can submit multiple Google model orders for the same model and region, even if a prior order is in an approved or pending state.
 
 ## Place a standard Provisioned Throughput order
 
@@ -243,8 +243,7 @@ The following table describes how to modify your Provisioned Throughput orders b
 <tr class="odd">
 <td><strong>Pending review</strong></td>
 <td>You can cancel your order.</td>
-<td><p>If you have additional changes to your order, then cancel the pending order, and place a new order.</p>
-<p>If you have multiple models, each model can have only one pending order revision.</p></td>
+<td><p>If you have additional changes to your order, then cancel the pending order, and place a new order.</p></td>
 <td>To cancel your pending order in the Google Cloud console, do the following:<br />
 
 <ol>

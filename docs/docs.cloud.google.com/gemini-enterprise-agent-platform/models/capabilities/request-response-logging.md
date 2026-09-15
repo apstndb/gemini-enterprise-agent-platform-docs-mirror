@@ -705,11 +705,50 @@ You should receive a successful status code (2xx) and an empty response.
 
 To prevent sharing request and response logs with MaaS partners, the project administrator can do any of the following:
 
-  - Create a [VPC Service Controls service perimeter](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#service-perimeter-creation) that includes the project and `aiplatform.googleapis.com` as a restricted service
+  - **Enforce an Organization Policy Service custom constraint** : Create and enforce an [Organization Policy Service custom constraint](https://docs.cloud.google.com/organization-policy/create-custom-constraints) on `aiplatform.googleapis.com/Endpoint` that prohibits setting `dataSharingEnabledProvider` for any partner model provider. For more information, see [Enforce a custom constraint to prevent data sharing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#enforce-custom-constraint) .
 
-  - [Disable access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) that support data sharing.
+  - **Create a VPC Service Controls perimeter** : Create a VPC Service Controls service perimeter that includes the project and `aiplatform.googleapis.com` as a restricted service. VPC Service Controls protected projects are blocked from sharing data with partner models by default.
 
-  - Enforce least privileges on the `aiplatform.endpoints.setPublisherModelConfig` permission to prevent logging or log sharing from being enabled.
+  - **Disable access to Model Garden models** : [Disable access to Model Garden models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/control-model-access) that support data sharing.
+
+  - **Enforce least privileges** : Restrict the `aiplatform.endpoints.setPublisherModelConfig` permission to prevent unauthorized users from enabling logging or log sharing.
+
+#### Enforce a custom constraint to prevent data sharing
+
+To create and enforce an Organization Policy Service custom constraint that prevents sharing request and response logs with partner model providers, do the following:
+
+1.  Create a custom constraint YAML file named `prevent_data_sharing.yaml` similar to the following example.
+    
+        name: organizations/ORGANIZATION_ID/customConstraints/custom.denyPartnerModelDataSharing
+        resourceTypes:
+        
+        - aiplatform.googleapis.com/Endpoint
+        methodTypes:
+        
+        - CREATE
+        - UPDATE
+        condition: "has(resource.publisherModelConfig.dataSharingEnabledProvider)"
+        actionType: DENY
+        displayName: Prevent partner model data sharing
+        description: Prohibits enabling request and response log sharing with any partner model provider.
+    
+    Replace `  ORGANIZATION_ID  ` with your Google Cloud organization ID.
+
+2.  Create the custom constraint using the `gcloud org-policies` command:
+    
+        gcloud org-policies set-custom-constraint prevent_data_sharing.yaml
+
+3.  Enforce the policy by creating an organization policy enforcement file named `enforce_policy.yaml` similar to the following example:
+    
+        name: organizations/ORGANIZATION_ID/policies/custom.denyPartnerModelDataSharing
+        spec:
+          rules:
+        
+          - enforce: true
+
+4.  Apply the organization policy:
+    
+        gcloud org-policies set-policy enforce_policy.yaml
 
 ## What's next
 

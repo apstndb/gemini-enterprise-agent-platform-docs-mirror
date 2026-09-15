@@ -1177,6 +1177,8 @@ Codestral (24.05)
 
 Grok models
 
+Grok 4.6 preview
+
 Grok 4.20 (Reasoning)
 
 Grok 4.20 (Non-reasoning)
@@ -1242,6 +1244,8 @@ Codestral 2
 Codestral (24.05)
 
 Grok models
+
+Grok 4.6 preview
 
 Grok 4.20 (Reasoning)
 
@@ -1324,6 +1328,8 @@ Codestral (24.05)
 
 Grok models
 
+Grok 4.6 preview
+
 Grok 4.20 (Reasoning)
 
 Grok 4.20 (Non-reasoning)
@@ -1389,6 +1395,8 @@ Codestral 2
 Codestral (24.05)
 
 Grok models
+
+Grok 4.6 preview
 
 Grok 4.20 (Reasoning)
 
@@ -1480,6 +1488,8 @@ Codestral (24.05)
 
 Grok models
 
+Grok 4.6 preview
+
 Grok 4.20 (Reasoning)
 
 Grok 4.20 (Non-reasoning)
@@ -1561,6 +1571,8 @@ Codestral (24.05)
 
 Grok models
 
+Grok 4.6 preview
+
 Grok 4.20 (Reasoning)
 
 Grok 4.20 (Non-reasoning)
@@ -1629,6 +1641,8 @@ Codestral 2
 Codestral (24.05)
 
 Grok models
+
+Grok 4.6 preview
 
 Grok 4.20 (Reasoning)
 

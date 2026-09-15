@@ -131,6 +131,8 @@ For more information on the `MODEL_NAME` format, see the [Anthropic documentatio
 
 Multi-region endpoints support all Claude models with versions 4.7 and later (for example, `claude-opus-4-7` , `claude-opus-4-8` , and `claude-fable-5` ). Use the full Model ID including the version date where applicable.
 
+Grok 4.6 ( `grok-4.6` ) is available on the US multi-region endpoint. Grok models use the OpenAI-compatible chat completions and [Responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses) APIs, so the request path uses `endpoints/openapi` . For example: `https://aiplatform.us.rep.googleapis.com/v1/projects/ PROJECT_ID /locations/ us /endpoints/openapi/responses` .
+
 **Example Request:**
 
 Here's how you can call the multi-region endpoint using `curl` :

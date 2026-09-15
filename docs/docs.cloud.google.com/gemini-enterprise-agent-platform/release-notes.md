@@ -10,6 +10,31 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 14, 2026
+
+Fixed
+
+**CodeMender updates (v0.7.0)**
+
+This release introduces updates to CodeMender:
+
+  - **Network stream resilience** : Improved CLI session stability with automatic reconnection and transient error recovery during long-running scans and remediation workflows.
+  - **Configuration uniformity** : Standardized directory exclusion rules across configuration files and CLI scanning flags under `scan_config.exclude_dirs` .
+  - **Bug fixes** :
+      - Fixed an issue where `cm report` incorrectly categorized `DISMISSED` findings as `OPEN` in the summary table.
+      - Resolved sandbox permission denial errors by preventing child worker processes from attempting to create internal session logs on disk.
+      - Hardened sandbox command policy to prevent directory traversal and file inspection outside the designated repository root into adjacent directories.
+
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+
+Feature
+
+**Cyber Verification Program for Claude is available in Preview**
+
+Anthropic's Cyber Verification Program (CVP) is available in [Preview](https://cloud.google.com/products#product-launch-stages) on Gemini Enterprise Agent Platform. CVP enables verified organizations to use supported Claude models (Claude Opus 4.7, Claude Opus 4.8, Claude Sonnet 5, and Claude Opus 5) for legitimate defensive cybersecurity tasks with default dual-use restrictions lifted.
+
+For more information, see [Cyber Verification Program for Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program) .
+
 ## September 09, 2026
 
 Feature
@@ -68,22 +93,6 @@ Feature
 
 For more information on 3.8 Flash, see the [model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) .
 
-Fixed
-
-**CodeMender updates**
-
-This release introduces updates to CodeMender:
-
-  - **Machine-readable metrics** : Added the `--json` flag to `cm stats` to export aggregate and per-session metrics ( `CACHE_HIT%` , `THINK_RATIO%` , `TOOL_CALLS` , `DURATION` ).
-  - **Session drill-down** : Added `cm stats --session <id>` to inspect turn-by-turn token consumption for specific sessions.
-  - **Bug fixes** :
-      - Improved codebase search reliability by skipping binary archives and non-regular files during traversal.
-      - Fixed an issue where `cm report import` failed on native JSON reports or findings referencing new files.
-      - Fixed an issue where preview mode could create empty directories on disk before user confirmation.
-      - Prevented erroneous verification verdicts when workspace reset fails.
-
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
-
 Feature
 
 **Deferred tier for autonomous agent scheduling (Preview)**
@@ -98,6 +107,22 @@ Key capabilities and benefits include:
       - **Deep Research Agent** : Pass `service_tier="deferred"` in the Python SDK or `"service_tier": "deferred"` in REST API interaction requests.
 
 For more information, see [Autonomous agent scheduling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/efficiency/autonomous-scheduling) .
+
+Fixed
+
+**CodeMender updates (v0.6.0)**
+
+This release introduces updates to CodeMender:
+
+  - **Machine-readable metrics** : Added the `--json` flag to `cm stats` to export aggregate and per-session metrics ( `CACHE_HIT%` , `THINK_RATIO%` , `TOOL_CALLS` , `DURATION` ).
+  - **Session drill-down** : Added `cm stats --session <id>` to inspect turn-by-turn token consumption for specific sessions.
+  - **Bug fixes** :
+      - Improved codebase search reliability by skipping binary archives and non-regular files during traversal.
+      - Fixed an issue where `cm report import` failed on native JSON reports or findings referencing new files.
+      - Fixed an issue where preview mode could create empty directories on disk before user confirmation.
+      - Prevented erroneous verification verdicts when workspace reset fails.
+
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
 
 ## September 01, 2026
 
@@ -172,7 +197,7 @@ For more information, see [IAM access policies overview](https://docs.cloud.goog
 
 Feature
 
-**CodeMender updates**
+**CodeMender updates (v0.5.0)**
 
 This release introduces updates to CodeMender:
 
@@ -214,7 +239,7 @@ Feature
 
 Feature
 
-**CodeMender updates: Model support**
+**CodeMender updates (v0.4.0): Model support**
 
 This release introduces updates to CodeMender:
 
@@ -274,7 +299,7 @@ For more information, see [Install the CLI and configure](https://docs.cloud.goo
 
 Feature
 
-**Process-level sandboxing and auto-updates (Preview)**
+**CodeMender updates (v0.3.0): Process-level sandboxing and auto-updates (Preview)**
 
 This release introduces process-level sandboxing, automatic update checks, and other improvements to the CodeMender CLI (Preview):
 
@@ -1003,3 +1028,13 @@ Issue
 The following known issues affect Gemini Enterprise Agent Platform:
 
   - **Audio track extraction (Gemini Embedding 2 only):** The `audio_track_extraction` feature does not work. For more information, see [Issue \#504505771](https://issuetracker.google.com/504505771) .
+
+## March 31, 2026
+
+Security
+
+**Security update for Cloud Storage staging bucket verification**
+
+A security issue in the Python SDK ( `google-cloud-aiplatform` ) for Gemini Enterprise Agent Platform allowed potential Cloud Storage bucket squatting when staging local model artifacts without specifying an explicit staging bucket.
+
+This issue has been resolved by adding bucket ownership verification and randomized naming for default staging buckets in Cloud Storage. Users of the `google-cloud-aiplatform` SDK should upgrade to version 1.165.1 or later, or ensure that an explicit `staging_bucket` belonging to their project is specified when calling `Model.upload()` .

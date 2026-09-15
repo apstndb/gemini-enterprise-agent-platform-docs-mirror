@@ -34,7 +34,7 @@ As outlined in the [Advanced AI Safety Addendum](https://cloud.google.com/terms/
     
       - Claude Mythos (all versions)
       - Claude Fable (all versions)
-      - Claude Opus \>=4.7 and Sonnet \>=5 when `advanced_ai_enabled` is set to `true` for use within Anthropic's [Cyber Verification Program](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude) (CVP). All other usage of these models is out of scope of the Advanced AI Safety Addendum. CVP is not supported on Google Cloud.
+      - Claude Opus \>=4.7 and Sonnet \>=5 when `advanced_ai_enabled` is set to `true` for use within Anthropic's [Cyber Verification Program](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude) (CVP). All other usage of these models is out of scope of the Advanced AI Safety Addendum. To enroll and enable CVP for Claude models, see [Cyber Verification Program for Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program) .
 
   - **Customer opt-out** : Zero data retention may not be possible when using some Advanced AI features. Please contact your account team for clarification. See the following section on how to govern acceptance of the addendum.
 
