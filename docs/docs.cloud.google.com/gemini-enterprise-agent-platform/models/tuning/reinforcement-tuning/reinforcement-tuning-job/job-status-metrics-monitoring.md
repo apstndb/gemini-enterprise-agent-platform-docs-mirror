@@ -67,9 +67,21 @@ For composite rewards, each individual reward emits its own group of metrics pre
 
 ## View job status and results
 
-You can view a reinforcement learning fine-tuning job's status and results in two ways:
+You can view a reinforcement learning fine-tuning job's status and results in the Google Cloud console or by using the REST API.
 
-### Programmatically with `curl`
+### Console
+
+Go to [**Models \> Tuning**](https://console.cloud.google.com/agent-platform/tuning) in the Google Cloud console and select your tuning job. The job details page provides three tabs for monitoring and inspection:
+
+  - **Monitor tab** : Displays real-time tuning progress and interactive charts for the training and evaluation metrics listed on this page:
+      - Use the sticky **Filter** bar ( `Filter metrics by name` ) or the **Show Category** selector to filter charts by metric name or category.
+      - Expand or collapse chart groups for general tuning metrics and individual reward functions in composite rewards.
+      - Inspect checkpoint annotations directly on the metric charts.
+      - Use the **Checkpoints** table and its column selector to compare tuning and reward metrics across saved checkpoints, copy a checkpoint endpoint ID, or click **Test** to evaluate a checkpoint in Agent Studio.
+  - **Dataset tab** : Inspect training and validation dataset samples, conversation examples, `references` fields, and dataset distribution charts.
+  - **Details tab** : View the base model, tuning method, hyperparameter values, and reward configuration. Click **View details** on a reward configuration to open a side drawer displaying non-default settings.
+
+### REST
 
 Issue a [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/get) request to retrieve the job's state, `tunedModel` , error details, and metadata.
 
@@ -79,15 +91,11 @@ Issue a [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent
 
 Replace the following:
 
-  - PROJECT\_ID : Your Google Cloud project ID.
-  - TUNING\_JOB\_ID : The ID of the tuning job.
-  - LOCATION\_ID : The ID of the location.
+  - `  PROJECT_ID  ` : your Google Cloud project ID.
+  - `  TUNING_JOB_ID  ` : the ID of the tuning job.
+  - `  LOCATION_ID  ` : the ID of the location.
 
-> **Note:** Only the `v1beta1` API version is supported for reinforcement learning fine-tuning. Using the `v1` API will return a response with insufficient fields populated.
-
-### In the Console
-
-Open the job's monitoring page in the Google Cloud console under [**Agent Platform \> Model \> Tuning**](https://console.cloud.google.com/agent-platform/tuning) . The monitoring view surfaces the underlying tuning experiment with charts for the training and evaluation metrics listed in this page, including reward, generation length, reward latency, and per-reward breakdowns for composite rewards.
+> Only the `v1beta1` API version is supported for reinforcement learning fine-tuning. Using the `v1` API will return a response with insufficient fields populated.
 
 ## Intermediate checkpoints
 
@@ -95,6 +103,6 @@ Reinforcement learning fine-tuning produces intermediate checkpoints at the freq
 
 ## What's next
 
-  - Follow the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  - Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
   - [Define reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
   - [Configure hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) .

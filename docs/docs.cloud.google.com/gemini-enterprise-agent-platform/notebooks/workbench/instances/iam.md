@@ -208,6 +208,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  instances.  listReferrers</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listVmExtensionStates</code></p>
+<p><code dir="ltr" translate="no">compute.instances.troubleshoot</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  list</code></p>
@@ -255,6 +256,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.managedRulesets.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.multiMig.get</code></p>
 <p><code dir="ltr" translate="no">compute.multiMig.list</code></p>
@@ -392,6 +398,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.reliabilityRisks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
@@ -736,6 +747,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  instances.  listReferrers</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listVmExtensionStates</code></p>
+<p><code dir="ltr" translate="no">compute.instances.troubleshoot</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  list</code></p>
@@ -783,6 +795,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.managedRulesets.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.multiMig.get</code></p>
 <p><code dir="ltr" translate="no">compute.multiMig.list</code></p>
@@ -920,6 +937,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.reliabilityRisks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
@@ -1264,6 +1286,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  instances.  listReferrers</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listVmExtensionStates</code></p>
+<p><code dir="ltr" translate="no">compute.instances.troubleshoot</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  list</code></p>
@@ -1311,6 +1334,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.managedRulesets.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.multiMig.get</code></p>
 <p><code dir="ltr" translate="no">compute.multiMig.list</code></p>
@@ -1448,6 +1476,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.reliabilityRisks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
@@ -1988,6 +2021,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.  instances.  startWithEncryptionKey</code></li>
 <li><code dir="ltr" translate="no">compute.instances.stop</code></li>
 <li><code dir="ltr" translate="no">compute.instances.suspend</code></li>
+<li><code dir="ltr" translate="no">compute.instances.troubleshoot</code></li>
 <li><code dir="ltr" translate="no">compute.instances.update</code></li>
 <li><code dir="ltr" translate="no">compute.  instances.  updateAccessConfig</code></li>
 <li><code dir="ltr" translate="no">compute.  instances.  updateDisplayDevice</code></li>
@@ -2083,6 +2117,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.  machineImages.  useReadOnly</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 <li><code dir="ltr" translate="no">compute.multiMig.create</code></li>
 <li><code dir="ltr" translate="no">compute.multiMig.delete</code></li>
 <li><code dir="ltr" translate="no">compute.multiMig.get</code></li>
@@ -2401,6 +2437,8 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.regionUrlMaps.validate</code></li>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 <li><code dir="ltr" translate="no">compute.reservationBlocks.get</code></li>
 <li><code dir="ltr" translate="no">compute.reservationBlocks.list</code></li>
 <li><code dir="ltr" translate="no">compute.  reservationBlocks.  performMaintenance</code></li>
@@ -2923,6 +2961,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  instances.  listReferrers</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listVmExtensionStates</code></p>
+<p><code dir="ltr" translate="no">compute.instances.troubleshoot</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  list</code></p>
@@ -2970,6 +3009,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.managedRulesets.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.multiMig.get</code></p>
 <p><code dir="ltr" translate="no">compute.multiMig.list</code></p>
@@ -3107,6 +3151,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.reliabilityRisks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
@@ -3426,6 +3475,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  instances.  listReferrers</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.  instances.  listVmExtensionStates</code></p>
+<p><code dir="ltr" translate="no">compute.instances.troubleshoot</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  get</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.  instantSnapshotGroups.  list</code></p>
@@ -3473,6 +3523,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.managedRulesets.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.multiMig.get</code></p>
 <p><code dir="ltr" translate="no">compute.multiMig.list</code></p>
@@ -3610,6 +3665,11 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <ul>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.reliabilityRisks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
@@ -4103,6 +4163,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">compute.  instances.  startWithEncryptionKey</code></li>
 <li><code dir="ltr" translate="no">compute.instances.stop</code></li>
 <li><code dir="ltr" translate="no">compute.instances.suspend</code></li>
+<li><code dir="ltr" translate="no">compute.instances.troubleshoot</code></li>
 <li><code dir="ltr" translate="no">compute.instances.update</code></li>
 <li><code dir="ltr" translate="no">compute.  instances.  updateAccessConfig</code></li>
 <li><code dir="ltr" translate="no">compute.  instances.  updateDisplayDevice</code></li>
@@ -4186,6 +4247,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <ul>
 <li><code dir="ltr" translate="no">compute.machineTypes.get</code></li>
 <li><code dir="ltr" translate="no">compute.machineTypes.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.managedRulesets.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.managedRulesets.get</code></li>
+<li><code dir="ltr" translate="no">compute.managedRulesets.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.multiMig.*</code></p>
 <ul>
@@ -4357,6 +4423,11 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <ul>
 <li><code dir="ltr" translate="no">compute.regions.get</code></li>
 <li><code dir="ltr" translate="no">compute.regions.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">compute.reliabilityRisks.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.get</code></li>
+<li><code dir="ltr" translate="no">compute.reliabilityRisks.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>

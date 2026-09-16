@@ -12,6 +12,28 @@ For the versioning scheme and lifecycle dates, see [Image versioning and lifecyc
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 13, 2026
+
+Change
+
+### 20260913-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed an issue where the `notebook-disable-nbconvert` metadata flag was ignored in custom containers.
+
+Change
+
+The obsolete `google-cloud-sdk` transitional package is no longer installed. The Google Cloud CLI itself is unchanged; it was already provided by the `google-cloud-cli` package.
+
+Fixed
+
+Fixed the %%bigquery notebook cell magic, which returned an error instead of query results in JupyterLab 4.
+
 ## August 30, 2026
 
 Change

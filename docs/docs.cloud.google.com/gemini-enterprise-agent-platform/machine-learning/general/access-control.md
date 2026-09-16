@@ -315,6 +315,11 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
 <li><code dir="ltr" translate="no">aiplatform.locations.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.locations.list</code></li>
@@ -391,6 +396,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimes.  assign</code></li>
@@ -903,6 +909,14 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
@@ -1027,6 +1041,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></p>
 <p><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></p>
 <p><code dir="ltr" translate="no">aiplatform.notebookRuntimes.*</code></p>
 <ul>
@@ -1651,6 +1666,14 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
@@ -2078,6 +2101,8 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  indexEndpoints.  queryVectors</code></p>
 <p><code dir="ltr" translate="no">aiplatform.indexes.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.indexes.list</code></p>
+<p><code dir="ltr" translate="no">aiplatform.interactions.get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.interactions.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.locations.get</code></p>
 <p><code dir="ltr" translate="no">aiplatform.locations.list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.memories.get</code></p>
@@ -2199,6 +2224,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></li>
 </ul>
@@ -2840,6 +2866,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  list</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setDefault</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  notebookRuntimeTemplates.  update</code></li>
 </ul>
@@ -3418,6 +3445,14 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
 </ul>
+<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
+</ul>
 <p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  locations.  evaluateInstances</code></li>
@@ -3812,6 +3847,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">storage.managedFolders.delete</code></p>
 <p><code dir="ltr" translate="no">storage.managedFolders.get</code></p>
 <p><code dir="ltr" translate="no">storage.managedFolders.list</code></p>
+<p><code dir="ltr" translate="no">storage.managedFolders.update</code></p>
 <p><code dir="ltr" translate="no">storage.multipartUploads.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">storage.multipartUploads.abort</code></li>
@@ -4114,7 +4150,16 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <blockquote>
 <strong>Warning:</strong> Do not grant service agent roles to any principals except <a href="https://docs.cloud.google.com/iam/docs/service-agents">service agents</a> .
 </blockquote></td>
-<td><p><code dir="ltr" translate="no">agentregistry.operations.*</code></p>
+<td><p><code dir="ltr" translate="no">agentregistry.agents.get</code></p>
+<p><code dir="ltr" translate="no">agentregistry.agents.list</code></p>
+<p><code dir="ltr" translate="no">agentregistry.endpoints.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">agentregistry.endpoints.get</code></li>
+<li><code dir="ltr" translate="no">agentregistry.endpoints.list</code></li>
+</ul>
+<p><code dir="ltr" translate="no">agentregistry.mcpServers.get</code></p>
+<p><code dir="ltr" translate="no">agentregistry.mcpServers.list</code></p>
+<p><code dir="ltr" translate="no">agentregistry.operations.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">agentregistry.  operations.  cancel</code></li>
 <li><code dir="ltr" translate="no">agentregistry.  operations.  delete</code></li>
@@ -4469,6 +4514,14 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.indexes.get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.indexes.update</code></li>
+</ul>
+<p><code dir="ltr" translate="no">aiplatform.interactions.*</code></p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.interactions.cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.create</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.delete</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.get</code></li>
+<li><code dir="ltr" translate="no">aiplatform.interactions.list</code></li>
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.locations.*</code></p>
 <ul>
@@ -5257,6 +5310,19 @@ Gives Vertex AI the permissions it needs to function.
 
 > **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents) .
 
+`agentregistry.agents.get`
+
+`agentregistry.agents.list`
+
+`agentregistry.endpoints.*`
+
+  - `agentregistry.endpoints.get`
+  - `agentregistry.endpoints.list`
+
+`agentregistry.mcpServers.get`
+
+`agentregistry.mcpServers.list`
+
 `agentregistry.operations.*`
 
   - `agentregistry. operations. cancel`
@@ -5666,6 +5732,14 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.indexes.get`
   - `aiplatform.indexes.list`
   - `aiplatform.indexes.update`
+
+`aiplatform.interactions.*`
+
+  - `aiplatform.interactions.cancel`
+  - `aiplatform.interactions.create`
+  - `aiplatform.interactions.delete`
+  - `aiplatform.interactions.get`
+  - `aiplatform.interactions.list`
 
 `aiplatform.locations.*`
 
@@ -6889,6 +6963,14 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.indexes.list`
   - `aiplatform.indexes.update`
 
+`aiplatform.interactions.*`
+
+  - `aiplatform.interactions.cancel`
+  - `aiplatform.interactions.create`
+  - `aiplatform.interactions.delete`
+  - `aiplatform.interactions.get`
+  - `aiplatform.interactions.list`
+
 `aiplatform.locations.*`
 
   - `aiplatform. locations. evaluateInstances`
@@ -7762,6 +7844,7 @@ Provide access for notebooks service agent to manage notebook instances in user 
   - `compute. instances. startWithEncryptionKey`
   - `compute.instances.stop`
   - `compute.instances.suspend`
+  - `compute.instances.troubleshoot`
   - `compute.instances.update`
   - `compute. instances. updateAccessConfig`
   - `compute. instances. updateDisplayDevice`
@@ -7887,6 +7970,11 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
   - `compute.machineTypes.get`
   - `compute.machineTypes.list`
+
+`compute.managedRulesets.*`
+
+  - `compute.managedRulesets.get`
+  - `compute.managedRulesets.list`
 
 `compute.multiMig.*`
 
@@ -8165,6 +8253,11 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
   - `compute.regions.get`
   - `compute.regions.list`
+
+`compute.reliabilityRisks.*`
+
+  - `compute.reliabilityRisks.get`
+  - `compute.reliabilityRisks.list`
 
 `compute.reservationBlocks.get`
 

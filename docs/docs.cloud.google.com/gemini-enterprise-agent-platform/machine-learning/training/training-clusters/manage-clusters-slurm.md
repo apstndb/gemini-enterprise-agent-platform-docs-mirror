@@ -36,9 +36,9 @@ Every call is a POST request to the `callSlurmRestApi` endpoint for your cluster
 
 The response contains the following fields:
 
-  - **`status`** : the HTTP status returned by the Slurm Job API. For example, `200` .
+  - **`status`** : The HTTP status returned by the Slurm Job API. For example, `200` .
 
-  - **`body`** : the response from the Slurm Job API as a JSON string. Parse the body fields for fields that you need, such as the job ID or the job list.
+  - **`structuredBody`** : The response from the Slurm Job API, as a JSON object. Read the fields that you need, such as the job ID or the job list, directly from `structuredBody` .
 
 You run jobs on your own Linux account on the training clusters automatically. There is no additional configuration, and you can't run the job as another user. SSH isn't required, because everything is done through the Agent Platform API.
 
@@ -83,10 +83,10 @@ Replace the following:
 
 The `time_limit` value is time in minutes. The `script` field holds the script contents, not a path to a file.
 
-The Slurm Job API returns the new job's ID in the response body. You can use the `jq` command to isolate the job ID:
+The Slurm Job API returns the new job's ID in `structuredBody` . You can use the `jq` command to isolate the job ID:
 
     gcurl -sS -X POST "https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID:callSlurmRestApi" \
-      -d '{ ... }' | jq -r '.body | fromjson | .job_id'
+      -d '{ ... }' | jq -r '.structuredBody.job_id'
 
 ### Check job status
 
@@ -184,7 +184,6 @@ Do the following to use the Slurm Job API from Python:
 
 2.  Use the following Python script to use the API:
     
-        import json
         import google.auth
         import google.auth.transport.requests
         
@@ -213,8 +212,7 @@ Do the following to use the Slurm Job API from Python:
             response = session.post(url, json=request)
             response.raise_for_status()
             envelope = response.json()
-            # body is a JSON string; parse it to read Slurm's fields.
-            return envelope["status"], json.loads(envelope["body"])
+            return envelope["status"], envelope.get("structuredBody", {})
         
         # Submit a job.
         status, result = call_slurm(
@@ -248,7 +246,7 @@ Do the following to use the Slurm Job API from Python:
         _, cancelled_result  = call_slurm("HTTP_METHOD_GET", f"/slurm/v0.0.42/job/{job_id}")
         print("state", cancelled_result["jobs"][0]["job_state"])
 
-The helper script returns the status from Slurm and the parsed body, so that you can read fields like `job_id` or `job_state` directly. For using the script in automated environments, authenticate as a [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) instead of using an interactive login.
+The helper script returns the status from Slurm and `structuredBody` , so that you can read fields like `job_id` or `job_state` directly. For using the script in automated environments, authenticate as a [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) instead of using an interactive login.
 
 ## API Response
 
@@ -256,14 +254,18 @@ The following is a typical Slurm Job API response:
 
     {
       "status": 200,
-      "body": "{ ... raw Slurm JSON ... }"
+      "structuredBody": {
+        "job_id": 1234,
+        "errors": [],
+        "warnings": []
+      }
     }
 
-The `status` field is the HTTP status from Slurm, and the `body` field is a JSON string. You can use `jq` to parse the `body` field, for example: `jq -r '.body | fromjson'` .
+The `status` field is the HTTP status from Slurm and `structuredBody` contains Slurm's response as a JSON object, so you can read its fields directly, such as: `jq -r '.structuredBody.job_id'` .
 
-We recommend that you check the `body` field, regardless of the Slurm status, because the body field includes any errors or warnings that Slurm reports.
+Always check `structuredBody` regardless of the `status` value, because `structuredBody` includes any errors or warnings that Slurm reports.
 
-If the `CallSlurmRestApi` request itself is malformatted, you may get an `error` result as follows:
+If the `CallSlurmRestApi` request is malformatted, you might get an `error` result as the following example:
 
     {
       "error": {
@@ -275,17 +277,17 @@ If the `CallSlurmRestApi` request itself is malformatted, you may get an `error`
 
 ### Common responses
 
-| What you see             | What it means                                                                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Status 200 with a job id | Job submitted successfully.                                                                                                                    |
-| Status 200, no errors    | Request succeeded.                                                                                                                             |
-| Status 200 with warnings | Request succeeded, but Slurm ignored or adjusted something. Read the warning.                                                                  |
-| Status 404 for a job     | The job isn't in the live queue; it may have finished. Try the history path.                                                                   |
-| Status 400 or 500        | Slurm rejected the request. Reasons for the rejection could include a malformed body or a field of the wrong type. Read the error in the body. |
-| PERMISSION\_DENIED error | You don't have access to this cluster.                                                                                                         |
-| NOT\_FOUND error         | The cluster name is wrong or the cluster doesn't exist.                                                                                        |
-| INVALID\_ARGUMENT error  | The path is not a valid Slurm path, or the request is too large.                                                                               |
-| UNAVAILABLE error        | The cluster is temporarily unreachable. Retry after a short wait.                                                                              |
+| What you see             | What it means                                                                                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Status 200 with a job id | Job submitted successfully.                                                                                                                             |
+| Status 200, no errors    | Request succeeded.                                                                                                                                      |
+| Status 200 with warnings | Request succeeded, but Slurm ignored or adjusted something. Read the warning.                                                                           |
+| Status 404 for a job     | The job isn't in the live queue; it may have finished. Try the history path.                                                                            |
+| Status 400 or 500        | Slurm rejected the request. Reasons for the rejection could include a malformed body or a field of the wrong type. Read the error in `structuredBody` . |
+| PERMISSION\_DENIED error | You don't have access to this cluster.                                                                                                                  |
+| NOT\_FOUND error         | The cluster name is wrong or the cluster doesn't exist.                                                                                                 |
+| INVALID\_ARGUMENT error  | The path is not a valid Slurm path, or the request is too large.                                                                                        |
+| UNAVAILABLE error        | The cluster is temporarily unreachable. Retry after a short wait.                                                                                       |
 
 ## Limits
 

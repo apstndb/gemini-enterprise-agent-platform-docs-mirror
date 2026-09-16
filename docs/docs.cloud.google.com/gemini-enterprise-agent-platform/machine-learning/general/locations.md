@@ -149,7 +149,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -203,7 +202,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Monitoring</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -259,7 +257,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Monitoring</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -280,7 +277,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -339,7 +335,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
@@ -347,7 +342,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">europe-central2</code><br />
-</td>
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Warsaw, Poland, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -393,7 +388,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Custom model training</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
 <li>Agent Platform Vizier</li>
@@ -413,7 +407,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -434,7 +427,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Monitoring</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -455,7 +447,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Monitoring</li>
 <li>Model Registry</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -479,7 +470,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -508,7 +498,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">europe-west8</code><br />
-</td>
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Milan, Italy, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -544,7 +534,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">europe-west12</code><br />
-</td>
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Turin, Italy, Europe</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -700,7 +690,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -741,7 +730,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -796,7 +784,6 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 <li>Model Registry</li>
 <li>Neural Architecture Search</li>
 <li>Vector Search</li>
-<li>Agent Runtime</li>
 <li>Gemini Enterprise Agent Platform Experiments</li>
 <li>Agent Platform Pipelines</li>
 <li>Vertex AI TensorBoard</li>
@@ -806,7 +793,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">us-west2</code><br />
-</td>
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Los Angeles, California, North America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -961,7 +948,7 @@ Asia Pacific Europe Middle East North America South America
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">europe-central2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Warsaw, Poland, Europe</td>
 <td><code dir="ltr" translate="no">europe-central2-a</code><br />
 <code dir="ltr" translate="no">europe-central2-b</code><br />
@@ -1113,7 +1100,7 @@ Asia Pacific Europe Middle East North America South America
 </tr>
 <tr class="odd">
 <td><code dir="ltr" translate="no">us-west2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-</td>
+<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
 <td>Los Angeles, California, North America</td>
 <td><code dir="ltr" translate="no">us-west2-a</code><br />
 <code dir="ltr" translate="no">us-west2-b</code><br />

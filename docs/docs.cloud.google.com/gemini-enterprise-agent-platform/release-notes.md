@@ -10,6 +10,16 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 15, 2026
+
+Feature
+
+**Reinforcement learning fine-tuning in the Google Cloud console (Preview)**
+
+You can create, monitor, and test reinforcement learning fine-tuning jobs for Gemini models in the Google Cloud console ( [Preview](https://cloud.google.com/products#product-launch-stages) ). From the **Models \> Tuning** page, you can configure Python code or model-based reward functions, test reward logic against sample prompts before launching a job, track training and evaluation metrics in real time, and test tuned checkpoints in Agent Studio.
+
+For more information, see [Quick start: Reinforcement learning fine-tuning using the console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) .
+
 ## September 14, 2026
 
 Fixed
@@ -34,6 +44,16 @@ Feature
 Anthropic's Cyber Verification Program (CVP) is available in [Preview](https://cloud.google.com/products#product-launch-stages) on Gemini Enterprise Agent Platform. CVP enables verified organizations to use supported Claude models (Claude Opus 4.7, Claude Opus 4.8, Claude Sonnet 5, and Claude Opus 5) for legitimate defensive cybersecurity tasks with default dual-use restrictions lifted.
 
 For more information, see [Cyber Verification Program for Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program) .
+
+## September 10, 2026
+
+Feature
+
+**Provisioned Throughput: Support for multiple pending orders and change requests**
+
+Provisioned Throughput now directly supports from the self service console the ability to schedule multiple new orders at the same time and change requests across multiple orders within the same project.
+
+For more information, see [Purchase Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput) .
 
 ## September 09, 2026
 

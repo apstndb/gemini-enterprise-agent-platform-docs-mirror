@@ -144,7 +144,7 @@ For configuration details, see the [Continuous tuning](https://docs.cloud.google
 
 After a successful reinforcement learning fine-tuning job on the base Gemini model, a tuned model based on the last checkpoint is deployed to an endpoint in your project. Tuned models use the same serving endpoint strategy as the base model. For example, if you run a tuning job in `us-central1` , the tuned model is deployed to a `us` multi-region endpoint (mREP).
 
-To retrieve the deployed tuned-model endpoint and run inference against it, see the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) page.
+To retrieve the deployed tuned-model endpoint and run inference against it, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) .
 
 ## Pricing
 
@@ -160,6 +160,6 @@ If you configure the Gen AI evaluation service to run automatically during tunin
 
 ## What's next
 
-  - Follow the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  - Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
   - Learn how to prepare a [tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) and configure [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
   - Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy-a-tuned-model) .

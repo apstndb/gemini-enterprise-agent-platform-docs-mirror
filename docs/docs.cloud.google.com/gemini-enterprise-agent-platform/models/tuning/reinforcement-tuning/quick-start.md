@@ -1,8 +1,8 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start
-title: 'Quick start: Reinforcement learning fine-tuning'
-description: Quick start guide for creating, monitoring, and running inference on a reinforcement learning fine-tuned Gemini model.
+title: 'Quick start: Reinforcement learning fine-tuning using the API'
+description: Quick start guide for creating, monitoring, and running inference on a reinforcement learning fine-tuned Gemini model by using the Agent Platform API.
 data_source: docs.cloud.google.com
 ---
 
@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products** . These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 
-This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it.
+This page walks you through the end-to-end workflow for reinforcement learning fine-tuning of Gemini models by using the Agent Platform API: creating a tuning job, checking its status, retrieving the tuned-model endpoint, and running inference against it. To complete these tasks in the Google Cloud console, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) .
 
 Before you begin, see [About reinforcement learning fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning) for an overview of the feature, supported models, and supported regions.
 
@@ -29,8 +29,8 @@ The examples on this page use `us-central1` as the tuning region. The resulting 
         "tunedModelDisplayName": "dai-image-test",
         "baseModel": "gemini-3.5-flash",
         "reinforcementTuningSpec": {
-          "trainingDatasetUri": "gs://path/to/your/training_dataset.jsonl",
-          "validationDatasetUri": "gs://path/to/your/eval_dataset.jsonl",
+          "trainingDatasetUri": "gs://path/to/my/training_dataset.jsonl",
+          "validationDatasetUri": "gs://path/to/my/eval_dataset.jsonl",
           "hyperParameters": {
             "epochCount":15,
             "learningRateMultiplier":1.0,
@@ -43,10 +43,10 @@ The examples on this page use `us-central1` as the tuning region. The resulting 
             "thinkingLevel":"HIGH"
           },
           "singleRewardConfig": {
-            "rewardName": "your_reward_function_name",
+            "rewardName": "my_reward_function_name",
             "parseResponseConfig": {"parseType":"IDENTITY"},
             "cloudRunRewardScorer": {
-              "cloudRunUri":"https://your.cloud.run.uri"
+              "cloudRunUri":"https://my.cloud.run.uri"
             }
           }
         }
@@ -60,7 +60,7 @@ Replace the following:
 
 ## Check the reinforcement learning fine-tuning job status
 
-You can monitor the progress, performance, and quality of a running reinforcement learning fine-tuning job in the Google Cloud console on the [**Agent Platform \> Model \> Tuning**](https://console.cloud.google.com/agent-platform/tuning) page. Each tuning job has a dedicated monitoring view that surfaces the underlying tuning status with charts for training and evaluation rewards, generation length, and other tuning metrics. For the full list of emitted metrics and how to interpret them, see the [Metrics and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) page.
+You can monitor the progress, performance, and quality of a running reinforcement learning fine-tuning job in the Google Cloud console on the [**Models \> Tuning**](https://console.cloud.google.com/agent-platform/tuning) page. Each tuning job has a dedicated monitoring view that surfaces the underlying tuning status with charts for training and evaluation rewards, generation length, and other tuning metrics. For the full list of emitted metrics and how to interpret them, see the [Metrics and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) page.
 
 ### Training time
 
@@ -101,7 +101,7 @@ Once the tuning job succeeds, `endpoint` from the last checkpoint is shown in th
 
 ## Run inference on the tuned-model endpoint
 
-The tuned model serves predictions through the standard `generateContent` API on the returned endpoint. Because the tuning job ran in `us-central1` , the tuned model is served from the `us` multi-region endpoint.
+The tuned model serves predictions through the standard `generateContent` API on the returned endpoint. If the tuning job ran in `us-central1` , the tuned model is served from the `us` multi-region endpoint.
 
     curl -X POST \
       -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
@@ -127,3 +127,7 @@ Replace the following:
 ## What's next
 
   - Learn more about [reinforcement learning fine-tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job) .
+  - Explore supported [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) .
+  - Configure [hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) for reinforcement learning.
+  - Learn how to track [metrics and monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
+  - Try the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) to create tuning jobs by using the Google Cloud console.

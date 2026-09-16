@@ -157,7 +157,7 @@ This section lists the types of payloads that Model Armor sanitizes.
 
 ### Client-to-Agent (ingress) traffic
 
-For Client-to-Agent (ingress) traffic using the ADK protocol, Model Armor sanitizes only [`reasoningEngines.streamQuery`](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.reasoningEngines/streamQuery) requests and responses for agents that were built using Agent Development Kit (ADK) and are running on Agent Runtime.
+For Client-to-Agent (ingress) traffic using the ADK protocol, Model Armor sanitizes only [`reasoningEngines.streamQuery`](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.reasoningEngines/streamQuery) requests and responses for agents that were built using Agent Development Kit (ADK) and are running on Vertex AI Agent Engine.
 
 All other [`ReasoningEngine`](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.reasoningEngines) payloads and `ReasoningEngine` error responses aren't sent to Model Armor. Non-ADK payloads (such as Langchain payloads) are also not sent to Model Armor.
 

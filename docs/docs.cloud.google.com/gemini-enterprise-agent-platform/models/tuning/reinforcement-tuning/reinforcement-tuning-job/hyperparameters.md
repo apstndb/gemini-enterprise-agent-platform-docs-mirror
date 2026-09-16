@@ -10,7 +10,7 @@ data_source: docs.cloud.google.com
 > 
 > These Pre-GA products are in various stages of internal testing and review. As such, **do not use proprietary, sensitive, or other confidential data with these products** . These products are made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 
-Hyperparameters control how the model weights are updated during reinforcement learning fine-tuning. The defaults are tuned to work well for most workloads, but you can override any of them in the request body when you [create a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/create) .
+Hyperparameters control how the model weights are updated during reinforcement learning fine-tuning. The defaults are tuned to work well for most workloads, but you can override any of them in the Google Cloud console (under **Model details \> Advanced options \> Tuning setting** when creating a tuned model) or in the request body when you [create a tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs/create) with the REST API.
 
 ## Available hyperparameters
 
@@ -80,4 +80,4 @@ The LoRA adapter size. Larger adapter sizes provide greater learning capacity fo
   - [Prepare a tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) .
   - [Define reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) for your tuning job.
   - [Monitor job status and metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
-  - Follow the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  - Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.

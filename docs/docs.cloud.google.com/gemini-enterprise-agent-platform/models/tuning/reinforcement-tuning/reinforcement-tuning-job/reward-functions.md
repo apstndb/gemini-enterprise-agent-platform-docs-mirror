@@ -32,6 +32,23 @@ The following timeouts apply per reward type:
 | Gemini-based autorater | 1 minute timeout while waiting for an LLM rating response |
 | Cloud Run              | 5 minute timeout for every trigger                        |
 
+## Configure rewards in the Google Cloud console
+
+When you create a reinforcement learning fine-tuning job in the Google Cloud console under **Models \> Tuning** , the **Reward configuration** step lets you configure single or composite rewards:
+
+1.  Enter a **Reward name** and choose a **Reward type** from the drop-down menu:
+    
+      - **String matching reward** : Configure a **Parse type** (such as regular expression extraction), **Match operation** (such as **Exact match** ), and target **Expression** , along with rewards for correct and wrong answers.
+      - **LLM based reward** : Provide an autorater prompt and configure how the autorater's output is parsed and scored.
+      - **Python function based reward** : Enter custom Python evaluation code directly in the inline editor or upload a Python file.
+      - **Fully customizable reward via Cloud Run** : Provide the URI of your Cloud Run service.
+
+2.  Specify a **Reward weight** for the reward card.
+
+3.  Click **Done** .
+
+4.  To configure a composite reward, click **+ Add another reward** (up to 16 rewards). Each collapsed reward card displays its configured weight, and the form displays the total weight summary.
+
 ## String matching reward
 
 API spec: [`ReinforcementTuningStringMatchRewardScorer`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.tuningJobs#ReinforcementTuningStringMatchRewardScorer)
@@ -208,8 +225,19 @@ API spec: [`ValidateReinforcementTuningReward`](https://docs.cloud.google.com/ge
 
 Tuning jobs can be expensive, and rewards are crucial to making your tuning job effective. We recommend validating your reward configuration before launching a tuning job:
 
-  - Use the `ValidateReinforcementTuningReward` API to check the validity and robustness of your reward. Small errors — such as parsing errors, unhandled edge cases, or invalid code snippets — can invalidate your reward and your tuning.
+  - Test the validity and robustness of your reward in the Google Cloud console or by calling the `ValidateReinforcementTuningReward` API. Small errors — such as parsing errors, unhandled edge cases, or invalid code snippets — can invalidate your reward and your tuning.
   - Perform an evaluation with the customized reward on a sample of your dataset. Reinforcement learning can't learn well when the reward is either too hard (rewards are almost always `0` ) or too straightforward (rewards are almost always `1` ) for the dataset.
+
+### Validate in the Google Cloud console
+
+In the **Test reward (Optional)** step of the **Create a tuned model** wizard:
+
+1.  In the **Training Example** editor, enter a sample JSON dataset line containing `systemInstruction` , `contents` , and `references` .
+2.  In the **Sample model response** field, enter a sample response or click **Generate from Training Example** to have the base model generate a sample response.
+3.  Click **Test** to evaluate your reward configuration against the sample.
+4.  Review the resulting status banner and overall score. Click **See individual reward information** (or **See individual scores and debug info** for composite rewards) to open the side drawer and inspect per-reward scores, error messages, and debug logs.
+
+### Validate by using the REST API
 
 The `ValidateReinforcementTuningReward` API expects a `sampleResponse` (of type `Content` , usually obtained from a Gemini model output), an `RLFTExample` , and one of `singleRewardConfig` or `compositeRewardConfig` . If the returned result contains an error or `NaN` , then there is something wrong with the reward setup that you need to address before running the actual tuning job.
 
@@ -226,4 +254,4 @@ Replace PROJECT\_ID with your Google Cloud project ID.
   - [Prepare a tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) and populate the `references` field for your reward function.
   - [Configure hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) .
   - [Monitor job status and metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) , including per-reward metrics for composite rewards.
-  - Follow the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.
+  - Follow the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) to create your first reinforcement learning fine-tuning job.

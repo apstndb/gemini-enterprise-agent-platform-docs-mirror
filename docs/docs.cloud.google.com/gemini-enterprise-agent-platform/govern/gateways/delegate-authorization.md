@@ -28,7 +28,7 @@ Before you begin, ensure that you meet the following requirements:
 
   - The Agent Gateway is deployed. See [Configure Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) .
 
-  - You must have the `agentGateway.use` IAM permission on the deployed Agent Gateway resource to be able to attach authorization policies to the gateway.
+  - You must have the `networkservices.agentGateways.use` IAM permission on the deployed Agent Gateway resource to be able to attach authorization policies to the gateway.
 
 ## Configure authorization policies with extensions
 

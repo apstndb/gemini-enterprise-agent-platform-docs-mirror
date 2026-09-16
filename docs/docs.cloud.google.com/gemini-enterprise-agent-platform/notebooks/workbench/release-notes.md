@@ -12,6 +12,16 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators) , or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly.
 
+## September 08, 2026
+
+v2
+
+Fixed
+
+**Scheduled upgrade metadata is validated**
+
+The value of the `notebook-upgrade-schedule` metadata key is now validated when you create or update an Agent Platform Workbench instance. The value must be a single-line [unix-cron format](https://man7.org/linux/man-pages/man5/crontab.5.html) schedule. For more information, see [Manage features through metadata](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata#keys) .
+
 ## July 13, 2026
 
 v2

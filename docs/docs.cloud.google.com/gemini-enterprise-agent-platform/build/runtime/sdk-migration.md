@@ -25,7 +25,7 @@ is replaced by
     client = vertexai.Client(project=GCP_PROJECT, location=GCP_REGION)
     client.agent_engines.create(...)
 
-The following namespaces for Agent Runtime in the Vertex AI SDK are in the deprecation phase. Use the equivalent namespaces from the client-based Vertex AI SDK, which has full feature parity with the deprecated modules and packages.
+The following namespaces for Vertex AI Agent Engine in the Vertex AI SDK are in the deprecation phase. Use the equivalent namespaces from the client-based Vertex AI SDK, which has full feature parity with the deprecated modules and packages.
 
 <table>
 <colgroup>

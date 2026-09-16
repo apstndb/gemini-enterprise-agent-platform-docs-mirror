@@ -109,7 +109,7 @@ The log entry payload that is expressed as a JSON object. The JSON object contai
       - `mcpInfo` : Includes information about the MCP method of the request (for example, "tools/list" or "tools/call") and the primary parameter associated with the method, if any. For example, in the case of the "tools/call" method the parameter is the tool name.
       - `agentRegistryResource` : The Agent Registry resource name of the MCP server, agent, or endpoint that was matched to the request.
 
-  - You can also inspect the details of the [`serviceEntensionsInfo`](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#what-is-logged-for-callouts) field for information about the authorization extension (IAP, Model Armor, or other) that handled the request.
+  - You can also inspect the details of the [`serviceExtensionsInfo`](https://docs.cloud.google.com/service-extensions/docs/monitor-lb-callouts#what-is-logged-for-callouts) field for information about the authorization extension (IAP, Model Armor, or other) that handled the request.
 
 ## Monitoring
 

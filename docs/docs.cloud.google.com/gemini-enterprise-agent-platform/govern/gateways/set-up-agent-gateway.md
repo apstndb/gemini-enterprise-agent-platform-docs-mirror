@@ -19,7 +19,6 @@ The following permissions are required to create and manage Agent Gateways. You 
   - `compute.networkAttachments.list`
   - `compute.regions.list`
   - `modelarmor.templates.list`
-  - `modelarmor.templates.list`
   - `networksecurity.authzPolicies.create`
   - `networksecurity.authzPolicies.delete`
   - `networksecurity.authzPolicies.get`

@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 A reinforcement learning fine-tuning job for Gemini models is configured with three main building blocks: a [tuning dataset](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/tuning-dataset) , [hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) that control the training process, and one or more [reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) that score each model response. The service also exposes [metrics and job status for monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/job-status-metrics-monitoring) .
 
-For an end-to-end example of creating a tuning job, retrieving the tuned model, and running inference, see the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) .
+For an end-to-end example of creating a tuning job, retrieving the tuned model, and running inference, see the [Google Cloud console quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start-console) or the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start) .
 
 ## Prepare the tuning dataset
 
@@ -24,7 +24,7 @@ For the full dataset schema, the modality-specific dataset limits, and an exampl
 
 ## Configure hyperparameters
 
-Hyperparameters control how the model is updated during reinforcement learning fine-tuning, including the thinking level used during generation, batch size, samples per prompt, learning rate multiplier, epoch count, evaluation and checkpoint intervals, maximum output length, and the LoRA adapter size. The defaults work well for most workloads, but you can override any of them in the request body when you create a tuning job.
+Hyperparameters control how the model is updated during reinforcement learning fine-tuning, including the thinking level used during generation, batch size, samples per prompt, learning rate multiplier, epoch count, evaluation and checkpoint intervals, maximum output length, and the LoRA adapter size. The defaults work well for most workloads, but you can override any of them when you create a tuning job.
 
 For default values, allowed ranges, dataset-size-dependent rules, and recommended combinations, see the [Hyperparameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/hyperparameters) page.
 
@@ -39,7 +39,7 @@ Reinforcement learning fine-tuning supports the following reward types:
   - **Cloud Run reward** — Calls a user-managed Cloud Run service that returns a scalar reward, for fully customizable scoring logic.
   - **Composite reward** — Combines any of the above reward types with per-scorer weights.
 
-Before you launch a tuning job, we strongly recommend validating your reward configuration with the `ValidateReinforcementTuningReward` API.
+Before you launch a tuning job, we strongly recommend validating your reward configuration in the Google Cloud console or with the `ValidateReinforcementTuningReward` API method.
 
 For detailed configuration schemas, code samples, IAM setup, and reward-design best practices, see the [Reward functions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/reinforcement-tuning-job/reward-functions) page.
 
@@ -47,8 +47,8 @@ For detailed configuration schemas, code samples, IAM setup, and reward-design b
 
 Once a tuning job is launched, you can track its lifecycle state (such as `JOB_STATE_PENDING` , `JOB_STATE_RUNNING` , `JOB_STATE_SUCCEEDED` , `JOB_STATE_FAILED` , `JOB_STATE_CANCELLING` , `JOB_STATE_CANCELLED` ) and inspect tuning progress in two ways:
 
-  - **Programmatically** — Issue a `GetTuningJob` request to retrieve the job's state, `tunedModel` , error details, and metadata. See the [Quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start#get-the-tuned-model-endpoint) for an example `curl` command.
-  - **Visually** — Open the job's monitoring page in the Google Cloud console under [**Agent Platform \> Model \> Tuning**](https://console.cloud.google.com/agent-platform/tuning) , which shows the underlying tuning experiment with charts for the training and evaluation metrics emitted at each step (reward, generation length, reward latency, per-reward breakdowns for composite rewards, and so on).
+  - **Programmatically** — Issue a `GetTuningJob` request to retrieve the job's state, `tunedModel` , error details, and metadata. See the [API quick start](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start#get-the-tuned-model-endpoint) for an example `curl` command.
+  - **Visually** — Open the job's monitoring page in the Google Cloud console under [**Models \> Tuning**](https://console.cloud.google.com/agent-platform/tuning) , which shows the underlying tuning experiment with charts for the training and evaluation metrics emitted at each step (reward, generation length, reward latency, per-reward breakdowns for composite rewards, and so on).
 
 Reinforcement learning fine-tuning also produces intermediate checkpoints at the frequency set by `checkpointInterval` , which you can deploy and evaluate independently before the job completes.
 

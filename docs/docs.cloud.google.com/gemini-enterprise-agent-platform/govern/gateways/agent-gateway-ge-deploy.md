@@ -20,7 +20,7 @@ Before you deploy your Agent Gateway, pick the region where you deploy the gatew
 
   - **Location mapping:** Deploy the Agent Gateway in the specific region that corresponds to your Gemini Enterprise app's multi-region setup to ensure proper routing.
 
-  - **Registry mapping:** Choose either the global, multi-region, or regional registry for your deployment. See [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) for more guidance on deployment patterns and registry choices.
+  - **Registry mapping:** You can associate up to two registries with an Agent Gateway (one global registry and one regional or multi-regional registry). See [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) for more guidance on deployment patterns and registry choices.
 
 > **Caution:** Multi-region `eu` and `us` registries don't support manual registration of agents, endpoints, and MCP servers.
 
@@ -42,7 +42,7 @@ Before you deploy your Agent Gateway, pick the region where you deploy the gatew
 <tr class="odd">
 <td><code dir="ltr" translate="no">global</code></td>
 <td><code dir="ltr" translate="no">us-central1</code></td>
-<td><p>Choose <em>one</em> of the following:</p>
+<td><p>Choose up to <em>two</em> of the following (one global and one regional or multi-regional):</p>
 <ul>
 <li><code dir="ltr" translate="no">global</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/global)</code></li>
 <li><code dir="ltr" translate="no">us</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/us</code> )</li>
@@ -52,7 +52,7 @@ Before you deploy your Agent Gateway, pick the region where you deploy the gatew
 <tr class="even">
 <td><code dir="ltr" translate="no">us</code></td>
 <td><code dir="ltr" translate="no">us-central1</code></td>
-<td><p>Choose <em>one</em> of the following:</p>
+<td><p>Choose up to <em>two</em> of the following (one global and one regional or multi-regional):</p>
 <ul>
 <li><code dir="ltr" translate="no">global</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/global)</code></li>
 <li><code dir="ltr" translate="no">us</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/us</code> )</li>
@@ -62,7 +62,7 @@ Before you deploy your Agent Gateway, pick the region where you deploy the gatew
 <tr class="odd">
 <td><code dir="ltr" translate="no">eu</code></td>
 <td><code dir="ltr" translate="no">europe-west1</code></td>
-<td><p>Choose <em>one</em> of the following:</p>
+<td><p>Choose up to <em>two</em> of the following (one global and one regional or multi-regional):</p>
 <ul>
 <li><code dir="ltr" translate="no">global</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/global)</code></li>
 <li><code dir="ltr" translate="no">eu</code> ( <code dir="ltr" translate="no">//agentregistry.googleapis.com/projects/           PROJECT_ID          /locations/eu</code> )</li>
@@ -186,47 +186,51 @@ This example creates a custom constraint that blocks all bindings between Gemini
 
 ### Agent-to-Anywhere
 
-1.  To define a custom constraint for Agent-to-Anywhere mode (egress), create a file named `constraint-agent-gateway-egress.yaml` .
-    
-    The following example shows you how to enforce strict network isolation by disallowing any bindings. The `condition` field specifies that the operation is denied if an Agent Gateway resource is specified (field is present and not empty).
-    
-        name: organizations/ORGANIZATION_ID/customConstraints/custom.disallowGeminiEnterpriseAgentGatewayBinding
-        resource_types:
-        – discoveryengine.googleapis.com/Engine
-        condition: >-
-        has(resource.agentGatewaySetting.defaultEgressAgentGateway.name) &&
-        resource.agentGatewaySetting.defaultEgressAgentGateway.name != ''
-        actionType: DENY
-        displayName: "Disallow all Agent Gateway Bindings for Discovery Engines"
-        description: "To enforce strict network isolation, Discovery Engines are not permitted to bind to any Agent Gateway."
-    
-    Replace the following:
-    
-      - ORGANIZATION\_ID : your organization ID.
-      - PROJECT\_ID : your project ID.
-      - REGION : the region where the gateway was created.
-      - AGENT\_GATEWAY\_NAME : your gateway name.
+To define a custom constraint for Agent-to-Anywhere mode (egress), create a file named `constraint-agent-gateway-egress.yaml` .
 
-2.  Apply the custom constraint.
-    
-        gcloud org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
-    
-    Replace EGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
+The following example shows you how to enforce strict network isolation by disallowing any bindings. The `condition` field specifies that the operation is denied if an Agent Gateway resource is specified (field is present and not empty).
 
-3.  Create the organization policy to enforce the constraint. To define the organization policy, create a policy YAML file named `policy-agent-gateway-egress.yaml` . In this example we enforce this constraint at the project level but you might also set this at the organization or folder level.
+    name: organizations/ORGANIZATION_ID/customConstraints/custom.disallowGeminiEnterpriseAgentGatewayBinding
+    resource_types:
     
-        name: projects/PROJECT_ID/policies/custom.disallowGeminiEnterpriseAgentGatewayBinding
-        spec:
-        rules:
-        – enforce: true
     
-    Replace `  PROJECT_ID  ` with your project ID.
+    discoveryengine.googleapis.com/Engine
+    condition: >-
+    has(resource.agentGatewaySetting.defaultEgressAgentGateway.name) &&
+    resource.agentGatewaySetting.defaultEgressAgentGateway.name != ''
+    actionType: DENY
+    displayName: "Disallow all Agent Gateway Bindings for Discovery Engines"
+    description: "To enforce strict network isolation, Discovery Engines are not permitted to bind to any Agent Gateway."
 
-4.  Enforce the organization policy.
+Replace the following:
+
+  - ORGANIZATION\_ID : your organization ID.
+  - PROJECT\_ID : your project ID.
+  - REGION : the region where the gateway was created.
+  - AGENT\_GATEWAY\_NAME : your gateway name.
+
+Apply the custom constraint.
+
+    gcloud org-policies set-custom-constraint EGRESS_CONSTRAINT_PATH
+
+Replace EGRESS\_CONSTRAINT\_PATH with the full path to the custom constraint file created in the previous step.
+
+Create the organization policy to enforce the constraint. To define the organization policy, create a policy YAML file named `policy-agent-gateway-egress.yaml` . In this example we enforce this constraint at the project level but you might also set this at the organization or folder level.
+
+    name: projects/PROJECT_ID/policies/custom.disallowGeminiEnterpriseAgentGatewayBinding
+    spec:
+    rules:
     
-        gcloud org-policies set-policy EGRESS_POLICY_PATH
     
-    Replace EGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
+    enforce: true
+
+Replace `  PROJECT_ID  ` with your project ID.
+
+Enforce the organization policy.
+
+    gcloud org-policies set-policy EGRESS_POLICY_PATH
+
+Replace EGRESS\_POLICY\_PATH with the full path to the organization policy YAML file created in the previous step. The policy requires up to 15 minutes to take effect.
 
 For more information about how to use custom organization policy constraints, see [Create custom constraints](https://docs.cloud.google.com/organization-policy/create-custom-constraints) .
 
