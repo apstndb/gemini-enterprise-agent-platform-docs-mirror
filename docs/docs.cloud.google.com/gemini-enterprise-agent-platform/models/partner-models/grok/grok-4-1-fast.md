@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 > **Deprecated:** The Grok 4.1 model family (including `xai/grok-4.1-fast-reasoning` and `xai/grok-4.1-fast-non-reasoning` ) is deprecated on the Gemini Enterprise Agent Platform and will be shut down on August 20, 2026. After this date, Google Agent Platform Model as a Service (MaaS) will no longer serve these models. To maintain service, migrate your applications to newer xAI models (such as Grok 4.2 or Grok 4.3) or choose an alternative model from the Google Cloud Model Garden.
 
-Grok 4.1 Fast is xAI's most cost-effective model. It excels at tool calling for lightweight tasks, powers latency-sensitive applications, and shines in search-related tasks.
+Grok 4.1 Fast is a cost-effective model from xAI. It excels at tool calling for lightweight tasks, powers latency-sensitive applications, and performs well in search-related tasks.
 
 ## Reasoning
 

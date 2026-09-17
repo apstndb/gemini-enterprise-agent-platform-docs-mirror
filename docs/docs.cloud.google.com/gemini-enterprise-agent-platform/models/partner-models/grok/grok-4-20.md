@@ -6,7 +6,7 @@ description: Explore Grok 4.20 models.
 data_source: docs.cloud.google.com
 ---
 
-Grok 4.20 is xAI's flagship model that offers industry-leading inference speed and reliable agentic tool calling for complex tasks. It combines extremely low hallucination rates with strict prompt adherence, delivering consistently truthful and precise responses.
+Grok 4.20 is a high-performance model from xAI that offers fast inference speed and reliable agentic tool calling for complex tasks. It combines low hallucination rates with strict prompt adherence, delivering accurate and precise responses.
 
 ## Reasoning
 

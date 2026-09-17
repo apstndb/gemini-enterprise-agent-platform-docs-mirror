@@ -32,6 +32,26 @@ To find out how many tokens your workload requires, refer to the [SDK tokenizer]
 
 **Burndown rates**
 
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
+
+Latest supported version: `gemini-3.8-flash-cyber`
+
+675
+
+Tokens
+
+1
+
+1 input text token = 1 token  
+1 input image token = 1 token  
+1 input video token = 1 token  
+1 input audio token = 1 token  
+1 input text caching token = 0.1 tokens  
+1 input image caching token = 0.1 tokens  
+1 input video caching token = 0.1 tokens  
+1 input audio caching token = 0.1 tokens  
+1 output text response token = 5 tokens  
+
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
 
 Latest supported version: `gemini-3.8-flash`
@@ -977,6 +997,7 @@ The following table lists the Google models for which Provisioned Throughput sup
 
 | Model                                                                                                                                                 | Latest supported model version |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)                                | `gemini-3.8-flash-cyber`       |
 | [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `gemini-3.8-flash`             |
 | [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `gemini-3.7-flash`             |
 | [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`             |

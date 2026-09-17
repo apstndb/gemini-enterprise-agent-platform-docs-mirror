@@ -287,10 +287,10 @@ Here is what the core default parameters mean:
       - **Sub-parameters:**
           - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (e.g., `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
 
-  - **`model: "gemini-3.5-flash"`**
+  - **`model: "gemini-3.8-flash"`**
     
       - **What it means:** The default intelligence engine powering the backend reasoning loops.
-      - **Why this is the default:** `gemini-3.5-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
+      - **Why this is the default:** `gemini-3.8-flash` offers the optimal balance of speed, cost, and analytical reasoning required to suggest patches. (Users can override this to `gemini-3.1-pro` for deeper, more complex reasoning when needed).
 
   - **`vcs: { type: "git" }`**
     

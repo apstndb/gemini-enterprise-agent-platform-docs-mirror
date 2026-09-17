@@ -143,29 +143,11 @@ Selecting a global endpoint for your requests can improve overall availability w
 
 ### Supported models
 
-Usage of the global endpoint is supported for the following Google models in specified regions. For details about which models support the global endpoint, see the **Global** tab in the [Google model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models) .
+To see which models support the global endpoint, check the **Global** tab in the following tables:
 
-  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
-  - [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) (Preview)
-  - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
-  - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
-  - [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
-  - [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) (Preview)
-  - [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image)
-  - [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
-  - [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)
-  - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) (Preview)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) (Preview)
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)
-  - [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) (Preview)
-  - [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) (Preview)
-
-For information about global endpoint availability for partner models, see the **Global** tab in the [Google Cloud partner model endpoint locations table](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models) .
+  - [Google model endpoint locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#google-models)
+  - [Google Cloud partner model endpoint locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-partner-models)
+  - [Google Cloud open model endpoint locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#genai-open-models)
 
 ### Limitations
 
@@ -181,6 +163,7 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 | Model                                                                                                                                                 | Latest supported model version |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)                                | `gemini-3.8-flash-cyber`       |
 | [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `gemini-3.8-flash`             |
 | [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `gemini-3.7-flash`             |
 | [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`             |
@@ -207,6 +190,9 @@ Global
 (global)
 
 Gemini models
+
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
 
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
@@ -330,6 +316,9 @@ European Union multi-region
 (eu)
 
 Gemini models
+
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
 
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
@@ -469,6 +458,9 @@ Dallas
 
 Gemini models
 
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
+
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
 
@@ -591,6 +583,9 @@ São Paulo
 (southamerica-east1)
 
 Gemini models
+
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
 
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
@@ -739,6 +734,9 @@ Paris
 
 Gemini models
 
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
+
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
 
@@ -877,6 +875,9 @@ Seoul
 
 Gemini models
 
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
+
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
 
@@ -1002,6 +1003,9 @@ Dammam
 (me-central2)
 
 Gemini models
+
+[Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
+`(gemini-3.8-flash-cyber)`
 
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)  
 `(gemini-3.8-flash)`
@@ -1665,6 +1669,23 @@ Global
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1685,6 +1706,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1731,6 +1755,23 @@ European Union multi-region
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1751,6 +1792,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1812,6 +1856,23 @@ Dallas
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1832,6 +1893,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1878,6 +1942,23 @@ São Paulo
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1898,6 +1979,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -1968,6 +2052,23 @@ Paris
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -1988,6 +2089,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -2049,6 +2153,23 @@ Seoul
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -2069,6 +2190,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 
@@ -2118,6 +2242,23 @@ Dammam
 
 Deepseek models
 
+[DeepSeek-OCR](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-ocr-maas)  
+`(deepseek-ocr-maas)`
+
+[DeepSeek-V3.2](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.2-maas)  
+`(deepseek-v3.2-maas)`
+
+[DeepSeek-V3.1](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-v3.1-maas)  
+`(deepseek-v3.1-maas)`
+
+[DeepSeek R1 (0528)](https://console.cloud.google.com/agent-platform/publishers/deepseek-ai/model-garden/deepseek-r1-0528-maas)  
+`(deepseek-r1-0528-maas)`
+
+Google models
+
+[Gemma 4 26B A4B IT](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma-4-26b-a4b-it-maas) experimental  
+`(gemma-4-26b-a4b-it-maas)`
+
 ZAI.org models
 
 [GLM 4.7](https://console.cloud.google.com/agent-platform/publishers/zai-org/model-garden/glm-4.7-maas)  
@@ -2138,6 +2279,9 @@ OpenAI models
 `(gpt-oss-20b-maas)`
 
 Moonshot AI models
+
+[Kimi K2 Thinking](https://console.cloud.google.com/agent-platform/publishers/moonshotai/model-garden/kimi-k2-thinking-maas)  
+`(kimi-k2-thinking-maas)`
 
 Llama models
 

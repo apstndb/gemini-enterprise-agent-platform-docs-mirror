@@ -8,6 +8,8 @@ data_source: docs.cloud.google.com
 
 Data stored at rest in the customer selected location remains at rest in that [location](https://cloud.google.com/about/locations) , independent of the Agent Platform endpoint called by that customer's request.
 
+Global endpoints are listed on the [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) page. Requests submitted to a `global` endpoint may be processed in any Google Cloud location around the world, and therefore don't provide any data residency guarantees. See [Cloud locations](https://cloud.google.com/about/locations) for a list of Google Cloud data center locations.
+
 ## Where your data lives and is processed
 
 Gemini Enterprise Agent Platform provides transparency on where your data is stored ("at rest") and where the actual model computation ("ML processing") happens.
@@ -558,16 +560,15 @@ To learn what capabilities support data residency, see [Supported capabilities](
 
 ### Google Cloud partner model support
 
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -582,13 +583,11 @@ To learn what capabilities support data residency, see [Supported capabilities](
 (asia-southeast1)</th>
 <th>Taiwan<br />
 (asia-east1)</th>
-<th>Global</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -604,11 +603,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Fable 5 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -624,11 +621,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Opus 4 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -644,11 +639,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Opus 4.5 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -664,11 +657,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -684,11 +675,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Sonnet 4 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -704,11 +693,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude Sonnet 4.6 on Google Cloud</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -724,11 +711,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Anthropic's Claude 3 Haiku on Google Cloud (deprecated)</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -744,11 +729,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Codestral (24.05)</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -764,11 +747,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Mistral Large (24.07)</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -784,11 +765,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Mistral OCR (25.05)</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -804,7 +783,6 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -813,11 +791,10 @@ To learn what capabilities support data residency, see [Supported capabilities](
 
 <table>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -826,13 +803,11 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <th>EU multi-region</th>
 <th>Singapore<br />
 (asia-southeast1)</th>
-<th>Global</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>DeepSeek-OCR</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -842,11 +817,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>DeepSeek-V3.1</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -856,11 +829,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Gemma 4 26B A4B IT</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -870,11 +841,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>GLM 5</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -884,11 +853,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>gpt-oss 120B</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -898,11 +865,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Kimi K2 Thinking</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -912,11 +877,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Llama 4 Maverick 17B-128E (Preview)</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -926,11 +889,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>MiniMax M2</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -940,11 +901,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Multilingual E5 Small</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -954,11 +913,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Qwen3 Coder</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -968,11 +925,9 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Qwen3-Next-80B Thinking</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>

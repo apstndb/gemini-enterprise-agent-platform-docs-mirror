@@ -156,6 +156,7 @@ Versions
 
   - Launch stage: GA
   - Release date: June 23, 2026
+  - Retirement date: June 28, 2027 or later
 
 Security controls
 

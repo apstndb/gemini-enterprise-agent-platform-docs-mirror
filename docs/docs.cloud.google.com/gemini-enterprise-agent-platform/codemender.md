@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 > 
 > Pre-GA products are in various stages of internal testing and review. As such, customers should closely supervise the use of CodeMender, and not use CodeMender in situations where serious errors cannot be corrected. This product is made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 > 
-> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) .
+> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) . When using CodeMender powered by a Gemini Cyber model, your access to and use of that model are also governed by Section 31(a) of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) (Gemini Cyber).
 > 
 > When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) (“Modifying, Disregarding, or Disabling Safety Filters”) of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
 
@@ -51,6 +51,7 @@ CodeMender supports the following models:
 
 #### Click to expand supported models
 
+  - [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)
   - [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)
   - [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
@@ -106,9 +107,10 @@ Before you initialize the CodeMender CLI, ensure your environment is prepared co
 
 ### Specifying the model
 
-By default, CodeMender uses Gemini 3.7 Flash. To override the default model, pass the `--model` flag with the corresponding model identifier:
+By default, CodeMender uses Gemini 3.8 Flash. To override the default model, pass the `--model` flag with the corresponding model identifier:
 
-  - Gemini 3.7 Flash (default): `--model gemini-3.7-flash`
+  - Gemini 3.8 Flash (default): `--model gemini-3.8-flash`
+  - Gemini 3.7 Flash: `--model gemini-3.7-flash`
   - Gemini 3.6 Flash: `--model gemini-3.6-flash`
   - Gemini 3.5 Flash: `--model gemini-3.5-flash`
   - Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`

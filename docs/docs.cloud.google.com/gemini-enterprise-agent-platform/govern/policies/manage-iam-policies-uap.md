@@ -161,9 +161,7 @@ Replace the following:
   - `  PROJECT_ID  ` : your project ID
   - `  BINDING_NAME  ` : a name for your policy binding
   - `  POLICY_NAME  ` : the name of the Access policy
-  - `  TARGET_RESOURCE  ` : the full resource URI for the binding target—for example:
-  - Project: ` //cloudresourcemanager.googleapis.com/projects/ PROJECT_ID  `
-  - Agent Gateway: ` //networkservices.googleapis.com/projects/ PROJECT_ID /locations/ LOCATION /agentGateways/ GATEWAY_NAME  `
+  - `  TARGET_RESOURCE  ` : the full resource URI for the project, formatted as follows: ` //cloudresourcemanager.googleapis.com/projects/ PROJECT_ID  `
 
 ## List policies and policy bindings
 

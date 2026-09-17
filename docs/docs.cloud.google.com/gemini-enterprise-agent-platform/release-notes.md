@@ -22,6 +22,17 @@ For more information, see [Quick start: Reinforcement learning fine-tuning using
 
 ## September 14, 2026
 
+Deprecated
+
+**Gemini model deprecation and retirement date updates**
+
+The retirement and deprecation dates for the following Gemini models have been updated:
+
+  - **Gemini 2.5 Flash Image ( `gemini-2.5-flash-image` )** : Deprecated and scheduled for retirement on March 15, 2027 (extended from October 2, 2026). Migrate to [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) ( `gemini-3.1-flash-lite-image` ).
+  - **Gemini 3.1 Flash-Lite Image ( `gemini-3.1-flash-lite-image` )** : Retirement date is scheduled for June 28, 2027 or later.
+
+For more information, see [Gemini model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) .
+
 Fixed
 
 **CodeMender updates (v0.7.0)**

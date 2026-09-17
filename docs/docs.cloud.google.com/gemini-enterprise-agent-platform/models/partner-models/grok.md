@@ -6,7 +6,7 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-> **Note:** xAI models are not a Google product, and its availability in Gemini Enterprise Agent Platform is subject to the terms for "Separate Offerings" in the AI/ML Services section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) , and separate terms found in the relevant model card.
+> **Note:** xAI models are not Google products, and their availability in Gemini Enterprise Agent Platform is subject to the terms for "Separate Offerings" in the AI/ML Services section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) , and separate terms found in the relevant model card.
 
 xAI Grok models are available for use as managed APIs on Gemini Enterprise Agent Platform. You can stream your responses to reduce the end-user latency perception. A streamed response uses *server-sent events* (SSE) to incrementally stream the response.
 
@@ -16,31 +16,31 @@ The following models are available from xAI to use in Gemini Enterprise Agent Pl
 
 ### Grok 4.6
 
-Grok 4.6 is xAI's most capable model, built for coding, agentic tasks, and knowledge work.
+Grok 4.6 is a high-capability model from xAI, built for coding, agentic tasks, and knowledge work.
 
 ### Grok 4.3
 
-Grok 4.3 is xAI's flagship model.
+Grok 4.3 is a high-performance model from xAI.
 
 ### Grok 4.20 (Reasoning)
 
-Grok 4.20 (Reasoning) is xAI's flagship model, featuring an industry-leading low hallucination rate. Excels at document understanding tasks and long-horizon agentic tool calling.
+Grok 4.20 (Reasoning) is a high-performance model from xAI, featuring a low hallucination rate. It excels at document understanding tasks and long-horizon agentic tool calling.
 
 ### Grok 4.20 (Non-reasoning)
 
-Grok 4.20 (Non-reasoning) is xAI's flagship non-thinking model, featuring an industry-leading low hallucination rate. Excels in latency-sensitive use cases like customer support and categorization.
+Grok 4.20 (Non-reasoning) is a high-performance non-thinking model from xAI, featuring a low hallucination rate. It excels in latency-sensitive use cases like customer support and categorization.
 
 ### Grok 4.1 Fast (Reasoning)
 
-Grok 4.1 Fast (Reasoning) is xAI's most cost-effective model, featuring strong tool-calling capabilities and efficient knowledge base synthesis. Excels at search tasks involving web data and internal knowledge base tools.
+Grok 4.1 Fast (Reasoning) is a cost-effective model from xAI, featuring strong tool-calling capabilities and efficient knowledge base synthesis. It excels at search tasks involving web data and internal knowledge base tools.
 
 ### Grok 4.1 Fast (Non-reasoning)
 
-Grok 4.1 Fast (Non-reasoning) is xAI's most cost-effective non-thinking model, optimized for low-latency performance. Excels at high-volume tasks like summarization and categorization.
+Grok 4.1 Fast (Non-reasoning) is a cost-effective non-thinking model from xAI, optimized for low-latency performance. It excels at high-volume tasks like summarization and categorization.
 
 ## Use xAI models
 
-For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names. To learn how to make streaming and non-streaming calls to xAI models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
+To learn how to make streaming and non-streaming calls to xAI models, see [Call open model APIs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/call-open-model-apis) .
 
 For managed models, you can use curl commands to send requests to the Gemini Enterprise Agent Platform endpoint using the following model names:
 
@@ -55,7 +55,7 @@ For managed models, you can use curl commands to send requests to the Gemini Ent
 
 Grok models have a global quota. The quota is specified in queries per minute (QPM) and tokens per minute (TPM). TPM includes both input and output tokens.
 
-To maintain overall service performance and acceptable use, the maximum quotas might vary by account and, in some cases, access might be restricted. View your project's quotas on the [Quotas & Systems Limits](https://console.cloud.google.com/quotas) page in the Google Cloud console. You must also have the following quotas available:
+To maintain overall service performance and acceptable use, the maximum quotas might vary by account and, in some cases, access might be restricted. View your project's quotas on the [**Quotas & System Limits**](https://console.cloud.google.com/quotas) page in the Google Cloud console. You must also have the following quotas available:
 
   - `global_generate_content_requests_per_minute_per_project_per_base_model` defines your QPM quota.
 

@@ -520,9 +520,11 @@ Save the request body in a file named `request.json` , and execute the following
 
 Monitor revisions for activity and problems by tracking the revision number as metadata in logs. See [Set up logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging) for information on setting up logging.
 
-## Update a revision
+## Create a new agent revision
 
-Update deployed agents following the instructions in [Update a deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) . You can update [versioned or unversioned fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#versioned_and_unversioned_fields) . If you update versioned fields, you'll create a new revision.
+To create a new revision, you update the versioned fields of a deployed agent. See [Update a deployed agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) for instructions.
+
+If you update [versioned fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#versioned_and_unversioned_fields) , a new revision is automatically created. If you update unversioned fields, the agent is updated across all of its existing revisions without creating a new one.
 
 ## Delete an agent revision
 

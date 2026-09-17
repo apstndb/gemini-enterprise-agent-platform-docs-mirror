@@ -20,7 +20,7 @@ Setting up VPC connectivity lets you do the following:
 
   - **Static source IP address range for egress traffic** : When you enable VPC connectivity, egress traffic originating from Agent Gateway uses the private IP address range of the subnet assigned to your Private Service Connect interface network attachment as its source IP address. This static source IP range lets you configure firewall policies for your VPC network to govern traffic coming from the gateway. When `vpcEgress` is set to `ALL_TRAFFIC` , you can enable internet egress for traffic routed through your VPC by configuring [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) on the subnet assigned to your Private Service Connect network attachment.
 
-  - **Custom DNS resolution** : You can resolve internal private domain names and external domain names directly from your agents. With Cloud DNS peering configured on your agent connectivity template, your agents can connect to services in the target VPC network using stable, human-readable internal DNS names instead of IP addresses. For public domain names and external SaaS endpoints, DNS queries resolve via standard recursive resolution without requiring DNS peering.
+  - **Custom DNS resolution** : You can resolve internal private domain names and external domain names directly from your agents. With Cloud DNS peering configured on your agent connectivity template, your agents can connect to services in the target VPC network using stable, human-readable internal DNS names instead of IP addresses. For public domain names and external SaaS endpoints, DNS queries resolve using standard recursive resolution without requiring DNS peering.
 
   - **Perimeter security and data exfiltration protection** : Enforce VPC Service Controls service perimeters for agent communications. To support VPC Service Controls, egress must be set to `ALL_TRAFFIC` in your agent connectivity template. When configured with `ALL_TRAFFIC` mode, all agent traffic is routed through your private VPC network attachment:
     
@@ -138,10 +138,10 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
                 
                 In `ALL_TRAFFIC` mode:
                 
-                  - **Public internet and SaaS traffic** : Resolves via standard public recursive DNS without requiring Cloud DNS peering. Outbound traffic enters your VPC network and exits to the public internet through Cloud NAT configured on the network attachment subnet.
-                  - **Internal private services** : Resolves private domain names (such as `corp.internal.` ) to RFC 1918 IP addresses via Cloud DNS peering with your private Cloud DNS managed zone.
+                  - **Public internet and SaaS traffic** : Resolves using standard public recursive DNS without requiring Cloud DNS peering. Outbound traffic enters your VPC network and exits to the public internet using Cloud NAT configured on the network attachment subnet.
+                  - **Internal private services** : Resolves private domain names (such as `corp.internal.` ) to RFC 1918 IP addresses using Cloud DNS peering with your private Cloud DNS managed zone.
                   - **Standard Google Cloud APIs (without VPC Service Controls)** : If you aren't using VPC Service Controls, Cloud DNS peering is not required for `googleapis.com.` . Requests to Google APIs resolve to default public VIPs and are routed privately through Private Google Access enabled on the network attachment subnet, bypassing Cloud NAT.
-                  - **Google Cloud APIs under VPC Service Controls** : Directs requests to the `restricted.googleapis.com` range ( `199.36.153.4/30` ) or internal PSC endpoints in your VPC network. Configuring Cloud DNS peering for `googleapis.com.` ensures that your agents resolve Google APIs to the restricted VIP range, enforcing perimeter security.
+                  - **Google Cloud APIs (with VPC Service Controls)** : Directs requests to the `restricted.googleapis.com` range ( `199.36.153.4/30` ) or internal PSC endpoints in your VPC network. Configuring Cloud DNS peering for `googleapis.com.` ensures that your agents resolve Google APIs to the restricted VIP range, enforcing perimeter security.
             
             The following table summarizes how DNS resolution and traffic routing operate across different traffic destinations:
             
@@ -180,20 +180,20 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
             (External domains)</td>
             <td><strong>No</strong></td>
             <td>Resolved by public recursive DNS at the gateway proxy.</td>
-            <td>Enters VPC network through network attachment and exits via Cloud NAT.</td>
+            <td>Enters VPC network through network attachment and exits using Cloud NAT.</td>
             </tr>
             <tr class="even">
             <td><strong>Google Cloud APIs</strong><br />
             (standard, without VPC Service Controls)</td>
             <td><strong>No</strong></td>
             <td>Resolved by public recursive DNS at the gateway proxy.</td>
-            <td>Enters VPC network through network attachment and routed privately via Private Google Access on the subnet.</td>
+            <td>Enters VPC network through network attachment and routed privately using Private Google Access on the subnet.</td>
             </tr>
             <tr class="odd">
             <td><strong>Google Cloud APIs</strong><br />
             (with VPC Service Controls)</td>
             <td><strong>Yes</strong> (for <code dir="ltr" translate="no">googleapis.com.</code> )</td>
-            <td>Resolved to the restricted range ( <code dir="ltr" translate="no">199.36.153.4/30</code> ) or PSC endpoint via private zone.</td>
+            <td>Resolved to the restricted range ( <code dir="ltr" translate="no">199.36.153.4/30</code> ) or PSC endpoint using a private zone.</td>
             <td>Enters VPC network through network attachment; VPC Service Controls perimeter enforced.</td>
             </tr>
             </tbody>
@@ -219,30 +219,30 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
     
     1.  Set up your private DNS zone for DNS resolution and traffic routing. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
     
-    2.  Gather the DNS information to enable peering based on your traffic requirements:
-        
-          - **Domain name** : The domain name for DNS peering. Each domain must end with a trailing dot ( `.` ) (for example, `corp.internal.` or `googleapis.com.` ). Note the following requirements by traffic type:
-        
-          - **Private internal domains** : To resolve private internal services hosted in your VPC network (for example, `service.corp.internal` ), specify your internal domain suffix (such as `corp.internal.` ). An exact-match private Cloud DNS managed zone for this domain must be authorized for the target VPC network.
-        
-          - **Public internet and SaaS endpoints** : Do not configure DNS peering for public domain names. The gateway resolves public domains using standard recursive DNS without requiring DNS peering.
-        
-          - **Split-horizon DNS (Public domain with RFC 1918 IP)** : If you use a public DNS zone to host records pointing to internal private IPs (such as `mcp.example.com` resolving to an RFC 1918 address for Certificate Manager public certificates), the gateway resolves these records automatically via public recursive DNS without requiring DNS peering.
-        
-          - **Google Cloud APIs** :
-            
-              - **Standard Google APIs (without VPC Service Controls)** : Do not configure DNS peering for `googleapis.com.` . When `ALL_TRAFFIC` is enabled, Google API requests resolve through public recursive DNS and are handled privately by Private Google Access enabled on the network attachment subnet.
-              - **With VPC Service Controls** : When `ALL_TRAFFIC` is configured to enforce VPC Service Controls, Google API requests must resolve to the `restricted.googleapis.com` IP range ( `199.36.153.4/30` ) or internal PSC endpoints. Create a private Cloud DNS zone in your VPC network mapping `*.googleapis.com` to `restricted.googleapis.com` , and specify `domain: "googleapis.com."` in your agent connectivity template.
-        
-          - **Multi-domain resolution patterns** : As the agent connectivity template supports a single domain, if your deployment requires resolving multiple private domain suffixes, choose one of the following patterns:
-        
-          - **Consolidated parent suffix (Recommended)** : Consolidate internal services under a shared parent domain suffix (such as `*.internal.` or `*.corp.internal.` ) and peer that parent domain.
-        
-          - **Catch-all root peering with a Private Forwarding Zone** : Set `domain: "."` in the connectivity template, and configure a Cloud DNS **Private Forwarding Zone** for the root domain ( `.` ) in your VPC network pointing to an upstream recursive resolver (such as `8.8.8.8` or an internal enterprise resolver). More specific private zones in your VPC match first by longest suffix match, while unmatched public queries resolve through the upstream forwarder.
-            
-            > **Caution:** Avoid configuring an *authoritative* private zone for the root domain ( `.` ). An authoritative root zone only resolves records defined within it and returns `NXDOMAIN` for all other domains, which can prevent external SaaS endpoints and Google Cloud APIs from resolving.
+    2.  Gather the following information to enable peering based on your traffic requirements:
         
           - **Target network URI** : The full resource URI of the VPC network. This **must be the same VPC network** that contains the network attachment.
+        
+          - **Domain name** : The domain name for DNS peering. Each domain must end with a trailing dot ( `.` ) (for example, `corp.internal.` or `googleapis.com.` ). Note the following requirements by traffic type:
+            
+              - **Private internal domains** : To resolve private internal services hosted in your VPC network (for example, `service.corp.internal` ), specify your internal domain suffix (such as `corp.internal.` ). An exact-match private Cloud DNS managed zone for this domain must be authorized for the target VPC network.
+            
+              - **Public internet and SaaS endpoints** : Do not configure DNS peering for public domain names. The gateway resolves public domains using standard recursive DNS without requiring DNS peering.
+            
+              - **Split-horizon DNS (Public domain with RFC 1918 IP)** : If you use a public DNS zone to host records pointing to internal private IPs (such as `mcp.example.com` resolving to an RFC 1918 address for Certificate Manager public certificates), the gateway resolves these records automatically using public recursive DNS without requiring DNS peering.
+            
+              - **Google Cloud APIs** :
+                
+                  - **Standard Google APIs (without VPC Service Controls)** : Don't configure DNS peering for `googleapis.com.` . When `ALL_TRAFFIC` is enabled, Google API requests resolve through public recursive DNS and are handled privately by Private Google Access enabled on the network attachment subnet.
+                  - **With VPC Service Controls** : When `ALL_TRAFFIC` is configured to enforce VPC Service Controls, Google API requests must resolve to the `restricted.googleapis.com` IP range ( `199.36.153.4/30` ) or internal PSC endpoints. Create a private Cloud DNS zone in your VPC network mapping `*.googleapis.com` to `restricted.googleapis.com` , and specify `domain: "googleapis.com."` in your agent connectivity template.
+            
+              - **Multi-domain resolution patterns** : As the agent connectivity template supports a single domain, if your deployment requires resolving multiple private domain suffixes, choose one of the following patterns:
+                
+                  - **Consolidated parent suffix (Recommended)** : Consolidate internal services under a shared parent domain suffix (such as `*.internal.` or `*.corp.internal.` ) and peer that parent domain.
+                
+                  - **Catch-all root peering with a Private Forwarding Zone** : Set `domain: "."` in the connectivity template, and configure a Cloud DNS **Private Forwarding Zone** for the root domain ( `.` ) in your VPC network pointing to an upstream recursive resolver (such as `8.8.8.8` or an internal enterprise resolver). More specific private zones in your VPC match first by longest suffix match, while unmatched public queries resolve through the upstream forwarder.
+                    
+                    > **Caution:** Avoid configuring an *authoritative* private zone for the root domain ( `.` ). An authoritative root zone only resolves records defined within it and returns `NXDOMAIN` for all other domains, which can prevent external SaaS endpoints and Google Cloud APIs from resolving.
 
 3.  Create a YAML configuration file named `agw-connectivity-template.yaml` to define the connectivity template:
     
@@ -259,16 +259,27 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
     Replace the following:
     
       - `  AGENT_GATEWAY_PROJECT_NUMBER  ` : The numeric project number of the Google Cloud project where the gateway is deployed. To retrieve your project number, run: `gcloud projects describe PROJECT_ID --format="value(projectNumber)"` .
+    
       - `  LOCATION  ` : The location for the agent connectivity template (for example, `europe-west1` ).
+    
       - `  CONNECTIVITY_TEMPLATE_NAME  ` : The name of the agent connectivity template resource.
+    
       - `deploymentModel` : The deployment model for the gateway. Set to `CENTRALIZED` .
-      - `  PSC_NETWORK_ATTACHMENT_URI  ` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project different from where you deployed the gateway (such as the Shared VPC host project), pass the full path of your network attachment: ` projects/ TARGET_VPC_PROJECT_ID /regions/ REGION /networkAttachments/ ATTACHMENT_NAME  ` . Note: This field is immutable once configured.
+    
+      - `  PSC_NETWORK_ATTACHMENT_URI  ` : The PSC interface network attachment for connectivity to VPCs. If the network attachment is created in a project different from where you deployed the gateway (such as the Shared VPC host project), pass the full path of your network attachment: ` projects/ TARGET_VPC_PROJECT_ID /regions/ REGION /networkAttachments/ ATTACHMENT_NAME  ` .
+        
+        > **Note:** This field is immutable once configured.
+    
       - `  DOMAIN_NAME  ` : (Optional) The domain suffix for DNS peering (for example, `corp.internal.` , `googleapis.com.` , or `.` ). This value must end with a trailing dot ( `.` ) and have a corresponding private Cloud DNS managed zone authorized for the target network:
+        
           - For internal workloads, specify your private domain suffix (such as `corp.internal.` ).
-          - For VPC Service Controls under `ALL_TRAFFIC` , specify `googleapis.com.` to resolve Google APIs to the restricted IP range ( `199.36.153.4/30` ). If you aren't using VPC Service Controls, do not configure DNS peering for `googleapis.com.` ; standard Google APIs are handled automatically by Private Google Access on the subnet.
-          - For multi-domain resolution, you can specify `.` if you have configured a Cloud DNS Private Forwarding Zone for the root domain pointing to a recursive resolver. Do not use `.` with an authoritative private zone.
-          - Do not configure DNS peering for public internet or external SaaS domains.
+          - For VPC Service Controls under `ALL_TRAFFIC` , specify `googleapis.com.` to resolve Google APIs to the restricted IP range ( `199.36.153.4/30` ). If you aren't using VPC Service Controls, don't configure DNS peering for `googleapis.com.` ; standard Google APIs are handled automatically by Private Google Access on the subnet.
+          - For multi-domain resolution, you can specify `.` if you have configured a Cloud DNS Private Forwarding Zone for the root domain pointing to a recursive resolver. Don't use `.` with an authoritative private zone.
+        
+        > **Note:** Don't configure DNS peering for public internet or external SaaS domains.
+    
       - `  TARGET_VPC_NETWORK_URI  ` : The target VPC network where you created the network attachment. This must be of the form: ` projects/ TARGET_VPC_PROJECT_ID /global/networks/ TARGET_VPC_NETWORK_NAME  ` . This network must be the *exact same VPC network* where the network attachment is created.
+    
       - `  VPC_EGRESS_MODE  ` : The egress traffic routing setting. Set to `PRIVATE_RANGES_ONLY` (default) to route traffic destined for private IP ranges through your VPC network, or set to `ALL_TRAFFIC` to route all outbound agent traffic (including public internet addresses) through your VPC network. To support VPC Service Controls, egress must be set to `ALL_TRAFFIC` .
 
 4.  Run the following command to create the agent connectivity template:
