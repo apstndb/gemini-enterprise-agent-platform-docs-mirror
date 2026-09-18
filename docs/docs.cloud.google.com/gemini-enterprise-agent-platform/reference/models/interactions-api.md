@@ -533,6 +533,31 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
     event: done
     data: [DONE]
 
+## Deleting an interaction
+
+delete https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}
+
+Deletes an interaction.
+
+  - [Path parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction.PATH_PARAMETERS)
+  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#deleteInteraction.response)
+
+### Path Parameters
+
+id string (required)
+
+The unique identifier of the interaction to delete.
+
+### Response
+
+Returns an empty response on success.
+
+### Delete Interaction
+
+    curl -X DELETE \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      "https://aiplatform.googleapis.com/v1beta1/projects/$PROJECT_ID/locations/global/interactions/v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg"
+
 ## Resources
 
 ### InteractionMetadata

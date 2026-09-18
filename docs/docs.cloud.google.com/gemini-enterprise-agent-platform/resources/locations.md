@@ -161,24 +161,25 @@ Usage of the global endpoint with Provisioned Throughput is available only for t
 
 #### Click to view supported models for the global endpoint when using Provisioned Throughput
 
-| Model                                                                                                                                                 | Latest supported model version |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)                                | `gemini-3.8-flash-cyber`       |
-| [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `gemini-3.8-flash`             |
-| [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `gemini-3.7-flash`             |
-| [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`             |
-| [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)                                  | `gemini-3.5-flash-lite`        |
-| [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) | `gemini-3.1-flash-lite-image`  |
-| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)                                        | `gemini-3-pro-image`           |
-| [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)                                | `gemini-3.1-flash-image`       |
-| [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)                                            | `gemini-3.5-flash`             |
-| [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)                                  | `gemini-3.1-flash-lite`        |
-| [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview                                        | `gemini-3.1-pro-preview`       |
-| [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview                                        | `gemini-3-flash-preview`       |
-| [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)                                                | `gemini-2.5-pro`               |
-| [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)                                | `gemini-2.5-flash-image`       |
-| [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)                                            | `gemini-2.5-flash`             |
-| [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)                                  | `gemini-2.5-flash-lite`        |
+| Model                                                                                                                                                 | Latest supported model version  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)                                | `gemini-3.8-flash-cyber`        |
+| [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash)                                            | `gemini-3.8-flash`              |
+| [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) preview                          | `gemini-omni-1.1-flash-preview` |
+| [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash)                                            | `gemini-3.7-flash`              |
+| [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-6-flash)                                            | `gemini-3.6-flash`              |
+| [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)                                  | `gemini-3.5-flash-lite`         |
+| [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) | `gemini-3.1-flash-lite-image`   |
+| [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)                                        | `gemini-3-pro-image`            |
+| [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image)                                | `gemini-3.1-flash-image`        |
+| [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)                                            | `gemini-3.5-flash`              |
+| [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite)                                  | `gemini-3.1-flash-lite`         |
+| [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview                                        | `gemini-3.1-pro-preview`        |
+| [Gemini 3 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash) preview                                        | `gemini-3-flash-preview`        |
+| [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro)                                                | `gemini-2.5-pro`                |
+| [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image)                                | `gemini-2.5-flash-image`        |
+| [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash)                                            | `gemini-2.5-flash`              |
+| [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite)                                  | `gemini-2.5-flash-lite`         |
 
 ## Google model endpoint locations
 

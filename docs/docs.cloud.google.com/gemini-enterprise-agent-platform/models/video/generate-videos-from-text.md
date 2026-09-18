@@ -47,15 +47,22 @@ For more information about writing effective text prompts for video generation, 
 
 ## Generate videos using Gemini Omni Flash
 
-To generate videos using Gemini Omni Flash, do the following:
+To generate videos using Gemini Omni Flash, see the following examples. While focused on text-to-video, these examples can be extended to other use cases as well, such as supplying a starting image to guide generation.
 
 ### REST
 
-Video generation can take over a minute to complete. To generate a video to download immediately after completion, use a synchronous request. To generate a video that you can download later, send an asynchronous request by setting the `background` parameter to `true` . Asynchronous requests are retained for up to 14 days.
+Video generation can take over a minute to complete. You can choose from several interaction modes depending on your workflow:
 
-For more information about using the Gemini Omni Flash API, seek [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
+  - **Synchronous: stateless** : Generate a video in a single request without persisting the interaction state on the server.
+  - **Synchronous: stateful** : Set `store` to `true` to persist the interaction state, which lets you retrieve the result later or reference the interaction ID for multi-turn video editing.
+  - **Synchronous: stateful streaming** : Set both `store` and `stream` to `true` to receive model thoughts incrementally as they are generated, followed by the output video.
+  - **Asynchronous** : Set `background` to `true` to run video generation in the background and retrieve the result later using the interaction ID.
 
-### Synchronous request
+Stored and asynchronous interactions are retained for up to 7 days.
+
+For more information about using the Gemini Omni Flash API, see [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api) .
+
+### Synchronous: stateless
 
 Before using any of the request data, make the following replacements:
 
@@ -201,7 +208,419 @@ The response contains an interaction which includes the model thoughts and an ou
       "updated":"2026-05-29T02:17:56Z",
     }
 
-### Asynchronous request
+### Synchronous: stateful
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
+      - `"gemini-omni-1.1-flash-preview"`
+  - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+  - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+  - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+      - `"16:9"`
+      - `"9:16"`
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"`
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body:
+
+    {
+      "model": "MODEL_ID",
+      "background": false,
+      "store": true,
+      "stream": false,
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "TEXT_PROMPT"
+            }
+          ]
+        }
+      ],
+      "response_format": [
+        {
+          "type": "video",
+          "delivery": "uri",
+          "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
+          "aspect_ratio": "ASPECT_RATIO",
+          "duration": "DURATION"
+        }
+      ],
+    }
+
+To send your request, choose one of these options:
+
+#### curl
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+The response contains an interaction which includes the model thoughts and an output video.
+
+    {
+      "id":"INTERACTION_ID",
+      "status":"completed",
+      "usage":{
+        "total_tokens":17615,
+        "total_input_tokens":21,
+        "input_tokens_by_modality":[
+          {
+            "modality":"text",
+            "tokens":21
+          }
+        ],
+        "total_output_tokens":17376,
+        "output_tokens_by_modality":[
+          {
+            "modality":"video",
+            "tokens":17376
+          }
+        ],
+        "total_thought_tokens":218
+      },
+      "created":"2026-08-12T21:28:40Z",
+      "updated":"2026-08-12T21:28:40Z",
+      "event_id":"EVENT_ID",
+      "steps":[
+        {
+          "signature":"...",
+          "summary":[
+            {
+              "text":"MODEL THOUGHTS",
+              "type":"text"
+            },
+            {
+              "text":"MODEL THOUGHTS",
+              "type":"text"
+            }
+          ],
+          "type":"thought"
+        },
+        {
+          "content":[
+            {
+              "mime_type":"video/mp4",
+              "uri":"gs://some/output_path/123.mp4",
+              "type":"video"
+            }
+          ],
+          "type":"model_output"
+        }
+      ],
+      "object":"interaction",
+      "model":"gemini-omni-flash-preview"
+    }
+
+Use the INTERACTION\_ID to get the generated video:
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  INTERACTION_ID  ` : The interaction ID from the asynchronous request.
+
+HTTP method and URL:
+
+    GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
+
+To send your request, choose one of these options:
+
+#### curl
+
+Execute the following command:
+
+    curl -X GET \
+         -H "Authorization: Bearer TOKEN" \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID"
+
+#### PowerShell
+
+Execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method GET `
+        -Headers $headers `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" | Select-Object -Expand Content
+
+The response is in a format similar to the following:
+
+    {
+      "id":"INTERACTION_ID",
+      "model":"gemini-omni-flash-preview",
+      "status":"completed",
+      "usage":{
+        "total_tokens":479,
+        "total_input_tokens":26,
+        "input_tokens_by_modality":[
+          {
+            "modality":"text",
+            "tokens":26
+          },
+          {
+            "modality":"image",
+            "tokens":124
+          }
+        ],
+        "output_tokens_by_modality": [
+          {
+            "modality": "video",
+            "tokens": 28832
+          }
+        ],
+        "total_output_tokens":28832,
+        "total_thought_tokens":453
+      },
+      "steps":[
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "5 second, 9:16 video. Use the image as the first frame."
+            },
+            {
+              "type": "image",
+              "uri": "gs://some/path",
+              "mime_type": "image/png"
+            }
+          ]
+        },
+        {
+          "type":"thought"
+          "summary":[
+            {
+              "type":"text",
+              "text":"MODEL THOUGHTS"
+            }
+          ],
+        },
+        { 
+          "type":"model_output",
+          "content":[
+            {
+              "type":"video",
+              "data":"VIDEO DATA",
+              "mime_type":"video/mp4" 
+            }
+          ]
+        }
+      ],
+      "object":"interaction"
+      "role":"model",
+      "created":"2026-05-29T02:17:56Z",
+      "updated":"2026-05-29T02:17:56Z",
+    }
+
+### Synchronous: stateful streaming
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  MODEL_ID  ` : A string representing the model ID to use. The following are accepted values:
+      - `"gemini-omni-1.1-flash-preview"`
+  - `  TEXT_PROMPT  ` : The text prompt used to guide video generation.
+  - `  CLOUD_STORAGE_OUTPUT_URI  ` : Optional: A string representing the Cloud Storage bucket to store the output videos. If not provided, video bytes are returned in the response. For example: `"gs://video-bucket/output/"` .
+  - `  ASPECT_RATIO  ` : Optional: A string representing the expected aspect ratio of the output video. If not provided, the aspect ratio is inferred from the prompt. The following are accepted values:
+      - `"16:9"`
+      - `"9:16"`
+  - `  DURATION  ` : A string representing the length of the generated video files. Allowed strings are integers between `3` and `10` , followed by "s" for seconds. For example, `"10s"`
+
+HTTP method and URL:
+
+    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions
+
+Request JSON body:
+
+    {
+      "model": "MODEL_ID",
+      "background": false,
+      "store": true,
+      "stream": true,
+      "input": [
+        {
+          "type": "user_input",
+          "content": [
+            {
+              "type": "text",
+              "text": "TEXT_PROMPT"
+            }
+          ]
+        }
+      ],
+      "response_format": [
+        {
+          "type": "video",
+          "delivery": "uri",
+          "gcs_uri": "CLOUD_STORAGE_OUTPUT_URI",
+          "aspect_ratio": "ASPECT_RATIO",
+          "duration": "DURATION"
+        }
+      ],
+    }
+
+To send your request, choose one of these options:
+
+#### curl
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    curl -X POST \
+         -H "Authorization: Bearer TOKEN" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions"
+
+#### PowerShell
+
+Save the request body in a file named `request.json` , and execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method POST `
+        -Headers $headers `
+        -ContentType: "application/json; charset=utf-8" `
+        -InFile request.json `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions" | Select-Object -Expand Content
+
+The response contains an interaction which includes the model thoughts and an output video.
+
+    event: interaction.created
+    data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+    
+    event: interaction.status_update
+    data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
+    
+    event: step.start
+    data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"content":{"text":"MODEL THOUGHTS","type":"text"},"type":"thought_summary"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"content":{"text":"MODEL THOUGHTS","type":"text"},"type":"thought_summary"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"content":{"text":"MODEL THOUGHTS","type":"text"},"type":"thought_summary"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+    
+    event: step.stop
+    data: {"index":0,"event_type":"step.stop"}
+    
+    event: step.start
+    data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
+    
+    event: step.delta
+    data: {"index":1,"delta":{"mime_type":"video/mp4","uri":"gs://some/output_path/123.mp4","type":"video"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.stop
+    data: {"index":1,"event_type":"step.stop"}
+    
+    event: interaction.completed
+    data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17812,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":415},"created":"2026-08-12T21:26:20Z","updated":"2026-08-12T21:26:20Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+    
+    event: done
+    data: [DONE]
+
+Use the INTERACTION\_ID with \`?stream=true\` to stream the stored interaction and generated video:
+
+Before using any of the request data, make the following replacements:
+
+  - `  PROJECT_ID  ` : A string representing your Google Cloud project ID.
+  - `  INTERACTION_ID  ` : The interaction ID from the request.
+
+HTTP method and URL:
+
+    GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID?stream=true
+
+To send your request, choose one of these options:
+
+#### curl
+
+Execute the following command:
+
+    curl -X GET \
+         -H "Authorization: Bearer TOKEN" \
+         "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID?stream=true"
+
+#### PowerShell
+
+Execute the following command:
+
+    $headers = @{ "Authorization" = "Bearer TOKEN" }
+    
+    Invoke-WebRequest `
+        -Method GET `
+        -Headers $headers `
+        -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID?stream=true" | Select-Object -Expand Content
+
+The response is a stream of Server-Sent Events (SSE) in a format similar to the following:
+
+    event: interaction.created
+    data: {"interaction":{"id":"INTERACTION_ID","status":"in_progress","object":"interaction","model":"gemini-omni-flash-preview"},"event_type":"interaction.created"}
+    
+    event: interaction.status_update
+    data: {"interaction_id":"INTERACTION_ID","status":"in_progress","event_type":"interaction.status_update"}
+    
+    event: step.start
+    data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"content":{"text":"MODEL THOUGHTS","type":"text"},"type":"thought_summary"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"content":{"text":"MODEL THOUGHTS","type":"text"},"type":"thought_summary"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.delta
+    data: {"index":0,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+    
+    event: step.stop
+    data: {"index":0,"event_type":"step.stop"}
+    
+    event: step.start
+    data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
+    
+    event: step.delta
+    data: {"index":1,"delta":{"mime_type":"video/mp4","uri":"gs://some/output_path/123.mp4","type":"video"},"event_id":"EVENT_ID","event_type":"step.delta"}
+    
+    event: step.stop
+    data: {"index":1,"event_type":"step.stop"}
+    
+    event: interaction.completed
+    data: {"interaction":{"id":"INTERACTION_ID","status":"completed","usage":{"total_tokens":17664,"total_input_tokens":21,"input_tokens_by_modality":[{"modality":"text","tokens":21}],"total_output_tokens":17376,"output_tokens_by_modality":[{"modality":"video","tokens":17376}],"total_thought_tokens":267},"created":"2026-08-12T21:33:08Z","updated":"2026-08-12T21:33:08Z","event_id":"EVENT_ID","object":"interaction","model":"gemini-omni-flash-preview"},"event_id":"EVENT_ID","event_type":"interaction.completed"}
+    
+    event: done
+    data: [DONE]
+
+### Asynchronous
 
 Before using any of the request data, make the following replacements:
 
@@ -310,7 +729,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
+    GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
 
 To send your request, choose one of these options:
 
@@ -318,10 +737,8 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
+    curl -X GET \
          -H "Authorization: Bearer TOKEN" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
          "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID"
 
 #### PowerShell
@@ -331,7 +748,7 @@ Execute the following command:
     $headers = @{ "Authorization" = "Bearer TOKEN" }
     
     Invoke-WebRequest `
-        -Method POST `
+        -Method GET `
         -Headers $headers `
         -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" | Select-Object -Expand Content
 

@@ -150,6 +150,8 @@ If the agent returns an error during preview, the error appears in the **Preview
 
 You must save an agent before you can preview it, deploy it, or upload knowledge files, because an unsaved agent doesn't have an identity yet. This requirement also applies to [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) subagents.
 
+Additionally, you must also save an agent before adding MCP servers published in Agent Registry as node-level tools.
+
 To save an agent for the first time:
 
 1.  In the Agent Studio canvas, click **Save** .
@@ -180,36 +182,60 @@ You can configure the following tools for your agent:
 
   - **URL context:** Lets the model analyze URLs from prompts sent to the agent. Toggled on by default.
 
-  - **Agent Search Data Store:** Click **Add** (+) to let your agent access information that has been indexed in your Agent Search data store.
+  - **MCP Server from Agent Registry:** Attach an MCP server published in [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) as a node-level tool. This option is only available after you save the agent. For details, see [Save an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#save-agent) .
     
-      - **Project Number:** The Google Cloud project number associated with your Agent Search data store. [View your project number](https://console.cloud.google.com/welcome) .
+    > **Note:** Direct connection to MCP servers is deprecated in favor of Agent Registry MCP servers. For more information, see [Migrate legacy tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#migrate-legacy-tools) .
     
-      - **Location:** The [location](https://console.cloud.google.com/gen-app-builder/data-stores) of your data store.
-    
-      - **Data Store ID:** Firestore in Datastore mode (Datastore) ID of the data to include. [View a list of your data stores and IDs](https://console.cloud.google.com/gen-app-builder/data-stores) .
-    
-      - **Collection ID** : Collection ID of the data to include. [View a list of your data stores and collection IDs](https://console.cloud.google.com/gen-app-builder/data-stores) . If your data store doesn't have a Collection ID, enter `default_collection` .
-    
-    If you don't have an existing data store, see [Get started with custom search](https://docs.cloud.google.com/generative-ai-app-builder/docs/try-enterprise-search#create_a_data_store) to create one. Then grant service account access to Agent Search:
-    
-    1.  In the Google Cloud console, go to the **IAM** page.  
-    
-    2.  Click **Grant access** .
-    
-    3.  In the **New principals** field, enter the following service account information:
-        
-        `service- PROJECT_NUMBER @gcp-sa-aiplatform-re.iam.gserviceaccount.com` .
-    
-    4.  Select **+ Add roles** . Search for and select **Discovery Engine User** . Click **Apply** and then **Save** .
-
-  - **MCP Server:** Connect a Model Context Protocol (MCP) server directly.
-    
-    1.  To add MCP tools by connecting to an MCP server, click **Add** (+) next to **MCP Server** .
-    2.  **MCP display name:** Enter a name for your MCP server.
-    3.  **Endpoint URL:** Enter an endpoint URL for the MCP server.
-    4.  **Authentication:** Autofilled as **None** . Agent Studio only supports MCP servers that don't require authentication.
+    1.  Click **Add** (+) next to **MCP Server from Agent Registry** .
+    2.  **Location:** Select the region to filter registered tools.
+    3.  **MCP Server:** Select the registered Google MCP server from the list.
+    4.  **Auth Config:** Select **None** to use standard service access resolved through IAM bindings.
+    5.  Click **Add** .
+    6.  If you are saving the agent for the first time, click **Save** in the canvas header. Subsequent changes are automatically saved.
     
     Your agent can use all tools in your connected MCP server.
+
+## Migrate legacy tools
+
+To help enforce security and standardize tool management through Agent Registry, Agent Studio deprecates direct integration with Vertex AI Search data stores and direct Model Context Protocol (MCP) servers.
+
+For existing agents, these deprecated tools are read-only. To maintain full functionality, replace these tools with an MCP server from Agent Registry.
+
+### Migrate from legacy Vertex AI Search data stores
+
+If your agent uses a deprecated Agent Platform Search Data Store tool, migrate to the Agent Search MCP server available in Agent Registry. This tool displays as `discoveryengine.googleapis.com` in Agent Registry.
+
+The Agent Search MCP server replaces individual data store connections with a unified search experience across multiple data stores in your project.
+
+Connecting the Agent Search MCP server doesn't automatically carry over the data source selection from an existing tool. MCP search requires an appropriate target serving configuration and access permissions. Verify that the replacement searches the intended data sources before removing the existing tool.
+
+To migrate your tool, follow these steps:
+
+1.  Open your agent in the Agent Studio canvas.
+2.  Locate the deprecated Vertex AI Search Data Store tool in the **Tools** panel. This deprecated tool appears as read-only.
+3.  Click **Remove** to detach the deprecated tool.
+4.  Click **Add** (+) next to **MCP Server from Agent Registry** .
+5.  Include the following details:
+    1.  **Location:** Select the region where your tools are registered.
+    2.  **MCP Server:** Select **Agent Search** or `discoveryengine.googleapis.com` from the list of registered MCP servers.
+    3.  **Auth Config:** Select **None** . The access is resolved through standard IAM bindings.
+    4.  Click **Add** .
+    5.  If you are saving the agent for the first time, click **Save** in the canvas header. Subsequent changes are automatically saved.
+
+### Migrate from legacy direct MCP server
+
+If your agent connects directly to an MCP server using an endpoint URL, you must first register your MCP server catalog in Agent Registry.
+
+To migrate your tool, follow these steps:
+
+1.  Make sure your MCP server is registered in [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) .
+2.  Update your agent in Agent Studio:
+    1.  Open your agent in the Agent Studio canvas.
+    2.  Locate and remove the legacy direct MCP server connection.
+    3.  Click **Add** (+) next to **MCP Server from Agent Registry** .
+    4.  Select your registered MCP server from the list.
+    5.  Click **Add** .
+    6.  If you are saving the agent for the first time, click **Save** in the canvas header. Subsequent changes are automatically saved.
 
 ## Ground agents with knowledge files
 
@@ -224,7 +250,7 @@ Upload static reference documents to ground your agent's responses in Agent Stud
       - PDF
       - Plain text
 
-4.  In the canvas header, click **Save** to store files in a dedicated Cloud Storage bucket under a path prefix matching the parent agent's `AGENT_ID` .
+4.  If you are saving the agent for the first time, click **Save** in the canvas header to store files in a dedicated Cloud Storage bucket under a path prefix matching the parent agent's `AGENT_ID` . Subsequent changes are automatically saved.
     
     > **Caution:** Uploaded knowledge files are stored in a Cloud Storage bucket in your Google Cloud project. Anyone with access to the project or that bucket can view these files. Don't upload files that contain information you don't want shared with all principals who have access to the project.
     

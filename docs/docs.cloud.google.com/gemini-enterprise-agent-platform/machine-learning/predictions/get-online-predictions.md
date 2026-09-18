@@ -525,29 +525,35 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictCustomTrainedModel(String project, String endpointId, String instance)
           throws IOException {
-        PredictionServicPredictionServiceSettingsceSettings =
-            PredictionServicPredictionServiceSettings          .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+        PredictionServiceSettings predictionServiceSettings =
+            PredictionServiceSettings.newBuilder()
+                .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (PredictionServicPredictionServiceClientceClient =
-            PredictionServicPredictionServiceClientonServiceSettings)) {
+        try (PredictionServiceClient predictionServiceClient =
+            PredictionServiceClient.create(predictionServiceSettings)) {
           String location = "us-central1";
-          EndpointName endEndpointNameEndpointName.of(EndpointNameation, endpointId);
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
     
-          ListValue.BuildeListValueue = ListValue.newBuiListValue     JsonFormat.parseJsonFormatinstance, listValue);
-          List<Value> instanListValuelistValue.getValuesList();
+          ListValue.Builder listValue = ListValue.newBuilder();
+          JsonFormat.parser().merge(instance, listValue);
+          List<Value> instanceList = listValue.getValuesList();
     
-          PredictRequest pPredictRequest=
-              PredictRequest.nPredictRequest            .setEndpoint(endpointName.toSendpointName.toString().addAllInstances(instanceList)
+          PredictRequest predictRequest =
+              PredictRequest.newBuilder()
+                  .setEndpoint(endpointName.toString())
+                  .addAllInstances(instanceList)
                   .build();
-          PredictResponse PredictResponse = predictionServiceClient.predict(predictRequest);
+          PredictResponse predictResponse = predictionServiceClient.predict(predictRequest);
     
           System.out.println("Predict Custom Trained model Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.predictResponse.getDeployedModelId()out.println("Predictions");
-          for (Value predictionValueedictResponse.predictResponse.getPredictionsList()em.out.format("\tPrediction: %s\n", prediction);
+          System.out.format("\tDeployed Model Id: %s\n", predictResponse.getDeployedModelId());
+          System.out.println("Predictions");
+          for (Value prediction : predictResponse.getPredictionsList()) {
+            System.out.format("\tPrediction: %s\n", prediction);
           }
         }
       }

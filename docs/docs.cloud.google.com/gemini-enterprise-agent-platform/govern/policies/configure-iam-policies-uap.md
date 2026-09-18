@@ -473,8 +473,6 @@ In the Google Cloud console, edit your Access policy and do the following:
       - **Endpoint** : A destination endpoint that is registered in Agent Registry
     
       - **Unregistered endpoint** : A destination endpoint that is not registered in Agent Registry and is accessed through an external URL. You can use [conditions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap#conditions) to further control unregistered endpoint access.
-        
-        > **Important:** The condition builder and condition editor support a subset of CEL attributes. To create a condition with full attribute support, use the **Custom** tab in **Select resources** , or use the gcloud CLI or the IAP REST API.
 
 ### gcloud
 

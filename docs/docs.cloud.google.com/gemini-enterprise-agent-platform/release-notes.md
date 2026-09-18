@@ -10,6 +10,34 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 17, 2026
+
+Feature
+
+**Gemini Omni Flash supports stateful and streaming video generation (Preview)**
+
+Gemini Omni Flash supports stateful ( `store: true` ) and server-sent event (SSE) streaming ( `stream: true` ) video generation in the Interactions API in [Preview](https://cloud.google.com/products#product-launch-stages) . You can temporarily store generated videos and interaction state on the server, stream status updates and final outputs over an SSE connection, or retrieve completed asynchronous interactions using unary or streaming GET requests.
+
+For more information, see [Generate videos from text](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text) .
+
+## September 16, 2026
+
+Feature
+
+**CodeMender updates (v0.8.0)**
+
+This release introduces updates to CodeMender:
+
+  - **Gemini 3.8 Flash default** : Gemini 3.8 Flash ( `gemini-3.8-flash` ) is now supported and enabled as the default model for CodeMender CLI sessions, delivering faster inference and improved reasoning. A one-time notice in the CLI informs users when the new default is active.
+  - **Tool payload guardrails** : Introduced safe output limits for file reading (2 MiB) and codebase grep search (512 KiB) with centered match context windows, eliminating payload overflow errors and improving stability during large repository scans.
+  - **Bug fixes** :
+      - Fixed an issue where shell detection and command execution on Windows could fail during repository resets and exploit verification when Git Bash was installed in standard registry or non-PATH locations.
+      - Fixed an issue in `cm verify` where verified findings could report "not found" or fail to persist confidence and status upon session completion or resumption.
+      - Fixed syntax errors in generated verification scripts caused by invalid regex escaping in grep assertions during `cm verify` .
+      - Prevented HTTP 409 lease conflict errors during long-running sessions by ensuring streaming HTTP connections are promptly released.
+
+For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+
 ## September 15, 2026
 
 Feature
@@ -123,6 +151,12 @@ Feature
 [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) is now generally available (GA) and available for production use.
 
 For more information on 3.8 Flash, see the [model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) .
+
+Feature
+
+**Provisioned Throughput support for Gemini Omni**
+
+Provisioned Throughput supports Gemini Omni. To learn more, see [supported models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/supported-models) .
 
 Feature
 

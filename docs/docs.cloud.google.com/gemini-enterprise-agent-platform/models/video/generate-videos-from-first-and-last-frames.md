@@ -329,7 +329,7 @@ Before using any of the request data, make the following replacements:
 
 HTTP method and URL:
 
-    POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
+    GET https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID
 
 To send your request, choose one of these options:
 
@@ -337,10 +337,8 @@ To send your request, choose one of these options:
 
 Execute the following command:
 
-    curl -X POST \
+    curl -X GET \
          -H "Authorization: Bearer TOKEN" \
-         -H "Content-Type: application/json; charset=utf-8" \
-         -d "" \
          "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID"
 
 #### PowerShell
@@ -350,7 +348,7 @@ Execute the following command:
     $headers = @{ "Authorization" = "Bearer TOKEN" }
     
     Invoke-WebRequest `
-        -Method POST `
+        -Method GET `
         -Headers $headers `
         -Uri "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/interactions/INTERACTION_ID" | Select-Object -Expand Content
 
