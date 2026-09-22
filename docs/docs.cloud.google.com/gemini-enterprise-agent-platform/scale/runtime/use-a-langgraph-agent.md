@@ -10,28 +10,28 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create a LangGraph agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent) : to create `agent` as an instance of [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent) .
+  - [Create a LangGraph agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent) : to create `agent` as an instance of [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
 ## Get an instance of an agent
 
-To query a [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query a [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
-To get the [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent) that corresponds to a specific resource ID:
+To get the [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) that corresponds to a specific resource ID:
 
 ### Agent Platform SDK
 
 Run the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    agent = client.agent_engines.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     print(agent)
 
@@ -70,19 +70,19 @@ Run the following code:
     -H "Content-Type: application/json" \
     https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
 
-When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the agent supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#supported-operations) for details.
-  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the agent supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#supported-operations) for details.
+  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
-The rest of this section assumes that you have an `AgentEngine` instance, named as `agent` .
+The rest of this section assumes that you have an `AgentRuntime` instance, named as `agent` .
 
 ## Supported operations
 
-The following operations are supported for [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent) :
+The following operations are supported for [`LanggraphAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent) :
 
-  - [`query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_query) : for getting a response to a query synchronously.
+  - [`query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_query) : for getting a response to a query synchronously.
   - [`stream_query`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#stream-modes) : for streaming a response to a query.
   - [`get_state`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#human-in-the-loop-time-travel) : for getting a specific checkpoint.
   - [`get_state_history`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langgraph-agent#human-in-the-loop-history) : for listing the checkpoints of a thread.
@@ -90,7 +90,7 @@ The following operations are supported for [`LanggraphAgent`](https://docs.cloud
 
 ## Stream a response to a query
 
-To stream a response, use the [`LanggraphAgent.stream_query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_stream_query) method.
+To stream a response, use the [`LanggraphAgent.stream_query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_stream_query) method.
 
 LangGraph supports multiple streaming modes. The main ones are:
 
@@ -170,7 +170,7 @@ The output will look similar to the following:
 
 ### History
 
-To list all the checkpoints of a given thread, use the [`LanggraphAgent.get_state_history`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_get_state_history) method:
+To list all the checkpoints of a given thread, use the [`LanggraphAgent.get_state_history`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_get_state_history) method:
 
     for state_snapshot in agent.get_state_history(
         config={"configurable": {"thread_id": "human-in-the-loop-deepdive"}},
@@ -229,7 +229,7 @@ The output will look similar to the following:
 
 ### Time travel
 
-To get a checkpoint, use the [`LanggraphAgent.get_state`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_get_state_history) method:
+To get a checkpoint, use the [`LanggraphAgent.get_state`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_get_state_history) method:
 
     # By default, it gets the latest state [unless (checkpoint_ns, checkpoint_id) is specified]
     state = agent.get_state(config={"configurable": {
@@ -305,7 +305,7 @@ It will result in something similar to the following sequence of outputs:
 
 ### Branching
 
-You can branch off previous checkpoints to try alternate scenarios by using the [`LanggraphAgent.update_state`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_update_state) method:
+You can branch off previous checkpoints to try alternate scenarios by using the [`LanggraphAgent.update_state`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LanggraphAgent#vertexai_agent_engines_LanggraphAgent_update_state) method:
 
     branch_config = agent.update_state(
         config=state["config"],

@@ -181,13 +181,17 @@ A free tier is available for Agent Runtime. For information about pricing for Ag
 
 ## Migration to the client-based SDK
 
-The `agent_engines` module within the Agent Platform SDK is being refactored to a client-based design for the following key reasons:
+In version 2.0.1 of the Agent Platform SDK, the `agent_engines` module was refactored and renamed to individual modules (such as `runtimes` , `sessions` , `sandboxes` , and `memory_banks` ) under the standalone `google-cloud-agentplatform` package ( `agentplatform` ). The SDK adopts a client-based design for the following key reasons:
 
-  - To align with the [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) (ADK) and Google Gen AI SDK in canonical type representations. This ensures a consistent and standardized way of representing data types across different SDKs, which simplifies interoperability and reduces conversion overhead.
-  - For client-level scoping of Google Cloud parameters in multi-project multi-location applications. This allows an application to manage interactions with resources across different Google Cloud projects and geographical locations by configuring each client instance with its specific project and location settings.
-  - To improve discoverability and cohesiveness of Agent Runtime services.
+  - To align with the [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) (ADK) and Google Gen AI SDK ( `google-genai` ) in canonical type representations. This ensures a consistent and standardized way of representing data types across different SDKs, which simplifies interoperability and reduces conversion overhead.
+  - For client-level scoping of Google Cloud parameters in multi-project multi-location applications. This allows an application to manage interactions with resources across different Google Cloud projects and geographical locations by configuring each client instance ( `client = agentplatform.Client(project=..., location=...)` ) with its specific project and location settings.
+  - To improve discoverability and cohesiveness of Gemini Enterprise Agent Platform services ( `client.runtimes` , `client.sessions` , `client.sandboxes` , and `client.memory_banks` ).
+  - To provide a lightweight, decoupled package ( `google-cloud-agentplatform` ) tailored for agent workloads while generative AI modules migrate to the Google Gen AI SDK ( `google-genai` ).
 
-To learn how to migrate to the client-based SDK, see [Agent Runtime SDK migration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk-migration) .
+For detailed instructions on migrating to the new SDK structure, see the following guides:
+
+  - [Agent Runtime SDK migration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk-migration) : Migrate from `vertexai.agent_engines` to `agentplatform.Client().runtimes` .
+  - [Agent Platform SDK for Python: version 2.0.1 migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/sdk-migration) : Overall guide covering package decoupling, module deprecations, and migrating generative AI modules to the Google Gen AI SDK.
 
 ## What's next
 

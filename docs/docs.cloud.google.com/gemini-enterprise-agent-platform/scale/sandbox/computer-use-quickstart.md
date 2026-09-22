@@ -32,22 +32,22 @@ To use the sandbox and generate tokens, you need the following roles:
 
 Install the Agent Platform SDK:
 
-    pip install google-cloud-aiplatform>=1.112.0
+    pip install google-cloud-agentplatform>=2.0.1
 
 ## Create an Agent Platform instance
 
 To use the sandbox, first create an Agent Platform instance.
 
-    import vertexai
-    client = vertexai.Client(
+    import agentplatform
+    client = agentplatform.Client(
         project='PROJECT_ID',
         location='LOCATION',
         http_options={
             "api_version": "v1beta1",
         }
     )
-    agent_instance = client.agent_engines.create()
-    agent_instance_name = agent_instance.api_resource.name
+    remote_agent = client.runtimes.create()
+    remote_agent_name = remote_agent.api_resource.name
 
 Replace the following:
 
@@ -61,9 +61,9 @@ To encrypt your sandbox data using customer-managed encryption keys (CMEK), you 
 Create a sandbox template that you'll use when you create a Computer Use sandbox.
 
     # Create a default Computer Use sandbox template
-    templates_client = client.agent_engines.sandboxes.templates
+    templates_client = client.sandboxes.templates
     tmplt_operation = templates_client.create(
-        name=agent_instance_name,
+        name=remote_agent_name,
         display_name='DISPLAY_NAME',
         config={
             "default_container_environment": {
@@ -85,8 +85,8 @@ Create a sandbox environment from the template.
 
     # Create a sandbox environment referencing the template.
     # To customize the lifetime, set `ttl` to a duration string in seconds (for example, "3600s" for 1 hour).
-    create_operation = client.agent_engines.sandboxes.create(
-        name=agent_instance_name,
+    create_operation = client.sandboxes.create(
+        name=remote_agent_name,
         config={
             "sandbox_environment_template": template_name,
             "display_name": 'DISPLAY_NAME',
@@ -102,7 +102,7 @@ Create a sandbox environment from the template.
 To interact with the sandbox, generate a JSON web token (JWT) access token by using a service account.
 
     service_account_email = "SERVICE_ACCOUNT_EMAIL"
-    access_token = client.agent_engines.sandboxes.generate_access_token(
+    access_token = client.sandboxes.generate_access_token(
         service_account_email=service_account_email,
     )
 
@@ -112,7 +112,7 @@ Replace `SERVICE_ACCOUNT_EMAIL` with the email of the service account that has t
 
 Send an HTTP GET request to the sandbox API server to check its status.
 
-    response = client.agent_engines.sandboxes.send_command(
+    response = client.sandboxes.send_command(
         http_method="GET",
         access_token=access_token,
         sandbox_environment=sandbox
@@ -123,7 +123,7 @@ Send an HTTP POST request to navigate to a specific page.
 
     data = {"command": "Page.navigate", "params": {"url": "https://example.com"}}
     
-    response = client.agent_engines.sandboxes.send_command(
+    response = client.sandboxes.send_command(
         http_method="POST",
         path="cdp",
         access_token=access_token,
@@ -150,8 +150,8 @@ For more information about the supported CDP commands and format, see the [CDP s
 
 To avoid incurring charges, delete the resources created in this quickstart.
 
-    client.agent_engines.sandboxes.delete(name=sandbox.name)
-    agent_instance.delete()
+    client.sandboxes.delete(name=sandbox.name)
+    remote_agent.delete()
 
 ## What's next
 

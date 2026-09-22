@@ -6,11 +6,23 @@ description: Learn more about optional sampling parameters for controlling conte
 data_source: docs.cloud.google.com
 ---
 
-This page shows the optional sampling parameters you can set in a request to a model. The parameters available for each model may differ. For more information, see the [reference documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#generationconfig) .
+This page shows the optional sampling parameters you can set in a request to a model. The parameters available for each model may differ. For more information, see the [reference documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#generationconfig) .
 
 ## Token sampling parameters
 
 The parameters in this section influence how the model selects the next token from its vocabulary. By adjusting these parameters, you can control the randomness and diversity of the generated text.
+
+> **Warning:** For Gemini 3.6 Flash and later models, custom values for token sampling parameters ( `temperature` , `topP` , and `topK` ) aren't supported and are ignored if set, and custom values for penalization parameters ( `frequencyPenalty` and `presencePenalty` ) return an error. Remove these parameters from your requests.
+
+### Top-K
+
+Top-K changes how the model selects tokens for output. A top-K of `1` means the next selected token is the most probable among all tokens in the model's vocabulary (also called greedy decoding), while a top-K of `3` means that the next token is selected from among the three most probable tokens by using temperature.
+
+For each token selection step, the top-K tokens with the highest probabilities are sampled. Then tokens are further filtered based on top-P with the final token selected using temperature sampling.
+
+Specify a lower value for less random responses and a higher value for more random responses.
+
+For more information, see [`topK`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#top-k) .
 
 ### Top-P
 
@@ -18,7 +30,7 @@ Top-P changes how the model selects tokens for output. Tokens are selected from 
 
 Specify a lower value for less random responses and a higher value for more random responses.
 
-For more information, see [`topP`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#top-p) .
+For more information, see [`topP`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#top-p) .
 
 ### Temperature
 
@@ -28,7 +40,7 @@ If the model returns a response that's too generic, too short, or the model give
 
 `1.0` is the recommended starting value for temperature.
 
-Lower temperatures lead to predictable (but not completely [deterministic](https://medium.com/google-cloud/is-a-zero-temperature-deterministic-c4a7faef4d20) ) results. For more information, see [`temperature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#temperature) .
+Lower temperatures lead to predictable (but not completely [deterministic](https://medium.com/google-cloud/is-a-zero-temperature-deterministic-c4a7faef4d20) ) results. For more information, see [`temperature`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#temperature) .
 
 ## Stopping parameters
 
@@ -36,15 +48,17 @@ The parameters in this section allow you to precisely control the length and con
 
 ### Maximum output tokens
 
-Set [`maxOutputTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#maxOutputTokens) to limit the number of tokens generated in the response. A token is approximately four characters, so 100 tokens correspond to roughly 60-80 words. Set a low value to limit the length of the response.
+Set [`maxOutputTokens`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#maxOutputTokens) to limit the number of tokens generated in the response. A token is approximately four characters, so 100 tokens correspond to roughly 60-80 words. Set a low value to limit the length of the response.
 
 ### Stop sequences
 
-Define strings in [`stopSequences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#stopSequences) to tell the model to stop generating text if one of the strings is encountered in the response. If a string appears multiple times in the response, then the response is truncated where the string is first encountered. The strings are case-sensitive.
+Define strings in [`stopSequences`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#stopSequences) to tell the model to stop generating text if one of the strings is encountered in the response. If a string appears multiple times in the response, then the response is truncated where the string is first encountered. The strings are case-sensitive.
 
 ## Token penalization parameters
 
 The parameters in this section allow you to control the likelihood of tokens being generated based on their frequency and presence in the output.
+
+> **Warning:** Custom values for `frequencyPenalty` and `presencePenalty` aren't supported for Gemini 3.6 Flash and later models and return an error if set. Remove these parameters from your requests.
 
 ### Frequency penalty
 
@@ -54,6 +68,22 @@ Positive values penalize tokens that repeatedly appear in the generated text, de
 
 Positive values penalize tokens that already appear in the generated text, increasing the probability of generating more diverse content. The minimum value is `-2.0` . The maximum value is up to, but not including, `2.0` . For more information, see [`presencePenalty` in the `GenerationConfig` documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/Shared.Types/GeminiExample#GenerationConfig) .
 
+## Response format parameters
+
+The parameters in this section allow you to configure the format of the model's generated output.
+
+### Response MIME type
+
+Set [`responseMimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#responseMimeType) to specify the output response MIME type of the generated candidate text. Supported values include:
+
+  - `text/plain` (default): Plain text output.
+  - `application/json` : JSON response in the candidates.
+  - `text/x.enum` : For classification tasks, output an enum value as defined in the response schema.
+
+Specify the appropriate response type to avoid unintended behaviors. For example, if you require a JSON-formatted response, specify `application/json` and not `text/plain` .
+
+For more information, see [`responseMimeType`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#responseMimeType) and [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) .
+
 ## Advanced parameters
 
 Use these parameters to return more information about the tokens in the response or to control the variability of the response.
@@ -62,9 +92,17 @@ Use these parameters to return more information about the tokens in the response
 > 
 > This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
+### Candidate count
+
+The number of response variations to return. For each request, you're charged for the output tokens of all candidates, but are only charged once for the input tokens.
+
+Specifying multiple candidates is a Preview feature that works with `generateContent` ( `streamGenerateContent` is not supported).
+
+For more information, see [`candidateCount`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#candidateCount) .
+
 ### Seed
 
-When seed is fixed to a specific value, the model makes a best effort to provide the same response for repeated requests. Deterministic output isn't guaranteed. Also, changing the model or parameter settings, such as the temperature, can cause variations in the response even when you use the same seed value. By default, a random seed value is used. For more information, see [`seed`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent#seed) .
+When seed is fixed to a specific value, the model makes a best effort to provide the same response for repeated requests. Deterministic output isn't guaranteed. Also, changing the model or parameter settings, such as the temperature, can cause variations in the response even when you use the same seed value. By default, a random seed value is used. For more information, see [`seed`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#seed) .
 
 ### Example
 

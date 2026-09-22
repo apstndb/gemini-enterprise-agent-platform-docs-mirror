@@ -42,6 +42,8 @@ Distillation provides smaller gains on tasks where the student model already per
   - Gemma 3 12B IT ( `google/gemma3@gemma-3-12b-it` )
   - Gemma 3 27B IT ( `google/gemma3@gemma-3-27b-it` )
   - Medgemma 1.5 4B IT ( `google/medgemma@medgemma-1.5-4b-it` )
+  - Qwen 3.6 27B ( `qwen/qwen3-6@qwen3.6-27b` )
+  - Qwen 3.6 35B A3B ( `qwen/qwen3-6@qwen3.6-35b-a3b` )
   - Qwen 3.5 9B ( `qwen/qwen3-5@qwen3.5-9b` )
   - Qwen 3 4B ( `qwen/qwen3@qwen3-4b` )
   - Qwen 3 8B ( `qwen/qwen3@qwen3-8b` )
@@ -53,6 +55,7 @@ Distillation provides smaller gains on tasks where the student model already per
   - Llama 3.2 3B Instruct ( `meta/llama3-2@llama-3.2-3b-instruct` )
   - Llama 3.3 70B Instruct ( `meta/llama3-3@llama-3.3-70b-instruct` )
   - Llama 4 Scout 17B 16E Instruct ( `meta/llama4@llama-4-scout-17b-16e-instruct` )
+  - GLM 4.7 Flash ( `zai-org/glm-4.7-flash@glm-4.7-flash` )
 
 #### Distillation tuning supported models
 
@@ -223,6 +226,34 @@ Modalities
 
 Text
 
+Qwen 3.6 27B
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+12288
+
+Modalities
+
+Text
+
+Qwen 3.6 35B A3B
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+12288
+
+Modalities
+
+Text
+
 Qwen 3.5 9B
 
 Tuning modes
@@ -383,6 +414,20 @@ Text
 Images <sup>\*</sup>  
   
 <sup>\*</sup> Mixed datasets of both text-only and image examples are not supported. If there is at least one image example in the dataset, all text-only examples will be filtered out.
+
+GLM 4.7 Flash
+
+Tuning modes
+
+Parameter-efficient fine-tuning
+
+Maximum sequence length
+
+8192
+
+Modalities
+
+Text
 
 ## Before you begin
 

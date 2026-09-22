@@ -39,10 +39,10 @@ This section assumes that you have [set up a Python development environment](htt
 
 ### Install libraries
 
-Install the Vertex AI SDK:
+Install the Agent Platform SDK:
 
 ``` 
-  pip install google-cloud-aiplatform>=1.112.0
+  pip install google-cloud-agentplatform>=2.0.1
 ```
 
 ### Authenticate
@@ -64,12 +64,13 @@ To authenticate:
 
 To use Code Execution, first create an Agent Platform instance. You don't need to deploy an agent to use Code Execution. Without deployment, creating an Agent Platform instance should take a few seconds.
 
-    import vertexai
+    import agentplatform
+    from agentplatform import types
     
-    client = vertexai.Client(project=PROJECT_ID, location=LOCATION)
+    client = agentplatform.Client(project=PROJECT_ID, location=LOCATION)
     
-    agent_engine = client.agent_engines.create()
-    agent_engine_name = agent_engine.api_resource.name
+    remote_agent = client.runtimes.create()
+    remote_agent_name = remote_agent.api_resource.name
 
 Replace the following:
 
@@ -81,10 +82,10 @@ Replace the following:
 
 Create a sandbox for code execution.
 
-    operation = client.agent_engines.sandboxes.create(
+    operation = client.sandboxes.create(
         spec={"code_execution_environment": {}},
-        name=agent_engine_name,
-        config=types.CreateAgentEngineSandboxConfig(display_name=SANDBOX_DISPLAY_NAME)
+        name=remote_agent_name,
+        config=types.CreateRuntimeSandboxConfig(display_name=SANDBOX_DISPLAY_NAME)
     )
     
     sandbox_name = operation.response.name
@@ -95,7 +96,7 @@ Replace the following:
 
 You can also configure the sandbox settings like coding language and machine config:
 
-    operation = client.agent_engines.sandboxes.create(
+    operation = client.sandboxes.create(
        spec={
            "code_execution_environment": {
                 "code_language": "LANGUAGE_JAVASCRIPT",
@@ -103,7 +104,7 @@ You can also configure the sandbox settings like coding language and machine con
             }
        },
        name='projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID',
-       config=types.CreateAgentEngineSandboxConfig(
+       config=types.CreateRuntimeSandboxConfig(
            display_name=sandbox_display_name, ttl="3600s"),
     )
 
@@ -121,7 +122,7 @@ Only `LANGUAGE_PYTHON` and `LANGUAGE_JAVASCRIPT` are supported. If `machine_conf
 
 List all the sandboxes associated with the specified Agent Engine instance:
 
-    sandboxes = client.agent_engines.sandboxes.list(name=agent_engine_name)
+    sandboxes = client.sandboxes.list(name=remote_agent_name)
     
     for sandbox in sandboxes:
         pprint.pprint(sandbox)
@@ -141,7 +142,7 @@ Here's the sample output:
 
 To get an existing sandbox:
 
-    sandbox = client.agent_engines.sandboxes.get(name=sandbox_name)
+    sandbox = client.sandboxes.get(name=sandbox_name)
     
     pprint.pprint(sandbox)
 
@@ -178,7 +179,7 @@ To execute code, call `execute_code` :
     }
     
     
-    response = client.agent_engines.sandboxes.execute_code(
+    response = client.sandboxes.execute_code(
        name = sandbox_name,
        input_data = input_data
     )
@@ -221,7 +222,7 @@ To demonstrate that the sandbox maintains its state, execute more code in the sa
     """
     input_data = {"code": python_code}
     
-    response = client.agent_engines.sandboxes.execute_code(
+    response = client.sandboxes.execute_code(
         name = sandbox_name,
         input_data = input_data
     )
@@ -268,8 +269,8 @@ Here's the sample output:
 
 To clean up resources created by this quickstart, delete your sandbox and Agent Platform instance.
 
-    client.agent_engines.sandboxes.delete(name=sandbox_name)
-    agent_engine.delete()
+    client.sandboxes.delete(name=sandbox_name)
+    remote_agent.delete()
 
 ## What's next
 

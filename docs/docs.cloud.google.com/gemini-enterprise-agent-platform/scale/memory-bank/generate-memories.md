@@ -34,7 +34,7 @@ When you trigger memory generation, Memory Bank performs the following operation
 
 You can inspect the intermediate steps of memory generation and see how a memory changes across multiple requests using [memory revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions) . Each revision includes the intermediate output of the extraction step ( `extracted_memories` ) and the final consolidation step ( `fact` ) for each memory generation request.
 
-    list(client.agent_engines.memories.revisions.list(
+    list(client.memory_banks.memories.revisions.list(
       name="projects/.../locations/.../reasoningEngines/.../memories/.../revisions/..."))
     
     """
@@ -78,9 +78,9 @@ You can inspect the intermediate steps of memory generation and see how a memory
     
     ### Class-based
     
-        from vertexai.types import ManagedTopicEnum
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+        from agentplatform.types import ManagedTopicEnum
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
         
         memory_topic = MemoryTopic(
             managed_memory_topic=ManagedMemoryTopic(
@@ -104,8 +104,8 @@ You can inspect the intermediate steps of memory generation and see how a memory
     
     ### Class-based
     
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
         
         memory_topic = MemoryTopic(
             custom_memory_topic=CustomMemoryTopic(
@@ -144,9 +144,9 @@ This is equivalent to using the following set of managed memory topics:
 
 ### Class-based
 
-    from vertexai.types import ManagedTopicEnum
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+    from agentplatform.types import ManagedTopicEnum
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
     
     memory_topics = [
       MemoryTopic(
@@ -173,7 +173,7 @@ You can attach metadata to generated memories. Metadata lets you store structure
 
     import datetime
     
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
         ...,
         config={
             "metadata": {
@@ -194,11 +194,11 @@ You can attach metadata to generated memories. Metadata lets you store structure
 
     import datetime
     
-    from vertexai import types
+    from agentplatform import types
     
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
         ...,
-        config=types.GenerateAgentEngineMemoriesConfig(
+        config=types.GenerateMemoriesConfig(
             metadata={
                 "my_string_key": types.MemoryMetadataValue(string_value="my_string_value"),
                 "my_double_key": types.MemoryMetadataValue(double_value=123.456),
@@ -227,7 +227,7 @@ By default, memory generation extracts data for all the [memory topics that you 
 
 ### Dictionary
 
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
         ...,
         config={
             "allowed_topics": [
@@ -239,11 +239,11 @@ By default, memory generation extracts data for all the [memory topics that you 
 
 ### Class-based
 
-    from vertexai import types
+    from agentplatform import types
     
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
         ...,
-        config=types.GenerateAgentEngineMemoriesConfig(
+        config=types.GenerateMemoriesConfig(
             allowed_topics=[
                 types.MemoryTopicId(
                     managed_memory_topic=types.ManagedTopicEnum.USER_PERSONAL_INFO
@@ -264,9 +264,9 @@ You can trigger memory generation using one of the following methods:
 
 Memory generation extracts key context from source conversations and combines it with existing memories for the same scope. For example, you can create session-level memories by using a scope such as `{"user_id": "123", "session_id": "456"}` . Memories with the same scope can be consolidated and [retrieved](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#similarity-search) together.
 
-`GenerateMemories` is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#background-memory-generation) . Once the operation is done, the `AgentEngineGenerateMemoriesOperation` contains a list of generated memories, if any are generated:
+`GenerateMemories` is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#background-memory-generation) . Once the operation is done, the `GenerateMemoriesOperation` contains a list of generated memories, if any are generated:
 
-    AgentEngineGenerateMemoriesOperation(
+    GenerateMemoriesOperation(
       name="projects/.../locations/.../reasoningEngines/.../operations/...",
       done=True,
       response=GenerateMemoriesResponse(
@@ -307,11 +307,11 @@ For `CREATED` or `UPDATED` memories, you can use `GetMemories` to [retrieve the 
 
 ### Generating memories in the background
 
-`GenerateMemories` is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) . By default, `client.agent_engines.generate_memories` is a blocking function that polls the operation until the operation completes. Executing memory generation as a blocking operation is helpful when you want to manually inspect generated memories or notify end users about what memories were generated.
+`GenerateMemories` is a [long-running operation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/long-running-operations) . By default, `client.memory_banks.memories.generate` is a blocking function that polls the operation until the operation completes. Executing memory generation as a blocking operation is helpful when you want to manually inspect generated memories or notify end users about what memories were generated.
 
 However, for production agents, you generally want to run memory generation in the background as an asynchronous process. In most cases, the client doesn't need to use the output for the current run, so it's unnecessary to incur additional latency waiting for a response. If you want memory generation to execute in the background, set `wait_for_completion` to `False` :
 
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
         ...,
         config={
             "wait_for_completion": False
@@ -332,7 +332,7 @@ There are multiple way to provide source data for memory generation:
 
 When you provide events directly in the payload or use Sessions, information is extracted from the conversation and consolidated with existing memories. If you only want to extract information from these data sources, you can disable consolidation:
 
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
         ...
         config={
             "disable_consolidation": True
@@ -358,8 +358,8 @@ The events should include [`Content`](https://docs.cloud.google.com/python/docs/
       }
     ]
     
-    client.agent_engines.memories.generate(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+        name=memory_bank.name,
         direct_contents_source={
           "events": EVENTS
         },
@@ -379,10 +379,10 @@ Replace the following:
 The events should include [`Content`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/summary_class#content) objects.
 
     from google import genai
-    import vertexai
+    from agentplatform import types
     
     events = [
-      vertexai.types.GenerateMemoriesRequestDirectContentsSourceEvent(
+      types.GenerateMemoriesRequestDirectContentsSourceEvent(
         content=genai.types.Content(
           role="user",
           parts=[
@@ -392,8 +392,8 @@ The events should include [`Content`](https://docs.cloud.google.com/python/docs/
       )
     ]
     
-    client.agent_engines.memories.generate(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+        name=memory_bank.name,
         direct_contents_source={
           "events": events
         },
@@ -416,8 +416,8 @@ To scope the generated memories, Memory Bank extracts and uses the user ID from 
 
 ### Dictionary
 
-    client.agent_engines.memories.generate(
-      name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+      name=memory_bank.name,
       vertex_session_source={
           # For example, projects/.../locations/.../reasoningEngines/.../sessions/...
           "session": "SESSION_NAME"
@@ -437,9 +437,11 @@ Replace the following:
 
 ### Class-based
 
-    client.agent_engines.memories.generate(
-      name=memory_bank.api_resource.name,
-      vertex_session_source=vertexai.types.GenerateMemoriesRequestVertexSessionSource(
+    from agentplatform import types
+    
+    client.memory_banks.memories.generate(
+      name=memory_bank.name,
+      vertex_session_source=types.GenerateMemoriesRequestVertexSessionSource(
           # For example, projects/.../locations/.../reasoningEngines/.../sessions/...
           session="SESSION_NAME"
       ),
@@ -456,8 +458,8 @@ Optionally, you can provide a time range indicating which events in the Session 
 
     import datetime
     
-    client.agent_engines.memories.generate(
-      name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+      name=memory_bank.name,
       vertex_session_source={
           "session": "SESSION_NAME",
           # Extract memories from the last hour of events.
@@ -471,9 +473,11 @@ Optionally, you can provide a time range indicating which events in the Session 
 
     import datetime
     
-    client.agent_engines.memories.generate(
-      name=memory_bank.api_resource.name,
-      vertex_session_source=vertexai.types.GenerateMemoriesRequestVertexSessionSource(
+    from agentplatform import types
+    
+    client.memory_banks.memories.generate(
+      name=memory_bank.name,
+      vertex_session_source=types.GenerateMemoriesRequestVertexSessionSource(
           session="SESSION_NAME",
           # Extract memories from the last hour of events.
           start_time=datetime.datetime.now(tz=datetime.timezone.utc) - datetime.timedelta(seconds=24 * 60),
@@ -486,8 +490,8 @@ Optionally, you can provide a time range indicating which events in the Session 
 
 As an alternative to using Memory Bank's automatic extraction process, you can directly provide pre-extracted memories. Direct source memories will be consolidated with existing memories for the same scope. This can be useful for when you want your agent or a human-in-the-loop to be responsible for extracting memories, but you still want to take advantage of Memory Bank's consolidation to ensure there are no duplicate or contradictory memories.
 
-    client.agent_engines.memories.generate(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+        name=memory_bank.name,
         direct_memories_source={"direct_memories": [{"fact": "FACT"}]},
         scope=SCOPE
     )
@@ -543,13 +547,13 @@ For example, you can provide an image and context for the image in the payload:
 ### Class-based
 
     from google import genai
-    import vertexai
+    from agentplatform import types
     
     with open(file_name, "rb") as f:
         inline_data = f.read()
     
     events = [
-      vertexai.types.GenerateMemoriesRequestDirectContentsSourceEvent(
+      types.GenerateMemoriesRequestDirectContentsSourceEvent(
         content=genai.types.Content(
           role="user",
           parts=[

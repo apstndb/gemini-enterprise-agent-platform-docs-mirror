@@ -31,12 +31,12 @@ When you create a snapshot, it's retained for the duration specified in the `ttl
 
 To create a snapshot of a sandbox, use the Python SDK:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(project='PROJECT_ID', location='LOCATION')
+    client = agentplatform.Client(project='PROJECT_ID', location='LOCATION')
     sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
     
-    snapshot_operation = client.agent_engines.sandboxes.snapshots.create(
+    snapshot_operation = client.sandboxes.snapshots.create(
         source_sandbox_environment_name=sandbox_name,
         config={
             "display_name": "DISPLAY_NAME",
@@ -61,7 +61,7 @@ You can restore a sandbox state by referencing a saved snapshot when creating a 
     snapshot_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
     
     # Restore from a snapshot
-    new_sandbox_operation = client.agent_engines.sandboxes.create(
+    new_sandbox_operation = client.sandboxes.create(
         name=agent_instance_name,
         config={
             "display_name": "restored-sandbox",
@@ -73,7 +73,7 @@ You can restore a sandbox state by referencing a saved snapshot when creating a 
 
 To list all sandbox snapshots associated with an Agent Platform instance:
 
-    snapshots_response = client.agent_engines.sandboxes.snapshots.list(name=agent_instance_name)
+    snapshots_response = client.sandboxes.snapshots.list(name=agent_instance_name)
     
     for snapshot in snapshots_response.sandbox_environment_snapshots:
         print(snapshot.name)
@@ -82,12 +82,12 @@ To list all sandbox snapshots associated with an Agent Platform instance:
 
 To view the configuration of a specific sandbox snapshot:
 
-    snapshot = client.agent_engines.sandboxes.snapshots.get(name=snapshot_name)
+    snapshot = client.sandboxes.snapshots.get(name=snapshot_name)
     print(snapshot)
 
 ## Delete a snapshot
 
 To explicitly delete a sandbox snapshot when they are no longer needed:
 
-    client.agent_engines.sandboxes.snapshots.delete(name=snapshot_name)
+    client.sandboxes.snapshots.delete(name=snapshot_name)
     print("Snapshot deleted.")

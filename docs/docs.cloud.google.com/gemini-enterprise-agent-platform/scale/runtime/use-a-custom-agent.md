@@ -26,14 +26,14 @@ To get the agent that corresponds to a specific resource ID:
 
 Run the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    agent = client.agent_engines.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     print(agent)
 
@@ -72,11 +72,11 @@ Run the following code:
     -H "Content-Type: application/json" \
     https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
 
-When using the Agent Platform SDK for Python, the `agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK for Python, the `agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#supported-operations) for details.
-  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-custom-agent#supported-operations) for details.
+  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
 The rest of this section assumes that you have an instance, named as `agent` .
 
@@ -223,7 +223,7 @@ Stream a response from the agent using the `stream_query` operation:
 
 ### Agent Platform SDK
 
-    agent = agent_engines.get("projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get("projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     for response in agent.stream_query(
         input="What is the exchange rate from US dollars to Swedish Krona today?"
@@ -281,7 +281,7 @@ If you defined an `async_query` operation when [creating the agent](https://docs
 
 ### Agent Platform SDK for Python
 
-    agent = agent_engines.get("projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get("projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     response = await agent.async_query(
         input="What is the exchange rate from US dollars to Swedish Krona today?"
@@ -300,7 +300,7 @@ If you defined an `async_stream_query` operation when [creating the agent](https
 
 ### Agent Platform SDK for Python
 
-    agent = agent_engines.get("projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get("projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     async for response in agent.async_stream_query(
         input="What is the exchange rate from US dollars to Swedish Krona today?"
@@ -325,14 +325,14 @@ To start a long-running query job:
 
 ### Agent Platform SDK for Python
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    response = client.agent_engines.run_query_job(
+    response = client.runtimes.run_query_job(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID",
         config={
             "query": '{ "input": {"product": "Google"} }',
@@ -358,7 +358,7 @@ To check the status and retrieve the results of a long-running query job:
 
 ### Agent Platform SDK
 
-    response = client.agent_engines.check_query_job(
+    response = client.runtimes.check_query_job(
         name="JOB_NAME",
         config={
             "retrieve_result": True,

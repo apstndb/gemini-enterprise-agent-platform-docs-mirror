@@ -111,9 +111,9 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtime-templates create --display-name="DISPLAY_NAME" \
+    gcloud colab runtime-templates create --display-name=&quot;DISPLAY_NAME" \
         --project=PROJECT_ID \
-        --region=REGION \
+        n>--region=REGION \
         --machine-type=MACHINE_TYPE \
         --accelerator-type=ACCELERATOR_TYPE \
         --accelerator-count=ACCELERATOR_COUNT
@@ -122,9 +122,9 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtime-templates create --display-name="DISPLAY_NAME" `
+    gcloud colab runtime-templates create --display-name=&quot;DISPLAY_NAME" `
         --project=PROJECT_ID `
-        --region=REGION `
+        n>--region=REGION `
         --machine-type=MACHINE_TYPE `
         --accelerator-type=ACCELERATOR_TYPE `
         --accelerator-count=ACCELERATOR_COUNT
@@ -133,9 +133,9 @@ Execute the following command:
 
 > **Note:** Ensure you have initialized the Google Cloud CLI with authentication and a project by running either [gcloud init](https://docs.cloud.google.com/sdk/gcloud/reference/init) ; or [gcloud auth login](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) and [gcloud config set project](https://docs.cloud.google.com/sdk/gcloud/reference/config/set) .
 
-    gcloud colab runtime-templates create --display-name="DISPLAY_NAME" ^
+    gcloud colab runtime-templates create --display-name=&quot;DISPLAY_NAME" ^
         --project=PROJECT_ID ^
-        --region=REGION ^
+        n>--region=REGION ^
         --machine-type=MACHINE_TYPE ^
         --accelerator-type=ACCELERATOR_TYPE ^
         --accelerator-count=ACCELERATOR_COUNT

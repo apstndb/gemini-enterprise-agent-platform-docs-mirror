@@ -6,34 +6,34 @@ description: This tutorial describes features that are specific to AG2 agents.
 data_source: docs.cloud.google.com
 ---
 
-In addition to the general instructions for [using an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent) , this page describes features that are specific to [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent) .
+In addition to the general instructions for [using an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-agent) , this page describes features that are specific to [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent) .
 
 ## Before you begin
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create an AG2 agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-ag2-agent) : to create `agent` as an instance of [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent) .
+  - [Create an AG2 agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-ag2-agent) : to create `agent` as an instance of [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
 ## Get an instance of an agent
 
-To query a [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query a [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
-To get the [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent) that corresponds to a specific resource ID:
+To get the [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent) that corresponds to a specific resource ID:
 
 ### Agent Platform SDK
 
 Run the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    agent = client.agent_engines.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     print(agent)
 
@@ -72,19 +72,19 @@ Run the following code:
     -H "Content-Type: application/json" \
     https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
 
-When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-ag2-agent#supported-operations) for details.
-  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-ag2-agent#supported-operations) for details.
+  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
-The rest of this section assumes that you have an `AgentEngine` instance, named as `agent` .
+The rest of this section assumes that you have an `AgentRuntime` instance, named as `agent` .
 
 ## Supported operations
 
-The following operations are supported for [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent) :
+The following operations are supported for [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent) :
 
-  - [`query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent#vertexai_agent_engines_AG2Agent_query) : for getting a response to a query synchronously.
+  - [`query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent#vertexai_agent_engines_AG2Agent_query) : for getting a response to a query synchronously.
 
 The `query` method support the arguments:
 
@@ -132,7 +132,7 @@ You can customize the agent's behavior beyond `input` and `max_turns` by passing
     )
     print(response)
 
-See the [`ConversableAgent.run` documentation](https://docs.ag2.ai/latest/docs/api-reference/autogen/ConversableAgent/) for a complete list of available parameters. However, keep in mind that `user_input` will always be overridden to `False` by the [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AG2Agent) template.
+See the [`ConversableAgent.run` documentation](https://docs.ag2.ai/latest/docs/api-reference/autogen/ConversableAgent/) for a complete list of available parameters. However, keep in mind that `user_input` will always be overridden to `False` by the [`AG2Agent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AG2Agent) template.
 
 ## What's next
 

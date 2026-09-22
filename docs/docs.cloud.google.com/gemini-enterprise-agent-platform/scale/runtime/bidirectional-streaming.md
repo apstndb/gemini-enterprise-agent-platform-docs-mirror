@@ -155,23 +155,23 @@ Note that with the GenAI SDK, all deployment configurations (additional packages
 
 Initialize the GenAI client:
 
-    import vertexai
-    from vertexai import types as vertexai_types
+    import agentplatform
+    from agentplatform import types as agentplatform_types
     
-    client = vertexai.Client(project=PROJECT, location=LOCATION)
+    client = agentplatform.Client(project=PROJECT, location=LOCATION)
 
 Deploy the agent to Agent Platform. Note that the `EXPERIMENTAL` `agent_server_mode` is required for an agent that supports bidirectional streaming:
 
-    remote_live_agent = client.agent_engines.create(
+    remote_live_agent = client.runtimes.create(
         agent=live_agent,
         config={
             "staging_bucket": STAGING_BUCKET,
             "requirements": [
-                "google-cloud-aiplatform[agent_engines,adk]==1.88.0",
+                "google-cloud-agentplatform[runtimes,adk]==2.0.1",
                 "cloudpickle==3.0",
                 "websockets"
             ],
-            "agent_server_mode": vertexai_types.AgentServerMode.EXPERIMENTAL,
+            "agent_server_mode": agentplatform_types.AgentServerMode.EXPERIMENTAL,
         },
     )
 
@@ -187,8 +187,8 @@ If you defined a `bidi_stream_query` operation when developing your agent, you c
 
 You can modify the following example with any data recognizable by your agent, using any applicable termination logic for input stream and output stream:
 
-    async with client.aio.live.agent_engines.connect(
-            agent_engine=remote_live_agent.api_resource.name,
+    async with client.aio.live.runtimes.connect(
+            runtime=remote_live_agent.api_resource.name,
             config={"class_method": "bidi_stream_query"}
             ) as connection:
         while True:
@@ -228,8 +228,8 @@ The following example creates a conversation agent that takes user text question
         content = types.Content(parts=[part])
         return LiveRequest(content=content)
     
-    async with client.aio.live.agent_engines.connect(
-            agent_engine=remote_live_agent.api_resource.name,
+    async with client.aio.live.runtimes.connect(
+            runtime=remote_live_agent.api_resource.name,
             config={
                 "class_method": "bidi_stream_query",
                 "input": {"input_str": "hello"},

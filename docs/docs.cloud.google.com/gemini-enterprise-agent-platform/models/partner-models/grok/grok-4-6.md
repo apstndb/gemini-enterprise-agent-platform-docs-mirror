@@ -6,10 +6,6 @@ description: Explore the Grok 4.6 model.
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 A high-capability model from xAI, built for coding, agentic tasks, and knowledge work.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.6)
@@ -20,7 +16,7 @@ Model ID
 
 Launch stage
 
-Preview
+GA
 
 Supported inputs & outputs
 
@@ -33,9 +29,9 @@ Capabilities
 
 Supported
 
-  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling) preview Preview feature
-  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output) preview Preview feature
-  - [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning) preview Preview feature
+  - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling)
+  - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output)
+  - [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning)
 
 Not supported
 
@@ -45,7 +41,7 @@ Usage types
 
 Supported
 
-  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota) preview Preview feature
+  - [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota)
 
 Not supported
 
@@ -56,7 +52,7 @@ Versions
 
 `grok-4.6`
 
-  - **Launch stage:** Preview
+  - **Launch stage:** GA
   - **Release date:** August 21, 2026
 
 Supported regions
@@ -80,6 +76,11 @@ United States
 Quota limits
 
 Multi-region:
+
+  - QPM: 13
+  - Input TPM: 188,000
+  - Output TPM: 16,000
+  - Context length: 524,288
 
 global endpoint:
 

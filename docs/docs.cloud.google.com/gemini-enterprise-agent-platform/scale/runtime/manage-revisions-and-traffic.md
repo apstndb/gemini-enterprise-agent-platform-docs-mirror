@@ -95,20 +95,15 @@ To find the resource ID for your agent, see [Get the agent resource ID](https://
 
 The following code lists the revision history for a specified deployed agent. To list revisions, you must identify your agent's unique [resource ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#resource-identifier) .
 
-    import vertexai
-    from google.genai import types as genai_types
+    import agentplatform
     
-    http_options = genai_types.HttpOptions(
-        api_version="v1beta1",
-    )
-    
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
-        http_options=http_options,
+        http_options={"api_version": "v1beta1"},
     )
     
-    revisions = client.agent_engines.runtimes.revisions.list(
+    revisions = client.runtimes.revisions.list(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID"
     )
     
@@ -196,20 +191,15 @@ You can retrieve the details for a specific revision.
 
 The following code retrieves resource details for a specified deployed agent revision:
 
-    import vertexai
-    from google.genai import types as genai_types
+    import agentplatform
     
-    http_options = genai_types.HttpOptions(
-        api_version="v1beta1",
-    )
-    
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
-        http_options=http_options,
+        http_options={"api_version": "v1beta1"},
     )
     
-    revision = client.agent_engines.runtimes.revisions.get(
+    revision = client.runtimes.revisions.get(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID/runtimeRevisions/REVISION_ID"
     )
     
@@ -307,20 +297,15 @@ To configure traffic management:
 
 The following code shows an example of configuring percentage-based traffic distribution.
 
-    import vertexai
-    from google.genai import types as genai_types
+    import agentplatform
     
-    http_options = genai_types.HttpOptions(
-        api_version="v1beta1",
-    )
-    
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
-        http_options=http_options,
+        http_options={"api_version": "v1beta1"},
     )
     
-    client.agent_engines.update(
+    client.runtimes.update(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID",
         config={
             "traffic_config": {
@@ -440,20 +425,15 @@ You can query a specific revision through the SDK or the APIs. The revision must
 
 The following code queries a specific active revision:
 
-    import vertexai
-    from google.genai import types as genai_types
+    import agentplatform
     
-    http_options = genai_types.HttpOptions(
-        api_version="v1beta1",
-    )
-    
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
-        http_options=http_options,
+        http_options={"api_version": "v1beta1"},
     )
     
-    revision = client.agent_engines.runtimes.revisions.get(
+    revision = client.runtimes.revisions.get(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID/runtimeRevisions/REVISION_ID"
     )
     
@@ -552,20 +532,15 @@ To delete a revision for an agent:
 
 The following code deletes a specified agent revision:
 
-    import vertexai
-    from google.genai import types as genai_types
+    import agentplatform
     
-    http_options = genai_types.HttpOptions(
-        api_version="v1beta1",
-    )
-    
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
-        http_options=http_options,
+        http_options={"api_version": "v1beta1"},
     )
     
-    client.agent_engines.runtimes.revisions.delete(
+    client.runtimes.revisions.delete(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID/runtimeRevisions/REVISION_ID"
     )
 

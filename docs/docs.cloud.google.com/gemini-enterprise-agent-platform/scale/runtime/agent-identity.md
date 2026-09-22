@@ -38,23 +38,22 @@ You have the following options when creating an agent identity:
 
   - **Create an Agent Runtime instance without deploying agent code** : If you want to set up IAM policies before deploying the agent, you can create an agent identity without deploying your agent code. To do so, create an Agent Runtime instance with just the `identity_type` field:
     
-        import vertexai
-        from vertexai import agent_engines
-        from vertexai import types
+        import agentplatform
+        from agentplatform import types
         
-        client = vertexai.Client(
+        client = agentplatform.Client(
           project=PROJECT_ID,
           location=LOCATION,
           http_options=dict(api_version="v1beta1")
         )
-        remote_app = client.agent_engines.create(
+        remote_app = client.runtimes.create(
           config={
             "display_name": "identity-for-agent",
             "identity_type": types.IdentityType.AGENT_IDENTITY,
           },
         )
     
-    Once you create the Agent Runtime instance with the agent identity, you can add agent code using [`agent_engine.update(...)`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .
+    Once you create the Agent Runtime instance with the agent identity, you can add agent code using [`client.runtimes.update(...)`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#update) .
 
   - **Create an Agent Runtime instance while deploying agent code** : If you want to provision the agent identity while deploying your agent code, use the Agent Platform SDK for Python and the `identity_type=AGENT_IDENTITY` flag.
     
@@ -70,12 +69,12 @@ You have the following options when creating an agent identity:
     
     Then, deploy it:
     
-        import vertexai
-        from vertexai import types
-        from vertexai.agent_engines import AdkApp
+        import agentplatform
+        from agentplatform import types
+        from agentplatform.frameworks import AdkApp
         
         # Initialize the Agent Platform client with v1beta1 API for agent identity support
-        client = vertexai.Client(
+        client = agentplatform.Client(
           project=PROJECT_ID,
           location=LOCATION,
           http_options=dict(api_version="v1beta1")
@@ -85,12 +84,12 @@ You have the following options when creating an agent identity:
         app = AdkApp(agent=agent)
         
         # Deploy the agent with Agent Identity
-        remote_app = client.agent_engines.create(
+        remote_app = client.runtimes.create(
           agent=app,
           config={
             "display_name": "running-agent-with-identity",
             "identity_type": types.IdentityType.AGENT_IDENTITY,
-            "requirements": ["google-cloud-aiplatform[adk,agent_engines]"],
+            "requirements": ["google-cloud-agentplatform[adk,runtimes]"],
             "staging_bucket": f"gs://"BUCKET_NAME",
           },
         )

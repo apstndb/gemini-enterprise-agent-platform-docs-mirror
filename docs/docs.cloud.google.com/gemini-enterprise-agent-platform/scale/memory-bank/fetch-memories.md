@@ -30,7 +30,7 @@ You have the following options to fetch generated memories:
 
 Use `GetMemories` to get the full content of a single memory:
 
-    memory = client.agent_engines.memories.get(
+    memory = client.memory_banks.memories.get(
         name="MEMORY_NAME")
 
 Replace the following:
@@ -54,8 +54,8 @@ For cases where you have many memories for a particular scope, you can use simil
 
 Returned memories are sorted from most similar (shortest Euclidean distance) to least similar (greatest Euclidean distance):
 
-    results = client.agent_engines.memories.retrieve(
-        name=memory_bank.api_resource.name,
+    results = client.memory_banks.memories.retrieve(
+        name=memory_bank.name,
         scope=SCOPE,
         similarity_search_params={
             "search_query": "QUERY",
@@ -102,8 +102,8 @@ If no similarity search parameters are provided, `RetrieveMemories` returns all 
 
 > **Warning:** Retrieving all memories without similarity search can return multiple pages. Calling `list()` on a `RetrieveMemories` response triggers automatic pagination across all pages. For large collections, use `response.page` directly to fetch items one page at a time and prevent unexpected calls.
 
-    results = client.agent_engines.memories.retrieve(
-        name=memory_bank.api_resource.name,
+    results = client.memory_banks.memories.retrieve(
+        name=memory_bank.name,
         scope=SCOPE
     )
     # RetrieveMemories returns a pager. You can use `page` to retrieve up to 100 memories per page.
@@ -141,7 +141,7 @@ Replace the following:
 
 Use `ListMemories` to memories from your Memory Bank without scope-based filtering. For scope-based retrieval, use [`RetrieveMemories`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/fetch-memories#scope-based) instead. `ListMemories` is not recommended for low-latency retrieval.
 
-    pager = client.agent_engines.memories.list(name=memory_bank.api_resource.name)
+    pager = client.memory_banks.memories.list(name=memory_bank.name)
     for page in pager:
       print(page)
 
@@ -163,7 +163,7 @@ When creating, updating, or generating memories, you can apply structured metada
 
     import datetime
     
-    from vertexai import types
+    from agentplatform import types
     
     metadata = {
         "my_string_key": types.MemoryMetadataValue(string_value="my_string_value"),
@@ -176,17 +176,17 @@ When creating, updating, or generating memories, you can apply structured metada
         ),
     }
     
-    client.agent_engines.memories.create(
+    client.memory_banks.memories.create(
       ...,
       config={"metadata": metadata}
     )
     
-    client.agent_engines.memories.update(
+    client.memory_banks.memories.update(
       ...,
       config={"metadata": metadata}
     )
     
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
       ...,
       config={"metadata": metadata}
     )
@@ -197,7 +197,7 @@ For example, the following request will retrieve memories that include the metad
 
 ### Dictionary
 
-    results = client.agent_engines.memories.retrieve(
+    results = client.memory_banks.memories.retrieve(
       ...,
       config={
         # Each element of `filter_groups` is combined using OR logic.
@@ -229,11 +229,11 @@ For example, the following request will retrieve memories that include the metad
 
 ### Class-based
 
-    from vertexai import types
+    from agentplatform import types
     
-    results = client.agent_engines.memories.retrieve(
+    results = client.memory_banks.memories.retrieve(
       ...,
-      config=types.RetrieveAgentEngineMemoriesConfig(
+      config=types.RetrieveMemoriesConfig(
         # Each element of `filter_groups` is combined using OR logic.
         filter_groups=[
           types.MemoryConjunctionFilter(
@@ -275,12 +275,12 @@ For example, the following filter can be used to fetch memories where the `fact`
 
     filter_string = 'fact=~".*allergies.*" AND update_time>="2026-01-01T00:00:00Z"'
     
-    client.agent_engines.memories.retrieve(
+    client.memory_banks.memories.retrieve(
       ...,
       config={"filter": filter_string}
     )
     
-    client.agent_engines.memories.list(
+    client.memory_banks.memories.list(
       ...,
       config={"filter": filter_string}
     )
@@ -296,12 +296,12 @@ To filter on custom topics, use `topics.custom_memory_topic_label` as the field 
     filter_string = "topics.managed_memory_topic: USER_PREFERENCES " + \
     "OR topics.custom_memory_topic_label: custom-label"
     
-    client.agent_engines.memories.retrieve(
+    client.memory_banks.memories.retrieve(
       ...,
       config={"filter": filter_string}
     )
     
-    client.agent_engines.memories.list(
+    client.memory_banks.memories.list(
       ...,
       config={"filter": filter_string}
     )

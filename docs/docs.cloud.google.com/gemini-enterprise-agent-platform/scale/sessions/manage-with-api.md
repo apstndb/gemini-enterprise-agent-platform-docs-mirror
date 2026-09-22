@@ -12,22 +12,22 @@ To manage sessions using the ADK agent, see [Manage sessions with Agent Developm
 
 ## Create an Agent Runtime instance
 
-To access Agent Platform Sessions, you first need use an Agent Runtime instance. You don't need to deploy any code to start using Sessions. If you've used Agent Engine before, creating an Agent Runtime instance only takes a few seconds without code deployment. It may take longer if this is the first time you're using Agent Engine.
+To access Agent Platform Sessions, you first need use an Agent Runtime instance. You don't need to deploy any code to start using Sessions. If you've used Agent Runtime before, creating an Agent Runtime instance only takes a few seconds without code deployment. It may take longer if this is the first time you're using Agent Runtime.
 
 If you don't have an existing Agent Runtime instance, create one using the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
       project="PROJECT_ID",
       location="LOCATION"
     )
-    # If you don't have an Agent Engine instance already, create an instance.
-    agent_engine = client.agent_engines.create()
+    # If you don't have an Agent Runtime instance already, create an instance.
+    remote_agent = client.runtimes.create()
     
-    # Optionally, print out the Agent Engine resource name. You will need the
+    # Optionally, print out the Agent Runtime resource name. You will need the
     # resource name to interact with Sessions later on.
-    print(agent_engine.api_resource.name)
+    print(remote_agent.api_resource.name)
 
 Replace the following:
 
@@ -52,14 +52,14 @@ For deployed agents, you can use the Google Cloud console to list sessions assoc
 
 ### Python
 
-    for session in client.agent_engines.sessions.list(
-        name=agent_engine.api_resource.name,  # Required
+    for session in client.sessions.list(
+        name=remote_agent.api_resource.name,  # Required
     ):
         print(session)
     
     # To list sessions for a specific user:
-    for session in client.agent_engines.sessions.list(
-        name=agent_engine.api_resource.name,  # Required
+    for session in client.sessions.list(
+        name=remote_agent.api_resource.name,  # Required
         config={"filter": "user_id=USER_ID"},
     ):
         print(session)
@@ -128,8 +128,8 @@ For deployed agents, you can use the Google Cloud console to create sessions:
 
 ### Python
 
-    session = client.agent_engines.sessions.create(
-        name=agent_engine.api_resource.name,  # Required
+    session = client.sessions.create(
+        name=remote_agent.api_resource.name,  # Required
         user_id=USER_ID, # Required
         session_id=SESSION_ID,
     )
@@ -210,8 +210,8 @@ All sessions must have an expiration time. You can define this expiration time w
 
 If you set the time to live, the server calculates the expiration time as `create_time + ttl` for newly created sessions or `update_time + ttl` for updated sessions.
 
-    client.agent_engines.sessions.create(
-        name=agent_engine.api_resource.name,  # Required
+    client.sessions.create(
+        name=remote_agent.api_resource.name,  # Required
         user_id=USER_ID, # Required
         config={
             # Session will be deleted 10 days after creation time.
@@ -223,8 +223,8 @@ If you set the time to live, the server calculates the expiration time as `creat
 
     import datetime
     
-    client.agent_engines.sessions.create(
-        name=agent_engine.api_resource.name,  # Required
+    client.sessions.create(
+        name=remote_agent.api_resource.name,  # Required
         user_id=USER_ID, # Required
         config={
             # Session will be deleted at the provided time (10 days after current time).
@@ -254,7 +254,7 @@ For deployed agents, you can use the Google Cloud console to create sessions:
 
 ### Python
 
-    session = client.agent_engines.sessions.get(
+    session = client.sessions.get(
         name='projects/PROJECT_ID/locations/LOCATION/reasoningEngines/AGENT_ENGINE_ID/sessions/SESSION_ID',  # Required
         user_id=USER_ID, # Required
     )
@@ -326,7 +326,7 @@ For deployed agents, you can use the Google Cloud console to delete sessions ass
 
 ### Python
 
-    client.agent_engines.sessions.delete(name=session.name)
+    client.sessions.delete(name=session.name)
 
 ### REST
 
@@ -393,7 +393,7 @@ For deployed agents, you can use the Google Cloud console to create sessions:
 
 ### Python
 
-    for session_event in client.agent_engines.list_session_events(
+    for session_event in client.sessions.events.list(
         name=session.name,
     ):
         print(session_event)
@@ -467,7 +467,7 @@ For deployed agents, you can use the Google Cloud console to create sessions:
 
     import datetime
     
-    client.agent_engines.sessions.events.append(
+    client.sessions.events.append(
         name=session.name,
         author="user",                                              # Required.
         invocation_id="1",                                          # Required.
@@ -482,7 +482,7 @@ For deployed agents, you can use the Google Cloud console to create sessions:
 
 Alternatively, you can use the `raw_event` field to include arbitrary data in session events. This is useful for interoperability with other agent frameworks or for storing custom event data.
 
-    client.agent_engines.sessions.events.append(
+    client.sessions.events.append(
         name=session.name,
         author="user",                                              # Required.
         invocation_id="1",                                          # Required.
@@ -560,4 +560,4 @@ Before using any of the request data, make the following replacements:
 
 To clean up all resources used in this project, you can delete the Agent Platform instance along with its child resources:
 
-    agent_engine.delete(force=True)
+    remote_agent.delete(force=True)

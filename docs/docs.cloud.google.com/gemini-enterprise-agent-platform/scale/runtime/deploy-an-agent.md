@@ -299,7 +299,7 @@ You can specify runtime resource controls for the agent, such as the minimum and
 
 <!-- end list -->
 
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         agent=local_agent,
         config={
             "min_instances": 1,
@@ -468,7 +468,7 @@ You can configure a custom service account as the identity of your deployed agen
 To do so, specify the email of your custom service account as the `service_account` when creating or updating the Agent Platform instance, for example:
 
     # Create a new instance
-    client.agent_engines.create(
+    client.runtimes.create(
         agent=local_agent,
         config={
             "service_account": "my-custom-service-account@my-project.iam.gserviceaccount.com",
@@ -478,7 +478,7 @@ To do so, specify the email of your custom service account as the `service_accou
     
     # Update an existing instance
     resource_name = "projects/{project_id}/locations/{location}/reasoningEngines/{reasoning_engine_id}"
-    client.agent_engines.update(
+    client.runtimes.update(
         name=resource_name,
         agent=local_agent,
         config={
@@ -493,7 +493,7 @@ To do so, specify the email of your custom service account as the `service_accou
 
 If you have [Private Service Connect interface and private DNS zone](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/private-service-connect-interface) set up, you can specify your network attachment and create private DNS peering while deploying your agent:
 
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         agent=local_agent,
         config={
             "psc_interface_config": {
@@ -524,7 +524,7 @@ You can use a custom key to encrypt your agent's data at rest. See Agent Engine 
 
 To configure the custom key (CMEK) for your agent, you need to provide the key resource name to the `encryption_spec` parameter when creating the Agent Platform instance.
 
-    # The fully qualified key namekms_key_name="projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY_NAME"remote_agent=client.agent_engines.create(agent=local_agent,config={"encryption_spec":{"kms_key_name":kms_key_name},# ... other parameters},)
+    # The fully qualified key namekms_key_name="projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY_NAME"remote_agent=client.runtimes.create(agent=local_agent,config={"encryption_spec":{"kms_key_name":kms_key_name},# ... other parameters},)
 
 #### Set up Developer Connect Git repository link
 
@@ -536,11 +536,11 @@ This section describes how to create an Agent Platform instance for deploying an
 
 ### Developer Connect
 
-To deploy from Developer Connect on Agent Platform, use `client.agent_engines.create` by providing `developer_connect_source` , `entrypoint_module` , and `entrypoint_object` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . This method lets you deploy code directly from a connected Git repository.
+To deploy from Developer Connect on Agent Platform, use `client.runtimes.create` by providing `developer_connect_source` , `entrypoint_module` , and `entrypoint_object` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . This method lets you deploy code directly from a connected Git repository.
 
 You can use this deployment method with Python only.
 
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         config={
             "developer_connect_source": {                   # Required.
                 "git_repository_link": "projects/PROJECT_ID/locations/LOCATION/connections/CONNECTION_ID/gitRepositoryLinks/REPO_ID",
@@ -574,15 +574,15 @@ Deployment takes a few minutes, during which the following steps happen in the b
 
 Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
 
-The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
 ### Source files
 
-To deploy from source files on Agent Platform, use `client.agent_engines.create` by providing `source_packages` , `entrypoint_module` , `entrypoint_object` , and `class_methods` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . With this method, you don't need to pass an agent object or Cloud Storage bucket.
+To deploy from source files on Agent Platform, use `client.runtimes.create` by providing `source_packages` , `entrypoint_module` , `entrypoint_object` , and `class_methods` in the config dictionary, along with other [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) . With this method, you don't need to pass an agent object or Cloud Storage bucket.
 
 You can use this deployment method with Python only.
 
@@ -597,7 +597,7 @@ You can use this deployment method with Python only.
     #         return f"Answer to {question}"
     # root_agent = MyAgent()
     
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         config={
             "source_packages": source_packages,             # Required.
             "entrypoint_module": entrypoint_module,         # Required.
@@ -657,11 +657,11 @@ Deployment takes a few minutes, during which the following steps happen in the b
 
 Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
 
-The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
 ### Dockerfile
 
@@ -678,7 +678,7 @@ The following is an example of deploying an agent using a Dockerfile:
     #     ├── requirements.txt
     #     ├── Dockerfile
     
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         config={
             "source_packages": [
                 "agent.py",
@@ -694,11 +694,11 @@ The following is an example of deploying an agent using a Dockerfile:
 
 Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
 
-The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
 ### Container image
 
@@ -708,7 +708,7 @@ You can use this deployment method with any language. The example in this sectio
 
 The following is an example of deploying an agent using a container image:
 
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         config={
             "container_spec": {
                 "image_uri": "CONTAINER_IMAGE_URI",
@@ -722,17 +722,17 @@ Where `  CONTAINER_IMAGE_URI  ` corresponds to the URI of the container image in
 
 Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
 
-The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
 ### Agent Platform SDK
 
-To deploy the agent on Agent Platform, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) :
+To deploy the agent on Agent Platform, use `client.runtimes.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) :
 
-    remote_agent = client.agent_engines.create(
+    remote_agent = client.runtimes.create(
         agent=local_agent,                                  # Optional.
         config={
             "requirements": requirements,                   # Optional.
@@ -766,11 +766,11 @@ Deployment takes a few minutes, during which the following steps happen in the b
 
 Deployment latency depends on the total time it takes to install required packages. Once deployed, `remote_agent` corresponds to an instance of `local_agent` that is running on Agent Platform and can be queried or deleted.
 
-The `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+The `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
-  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
 ## Optional: Get the agent resource ID
 
@@ -792,7 +792,7 @@ where
 
 ## Optional: List the supported operations
 
-Each deployed agent has a list of supported operations. You can use the [`AgentEngine.operation_schemas`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine#vertexai__genai_types_AgentEngine_operation_schemas) to get the list of operations supported by the deployed agent:
+Each deployed agent has a list of supported operations. You can use the [`AgentRuntime.operation_schemas`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime#agentplatform__types_AgentRuntime_operation_schemas) to get the list of operations supported by the deployed agent:
 
     remote_agent.operation_schemas()
 

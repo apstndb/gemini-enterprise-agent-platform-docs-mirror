@@ -14,35 +14,33 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create an Agent2Agent (A2A) agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) to create an agent as an instance of [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) .
+  - [Create an Agent2Agent (A2A) agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-a2a-agent) to create an agent as an instance of [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.A2aAgent) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
 ## Get an instance of an agent
 
-To query an [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query an [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.A2aAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
-To get the [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.A2aAgent) that corresponds to a specific resource ID:
+To get the [`A2aAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.A2aAgent) that corresponds to a specific resource ID:
 
 ### Agent Platform SDK
 
-    import vertexai
-    from google.genai import types
+    import agentplatform
+    from agentplatform import types
     
     PROJECT_ID = "PROJECT_ID"
     LOCATION = "LOCATION"
     RESOURCE_ID = "RESOURCE_ID"
     RESOURCE_NAME = f"projects/{PROJECT_ID}/locations/{LOCATION}/reasoningEngines/{RESOURCE_ID}"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project=PROJECT_ID,
         location=LOCATION,
-        http_options=types.HttpOptions(
-            api_version="v1beta1",
-        )
+        http_options={"api_version": "v1beta1"},
     )
     
-    remote_agent = client.agent_engines.get(name=RESOURCE_NAME)
+    remote_agent = client.runtimes.get(name=RESOURCE_NAME)
     
     print(remote_agent)
 
@@ -110,13 +108,13 @@ Retrieve the A2A URL from the agent card and define the request headers.
         "Content-Type": "application/json",
     }
 
-When using the Agent Platform SDK, the `remote_agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK, the `remote_agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent#supported-operations) for details.
-  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`remote_agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `remote_agent.operation_schemas()` to return the list of operations that the `remote_agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-a2a-agent#supported-operations) for details.
+  - [`remote_agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`remote_agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
-The rest of this section assumes that you have an `AgentEngine` instance, named as `remote_agent` .
+The rest of this section assumes that you have an `AgentRuntime` instance, named as `remote_agent` .
 
 ## Supported operations
 
@@ -159,7 +157,7 @@ To send a message:
     
     response = await remote_agent.on_message_send(**message_data)
 
-You can override the timeout used for `on_message_send` by setting the `timeout` field of `HttpOptions` when creating `vertexai.Client` .
+You can override the timeout used for `on_message_send` by setting the `timeout` field of `HttpOptions` when creating `agentplatform.Client` .
 
 ### A2A Python SDK
 

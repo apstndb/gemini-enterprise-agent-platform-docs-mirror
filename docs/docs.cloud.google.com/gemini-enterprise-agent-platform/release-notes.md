@@ -10,6 +10,22 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 18, 2026
+
+Feature
+
+**xAI's Grok 4.6 is generally available**
+
+[Grok 4.6](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6) is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) and available for production use on the global endpoint and the US multi-region endpoint.
+
+Breaking
+
+**Agent Platform SDK for Python version 2.0.1 is available**
+
+Version 2.0.1 of the Agent Platform SDK for Python ( `google-cloud-agentplatform` ) is now available. This release migrates generative AI modules to the Google Gen AI SDK, decouples the agent surface from `google-cloud-aiplatform` into a dedicated package, and introduces restructured namespaces.
+
+For details and migration instructions from `google-cloud-aiplatform` , see the [Agent Platform SDK for Python version 2.0.1 migration guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/sdk-migration) .
+
 ## September 17, 2026
 
 Feature
@@ -364,7 +380,7 @@ For more information, see [Install the CLI and configure](https://docs.cloud.goo
 
 Feature
 
-**CodeMender updates (v0.3.0): Process-level sandboxing and auto-updates (Preview)**
+**Process-level sandboxing and auto-updates (Preview)**
 
 This release introduces process-level sandboxing, automatic update checks, and other improvements to the CodeMender CLI (Preview):
 

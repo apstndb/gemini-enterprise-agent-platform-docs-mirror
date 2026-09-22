@@ -22,19 +22,19 @@ Deployed agents that are part of the selected project appear in the list. You ca
 
 ### Agent Platform SDK
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    for agent in client.agent_engines.list():
+    for agent in client.runtimes.list():
         print(agent)
 
 To filter the list of by `display_name` :
 
-    for agent in client.agent_engines.list(
+    for agent in client.runtimes.list(
         config={
             "filter": 'display_name="DISPLAY_NAME"',
         },
@@ -102,14 +102,14 @@ Each deployed agent has a unique `  RESOURCE_ID  ` identifier. To learn more, se
 
 The following code lets you get a specific deployed agent:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    remote_agent = client.agent_engines.get(
+    remote_agent = client.runtimes.get(
         name="projects/PROJECT_ID_OR_NUMBER/locations/LOCATION/reasoningEngines/RESOURCE_ID"
     )
 
@@ -179,14 +179,14 @@ The amount of time it takes to update the deployed agent depends on the update b
 
 To update a deployed agent (corresponding to `  RESOURCE_NAME  ` ) to an updated agent (corresponding to `  UPDATED_AGENT  ` ):
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    client.agent_engines.update(
+    client.runtimes.update(
         name=RESOURCE_NAME,                    # Required.
         agent=UPDATED_AGENT,                   # Optional.
         config={                                                # Optional.
@@ -337,16 +337,16 @@ If you already have [an existing instance of the deployed agent](https://docs.cl
         force=True, # Optional, if the agent has resources (e.g. sessions, memory)
     )
 
-Alternatively, you can call `agent_engines.delete()` to delete the deployed agent corresponding to `  RESOURCE_NAME  ` in the following way:
+Alternatively, you can call `runtimes.delete()` to delete the deployed agent corresponding to `  RESOURCE_NAME  ` in the following way:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    client.agent_engines.delete(
+    client.runtimes.delete(
         name=RESOURCE_NAME,
         force=True, # Optional, if the agent has resources (e.g. sessions, memory)
     )

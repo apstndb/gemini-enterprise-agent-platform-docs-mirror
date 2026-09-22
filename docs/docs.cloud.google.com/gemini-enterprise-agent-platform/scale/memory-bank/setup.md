@@ -39,7 +39,7 @@ This section assumes that you have [set up a Python development environment](htt
 
 Install the Agent Platform SDK:
 
-    pip install google-cloud-aiplatform>=1.111.0
+    pip install google-cloud-agentplatform>=2.0.1
 
 ### Authentication
 
@@ -51,9 +51,9 @@ Run the following code to set up a Agent Platform SDK client:
 
 ### Agent Platform SDK
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
       project="PROJECT_ID",
       location="LOCATION",
     )
@@ -79,7 +79,7 @@ To get started with Memory Bank, you first need a Memory Bank instance. If you d
 > **Tip:** Always set a display name, so you can distinguish between difference resource instances in the project.
 
     # create the resource
-    memory_bank = client.agent_engines.create(
+    memory_bank = client.memory_banks.create(
         config={
             "display_name": "My Memory Bank",
         }
@@ -87,16 +87,16 @@ To get started with Memory Bank, you first need a Memory Bank instance. If you d
     
     # Optionally, print out the Memory Bank resource name. You will need the
     # resource name to interact with your Memory Bank instance later on.
-    print(memory_bank.api_resource.name)
+    print(memory_bank.name)
 
 If you want to customize the configuration of your new or existing Memory Bank instance's behavior, refer to [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) . For example, you can specify what information Memory Bank considers meaningful to persist.
 
 Once you have a Memory Bank instance, you can use the name of the instance to read or write memories. For example:
 
     # Generate memories using your Memory Bank instance.
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
       # `name` should have the format `projects/.../locations/.../reasoningEngines/...`.
-      name=memory_bank.api_resource.name,
+      name=memory_bank.name,
       ...
     )
 
@@ -113,7 +113,7 @@ To deploy an agent on Agent Runtime with built-in Memory Bank, first [set up you
 If you're using the [Agent Platform Agent Development Kit (ADK) template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) , the agent uses the `VertexAiMemoryBankService` by default when deployed to Agent Runtime. This means that the ADK Memory tools read memories from Memory Bank.
 
     from google.adk.agents import Agent
-    from vertexai.preview.reasoning_engines import AdkApp
+    from agentplatform.frameworks import AdkApp
     
     # Develop an agent using the ADK template.
     agent = Agent(...)
@@ -124,23 +124,23 @@ If you're using the [Agent Platform Agent Development Kit (ADK) template](https:
     )
     
     # Deploy the agent to Agent Runtime.
-    runtime = client.agent_engines.create(
-          agent_engine=adk_app,
+    runtime = client.runtimes.create(
+          agent=adk_app,
           config={
                 "staging_bucket": "STAGING_BUCKET",
-                "requirements": ["google-cloud-aiplatform[agent_engines,adk]"],
+                "requirements": ["google-cloud-agentplatform[runtimes,adk]"],
                 # Optional.
                 **context_spec
           }
     )
     
     # Update an existing Agent Runtime to add or modify the Runtime.
-    runtime = client.agent_engines.update(
+    runtime = client.runtimes.update(
           name=runtime.api_resource.name,
           agent=adk_app,
           config={
                 "staging_bucket": "STAGING_BUCKET",
-                "requirements": ["google-cloud-aiplatform[agent_engines,adk]"],
+                "requirements": ["google-cloud-agentplatform[runtimes,adk]"],
                 # Optional.
                 **context_spec
           }
@@ -178,7 +178,7 @@ If you're using the [default service agent](https://docs.cloud.google.com/gemini
 
 If you want to use Memory Bank in a different environment, like Cloud Run or Colab, create a Memory Bank. If you don't provide a [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , Memory Bank is created with the default settings for managing memory generation and retrieval.
 
-    memory_bank = client.agent_engines.create()
+    memory_bank = client.memory_banks.create()
 
 If you've used Memory Bank before, creating a new Memory Bank instance should only take a few seconds. If this is the first time you're using Memory Bank, it may take longer (1-2 minutes).
 
@@ -186,11 +186,14 @@ If you want to configure behavior, provide a [Memory Bank configuration](https:/
 
 ### Create
 
-    memory_bank = client.agent_engines.create(
-      config={
-        "context_spec": {
-          "memory_bank_config": ...
-        }
+    memory_bank = client.memory_banks.create(
+      managed_semantic_memory_config={
+        "generation_config": ...,
+        "unstructured_memory_configs": [...],
+        "structured_memory_configs": [...],
+        "similarity_search_config": ...,
+        "ttl_config": ...,
+        "disable_memory_revisions": False,
       }
     )
 
@@ -198,13 +201,16 @@ If you want to configure behavior, provide a [Memory Bank configuration](https:/
 
 If you want to change your [Memory Bank configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) , you can update your Memory Bank instance.
 
-    memory_bank = client.agent_engines.update(
-      # You can access the name using `memory_bank.api_resource.name` for an AgentEngine object.
+    memory_bank = client.memory_banks.update(
+      # You can access the name using `memory_bank.name` for a MemoryBank object.
       name="MEMORY_BANK_NAME",
-      config={
-        "context_spec": {
-          "memory_bank_config": ...
-        }
+      managed_semantic_memory_config={
+        "generation_config": ...,
+        "unstructured_memory_configs": [...],
+        "structured_memory_configs": [...],
+        "similarity_search_config": ...,
+        "ttl_config": ...,
+        "disable_memory_revisions": False,
       }
     )
 
@@ -220,7 +226,7 @@ You can configure your Memory Bank to customize how memories are generated and m
 
 You can configure the following Memory Bank settings for your instance:
 
-  - [Customization configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#customization-config) : Configures how memories are extracted from source data and consolidated with existing memories.
+  - [Customization configuration ( `unstructured_memory_configs` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#customization-config) : Configures how memories are extracted from source data and consolidated with existing memories.
   - [Similarity search configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#similarity-search-config) : Specifies which embedding model Memory Bank uses for similarity search. Defaults to `text-embedding-005` .
   - [Generation configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#generation-config) : Configures which LLM Memory Bank uses for memory generation. Defaults to `gemini-3.5-flash` .
   - [TTL configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#ttl-config) : Configures how TTL is automatically set for created or updated memories. Defaults to no TTL.
@@ -229,7 +235,7 @@ The following sample shows the default Memory Bank:
 
 ### Dictionary
 
-    memory_bank_config = {
+    managed_semantic_memory_config = {
       "generation_config": {
         # `gemini-3.5-flash` will be used to extract and consolidate memories.
         "model": "projects/{PROJECT}/locations/{LOCATION}/publishers/google/models/gemini-3.5-flash"
@@ -244,7 +250,7 @@ The following sample shows the default Memory Bank:
         # Default TTL for memory revisions is 365 days.
         "memory_revision_default_ttl": f"{365 * 24 * 60 * 60}s"
       },
-      "customization_configs": [
+      "unstructured_memory_configs": [
         {
           # Extract user information, preferences, key conversation details,
           # and information that the user explicitly asked to be remembered.
@@ -271,17 +277,17 @@ The following sample shows the default Memory Bank:
 
 ### Class-based
 
-    from vertexai.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from vertexai.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-    from vertexai.types import ManagedTopicEnum
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfig as MemoryBankConfig
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigGenerationConfig as GenerationConfig
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig as SimilaritySearchConfig
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigTtlConfig as TtlConfig
+    from agentplatform.types import ManagedSemanticMemoryConfig
+    from agentplatform.types import ManagedSemanticMemoryConfigGenerationConfig as GenerationConfig
+    from agentplatform.types import ManagedSemanticMemoryConfigSimilaritySearchConfig as SimilaritySearchConfig
+    from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
+    from agentplatform.types import ManagedTopicEnum
+    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+    from agentplatform.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
     
-    memory_bank_config = MemoryBankConfig(
+    managed_semantic_memory_config = ManagedSemanticMemoryConfig(
       generation_config=GenerationConfig(
         # `gemini-3.5-flash` will be used to extract and consolidate memories.
         # Note: The global endpoint will be used for regions that don't have a
@@ -298,7 +304,7 @@ The following sample shows the default Memory Bank:
         # Default TTL for memory revisions is 365 days.
         memory_revision_default_ttl=f"{365 * 24 * 60 * 60}s"
       ),
-      customization_configs=[
+      unstructured_memory_configs=[
         CustomizationConfig(
           # Extract personal information, preferences, key conversation details,
           # and information that the user explicitly asked to be remembered.
@@ -333,23 +339,14 @@ The following sample shows the default Memory Bank:
 
 You can adjust the Memory Bank configuration when you create or update your instance. The following example demonstrates how to create or update an instance with a specific Memory Bank configuration.
 
-    client.agent_engines.create(
-          ...,
-          config={
-                "context_spec": {
-                      "memory_bank_config": memory_bank_config
-                }
-          }
+    memory_bank = client.memory_banks.create(
+        managed_semantic_memory_config=managed_semantic_memory_config
     )
     
     # Alternatively, update an existing Memory Bank instance's config.
-    memory_bank = client.agent_engines.update(
-          name=memory_bank.api_resource.name,
-          config={
-              "context_spec": {
-                    "memory_bank_config": memory_bank_config
-              }
-          }
+    memory_bank = client.memory_banks.update(
+        name=memory_bank.name,
+        managed_semantic_memory_config=managed_semantic_memory_config
     )
 
 ### Natural language memory customization configuration
@@ -360,6 +357,7 @@ To customize how Memory Bank extracts natural language memories, configure the e
   - [Providing few-shot examples](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#configure-few-shots) : Demonstrate expected behavior for memory extraction to Memory Bank.
   - [Configuring the memory perspective](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-perspective) : Configure whether memories should be generated in the first person (default) or third person.
   - [Configuring consolidation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#consolidation-customization) : Configure how many memory revisions Memory Bank considers when consolidating each memory candidate.
+  - [Applying customization configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#apply-customization-config) : Apply customization configurations to your instance using `unstructured_memory_configs` .
 
 You can think of customizing your Memory Bank's extraction behavior in two steps: Telling and Showing. Memory Topics *tell* Memory Bank what information to persist. Few-shots *show* Memory Bank what kind of information should result in a specific memory, helping it learn the patterns, nuance, and phrasing that you expect it to understand.
 
@@ -380,8 +378,8 @@ For example, the `user_level_config` would only apply to `GenerateMemories` requ
       "generate_memories_examples": [...]
     }
     
-    memory_bank_config = {
-      "customization_configs": [
+    managed_semantic_memory_config = {
+      "unstructured_memory_configs": [
         user_level_config,
         default_config
       ]
@@ -389,12 +387,25 @@ For example, the `user_level_config` would only apply to `GenerateMemories` requ
 
 ### Class-based
 
-    from vertexai.types import MemoryBankCustomizationConfig as CustomizationConfig
+    from agentplatform.types import ManagedSemanticMemoryConfig
+    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
     
     user_level_config = CustomizationConfig(
       scope_keys=["user_id"],
       memory_topics=[...],
       generate_memories_examples=[...]
+    )
+    
+    default_config = CustomizationConfig(
+      memory_topics=[...],
+      generate_memories_examples=[...]
+    )
+    
+    managed_semantic_memory_config = ManagedSemanticMemoryConfig(
+      unstructured_memory_configs=[
+        user_level_config,
+        default_config,
+      ]
     )
 
 #### Configuring memory topics
@@ -413,9 +424,9 @@ For example, the `user_level_config` would only apply to `GenerateMemories` requ
     
     ### Class-based
     
-        from vertexai.types import ManagedTopicEnum
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
+        from agentplatform.types import ManagedTopicEnum
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
         
         memory_topic = MemoryTopic(
             managed_memory_topic=ManagedMemoryTopic(
@@ -446,8 +457,8 @@ For example, the `user_level_config` would only apply to `GenerateMemories` requ
     
     ### Class-based
     
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-        from vertexai.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+        from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
         
         memory_topic = MemoryTopic(
           custom_memory_topic=CustomMemoryTopic(
@@ -474,10 +485,10 @@ With customization, you can use any combination of memory topics. For example, y
 
 ### Class-based
 
-    from vertexai.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-    from vertexai.types import ManagedTopicEnum
+    from agentplatform.types import ManagedTopicEnum
+    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
     
     customization_config = CustomizationConfig(
       memory_topics=[
@@ -513,11 +524,11 @@ You can also use a combination of managed and custom topics (or only use custom 
 
 ### Class-based
 
-    from vertexai.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
-    from vertexai.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
-    from vertexai.types import ManagedTopicEnum
+    from agentplatform.types import ManagedTopicEnum
+    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopic as MemoryTopic
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic as CustomMemoryTopic
+    from agentplatform.types import MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic as ManagedMemoryTopic
     
     customization_config = CustomizationConfig(
       memory_topics=[
@@ -575,10 +586,10 @@ For example, you can provide few-shot examples that demonstrate how to extract f
 ### Class-based
 
     from google.genai.types import Content, Part
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory as ExampleGeneratedMemory
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory as ExampleGeneratedMemory
     
     example = GenerateMemoriesExample(
         conversation_source=ConversationSource(
@@ -632,9 +643,9 @@ You can also provide examples of conversations that shouldn't result in any gene
 ### Class-based
 
     from google.genai.types import Content, Part
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
-    from vertexai.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExample as GenerateMemoriesExample
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource as ConversationSource
+    from agentplatform.types import MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent as ConversationSourceEvent
     
     example = GenerateMemoriesExample(
         conversation_source=ConversationSource(
@@ -668,7 +679,7 @@ By default, memories are generated in the first person (e.g. "I use Memory Bank 
 
 ### Class-based
 
-    from vertexai.types import MemoryBankCustomizationConfig as CustomizationConfig
+    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
     
     customization_config = CustomizationConfig(
         enable_third_person_memories=True
@@ -687,23 +698,43 @@ By default, Memory Bank only compares new information to the most recent snapsho
 ### Dictionary
 
     customization_config = {
-      "consolidation_customization": {
+      "consolidation_config": {
         "revisions_per_candidate_count": 10
       }
     }
 
 ### Class-based
 
-    from vertexai.types import MemoryBankCustomizationConfig as CustomizationConfig
-    from vertexai.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
+    from agentplatform.types import MemoryBankCustomizationConfig as CustomizationConfig
+    from agentplatform.types import MemoryBankCustomizationConfigConsolidationConfig as ConsolidationConfig
     
     customization_config = CustomizationConfig(
-        consolidation_customization=ConsolidationConfig(
+        consolidation_config=ConsolidationConfig(
           revisions_per_candidate_count=10
         )
     )
 
 Increasing `revisions_per_candidate_count` results in more consistent and corroborated memories by accounting for the repetition of ingested information. However, a higher count increases token consumption during the consolidation process.
+
+#### Applying customization configurations
+
+To apply customization configurations to your Memory Bank instance, provide them in the `unstructured_memory_configs` list of your `managed_semantic_memory_config` :
+
+### Dictionary
+
+    managed_semantic_memory_config = {
+      "unstructured_memory_configs": [customization_config],
+      # Include other configurations (similarity search, generation, TTL)...
+    }
+
+### Class-based
+
+    from agentplatform.types import ManagedSemanticMemoryConfig
+    
+    managed_semantic_memory_config = ManagedSemanticMemoryConfig(
+      unstructured_memory_configs=[customization_config],
+      # Include other configurations (similarity search, generation, TTL)...
+    )
 
 ### Similarity search configuration
 
@@ -715,21 +746,16 @@ If you expect user conversations to be in non-English languages, use a [model](h
 
 ### Dictionary
 
-    memory_bank_config = {
-        "similarity_search_config": {
-            "embedding_model": "EMBEDDING_MODEL",
-        }
+    similarity_search_config = {
+        "embedding_model": "EMBEDDING_MODEL",
     }
 
 ### Class-based
 
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfig as MemoryBankConfig
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig as SimilaritySearchConfig
+    from agentplatform.types import ManagedSemanticMemoryConfigSimilaritySearchConfig as SimilaritySearchConfig
     
-    memory_bank_config = MemoryBankConfig(
-        similarity_search_config=SimilaritySearchConfig(
-            embedding_model="EMBEDDING_MODEL"
-        )
+    similarity_search_config = SimilaritySearchConfig(
+        embedding_model="EMBEDDING_MODEL"
     )
 
 Replace the following:
@@ -752,21 +778,16 @@ For Memory Bank instances created before June 29, 2026 using the default model, 
 
 ### Dictionary
 
-    memory_bank_config = {
-      "generation_config": {
-        "model": "LLM_MODEL",
-      }
+    generation_config = {
+      "model": "LLM_MODEL",
     }
 
 ### Class-based
 
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfig as MemoryBankConfig
-    from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigGenerationConfig as GenerationConfig
+    from agentplatform.types import ManagedSemanticMemoryConfigGenerationConfig as GenerationConfig
     
-    memory_bank_config = MemoryBankConfig(
-      generation_config=GenerationConfig(
-        model="LLM_MODEL"
-      )
+    generation_config = GenerationConfig(
+      model="LLM_MODEL"
     )
 
 Replace the following:
@@ -785,21 +806,16 @@ There are two options for the TTL configuration:
     
     ### Dictionary
     
-        memory_bank_config = {
-          "ttl_config": {
-              "default_ttl": f"TTLs"
-          }
+        ttl_config = {
+            "default_ttl": f"TTLs"
         }
     
     ### Class-based
     
-        from vertexai.types import ReasoningEngineContextSpecMemoryBankConfig as MemoryBankConfig
-        from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigTtlConfig as TtlConfig
+        from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
         
-        memory_bank_config = MemoryBankConfig(
-          ttl_config=TtlConfig(
-              default_ttl=f"TTLs"
-          )
+        ttl_config = TtlConfig(
+            default_ttl=f"TTLs"
         )
     
     Replace the following:
@@ -810,30 +826,25 @@ There are two options for the TTL configuration:
     
     ### Dictionary
     
-        memory_bank_config = {
-          "ttl_config": {
-              "granular_ttl": {
-                  "create_ttl": f"CREATE_TTLs",
-                  "generate_created_ttl": f"GENERATE_CREATED_TTLs",
-                  "generate_updated_ttl": f"GENERATE_UPDATED_TTLs"
-              }
-          }
+        ttl_config = {
+            "granular_ttl": {
+                "create_ttl": f"CREATE_TTLs",
+                "generate_created_ttl": f"GENERATE_CREATED_TTLs",
+                "generate_updated_ttl": f"GENERATE_UPDATED_TTLs"
+            }
         }
     
     ### Class-based
     
-        from vertexai.types import ReasoningEngineContextSpecMemoryBankConfig as MemoryBankConfig
-        from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigTtlConfig as TtlConfig
-        from vertexai.types import ReasoningEngineContextSpecMemoryBankConfigTtlConfigGranularTtlConfig as GranularTtlConfig
+        from agentplatform.types import ManagedSemanticMemoryConfigTtlConfig as TtlConfig
+        from agentplatform.types import ManagedSemanticMemoryConfigTtlConfigGranularTtlConfig as GranularTtlConfig
         
-        memory_bank_config = MemoryBankConfig(
-          ttl_config=TtlConfig(
-              granular_ttl_config=GranularTtlConfig(
-                  create_ttl=f"CREATE_TTLs",
-                  generate_created_ttl=f"GENERATE_CREATED_TTLs",
-                  generate_updated_ttl=f"GENERATE_UPDATED_TTLs",
-              )
-          )
+        ttl_config = TtlConfig(
+            granular_ttl_config=GranularTtlConfig(
+                create_ttl=f"CREATE_TTLs",
+                generate_created_ttl=f"GENERATE_CREATED_TTLs",
+                generate_updated_ttl=f"GENERATE_UPDATED_TTLs",
+            )
         )
     
     Replace the following:

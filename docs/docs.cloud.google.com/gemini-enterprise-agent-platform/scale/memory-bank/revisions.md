@@ -58,14 +58,14 @@ Every memory resource has one or more associated child memory revision resources
 Memories can either be created directly using `CreateMemory` or dynamically using `GenerateMemories` . With memory generation, a memory is created if there are no existing memories that cover similar information for the same scope:
 
     # Direct creation using CreateMemory
-    client.agent_engines.memories.create(name=memory_bank_name, ...)
+    client.memory_banks.memories.create(name=memory_bank_name, ...)
     
     # Dynamic creation using GenerateMemory
-    client.agent_engines.memories.generate_memories(name=memory_bank_name, ...)
+    client.memory_banks.memories.generate(name=memory_bank_name, ...)
 
 When a memory is created, a single `Memory` resource and a child `MemoryRevision` are created:
 
-    client.agent_engines.memories.get(name=memory_name)
+    client.memory_banks.memories.get(name=memory_name)
     """
     Memory(
       name="projects/123/locations/us-central1/reasoningEngines/456/memories/789",
@@ -74,7 +74,7 @@ When a memory is created, a single `Memory` resource and a child `MemoryRevision
     )
     """
     
-    list(client.agent_engines.memories.revisions.list(name=memory_name))
+    list(client.memory_banks.memories.revisions.list(name=memory_name))
     """
     [
       MemoryRevision(
@@ -90,14 +90,14 @@ When a memory is created, a single `Memory` resource and a child `MemoryRevision
 Memories can either be updated directly using `UpdateMemory` or dynamically using `GenerateMemories` . With memory generation, memories are dynamically updated when the [consolidation process](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/generate-memories#understanding-memory-generation) decides that the new information is duplicative, complementary, or contradictory to all existing memories for the same scope.
 
     # Direct update using UpdateMemory
-    client.agent_engines.memories.update(name=memory_name, ...)
+    client.memory_banks.memories.update(name=memory_name, ...)
     
     # Dynamic update using GenerateMemories
-    client.agent_engines.memories.generate_memories(name=memory_bank_name, ...)
+    client.memory_banks.memories.generate(name=memory_bank_name, ...)
 
 When a memory is updated, the existing `Memory` resource is updated, and a new child `MemoryRevision` is created.
 
-    client.agent_engines.memories.get(name=memory_name)
+    client.memory_banks.memories.get(name=memory_name)
     """
     Memory(
       name="projects/123/locations/us-central1/reasoningEngines/456/memories/789",
@@ -106,7 +106,7 @@ When a memory is updated, the existing `Memory` resource is updated, and a new c
     )
     """
     
-    list(client.agent_engines.memories.revisions.list(name=memory_name))
+    list(client.memory_banks.memories.revisions.list(name=memory_name))
     """
     [
       MemoryRevision(
@@ -127,19 +127,19 @@ When a memory is updated, the existing `Memory` resource is updated, and a new c
 Memories can either be directly directly using `DeleteMemory` or dynamically using `GenerateMemories` . With memory generation, memories are dynamically deleted when the consolidation process decides that the new information invalidates the existing information for the same scope.
 
     # Direct deletion using UpdateMemory
-    client.agent_engines.memories.delete(name=memory_name, ...)
+    client.memory_banks.memories.delete(name=memory_name, ...)
     
     # Dynamic delete using GenerateMemories
-    client.agent_engines.memories.generate_memories(name=memory_bank_name, ...)
+    client.memory_banks.memories.generate(name=memory_bank_name, ...)
 
 When a memory is deleted, the existing `Memory` resource is deleted, and a new child `MemoryRevision` is created. The `fact` in the latest memory revision is empty because it reflects a deletion mutation.
 
-    client.agent_engines.memories.get(name=memory_name)
+    client.memory_banks.memories.get(name=memory_name)
     """
     404 Not Found.
     """
     
-    list(client.agent_engines.memories.revisions.list(name=memory_name))
+    list(client.memory_banks.memories.revisions.list(name=memory_name))
     """
     [
       MemoryRevision(
@@ -170,7 +170,7 @@ This section describes how you can inspect memory revisions and roll back a memo
 
 Use `ListMemoryRevisions` to return all memory revisions belonging to a memory.
 
-    list(client.agent_engines.memories.revisions.list(name=MEMORY_NAME))
+    list(client.memory_banks.memories.revisions.list(name=MEMORY_NAME))
 
 Replace the following:
 
@@ -178,7 +178,7 @@ Replace the following:
 
 When generating memories, you can provide revision labels which are applied to the affiliated revisions. Labels are arbitrary key-value pairs. For example, you can label revisions with an ID of the data source used to generate the memory and then filter revisions by this label:
 
-    response = client.agent_engines.memories.generate(
+    response = client.memory_banks.memories.generate(
         ...,
         config={
             "revision_labels": {
@@ -187,7 +187,7 @@ When generating memories, you can provide revision labels which are applied to t
         }
     )
     
-    list(client.agent_engines.memories.revisions.list(
+    list(client.memory_banks.memories.revisions.list(
         name=MEMORY_NAME,
         config={
           "filter": "labels.data_source=\"321\""
@@ -209,7 +209,7 @@ When generating memories, you can provide revision labels which are applied to t
 
 Use `GetMemoryRevision` to fetch an individual memory revision.
 
-    client.agent_engines.memories.revisions.get(name=MEMORY_REVISION_NAME)
+    client.memory_banks.memories.revisions.get(name=MEMORY_REVISION_NAME)
 
 Replace the following:
 
@@ -219,9 +219,9 @@ Replace the following:
 
 Use `RollbackMemory` to roll a memory back to a previous revision.
 
-    client.agent_engines.memories.rollback(
-        name=name=MEMORY_NAME,
-        target_revision_id=REVISION_ID
+    client.memory_banks.memories.rollback(
+        name="MEMORY_NAME",
+        target_revision_id="REVISION_ID"
     )
 
 Replace the following:
@@ -232,12 +232,12 @@ Replace the following:
 
 If you want to undo a change to a memory made by `GenerateMemories` , roll back the memory to its revision before the change. The memory generation response includes a reference to the previous revision ( `previous_revision` ) for each updated or deleted memory:
 
-    operation = client.agent_engines.memories.generate(
+    operation = client.memory_banks.memories.generate(
       ...
     )
     
     # Rollback the first generated memory to the previous revision.
-    client.agent_engines.memories.rollback(
+    client.memory_banks.memories.rollback(
         name=operation.response.generated_memories[0].memory.name,
         target_revision_id=operation.response.generated_memories[0].previous_revision
     )
@@ -248,13 +248,9 @@ Memory revisions are enabled by default. You can disable memory revisions either
 
 You can disable memory revisions for all requests to your Memory Bank instance when you set up the instance:
 
-    memory_bank = client.agent_engines.create(
-      config={
-        "context_spec": {
-          "memory_bank_config": {
-            "disable_memory_revisions": True
-          }
-        }
+    memory_bank = client.memory_banks.create(
+      managed_semantic_memory_config={
+        "disable_memory_revisions": True
       }
     )
 
@@ -262,7 +258,7 @@ You can disable memory revisions on a request level when you send the request:
 
 ### Generate
 
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
       ...,
       "config": {
         "disable_memory_revisions": True
@@ -271,7 +267,7 @@ You can disable memory revisions on a request level when you send the request:
 
 ### Create
 
-    client.agent_engines.memories.create(
+    client.memory_banks.memories.create(
       ...,
       "config": {
         "disable_memory_revisions": True
@@ -280,7 +276,7 @@ You can disable memory revisions on a request level when you send the request:
 
 ### Update
 
-    client.agent_engines.memories.update(
+    client.memory_banks.memories.update(
       ...,
       "config": {
         "disable_memory_revisions": True
@@ -293,15 +289,11 @@ Memory revisions are not persisted forever. You must either set the revisions' e
 
 You can configure TTL for all requests to your Memory Bank instance when you set up the instance:
 
-    client.agent_engines.create(
-      config={
-        "context_spec": {
-          "memory_bank_config": {
-            "ttl_config": {
-              # Persist memory revisions for 30 days after they're created.
-              "revision_ttl": f"{30 * 60 * 60 * 24}s"
-            }
-          }
+    client.memory_banks.create(
+      managed_semantic_memory_config={
+        "ttl_config": {
+          # Persist memory revisions for 30 days after they're created.
+          "revision_ttl": f"{30 * 60 * 60 * 24}s"
         }
       }
     )
@@ -315,17 +307,17 @@ To configure TTL for each memory revision on a request level, include `revision_
         "revision_ttl": f"{30 * 60 * 60 * 24}s"
     }
     
-    client.agent_engines.memories.create(
+    client.memory_banks.memories.create(
       ...,
       config=config
     )
     
-    client.agent_engines.memories.update(
+    client.memory_banks.memories.update(
       ...,
       config=config
     )
     
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
       ...,
       config=config
     )
@@ -338,17 +330,17 @@ To configure TTL for each memory revision on a request level, include `revision_
         "revision_expire_time": datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(weeks=3)
     }
     
-    client.agent_engines.memories.create(
+    client.memory_banks.memories.create(
       ...,
       config=config
     )
     
-    client.agent_engines.memories.update(
+    client.memory_banks.memories.update(
       ...,
       config=config
     )
     
-    client.agent_engines.memories.generate(
+    client.memory_banks.memories.generate(
       ...,
       config=config
     )

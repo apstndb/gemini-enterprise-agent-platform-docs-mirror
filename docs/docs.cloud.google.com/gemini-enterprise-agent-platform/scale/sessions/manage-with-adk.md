@@ -36,31 +36,31 @@ To use the ADK, set your environment variables:
 Replace the following:
 
   - PROJECT\_ID : Your project ID.
-  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Memory Bank.
+  - LOCATION : Your region. See the [supported regions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations) for Sessions.
 
-## Create a Vertex AI Agent Engine instance
+## Create an Agent Runtime instance
 
-To access Agent Platform Sessions, you first need use an Vertex AI Agent Engine instance. You don't need to deploy any code to start using Sessions. If you've used Agent Engine before, creating a Vertex AI Agent Engine instance only takes a few seconds without code deployment. It may take longer if this is the first time you're using Agent Engine.
+To access Agent Platform Sessions, you first need use an Agent Runtime instance. You don't need to deploy any code to start using Sessions. If you've used Agent Runtime before, creating an Agent Runtime instance only takes a few seconds without code deployment. It may take longer if this is the first time you're using Agent Runtime.
 
 ### Google Cloud Project
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
       project="PROJECT_ID",
       location="LOCATION"
     )
     
-    # If you don't have an Agent Engine instance already, create an instance.
-    agent_engine = client.agent_engines.create(
+    # If you don't have an Agent Runtime instance already, create an instance.
+    remote_agent = client.runtimes.create(
         config={
           "display_name": "My Session Store",
         }
     )
     
-    # Print the agent engine ID, you will need it in the later steps to initialize
+    # Print the runtime ID, you will need it in the later steps to initialize
     # the ADK `VertexAiSessionService`.
-    print(agent_engine.api_resource.name.split("/")[-1])
+    print(remote_agent.api_resource.name.split("/")[-1])
 
 Replace the following:
 
@@ -72,7 +72,7 @@ Replace the following:
 
 ## Develop your ADK agent
 
-> **Note:** Make sure you have installed ADK version **1.0.0** or later. This version is included in `google-cloud-aiplatform[adk,agent_engine]` .
+> **Note:** Make sure you have installed ADK version **1.0.0** or later. This version is included in `google-cloud-agentplatform[adk,agent_engine]` .
 
 To create your ADK agent, follow the instructions in [Agent Development Kit](https://google.github.io/adk-docs/) , or use the following code to create an agent that greets a user with fixed greetings. Save this code in a file named `agent.py` .
 
@@ -135,11 +135,11 @@ Replace the following:
 
   - USER\_ID : Choose your own user ID with a character limit of 128. For example, `user-123` .
 
-  - AGENT\_ENGINE\_ID : The resource ID of a Vertex AI Agent Engine instance.
+  - AGENT\_ENGINE\_ID : The resource ID of an Agent Runtime instance.
 
   - For deployed agents, the resource ID is listed as the `GOOGLE_CLOUD_AGENT_ENGINE_ID` environment variable
 
-  - For local agents, you can retrieve the resource ID using `agent_engine.api_resource.name.split("/")[-1]` .
+  - For local agents, you can retrieve the resource ID using `remote_agent.api_resource.name.split("/")[-1]` .
 
 ## Interact with your agent
 
@@ -328,8 +328,8 @@ After you test your agent locally, you can deploy the agent to production by upd
 
 ### Google Cloud Project
 
-    client.agent_engines.update(
-        resource_name=agent_engine.api_resource.name,
+    client.runtimes.update(
+        resource_name=remote_agent.api_resource.name,
         agent=AGENT,
         config={
           "display_name": DISPLAY_NAME,      # Optional.
@@ -344,15 +344,15 @@ Replace the following:
 
   - DISPLAY\_NAME : A user-friendly name for your agent.
 
-  - REQUIREMENTS : A list of pip packages required by your agent. For example, `["google-cloud-storage", "google-cloud-aiplatform[agent_engines,adk]"]` .
+  - REQUIREMENTS : A list of pip packages required by your agent. For example, `["google-cloud-storage", "google-cloud-agentplatform[runtimes,adk]"]` .
 
   - STAGING\_BUCKET : A Cloud Storage bucket prefixed by `gs://` .
 
 ## Clean up
 
-To clean up all resources used in this project, you can delete the Vertex AI Agent Engine instance along with its child resources:
+To clean up all resources used in this project, you can delete the Agent Runtime instance along with its child resources:
 
-    agent_engine.delete(force=True)
+    remote_agent.delete(force=True)
 
 ## What's next
 

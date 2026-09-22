@@ -14,28 +14,28 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create a LlamaIndexQueryPipeline agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-llamaindex-agent) : to create `agent` as an instance of [`LlamaIndexQueryPipelineAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LlamaIndexQueryPipelineAgent) .
+  - [Create a LlamaIndexQueryPipeline agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-llamaindex-agent) : to create `agent` as an instance of [`LlamaIndexQueryPipelineAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LlamaIndexQueryPipelineAgent) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
 ## Get an instance of an agent
 
-To query a [`LlamaIndexQueryPipelineAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LlamaIndexQueryPipelineAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query a [`LlamaIndexQueryPipelineAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LlamaIndexQueryPipelineAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
-To get the [`LlamaIndexQueryPipelineAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LlamaIndexQueryPipelineAgent) that corresponds to a specific resource ID:
+To get the [`LlamaIndexQueryPipelineAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LlamaIndexQueryPipelineAgent) that corresponds to a specific resource ID:
 
 ### Agent Platform SDK
 
 Run the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    agent = client.agent_engines.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     print(agent)
 
@@ -74,13 +74,13 @@ Run the following code:
     -H "Content-Type: application/json" \
     https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
 
-When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-llamaindex-agent#supported-operations) for details.
-  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-llamaindex-agent#supported-operations) for details.
+  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
-The rest of this section assumes that you have an `AgentEngine` instance, named as `agent` .
+The rest of this section assumes that you have an `AgentRuntime` instance, named as `agent` .
 
 ## Supported operations
 
@@ -90,7 +90,7 @@ The following operations are supported for `LlamaIndexQueryPipelineAgent` :
 
 ## Query the agent
 
-To query the agent, use the [`.query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.LlamaIndexQueryPipelineAgent#vertexai_preview_reasoning_engines_LlamaIndexQueryPipelineAgent_query) method:
+To query the agent, use the [`.query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LlamaIndexQueryPipelineAgent#vertexai_preview_reasoning_engines_LlamaIndexQueryPipelineAgent_query) method:
 
     agent.query(input="What is Paul Graham's life in college?")
 

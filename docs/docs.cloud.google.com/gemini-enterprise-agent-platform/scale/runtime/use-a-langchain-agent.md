@@ -10,28 +10,28 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create a LangChain agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent) : to create `agent` as an instance of [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent) .
+  - [Create a LangChain agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langchain-agent) : to create `agent` as an instance of [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LangchainAgent) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
 ## Get an instance of an agent
 
-To query a [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query a [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LangchainAgent) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-platform-instance) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
-To get the [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent) that corresponds to a specific resource ID:
+To get the [`LangchainAgent`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LangchainAgent) that corresponds to a specific resource ID:
 
 ### Agent Platform SDK
 
 Run the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    agent = client.agent_engines.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    agent = client.runtimes.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     print(agent)
 
@@ -70,20 +70,20 @@ Run the following code:
     -H "Content-Type: application/json" \
     https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
 
-When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK, the `agent` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langchain-agent#supported-operations) for details.
-  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`agent.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `agent.operation_schemas()` to return the list of operations that the `agent` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-a-langchain-agent#supported-operations) for details.
+  - [`agent.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`agent.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
-The rest of this section assumes that you have an `AgentEngine` instance, named as `agent` .
+The rest of this section assumes that you have an `AgentRuntime` instance, named as `agent` .
 
 ## Supported operations
 
 The following operations are supported:
 
-  - [`query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent#vertexai_agent_engines_LangchainAgent_query) : for getting a response to a query synchronously.
-  - [`stream_query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent#vertexai_agent_engines_LangchainAgent_stream_query) : for streaming a response to a query.
+  - [`query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LangchainAgent#vertexai_agent_engines_LangchainAgent_query) : for getting a response to a query synchronously.
+  - [`stream_query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LangchainAgent#vertexai_agent_engines_LangchainAgent_stream_query) : for streaming a response to a query.
 
 Both `query` and `stream_query` methods support the same type of arguments:
 
@@ -92,7 +92,7 @@ Both `query` and `stream_query` methods support the same type of arguments:
 
 ## Query the agent
 
-To query the agent with an input, use the [`LangchainAgent.query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.LangchainAgent#vertexai_agent_engines_LangchainAgent_query) method:
+To query the agent with an input, use the [`LangchainAgent.query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.LangchainAgent#vertexai_agent_engines_LangchainAgent_query) method:
 
     agent.query(input="What is the exchange rate from US dollars to SEK today?")
 
@@ -128,7 +128,7 @@ We will use the following agent (which forwards the input to the model and does 
 
 > **Note:** there isn't any known support for multi-modal outputs.
 
-    agent = agent_engines.LangchainAgent(
+    agent = agentplatform.frameworks.LangchainAgent(
         model="gemini-3.5-flash",
         runnable_builder=lambda model, **kwargs: model,
     )

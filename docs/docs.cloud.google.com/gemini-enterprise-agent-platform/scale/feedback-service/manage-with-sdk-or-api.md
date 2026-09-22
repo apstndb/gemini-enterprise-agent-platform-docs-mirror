@@ -24,19 +24,19 @@ If you don't have an existing Agent Runtime instance, you can initialize the cli
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
-    # If you don't have an Agent Engine instance already, create an instance.
-    agent_engine = client.agent_engines.create()
+    # If you don't have an Agent Runtime instance already, create an instance.
+    agent_engine = client.runtimes.create()
     
-    # Optionally, print out the Agent Engine resource name. You will need the
+    # Optionally, print out the Agent Runtime resource name. You will need the
     # resource name to interact with the Feedback service later on.
     print(agent_engine.api_resource.name)
 
@@ -71,12 +71,12 @@ Programmatically log a feedback entry bound directly to a target `session_id` an
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -173,12 +173,12 @@ Fetch the full, structured payload of an isolated feedback record using its uniq
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -238,12 +238,12 @@ List feedback entries in your Agent Runtime instance. You can apply filters and 
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -322,12 +322,12 @@ Update details on an existing feedback entry such as modifying labels, comments,
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -404,12 +404,12 @@ Permanently delete a feedback entry from your project.
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -481,12 +481,12 @@ Get the details and conversation events stored in the feedback context:
 ### Python SDK
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -554,12 +554,12 @@ To populate or modify the conversation history associated with a feedback entry,
 <!-- end list -->
 
     import os
-    import vertexai
+    import agentplatform
     
     # Set this environment variable to enable the Enterprise features.
     os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "TRUE"
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION"
     )

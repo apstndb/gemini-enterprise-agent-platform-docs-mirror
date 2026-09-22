@@ -36,16 +36,16 @@ For more information about granting roles, see [Grant permissions to a service a
 
 If you don't have an Agent Platform instance, create one.
 
-    import vertexai
-    client = vertexai.Client(
+    import agentplatform
+    client = agentplatform.Client(
         project='PROJECT_ID',
         location='LOCATION',
         http_options={
             "api_version": "v1beta1",
         }
     )
-    agent_instance = client.agent_engines.create()
-    agent_instance_name = agent_instance.api_resource.name
+    remote_agent = client.runtimes.create()
+    remote_agent_name = remote_agent.api_resource.name
 
 Replace the following:
 
@@ -64,10 +64,10 @@ To create a template, define a `SandboxEnvironmentTemplate` resource, which spec
 ### Create the template
 
     # Create a custom sandbox template
-    templates_client = client.agent_engines.sandboxes.templates
+    templates_client = client.sandboxes.templates
     
     operation = templates_client.create(
-        name=agent_instance_name,
+        name=remote_agent_name,
         display_name="DISPLAY_NAME",
         config={
             "custom_container_environment": {
@@ -104,8 +104,8 @@ To create a template, define a `SandboxEnvironmentTemplate` resource, which spec
 After you define your template, you can provision a new sandbox environment by referencing the template resource name.
 
     # Provision a sandbox referencing the template
-    create_operation = client.agent_engines.sandboxes.create(
-        name=agent_instance_name,
+    create_operation = client.sandboxes.create(
+        name=remote_agent_name,
         config={
             "sandbox_environment_template": template_name,
             "display_name": "DISPLAY_NAME"

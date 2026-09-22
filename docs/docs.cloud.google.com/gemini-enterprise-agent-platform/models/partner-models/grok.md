@@ -53,7 +53,7 @@ For managed models, you can use curl commands to send requests to the Gemini Ent
 
 ## Grok quotas
 
-Grok models have a global quota. The quota is specified in queries per minute (QPM) and tokens per minute (TPM). TPM includes both input and output tokens.
+Grok models have a single global quota that applies per base model rather than per endpoint: requests to the global endpoint and the US multi-region endpoint draw on the same underlying limit. The quota is specified in queries per minute (QPM) and tokens per minute (TPM), where TPM includes both input and output tokens.
 
 To maintain overall service performance and acceptable use, the maximum quotas might vary by account and, in some cases, access might be restricted. View your project's quotas on the [**Quotas & System Limits**](https://console.cloud.google.com/quotas) page in the Google Cloud console. You must also have the following quotas available:
 

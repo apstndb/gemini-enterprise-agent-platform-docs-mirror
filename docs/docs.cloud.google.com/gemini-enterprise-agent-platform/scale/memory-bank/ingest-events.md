@@ -67,8 +67,8 @@ This example uses a custom stream and triggers generation when 10 unique events 
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -94,8 +94,8 @@ This example uses a custom stream and triggers generation when 10 unique events 
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -122,8 +122,8 @@ This example triggers generation when the stream has not received a new event fo
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -149,8 +149,8 @@ This example triggers generation when the stream has not received a new event fo
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -177,8 +177,8 @@ This example configures two trigger conditions in the same request. Generation r
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -205,8 +205,8 @@ This example configures two trigger conditions in the same request. Generation r
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -234,8 +234,8 @@ This example unconditionally bypasses any trigger conditions and immediately for
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -258,8 +258,8 @@ This example unconditionally bypasses any trigger conditions and immediately for
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -283,8 +283,8 @@ This example triggers generation every 10 unique events and re-includes the last
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -310,8 +310,8 @@ This example triggers generation every 10 unique events and re-includes the last
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -344,8 +344,8 @@ The following example labels the generated revisions with a data source and keep
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -375,8 +375,8 @@ The following example labels the generated revisions with a data source and keep
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[
@@ -409,8 +409,8 @@ Use `metadata_merge_strategy` to control how the metadata interacts with existin
 
 ### Dictionary
 
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source={
             "events": [
@@ -442,8 +442,8 @@ Use `metadata_merge_strategy` to control how the metadata interacts with existin
     from google import genai
     from agentplatform import types
     
-    client.agent_engines.memories.ingest_events(
-        name=memory_bank.api_resource.name,
+    client.memory_banks.ingest_events(
+        name=memory_bank.name,
         stream_id="my-custom-stream",
         direct_contents_source=types.IngestionDirectContentsSource(
             events=[

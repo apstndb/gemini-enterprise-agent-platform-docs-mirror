@@ -143,21 +143,21 @@ After you've created your memory-enabled agent, you need to link it to a memory 
 
 You first need to create a Memory Bank instance. This step is optional if you're using Agent Runtime to deploy your agent. For more information on customizing your Memory Bank behavior, see the [Configure your Memory Bank instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup#memory-bank-config) section on the Set up Memory Bank page.
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
       project="PROJECT_ID",
       location="LOCATION"
     )
     # If you don't have a Memory Bank instance already, create a
     # Memory Bank instance using the default configuration.
-    memory_bank = client.agent_engines.create()
+    memory_bank = client.memory_banks.create()
     
     # Optionally, print out the resource name. You will need the
     # resource name if you want to interact with your Memory Bank instance later on.
-    print(memory_bank.api_resource.name)
+    print(memory_bank.name)
     
-    agent_engine_id = memory_bank.api_resource.name.split("/")[-1]
+    memory_bank_id = memory_bank.name.split("/")[-1]
 
 Replace the following:
 
@@ -226,10 +226,10 @@ Use the following code to deploy your memory-enabled ADK agent to Agent Runtime:
 
     import asyncio
     
-    import vertexai
-    from vertexai.agent_engines import AdkApp
+    import agentplatform
+    from agentplatform.frameworks import AdkApp
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
       project="PROJECT_ID",
       location="LOCATION"
     )
@@ -238,22 +238,22 @@ Use the following code to deploy your memory-enabled ADK agent to Agent Runtime:
     
     # Create a new resource with your agent deployed to Agent Runtime.
     # The Agent Runtime instance will also include an empty Memory Bank instance.
-    agent_engine = client.agent_engines.create(
-          agent_engine=adk_app,
+    runtime_instance = client.runtimes.create(
+          agent=adk_app,
           config={
                 "staging_bucket": "STAGING_BUCKET",
-                "requirements": ["google-cloud-aiplatform[agent_engines,adk]"]
+                "requirements": ["google-cloud-agentplatform[runtimes,adk]"]
           }
     )
     
     # Alternatively, update an existing resource to deploy your agent to Agent Platform.
     # Your agent will have access to the Runtime instance's existing memories.
-    agent_engine = client.agent_engines.update(
+    runtime_instance = client.runtimes.update(
           name=agent_engine.api_resource.name,
-          agent_engine=adk_app,
+          agent=adk_app,
           config={
                 "staging_bucket": "STAGING_BUCKET",
-                "requirements": ["google-cloud-aiplatform[agent_engines,adk]"]
+                "requirements": ["google-cloud-agentplatform[runtimes,adk]"]
           }
     )
     
@@ -288,7 +288,7 @@ When run locally, the ADK template uses `InMemoryMemoryService` as the default m
     
     async def call_agent(query, session_id, user_id):
       # adk_app is a local agent. If you want to deploy it to Agent Runtime,
-      # use `client.agent_engines.create(...)` or `client.agent_engines.update(...)`
+      # use `client.runtimes.create(...)` or `client.runtimes.update(...)`
       # and call the returned Agent Runtime instance instead.
       async for event in adk_app.async_stream_query(
           user_id=user_id,
@@ -468,14 +468,14 @@ When using Runtime with built-in Memory Bank, your agent and Memory Bank are dep
 
 To use a multi-regional Memory Bank, you must override the default ADK memory service builder to point to the multi-region location and the corresponding Memory Bank ID.
 
-    import vertexai
+    import agentplatform
     from google.adk.memory import VertexAiMemoryBankService
-    from vertexai.agent_engines import AdkApp
+    from agentplatform.frameworks import AdkApp
     
     # Create the Memory Bank instance in a multi-region location (for example, 'us')
-    client_mb = vertexai.Client(project="PROJECT_ID", location="us")
-    memory_bank = client_mb.agent_engines.create()
-    memory_bank_id = memory_bank.api_resource.name.split(\"/\")[-1]
+    client_mb = agentplatform.Client(project="PROJECT_ID", location="us")
+    memory_bank = client_mb.memory_banks.create()
+    memory_bank_id = memory_bank.name.split("/")[-1]
     
     
     # Point your memory service to the 'us' location, 'us' Memory Bank
@@ -493,12 +493,12 @@ To use a multi-regional Memory Bank, you must override the default ADK memory se
     )
     
     # Deploy the runtime to a specific region (for example, 'us-central1')
-    client_runtime = vertexai.Client(project="PROJECT_ID", location="us-central1")
-    agent_engine = client_runtime.agent_engines.create(
+    client_runtime = agentplatform.Client(project="PROJECT_ID", location="us-central1")
+    runtime_instance = client_runtime.runtimes.create(
         agent=adk_app,
         config={
             "staging_bucket": "STAGING_BUCKET",
-            "requirements": ["google-cloud-aiplatform[agent_engines,adk]"]
+            "requirements": ["google-cloud-agentplatform[runtimes,adk]"]
         }
     )
 
@@ -515,7 +515,8 @@ Otherwise, you can delete the individual resources you created in this tutorial,
 
 1.  Use the following code sample to delete the Agent Runtime instance, which also deletes any sessions or memories belonging to that runtime.
     
-        agent_engine.delete(force=True)
+        client_runtime.runtimes.delete(name=runtime_instance.api_resource.name, force=True)
+        client_mb.memory_banks.delete(name=memory_bank.name, force=True)
 
 2.  Delete any locally created files.
 

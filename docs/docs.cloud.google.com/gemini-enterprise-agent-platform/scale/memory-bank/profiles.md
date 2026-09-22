@@ -80,37 +80,29 @@ Upload the schema to Memory Bank when you create or update your Agent Platform i
       "memory_schema": UserProfile.model_json_schema()
     }
     
-    memory_bank = client.agent_engines.create(
-        config={
-            "context_spec": {
-                "memory_bank_config": {
-                    "structured_memory_configs": [
-                        {
-                            "schema_configs": [schema_config]
-                        }
-                    ]
+    memory_bank = client.memory_banks.create(
+        managed_semantic_memory_config={
+            "structured_memory_configs": [
+                {
+                    "schema_configs": [schema_config]
                 }
-            }
+            ]
         }
     )
 
 By default, Memory Bank will always try to extract natural language memories. You can disable natural language memory generation if you only want Memory Bank to generate profiles:
 
-    memory_bank = client.agent_engines.create(
-        config={
-            "context_spec": {
-                "memory_bank_config": {
-                    "structured_memory_configs": [
-                        {
-                            "schema_configs": [schema_config]
-                        }
-                    ],
-                    # Optional: Disable natural language memories.
-                    "customization_configs": [
-                        {"disable_natural_language_memories": True}
-                    ]
+    memory_bank = client.memory_banks.create(
+        managed_semantic_memory_config={
+            "structured_memory_configs": [
+                {
+                    "schema_configs": [schema_config]
                 }
-            }
+            ],
+            # Optional: Disable natural language memories.
+            "unstructured_memory_configs": [
+                {"disable_natural_language_memories": True}
+            ]
         }
     )
 
@@ -124,8 +116,8 @@ The following example walks through memory profile generation using the [previou
 
 In the first set of events sent to Memory Bank for scope `{"user_id": "123"}` , the user indicates that they work with ADK agents:
 
-    client.agent_engines.memories.generate(
-      name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+      name=memory_bank.name,
       scope={"user_id": "123"},
       direct_contents_source={
         "events": [
@@ -137,8 +129,8 @@ In the first set of events sent to Memory Bank for scope `{"user_id": "123"}` , 
 
 Memory Bank extracts "ADK" for the `technical_stack` field in the schema. No other fields are populated because the ingested event does not contain relevant information for the rest of the schema. Since this is the first interaction for this scope, consolidation is skipped and the profile is initialized with this initial value.
 
-    result = client.agent_engines.memories.retrieve_profiles(
-        name=memory_bank.api_resource.name,
+    result = client.memory_banks.memories.retrieve_profiles(
+        name=memory_bank.name,
         scope={"user_id": "123"},
     )
     
@@ -159,8 +151,8 @@ Memory Bank extracts "ADK" for the `technical_stack` field in the schema. No oth
 
 In the next set of events sent to Memory Bank, the user indicates that they are a student and primarily code in Python:
 
-    client.agent_engines.memories.generate(
-      name=memory_bank.api_resource.name,
+    client.memory_banks.memories.generate(
+      name=memory_bank.name,
       scope={"user_id": "123"},
       direct_contents_source={
         "events": [
@@ -172,8 +164,8 @@ In the next set of events sent to Memory Bank, the user indicates that they are 
 
 Memory Bank extracts both "Python" and the "student" status from the interaction. The `technical_stack` fragment is consolidated, appending "Python" to the existing "ADK" entry. The system populates the previously empty `job_status` field with the "student" enum and skips the consolidation step.
 
-    result = client.agent_engines.memories.retrieve_profiles(
-        name=memory_bank.api_resource.name,
+    result = client.memory_banks.memories.retrieve_profiles(
+        name=memory_bank.name,
         scope=scope
     )
     
@@ -197,8 +189,8 @@ Memory Bank extracts both "Python" and the "student" status from the interaction
 
 Once generated, you can retrieve the consolidated profile for a specific scope using the `RetrieveProfiles` method. This returns the most up-to-date data mapped to your schema.
 
-    result = client.agent_engines.memories.retrieve_profiles(
-      name=memory_bank.api_resource.name,
+    result = client.memory_banks.memories.retrieve_profiles(
+      name=memory_bank.name,
       scope={"user_id": "123"},
     )
     
@@ -218,7 +210,7 @@ While [`RetrieveProfiles`](https://docs.cloud.google.com/gemini-enterprise-agent
 
 For example, you can use `RetrieveMemories` to retrieve all memories containing fragments of a user's profile. By default, `RetrieveMemories` only retrieves natural language memories, so you need to explicitly request `STRUCTURED_PROFILE` memories:
 
-    client.agent_engines.memories.retrieve(
+    client.memory_banks.memories.retrieve(
       name="...",
       scope={"user_id": "123"},
       config={
@@ -235,7 +227,7 @@ For example, you can use `RetrieveMemories` to retrieve all memories containing 
          memory_type=<MemoryType.STRUCTURED_PROFILE: 'STRUCTURED_PROFILE'>,
          name='projects/.../locations/.../reasoningEngines/.../memories/...',
          scope={
-           'user_id': '1'
+           'user_id': '123'
          },
          structured_content=MemoryStructuredContent(
            data={
@@ -251,7 +243,7 @@ For example, you can use `RetrieveMemories` to retrieve all memories containing 
 Then, you can retrieve the revision history of this structured profile fragment to inspect how the profile field changed over time and the context around each of those changes:
 
     for retrieved_memory in list(results):
-        list(client.agent_engines.memories.revisions.list(
+        list(client.memory_banks.memories.revisions.list(
             name=retrieved_memory.memory.name
         ))
     

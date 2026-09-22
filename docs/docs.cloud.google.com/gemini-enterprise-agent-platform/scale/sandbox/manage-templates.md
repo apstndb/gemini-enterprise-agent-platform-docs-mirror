@@ -39,7 +39,7 @@ Create a template:
 
 Associate each sandbox with the template by setting `sandbox_environment_template` :
 
-    operation = client.agent_engines.sandboxes.create(
+    operation = client.sandboxes.create(
         name=instance_name,
         spec={"shell_environment": {}},
         config={
@@ -57,7 +57,7 @@ To list all sandbox templates associated with an Agent Platform instance:
     client = agentplatform.Client(project='PROJECT_ID', location='LOCATION')
     instance_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID'
     
-    templates_response = client.agent_engines.sandboxes.templates.list(name=instance_name)
+    templates_response = client.sandboxes.templates.list(name=instance_name)
     
     for template in templates_response.sandbox_environment_templates:
         print(template.name)
@@ -74,7 +74,7 @@ To view the configuration of a specific sandbox template:
 
     template_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/SandboxEnvironmentTemplate/TEMPLATE_ID'
     
-    template = client.agent_engines.sandboxes.templates.get(name=template_name)
+    template = client.sandboxes.templates.get(name=template_name)
     print(template)
 
 Replace the following:
@@ -94,7 +94,7 @@ To view the sandbox template associated with a sandbox, run the following:
 
 To delete a sandbox template:
 
-    client.agent_engines.sandboxes.templates.delete(name=template_name)
+    client.sandboxes.templates.delete(name=template_name)
     print("Template deleted.")
 
 > **Note:** Deactivating a template is done by deleting it. You cannot delete a template if a warm pool is actively using it (meaning the template is being created) or if sandboxes are being created from it.

@@ -22,12 +22,12 @@ You can list, view details for, pause, resume, and delete sandbox environments a
 
 To list all sandboxes associated with an Agent Platform instance:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(project='PROJECT_ID', location='LOCATION')
+    client = agentplatform.Client(project='PROJECT_ID', location='LOCATION')
     instance_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID'
     
-    sandboxes = client.agent_engines.sandboxes.list(name=instance_name)
+    sandboxes = client.sandboxes.list(name=instance_name)
     
     for sandbox in sandboxes:
         print(sandbox.name)
@@ -44,7 +44,7 @@ To view the configuration and status of a specific sandbox:
 
     sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
     
-    sandbox = client.agent_engines.sandboxes.get(name=sandbox_name)
+    sandbox = client.sandboxes.get(name=sandbox_name)
     print(sandbox)
 
 Replace the following:
@@ -73,7 +73,7 @@ Paused sandboxes:
     client = agentplatform.Client(project='PROJECT_ID', location='LOCATION')
     sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
     
-    pause_operation = client.agent_engines.sandboxes.pause(
+    pause_operation = client.sandboxes.pause(
         name=sandbox_name,
         config={
             "wait_for_completion": True,  # Optional. Blocks until the sandbox reaches STATE_PAUSED.
@@ -95,7 +95,7 @@ Resuming a paused sandbox brings its compute back online. The sandbox retains th
 
     sandbox_name = 'projects/PROJECT_ID/locations/LOCATION/reasoningEngines/INSTANCE_ID/sandboxEnvironments/SANDBOX_ID'
     
-    resume_operation = client.agent_engines.sandboxes.resume(
+    resume_operation = client.sandboxes.resume(
         name=sandbox_name,
         config={
             "wait_for_completion": True,  # Optional. Blocks until the sandbox reaches STATE_RUNNING.
@@ -117,7 +117,7 @@ Replace the following:
 
 To explicitly delete a sandbox environment and free up resources:
 
-    client.agent_engines.sandboxes.delete(name=sandbox_name)
+    client.sandboxes.delete(name=sandbox_name)
     print("Sandbox deleted.")
 
 > **Note:** Sandboxes are billed while they exist. You can set `config.ttl` when you create the sandbox so that the sandbox is removed automatically when the TTL expires, even if your process crashes before it can call `delete()` .

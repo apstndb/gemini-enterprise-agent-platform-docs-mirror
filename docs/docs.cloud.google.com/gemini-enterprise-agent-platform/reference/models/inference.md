@@ -557,7 +557,7 @@ If the model returns a response that's too generic, too short, or the model give
 
   - Range for Gemini 3 models versions 3.5 Flash and lower: `0.0 - 2.0` (default: `1.0` )
 
-> **Warning:** Sampling parameters ( `temperature` , `topP` , and `topK` ) are deprecated for all `Gemini 3` models. It is recommended to omit these parameters and let the model manage sampling automatically.
+> **Warning:** For Gemini 3.6 Flash and later models, custom values for sampling parameters ( `temperature` , `topP` , and `topK` ) aren't supported and are ignored if set, and custom values for penalization parameters ( `frequencyPenalty` and `presencePenalty` ) return an error. Remove these parameters from your requests.
 
 For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#temperature) .
 
@@ -579,6 +579,8 @@ Optional: `float`
 
 Specifies the top-k sampling threshold. The model considers only the top k most probable tokens for the next token. This can be useful for generating more coherent and less random text. For example, a \`topK\` of 40 means the model will choose the next word from the 40 most likely words.
 
+For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#top-k) .
+
 `candidateCount`
 
 Optional: `int`
@@ -586,6 +588,8 @@ Optional: `int`
 The number of response variations to return. For each request, you're charged for the output tokens of all candidates, but are only charged once for the input tokens.
 
 Specifying multiple candidates is a Preview feature that works with `generateContent` ( `streamGenerateContent` is not supported).
+
+For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#candidate-count) .
 
 `maxOutputTokens`
 
@@ -652,6 +656,8 @@ Specify the appropriate response type to avoid unintended behaviors. For example
 > **Caution:** Setting `responseMimeType` to `application/json` (JSON mode) without specifying a [`responseSchema`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#responseSchema) acts only as a strong hint to the model and doesn't ensure 100% valid JSON. Because JSON mode lacks strict schema enforcement, type checking, and relationship constraints, complex payloads can occasionally result in trailing characters or malformed outputs.
 > 
 > To ensure 100% valid JSON objects, requests must include **both** a `responseSchema` and `responseMimeType: "application/json"` . As a best practice, if your use case prevents you from pre-defining a schema, implement a client-side JSON validator with a retry mechanism.
+
+For more information, see [Content generation parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/content-generation-parameters#response-mime-type) .
 
 `responseSchema`
 

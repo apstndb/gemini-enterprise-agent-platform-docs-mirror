@@ -10,28 +10,28 @@ data_source: docs.cloud.google.com
 
 This tutorial assumes that you have read and followed the instructions in:
 
-  - [Create an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) : to create `agent` as an instance of [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp) .
+  - [Create an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent) : to create `agent` as an instance of [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) .
   - [User authentication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#authentication) to authenticate as a user for querying the agent.
   - [Import and initialize the SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup#sdk-import) to initialize the client for getting a deployed instance (if needed).
 
 ## Get an instance of an agent
 
-To query an [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
+To query an [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) , you need to first [create a new instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#create-agent-engine) or [get an existing instance](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get) .
 
-To get the [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp) that corresponds to a specific resource ID:
+To get the [`AdkApp`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp) that corresponds to a specific resource ID:
 
 ### Agent Platform SDK
 
 Run the following code:
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(  # For service interactions via client.agent_engines
+    client = agentplatform.Client(  # For service interactions via client.runtimes
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    adk_app = client.agent_engines.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
+    adk_app = client.runtimes.get(name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID")
     
     print(adk_app)
 
@@ -70,13 +70,13 @@ Run the following code:
     -H "Content-Type: application/json" \
     https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID
 
-When using the Agent Platform SDK, the `adk_app` object corresponds to an [`AgentEngine`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.AgentEngine) class that contains the following:
+When using the Agent Platform SDK, the `adk_app` object corresponds to an [`AgentRuntime`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.AgentRuntime) class that contains the following:
 
-  - [`adk_app.api_resource`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.ReasoningEngine) with information about the deployed agent. You can also call `adk_app.operation_schemas()` to return the list of operations that the `adk_app` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#supported-operations) for details.
-  - [`adk_app.api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AgentEngines) that allows for synchronous service interactions
-  - [`adk_app.async_api_client`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.AsyncAgentEngines) that allows for asynchronous service interactions
+  - [`adk_app.api_resource`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.types.ReasoningEngine) with information about the deployed agent. You can also call `adk_app.operation_schemas()` to return the list of operations that the `adk_app` supports. See [Supported operations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent#supported-operations) for details.
+  - [`adk_app.api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.Runtimes) that allows for synchronous service interactions
+  - [`adk_app.async_api_client`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.runtimes.AsyncRuntimes) that allows for asynchronous service interactions
 
-The rest of this section assumes that you have an `AgentEngine` instance, named as `adk_app` .
+The rest of this section assumes that you have an `AgentRuntime` instance, named as `adk_app` .
 
 ## Supported operations
 
@@ -124,7 +124,7 @@ Represented in `spec.class_methods` from the response to the curl request.
 
 ### Create a session
 
-To create a session for a user, use the [`AdkApp.async_create_session`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_create_session) method:
+To create a session for a user, use the [`AdkApp.async_create_session`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_create_session) method:
 
 ### Agent Platform SDK
 
@@ -173,7 +173,7 @@ The session is created as the dictionary representation of an [ADK session objec
 
 ### List sessions
 
-To list the sessions for a user, use the [`AdkApp.async_list_sessions`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_list_sessions) method:
+To list the sessions for a user, use the [`AdkApp.async_list_sessions`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_list_sessions) method:
 
 ### Agent Platform SDK
 
@@ -222,7 +222,7 @@ If any sessions are returned, they use the dictionary form of an [ADK session ob
 
 ### Get a session
 
-To get a specific session, use the [`AdkApp.async_get_session`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_get_session) method:
+To get a specific session, use the [`AdkApp.async_get_session`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_get_session) method:
 
 ### Agent Platform SDK
 
@@ -269,7 +269,7 @@ The `session` is the dictionary representation of an [ADK session object](https:
 
 ### Delete a session
 
-To delete a session, use the [`AdkApp.async_delete_session`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_delete_session) method:
+To delete a session, use the [`AdkApp.async_delete_session`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_delete_session) method:
 
 ### Agent Platform SDK
 
@@ -312,7 +312,7 @@ Run the following code:
 
 ## Stream a response to a query
 
-To stream responses from an agent in a session, use the [`AdkApp.async_stream_query`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_stream_query) method:
+To stream responses from an agent in a session, use the [`AdkApp.async_stream_query`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_stream_query) method:
 
 ### Agent Platform SDK
 
@@ -423,14 +423,14 @@ To start a long-running query job:
 
 ### Agent Platform SDK
 
-    import vertexai
+    import agentplatform
     
-    client = vertexai.Client(
+    client = agentplatform.Client(
         project="PROJECT_ID",
         location="LOCATION",
     )
     
-    response = client.agent_engines.run_query_job(
+    response = client.runtimes.run_query_job(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID",
         config={
             "query": '{"input":{"user_id":"USER_ID", "message":"What is the exchange rate from US dollars to SEK today?"}}',
@@ -462,7 +462,7 @@ To check the status and retrieve the results of a long-running query job:
 
 ### Agent Platform SDK
 
-    response = client.agent_engines.check_query_job(
+    response = client.runtimes.check_query_job(
         name="JOB_NAME",
         config={
             "retrieve_result": True,
@@ -476,7 +476,7 @@ To cancel a long-running query job, you must have the LRO resource name that is 
 
 ### Agent Platform SDK
 
-    response = client.agent_engines.cancel_query_job(
+    response = client.runtimes.cancel_query_job(
         name="projects/PROJECT_ID/locations/LOCATION/reasoningEngines/RESOURCE_ID",
         config={
             "operation_name": "projects/PROJECT_ID/locations/LOCATION/operations/OPERATION_ID",
@@ -504,7 +504,7 @@ Once the job is cancelled, its operation completes with an error code of `1` ( `
 
 ### Add session to memory
 
-To retain memory of meaningful information in a session (that can be used in future sessions), use the [`async_add_session_to_memory`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_add_session_to_memory) method:
+To retain memory of meaningful information in a session (that can be used in future sessions), use the [`async_add_session_to_memory`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_add_session_to_memory) method:
 
 ### Agent Platform SDK
 
@@ -514,7 +514,7 @@ where `  SESSION_DICT  ` is the dictionary form of an [ADK session object](https
 
 ### Search for memories
 
-To search through the memories of the agent, you can use the [`async_search_memory`](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.AdkApp#vertexai_agent_engines_AdkApp_async_search_memory) method:
+To search through the memories of the agent, you can use the [`async_search_memory`](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/agentplatform.frameworks.AdkApp#vertexai_agent_engines_AdkApp_async_search_memory) method:
 
 ### Agent Platform SDK
 

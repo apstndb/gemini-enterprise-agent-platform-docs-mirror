@@ -30,7 +30,7 @@ When you are satisfied that the policies are functioning correctly, you can upda
 
 ## Access policies overview
 
-Access policies control whether one or more agent principals can access one or more destination resources. Access policies extend the IAM policy model by supporting multiple *rules* in a single policy. Unlike IAM allow policies and deny policies, each rule in a Access policy can have both an allow effect and a deny effect. Learn more about [IAM policy types](https://docs.cloud.google.com/iam/docs/access-policy-overview#policy-types) .
+Access policies control whether one or more agent principals can access one or more destination resources. Access policies extend the IAM policy model by supporting multiple *rules* in a single policy. Unlike IAM allow policies and deny policies, each rule in a Access policy can have both an allow effect and a deny effect. Learn more about [IAM policy types](https://docs.cloud.google.com/iam/docs/policy-types) .
 
 Rules also contain *conditions* that are expressed in Common Expression Language (CEL). Conditions act as the primary mechanism to control access to post-gateway resources. Enforcing Access policies with Agent Gateway and IAP delivers strict behavioral control over agents deployed across your enterprise. You can represent real-world, fine-grained agent governance use cases in a single policy.
 

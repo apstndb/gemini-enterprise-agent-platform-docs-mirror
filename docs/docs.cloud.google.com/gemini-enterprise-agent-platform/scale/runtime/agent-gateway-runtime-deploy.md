@@ -63,13 +63,13 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     
       - **For new agents**
         
-        Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.agent_engines.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
+        Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.runtimes.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
         
         If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. Without `identity_type=AGENT_IDENTITY` , the Runtime instance's `effectiveIdentity` falls back to the default Vertex AI service account, and Semantic Governance Policies silently filter the agent out of the policy-creation selector.
         
         ### Agent-to-Anywhere
         
-            remote_agent = client.agent_engines.create(
+            remote_agent = client.runtimes.create(
               agent=local_agent,
               config={
                   "agent_gateway_config": {
@@ -94,7 +94,7 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
         
         ### Client-to-Agent
         
-            remote_agent = client.agent_engines.create(
+            remote_agent = client.runtimes.create(
               agent=local_agent,
               config={
                   "agent_gateway_config": {

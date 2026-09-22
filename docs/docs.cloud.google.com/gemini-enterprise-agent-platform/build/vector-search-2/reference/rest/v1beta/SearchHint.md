@@ -19,14 +19,14 @@ Represents a hint to the search index engine.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// Union field index_type can be only one of the following:&quot;useIndex&quot;: {object (IndexHint)},&quot;useKnn&quot;: boolean,&quot;knnHint&quot;: {object (KnnHint)},&quot;indexHint&quot;: {object (IndexHint)}// End of list of possible types for union field index_type.}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{// The following is a list of mutually exclusive fields. At most one of the// fields will be set in a response:&quot;useIndex&quot;: {object (IndexHint)},&quot;useKnn&quot;: boolean,&quot;knnHint&quot;: {object (KnnHint)},&quot;indexHint&quot;: {object (IndexHint)}// End of mutually exclusive fields.}</code></pre></td>
 </tr>
 </tbody>
 </table>
 
 Fields
 
-Union field `index_type` . The type of index to use. `index_type` can be only one of the following:
+The type of index to use. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` useIndex (deprecated)  `
 
@@ -56,6 +56,8 @@ Optional. If set, the search will use the system's default K-Nearest Neighbor (K
 
 Optional. Specifies that the search should use a particular index.
 
+End of mutually exclusive fields.
+
 ## IndexHint
 
 Message to specify the index to use for the search.
@@ -71,7 +73,7 @@ Message to specify the index to use for the search.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,// Union field params can be only one of the following:&quot;denseScannParams&quot;: {object (DenseScannParams)}// End of list of possible types for union field params.}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,// The following is a list of mutually exclusive fields. At most one of the// fields will be set in a response:&quot;denseScannParams&quot;: {object (DenseScannParams)}// End of mutually exclusive fields.}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -84,13 +86,15 @@ Fields
 
 Required. The resource name of the index to use for the search. The index must be in the same project, location, and collection. Format: `projects/{project}/locations/{location}/collections/{collection}/indexes/{index}`
 
-Union field `params` . The parameters for the index. `params` can be only one of the following:
+The parameters for the index. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `denseScannParams`
 
 ` object ( DenseScannParams  ` )
 
 Optional. Dense ScaNN parameters.
+
+End of mutually exclusive fields.
 
 ## DenseScannParams
 
@@ -109,7 +113,8 @@ Parameters for dense ScaNN.
 <tr class="odd">
 <td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{
   &quot;searchLeavesPct&quot;: integer,
-  &quot;initialCandidateCount&quot;: integer
+  &quot;initialCandidateCount&quot;: integer,
+  &quot;targetRecall&quot;: number
 }</code></pre></td>
 </tr>
 </tbody>
@@ -121,13 +126,19 @@ Fields
 
 `integer`
 
-Optional. Dense ANN param overrides to control recall and latency. The percentage of leaves to search, in the range \[0, 100\].
+Optional. Dense ANN param overrides to control recall and latency. The percentage of leaves to search, in the range \[0, 100\]. Not supported for `STORAGE_OPTIMIZED` indexes. Cannot be set together with `targetRecall` .
 
 `initialCandidateCount`
 
 `integer`
 
-Optional. The number of initial candidates. Must be a positive integer (\> 0).
+Optional. The number of initial candidates. Must be a positive integer (\> 0). Not supported for `STORAGE_OPTIMIZED` indexes. Cannot be set together with `targetRecall` .
+
+`targetRecall`
+
+`number`
+
+Optional. The target recall for the search. Must be a double in the range \[0, 1\]. While the search aims to achieve this level of recall, it is not guaranteed.
 
 ## KnnHint
 

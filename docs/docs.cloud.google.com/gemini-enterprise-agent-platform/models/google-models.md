@@ -40,7 +40,7 @@ Turn ideas into production-ready assets
 
 ## Generally available Gemini models
 
-spark [Gemini 3.8 Flash Cyber (Gemini Cyber)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) Our model optimized for cyber security.
+spark [Gemini 3.8 Flash Cyber (Gemini Cyber)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) Our model optimized for cyber security.
 
 spark [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) Our most intelligent workhorse model yet, built for long-horizon coding and autonomous agents.
 
