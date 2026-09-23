@@ -6,10 +6,6 @@ description: Implement Gemini model grounding with Exa's web search API. Access 
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
 [Exa](https://exa.ai/) provides a search API that gives access to publicly available web data optimized for grounding large language model responses. This page explains how to ground Gemini responses by using Exa.
 
 Grounding with Exa web search on Gemini Enterprise Agent Platform is a Separate Offering (as defined in your Google Cloud Agreement) that connects Gemini models to public web data provided by [Exa's search API](https://exa.ai/docs/reference/search-api-guide) .

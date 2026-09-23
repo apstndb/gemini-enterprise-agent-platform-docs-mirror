@@ -12,6 +12,22 @@ You can see the latest product updates for all of Google Cloud on the [Google Cl
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators) , or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly.
 
+## September 09, 2026
+
+v2
+
+Feature
+
+**New configuration options for scheduled notebook runs**
+
+When you schedule a notebook run from an Agent Platform Workbench instance, you can now configure the following:
+
+  - **Execution identity.** You can choose your own user account instead of a service account. The notebook runs as you, so Application Default Credentials inside the notebook resolve to your identity and the run accesses only the resources you can access. If you have not yet granted consent, the scheduler provides a link for authorizing access.
+  - **Shielded VM options.** To meet workload requirements that mandate verified boot integrity, you can enable Shielded VM options, including Secure Boot, on the compute that runs the notebook. For more information, see [Modifying Shielded VM options](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm) .
+  - **Runtime environment.** In addition to the default environment, you can specify a VM image or a custom container, so that scheduled runs use the same dependencies as your interactive environment.
+
+Ensure that `scheduler-jupyter-plugin` is at version 0.1.8 or later for these features to be accessible. For more information, see [Schedule a notebook run](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/schedule-notebook-run-quickstart) .
+
 ## September 08, 2026
 
 v2

@@ -254,15 +254,15 @@ Here is what the core default parameters mean:
       - **What it means:** Disables interactive prompts for file modifications, allowing the CodeMender agent to write security patches and modify source files directly to your local disk without waiting for human approval.
       - **Why this is the default:** By default, CodeMender sets this safety guardrail to `true` to enforce a "Human-in-the-Loop" workflow. Because CodeMender acts on your local codebase, requiring manual confirmation (for example, `Write? [Y/n]` ) prevents the agent from making speculative, incorrect, or destructive modifications to your source files. You should only switch this to `false` when running in isolated, disposable sandboxes or automated, headless CI/CD pipelines.
 
-  - **`include: [".py", ".java", ".go", ".js", ".ts", ".c", ".cc", ".cpp", ".h", ".rb", ".php"]`**
+  - **`include: [".py", ".java", ".go", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".c", ".cc", ".cpp", ".cxx", ".h", ".hpp", ".cs", ".rs", ".kt", ".kts", ".rb", ".php"]`**
     
       - **What it means:** Defines the explicit list of file extensions that you authorize CodeMender to ingest and analyze when scanning your workspace. CodeMender automatically skips any file in your repository with an extension not specified in this list.
-      - **Why this is the default:** This list defaults to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, we highly recommend that you manually expand this default list to include configuration files, script formats, and IaC files (for example, shell scripts, XML, YAML, properties, and JSON files) so CodeMender doesn't silently ignore them.
+      - **Why this is the default:** This list defaults to major programming languages to maximize scanning efficiency and prevent the agent from wasting time and tokens on irrelevant text files, build artifacts, or binary files. However, because modern applications often embed vulnerabilities in deployment configs or automation tools, you can manually expand this default list in `config.yaml` to include configuration files, script formats, and IaC files (for example, shell scripts, XML, YAML, properties, and JSON files) so CodeMender doesn't silently ignore them.
 
-  - **`exclude_paths: ["node_modules", "vendor", "dist", "bin"]`**
+  - **`exclude_dirs: ["node_modules", "vendor", "dist", "bin", "target", "obj", "build", ".gradle"]`**
     
       - **What it means:** CodeMender will completely skip these directories during workspace scanning and code analysis.
-      - **Why this is the default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times.
+      - **Why this is the default:** Large dependency or build folders trigger a massive latency and token penalty. Keeping these excluded by default ensures high performance and rapid response times. You can customize this list in `config.yaml` to include or exclude specific directories according to your project structure.
 
   - **`project_paths: []`**
     

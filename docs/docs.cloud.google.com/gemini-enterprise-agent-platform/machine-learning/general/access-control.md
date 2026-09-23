@@ -424,6 +424,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputRevisions.  list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  changeScope</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></li>
@@ -1085,6 +1086,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  changeScope</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></li>
@@ -2910,6 +2912,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <p><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  cancel</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  changeScope</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  create</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  get</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  provisionedThroughputs.  list</code></li>

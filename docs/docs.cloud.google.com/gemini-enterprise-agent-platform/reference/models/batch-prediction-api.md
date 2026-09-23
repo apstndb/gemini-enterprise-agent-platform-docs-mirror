@@ -744,7 +744,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         // location := "us-central1"
         // inputURIs := []string{"gs://cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl"}
         // outputURI := "gs://<cloud-bucket-name>/<prefix-name>"
-        modelName := "gemini-2.0-flash-001"
+        modelName := "gemini-2.5-flash"
         jobName := "batch-predict-gcs-test-001"
     
         ctx := context.Background()
@@ -844,7 +844,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
         // location  := "us-central1"
         // inputURI  := "bq://storage-samples.generative_ai.batch_requests_for_multimodal_input"
         // outputURI := "bq://<cloud-project-name>.<dataset-name>.<table-name>"
-        modelName := "gemini-2.0-flash-001"
+        modelName := "gemini-2.5-flash"
         jobName := "batch-predict-bq-test-001"
     
         ctx := context.Background()

@@ -12,7 +12,7 @@ data_source: docs.cloud.google.com
 
 You can guarantee that a model's generated output always adheres to a specific schema so that you receive consistently formatted responses. For example, you might have an established data schema that you use for other tasks. If you have the model follow the same schema, you can directly extract data from the model's output without any post-processing.
 
-To specify the structure of a model's output, define a *response schema* , which works like a blueprint for model responses. When you submit a prompt and include the [response schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Schema) , the model's response always follows your defined schema.
+To specify the structure of a model's output, define a *response schema* , which works like a blueprint for model responses. When you submit a prompt and include the [response schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) , the model's response always follows your defined schema.
 
 You can control generated output when using the following models:
 
@@ -70,7 +70,7 @@ The following considerations discuss potential limitations if you plan on using 
       - To ensure 100% valid JSON objects, requests must include both a `response_schema` and `response_mime_type` set to `application/json` .
       - As a best practice, if your use case prevents you from pre-defining a schema, implement a client-side JSON validator with a retry mechanism.
 
-  - Structured output supports a subset of the [Agent Platform schema reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Schema) . For more information, see [Supported schema fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#fields) .
+  - Structured output supports a subset of the [Agent Platform schema reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) . For more information, see [Supported schema fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output#fields) .
 
   - A complex schema can result in an `InvalidArgument: 400` error. Complexity might come from long property names, long array length limits, enums with many values, objects with lots of optional properties, or a combination of these factors.
     
@@ -89,7 +89,7 @@ You can specify a `response_schema` that describes the output format.
 
 The model will then generate a response that matches the provided schema. When using structured outputs, the model will produce outputs in the same order as the keys in the schema.
 
-  - The following fields from the [Agent Platform schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Schema) are supported. If you use an unsupported field, Gemini Enterprise Agent Platform can still handle your request but ignores the field.
+  - The following fields from the [Agent Platform schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) are supported. If you use an unsupported field, Gemini Enterprise Agent Platform can still handle your request but ignores the field.
 
   - `anyOf`
 
@@ -501,7 +501,7 @@ Before using any of the request data, make the following replacements:
       - `USER` : Specifies content that's sent by you.
   - TEXT : The text instructions to include in the prompt.
   - RESPONSE\_MIME\_TYPE : The format type of the generated candidate text. For a list of supported values, see the `responseMimeType` parameter in the [Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/generateContent) .
-  - RESPONSE\_SCHEMA : Schema for the model to follow when generating responses. It is a best practice to use the `description` field to describe the schema's purpose and its properties. For more information, see the [Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.cachedContents#Schema) reference.
+  - RESPONSE\_SCHEMA : Schema for the model to follow when generating responses. It is a best practice to use the `description` field to describe the schema's purpose and its properties. For more information, see the [Schema](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/Schema) reference.
 
 HTTP method and URL:
 

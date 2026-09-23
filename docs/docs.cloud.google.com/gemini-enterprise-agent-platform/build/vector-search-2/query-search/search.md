@@ -442,6 +442,49 @@ You should receive a response similar to the following:
     # Handle the response
     print(response)
 
+### Tuning search accuracy and performance
+
+For vector searches on dense ANN indexes with more than 100,000 embeddings, Agent Retrieval, by default, attempts to provide an optimal trade-off between recall and latency. You can tune this balance for your use case by specifying a target recall rate.
+
+Values must be greater than or equal to `0.00` and less than or equal to `1.00` .
+
+For information about how to create an ANN index, go to [Creating an ANN Index](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/indexes/indexes#create-ann-index) .
+
+> **Note:** Actual recall rates are best effort and not guaranteed, and may vary depending on dataset size, distribution, and other factors.
+
+> **Warning:** The v1beta [DenseScannParams](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/rest/v1beta/SearchHint#densescannparams) fields `searchLeavesPct` and `initialCandidateCount` are mutually exclusive with `targetRecall` .
+
+The following example demonstrates how to perform a vector search on a dense ANN index with a target recall rate of `0.95` .
+
+HTTP method and URL:
+
+    POST https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search
+
+Request JSON body:
+
+    {
+      "vectorSearch": {
+        "searchField": "plot_embedding",
+        "vector": {
+          "values": [0.42426406871192845, 0.565685424949238, 0.7071067811865475]
+        },
+        "topK": 10,
+        "searchHint": {
+          "indexHint": {
+            "name": "projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/indexes/INDEX_ID",
+            "denseScannParams": {
+              "targetRecall": 0.95
+            }
+          }
+        },
+        "outputFields": {
+          "dataFields": "*",
+          "vectorFields": "*",
+          "metadataFields": "*"
+        }
+      }
+    }
+
 ## Text search
 
 This performs full-text search without sparse vectors. The default "word" query dialect treats the entire input as individual search terms with an implicit `AND` operator. You can set `enhanced_query` to `true` to expand search terms, handle stemming, stop word removal, and allow for additional search operators:

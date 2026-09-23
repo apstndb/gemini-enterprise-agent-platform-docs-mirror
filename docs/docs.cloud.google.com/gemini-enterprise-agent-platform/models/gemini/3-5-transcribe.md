@@ -6,7 +6,7 @@ description: Learn about Gemini 3.5 Transcribe, our model optimized for high-acc
 data_source: docs.cloud.google.com
 ---
 
-Gemini 3.5 Transcribe is Google's model for converting speech to text in multiple languages, available through Agent Platform. Based on Gemini's audio understanding capabilities, it provides low-latency, accurate transcription with utterance-based language detection, speaker diarization, word-level timestamps, Smart transcription, and custom vocabulary speech biasing.
+Gemini 3.5 Transcribe is Google's model for converting speech to text in multiple languages, available through Agent Platform. Based on Gemini's audio understanding capabilities, it provides low-latency, accurate transcription with utterance-based language detection, speaker diarization, word-level timestamps, [Smart transcription](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#transcription-modes) , and custom vocabulary speech biasing.
 
 Gemini 3.5 Transcribe serves as the primary audio transcription workhorse, bridging the gap between deep-reasoning multi-modal models and highly optimized speech-to-text workflows.
 
@@ -21,15 +21,15 @@ It supports two primary methods of operation:
 
 Gemini 3.5 Transcribe supports the following features across its two endpoints:
 
-| Feature                          | Live Streaming ( `gemini-3.5-transcribe-live-preview` ) | Audio File Processing ( `gemini-3.5-transcribe-preview` ) | Launch Stage | Notes / Limitations                                                                                |
-| :------------------------------- | :------------------------------------------------------ | :-------------------------------------------------------- | :----------- | :------------------------------------------------------------------------------------------------- |
-| **Language Auto-detection**      | Supported (85+ languages)                               | Supported (85+ languages)                                 | Preview      | Includes mid-session code-mixing.                                                                  |
-| **Utterance-level Timestamps**   | Supported                                               | Not Supported                                             | Preview      |                                                                                                    |
-| **Word-level Timestamps**        | Not Supported                                           | Supported                                                 | Experimental | Degrades transcription accuracy.                                                                   |
-| **Custom Vocabulary Biasing**    | Supported (up to 1000 terms)                            | Supported (up to 1000 terms)                              | Preview      | Customers typically see best results with up to 100 terms.                                         |
-| **Smart Dictation & Formatting** | Supported                                               | Supported                                                 | Experimental | Includes filler word removal and intent-aware alphanumeric formatting.                             |
-| **Speaker Diarization**          | Not Supported                                           | Supported (up to 8 speakers)                              | Experimental | Attribution for 3+ speakers is Experimental.                                                       |
-| **Max Audio Duration**           | Up to 10 minutes                                        | Up to 15 minutes                                          | Preview      | File processing is limited to 15 minutes when features like diarization or timestamps are enabled. |
+| Feature                          | Live Streaming ( `gemini-3.5-transcribe-live-preview` ) | Audio File Processing ( `gemini-3.5-transcribe-preview` ) | Launch Stage | Notes / Limitations                                                                                                                                                                                                                                   |
+| :------------------------------- | :------------------------------------------------------ | :-------------------------------------------------------- | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Language Auto-detection**      | Supported (85+ languages)                               | Supported (85+ languages)                                 | Preview      | Includes mid-session code-mixing.                                                                                                                                                                                                                     |
+| **Utterance-level Timestamps**   | Supported                                               | Not Supported                                             | Preview      |                                                                                                                                                                                                                                                       |
+| **Word-level Timestamps**        | Not Supported                                           | Supported                                                 | Experimental | Degrades transcription accuracy.                                                                                                                                                                                                                      |
+| **Custom Vocabulary Biasing**    | Supported (up to 1000 terms)                            | Supported (up to 1000 terms)                              | Preview      | Customers typically see best results with up to 100 terms.                                                                                                                                                                                            |
+| **Smart Dictation & Formatting** | Supported (with manual endpointing)                     | Supported                                                 | Experimental | Includes filler word removal and intent-aware alphanumeric formatting. For live streaming, use with [manual endpointing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe#smart-live-manual-endpointing) . |
+| **Speaker Diarization**          | Not Supported                                           | Supported (up to 8 speakers)                              | Experimental | Attribution for 3+ speakers is Experimental.                                                                                                                                                                                                          |
+| **Max Audio Duration**           | Up to 10 minutes                                        | Up to 15 minutes                                          | Preview      | File processing is limited to 15 minutes when features like diarization or timestamps are enabled.                                                                                                                                                    |
 
 ## Live streaming transcription
 
@@ -145,6 +145,97 @@ Setting diarization=True asks the model to identify and label individual speaker
         if text:
             print(f"**{speaker}**: {text}")
 
+## Transcription modes
+
+Gemini 3.5 Transcribe supports two transcription modes through the `mode` parameter in `AudioTranscriptionConfig` :
+
+  - **`VERBATIM` (default):** Returns an exact word-for-word transcript of everything spoken, preserving raw filler words ("um", "uh", "like", "you know"), repetitions, pauses, and false starts.
+  - **`SMART` (Smart transcription):** Optimizes the transcript for reading by applying intelligent post-processing:
+      - **Disfluency removal:** Strips conversational filler words, stuttering, and false starts.
+      - **Inline self-corrections:** Resolves spoken corrections directly (for example, *"Let's meet on Tuesday, actually no, Wednesday at two"* becomes *"Let's meet on Wednesday at 2:00 PM"* ).
+      - **Automatic structured formatting:** Automatically structures spoken thoughts into paragraphs, numbered lists, bullet points, formatted dates, currencies, and numbers.
+      - **Grammatical cleanup:** Applies natural punctuation, sentence casing, and flow.
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Spoken audio</th>
+<th style="text-align: left;"><code dir="ltr" translate="no">VERBATIM</code> output</th>
+<th style="text-align: left;"><code dir="ltr" translate="no">SMART</code> (Smart transcription) output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">"Um, so for the meeting, I think we should, uh, invite Alice and, wait no, Bob and Carol."</td>
+<td style="text-align: left;">"Um so for the meeting I think we should uh invite Alice and wait no Bob and Carol."</td>
+<td style="text-align: left;">"For the meeting, I think we should invite Bob and Carol."</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">"First item review budget second item finalize timeline third item send recap"</td>
+<td style="text-align: left;">"first item review budget second item finalize timeline third item send recap"</td>
+<td style="text-align: left;">"1. Review budget<br />
+2. Finalize timeline<br />
+3. Send recap"</td>
+</tr>
+</tbody>
+</table>
+
+### Synchronous transcription with `SMART` mode
+
+    response = client.models.generate_content(
+        model="gemini-3.5-transcribe-preview",
+        contents=[
+            types.Part.from_bytes(
+                data=audio_bytes,
+                mime_type="audio/wav",
+            ),
+        ],
+        config=types.GenerateContentConfig(
+            audio_transcription_config=types.AudioTranscriptionConfig(
+                mode="SMART",
+            ),
+        ),
+    )
+
+### Live transcription with `SMART` mode and manual endpointing
+
+When using `SMART` mode with live streaming transcription ( `gemini-3.5-transcribe-live-preview` ), you should use **manual endpointing** (manual Voice Activity Detection) instead of automatic VAD. Because `SMART` mode applies utterance-level post-processing—such as resolving inline self-corrections and structuring lists or paragraphs—automatic VAD may prematurely split a user's thought during natural pauses.
+
+To configure manual endpointing, disable `automatic_activity_detection` in `RealtimeInputConfig` and explicitly mark the beginning and end of the user's speech turn using `activity_start` and `activity_end` :
+
+    config = types.LiveConnectConfig(
+        response_modalities=["TEXT"],
+        realtime_input_config=types.RealtimeInputConfig(
+            automatic_activity_detection=types.AutomaticActivityDetection(
+                disabled=True,
+            ),
+        ),
+        input_audio_transcription=types.AudioTranscriptionConfig(
+            mode="SMART",
+        ),
+    )
+    
+    async with client.aio.live.connect(
+        model="gemini-3.5-transcribe-live-preview", config=config
+    ) as session:
+        # Signal start of speech turn
+        await session.send_realtime_input(activity_start=types.ActivityStart())
+    
+        # Stream audio chunks...
+        await session.send_realtime_input(
+            audio=types.Blob(data=audio_bytes, mime_type="audio/pcm;rate=16000")
+        )
+    
+        # Signal end of speech turn so SMART mode can process the complete utterance
+        await session.send_realtime_input(activity_end=types.ActivityEnd())
+
+> **Note:** Smart transcription ( `SMART` ) is incompatible with `word_timestamp` and `diarization` . If you need word-level timestamps or speaker diarization, use `VERBATIM` mode.
+
 ## Language support
 
 The following languages and BCP-47 language codes are supported for Gemini 3.5 Transcribe:
@@ -209,6 +300,7 @@ Gemini 3.5 Transcribe is available in the following Google Cloud locations, with
   - **Provide clean audio:** Ensure audio recordings have clear voice separation and avoid severe clipping.
   - **Provide language hints when known:** If you know the audio language in advance, specify `language_codes` to maximize accuracy.
   - **Target custom vocabulary:** Include only distinct domain terms, brand names, or proper nouns in `custom_vocabulary` rather than common everyday words.
+  - **Use manual endpointing with `SMART` mode in live transcription:** Disable automatic VAD ( `automatic_activity_detection` ) and explicitly send `activity_start` and `activity_end` signals so the model can apply disfluency removal, self-corrections, and formatting across complete utterances.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/studio/multimodal-live?model=gemini-3.5-transcribe-live-preview) [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
 

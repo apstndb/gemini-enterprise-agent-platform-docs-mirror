@@ -296,9 +296,17 @@ If you use the `private.googleapis.com` or `restricted.googleapis.com` VIP to pr
   - `*.notebooks.googleusercontent.com`
   - `*.kernels.googleusercontent.com`
 
+If you use Private Service Connect, you must create private DNS zones for these domains, such as `kernels.googleusercontent.com` . Map the domains and wildcards, like `*.kernels.googleusercontent.com` , to the internal IP address of your Private Service Connect endpoint.
+
 If you use [third party credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-third-party-instance) , you must use `restricted.googleapis.com` and add the following DNS entry:
 
   - `*.byoid.googleusercontent.com`
+
+### VPC Service Controls considerations for Private Service Connect
+
+If your environment uses VPC Service Controls, you must include the project hosting the Private Service Connect endpoint in the same service perimeter as your service projects. This endpoint host project can be your Shared VPC host project or a global transit hub project.
+
+Without this configuration, VPC Service Controls blocks connections to the required domains, such as `*.kernels.googleusercontent.com` , from the JupyterLab UI. This block occurs because the JupyterLab UI uses the Kernels Mixer reverse proxy, which triggers a `NETWORK_NOT_IN_SAME_SERVICE_PERIMETER` violation.
 
 > **Note:** When using Agent Platform with Private Google Access to access Google Cloud APIs, the instances must be configured to bypass any web proxies or other network traffic inspection or filtering devices (for example next generation firewalls) for any hostnames in the domains listed in the [Private Google Access](https://docs.cloud.google.com/vpc/docs/configure-private-google-access) documentation.
 

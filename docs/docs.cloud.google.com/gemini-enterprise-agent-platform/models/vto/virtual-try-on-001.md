@@ -127,4 +127,4 @@ Versions
 
   - Launch stage: GA
   - Release date: January 20, 2026
-  - Retirement date: January 20, 2027
+  - Retirement date: March 15, 2027

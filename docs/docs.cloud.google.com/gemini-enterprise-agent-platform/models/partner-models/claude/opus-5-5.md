@@ -1,20 +1,20 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5
-title: Claude Opus 5 on Google Cloud
-description: Claude Opus 5 on Google Cloud is a high-intelligence Opus model from Anthropic, powering long-running agents while delivering improvements in coding and professional work.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5-5
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5-5
+title: Claude Opus 5.5 on Google Cloud
+description: Claude Opus 5.5 on Google Cloud is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.
 data_source: docs.cloud.google.com
 ---
 
-Claude Opus 5 on Google Cloud is a high-intelligence Opus model from Anthropic, powering long-running agents while delivering improvements in coding and professional work.
+Claude Opus 5.5 on Google Cloud is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work.
 
-**Retirement Date:** Not sooner than January 24, 2027.
+**Retirement Date:** Not sooner than September 22, 2027.
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-5-5)
 
 Model ID
 
-`claude-opus-5`
+`claude-opus-5-5`
 
 Launch stage
 
@@ -67,10 +67,10 @@ Documents
 
 Versions
 
-`claude-opus-5`
+`claude-opus-5-5`
 
   - **Launch stage:** Generally available
-  - **Release date:** July 24, 2026
+  - **Release date:** September 22, 2026
 
 Supported regions
 

@@ -41,9 +41,65 @@ From a user perspective, the CodeMender system consists of two components:
 
 ## Supported languages and frameworks
 
-CodeMender supports top vulnerability types across all major programming languages: C/C++, Go, Java, Python, TypeScript / JavaScript, Rust, and Ruby. Additionally, it has broad support for standard libraries within these languages, as well as common enterprise frameworks (such as HTML/CSS, Django, Flask, React, Spring Boot, and Express).
+CodeMender supports the following languages by default: C/C++, C\# / .NET, Go, Java, JavaScript and TypeScript, Kotlin, Python, Ruby, Rust, and PHP. Additionally, it provides broad support for standard libraries within these languages, as well as common enterprise frameworks (such as HTML/CSS, Django, Flask, React, Spring Boot, ASP.NET, and Express).
 
-Supported vulnerability types cover a wide spectrum of software security flaws across application logic, data handling, memory management, and authentication control flows.
+The listed programming languages aren't a hard limit. Because CodeMender is an AI code security agent, it can analyze and remediate code in any language understood by the underlying model. Support is generally available for any non-proprietary language.
+
+### Scanning additional programming languages
+
+You can configure CodeMender to scan for programming languages that aren't in its default set in either of the following ways:
+
+  - **Global configuration** : add the programming language's file extension to the `scan.extensions.include` section of the global CodeMender `~/.codemender/config.yaml` configuration file.
+  - **Per-repository configuration** : add the programming language's file extension to the `scan.extensions.include` section of the CodeMender `config.yaml` configuration file in the repository.
+
+For example, to scan additional languages or script formats:
+
+    scan:
+      extensions:
+        include:
+          # Default languages
+          - .py
+          - .java
+          - .go
+          - .js
+          - .jsx
+          - .mjs
+          - .cjs
+          - .ts
+          - .tsx
+          - .c
+          - .cc
+          - .cpp
+          - .cxx
+          - .h
+          - .hpp
+          - .cs
+          - .rs
+          - .kt
+          - .kts
+          - .rb
+          - .php
+          # Additional / custom languages
+          - .swift
+          - .scala
+          - .sh
+    
+      # Exclude build, dependency, cache, and artifact directories
+      exclude_dirs:
+        - node_modules
+        - vendor
+        - dist
+        - bin
+        - target
+        - obj
+        - build
+        - .gradle
+
+For more information on configuring scan options, see [Configuration parameters ( `config.yaml` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) .
+
+### Note on quality
+
+CodeMender doesn't publish formal per-language evaluations. The default languages reflect where we have the most benchmark coverage; results on other languages will vary. If your organization needs a specific language prioritized for deeper evaluation or default inclusion, contact your Google account team.
 
 ## Supported models
 

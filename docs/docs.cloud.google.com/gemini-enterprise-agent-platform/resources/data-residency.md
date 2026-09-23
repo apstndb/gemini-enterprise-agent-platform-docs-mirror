@@ -587,6 +587,15 @@ To learn what capabilities support data residency, see [Supported capabilities](
 </thead>
 <tbody>
 <tr class="odd">
+<td>Anthropic's Claude Opus 5.5 on Google Cloud</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Anthropic's Claude Sonnet 5 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -595,7 +604,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 5 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -604,7 +613,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Fable 5 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -613,7 +622,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Haiku 4.5 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -622,7 +631,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -631,7 +640,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.1 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -640,7 +649,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4.5 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -649,7 +658,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.8 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -658,7 +667,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Opus 4.7 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -667,7 +676,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Opus 4.6 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -676,7 +685,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Sonnet 4 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -685,7 +694,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude Sonnet 4.5 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -694,7 +703,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude Sonnet 4.6 on Google Cloud</td>
 <td></td>
 <td></td>
@@ -703,7 +712,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3.5 Haiku on Google Cloud (deprecated)</td>
 <td></td>
 <td></td>
@@ -712,7 +721,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Anthropic's Claude 3 Haiku on Google Cloud (deprecated)</td>
 <td></td>
 <td></td>
@@ -721,7 +730,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Anthropic's Claude 3.7 Sonnet on Google Cloud (deprecated)</td>
 <td></td>
 <td></td>
@@ -730,7 +739,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Codestral (24.05)</td>
 <td></td>
 <td></td>
@@ -739,7 +748,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Codestral 2</td>
 <td></td>
 <td></td>
@@ -748,7 +757,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Mistral Large (24.07)</td>
 <td></td>
 <td></td>
@@ -757,7 +766,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Mistral Medium 3</td>
 <td></td>
 <td></td>
@@ -766,7 +775,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Mistral OCR (25.05)</td>
 <td></td>
 <td></td>
@@ -775,7 +784,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Mistral Small 3.1 (25.03)</td>
 <td></td>
 <td></td>

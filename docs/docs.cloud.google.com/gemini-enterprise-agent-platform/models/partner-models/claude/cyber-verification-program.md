@@ -28,7 +28,7 @@ For more information about Anthropic's usage policies, see [Real-time cyber safe
 The Cyber Verification Program on Agent Platform supports the following Anthropic models:
 
   - **Claude Opus 4.7, Claude Opus 4.8, and Claude Sonnet 5** : Requires enabling advanced AI features ( `advancedAiEnabled: true` ).
-  - **Claude Opus 5** : Requires enabling both advanced AI features ( `advancedAiEnabled: true` ) and data sharing with Anthropic ( `dataSharingEnabledProvider: ANTHROPIC` ).
+  - **Claude Opus 5 and Claude Opus 5.5** : Requires enabling both advanced AI features ( `advancedAiEnabled: true` ) and data sharing with Anthropic ( `dataSharingEnabledProvider: ANTHROPIC` ).
 
 ## Before you begin
 
@@ -43,7 +43,7 @@ Before enrolling in the Cyber Verification Program, ensure that you meet the fol
 
   - **Data retention understanding** : Enrolling a model in CVP designates that model as "Advanced AI" under Google's [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum) . In accordance with Anthropic's safety policies, prompts and responses sent to CVP-enabled models are retained for abuse monitoring for up to 30 days. For more information, see [Advanced AI Safety](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring#advanced_ai_safety) .
 
-  - **Data sharing understanding (Claude Opus 5 only)** : For Claude Opus 5 with CVP, Anthropic requires that data sharing be enabled for abuse monitoring. Enrolling Claude Opus 5 requires both consenting to data retention and configuring data sharing with Anthropic. For more information, see [Log and share requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#enable-data-sharing) .
+  - **Data sharing understanding (Claude Opus 5 and Claude Opus 5.5 only)** : For Claude Opus 5 and Claude Opus 5.5 with CVP, Anthropic requires that data sharing be enabled for abuse monitoring. Enrolling these models requires both consenting to data retention and configuring data sharing with Anthropic. For more information, see [Log and share requests and responses](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging#enable-data-sharing) .
 
 ## How to enroll
 
@@ -51,7 +51,7 @@ Enrolling in the Cyber Verification Program on Agent Platform is a three-step pr
 
 1.  [Accept the Advanced AI Safety Addendum](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program#accept-addendum) in the Google Cloud console.
 2.  [Complete Anthropic's Cyber Use Case application form](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program#complete-use-case-form) .
-3.  [Enable advanced AI on each target model and location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program#enable-advanced-ai) using the `setPublisherModelConfig` API, and if using Claude Opus 5, enable data sharing.
+3.  [Enable advanced AI on each target model and location](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program#enable-advanced-ai) using the `setPublisherModelConfig` API, and if using Claude Opus 5 or Claude Opus 5.5, enable data sharing.
 
 ### Step 1: Accept the Advanced AI Safety Addendum
 
@@ -109,14 +109,14 @@ Replace the following:
   - PROJECT\_ID : Your Google Cloud project ID.
   - MODEL\_ID : The Claude model identifier (for example, `claude-opus-4-8` or `claude-sonnet-5` ).
 
-#### For Claude Opus 5
+#### For Claude Opus 5 and Claude Opus 5.5
 
-For Claude Opus 5, Anthropic requires enabling both `advancedAiEnabled` and data sharing with Anthropic ( `dataSharingEnabledProvider` ):
+For Claude Opus 5 and Claude Opus 5.5, Anthropic requires enabling both `advancedAiEnabled` and data sharing with Anthropic ( `dataSharingEnabledProvider` ):
 
     curl -X POST \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
       -H "Content-Type: application/json" \
-      "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/claude-opus-5:setPublisherModelConfig" \
+      "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:setPublisherModelConfig" \
       -d '{
         "publisherModelConfig": {
           "claudeFeatureConfig": {
@@ -127,7 +127,10 @@ For Claude Opus 5, Anthropic requires enabling both `advancedAiEnabled` and data
         "updateMask": "claudeFeatureConfig.advancedAiEnabled,dataSharingEnabledProvider"
       }'
 
-Replace PROJECT\_ID with your Google Cloud project ID.
+Replace the following:
+
+  - PROJECT\_ID : Your Google Cloud project ID.
+  - MODEL\_ID : The Claude model identifier ( `claude-opus-5` or `claude-opus-5-5` ).
 
 ### Important API considerations
 
@@ -142,6 +145,7 @@ To verify that advanced AI is enabled for a specific model, call the `fetchPubli
 
     curl -X GET \
       -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      -H "Content-Type: application/json" \
       "https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/publishers/anthropic/models/MODEL_ID:fetchPublisherModelConfig"
 
 If advanced AI is enabled for Claude Opus 4.7, Claude Opus 4.8, and Claude Sonnet 5, the response is as follows:
@@ -152,7 +156,7 @@ If advanced AI is enabled for Claude Opus 4.7, Claude Opus 4.8, and Claude Sonne
       }
     }
 
-If advanced AI is enabled for Claude Opus 5, the response is as follows:
+If advanced AI is enabled for Claude Opus 5 or Claude Opus 5.5, the response is as follows:
 
     {
       "claudeFeatureConfig": {
@@ -172,7 +176,7 @@ If your prompts continue to trigger safeguard refusals:
 1.  **Confirm the activity category** : Verify that the task is a legitimate dual-use task and not a prohibited use case. Prohibited activities (such as ransomware code authoring or malware development) are permanently blocked for all users and cannot be unblocked under CVP.
 2.  **Verify Anthropic approval** : Confirm that Anthropic has sent an approval confirmation email for your organization's CVP application.
 3.  **Check project alignment** : Ensure that inference requests originate from the same Google Cloud project ID submitted in your Anthropic application and for which the addendum was accepted.
-4.  **Confirm model-level configuration** : Call `fetchPublisherModelConfig` on the exact model ID and region you are calling to confirm `advancedAiEnabled: true` is active (and `dataSharingEnabledProvider: ANTHROPIC` for Claude Opus 5). Model configurations are scoped per model, per location, and per project.
+4.  **Confirm model-level configuration** : Call `fetchPublisherModelConfig` on the exact model ID and region you are calling to confirm `advancedAiEnabled: true` is active (and `dataSharingEnabledProvider: ANTHROPIC` for Claude Opus 5 and Claude Opus 5.5). Model configurations are scoped per model, per location, and per project.
 5.  **Submit a false-positive appeal** : If you believe a legitimate defensive prompt is being blocked erroneously, submit an appeal using [Anthropic's Cyber Block Report and Appeal form](https://claude.com/form/cyber-block-false-positive-report-cvp-rejection-appeal) .
 
 ### Permission denied when accepting the addendum

@@ -61,11 +61,11 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
     
     Depending on whether you are deploying a new agent or configuring an existing agent, choose one of the following options:
     
-      - **For new agents**
+      - **For new agents using the Python SDK**
         
         Specify the gateway resource while deploying your agent. For example, to deploy the agent on Agent Runtime, use `client.runtimes.create` to pass in the `local_agent` object along with any [optional configurations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#configure-agent) .
         
-        If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. Without `identity_type=AGENT_IDENTITY` , the Runtime instance's `effectiveIdentity` falls back to the default Vertex AI service account, and Semantic Governance Policies silently filter the agent out of the policy-creation selector.
+        If you want to use gateway-mediated platform features such as [Model Armor](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) or [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) with this agent, set both `agent_gateway_config` and [`identity_type=AGENT_IDENTITY`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity) in the create call, as shown in this example. The backend enforces `identity_type = "AGENT_IDENTITY"` at the API level whenever `agent_gateway_config` is specified, causing deployment validation to fail if the identity of the Runtime instance is omitted or misconfigured.
         
         ### Agent-to-Anywhere
         
@@ -117,7 +117,94 @@ To route Agent Runtime traffic through Agent Gateway, perform the following step
           - `  REGION  ` : the region where the agent and gateway are deployed
           - `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` : the name of the Agent Gateway you created in Client-to-Agent (ingress) mode
     
-      - **For existing agents**
+      - **For new agents using Terraform**
+        
+        When you provision your agent with Terraform, use the `google-beta` provider and configure the `agent_gateway_config` block inside the `google_vertex_ai_reasoning_engine` resource. For details on Terraform setup, see [Provision agents with Terraform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform) .
+        
+        > **Note:** Deployments that specify `agent_gateway_config` must set `identity_type = "AGENT_IDENTITY"` . Without `identity_type = "AGENT_IDENTITY"` , resource validation fails.
+        
+        ### Agent-to-Anywhere
+        
+        Use the following Terraform configuration to associate an agent with an Agent-to-Anywhere gateway for egress.
+        
+            resource "google_vertex_ai_reasoning_engine" "agent" {
+            provider = google-beta
+            
+            project      = "AGENT_RUNTIME_PROJECT_ID"
+            region       = "REGION"
+            display_name = "AGENT_DISPLAY_NAME"
+            description  = "AGENT_DESCRIPTION"
+            
+            spec {
+              identity_type = "AGENT_IDENTITY"
+            
+              container_spec {
+                image_uri = "REGION-docker.pkg.dev/AGENT_RUNTIME_PROJECT_ID/REPOSITORY/IMAGE:TAG"
+              }
+            
+              deployment_spec {
+                agent_gateway_config {
+                  agent_to_anywhere_config {
+                    agent_gateway = "projects/AGENT_GATEWAY_PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_TO_ANYWHERE_NAME"
+                  }
+                }
+              }
+            }
+            }
+        
+        Replace the following:
+        
+          - `  AGENT_RUNTIME_PROJECT_ID  ` : the project ID where the agent is deployed
+          - `  REGION  ` : the region where the agent and gateway are deployed
+          - `  AGENT_DISPLAY_NAME  ` : the display name for your agent
+          - `  AGENT_DESCRIPTION  ` : a description of your agent
+          - `  REPOSITORY  ` : the Artifact Registry repository containing your container image
+          - `  IMAGE  ` : the container image name
+          - `  TAG  ` : the container image tag
+          - `  AGENT_GATEWAY_PROJECT_ID  ` : the project ID where the Agent Gateway is deployed
+          - `  AGENT_GATEWAY_TO_ANYWHERE_NAME  ` : the name of the Agent Gateway you created in Agent-to-Anywhere (egress) mode
+        
+        ### Client-to-Agent
+        
+        Use the following Terraform configuration to associate an agent with a Client-to-Agent gateway for ingress.
+        
+            resource "google_vertex_ai_reasoning_engine" "agent" {
+            provider = google-beta
+            
+            project      = "PROJECT_ID"
+            region       = "REGION"
+            display_name = "AGENT_DISPLAY_NAME"
+            description  = "AGENT_DESCRIPTION"
+            
+            spec {
+              identity_type = "AGENT_IDENTITY"
+            
+              container_spec {
+                image_uri = "REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG"
+              }
+            
+              deployment_spec {
+                agent_gateway_config {
+                  client_to_agent_config {
+                    agent_gateway = "projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_CLIENT_TO_AGENT_NAME"
+                  }
+                }
+              }
+            }
+            }
+        
+        Replace the following:
+        
+          - `  PROJECT_ID  ` : the project ID where the agent and gateway are deployed
+          - `  REGION  ` : the region where the agent and gateway are deployed
+          - `  AGENT_DISPLAY_NAME  ` : the display name for your agent
+          - `  AGENT_DESCRIPTION  ` : a description of your agent
+          - `  REPOSITORY  ` : the Artifact Registry repository containing your container image
+          - `  IMAGE  ` : the container image name
+          - `  TAG  ` : the container image tag
+          - `  AGENT_GATEWAY_CLIENT_TO_AGENT_NAME  ` : the name of the Agent Gateway you created in Client-to-Agent (ingress) mode
+    
+      - **For existing agents using the REST API**
         
         > **Note:** Updating an existing reasoning engine to set `agentGatewayConfig` does *not* change its `identity_type` . If the engine was originally created without `identity_type=AGENT_IDENTITY` , you cannot retroactively make it eligible for [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance) by patching it. You must redeploy a new reasoning engine with both `agent_gateway_config` and `identity_type=AGENT_IDENTITY` set at agent creation time.
         
@@ -576,8 +663,6 @@ For more information about how to use custom organization policy constraints, se
   - The [Security Command Center Agent Engine Threat Detection service](https://docs.cloud.google.com/security-command-center/docs/agent-platform-threat-detection-overview) isn't available when Agent Gateway is enabled for an agent.
 
   - In Client-to-Agent (ingress) mode, Agent Gateway can only govern Agent Runtime's `query` and `streamQuery` methods. To protect other unsupported methods (such as `asyncQuery` ), you can apply Model Armor templates directly from your application or agent. See [Sanitize prompts and responses](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses) or this codelab on [Building a secure agent system with Model Armor](https://codelabs.developers.google.com/secure-agent-modelarmor) .
-
-  - VPC Service Controls are not supported with Agent Gateway.
 
   - Agent Gateway isn't supported for Agent Runtime agents that are using [revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic) . You won't be able to use versioning-related features such as traffic split configuration and per-revision querying if an Agent Gateway is attached to an agent's configuration.
     

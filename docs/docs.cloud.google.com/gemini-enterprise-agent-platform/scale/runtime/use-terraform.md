@@ -471,6 +471,14 @@ The following example configures environment variables ( `LOCATION` , `MODEL` , 
       ]
     }
 
+## Configure Agent Gateway
+
+To route traffic between Agent Runtime and external APIs or clients through Agent Gateway, configure the `agent_gateway_config` block inside `deployment_spec` using the `google-beta` provider.
+
+> **Note:** When you declare `agent_gateway_config` , you must set `identity_type = "AGENT_IDENTITY"` in `spec` . Deploying an agent with `agent_gateway_config` without setting `identity_type = "AGENT_IDENTITY"` causes resource validation to fail.
+
+For complete deployment examples and parameter details for both Agent-to-Anywhere (egress) and Client-to-Agent (ingress) routing, see [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy#route-traffic) .
+
 ## Execution and lifecycle
 
 Execute the standard Terraform lifecycle to plan, deploy, invoke, and destroy your agent resources.
@@ -528,6 +536,7 @@ To clean up resources and prevent unexpected billing charges, change into your `
 
 ## What's next
 
+  - [Route Runtime traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
   - [HashiCorp Terraform Registry — `google_vertex_ai_reasoning_engine` (GA)](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine)
   - [HashiCorp Terraform Registry — `google_vertex_ai_reasoning_engine` (Beta)](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/vertex_ai_reasoning_engine)
   - [Google Cloud Generative AI — Agent Runtime Terraform Deployment Tutorial (GitHub)](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/agents/agent_engine/tutorial_get_started_with_agent_engine_terraform_deployment.ipynb)

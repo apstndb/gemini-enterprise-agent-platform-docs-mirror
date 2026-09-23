@@ -135,6 +135,12 @@ Codelab
 
 Learn about Agent Gateway egress governance for AI agents accessing destinations in a VPC network.
 
+Codelab
+
+### [Codelab: Agent Gateway governance with cross-project Agent Runtime](https://codelabs.developers.google.com/agw-multiproject)
+
+Learn about Agent Gateway governance for cross-project Agent Runtime agents.
+
 Overview
 
 ### [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)

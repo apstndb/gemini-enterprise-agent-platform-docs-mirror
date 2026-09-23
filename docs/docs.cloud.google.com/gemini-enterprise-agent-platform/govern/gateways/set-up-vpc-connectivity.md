@@ -215,7 +215,7 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
         
         Note the URI of the network attachment. You'll need it when you update the PSC\_NETWORK\_ATTACHMENT\_URI attribute of the connectivity template resource in a later step.
 
-2.  Configure DNS peering for the service that you are connecting to. With DNS peering, your agents can connect to services in the target VPC network using stable, human-readable DNS names instead of IP addresses. DNS peering lets Agent Gateway resolve DNS names using the records from a Cloud DNS private zone in your VPC.
+2.  DNS peering lets Agent Gateway resolve DNS names using the records from a Cloud DNS private zone in your VPC. Note that Agent Gateway supports [transitive DNS peering](https://docs.cloud.google.com/dns/docs/zones/zones-overview#dns_peering_limitations_and_key_points) only up to a single transitive hop, which means a maximum of three VPC networks. For example, `vpc-net-a` (the Agent Gateway tenant network) can peer to `vpc-net-b` (attached network), which in turn peers to `vpc-net-c` (remote network) to resolve DNS queries across the chain.
     
     1.  Set up your private DNS zone for DNS resolution and traffic routing. To add DNS records to your private DNS zone, see [Add a resource record set](https://docs.cloud.google.com/dns/docs/records#add-rrset) .
     
@@ -243,6 +243,14 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
                   - **Catch-all root peering with a Private Forwarding Zone** : Set `domain: "."` in the connectivity template, and configure a Cloud DNS **Private Forwarding Zone** for the root domain ( `.` ) in your VPC network pointing to an upstream recursive resolver (such as `8.8.8.8` or an internal enterprise resolver). More specific private zones in your VPC match first by longest suffix match, while unmatched public queries resolve through the upstream forwarder.
                     
                     > **Caution:** Avoid configuring an *authoritative* private zone for the root domain ( `.` ). An authoritative root zone only resolves records defined within it and returns `NXDOMAIN` for all other domains, which can prevent external SaaS endpoints and Google Cloud APIs from resolving.
+            
+              - **DNS zone type and cross-project DNS peering requirements** : The The connectivity template's `dnsPeeringConfig` setting doesn't support direct cross-project Cloud DNS peering. When you import the connectivity template, validation fails if the `targetNetwork` is in a different project than the `networkAttachment` , or if you rely on cross-project DNS zone binding from a service or external project.
+                
+                The managed zone for the domain must be created in the *host project* that owns `targetNetwork` . The managed zone can be any of the following zone types:
+                
+                  - **Authoritative private zone**
+                  - **Forwarding zone**
+                  - **Cloud DNS peering zone** : Must be associated with the host project VPC network and target a destination VPC network. The destination VPC must resolve the query directly using an authoritative private zone. Forwarding the query to another DNS peering zone (chaining) is unsupported and results in an `NXDOMAIN` error.
 
 3.  Create a YAML configuration file named `agw-connectivity-template.yaml` to define the connectivity template:
     
@@ -278,7 +286,7 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
         
         > **Note:** Don't configure DNS peering for public internet or external SaaS domains.
     
-      - `  TARGET_VPC_NETWORK_URI  ` : The target VPC network where you created the network attachment. This must be of the form: ` projects/ TARGET_VPC_PROJECT_ID /global/networks/ TARGET_VPC_NETWORK_NAME  ` . This network must be the *exact same VPC network* where the network attachment is created.
+      - `  TARGET_VPC_NETWORK_URI  ` : The target VPC network where you created the network attachment. This must be of the form: ` projects/ TARGET_VPC_PROJECT_ID /global/networks/ TARGET_VPC_NETWORK_NAME  ` . Always specify `targetNetwork` using the host project ID ( `  TARGET_VPC_PROJECT_ID  ` ) rather than the project number. This network must be the *exact same VPC network* where the network attachment is created.
     
       - `  VPC_EGRESS_MODE  ` : The egress traffic routing setting. Set to `PRIVATE_RANGES_ONLY` (default) to route traffic destined for private IP ranges through your VPC network, or set to `ALL_TRAFFIC` to route all outbound agent traffic (including public internet addresses) through your VPC network. To support VPC Service Controls, egress must be set to `ALL_TRAFFIC` .
 
