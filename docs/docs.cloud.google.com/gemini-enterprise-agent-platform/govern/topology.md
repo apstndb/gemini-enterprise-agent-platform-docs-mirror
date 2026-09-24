@@ -28,7 +28,7 @@ You can view data for both discovered agents and agents that are registered with
 
 ## Before you begin
 
-1.  Enable the App Hub, App Topology, Observability, and Trace APIs.
+1.  Enable the App Hub, App Topology, Observability, and Trace APIs, if any are not already enabled.
     
     **Roles required to enable APIs**
     

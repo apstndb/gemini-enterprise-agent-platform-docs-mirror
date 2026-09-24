@@ -55,7 +55,7 @@ Complete the following steps before using Gemini Enterprise Agent Platform funct
     
     Replace PROJECT\_ID with your project ID. You can locate your project ID in the Google Cloud console. For more information, see [Find your project ID](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/prerequisites#find-project-id) .
 
-6.  Enable the IAM, Compute Engine, Notebooks, Cloud Storage, and Agent Platform APIs:
+6.  Enable the IAM, Compute Engine, Notebooks, Cloud Storage, and Agent Platform APIs, if any are not already enabled:
     
     **Roles required to enable APIs**
     

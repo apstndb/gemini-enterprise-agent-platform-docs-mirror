@@ -793,7 +793,7 @@ Africa Asia Pacific Europe Middle East North America South America AutoML for im
 </tr>
 <tr class="even">
 <td><code dir="ltr" translate="no">us-west2</code><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+</td>
 <td>Los Angeles, California, North America</td>
 <td><ul>
 <li>AutoML for tabular data</li>
@@ -1100,7 +1100,7 @@ Asia Pacific Europe Middle East North America South America
 </tr>
 <tr class="odd">
 <td><code dir="ltr" translate="no">us-west2</code> <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/locations#instances-footnote">*</a><br />
-<img src="https://cloud.google.com/sustainability/region-carbon/gleaf.svg" width="18" alt="leaf icon" /> <a href="https://cloud.google.com/sustainability/region-carbon#region-picker">Low CO <sub>2</sub></a></td>
+</td>
 <td>Los Angeles, California, North America</td>
 <td><code dir="ltr" translate="no">us-west2-a</code><br />
 <code dir="ltr" translate="no">us-west2-b</code><br />

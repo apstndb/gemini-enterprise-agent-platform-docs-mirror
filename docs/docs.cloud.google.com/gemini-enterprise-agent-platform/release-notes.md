@@ -18,6 +18,23 @@ Feature
 
 [Claude Opus 5.5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5-5) is available in Model Garden.
 
+## September 21, 2026
+
+Fixed
+
+**CodeMender updates (v0.9.0)**
+
+This release introduces updates to CodeMender:
+
+  - **Interactive HTML security reports** : Overhauled `cm report --format html` to provide a modern, interactive dashboard featuring severity metric cards, syntax-highlighted code snippets with line numbers, and an inline patch diff viewer. Added the `--open` ( `-o` ) flag to automatically open the generated report in the default browser.
+  - **Expanded language support** : Added out-of-the-box vulnerability scanning support for C\# ( `.cs` ), Rust ( `.rs` ), Kotlin ( `.kt` , `.kts` ), Ruby ( `.rb` ), and PHP ( `.php` ) to the default discovery configuration and initialization templates.
+  - **Per-turn latency metrics** : Enhanced `cm stats` and session exports to report per-turn latency breakdowns, distinguishing time spent waiting on model inference from local tool execution.
+  - **Bug fixes** :
+      - Improved session reliability and error recovery during long-running repository scans.
+      - Fixed local workspace state compatibility issues when upgrading from earlier CLI versions.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+
 ## September 18, 2026
 
 Feature

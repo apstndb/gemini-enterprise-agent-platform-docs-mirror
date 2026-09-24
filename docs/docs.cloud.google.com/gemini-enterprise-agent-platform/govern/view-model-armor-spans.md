@@ -20,7 +20,7 @@ Cloud Trace is the distributed tracing system for Google Cloud, and it provides 
 
 ## Before you begin
 
-1.  Enable the Cloud Trace, Cloud Logging, Telemetry, and Model Armor APIs.
+1.  Enable the Cloud Trace, Cloud Logging, Telemetry, and Model Armor APIs, if any are not already enabled.
     
     **Roles required to enable APIs**
     

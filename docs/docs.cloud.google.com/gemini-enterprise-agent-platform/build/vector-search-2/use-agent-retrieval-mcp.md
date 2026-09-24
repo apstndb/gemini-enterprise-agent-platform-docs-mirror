@@ -46,7 +46,7 @@ For information about other MCP servers and information about security and gover
 
 ## Before you begin
 
-1.  Enable the Agent Retrieval API.
+1.  Enable the Agent Retrieval API, if it is not already enabled.
     
     **Roles required to enable APIs**
     

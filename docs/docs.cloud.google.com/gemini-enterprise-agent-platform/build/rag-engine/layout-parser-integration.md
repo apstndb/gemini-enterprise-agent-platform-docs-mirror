@@ -78,7 +78,7 @@ The Document AI [quotas](https://docs.cloud.google.com/document-ai/quotas) and [
 
 You must enable the Document AI API for your project. For more information on enabling APIs, see the [Service Usage documentation](https://docs.cloud.google.com/service-usage/docs/enable-disable) .
 
-Enable the Document AI API.
+Enable the Document AI API, if it is not already enabled.
 
 **Roles required to enable APIs**
 

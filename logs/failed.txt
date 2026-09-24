@@ -1,1 +1,4 @@
-
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-live
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars
+200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/migrate-from-gemini-2-5-to-gemini-3-8-live

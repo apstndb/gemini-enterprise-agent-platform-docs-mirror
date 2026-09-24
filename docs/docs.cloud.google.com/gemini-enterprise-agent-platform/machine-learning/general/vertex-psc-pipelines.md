@@ -89,7 +89,7 @@ When you finish the tasks that are described in this document, you can avoid con
       - `  USER_IDENTIFIER  ` : The identifier for your user account. For example, `myemail@example.com` .
       - `  ROLE  ` : The IAM role that you grant to your user account.
 
-8.  Enable the DNS, Artifact Registry, IAM, Compute Engine, Cloud Logging, Network Connectivity, Notebooks, Cloud Filestore, Service Networking, Service Usage, and Agent Platform APIs:
+8.  Enable the DNS, Artifact Registry, IAM, Compute Engine, Cloud Logging, Network Connectivity, Notebooks, Cloud Filestore, Service Networking, Service Usage, and Agent Platform APIs, if any are not already enabled:
     
     **Roles required to enable APIs**
     

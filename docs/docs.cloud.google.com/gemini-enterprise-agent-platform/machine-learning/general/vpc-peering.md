@@ -33,7 +33,7 @@ This guide covers the following tasks:
 
   - [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project) .
 
-  - Enable the Compute Engine API, Agent Platform API, and Service Networking APIs.
+  - Enable the Compute Engine API, Agent Platform API, and Service Networking APIs, if any are not already enabled.
     
     **Roles required to enable APIs**
     

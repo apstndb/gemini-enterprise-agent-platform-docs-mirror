@@ -20,7 +20,7 @@ For information on how to search for resource metadata in Data Catalog, see [Sea
 
 Before you use the advanced search in Vertex AI Feature Store, you must complete the following steps:
 
-1.  Enable the Dataplex API.
+1.  Enable the Dataplex API, if it is not already enabled.
     
     **Roles required to enable APIs**
     

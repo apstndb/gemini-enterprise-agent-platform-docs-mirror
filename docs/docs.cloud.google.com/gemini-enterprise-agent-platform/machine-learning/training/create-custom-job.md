@@ -71,7 +71,7 @@ Since this version of the command builds and pushes a Docker image, you must per
 
 2.  If you are using Linux, [configure Docker so you can run it without `sudo`](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) .
 
-3.  Enable the Artifact Registry API.
+3.  Enable the Artifact Registry API, if it is not already enabled.
     
     **Roles required to enable APIs**
     

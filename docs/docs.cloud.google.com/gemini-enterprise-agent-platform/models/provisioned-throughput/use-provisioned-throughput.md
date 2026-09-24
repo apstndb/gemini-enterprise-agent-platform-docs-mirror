@@ -329,7 +329,7 @@ For example, the following sample shows how to submit a request with an API key 
 
 You can get email notifications about your Provisioned Throughput orders by using the [Essential Contacts API](https://docs.cloud.google.com/resource-manager/docs/reference/essentialcontacts/rest) . After enabling, click **Notifications** at the top of the Provisioned Throughput Orders page. Then, in the dialog that opens, click **Essential contacts** and follow the on-screen instructions.
 
-1.  Enable the Essential Contacts API.
+1.  Enable the Essential Contacts API, if it is not already enabled.
     
     **Roles required to enable APIs**
     

@@ -2,9 +2,11 @@
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/szpt
 title: Single Zone Provisioned Throughput
-description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
+description: Learn how Single Zone Provisioned Throughput lets you reserve throughput for Gemini models in regions where only one zone is available.
 data_source: docs.cloud.google.com
 ---
+
+> **Important:** Single Zone Provisioned Throughput is **not** a Covered Service under the Monthly Latency Target Attainment Percentage SLO in the [Gemini Online Inference API on Gemini Enterprise Agent Platform Service Level Agreement](https://cloud.google.com/vertex-ai/generative-ai/sla) .
 
 Single Zone Provisioned Throughput lets you reserve throughput in specific regions where only one [zone](https://docs.cloud.google.com/docs/geography-and-regions) is available. This option provides predictable performance for Gemini models in use cases where ML processing is required.
 
@@ -26,9 +28,9 @@ This section outlines the key features of Single Zone Provisioned Throughput:
 
 Single Zone Provisioned Throughput has the following limitations:
 
-  - Single Zone Provisioned Throughput is not a Covered Service and is excluded from the [Gemini Online Inference on Gemini Enterprise Agent Platform Service Level Agreement](https://cloud.google.com/vertex-ai/generative-ai/sla) .
+  - Single Zone Provisioned Throughput is **not** a Covered Service under the Monthly Latency Target Attainment Percentage SLO in the [Gemini Online Inference API on Gemini Enterprise Agent Platform Service Level Agreement](https://cloud.google.com/vertex-ai/generative-ai/sla) .
 
-  - Single Zone Provisioned Throughput does not integrate with or support [Batch requests](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-prediction-gemini#batch_prediction_use_case) or [Fine Tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
+  - Single Zone Provisioned Throughput doesn't integrate with or support [fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models) .
 
   - In regions without ML processing, latency for Single Zone Provisioned Throughput might be higher than standard Provisioned Throughput or pay-as-you-go.
 

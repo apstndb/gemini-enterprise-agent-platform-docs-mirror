@@ -80,7 +80,7 @@ When you finish the tasks that are described in this document, you can avoid con
       - `  USER_IDENTIFIER  ` : The identifier for your user account. For example, `myemail@example.com` .
       - `  ROLE  ` : The IAM role that you grant to your user account.
 
-8.  Enable the DNS, IAM, Compute Engine, Notebooks, and Agent Platform APIs:
+8.  Enable the DNS, IAM, Compute Engine, Notebooks, and Agent Platform APIs, if any are not already enabled:
     
     **Roles required to enable APIs**
     
