@@ -88,7 +88,7 @@ Contact your sales team for more information
 
 Note that the throughput limit shown for a model family applies independently to each model within that family. For example, a customer in Tier 3 has a baseline throughput of 10,000,000 TPM for Gemini 3.5 Flash. Usage against one of these limits doesn't impact the throughput for other models. There's no separate requests-per-minute (RPM) limit for each tier. Gemini requests with multimodal inputs are subject to the corresponding [system rate limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#multimodal-input-quotas) .
 
-> **Note:** For mission-critical workloads that require a strict Service Level Agreement (SLA) and can't tolerate performance variation or throttling, we recommend using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . Provisioned Throughput provides dedicated and assured capacity with improved performance and reliability.
+> **Note:** For mission-critical workloads that require a strict Service Level Agreement (SLA) and can't tolerate performance variation or throttling, we recommend using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) . Provisioned Throughput provides assured capacity with improved performance and reliability.
 
 ## How usage tiers work
 

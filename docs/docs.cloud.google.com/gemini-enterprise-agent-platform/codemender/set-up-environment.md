@@ -236,7 +236,7 @@ Since the hosted AI agent executes local commands (like building code, running t
 
 ### Usage
 
-  - **Location:** By default, the CLI looks for this file in your initialized workspace (usually `.codemender/config.yaml` or a global configuration directory like `~/.config/codemender/config.yaml` ).
+  - **Location:** By default, the CLI reads this file from `~/.codemender/config.yaml` . You can override the workspace and configuration directory by setting the `CM_HOME` environment variable (for example, `CM_HOME=/path/to/custom/dir` , which reads `/path/to/custom/dir/config.yaml` ).
   - **Execution:** When you run commands such as `cm find` , `cm verify` , or `cm fix` , the local client reads this file to set up safety parameters, apply system bypasses, and specify which files or directories to ignore.
 
 ### Core default settings
@@ -267,7 +267,7 @@ Here is what the core default parameters mean:
   - **`project_paths: []`**
     
       - **What it means:** A list of directory paths that CodeMender can access (read/write) during tool execution.
-      - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory, the `.codemender` workspace directory, and `/tmp` . If your build or test process requires accessing files outside these directories, you must add those paths here.
+      - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory, the `~/.codemender` (or `$CM_HOME` ) workspace directory, and `/tmp` . If your build or test process requires accessing files outside these directories, you must add those paths here.
 
   - **`sandbox`** :
     

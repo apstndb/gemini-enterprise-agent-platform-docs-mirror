@@ -14,11 +14,11 @@ Agent Gateway is the key enforcement component of Agent Platform. It acts as the
 
 The following Agent Platform components work together to provide a unified governance architecture:
 
-  - **[Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-identity-overview) (Who made the request?)** : Assigns a unique, secure ID (a SPIFFE ID) to each agent. This identity acts as the agent's digital signature for authentication, access control, and auditing.
+  - **[Agent Identity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-identity-overview) (Who made the request?)** : Assigns a unique, secure ID (a SPIFFE ID) to each agent. This identity acts as the agent's digital signature for authentication, access control, and auditing.
     
     Agent identities are secured by default with Context-Aware Access which enforces end-to-end cryptographic authentication by using [mTLS](https://docs.cloud.google.com/access-context-manager/docs/caa-agent-security#mtls) and [DPoP](https://docs.cloud.google.com/access-context-manager/docs/caa-agent-security#dpop) .
 
-  - **[Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-registry) (What destinations are approved?)** : Acts as the central directory for all approved agents, tools, Model Context Protocol (MCP) servers, and endpoints (such as essential Google Cloud APIs) in your organization. Agent Gateway uses this directory to check permissions before allowing connections.
+  - **[Agent Registry](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/agent-registry) (What destinations are approved?)** : Acts as the central directory for all approved agents, tools, Model Context Protocol (MCP) servers, and endpoints (such as essential Google Cloud APIs) in your organization. Agent Gateway uses this directory to check permissions before allowing connections.
 
   - **[Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview-uap) (What actions are permitted?)** : Lets you implement rich sets of agentic security and governance policies that control which agents can reach specific resources and what content is allowed to pass through:
     

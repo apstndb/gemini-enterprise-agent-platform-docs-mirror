@@ -234,6 +234,32 @@ The project has exceeded its API rate limits or concurrent request quotas.
   - Verify current usage against limits in the Google Cloud Quotas page for the "Agent Platform API".
   - Reduce the frequency of concurrent deployments.
 
+> **Note:** These solutions apply to your project's own API rate limits. A region that is temporarily at capacity returns the same `429` , `RESOURCE_EXHAUSTED` status but has a different cause and different solutions. See [Region temporarily at capacity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/troubleshooting/agent-deployment#region-capacity) .
+
+## Region temporarily at capacity
+
+**Issue** :
+
+Deployment fails with a `429` , `RESOURCE_EXHAUSTED` status and a message saying that the region is temporarily at capacity for a total allowable amount of memory or CPU.
+
+**Possible cause** :
+
+Agent deployments in a region draw on a pool of serving capacity that Agent Runtime manages on your behalf and that all customers in that region share. When the pool is exhausted, new deployments in that region fail until capacity frees up.
+
+This limit is not one of your project's quotas. It does not appear on the Google Cloud Quotas page, and it cannot be raised by requesting a quota increase.
+
+**Recommended solutions** :
+
+  - Deploy to a different supported region. This is the fastest way to unblock a deployment.
+  - Retry later. A region at capacity is a temporary issue that usually resolves on its own.
+  - Request a smaller amount of memory or CPU for your agent. A smaller deployment may fit within the remaining capacity.
+  - [Contact support](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) if deployments in a region keep failing this way. Although we can't raise the limit, your reports help us direct capacity to where it's needed.
+
+**Solutions that don't apply** :
+
+  - Deleting your existing agents doesn't free capacity for this limit, because the capacity isn't consumed by your project alone.
+  - Requesting a quota increase has no effect, because the limit isn't a project quota.
+
 ## Support resources
 
 If your problem is still not resolved, refer to our [support guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-support) to get help.

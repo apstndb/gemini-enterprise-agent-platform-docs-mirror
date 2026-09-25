@@ -10,6 +10,25 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 24, 2026
+
+Feature
+
+**Gemini 3.8 Live**
+
+Gemini 3.8 Live is generally available. This release introduces improvements in voice quality, model reliability, and agent orchestration.
+
+For more information, see the following:
+
+  - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+  - [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
+
+Feature
+
+**Muse Spark 1.3 from Meta**
+
+[Muse Spark 1.3 from Meta](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3) is available in [Preview](https://cloud.google.com/products#product-launch-stages) . Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks.
+
 ## September 22, 2026
 
 Feature
@@ -79,6 +98,14 @@ This release introduces updates to CodeMender:
 
 For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
 
+Feature
+
+**Gemini 3.8 Flash Cyber available in allowlisted GA**
+
+Gemini 3.8 Flash Cyber is a post-training version of the Gemini 3.8 Flash model tailored specifically for cybersecurity use cases. Gemini 3.8 Flash Cyber is available in GA behind an allowlist.
+
+For more information, see [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) .
+
 ## September 15, 2026
 
 Feature
@@ -126,6 +153,18 @@ Anthropic's Cyber Verification Program (CVP) is available in [Preview](https://c
 For more information, see [Cyber Verification Program for Claude](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/cyber-verification-program) .
 
 ## September 10, 2026
+
+Feature
+
+**Standard PayGo adds Tier 4**
+
+Tier 4 is added to the Standard PayGo usage tiers, for spend above $50,000 per 30-day period, and Tier 3 is bounded at $2,000 to $50,000 per 30-day period. For details, see [Standard PayGo usage tiers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo#usage-tiers-and-throughput) .
+
+Change
+
+**Priority PayGo removes ramp limits**
+
+Priority PayGo throughput limits are available immediately, with no ramp-up period, and traffic above the limit is downgraded to Standard PayGo only when there isn't spare capacity to serve it at priority. For details, see [Priority PayGo throughput limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo#throughput-limits) .
 
 Feature
 

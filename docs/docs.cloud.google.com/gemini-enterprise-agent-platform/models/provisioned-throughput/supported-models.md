@@ -32,6 +32,23 @@ To find out how many tokens your workload requires, refer to the [SDK tokenizer]
 
 **Burndown rates**
 
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
+
+Latest supported version: `gemini-3.8-live`
+
+1,350
+
+Tokens
+
+1
+
+1 input text token = 1 token  
+1 input audio token = 4 tokens  
+1 input image / video token = 1.4 tokens  
+1 output text token = 6 tokens  
+1 output audio token = 16 tokens  
+1 output video token = 1.4 tokens  
+
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)
 
 Latest supported version: `gemini-3.8-flash-cyber`

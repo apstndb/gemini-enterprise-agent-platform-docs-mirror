@@ -61,7 +61,7 @@ If you are using [Gradle](https://gradle.org/) , add the following to your depen
 
 If you are using [sbt](https://www.scala-sbt.org/) , add the following to your dependencies:
 
-    libraryDependencies += "com.google.cloud" % "google-cloud-notebooks" % "1.95.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-notebooks" % "1.96.0"
 
 For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup) .
 

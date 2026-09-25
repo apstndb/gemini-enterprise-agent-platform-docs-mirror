@@ -32,6 +32,30 @@ The following table lists the models that support audio understanding:
 <tbody>
 <tr class="odd">
 <td><ul>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live">Gemini 3.8 Live</a></li>
+</ul></td>
+<td style="text-align: left;"><ul>
+<li>Maximum number of audio files per prompt: 1-stream</li>
+<li>Required audio input format: Raw 16-bit PCM audio at 16kHz, little-endian</li>
+<li>Required audio output format: Raw 16-bit PCM audio at 24kHz, little-endian</li>
+</ul></td>
+<td><ul>
+<li><code dir="ltr" translate="no">audio/x-aac</code></li>
+<li><code dir="ltr" translate="no">audio/flac</code></li>
+<li><code dir="ltr" translate="no">audio/mp3</code></li>
+<li><code dir="ltr" translate="no">audio/m4a</code></li>
+<li><code dir="ltr" translate="no">audio/mpeg</code></li>
+<li><code dir="ltr" translate="no">audio/mpga</code></li>
+<li><code dir="ltr" translate="no">audio/mp4</code></li>
+<li><code dir="ltr" translate="no">audio/ogg</code></li>
+<li><code dir="ltr" translate="no">audio/pcm</code></li>
+<li><code dir="ltr" translate="no">audio/wav</code></li>
+<li><code dir="ltr" translate="no">audio/webm</code></li>
+<li><code dir="ltr" translate="no">audio/mpa</code></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber">Gemini 3.8 Flash Cyber</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash">Gemini 3.8 Flash</a></li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash">Gemini 3.7 Flash</a></li>
@@ -59,7 +83,7 @@ The following table lists the models that support audio understanding:
 <li><code dir="ltr" translate="no">audio/webm</code></li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro">Gemini 3.1 Pro</a> preview</li>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash">Gemini 3 Flash</a> preview</li>
@@ -85,7 +109,7 @@ The following table lists the models that support audio understanding:
 <li><code dir="ltr" translate="no">audio/webm</code></li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><ul>
 <li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api">Gemini 2.5 Flash with Gemini Live API native audio</a></li>
 </ul></td>

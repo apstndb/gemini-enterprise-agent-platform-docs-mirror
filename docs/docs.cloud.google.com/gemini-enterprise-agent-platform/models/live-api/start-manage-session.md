@@ -17,6 +17,7 @@ This page also shows you how to do the following:
   - Update system instructions during a session
   - Configure the context window of a session
   - Enable transcription for a session
+  - Encrypt session data with a customer-managed encryption key (CMEK)
 
 ## Session lifetime
 
@@ -58,7 +59,7 @@ from google import genai
 client = genai.Client(vertexai=True, project="PROJECT_ID", location="LOCATION")
 
 # Configuration
-MODEL = "gemini-live-2.5-flash-native-audio"
+MODEL = "gemini-3.8-live"
 config = {
    "response_modalities": ["audio"],
 }
@@ -90,7 +91,7 @@ token_list = !gcloud auth application-default print-access-token
 ACCESS_TOKEN = token_list[0]
 
 # Configuration
-MODEL_ID = "gemini-live-2.5-flash-native-audio"
+MODEL_ID = "gemini-3.8-live"
 MODEL = f"projects/{PROJECT_ID}/locations/{LOCATION}/publishers/google/models/{MODEL_ID}"
 config = {
    "response_modalities": ["audio"],
@@ -126,7 +127,7 @@ if __name__ == "__main__":
 
 > **Note:** Session extension is only available when using the Google Gen AI SDK, not Vertex AI Studio.
 
-The default maximum length of a conversation session is 10 minutes. A `goAway` notification ( [`BidiGenerateContentServerMessage.goAway`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#server-messages) ) is sent to the client 60 seconds before the session ends.
+The default maximum length of a conversation session is 10 minutes, which you can extend using goAway notifications. A `goAway` notification ( [`BidiGenerateContentServerMessage.goAway`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live#server-messages) ) is sent to the client 60 seconds before the session ends.
 
 To extend a session past the 10-minute connection limit, you must reconnect using session resumption. When you receive a `goAway` notification, or when the connection is terminated for other reasons, you can start a new connection using a session handle obtained during the session. This resumes your session with its context intact on the new connection. There's no limit to the number of times you can do this. For an example of resuming a session, see [Resume a previous session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#session-resumption) .
 
@@ -166,7 +167,7 @@ import websockets
 client = genai.Client(vertexai=True, project="PROJECT_ID", location="LOCATION")
 
 # Configuration
-MODEL = "gemini-live-2.5-flash-native-audio"
+MODEL = "gemini-3.8-live"
 
 async def resumable_session_example():
     """Demonstrates session resumption by connecting, disconnecting, and reconnecting."""
@@ -254,6 +255,21 @@ config = {
       
 ```
 
+## Encrypt session data with CMEK
+
+Session resumption stores cached session data at rest for up to 24 hours. To protect that data with your own key instead of a Google-owned and Google-managed encryption key, use a *serving profile* . A serving profile links a Cloud KMS key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts the data automatically—your session configuration and request format don't change.
+
+Serving profile CMEK is supported for the Gemini Live API only, in the `us` and `eu` multi-regions. The global region isn't supported.
+
+To set up CMEK for the Gemini Live API, do the following:
+
+1.  Enable the Cloud KMS API and the Agent Platform API on your project. See [Before you begin](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#before_you_begin) .
+2.  Create a Cloud KMS key in the `us` or `eu` multi-region. See [Create a key ring and key](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#creating-key-ring-and-key) .
+3.  Grant the Gemini Enterprise Agent Platform service agent the `roles/cloudkms.cryptoKeyEncrypterDecrypter` role on the key. See [Grant Agent Platform permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#grant-permissions) .
+4.  Create a serving profile that sets `scope` to `GEMINI_LIVE` and `cmekConfig.encryptionSpec.kmsKeyName` to your key. See [Create a serving profile](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#serving-profile-create) .
+
+> **Note:** Data stored before you create the serving profile isn't retroactively re-encrypted with your key.
+
 ## Update system instructions during a session
 
 The Gemini Live API lets you update the system instructions during an active session. Use this to adapt the model's responses, such as changing the response language or modifying the tone.
@@ -293,7 +309,7 @@ To set the context window:
 
 ### Console
 
-1.  Open [**Vertex AI Studio \> Stream realtime**](https://console.cloud.google.com/vertex-ai/studio/multimodal-live) .
+1.  Open [**Vertex AI Studio \> Stream realtime**](https://console.cloud.google.com/agent-platform/studio/multimodal-live) .
 2.  Click to open the **Advanced** menu.
 3.  In the **Session Context** section, use the **Max context size** slider to set the context size to a value between 5,000 and 128,000.
 4.  (Optional) In the same section, use the **Target context size** slider to set the target size to a value between 0 and 128,000.

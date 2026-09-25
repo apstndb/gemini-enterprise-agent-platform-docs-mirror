@@ -61,11 +61,11 @@ When using tools with Gemini Live API, be specific in your tool definitions. Be 
         
         PROMPT_LIST = ["Now, do task1", "Now, do task2", "Now, do task3", "Now, do task 4", "all tasks done"]
         def get_next_prompt():
-          # Provide this function as a tool to the model. 
+          # Provide this function as a tool to the model.
           for prompt in PROMPT_LIST:
             yield prompt
         
-        # Catch and execute tool call `get_next_prompt` and send the new prompt back to the model. 
+        # Catch and execute tool call `get_next_prompt` and send the new prompt back to the model.
 
   - **Provide starting commands and information:** Gemini Live API expects user input before it responds. To have Gemini Live API initiate the conversation, include a prompt asking it to greet the user or begin the conversation. Include information about the user to have Gemini Live API personalize that greeting.
 
@@ -99,7 +99,7 @@ When using tools with Gemini Live API, be specific in your tool definitions. Be 
 
 ## Enable context window compression
 
-Use `ContextWindowCompressionConfig` to [configure the context window of the session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#configure-context-window) for long sessions, as native audio tokens accumulate rapidly (approximately 25 tokens per second of audio).
+Use `ContextWindowCompressionConfig` to [configure the context window of the session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#configure-context-window) for long sessions, as live audio tokens accumulate rapidly (approximately 25 tokens per second of audio).
 
 > **Warning:** Context compression will cause conversation history loss.
 
@@ -186,7 +186,7 @@ Also mention the following in the system instruction:
 
     RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 
-For native audio models like `gemini-live-2.5-flash-native-audio` , you can improve transcription quality for multilingual automatic speech recognition (ASR) by providing language hints in your session configuration. For more information, see [Enable audio transcription for the session](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/live-api/start-manage-session#enable-audio-transcription) .
+For live audio models like `gemini-3.8-live` , you can improve transcription quality for multilingual automatic speech recognition (ASR) by providing language hints in your session configuration. For more information, see [Enable audio transcription for the session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription) .
 
 ## Set transcription language code
 
@@ -204,6 +204,34 @@ Specify the transcription language codes to increase the transcription accuracy 
           language_codes=['en-US']
       ),
     )
+
+## Bias transcription with a custom vocabulary
+
+Product names, internal codenames, medication names, and stylized identifiers are often absent from the default vocabulary of a speech recognition model, so the model transcribes the closest common word instead. List these terms in the `custom_vocabulary` field of `input_audio_transcription` to bias recognition toward the words your users actually say.
+
+    from google.genai import types
+    
+    config = types.LiveConnectConfig(
+      input_audio_transcription=types.AudioTranscriptionConfig(
+          language_codes=['en-US'],
+          custom_vocabulary=['QwikPay', 'Xylotek', 'Traefik', 'oatmilk'],
+      ),
+    )
+
+The preceding configuration produces the following transcription differences for the same audio:
+
+| Spoken term | Without `custom_vocabulary` | With `custom_vocabulary` |
+| ----------- | --------------------------- | ------------------------ |
+| QwikPay     | QuickPay                    | QwikPay                  |
+| Xylotek     | Xilotech                    | Xylotek                  |
+| Traefik     | Trafic                      | Traefik                  |
+| oatmilk     | oat milk                    | oatmilk                  |
+
+Exact spellings matter when you pass transcripts to tools, search queries, or customer records, where a near-miss such as `QuickPay` doesn't match anything.
+
+Listing custom vocabulary in the system instruction doesn't produce the same result. Using `custom_vocabulary` biases the speech recognizer as it processes the audio, whereas the system instruction reaches the model only after the audio is transcribed.
+
+Keep the list targeted to distinct domain terms, brand names, and proper nouns rather than common everyday words. You can provide up to 1,000 terms.
 
 ## Client buffering
 
@@ -257,7 +285,7 @@ This example combines both the best practices and [guidelines for system instruc
     partner. Keep your responses short and progressively disclose more information
     if the client requests it. Don't repeat what the client says back to them.
     Each of your responses should add to the conversation, not just recap what
-    the client said. Be relatable by bringing in your own background 
+    the client said. Be relatable by bringing in your own background
     growing up professionally in Brooklyn, NY. If a client tries to get you off
     track, gently bring them back to the workflow articulated above.
     
@@ -360,6 +388,6 @@ This JSON defines the relevant functions called in the career coach example. For
 For more information on using Gemini Live API, see:
 
   - [Gemini Live API overview page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
-  - [Gemini Live API reference guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/multimodal-live)
+  - [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/multimodal-live)
   - [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
   - [Configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities)

@@ -1331,6 +1331,30 @@ Lists SemanticGovernancePolicies in a given location.
 
 Updates a SemanticGovernancePolicy.
 
+## `        google.cloud.aiplatform.v1.ServingProfileService       `
+
+Methods
+
+`  CreateServingProfile  `
+
+Creates a ServingProfile.
+
+`  DeleteServingProfile  `
+
+Deletes a ServingProfile.
+
+`  GetServingProfile  `
+
+Gets a ServingProfile.
+
+`  ListServingProfiles  `
+
+Lists ServingProfiles in a Location.
+
+`  UpdateServingProfile  `
+
+Updates a ServingProfile.
+
 ## `        google.cloud.aiplatform.v1.SessionService       `
 
 Methods
@@ -3302,6 +3326,30 @@ Lists SemanticGovernancePolicies in a given location.
 `  UpdateSemanticGovernancePolicy  `
 
 Updates a SemanticGovernancePolicy.
+
+## `        google.cloud.aiplatform.v1beta1.ServingProfileService       `
+
+Methods
+
+`  CreateServingProfile  `
+
+Creates a ServingProfile.
+
+`  DeleteServingProfile  `
+
+Deletes a ServingProfile.
+
+`  GetServingProfile  `
+
+Gets a ServingProfile.
+
+`  ListServingProfiles  `
+
+Lists ServingProfiles in a Location.
+
+`  UpdateServingProfile  `
+
+Updates a ServingProfile.
 
 ## `        google.cloud.aiplatform.v1beta1.SessionService       `
 

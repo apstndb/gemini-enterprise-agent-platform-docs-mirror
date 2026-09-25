@@ -92,3 +92,31 @@ The model continues to speak without interruption from the user.
   - **Failed to stream audio to Gemini Live API:** The client should stream audio to Gemini Live API in chunks between 20 ms and 40 ms to minimize latency. If the client fails to stream audio to Gemini Live API, the model won't send an interrupt signal to the client.
 
   - **Customized VAD isn't correctly implemented:** If the customized VAD fails to recognize the start of speech or the client fails to send `ActivityStart` signal to the model, the model won't send an interrupt signal to the client.
+
+## Known limitations
+
+The following limitations apply to Gemini Live API. Each item includes a mitigation where one is available.
+
+### Priority pay-as-you-go isn't supported
+
+Gemini Live API doesn't support [Priority pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo) as a consumption option.
+
+### The voice can change for a single turn
+
+In rare cases, the model responds in a voice other than the one that you set in the `voice_name` field. The change is limited to a single turn, and following turns use the configured voice again. No configuration change is needed.
+
+### The speech rate can accelerate during long turns
+
+When the model generates an extended, uninterrupted spoken response, its speaking cadence can gradually accelerate. This behavior is most noticeable in single turns that exceed 60 seconds. To keep the pacing steady, use the following approaches:
+
+  - **Segment long outputs:** Avoid prompting the model to read long blocks of text in a single turn. Break extensive responses into chunks of fewer than 100 words, or under 50 seconds of spoken audio.
+
+  - **Use conversational turn-taking:** Adopt an interactive dialogue pattern that returns control to the user between segments.
+
+### The model can switch languages unexpectedly
+
+If the model determines that a user is speaking a language other than the configured one, it can respond in that language. To reduce the chance of an unintended switch, provide a language hint by setting the `language_code` field and by stating the expected language in the system instruction. For more information, see [Set the language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#set-language-voice) .
+
+### Digit sequences can be repeated back inconsistently
+
+When a user speaks a sequence of individual digits, such as a phone number, credit card number, or account number, the model can repeat the sequence back with incorrect or missing digits. To reduce these errors, add a system instruction that directs the model to read the sequence back one digit at a time and to ask the user to repeat the sequence slowly when the digits aren't clear.

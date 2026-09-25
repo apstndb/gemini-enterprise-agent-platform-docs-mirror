@@ -6,7 +6,7 @@ description: Configure Gemini capabilities such as function calling, RAG groundi
 data_source: docs.cloud.google.com
 ---
 
-This document shows you how to configure various capabilities of Gemini models when using Gemini Live API. You can configure tool use such as function calling and grounding, and native audio capabilities such as affective dialog and proactive audio.
+This document shows you how to configure various capabilities of Gemini models when using Gemini Live API. You can configure tool use such as function calling and grounding, and live audio capabilities such as affective dialog and proactive audio.
 
 > To learn more, run the following notebooks in the environment of your choice:
 > 
@@ -24,7 +24,6 @@ Several tools are compatible with various versions of Gemini Live API-supported 
 
   - [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#function-calling)
   - [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#grounding-google-search)
-  - [Grounding with RAG Engine on Gemini Enterprise Agent Platform (Preview)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-rag-with-live-api)
 
 To enable a particular tool for usage in returned responses, include the name of the tool in the `tools` list when you initialize the model. The following sections provide examples of how to use each of the built-in tools in your code.
 
@@ -32,7 +31,7 @@ To enable a particular tool for usage in returned responses, include the name of
 
 ### Function calling
 
-Use [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) when you want the model to interact with external systems or APIs that you manage. Use this for tasks like checking a database, sending an email, or interacting with a custom API.
+Use [function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling) when you want the model to interact with external systems or APIs that you manage. Use this for tasks like checking a database, sending an email, or interacting with a custom API. Gemini Live API supports asynchronous function calling. For more information, see [Asynchronous function calling with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/asynchronous-function-calling) .
 
 The model generates a function call, and your application executes the code and sends the results back to the model.
 
@@ -54,12 +53,12 @@ from google.genai.types import (
 
 # Initialize the client.
 client = genai.Client(
-    vertexai=True,
+    enterprise=True,
     project="GOOGLE_CLOUD_PROJECT",  # Replace with your project ID
     location="LOCATION",  # Replace with your location
 )
 
-MODEL_ID = "gemini-live-2.5-flash-native-audio"
+MODEL_ID = "gemini-3.8-live"
 
 
 def get_current_weather(location: str) -> str:
@@ -91,8 +90,7 @@ async def main():
         text_input = "Get the current weather in Boston."
         print(f"Input: {text_input}")
 
-        await session.send_client_content(
-            turns=Content(role="user", parts=[Part(text=text_input)])
+        await session.send_realtime_input(text=text_input)
         )
 
         async for message in session.receive():
@@ -142,12 +140,12 @@ from google.genai.types import (
 
 # Initialize the client.
 client = genai.Client(
-    vertexai=True,
+    enterprise=True,
     project="GOOGLE_CLOUD_PROJECT",  # Replace with your project ID
     location="LOCATION",  # Replace with your location
 )
 
-MODEL_ID = "gemini-live-2.5-flash-native-audio"
+MODEL_ID = "gemini-3.8-live"
 
 
 async def main():
@@ -163,9 +161,7 @@ async def main():
         text_input = "What is the current weather in Toronto, Canada?"
         print(f"Input: {text_input}")
 
-        await session.send_client_content(
-            turns=Content(role="user", parts=[Part(text=text_input)])
-        )
+        await session.send_realtime_input(text=text_input)
 
         async for message in session.receive():
             # Consume the messages from the model.
@@ -178,96 +174,9 @@ if __name__ == "__main__":
   
 ```
 
-### Grounding with RAG Engine on Gemini Enterprise Agent Platform
+## Configure Affective Dialog
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
-You can use RAG Engine with the Live API for grounding, storing, and retrieving contexts. Use this for tasks like retrieving information from a document corpus. Like Grounding with Google Search, RAG grounding is handled server-side and automatically retrieves information from your specified corpus:
-
-### Python
-
-``` 
-import asyncio
-
-from google import genai
-from google.genai.types import (
-    Content,
-    LiveConnectConfig,
-    Part,
-    Retrieval,
-    Tool,
-    VertexRagStore,
-    VertexRagStoreRagResource,
-)
-
-# Initialize the client.
-client = genai.Client(
-    vertexai=True,
-    project="GOOGLE_CLOUD_PROJECT",  # Replace with your project ID
-    location="LOCATION",  # Replace with your location
-)
-
-MODEL_ID = "gemini-live-2.5-flash-native-audio"
-
-
-async def main():
-    rag_store = VertexRagStore(
-        rag_resources=[
-            VertexRagStoreRagResource(
-                rag_corpus="RESOURCE_NAME"  # Replace with your corpus resource name
-            )
-        ],
-        # Set `store_context` to true to allow Live API sink context into your memory corpus.
-        store_context=True,
-    )
-
-    config = LiveConnectConfig(
-        response_modalities=["AUDIO"],
-        tools=[Tool(retrieval=Retrieval(vertex_rag_store=rag_store))],
-    )
-
-    async with client.aio.live.connect(
-        model=MODEL_ID,
-        config=config,
-    ) as session:
-        text_input = "YOUR_TEXT_INPUT"
-        print(f"Input: {text_input}")
-
-        await session.send_client_content(
-            turns=Content(role="user", parts=[Part(text=text_input)])
-        )
-
-        async for message in session.receive():
-            # Consume the messages from the model.
-            # In native audio, the model response is in audio format.
-            pass
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
-  
-```
-
-For more information, see [Use RAG Engine on Gemini Enterprise Agent Platform in Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-in-multimodal-live) .
-
-## Configure native audio capabilities
-
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
-
-Models that have native audio capabilities support the following features:
-
-  - [30 HD voices](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voices-supported)
-  - [24 languages](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported)
-  - [Proactive Audio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-proactive-audio)
-  - [Affective Dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-affective-dialog)
-
-> **Note:** Native Audio doesn't support `response_modalities=["TEXT"]` .
-
-### Configure Affective Dialog
+Affective dialog configuration is only required for `gemini-live-2.5-flash-native-audio` . This section doesn't apply to `gemini-3.8-live` .
 
 > **Important:** Affective Dialog can produce unexpected results.
 
@@ -285,7 +194,9 @@ config = LiveConnectConfig(
   
 ```
 
-### Configure Proactive Audio
+## Configure Proactive Audio
+
+Proactive audio configuration is only required for `gemini-live-2.5-flash-native-audio` . Proactive audio is included in `gemini-3.8-live` .
 
 Proactive Audio lets you control when the model responds. For example, you can ask Gemini to only respond when prompted or when specific topics are discussed. To see a video demonstration of Proactive Audio, see [Gemini LiveAPI Native Audio Preview](https://youtu.be/ZsB33Tr-P3c) .
 
@@ -317,7 +228,7 @@ The following is a sample of what a conversation with Gemini about cooking might
     (Italian cooking topic will trigger response from Gemini.)
     Gemini Live API: "I'd be happy to help! Here's a recipe for a pizza."
 
-#### Common use cases
+### Common use cases
 
 When using Proactive Audio, Gemini performs as follows:
 
@@ -326,7 +237,7 @@ When using Proactive Audio, Gemini performs as follows:
   - **Handles interruptions** : If the user needs to interrupt during a response from Gemini, Proactive Audio makes it easier for Gemini to appropriately back-channel (meaning appropriate interruptions are handled), rather than if a user uses filler words such as *umm* or *uhh* .
   - **Co-listens to audio** : Gemini can co-listen to an audio file that's not the speaker's voice and subsequently answer questions about that audio file later in the conversation.
 
-#### Billing
+### Billing
 
 While Gemini is listening to a conversation, input audio tokens will be charged.
 

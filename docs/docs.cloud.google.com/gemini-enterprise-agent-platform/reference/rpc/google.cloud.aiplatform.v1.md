@@ -40,6 +40,7 @@ data_source: docs.cloud.google.com
   - `  ScheduleService  ` (interface)
   - `  SemanticGovernancePolicyEngineService  ` (interface)
   - `  SemanticGovernancePolicyService  ` (interface)
+  - `  ServingProfileService  ` (interface)
   - `  SessionService  ` (interface)
   - `  SpecialistPoolService  ` (interface)
   - `  TensorboardService  ` (interface)
@@ -242,6 +243,8 @@ data_source: docs.cloud.google.com
   - `  CreateScheduleRequest  ` (message)
   - `  CreateSemanticGovernancePolicyOperationMetadata  ` (message)
   - `  CreateSemanticGovernancePolicyRequest  ` (message)
+  - `  CreateServingProfileOperationMetadata  ` (message)
+  - `  CreateServingProfileRequest  ` (message)
   - `  CreateSessionOperationMetadata  ` (message)
   - `  CreateSessionRequest  ` (message)
   - `  CreateSpecialistPoolOperationMetadata  ` (message)
@@ -315,6 +318,7 @@ data_source: docs.cloud.google.com
   - `  DeleteScheduleRequest  ` (message)
   - `  DeleteSemanticGovernancePolicyOperationMetadata  ` (message)
   - `  DeleteSemanticGovernancePolicyRequest  ` (message)
+  - `  DeleteServingProfileRequest  ` (message)
   - `  DeleteSessionRequest  ` (message)
   - `  DeleteSpecialistPoolRequest  ` (message)
   - `  DeleteStudyRequest  ` (message)
@@ -601,6 +605,7 @@ data_source: docs.cloud.google.com
   - `  GetScheduleRequest  ` (message)
   - `  GetSemanticGovernancePolicyEngineRequest  ` (message)
   - `  GetSemanticGovernancePolicyRequest  ` (message)
+  - `  GetServingProfileRequest  ` (message)
   - `  GetSessionRequest  ` (message)
   - `  GetSpecialistPoolRequest  ` (message)
   - `  GetStudyRequest  ` (message)
@@ -772,6 +777,8 @@ data_source: docs.cloud.google.com
   - `  ListSchedulesResponse  ` (message)
   - `  ListSemanticGovernancePoliciesRequest  ` (message)
   - `  ListSemanticGovernancePoliciesResponse  ` (message)
+  - `  ListServingProfilesRequest  ` (message)
+  - `  ListServingProfilesResponse  ` (message)
   - `  ListSessionsRequest  ` (message)
   - `  ListSessionsResponse  ` (message)
   - `  ListSpecialistPoolsRequest  ` (message)
@@ -1209,6 +1216,9 @@ data_source: docs.cloud.google.com
   - `  SemanticGovernancePolicyEngine  ` (message)
   - `  SemanticGovernancePolicyEngine.State  ` (enum)
   - `  ServiceAccountSpec  ` (message)
+  - `  ServingProfile  ` (message)
+  - `  ServingProfile.CmekConfig  ` (message)
+  - `  ServingProfile.ServingProfileScope  ` (enum)
   - `  Session  ` (message)
   - `  SessionEvent  ` (message)
   - `  SharePointSources  ` (message)
@@ -1442,6 +1452,7 @@ data_source: docs.cloud.google.com
   - `  UpdateSemanticGovernancePolicyEngineRequest  ` (message)
   - `  UpdateSemanticGovernancePolicyOperationMetadata  ` (message)
   - `  UpdateSemanticGovernancePolicyRequest  ` (message)
+  - `  UpdateServingProfileRequest  ` (message)
   - `  UpdateSessionRequest  ` (message)
   - `  UpdateSpecialistPoolOperationMetadata  ` (message)
   - `  UpdateSpecialistPoolRequest  ` (message)
@@ -11844,6 +11855,140 @@ Manages SemanticGovernancePolicies. A SemanticGovernancePolicy is a resource tha
 </tbody>
 </table>
 
+## ServingProfileService
+
+A service for managing Agent Platform's ServingProfiles.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CreateServingProfile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc CreateServingProfile(              CreateServingProfileRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
+<p>Creates a ServingProfile.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>DeleteServingProfile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc DeleteServingProfile(              DeleteServingProfileRequest            </code> ) returns ( <code dir="ltr" translate="no">             Empty            </code> )</p>
+<p>Deletes a ServingProfile.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>GetServingProfile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc GetServingProfile(              GetServingProfileRequest            </code> ) returns ( <code dir="ltr" translate="no">             ServingProfile            </code> )</p>
+<p>Gets a ServingProfile.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ListServingProfiles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc ListServingProfiles(              ListServingProfilesRequest            </code> ) returns ( <code dir="ltr" translate="no">             ListServingProfilesResponse            </code> )</p>
+<p>Lists ServingProfiles in a Location.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>UpdateServingProfile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc UpdateServingProfile(              UpdateServingProfileRequest            </code> ) returns ( <code dir="ltr" translate="no">             ServingProfile            </code> )</p>
+<p>Updates a ServingProfile.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
 ## SessionService
 
 The service that manages Vertex Session related resources.
@@ -18820,6 +18965,42 @@ Required. The ID to use for the SemanticGovernancePolicy, which will become the 
 
 This value may be up to 63 characters, and valid characters are `[a-z0-9-]` . The first character cannot be a number or hyphen. The last character must be a letter or a number.
 
+## CreateServingProfileOperationMetadata
+
+Runtime operation metadata for `  ServingProfileService.CreateServingProfile  ` .
+
+Fields
+
+`generic_metadata`
+
+`  GenericOperationMetadata  `
+
+Output only. The standard operation metadata for Agent Platform.
+
+## CreateServingProfileRequest
+
+Request message for `  ServingProfileService.CreateServingProfile  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the Location to create the ServingProfile in. Format: `projects/{project}/locations/{location}`
+
+`serving_profile`
+
+`  ServingProfile  `
+
+Required. The ServingProfile to create.
+
+`serving_profile_id`
+
+`string`
+
+Required. The ID to use for the ServingProfile, which will become the final component of the ServingProfile's resource name. This value should be 1-63 characters, and valid characters are `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$` .
+
 ## CreateSessionOperationMetadata
 
 Metadata associated with the `  SessionService.CreateSession  ` operation.
@@ -20371,6 +20552,18 @@ Required. The name of the SemanticGovernancePolicy resource to be deleted. Forma
 `string`
 
 Optional. The etag of the SemanticGovernancePolicy. If an etag is provided and does not match the current etag of the SemanticGovernancePolicy, deletion will be blocked and an ABORTED error will be returned.
+
+## DeleteServingProfileRequest
+
+Request message for `  ServingProfileService.DeleteServingProfile  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the ServingProfile resource to be deleted. Format: `projects/{project}/locations/{location}/servingProfiles/{serving_profile}`
 
 ## DeleteSessionRequest
 
@@ -28048,6 +28241,18 @@ Fields
 
 Required. The name of the SemanticGovernancePolicy resource. Format: `projects/{project}/locations/{location}/semanticGovernancePolicies/{semantic_governance_policy}`
 
+## GetServingProfileRequest
+
+Request message for `  ServingProfileService.GetServingProfile  ` .
+
+Fields
+
+`name`
+
+`string`
+
+Required. The name of the ServingProfile resource. Format: `projects/{project}/locations/{location}/servingProfiles/{serving_profile}`
+
 ## GetSessionRequest
 
 Request message for `  SessionService.GetSession  ` .
@@ -33288,6 +33493,48 @@ The list of SemanticGovernancePolicies.
 `string`
 
 A token to retrieve the next page of results. Pass to `  ListSemanticGovernancePoliciesRequest.page_token  ` to obtain that page.
+
+## ListServingProfilesRequest
+
+Request message for `  ServingProfileService.ListServingProfiles  ` .
+
+Fields
+
+`parent`
+
+`string`
+
+Required. The resource name of the Location to list the ServingProfiles from. Format: `projects/{project}/locations/{location}`
+
+`page_size`
+
+`int32`
+
+Optional. The standard list page size. If unspecified, at most 100 ServingProfiles will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
+
+`page_token`
+
+`string`
+
+Optional. The standard list page token.
+
+## ListServingProfilesResponse
+
+Response message for `  ServingProfileService.ListServingProfiles  ` .
+
+Fields
+
+`serving_profiles[]`
+
+`  ServingProfile  `
+
+Output only. A list of ServingProfiles.
+
+`next_page_token`
+
+`string`
+
+Output only. A token to retrieve the next page of results.
 
 ## ListSessionsRequest
 
@@ -45619,6 +45866,90 @@ The users must have `iam.serviceAccounts.actAs` permission on this service accou
 
 Do not set this field if you want to submit jobs using custom service account to this PersistentResource after creation, but only specify the `service_account` inside the job.
 
+## ServingProfile
+
+Configures the serving behavior for a resource-less GenAI serving.
+
+Fields
+
+`name`
+
+`string`
+
+Identifier. The resource name of the ServingProfile.
+
+`display_name`
+
+`string`
+
+Required. The display name of the ServingProfile. The name can be up to 128 characters long and can consist of any UTF-8 characters.
+
+`description`
+
+`string`
+
+Optional. The description of the ServingProfile.
+
+`scope`
+
+`  ServingProfileScope  `
+
+Required. The specific API this ServingProfile applies to.
+
+`create_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when the ServingProfile was created.
+
+`update_time`
+
+`  Timestamp  `
+
+Output only. Timestamp when the ServingProfile was last updated.
+
+Union field `profile_spec` . The profile spec for the ServingProfile. `profile_spec` can be only one of the following:
+
+`cmek_config`
+
+`  CmekConfig  `
+
+CMEK configuration for the ServingProfile.
+
+## CmekConfig
+
+Configuration for Customer-Managed Encryption Keys (CMEK).
+
+Fields
+
+`encryption_spec`
+
+`  EncryptionSpec  `
+
+Required. The customer-managed encryption key spec for the Serving Profile.
+
+## ServingProfileScope
+
+The specific API this ServingProfile applies to.
+
+Enums
+
+`SERVING_PROFILE_SCOPE_UNSPECIFIED`
+
+Default value. This value is unused. When users create a ServingProfile, they must choose a scope.
+
+`GEMINI_LIVE`
+
+The scope for Gemini Live.
+
+`INTERACTIONS_API`
+
+The scope for Interactions API.
+
+`RESPONSE_API`
+
+The scope for Response API.
+
 ## Session
 
 A session contains a set of actions between users and Vertex agents.
@@ -50849,6 +51180,24 @@ The SemanticGovernancePolicy's `name` field is used to identify the SemanticGove
 `  FieldMask  `
 
 Optional. `update_mask` is used to specify the fields to be overwritten in the SemanticGovernancePolicy resource by the update. The fields specified in the `update_mask` are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the mask is not present, then all fields that are populated in the request message will be overwritten. Set the `update_mask` to `*` to override all fields.
+
+## UpdateServingProfileRequest
+
+Request message for `  ServingProfileService.UpdateServingProfile  ` .
+
+Fields
+
+`serving_profile`
+
+`  ServingProfile  `
+
+Required. The ServingProfile which replaces the resource on the server.
+
+`update_mask`
+
+`  FieldMask  `
+
+Optional. The list of fields to update; see <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask> . If omitted, all populated (non-empty) mutable fields are updated; if set to `["*"]` , all mutable fields are fully replaced (unpopulated values are cleared).
 
 ## UpdateSessionRequest
 

@@ -426,7 +426,7 @@ To create a policy, you need your agent's unique ID from the [Agent Registry](ht
         --project=PROJECT_ID \
         --location=LOCATION
 
-The agent ID is the last segment of the `name` field (for example, `agentregistry-00000000-0000-0000-abcd-012345678901` ). Use this value for the `  AGENT_ID  ` parameter in the following commands.
+The agent ID is the last segment of the `name` field (for example, `agentregistry-00000000-0000-0000-abcd-012345678901` ). Use this value for the `  AGENT_ID  ` segment of the fully qualified agent name — ` projects/ PROJECT_ID /locations/ LOCATION /agents/ AGENT_ID  ` — that the following commands pass to `--agent` .
 
 Before running Semantic governance policy commands, set the regional API endpoint override:
 
@@ -439,7 +439,7 @@ Before running Semantic governance policy commands, set the regional API endpoin
         --location=LOCATION \
         --display-name="Semantic governance policy for ShippingAgent-1" \
         --description="Applies to all tool calls from the Cymbal shipping assistant agent" \
-        --agent=AGENT_ID \
+        --agent=projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID \
         --natural-language-constraint="Always use UPS as the shipping provider for shipments within the USA. Always use DHL as the shipping provider for shipments within the EU." \
         --project=PROJECT_ID
 
@@ -455,7 +455,7 @@ Before running Semantic governance policy commands, set the regional API endpoin
         --location=LOCATION \
         --display-name="DISPLAY_NAME" \
         --description="DESCRIPTION" \
-        --agent=AGENT_ID \
+        --agent=projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID \
         --mcp-tools="mcp-server=MCP_SERVER,tools=TOOL_NAME" \
         --natural-language-constraint="NLC_TEXT" \
         --project=PROJECT_ID

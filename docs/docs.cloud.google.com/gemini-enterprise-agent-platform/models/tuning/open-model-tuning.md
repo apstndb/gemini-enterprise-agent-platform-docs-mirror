@@ -90,6 +90,7 @@ Region-specific tuning jobs are still available for users with more advanced nee
   - Oregon ( `us-west1` )
   - Columbus ( `us-east5` )
   - Singapore ( `asia-southeast1` )
+  - Jakarta ( `asia-southeast2` )
 
 ## Limitations
 

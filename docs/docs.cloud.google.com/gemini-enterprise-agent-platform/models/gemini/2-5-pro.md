@@ -6,6 +6,8 @@ description: Learn about Gemini 2.5 Pro, our most advanced reasoning Gemini mode
 data_source: docs.cloud.google.com
 ---
 
+> **Important:** This model is being retired on October 20th, 2026. See [Migrate to latest Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) for recommended replacement models.
+
 Gemini 2.5 Pro is our most advanced reasoning Gemini model, capable of solving complex problems. Gemini 2.5 Pro can comprehend vast datasets and challenging problems from different information sources, including text, audio, images, video, and even entire code repositories.
 
 For even more detailed technical information on Gemini 2.5 Pro (such as performance benchmarks, information on our training datasets, efforts on sustainability, intended usage and limitations, and our approach to ethics and safety), see our [technical report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) on our Gemini 2.5 models.

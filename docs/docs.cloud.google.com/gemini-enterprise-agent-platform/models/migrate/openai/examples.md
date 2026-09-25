@@ -435,65 +435,6 @@ Example responses:
     
     data: [DONE]
 
-#### Image generation
-
-To remain compatible with the OpenAI response format, the `audio` field of the response is explicitly populated with an `extra_content.google.mime_type` indicating the mime type of the result.
-
-Example request:
-
-    curl -X POST \
-      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-      -H "Content-Type: application/json" \
-      https://aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/endpoints/openapi/chat/completions \
-      -d '{"model":"google/gemini-3-pro-image-preview", "messages":[{ "role": "user", "content": "Generate an image of a cat." }], "modalities": ["image"] }'
-
-Example response:
-
-    {
-      "choices": [
-        {
-          "finish_reason": "stop",
-          "index": 0,
-          "logprobs": null,
-          "message": {
-            "audio": {
-              "data": "<BASE64_BYTES>",
-              "extra_content": {
-                "google": {
-                  "mime_type": "image/png"
-                }
-              }
-            },
-            "content": null,
-            "extra_content": {
-              "google": {
-                "thought_signature": "..."
-              }
-            },
-            "role": "assistant"
-          }
-        }
-      ],
-      "created": 1770850692,
-      "id": "hAmNaZb8BZOX4_UPlNXoEA",
-      "model": "google/gemini-3-pro-image-preview",
-      "object": "chat.completion",
-      "system_fingerprint": "",
-      "usage": {
-        "completion_tokens": 1120,
-        "completion_tokens_details": {
-          "reasoning_tokens": 251
-        },
-        "extra_properties": {
-          "google": {
-            "traffic_type": "PROVISIONED_THROUGHPUT"
-          }
-        },
-        "prompt_tokens": 7,
-        "total_tokens": 1378
-      }
-    }
-
 ### Multimodal requests
 
 The Chat Completions API supports a variety of multimodal input, including both audio and video.

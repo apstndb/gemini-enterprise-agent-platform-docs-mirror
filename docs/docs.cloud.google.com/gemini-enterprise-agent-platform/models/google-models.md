@@ -42,6 +42,8 @@ Turn ideas into production-ready assets
 
 spark [Gemini 3.8 Flash Cyber (Gemini Cyber)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber) Our model optimized for cyber security.
 
+audio\_spark [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live) Optimized for live interactions, with improved voice quality, reliability, and real-time agent orchestration.
+
 spark [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash) Our most intelligent workhorse model yet, built for long-horizon coding and autonomous agents.
 
 spark [Gemini 3.7 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash) Our intelligent everyday driver for developers, delivering a step forward in software engineering and feeling distinctly better to build with.

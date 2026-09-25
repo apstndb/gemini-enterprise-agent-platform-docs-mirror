@@ -6,42 +6,58 @@ description: Gemini Live API enables low-latency, real-time voice and video inte
 data_source: docs.cloud.google.com
 ---
 
-![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/live-api/liveapi.png)
+![](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/live-api/live-api-diagram.png)
 
-Gemini Live API enables low-latency, real-time voice and video interactions with Gemini. It processes continuous streams of audio, video, or text to deliver immediate, human-like spoken responses. This creates a natural conversational experience for your users.
+Gemini Live API enables low-latency, real-time voice and video interactions with Gemini. It processes continuous streams of audio, video, or text to deliver immediate, human-like spoken responses. This creates a natural conversational experience for your users. Live avatars add the option to interact with a human-like icon that synchronizes with the speech responses, providing an improved and personable experience with users.
+
+[Video](https://www.youtube.com/watch?v=oVG-5BF-dWo)
 
 ## Example use cases
 
 Gemini Live API can be used to build real-time voice and video agents for a variety of industries, including:
 
-  - **E-commerce and retail:** Shopping assistants that offer personalized recommendations and support agents that resolve customer issues.
-  - **Gaming:** Interactive non-player characters (NPCs), in-game help assistants, and real-time translation of in-game content.
-  - **Next-gen interfaces:** Voice- and video-enabled experiences in robotics, smart glasses, and vehicles.
-  - **Healthcare:** Health companions for patient support and education.
-  - **Financial services:** AI advisors for wealth management and investment guidance.
-  - **Education:** AI mentors and learner companions that provide personalized instruction and feedback.
+  - **Branded corporate ambassadors** : Interactive brand representatives deployed on corporate web properties or mobile applications, generated from authorized employee likenesses or paid talent with executed corporate releases.
+
+  - **E-commerce and retail** : Shopping assistants that offer personalized recommendations and support agents that resolve customer issues.
+
+  - **Gaming** : Interactive non-player characters (NPCs), in-game help assistants, and real-time translation of in-game content.
+
+  - **Next-gen interfaces** : Voice- and video-enabled experiences in robotics, smart glasses, and vehicles.
+
+  - **Healthcare** : Navigational guides that assist with facility and care logistics.
+
+  - **Financial services** : Conversational agents that triage everyday banking requests.
+
+  - **Education** : AI mentors and learner companions that provide personalized instruction and feedback.
 
 ## Key features
 
 Gemini Live API offers a comprehensive set of features for building robust voice and video agents:
 
-  - [**High audio quality**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#native-audio) : Gemini Live API provides natural, realistic-sounding speech across multiple languages.
+  - **High audio quality** : Gemini Live API provides natural, realistic-sounding speech across multiple languages.
+
   - [**Multilingual support**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#languages-supported) : Converse in 24 supported languages.
+
   - [**Barge-in**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#voice-activity-detection) : Users can interrupt the model at any time for responsive interactions.
+
   - [**Affective dialog**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-affective-dialog) : Adapts response style and tone to match the user's input expression.
+
   - [**Tool use**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#configure-tool-use) : Integrates tools like function calling and Google Search for dynamic interactions.
+
   - [**Audio transcriptions**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription) : Provides text transcripts of both user input and model output. For transcription as the end goal rather than as a side channel of a conversation, see [Gemini 3.5 Transcribe](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe) .
-  - [**Proactive audio**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-proactive-audio) : (Preview) Lets you control when the model responds and in what contexts.
+
+  - [**Proactive audio**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities#use-proactive-audio) : Lets you control when the model responds and in what contexts.
 
 ## Technical specifications
 
 The following table outlines the technical specifications for the Gemini Live API:
 
-| Category          | Details                                                                            |
-| :---------------- | :--------------------------------------------------------------------------------- |
-| Input modalities  | Audio (raw 16-bit PCM audio, 16kHz, little-endian), images/video (JPEG 1FPS), text |
-| Output modalities | Audio (raw 16-bit PCM audio, 24kHz, little-endian), text                           |
-| Protocol          | Stateful WebSocket connection (WSS)                                                |
+| Category             | Details                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| Input modalities     | Audio (raw 16-bit PCM audio, 16kHz, little-endian), images/video (JPEG 1FPS), text |
+| Output modalities    | Audio (raw 16-bit PCM audio, 24kHz, little-endian), text                           |
+| Video (live avatars) | Video (mp4)                                                                        |
+| Protocol             | Stateful WebSocket connection (WSS)                                                |
 
 ## Supported models
 
@@ -64,6 +80,20 @@ The following models support Gemini Live API. Select the appropriate model based
 </thead>
 <tbody>
 <tr class="odd">
+<td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live"><code dir="ltr" translate="no">gemini-3.8-live</code></a></td>
+<td>Generally available</td>
+<td><strong>Recommended</strong> . Low-latency voice agents. Supports seamless multilingual switching.</td>
+<td><ul>
+<li>Native audio</li>
+<li>Audio transcriptions</li>
+<li>Voice activity detection</li>
+<li>Affective dialog</li>
+<li>Proactive audio</li>
+<li>Tool use</li>
+<li>Live avatar</li>
+</ul></td>
+</tr>
+<tr class="even">
 <td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-live-api"><code dir="ltr" translate="no">gemini-live-2.5-flash-native-audio</code></a></td>
 <td>Generally available</td>
 <td><strong>Recommended</strong> . Low-latency voice agents. Supports seamless multilingual switching and emotional tone.</td>
@@ -76,7 +106,7 @@ The following models support Gemini Live API. Select the appropriate model based
 <li>Tool use</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe"><code dir="ltr" translate="no">gemini-3.5-transcribe-live-preview</code></a></td>
 <td>Preview</td>
 <td>Speech-to-text only. Real-time captioning, dictation, and call transcription. Returns text, not audio, so it does not hold a conversation.</td>

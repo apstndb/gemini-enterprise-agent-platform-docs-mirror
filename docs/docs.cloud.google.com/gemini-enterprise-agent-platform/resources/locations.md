@@ -192,6 +192,9 @@ Global
 
 Gemini models
 
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
+
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`
 
@@ -317,6 +320,9 @@ European Union multi-region
 (eu)
 
 Gemini models
+
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
 
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`
@@ -459,6 +465,9 @@ Dallas
 
 Gemini models
 
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
+
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`
 
@@ -584,6 +593,9 @@ São Paulo
 (southamerica-east1)
 
 Gemini models
+
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
 
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`
@@ -735,6 +747,9 @@ Paris
 
 Gemini models
 
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
+
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`
 
@@ -876,6 +891,9 @@ Seoul
 
 Gemini models
 
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
+
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`
 
@@ -1004,6 +1022,9 @@ Dammam
 (me-central2)
 
 Gemini models
+
+[Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)  
+`(gemini-3.8-live)`
 
 [Gemini 3.8 Flash Cyber](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-cyber)  
 `(gemini-3.8-flash-cyber)`

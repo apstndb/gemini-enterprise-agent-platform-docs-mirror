@@ -6,6 +6,8 @@ description: Learn about Gemini 2.5 Flash, Google's balanced model in terms of p
 data_source: docs.cloud.google.com
 ---
 
+> **Important:** This model is being retired on October 20th, 2026. See [Migrate to latest Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate) for recommended replacement models.
+
 Gemini 2.5 Flash is our best model in terms of price and performance, and offers well-rounded capabilities. Gemini 2.5 Flash is our first Flash model that features [thinking capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) , which lets you see the thinking process that the model goes through when generating its response.
 
 For even more detailed technical information on Gemini 2.5 Flash (such as performance benchmarks, information on our training datasets, efforts on sustainability, intended usage and limitations, and our approach to ethics and safety), see our [technical report](https://storage.googleapis.com/deepmind-media/gemini/gemini_v2_5_report.pdf) on our Gemini 2.5 models.

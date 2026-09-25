@@ -20,7 +20,7 @@ If you haven't created any revisions yet, you will need to create revisions befo
 
 At this time, revisions and traffic splitting are available through the [v1beta1 API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.cloud.aiplatform.v1beta1) .
 
-> **Important:** You should delete old revisions to prevent reaching revision limits and running out of resource quota. Gemini Enterprise Agent Platform enforces a maximum of 6,000 revisions per project per region ( `aiplatform.googleapis.com/agent_engine_revisions_per_project_per_region` ) and 950 revisions per agent ( `aiplatform.googleapis.com/agent_engine_revisions_per_agent` ). These limits are not adjustable. When you reach a limit, attempts to create new revisions fail until you delete older revisions. Deleting old revisions also stops users from querying old revisions, which may contain errors or security vulnerabilities. For more information, see [Quotas and system limits](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas#quotas) . See [Delete a revision](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#delete) for instructions on deleting revisions.
+> **Important:** Gemini Enterprise Agent Platform enforces a maximum of 6,000 revisions per project per region ( `aiplatform.googleapis.com/agent_engine_revisions_per_project_per_region` ) and 950 revisions per agent ( `aiplatform.googleapis.com/agent_engine_revisions_per_agent` ). These limits are not adjustable. By default, Gemini Enterprise Agent Platform automatically removes older revisions to help you stay within these limits. However, if there are not enough eligible revisions to delete (for example, if all revisions are serving traffic), attempts to create new revisions fail. You can also manually delete revisions. For more information, see [Manage revision cleanup](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#cleanup) .
 
 This page describes how to manage agent revisions and traffic splitting.
 
@@ -506,9 +506,33 @@ To create a new revision, you update the versioned fields of a deployed agent. S
 
 If you update [versioned fields](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#versioned_and_unversioned_fields) , a new revision is automatically created. If you update unversioned fields, the agent is updated across all of its existing revisions without creating a new one.
 
-## Delete an agent revision
+## Manage revision cleanup
 
-You can remove an agent revision by deleting it. You can only delete revisions that are not active for traffic management because they are not configured to receive traffic. See [Configure traffic distribution between revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#configure-traffic) for instructions to configure whether a revision receives traffic.
+Gemini Enterprise Agent Platform automatically removes old revisions to help you stay within revision limits. You can also manually delete revisions.
+
+### Automatic garbage collection
+
+By default, Gemini Enterprise Agent Platform enables automatic garbage collection for all agents. You cannot disable it. Garbage collection runs only as part of an agent update operation; it does not run as a background job.
+
+  - **When it runs:** If an update operation attempts to exceed the configured revision limit, Gemini Enterprise Agent Platform deletes the oldest eligible revisions in the same operation before creating the new revision. If you lower the limit, Gemini Enterprise Agent Platform immediately deletes enough of the oldest eligible revisions to meet the new limit.
+  - **Eligible revisions:** A revision is eligible for deletion only if it meets all of the following conditions:
+      - It is in the `ACTIVE` state.
+      - It is not included in the traffic configuration (receives 0% traffic).
+  - **Failures:** If there are not enough eligible revisions to free up space, Gemini Enterprise Agent Platform rejects the update operation with a `FAILED_PRECONDITION` error. It does not delete any revisions or create a new revision. You must remove revisions from the traffic configuration or raise the limit before retrying.
+
+#### Configure the limit
+
+The limit is defined by the `revision_garbage_collection_strategy.keep_n_latest.max_revisions` field on the agent. You can set this field when you create the agent or change it later with an update request.
+
+  - **Default for new agents:** 100 revisions.
+  - **Default for existing agents:** 950 revisions.
+  - **Allowed range:** 1 to 950. A value of 0 or less is rejected. A value greater than 950 is rejected because 950 is a hard quota that cannot be raised.
+
+> **Warning:** Deleted revisions cannot be restored.
+
+### Manual deletion
+
+You can manually remove an agent revision by deleting it. You can only delete revisions that are not active for traffic management because they are not configured to receive traffic. See [Configure traffic distribution between revisions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-revisions-and-traffic#configure-traffic) for instructions to configure whether a revision receives traffic.
 
 ### Console
 

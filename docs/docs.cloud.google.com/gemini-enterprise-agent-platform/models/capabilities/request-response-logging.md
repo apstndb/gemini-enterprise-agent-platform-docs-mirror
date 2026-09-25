@@ -73,7 +73,7 @@ Before using any of the request data, make the following replacements:
   - PUBLISHER : The publisher name. For example, `google` .
   - MODEL : The foundation model name. For example, `gemini-2.0-flash-001` .
   - SAMPLING\_RATE : To reduce storage costs, you can set a number between 0 or 1 to define the fraction of requests to log. For example, a value of 1 logs all requests, and a value of 0.1 logs 10% of requests.
-  - BQ\_URI : The URI of the BigQuery table to use for logging. For example, ` bq:// PROJECT_ID . DATASET_NAME . TABLE_NAME  ` . If you only specify a project name, a new dataset is created with the name ` logging_ ENDPOINT_DISPLAY_NAME \_ ENDPOINT_ID  ` , where `  ENDPOINT_DISPLAY_NAME  ` follows the [BigQuery naming rules](https://docs.cloud.google.com/bigquery/docs/datasets#dataset-naming) . If you don't specify a table name, a new table is created with the name `request_response_logging` .
+  - BQ\_URI : The URI of the BigQuery table to use for logging. For example, ` bq:// PROJECT_ID . DATASET_NAME . TABLE_NAME  ` . If you use the global endpoint ( `  LOCATION  ` set to `global` ), you must specify an existing BigQuery dataset, such as ` bq:// PROJECT_ID . DATASET_NAME  ` or ` bq:// PROJECT_ID . DATASET_NAME . TABLE_NAME  ` . If you use a regional endpoint and only specify a project ID ( ` bq:// PROJECT_ID  ` ), a dataset is created with the name ` publishers_ PUBLISHER _models_ MODEL _ ENDPOINT_ID  ` , where `  PUBLISHER  ` and `  MODEL  ` follow the [BigQuery naming rules](https://docs.cloud.google.com/bigquery/docs/datasets#dataset-naming) . If you don't specify a table name, a table is created with the name `request_response_logging` .
 
 HTTP method and URL:
 
@@ -342,7 +342,7 @@ When you [create or patch an endpoint](https://cloud.google.com/gemini-enterpris
 
   - `samplingRate` : To reduce storage costs, you can set a number between 0 and 1 to define the fraction of requests to log. For example, a value of 1 logs all requests, and a value of 0.1 logs 10% of requests.
 
-  - [`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination) : the BigQuery table to be used for logging. If you only specify a project name, a new dataset is created with the name ` logging_ ENDPOINT_DISPLAY_NAME _ ENDPOINT_ID  ` , where `  ENDPOINT_DISPLAY_NAME  ` follows the [BigQuery naming rules](https://cloud.google.com/bigquery/docs/datasets#dataset-naming) . If you don't specify a table name, a new table is created with the name `request_response_logging` .
+  - [`BigQueryDestination`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/BigQueryDestination) : the BigQuery table to use for logging. If you only specify a project ID, a dataset is created with the name `  ENDPOINT_DISPLAY NAME ENDPOINT_ID  ` , where `  ENDPOINT_DISPLAY_NAME  ` follows the [BigQuery naming rules](https://cloud.google.com/bigquery/docs/datasets#dataset-naming) . If you don't specify a table name, a table is created with the name `request_response_logging` .
 
   - `enableOtelLogging` : set to `true` to enable [OpenTelemetry (OTEL)](https://opentelemetry.io/docs/specs/otel/logs/) logging in addition to the default request-response logging.
 

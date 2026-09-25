@@ -45,8 +45,7 @@ Agent Anomaly Detection is available for agents meeting the following criteria. 
 
   - **Compatible runtime** : Deployed on the Agent Runtime.
   - **ADK version** : Built using Agent Development Kit (ADK) for Python, version 1.2 or later. Version 2.1.0 or later is recommended.
-  - **US region Logging and Observability buckets** : Agent Anomaly Detection is currently available for US (multi-region) buckets.
-  - **Logging and Observability buckets in same US region** : The logging and observability buckets are in the same region.
+  - **Logging and observability buckets** : Agent Anomaly Detection is currently available for US (multi-region) buckets. Both the logging and observability buckets must be in the same region.
   - **Telemetry capture** : OpenTelemetry tracing and logging are enabled using the ADK.
   - **Metadata capture** : Raw telemetry is configured to capture prompt input and response output contents.
   - **Active tracing** : The `enable_tracing` flag is not explicitly set to `false` in the ADK configuration.

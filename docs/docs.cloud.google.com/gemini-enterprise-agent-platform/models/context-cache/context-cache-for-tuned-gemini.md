@@ -21,14 +21,6 @@ Make sure that you have the following information:
 
 ## Supported versions
 
-Fine-tuned Gemini models support implicit caching for the following versions:
-
-  - [Gemini 3.1 Pro](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-pro)
-  - [Gemini 3.1 Flash-Lite](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-lite)
-  - [Gemini 3 Pro](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-pro)
-  - [Gemini 3 Flash](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash)
-  - [Gemini 2.5 Pro](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro)
-  - [Gemini 2.5 Flash](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash)
-  - [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash-lite)
+Fine-tuned Gemini models support implicit caching for specific versions. For a list of supported models and their capabilities, see [Google models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) .
 
 Explicit caching is not supported for fine-tuned models.

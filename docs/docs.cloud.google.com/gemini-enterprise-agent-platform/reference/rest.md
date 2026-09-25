@@ -2095,6 +2095,35 @@ Methods
 `POST /v1/{name}:deprovision`  
 Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
 
+## REST Resource: [v1.projects.locations.servingProfiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.servingProfiles)
+
+Methods
+
+`  create  `
+
+`POST /v1/{parent}/servingProfiles`  
+Creates a ServingProfile.
+
+`  delete  `
+
+`DELETE /v1/{name}`  
+Deletes a ServingProfile.
+
+`  get  `
+
+`GET /v1/{name}`  
+Gets a ServingProfile.
+
+`  list  `
+
+`GET /v1/{parent}/servingProfiles`  
+Lists ServingProfiles in a Location.
+
+`  patch  `
+
+`PATCH /v1/{servingProfile.name}`  
+Updates a ServingProfile.
+
 ## REST Resource: [v1.projects.locations.specialistPools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.specialistPools)
 
 Methods
@@ -5018,6 +5047,35 @@ Methods
 
 `POST /v1beta1/{name}:deprovision`  
 Deprovisions the SemanticGovernancePolicyEngine, tearing down the associated tenant project, GKE cluster, and PSC service attachments.
+
+## REST Resource: [v1beta1.projects.locations.servingProfiles](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.servingProfiles)
+
+Methods
+
+`  create  `
+
+`POST /v1beta1/{parent}/servingProfiles`  
+Creates a ServingProfile.
+
+`  delete  `
+
+`DELETE /v1beta1/{name}`  
+Deletes a ServingProfile.
+
+`  get  `
+
+`GET /v1beta1/{name}`  
+Gets a ServingProfile.
+
+`  list  `
+
+`GET /v1beta1/{parent}/servingProfiles`  
+Lists ServingProfiles in a Location.
+
+`  patch  `
+
+`PATCH /v1beta1/{servingProfile.name}`  
+Updates a ServingProfile.
 
 ## REST Resource: [v1beta1.projects.locations.skills](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.skills)
 
