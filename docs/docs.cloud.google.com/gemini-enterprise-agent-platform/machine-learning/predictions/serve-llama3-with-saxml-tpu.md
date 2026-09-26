@@ -14,7 +14,7 @@ data_source: docs.cloud.google.com
 
 In this guide, you download the Llama 3 70B model weights and tokenizer and deploy them on Gemini Enterprise Agent Platform that runs Saxml on TPUs.
 
-> **Note:** A GPU-only version of Llama 3 is [available](https://cloud.google.com/blog/products/ai-machine-learning/meta-llama-3-available-today-on-google-cloud-vertex-ai) in [Model Garden](https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama3) . For more information about Model Garden, see [Explore AI models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
+> **Note:** A GPU-only version of Llama 3 is [available](https://cloud.google.com/blog/products/ai-machine-learning/meta-llama-3-available-today-on-google-cloud-vertex-ai) in [Model Garden](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3) . For more information about Model Garden, see [Explore AI models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) .
 
 ## Before you begin
 

@@ -115,7 +115,7 @@ data_source: docs.cloud.google.com
   - `  GoogleSearchResultStep  ` (message)
   - `  GoogleSearchResultStep.GoogleSearchResultItem  ` (message)
   - `  HarmCategory  ` (enum)
-  - `  ImageConfig  ` (message)
+  - `  ImageConfig  ` (message) **(deprecated)**
   - `  ImageContent  ` (message)
   - `  ImageContent.MimeType  ` (enum)
   - `  ImageDelta  ` (message)
@@ -400,7 +400,7 @@ Fields
 
 The name of the `Agent` used for generating the completion.
 
-Union field `agent_config` . Parameters for the agent interaction. `agent_config` can be only one of the following:
+Union field `agent_config` . Configuration parameters for the agent interaction. `agent_config` can be only one of the following:
 
 `dynamic_config`
 
@@ -1478,7 +1478,7 @@ Network egress mode.
 
 ## EgressRule
 
-A network egress rule that controls which external domains the environment is allowed to reach. Each rule identifies a target domain and, optionally, a set of HTTP headers to inject into every matching outbound request.
+A single domain allowlist rule with optional header injection.
 
 Fields
 
@@ -1486,7 +1486,7 @@ Fields
 
 `string`
 
-The domain pattern to match for this rule. Use an exact hostname (e.g., `github.com` ), a wildcard prefix (e.g., `*.googleapis.com` ), or `*` to match all domains.
+Domain to allow outbound requests to. Supports wildcards (e.g. '\*.googleapis.com'). Use '\*' to allow all domains.
 
 `transform`
 
@@ -2500,6 +2500,8 @@ Prompts designed to bypass safety filters.
 
 ## ImageConfig
 
+> This item is deprecated\!
+
 The configuration for image interaction.
 
 Fields
@@ -2856,7 +2858,7 @@ Output only. The environment ID for the interaction. Only populated if environme
 
 `  Step  `
 
-Required. Output only. The steps that make up the interaction.
+Required. Output only. The steps that make up the interaction, when included in the response.
 
 `safety_settings[]`
 
@@ -2868,7 +2870,7 @@ Safety settings for the interaction.
 
 `map<string, string>`
 
-The labels with user-defined metadata for the request. It is used for billing and reporting only.
+The labels with user-defined metadata for the request.
 
 Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
 
@@ -2914,9 +2916,7 @@ Input only. The steps for the interaction.
 
 The content for the interaction.
 
-Union field `response_format_config` .
-
-`response_format_config` can be only one of the following:
+Union field `response_format_config` . Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. `response_format_config` can be only one of the following:
 
 ` response_format (deprecated)  `
 
@@ -2948,7 +2948,7 @@ Interaction for generating the completion using models.
 
 Interaction for generating the completion using agents.
 
-Union field `environment` . The environment configuration for the interaction. `environment` can be only one of the following:
+Union field `environment` . The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID. `environment` can be only one of the following:
 
 `env_id`
 
@@ -3002,7 +3002,9 @@ The interaction is completed, but contains incomplete results (e.g. hitting max\
 
 `BUDGET_EXCEEDED`
 
-The interaction was halted because the token budget was exceeded.
+Deprecated: Token and execution budget exhaustion returns INCOMPLETE (11).
+
+> This item is deprecated\!
 
 `QUEUED`
 
@@ -3152,21 +3154,27 @@ Required. The completed interaction with empty outputs to reduce the payload siz
 
 ## InteractionCompletedSseEvent
 
+Signals that the Interaction completed. Sent when the Interaction receives Complete/Cancel or naturally terminates. No more input can be sent to the Interaction after this.
+
 Fields
 
 `interaction`
 
 `  Interaction  `
 
-Required. The completed interaction with empty outputs to reduce the payload size. Use the preceding ContentDelta events for the actual output.
+Required. Partial completed interaction resource emitted at the end of the stream.
 
 ## InteractionCreatedSseEvent
 
+Server response confirming that a new interaction was created.
+
 Fields
 
 `interaction`
 
 `  Interaction  `
+
+Required. Partial interaction resource emitted when the stream is created.
 
 ## InteractionMetadata
 

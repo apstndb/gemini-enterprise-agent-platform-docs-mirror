@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 > **Caution:** As of July 21, 2026, the `llama-3.3-70b-instruct-maas` endpoint is deprecated and will be retired on October 21, 2026. For more information, see [Open model deprecations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models) .
 
-Llama 3.3 70B is a text-only 70B instruction-tuned model that provides enhanced performance relative to previous Llama models when used for text-only applications.
+Llama 3.3 70B is a text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B and to Llama 3.2 90B when used for text-only applications.
 
 ## Managed API (MaaS) specifications
 

@@ -6,7 +6,9 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Mistral Small 3.1 (25.03) is the latest version of Mistral's Small model, featuring multimodal capabilities and extended context length.
+Mistral Small 3.1 (25.03) features multimodal capabilities and a context of up to 128,000. The model can process and understand visual inputs and long documents, further expanding its range of applications compared to the previous Mistral AI Small model. Mistral Small 3.1 (25.03) is a versatile model designed for various tasks such as programming, mathematical reasoning, document understanding, and dialogue. Mistral Small 3.1 (25.03) is designed for low-latency applications to deliver best-in-class efficiency compared to models of the same quality.
+
+Mistral Small 3.1 (25.03) has undergone a full post-training process to align the model with human preferences and needs, making it usable out-of-the-box for applications that require chat or precise instruction following.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/mistralai/model-garden/mistral-small-2503)
 

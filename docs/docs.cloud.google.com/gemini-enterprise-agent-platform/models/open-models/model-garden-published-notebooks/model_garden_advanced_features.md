@@ -177,9 +177,9 @@ The quota for A100\_80GB deployment `Custom model serving Nvidia A100 80GB GPUs 
     # @markdown The original models from Meta are converted into the Hugging Face format for serving in Agent Platform.
     # @markdown Accept the model agreement to access the models:
     # @markdown 1. Open the Llama model card from [Agent Platform Model Garden](https://cloud.google.com/model-garden).
-    # @markdown    - [Llama 3.1 model card]({ {console_url} }vertex-ai/publishers/meta/model-garden/llama3_1).
-    # @markdown    - [Llama 3.2 model card]({ {console_url} }vertex-ai/publishers/meta/model-garden/llama3-2).
-    # @markdown    - [Llama 3.3 model card]({ {console_url} }vertex-ai/publishers/meta/model-garden/llama3-3).
+    # @markdown    - [Llama 3.1 model card]({ {console_url} }agent-platform/publishers/meta/model-garden/llama3_1).
+    # @markdown    - [Llama 3.2 model card]({ {console_url} }agent-platform/publishers/meta/model-garden/llama3-2).
+    # @markdown    - [Llama 3.3 model card]({ {console_url} }agent-platform/publishers/meta/model-garden/llama3-3).
     # @markdown 2. Review and accept the agreement in the pop-up window on the model card page. If you have previously accepted the model agreement, there will not be a pop-up window on the model card page and this step is not needed.
     # @markdown 3. After accepting the agreement of the model, a `gs://` URI containing Llama pretrained and instruction-tuned models will be shared.
     # @markdown 4. Paste the URI in the `VERTEX_AI_MODEL_GARDEN_LLAMA_3_1`, `VERTEX_AI_MODEL_GARDEN_LLAMA_3_2`, or `VERTEX_AI_MODEL_GARDEN_LLAMA_3_3` field below.

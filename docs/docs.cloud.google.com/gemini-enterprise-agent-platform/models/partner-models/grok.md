@@ -12,31 +12,19 @@ xAI Grok models are available for use as managed APIs on Gemini Enterprise Agent
 
 ## Managed xAI models
 
-The following models are available from xAI to use in Gemini Enterprise Agent Platform. To access a xAI model, go to its Model Garden model card.
+The following models are available from xAI to use in Gemini Enterprise Agent Platform. To access an xAI model, go to its Model Garden model card.
 
-### Grok 4.6
+[Grok 4.6](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6) A high-capability model from xAI, built for coding, agentic tasks, and knowledge work.
 
-Grok 4.6 is a high-capability model from xAI, built for coding, agentic tasks, and knowledge work.
+[Grok 4.3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-3) A high-performance model from xAI.
 
-### Grok 4.3
+[Grok 4.20 (Reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20#reasoning) A high-performance model from xAI, featuring a low hallucination rate. Excels at document understanding tasks and long-horizon agentic tool calling.
 
-Grok 4.3 is a high-performance model from xAI.
+[Grok 4.20 (Non-reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20#non-reasoning) A high-performance non-thinking model from xAI, featuring a low hallucination rate. Excels in latency-sensitive use cases like customer support and categorization.
 
-### Grok 4.20 (Reasoning)
+block [Grok 4.1 Fast (Reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-1-fast#reasoning) (Deprecated) A cost-effective model from xAI, featuring strong tool-calling capabilities and efficient knowledge base synthesis. Excels at search tasks involving web data and internal knowledge base tools.
 
-Grok 4.20 (Reasoning) is a high-performance model from xAI, featuring a low hallucination rate. It excels at document understanding tasks and long-horizon agentic tool calling.
-
-### Grok 4.20 (Non-reasoning)
-
-Grok 4.20 (Non-reasoning) is a high-performance non-thinking model from xAI, featuring a low hallucination rate. It excels in latency-sensitive use cases like customer support and categorization.
-
-### Grok 4.1 Fast (Reasoning)
-
-Grok 4.1 Fast (Reasoning) is a cost-effective model from xAI, featuring strong tool-calling capabilities and efficient knowledge base synthesis. It excels at search tasks involving web data and internal knowledge base tools.
-
-### Grok 4.1 Fast (Non-reasoning)
-
-Grok 4.1 Fast (Non-reasoning) is a cost-effective non-thinking model from xAI, optimized for low-latency performance. It excels at high-volume tasks like summarization and categorization.
+block [Grok 4.1 Fast (Non-reasoning)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-1-fast#non-reasoning) (Deprecated) A cost-effective non-thinking model from xAI, optimized for low-latency performance. Excels at high-volume tasks like summarization and categorization.
 
 ## Use xAI models
 

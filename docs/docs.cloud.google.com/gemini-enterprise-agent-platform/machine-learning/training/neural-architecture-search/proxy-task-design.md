@@ -377,9 +377,9 @@ which shows you a summary of the iterations and current state of the model-selec
             "14"
           ],
           "search_job_name": "projects/123456/locations/europe-west4/nasJobs/2111217356469436416",
-          "search_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/2111217356469436416/cpu?project=my-project",
+          "search_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/2111217356469436416/cpu?project=my-project",
           "latency_calculator_job_name": "projects/123456/locations/europe-west4/customJobs/6909239809479278592",
-          "latency_calculator_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/6909239809479278592/cpu?project=my-project",
+          "latency_calculator_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/6909239809479278592/cpu?project=my-project",
           "desired_training_step_pct": 2.0
         },
         ...,
@@ -391,18 +391,18 @@ which shows you a summary of the iterations and current state of the model-selec
             "5"
           ],
           "search_job_name": "projects/123456/locations/europe-west4/nasJobs/7045544066951413760",
-          "search_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/7045544066951413760/cpu?project=my-project",
+          "search_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/7045544066951413760/cpu?project=my-project",
           "latency_calculator_job_name": "projects/123456/locations/europe-west4/customJobs/2790768318993137664",
-          "latency_calculator_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/2790768318993137664/cpu?project=my-project",
+          "latency_calculator_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/2790768318993137664/cpu?project=my-project",
           "desired_training_step_pct": 28.57936507936508
         },
         {
           "num_trials": 10,
           "trials_to_retrain": [],
           "search_job_name": "projects/123456/locations/europe-west4/nasJobs/2742864796394192896",
-          "search_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/2742864796394192896/cpu?project=my-project",
+          "search_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/2742864796394192896/cpu?project=my-project",
           "latency_calculator_job_name": "projects/123456/locations/europe-west4/customJobs/1490864099985195008",
-          "latency_calculator_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/1490864099985195008/cpu?project=my-project",
+          "latency_calculator_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/1490864099985195008/cpu?project=my-project",
           "desired_training_step_pct": 101.0
         }
       ]
@@ -671,9 +671,9 @@ This command shows a summary of all the proxy-task evaluations and the current s
           },
           "proxy_task_name": "mnasnet_proxy_training_data_pct_25",
           "search_job_name": "projects/123456/locations/europe-west4/nasJobs/4173661476642357248",
-          "search_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/4173661476642357248/cpu?project=my-project",
+          "search_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/4173661476642357248/cpu?project=my-project",
           "latency_calculator_job_name": "projects/123456/locations/europe-west4/customJobs/8785347495069745152",
-          "latency_calculator_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/8785347495069745152/cpu?project=my-project"
+          "latency_calculator_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/8785347495069745152/cpu?project=my-project"
         },
         ...,
         "mnasnet_proxy_training_data_pct_95": {
@@ -716,9 +716,9 @@ This command shows a summary of all the proxy-task evaluations and the current s
           },
           "proxy_task_name": "mnasnet_proxy_training_data_pct_95",
           "search_job_name": "projects/123456/locations/europe-west4/nasJobs/2341822328209408000",
-          "search_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/2341822328209408000/cpu?project=my-project",
+          "search_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/2341822328209408000/cpu?project=my-project",
           "latency_calculator_job_name": "projects/123456/locations/europe-west4/customJobs/7575005095213924352",
-          "latency_calculator_job_link": "https://console.cloud.google.com/vertex-ai/locations/europe-west4/training/7575005095213924352/cpu?project=my-project"
+          "latency_calculator_job_link": "https://console.cloud.google.com/agent-platform/locations/europe-west4/training/7575005095213924352/cpu?project=my-project"
         }
       },
       "best_proxy_task_name": "mnasnet_proxy_training_data_pct_75"

@@ -3701,17 +3701,17 @@ Methods
 `  cancel  `
 
 `POST /v1beta1/{name}/cancel`  
-Cancels an interaction.
+Cancels an interaction by id.
 
 `  create  `
 
 `POST /v1beta1/{parent}/interactionsHttp`  
-Generates a set of responses from the model.
+Creates a new interaction.
 
 `  get  `
 
 `GET /v1beta1/{name}`  
-Gets an interaction.
+Retrieves the full details of a single interaction based on its `Interaction.id` .
 
 ## REST Resource: [v1beta1.projects.locations.memoryBanks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1beta1/projects.locations.memoryBanks)
 

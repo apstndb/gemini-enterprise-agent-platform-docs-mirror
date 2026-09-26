@@ -120,7 +120,7 @@ Output only. The environment id for the interaction. Only populated if environme
 
 `interaction.steps[]` ` object ( Step  ` )
 
-Required. Output only. The steps that make up the interaction.
+Required. Output only. The steps that make up the interaction, when included in the response.
 
 `interaction.safetySettings[]` ` object ( SafetySetting  ` )
 
@@ -128,7 +128,7 @@ Safety settings for the interaction.
 
 `interaction.labels` `map (key: string, value: string)`
 
-The labels with user-defined metadata for the request. It is used for billing and reporting only.
+The labels with user-defined metadata for the request.
 
 label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. label values are optional. label keys must start with a letter.
 
@@ -196,7 +196,7 @@ End of mutually exclusive fields.
 
 `response_format_config` `Union type`
 
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` interaction.responseFormat (deprecated)  ` ` object ( Value  ` )
 
@@ -238,7 +238,7 @@ End of mutually exclusive fields.
 
 `environment` `Union type`
 
-The environment configuration for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `interaction.envId` `string`
 

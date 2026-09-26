@@ -12,7 +12,7 @@ This page introduces how to perform pairwise model-based evaluation using AutoSx
 
 ## AutoSxS
 
-Automatic side-by-side (AutoSxS) is a pairwise model-based evaluation tool that runs through the evaluation pipeline service. AutoSxS can be used to evaluate the performance of either generative AI models in [Gemini Enterprise Agent Platform Model Registry](https://console.cloud.google.com/vertex-ai/) or pre-generated predictions, which allows it to support Gemini Enterprise Agent Platform foundation models, tuned generative AI models, and third-party language models. AutoSxS uses an autorater to decide which model gives the better response to a prompt. It's available on demand and evaluates language models with comparable performance to human raters.
+Automatic side-by-side (AutoSxS) is a pairwise model-based evaluation tool that runs through the evaluation pipeline service. AutoSxS can be used to evaluate the performance of either generative AI models in [Gemini Enterprise Agent Platform Model Registry](https://console.cloud.google.com/agent-platform/) or pre-generated predictions, which allows it to support Gemini Enterprise Agent Platform foundation models, tuned generative AI models, and third-party language models. AutoSxS uses an autorater to decide which model gives the better response to a prompt. It's available on demand and evaluates language models with comparable performance to human raters.
 
 ### The autorater
 
@@ -26,7 +26,7 @@ Models A and B receive input prompts, and each model generates responses that ar
 
 AutoSxS supports evaluation of any model when pre-generated predictions are provided. AutoSxS also supports automatically generating responses for any model in [Gemini Enterprise Agent Platform Model Registry](https://console.cloud.google.com/agent-platform/) that supports batch prediction on Gemini Enterprise Agent Platform.
 
-If your text model isn't supported by [Gemini Enterprise Agent Platform Model Registry](https://console.cloud.google.com/vertex-ai/) , AutoSxS also accepts pre-generated predictions stored as JSONL in Cloud Storage or a BigQuery table. For pricing, see [Text generation](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#text_generation) .
+If your text model isn't supported by [Gemini Enterprise Agent Platform Model Registry](https://console.cloud.google.com/agent-platform/) , AutoSxS also accepts pre-generated predictions stored as JSONL in Cloud Storage or a BigQuery table. For pricing, see [Text generation](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#text_generation) .
 
 ## Supported tasks and criteria
 
@@ -202,7 +202,7 @@ Follow these best practices when defining your evaluation dataset:
   - Provide examples that represent the types of inputs, which your models process in production.
   - Your dataset must include a minimum of one evaluation example. We recommend around 100 examples to ensure high-quality aggregate metrics. The rate of aggregate-metric quality improvements tends to decrease when more than 400 examples are provided.
   - For a guide to writing prompts, see [Design text prompts](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/design-multimodal-prompts) .
-  - If you're using pre-generated predictions for either model, include the pre-generated predictions in a column of your evaluation dataset. Providing pre-generated predictions is useful, because it lets you compare the output of models that aren't in [Vertex Model Registry](https://console.cloud.google.com/vertex-ai/) and lets you reuse responses.
+  - If you're using pre-generated predictions for either model, include the pre-generated predictions in a column of your evaluation dataset. Providing pre-generated predictions is useful, because it lets you compare the output of models that aren't in [Vertex Model Registry](https://console.cloud.google.com/agent-platform/) and lets you reuse responses.
 
 ## Perform model evaluation
 
@@ -517,7 +517,7 @@ To create a pairwise model evaluation job by using the Google Cloud console, per
 
 ## View evaluation results
 
-You can find the evaluation results in the [Agent Platform Pipelines](https://console.cloud.google.com/vertex-ai/pipelines/runs) by inspecting the following artifacts produced by the AutoSxS pipeline:
+You can find the evaluation results in the [Agent Platform Pipelines](https://console.cloud.google.com/agent-platform/pipelines/runs) by inspecting the following artifacts produced by the AutoSxS pipeline:
 
   - The [judgments](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval#judgments) table is produced by the AutoSxS arbiter.
   - [Aggregate metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/side-by-side-eval#aggregate-metrics) are produced by the AutoSxS metrics component.
@@ -677,7 +677,7 @@ You can specify that inference runs on both models simultaneously.
 
 ![Figure 2. Both inference models run](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/images/autosxs-overview.png)
 
-This code sample evaluates a tuned model from [Vertex Model Registry](https://console.cloud.google.com/vertex-ai/) against a reference model from the same registry.
+This code sample evaluates a tuned model from [Vertex Model Registry](https://console.cloud.google.com/agent-platform/) against a reference model from the same registry.
 
     # Evaluation dataset schema:
     #   my_question: str

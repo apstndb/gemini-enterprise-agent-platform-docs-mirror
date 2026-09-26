@@ -6,9 +6,19 @@ description: Model details for Claude Sonnet 4.5
 data_source: docs.cloud.google.com
 ---
 
-Anthropic's mid-sized model for powering real-world agents, with capabilities in coding, computer use, cybersecurity, and working with office files like spreadsheets.
+Claude Sonnet 4.5 on Google Cloud is Anthropic's Sonnet-class model for powering real-world agents, with industry leading capabilities around coding, computer use, cybersecurity, and working with office files like spreadsheets.
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-sonnet-4-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
+**Retirement Date:** Not sooner than Sept 29, 2026.
+
+  - **Long-running agents** : Power production-ready assistants for multi-step, real-time applications, from customer support automation to complex operational workflows that require peak accuracy, intelligence, and speed.
+  - **Coding** : Handle everyday development tasks with enhanced performance - or plan and execute complex software projects spanning hours or days - with the ability to save, maintain, and reference information across multiple sessions.
+  - **Cybersecurity** : Deploy agents that autonomously patch vulnerabilities before exploitation, shifting from reactive detection to proactive defense.
+  - **Financial analysis** : Conduct entry-level financial analysis, deliver advanced predictive analysis, or preemptively develop intelligent risk management strategies that leverage best-in-class domain knowledge.
+  - **Computer use** : A highly accurate model for computer use, enabling developers to direct the model to use computers the way people do.
+  - **Business tasks** : Generate and edit office files like slides, documents, and spreadsheets with minimal input.
+  - **Research** : Perform focused analysis across multiple data sources, turning expert analysis into final deliverables. Ideal for complex problem solving, rapid business intelligence, and real-time decision support.
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/generative/multimodal/create/text?model=claude-sonnet-4-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4-5)
 
 Model ID
 

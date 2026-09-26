@@ -88,7 +88,7 @@ You can enable the system health report by using the Google Cloud console or the
       - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM; for example, `n1-standard-4`
       - `  ZONE  ` : the zone where you want your new instance to be located, for example, `us-west1-a`
 
-2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/vertex-ai/workbench/instances?project=) .
+2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances?project=) .
 
 ### Monitor system health through guest attributes
 
@@ -208,7 +208,7 @@ You can enable reporting custom metrics to Cloud Monitoring by using the Google 
       - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM, for example, `n1-standard-4`
       - `  ZONE  ` : the zone where you want your new instance to be located, for example, `us-west1-a`
 
-2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/vertex-ai/workbench/instances?project=) .
+2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances?project=) .
 
 ### Grant Monitoring Metric Writer permissions to the service account
 
@@ -271,7 +271,7 @@ To install Monitoring on your Agent Platform Workbench instance, you can use the
       - `  MACHINE_TYPE  ` : the [machine type](https://docs.cloud.google.com/compute/docs/machine-resource) of your instance's VM; for example, `n1-standard-4`
       - `  ZONE  ` : the zone where you want your new instance to be located, for example, `us-west1-a`
 
-2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/vertex-ai/workbench/instances?project=) .
+2.  Access your instance from the [Google Cloud console](https://console.cloud.google.com/agent-platform/workbench/instances?project=) .
 
 ### Monitor system and application metrics through Monitoring
 

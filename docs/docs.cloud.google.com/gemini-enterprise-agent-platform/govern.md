@@ -141,6 +141,12 @@ Codelab
 
 Learn about Agent Gateway governance for cross-project Agent Runtime agents.
 
+Codelab
+
+### [Codelab: Agent Gateway egress from Gemini Enterprise to custom MCP servers](https://codelabs.developers.google.com/agw-ge-custom-mcp-egress-vpc-registry)
+
+Learn about setting up private Agent Gateway egress governance for Gemini Enterprise.
+
 Overview
 
 ### [Agent Gateway overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview)

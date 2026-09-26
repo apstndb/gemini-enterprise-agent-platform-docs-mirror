@@ -398,7 +398,7 @@ Use the following Python code sample to create a pipeline run that uses the pers
     # Construct the Google Cloud console link
     job_id = response.name.split('/')[-1]
     console_link = (
-        f"https://console.cloud.google.com/vertex-ai/locations/LOCATION"
+        f"https://console.cloud.google.com/agent-platform/locations/LOCATION"
         f"/pipelines/runs/{job_id}"
         f"?project=PROJECT_ID"
     )

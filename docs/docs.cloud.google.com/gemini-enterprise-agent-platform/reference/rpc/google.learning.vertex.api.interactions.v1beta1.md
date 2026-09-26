@@ -63,7 +63,7 @@ API that allows users to interact with models and agents.
 <tbody>
 <tr class="odd">
 <td><p><code dir="ltr" translate="no">rpc CancelInteractionHttp(              CancelInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>Cancels an interaction.</p>
+<p>Cancels an interaction by id. This only applies to background interactions that are still running.</p>
 <dl>
 <dt>Authorization scopes</dt>
 <dd><p>Requires the following OAuth scope:</p>
@@ -124,7 +124,7 @@ API that allows users to interact with models and agents.
 <tbody>
 <tr class="odd">
 <td><p><code dir="ltr" translate="no">rpc CreateInteractionHttp(              CreateInteractionHttpRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>Generates a set of responses from the model.</p>
+<p>Creates a new interaction.</p>
 <dl>
 <dt>Authorization scopes</dt>
 <dd><p>Requires the following OAuth scope:</p>
@@ -267,7 +267,7 @@ API that allows users to interact with models and agents.
 <tbody>
 <tr class="odd">
 <td><p><code dir="ltr" translate="no">rpc GetInteractionHttp(              GetInteractionRequest            </code> ) returns ( <code dir="ltr" translate="no">             HttpBody            </code> )</p>
-<p>Gets an interaction.</p>
+<p>Retrieves the full details of a single interaction based on its <code dir="ltr" translate="no">Interaction.id</code> .</p>
 <dl>
 <dt>Authorization scopes</dt>
 <dd><p>Requires the following OAuth scope:</p>
@@ -388,8 +388,10 @@ API that allows users to interact with models and agents.
 
 ## VoicesHttpService
 
+HTTP transcoder service for managing custom voices and listing available voices for Gemini TTS.
+
 ## VoicesService
 
-VoicesService defines typed RPCs for future SDK generation. NOTE: No handlers are currently registered for these RPCs. All traffic is served via VoicesHttpService (the HttpBody-wrapping service). When handlers are added, the scaffolding\_registration\_test in labs/language/genai/Voices/ must be updated to include "VoicesService" in its services argument.
+Manages custom voices and lists available voices for Gemini TTS.
 
-Because this service ships in the same proto\_library as VoicesHttpService, both are registered into the live ESF config together. A method here must therefore NOT declare a method\_http\_map matching one of VoicesHttpService's REST templates: ESF resolves on (path, verb), and two methods claiming one route make it reject every request to that route as ambiguous rather than pick one. Every method below uses a distinct custom-verb suffix (":create", ":get", ":list", ":delete") so its REST template never matches VoicesHttpService's bare-path templates, mirroring the convention InteractionsService's typed RPCs use for the same reason (e.g. ListInteractions -\> "interactions:list").
+A voice is created either by *replication* from a reference audio recording or by *prompting* with a natural-language description. Created voices are referenced at synthesis time via `GenerationConfig.speech_config.voice_config.voice` (in `GenerateContent` / `BidiGenerateContent` ) or `GenerationConfig.speech_config.voice` (in `CreateInteraction` ).

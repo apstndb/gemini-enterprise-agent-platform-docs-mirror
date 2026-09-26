@@ -6,9 +6,18 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Anthropic's Claude Opus 4 on Google Cloud delivers sustained performance on long-running tasks that require focused effort and thousands of steps, significantly expanding what AI agents can solve.
+Claude Opus 4 on Google Cloud is a state-of-the-art model for coding and agent capabilities, especially agentic search. It excels for customers needing frontier intelligence:
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-opus-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
+**Retirement Date:** Not sooner than May 14, 2026.
+
+  - **Advanced coding** : Independently plan and execute complex development tasks end-to-end. It adapts to your style and maintains high code quality throughout.
+  - **Long-horizon tasks and complex problem solving (virtual collaborator)** : Unlock new use cases that involves long-horizon tasks that require memory, sustained reasoning, and long chains of actions.
+  - **AI agents** : Enable agents to tackle complex, multi-step tasks that require peak accuracy.
+  - **Agentic search and research** : Connect to multiple data sources to synthesize comprehensive insights across repositories.
+  - **Content creation** : Create human-quality content with natural prose. Produce long-form creative content, technical documentation, marketing copy, and frontend design mockups.
+  - **Memory and context management** : Incorporates memory capabilities that allow it to effectively summarize and reference previous interactions.
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/generative/multimodal/create/text?model=claude-opus-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4)
 
 Model ID
 

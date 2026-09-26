@@ -209,7 +209,7 @@ You can optimize prompts in the following ways:
 
   - using the Gemini Enterprise Agent Platform prompt optimizer in the Gemini Enterprise Agent Platform Console
   - using the Agent Platform API
-  - running the [Agent Platform prompt optimizer notebook](https://console.cloud.google.com/vertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fprompts%2Fprompt_optimizer%2Fvertex_ai_prompt_optimizer_ui.ipynb) .
+  - running the [Agent Platform prompt optimizer notebook](https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fprompts%2Fprompt_optimizer%2Fvertex_ai_prompt_optimizer_ui.ipynb) .
 
 To optimize prompts, choose which method you want to use, then complete the steps as described in detail in the following sections:
 

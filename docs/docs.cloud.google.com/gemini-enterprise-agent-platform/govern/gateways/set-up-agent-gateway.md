@@ -436,6 +436,7 @@ For end-to-end demonstrations on how to set up and use Agent Gateway, see the fo
   - **[Agent Gateway egress from Agent Runtime to external MCP servers](https://codelabs.developers.google.com/agw-cuj-arun-egress-emcp)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to external MCP servers.
   - **[Agent Gateway egress from Agent Runtime to VPC network](https://codelabs.developers.google.com/agw-cuj-arun-egress-vpc)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode to govern ADK agent calls to destinations in a VPC network.
   - **[Agent Gateway governance for cross-project Agent Runtime agents](https://codelabs.developers.google.com/agw-multiproject)** : Learn how to configure Agent Gateway in Agent-to-Anywhere mode for governing cross-project Agent Runtime agents.
+  - **[Private Agent Gateway egress from Gemini Enterprise](https://codelabs.developers.google.com/agw-ge-custom-mcp-egress-vpc-registry)** : Learn how to set up private Agent Gateway egress governance for Gemini Enterprise.
 
 ## What's next
 

@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.interactionsHttp.create
 
-Generates a set of responses from the model.
+Creates a new interaction.
 
 ### Endpoint
 

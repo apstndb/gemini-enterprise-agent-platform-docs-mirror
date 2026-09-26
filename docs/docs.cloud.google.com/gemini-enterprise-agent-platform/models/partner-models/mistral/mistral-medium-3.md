@@ -6,7 +6,11 @@ description: Mistral Medium 3 with Agent Platform Model Garden
 data_source: docs.cloud.google.com
 ---
 
-Mistral Medium 3 is a versatile multimodal model designed for a wide range of tasks, including programming, mathematical reasoning, understanding long documents, summarization, and dialogue. It excels at complex tasks requiring advanced reasoning abilities, visual understanding, or a high level of specialization (e.g. creative writing, agentic workflows, code generation).
+Mistral Medium 3 is a versatile model designed for a wide range of tasks, including programming, mathematical reasoning, understanding long documents, summarization, and dialogue. It excels at complex tasks requiring advanced reasoning abilities, visual understanding or a high level of specialization (such as creative writing, agentic workflows, code generation).
+
+It boasts multi-modal capabilities, enabling it to process visual inputs, and supports dozens of languages, including over 80 coding languages. Additionally, it features function calling and agentic workflows.
+
+Mistral Medium 3 is optimized for single-node inference, particularly for long-context applications. Its size allows it to achieve high throughput on a single node.
 
 Mistral Medium 3 is well-suited for tasks such as:
 

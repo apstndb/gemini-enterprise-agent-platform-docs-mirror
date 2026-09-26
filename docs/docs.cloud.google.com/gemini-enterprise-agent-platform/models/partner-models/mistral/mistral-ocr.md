@@ -6,7 +6,11 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Mistral OCR (25.05) is an Optical Character Recognition API for document understanding. The model comprehends each element of documents such as media, text, tables, and equations.
+Mistral OCR (25.05) is an Optical Character Recognition API for document understanding. Mistral OCR (25.05) excels in understanding complex document elements, including interleaved imagery, mathematical expressions, tables, and advanced layouts such as LaTeX formatting. The model enables deeper understanding of rich documents such as scientific papers with charts, graphs, equations and figures.
+
+Mistral OCR (25.05) is an ideal model to use in combination with a RAG system that takes multimodal documents (such as slides or complex PDFs) as input.
+
+You can couple Mistral OCR (25.05) with other Mistral models to reformat the results. This combination ensures that the extracted content is not only accurate but also presented in a structured and coherent manner, making it suitable for various downstream applications and analyses.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/mistralai/model-garden/mistral-ocr-2505)
 

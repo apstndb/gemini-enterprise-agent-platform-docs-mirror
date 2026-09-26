@@ -267,7 +267,9 @@ Here is what the core default parameters mean:
   - **`project_paths: []`**
     
       - **What it means:** A list of directory paths that CodeMender can access (read/write) during tool execution.
-      - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory, the `~/.codemender` (or `$CM_HOME` ) workspace directory, and `/tmp` . If your build or test process requires accessing files outside these directories, you must add those paths here.
+      - **Why this is the default:** By default, it is empty, which restricts the agent to the scan target directory. If your build or test process requires accessing files outside the scan target directory, you must add those paths here.
+      - **Artifacts directory:** The agent can also write to a per-session artifacts directory ( `~/.codemender/artifacts/<session_id>/` , or the equivalent under `$CM_HOME` ).
+      - **Temporary files:** When the sandbox is enabled, the host `/tmp` directory is always blocked, even if you add `/tmp` to `project_paths` . Tools that respect `TMPDIR` use a temporary directory inside the artifacts directory instead.
 
   - **`sandbox`** :
     

@@ -66,7 +66,7 @@ The name can consist of any UTF-8 characters. The maximum length is `63` charact
 
 Required. The data source used to query samples for evaluations. More data sources will be supported in the future.
 
-The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics` , `result_table` can be updated; `source_table` and `scope` are immutable. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `cloudObservability` ` object ( CloudObservability  ` )
 

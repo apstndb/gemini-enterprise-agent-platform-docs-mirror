@@ -6,7 +6,16 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Anthropic's most powerful model yet and the state-of-the-art coding model. Claude Opus 4.1 on Google Cloud delivers sustained performance on long-running tasks that require focused effort and thousands of steps, significantly expanding what AI agents can solve.
+Claude Opus 4.1 on Google Cloud is Anthropic's Opus-class model and an industry leader for coding and agent capabilities, especially agentic search. It excels for customers needing frontier intelligence:
+
+**Retirement Date:** Not sooner than Aug 5, 2026.
+
+  - **AI agents** : Enable AI agents to complete complex, multi-step tasks with precision and reliability.
+  - **Agentic search and analysis** : Connect to multiple data sources to synthesize information and insights across different repositories.
+  - **Expert-level coding** : Plan and execute complex coding tasks end-to-end, maintaining high-quality code that is consistent with your style.
+  - **Virtual collaboration** : Use the sustained reasoning capabilities to unlock new use cases involving long-horizon tasks and long chains of actions.
+  - **Content creation** : Generate content with human-quality, natural prose. Create long-form content, technical documentation, marketing copy, and frontend design mockups.
+  - **Long context and memory** : Incorporates memory capabilities that allow it to effectively summarize and reference previous interactions.
 
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-1)
 

@@ -60,7 +60,7 @@ Output only. The environment id for the interaction. Only populated if environme
 
 `steps[]` ` object ( Step  ` )
 
-Required. Output only. The steps that make up the interaction.
+Required. Output only. The steps that make up the interaction, when included in the response.
 
 `safetySettings[]` ` object ( SafetySetting  ` )
 
@@ -68,7 +68,7 @@ Safety settings for the interaction.
 
 `labels` `map (key: string, value: string)`
 
-The labels with user-defined metadata for the request. It is used for billing and reporting only.
+The labels with user-defined metadata for the request.
 
 label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. label values are optional. label keys must start with a letter.
 
@@ -108,7 +108,7 @@ End of mutually exclusive fields.
 
 `response_format_config` `Union type`
 
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 ` responseFormat (deprecated)  ` ` object ( Value  ` )
 
@@ -138,7 +138,7 @@ End of mutually exclusive fields.
 
 `environment` `Union type`
 
-The environment configuration for the interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `envId` `string`
 
@@ -896,6 +896,8 @@ No thinking summaries.
 
 ## ImageConfig
 
+> This item is deprecated\!
+
 The configuration for image interaction.
 
 Fields
@@ -1059,7 +1061,7 @@ The name of the `Agent` used for generating the completion.
 
 `agent_config` `Union type`
 
-Parameters for the agent interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+Configuration parameters for the agent interaction. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `dynamicConfig` ` object ( DynamicAgentConfig  ` )
 
@@ -1482,13 +1484,13 @@ List of allowed domains and their configurations.
 
 ## EgressRule
 
-A network egress rule that controls which external domains the environment is allowed to reach. Each rule identifies a target domain and, optionally, a set of HTTP headers to inject into every matching outbound request.
+A single domain allowlist rule with optional header injection.
 
 Fields
 
 `domain` `string`
 
-The domain pattern to match for this rule. Use an exact hostname (e.g., `github.com` ), a wildcard prefix (e.g., `*.googleapis.com` ), or `*` to match all domains.
+domain to allow outbound requests to. Supports wildcards (e.g. '\*.googleapis.com'). Use '\*' to allow all domains.
 
 `transform` `map (key: string, value: string)`
 

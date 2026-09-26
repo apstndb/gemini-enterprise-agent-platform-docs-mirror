@@ -1991,9 +1991,10 @@ The service that manages Vertex Agent related resources.
 <p>Creates an agent.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2026,9 +2027,10 @@ The service that manages Vertex Agent related resources.
 <p>Deletes an agent.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2061,9 +2063,10 @@ The service that manages Vertex Agent related resources.
 <p>Retrieves an agent.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2097,9 +2100,10 @@ The service that manages Vertex Agent related resources.
 <p>An agent belongs to the end user recorded as its owner when it was created, so the response holds that caller's agents and no others. It is empty for a caller that is not an end user, and an agent with no recorded owner is listed for nobody.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -2128,13 +2132,14 @@ The service that manages Vertex Agent related resources.
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code dir="ltr" translate="no">rpc UpdateAgent(              UpdateAgentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Agent            </code> )</p>
+<td><p><code dir="ltr" translate="no">rpc UpdateAgent(              UpdateAgentRequest            </code> ) returns ( <code dir="ltr" translate="no">             Operation            </code> )</p>
 <p>Updates an agent.</p>
 <dl>
 <dt>Authorization scopes</dt>
-<dd><p>Requires the following OAuth scope:</p>
+<dd><p>Requires one of the following OAuth scopes:</p>
 <ul>
 <li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/aiplatform</code></li>
 </ul>
 <p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
 </dd>
@@ -18589,6 +18594,8 @@ Optional. Custom message shown to the end user when the policy check results in 
 
 A tool provides a list of actions available to the `  Agent  ` during the process of executing a task.
 
+Example JSON for an MCP server tool: { "type": "mcp\_server", "name": "my-mcp-server", "url": "https://api.example.com/mcp", "headers": { "Authorization": "Bearer token123" } }
+
 Fields
 
 `type`
@@ -18614,7 +18621,7 @@ Optional. The tool's Google Cloud resource name, used to resolve the tool. Appli
 
 `string`
 
-Optional. Temporary: the tool's runtime reference, consumed by CreateAgent to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` . It is duplicated here (the resource name is already in `name` ) only because the Agent service is not yet connected to Agent Registry to derive it from `name` ; the Task Service instead resolves it from Agent Registry (GetMcpServer / GetEndpoint) at task creation.
+Optional. Fallback for the tool's runtime reference, consumed by `CreateAgent` to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` , and optional: the Agent service derives the runtime reference from `name` via Agent Registry ( `GetMcpServer` / `GetEndpoint` ), and reads this only when that lookup yields none.
 
 `headers`
 
@@ -24375,7 +24382,7 @@ Fields
 
 `string`
 
-Optional. The region to use for code execution. If set, the Code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the Code Execution Sandbox is available. Supported regions: northamerica-northeast1, southamerica-east1, us-central1, us-east1, us-east4, us-west1, us-west4, europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west6, europe-west8, europe-west9, me-west1, asia-east1, asia-east2, asia-northeast1, asia-northeast3, asia-south1, asia-south2, asia-southeast1, australia-southeast2. If unset, the request's originating region is used; requests from regions where the sandbox is unavailable will fail with UNIMPLEMENTED.
+Optional. The region to use for code execution. If set, the Code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the Code Execution Sandbox is available. For the current list of [supported regions](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/locations) . If unset, the request's originating region is used; requests from regions where the sandbox is unavailable will fail with UNIMPLEMENTED.
 
 `evaluation_function`
 
@@ -29214,7 +29221,7 @@ Fields
 
 `string`
 
-Optional. The region to use for code execution. If set, the Code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the Code Execution Sandbox is available. Supported regions: northamerica-northeast1, southamerica-east1, us-central1, us-east1, us-east4, us-west1, us-west4, europe-central2, europe-north1, europe-southwest1, europe-west1, europe-west2, europe-west3, europe-west4, europe-west6, europe-west8, europe-west9, me-west1, asia-east1, asia-east2, asia-northeast1, asia-northeast3, asia-south1, asia-south2, asia-southeast1, australia-southeast2. If unset, the request's originating region is used.
+Optional. The region to use for code execution. If set, the Code Execution Sandbox will be invoked in the specified region regardless of the request's originating region. Must be a region where the Code Execution Sandbox is available. For the current list of [supported regions](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/locations) . If unset, the request's originating region is used.
 
 `parsing_function`
 
@@ -48652,7 +48659,7 @@ The name can consist of any UTF-8 characters. The maximum length is `63` charact
 
 Union field `data_source` . Required. The data source used to query samples for evaluations. More data sources will be supported in the future.
 
-The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. `data_source` can be only one of the following:
+The data source type is immutable once set. Within `cloud_observability` , `log_view` and `trace_view` can be updated; the `eval_scope` and `convention` are immutable. Within `bigquery_agent_analytics` , `result_table` can be updated; `source_table` and `scope` are immutable. `data_source` can be only one of the following:
 
 `cloud_observability`
 
@@ -56663,9 +56670,7 @@ Content of the rubric, defining the testable criteria.
 
 Fields
 
-Union field `content_type` .
-
-`content_type` can be only one of the following:
+Union field `content_type` . The specific type of content that defines the rubric. `content_type` can be only one of the following:
 
 `property`
 

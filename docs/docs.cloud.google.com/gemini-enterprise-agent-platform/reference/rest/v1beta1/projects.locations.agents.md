@@ -91,6 +91,8 @@ End of mutually exclusive fields.
 
 A tool provides a list of actions available to the `  Agent  ` during the process of executing a task.
 
+Example JSON for an MCP server tool: { "type": "mcpServer", "name": "my-mcp-server", "url": "https://api.example.com/mcp", "headers": { "Authorization": "Bearer token123" } }
+
 Fields
 
 `type` `string`
@@ -110,7 +112,7 @@ Optional. The tool's Google Cloud resource name, used to resolve the tool. Appli
 
 `url` `string`
 
-Optional. Temporary: the tool's runtime reference, consumed by agents.create to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` . It is duplicated here (the resource name is already in `name` ) only because the Agent service is not yet connected to Agent Registry to derive it from `name` ; the Task service instead resolves it from Agent Registry (GetMcpServer / GetEndpoint) at task creation.
+Optional. Fallback for the tool's runtime reference, consumed by `agents.create` to create the downstream AI App. Applicable when `type` is `mcp_server` or `endpoint` , and optional: the Agent service derives the runtime reference from `name` via Agent Registry ( `GetMcpServer` / `GetEndpoint` ), and reads this only when that lookup yields none.
 
 `headers` `map (key: string, value: string)`
 

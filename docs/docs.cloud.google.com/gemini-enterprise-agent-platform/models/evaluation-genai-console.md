@@ -61,7 +61,7 @@ You can use Gen AI evaluation service to evaluate the following partner models:
   - **Anthropic**
   - **Llama**
 
-Partner models are supported through Gemini Enterprise Agent Platform Model Garden. You must enable a partner model in [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden) before selecting it for evaluation. To evaluate a partner model, select it in the model selection menu during evaluation setup.
+Partner models are supported through Gemini Enterprise Agent Platform Model Garden. You must enable a partner model in [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) before selecting it for evaluation. To evaluate a partner model, select it in the model selection menu during evaluation setup.
 
 ### Pricing
 

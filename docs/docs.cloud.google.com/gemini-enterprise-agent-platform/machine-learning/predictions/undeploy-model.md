@@ -10,6 +10,8 @@ Use one of the following methods to undeploy a model and delete the endpoint.
 
 > **Note:** You can only delete the endpoint after all models have been undeployed from it.
 
+As a best practice, when replacing a model on an endpoint after shifting traffic to a new model version (such as during automated CI/CD rollouts), wait at least 10–15 minutes after updating the traffic split to 100% before initiating `undeploy-model` . This hold window allows in-flight inference requests to complete and ensures regional routing configurations fully synchronize before previous model resources are deallocated.
+
 ### Google Cloud console
 
 1.  Undeploy the model as follows:

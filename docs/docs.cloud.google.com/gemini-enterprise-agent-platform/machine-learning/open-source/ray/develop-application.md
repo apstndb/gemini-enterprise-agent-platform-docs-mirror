@@ -79,7 +79,7 @@ Where:
 
   - PROJECT\_ID : Your Google Cloud project ID. Find the project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
-  - CLUSTER\_NAME : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you create the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/vertex-ai/ray) to view the list of cluster names for a project.
+  - CLUSTER\_NAME : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you create the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/agent-platform/ray) to view the list of cluster names for a project.
 
 You get output similar to the following:
 
@@ -172,7 +172,7 @@ Where:
 
   - PROJECT\_ID : Your Google Cloud project number. Find the project ID in the Google Cloud console [welcome](https://console.cloud.google.com/welcome) page.
 
-  - CLUSTER\_NAME : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you created the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/vertex-ai/ray) to view the list of cluster names for a project.
+  - CLUSTER\_NAME : The name of your Ray cluster on Gemini Enterprise Agent Platform, specified when you created the cluster. Go to the [Google Cloud console](https://console.cloud.google.com/agent-platform/ray) to view the list of cluster names for a project.
 
   - CLUSTER\_RAY\_VERSION : Pin the Ray version to the same version as the cluster. For example, 2.47.1.
 

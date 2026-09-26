@@ -93,12 +93,12 @@ An object containing fields of an arbitrary type. An additional field `"@type"` 
 
 ### `            cancel           `
 
-Cancels an interaction.
+Cancels an interaction by id.
 
 ### `            create           `
 
-Generates a set of responses from the model.
+Creates a new interaction.
 
 ### `            get           `
 
-Gets an interaction.
+Retrieves the full details of a single interaction based on its `Interaction.id` .

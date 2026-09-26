@@ -12,6 +12,13 @@ Claude Fable 5 on Google Cloud is optimized for autonomous knowledge work and co
 
 **Retirement Date:** Not sooner than June 8, 2027.
 
+  - **Long-running agents** : Run Claude Fable 5 on Google Cloud in an agent harness like Claude Code or Claude Managed Agents and it can work for days at a time: planning across stages, delegating to sub-agents, and checking its own work.
+  - **Coding** : Claude Fable 5 on Google Cloud is our most capable model for ambitious coding projects, including large migrations, complex implementations, and multi-day autonomous sessions. It can write its own tests to verify its work, implements designs with high fidelity, and uses vision to check outputs against goals.
+  - **Enterprise workflows** : Claude Fable 5 on Google Cloud handles complex, multi-stage knowledge work with minimal oversight, from deep research and analysis to finished deliverables. Teams can hand off large projects and review completed work rather than supervising every step.
+  - **Financial analysis** : Claude Fable 5 on Google Cloud brings deeper reasoning and best-in-class vision to financial workflows, reading dense filings, charts, and tables nested in PDFs at high fidelity. It supports investment research, earnings analysis, credit and risk review, and compliance workflows.
+  - **Vision** : Claude Fable 5 on Google Cloud understands diagrams, charts, and tables nested in files and PDFs, improving document-heavy work in finance, legal, analytics, and architecture. It also uses vision to verify its own work, checking outputs against the original design or goal.
+  - **Computer use** : Claude Fable 5 on Google Cloud is our most capable computer use model, pairing improved vision with deep reasoning for multi-step tasks that span multiple applications and require planning and judgment, including verifying and testing the same applications it creates.
+
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-fable-5)
 
 Model ID

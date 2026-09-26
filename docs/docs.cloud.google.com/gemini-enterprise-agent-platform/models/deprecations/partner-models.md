@@ -373,7 +373,7 @@ Claude 3.5 Sonnet v2 on Google Cloud is **deprecated as of August 20, 2025** and
 
 Claude 3.5 Sonnet v2 on Google Cloud is a state-of-the-art model for real-world software engineering tasks and agentic capabilities.
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-3-5-sonnet-v2)
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/generative/multimodal/create/text?model=claude-3-5-sonnet-v2)
 
 Model ID
 

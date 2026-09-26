@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.interactionsHttp.cancel
 
-Cancels an interaction.
+Cancels an interaction by id. This only applies to background interactions that are still running.
 
 ### Endpoint
 

@@ -23,7 +23,7 @@ The following list describes the key benefits for using xDiT to serve DiT models
 
 ## Supported models
 
-xDiT is available for certain DiT model architectures in Gemini Enterprise Agent Platform Model Garden such as Flux.1 Schnell, CogVideoX-2b, and Wan2.1 text-to-video model variants. To see if a DiT model supports xDiT in Model Garden, view its model card in [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden) .
+xDiT is available for certain DiT model architectures in Gemini Enterprise Agent Platform Model Garden such as Flux.1 Schnell, CogVideoX-2b, and Wan2.1 text-to-video model variants. To see if a DiT model supports xDiT in Model Garden, view its model card in [Model Garden](https://console.cloud.google.com/agent-platform/model-garden) .
 
 ## Hybrid parallelism for multi-GPU performance:
 
@@ -52,7 +52,7 @@ The following examples use the Flux.1-schnell model to demonstrate how to deploy
 
 You can deploy a custom Agent Platform endpoint with the xDiT container by using a model card.
 
-1.  Navigate to the [model card page](https://console.cloud.google.com/vertex-ai/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Deploy** .
+1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Deploy** .
 
 2.  For the model variation to use, select a machine type to use for your deployment.
 
@@ -62,7 +62,7 @@ You can deploy a custom Agent Platform endpoint with the xDiT container by using
 
 For flexibility and customization, use the Colab Enterprise notebook examples to deploy an Agent Platform endpoint with the xDiT container by using the Agent Platform SDK for Python.
 
-1.  Navigate to the [model card page](https://console.cloud.google.com/vertex-ai/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Open notebook** .
+1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/black-forest-labs/model-garden/flux1-schnell) and click **Open notebook** .
 
 2.  Select the Vertex Serving notebook. The notebook is opened in Colab Enterprise.
 

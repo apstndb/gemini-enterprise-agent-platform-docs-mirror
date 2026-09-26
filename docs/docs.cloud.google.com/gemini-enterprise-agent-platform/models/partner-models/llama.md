@@ -18,33 +18,11 @@ Llama models offer fully managed and serverless models as APIs. To use a Llama m
 
 The following models are available from Llama to use in Gemini Enterprise Agent Platform. To access a Llama model, go to its Model Garden model card.
 
-### Llama 4 Maverick 17B-128E
+[Llama 4 Maverick 17B-128E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-maverick) The largest and most capable multimodal Llama 4 model (MoE 17B active / 400B total), optimized for coding, deep reasoning, sophisticated chat, and high-precision image understanding.
 
-Llama 4 Maverick 17B-128E is the largest and most capable Llama 4 model that offers coding, reasoning, and image capabilities. It features Mixture-of-Experts (MoE) architecture with 17 billion active parameters out of 400 billion total parameters and 128 experts. Llama 4 Maverick 17B-128E uses alternating dense and MoE layers, where each token activates a shared expert plus one of the 128 routed experts. The model is pretrained on 200 languages and optimized for high-quality chat interactions through a refined post-training pipeline.
+[Llama 4 Scout 17B-16E](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama4-scout) High-efficiency MoE model (17B active / 109B total) delivering state-of-the-art results for long-context retrieval, document summarization, and reasoning across large codebases.
 
-Llama 4 Maverick 17B-128E is multimodal and is suited for advanced image captioning, analysis, precise image understanding, visual questions and answers, creative text generation, general-purpose AI assistants, and sophisticated chatbots requiring top-tier intelligence and image understanding.
-
-#### Considerations
-
-  - You can include a maximum of three images per request.
-  - The MaaS endpoint doesn't use Llama Guard, unlike previous versions. To use Llama Guard, deploy Llama Guard from Model Garden and then send the prompts and responses to that endpoint. However, compared to Llama 4, Llama Guard has a more limited context (128,000) and can only process requests with a single image at the beginning of the prompt.
-  - Batch predictions aren't supported.
-
-### Llama 4 Scout 17B-16E
-
-Llama 4 Scout 17B-16E delivers state-of-the-art results for its size class that outperforms previous Llama generations and other open and proprietary models on several benchmarks. It features MoE architecture with 17 billion active parameters out of the 109 billion total parameters and 16 experts.
-
-Llama 4 Scout 17B-16E is suited for retrieval tasks within long contexts and tasks that demand reasoning over large amounts of information, such as summarizing multiple large documents, analyzing extensive user interaction logs for personalization, and reasoning across large codebases.
-
-#### Considerations
-
-  - You can include a maximum of three images per request.
-  - The MaaS endpoint doesn't use Llama Guard, unlike previous versions. To use Llama Guard, deploy Llama Guard from Model Garden and then send the prompts and responses to that endpoint. However, compared to Llama 4, Llama Guard has a more limited context (128,000) and can only process requests with a single image at the beginning of the prompt.
-  - Batch predictions aren't supported.
-
-### Llama 3.3
-
-Llama 3.3 is a text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B and to Llama 3.2 90B when used for text-only applications.
+block [Llama 3.3 70B](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3) A text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B and Llama 3.2 90B for text-only applications.
 
 ## Use Llama models
 

@@ -3781,7 +3781,7 @@ Cancels an interaction.
 
 `  CancelInteractionHttp  `
 
-Cancels an interaction.
+Cancels an interaction by id.
 
 `  CreateInteraction  `
 
@@ -3789,7 +3789,7 @@ Creates an interaction.
 
 `  CreateInteractionHttp  `
 
-Generates a set of responses from the model.
+Creates a new interaction.
 
 `  CreateInteractionStream  `
 
@@ -3806,7 +3806,7 @@ Fully typed proto, unary version of GetInteraction that returns Interaction prot
 
 `  GetInteractionHttp  `
 
-Gets an interaction.
+Retrieves the full details of a single interaction based on its `Interaction.id` .
 
 `  GetInteractionStream  `
 

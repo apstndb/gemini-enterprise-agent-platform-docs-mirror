@@ -38,4 +38,4 @@ The request body contains an instance of `  Agent  ` .
 
 ### Response body
 
-If successful, the response body contains an instance of `  Agent  ` .
+If successful, the response body contains an instance of `  Operation  ` .

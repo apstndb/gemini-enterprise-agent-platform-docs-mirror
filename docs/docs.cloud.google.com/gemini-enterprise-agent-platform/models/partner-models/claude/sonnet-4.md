@@ -6,9 +6,16 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Anthropic's mid-size model with superior intelligence for high-volume uses, such as coding, in-depth research, and agents.
+Claude Sonnet 4 on Google Cloud balances impressive performance for coding with the right speed and cost for high-volume use cases:
 
-[Try in Agent Studio](https://console.cloud.google.com/vertex-ai/generative/multimodal/create/text?model=claude-sonnet-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
+**Retirement Date:** Not sooner than May 14, 2026.
+
+  - **Coding** : Handle everyday development tasks with enhanced performance—power code reviews, bug fixes, API integrations, and feature development with immediate feedback loops.
+  - **AI Assistants** : Power production-ready assistants for real-time applications—from customer support automation to operational workflows that require both intelligence and speed.
+  - **Efficient research** : Perform focused analysis across multiple data sources while maintaining fast response times. Ideal for rapid business intelligence, competitive analysis, and real-time decision support.
+  - **Large-scale content** : Generate and analyze content at scale with improved quality. Create customer communications, analyze user feedback, and produce marketing materials with the right balance of quality and throughput.
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/generative/multimodal/create/text?model=claude-sonnet-4) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-4)
 
 Model ID
 

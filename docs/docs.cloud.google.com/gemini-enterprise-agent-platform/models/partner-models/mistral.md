@@ -10,11 +10,7 @@ Mistral AI models on Gemini Enterprise Agent Platform offer fully managed and se
 
 You can stream your responses to reduce the end-user latency perception. A streamed response uses server-sent events (SSE) to incrementally stream the response.
 
-You pay for Mistral AI models as you use them (pay as you go). For pay-as-you-go pricing, see Mistral AI model pricing on the Gemini Enterprise Agent Platform [pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models)
-
-[](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models)
-
-[page](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models) .
+You pay for Mistral AI models as you use them (pay as you go). For pay-as-you-go pricing, see Mistral AI model pricing on the Gemini Enterprise Agent Platform [pricing page](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#partner-models) .
 
 > To see an example of getting started with Mistral AI models on Agent Platform, run the "Getting Started with Mistral AI Models" notebook in one of the following environments:
 > 
@@ -24,44 +20,13 @@ You pay for Mistral AI models as you use them (pay as you go). For pay-as-you-go
 
 The following models are available from Mistral AI to use in Gemini Enterprise Agent Platform. To access a Mistral AI model, go to its Model Garden model card.
 
-### Mistral Medium 3
+metro [Mistral Medium 3](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-medium-3) A versatile multimodal model designed for advanced reasoning, programming, long-context document understanding, single-node high throughput, and agentic workflows.
 
-Mistral Medium 3 is a versatile model designed for a wide range of tasks, including programming, mathematical reasoning, understanding long documents, summarization, and dialogue. It excels at complex tasks requiring advanced reasoning abilities, visual understanding or a high level of specialization (e.g. creative writing, agentic workflows, code generation).
+metro [Mistral OCR (25.05)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-ocr) Optical Character Recognition API for rich document understanding, extracting interleaved imagery, tables, graphs, and LaTeX formatting for multimodal RAG pipelines.
 
-It boasts multi-modal capabilities, enabling it to process visual inputs, and supports dozens of languages, including over 80 coding languages. Additionally, it features function calling and agentic workflows.
+metro [Mistral Small 3.1 (25.03)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-small-3-1) A versatile, low-latency multimodal model with a 128,000 token context window, optimized for high-efficiency chat, programming, and instruction following.
 
-Mistral Medium 3 is optimized for single-node inference, particularly for long-context applications. Its size allows it to achieve high throughput on a single node.
-
-### Mistral OCR (25.05)
-
-Mistral OCR (25.05) is an Optical Character Recognition API for document understanding. Mistral OCR (25.05) excels in understanding complex document elements, including interleaved imagery, mathematical expressions, tables, and advanced layouts such as LaTeX formatting. The model enables deeper understanding of rich documents such as scientific papers with charts, graphs, equations and figures.
-
-Mistral OCR (25.05) is an ideal model to use in combination with a RAG system that takes multimodal documents (such as slides or complex PDFs) as input.
-
-You can couple Mistral OCR (25.05) with other Mistral models to reformat the results. This combination ensures that the extracted content is not only accurate but also presented in a structured and coherent manner, making it suitable for various downstream applications and analyses.
-
-### Mistral Small 3.1 (25.03)
-
-Mistral Small 3.1 (25.03) features multimodal capabilities and a context of up to 128,000. The model can process and understand visual inputs and long documents, further expanding its range of applications compared to the previous Mistral AI Small model. Mistral Small 3.1 (25.03) is a versatile model designed for various tasks such as programming, mathematical reasoning, document understanding, and dialogue. Mistral Small 3.1 (25.03) is designed for low-latency applications to deliver best-in-class efficiency compared to models of the same quality.
-
-Mistral Small 3.1 (25.03) has undergone a full post-training process to align the model with human preferences and needs, making it usable out-of-the-box for applications that require chat or precise instruction following.
-
-### Codestral 2
-
-Codestral 2 is Mistral's code generation specialized model built specifically for high-precision fill-in-the-middle (FIM) completion. It helps developers write and interact with code through a shared instruction and completion API endpoint. As it masters code and can also converse in a variety of languages, it can be used to design advanced AI applications for software developers.
-
-The latest release of Codestral 2 delivers measurable upgrades over prior version Codestral (25.01):
-
-  - 30% increase in accepted completions.
-  - 10% more retained code after suggestion.
-  - 50% fewer runaway generations, improving confidence in longer edits.
-
-Improved performance on academic benchmarks for short and long-context FIM completion.
-
-  - Code generation: code completion, suggestions, translation.
-  - Code understanding and documentation: code summarization and explanation.
-  - Code quality: code review, refactoring, bug fixing and test case generation.
-  - Code fill-in-the-middle: users can define the starting point of the code using a prompt, and the ending point of the code using an optional suffix and an optional stop. The Codestral model will then generate the code that fits in between, making it ideal for tasks that require a specific piece of code to be generated.
+metro [Codestral 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/codestral-2) Specialized code generation model built for high-precision fill-in-the-middle (FIM) completion, code review, refactoring, and developer tooling.
 
 ## Use Mistral AI models
 

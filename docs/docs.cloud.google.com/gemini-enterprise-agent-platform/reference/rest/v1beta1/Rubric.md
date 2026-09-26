@@ -50,7 +50,7 @@ Fields
 
 `content_type` `Union type`
 
-The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+The specific type of content that defines the rubric. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
 
 `property` ` object ( Property  ` )
 

@@ -94,9 +94,9 @@ The vLLM Cloud GPUs serving container is integrated into Model Garden the playgr
 
 ### Use the Colab Enterprise notebook
 
-[Playground](https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama3_1) and [one-click](https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama3_1) deployments are also available but are not outlined in this tutorial.
+[Playground](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) and [one-click](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) deployments are also available but are not outlined in this tutorial.
 
-1.  Navigate to the [model card page](https://console.cloud.google.com/vertex-ai/publishers/meta/model-garden/llama3_1) and click **Open notebook** .
+1.  Navigate to the [model card page](https://console.cloud.google.com/agent-platform/publishers/meta/model-garden/llama3_1) and click **Open notebook** .
 2.  Select the Vertex Serving notebook. The notebook is opened in Colab Enterprise.
 3.  Run through the notebook to deploy a model by using vLLM and send prediction requests to the endpoint.
 
@@ -837,7 +837,7 @@ This section provides guidance on identifying and resolving common issues encoun
 
 Check the logs to identify the root cause of deployment failures or unexpected behavior:
 
-1.  **Navigate to Gemini Enterprise Agent Platform Prediction Console:** Go to the [Gemini Enterprise Agent Platform Prediction Console](https://console.cloud.google.com/vertex-ai/online-prediction/endpoints) in the Google Cloud console.
+1.  **Navigate to Gemini Enterprise Agent Platform Prediction Console:** Go to the [Gemini Enterprise Agent Platform Prediction Console](https://console.cloud.google.com/agent-platform/online-prediction/endpoints) in the Google Cloud console.
 2.  **Select the Endpoint:** Click the endpoint experiencing issues. The status should indicate if the deployment has failed.
 3.  **View Logs:** Click the endpoint and then navigate to the **Logs** tab or click **View logs** . This directs you to Cloud Logging, filtered to show logs specific to that endpoint and model deployment. You can also access logs through the Cloud Logging service directly.
 4.  **Analyze the Logs:** Review the log entries for error messages, warnings, and other relevant information. View timestamps to correlate log entries with specific actions. Look for issues around resource constraints (memory and CPU), authentication problems, or configuration errors.
@@ -894,7 +894,7 @@ Review the Error Log (figure 8):
 
 ![Model Version Details Panel](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/models/open-models/vllm/images/version_detail_panel.png) **Figure 9: Model Version Details Panel**
 
-To resolve this issue, navigate to the [Gemini Enterprise Agent Platform Prediction Console](https://console.cloud.google.com/vertex-ai/online-prediction/endpoints) , click the endpoint. The status should indicate that the deployment has failed. Click to view the logs. Verify that max-num-seqs = 256. This value is too high for Llama-3.2-11B-Vision-Instruct. A more adequate value should be 12.
+To resolve this issue, navigate to the [Gemini Enterprise Agent Platform Prediction Console](https://console.cloud.google.com/agent-platform/online-prediction/endpoints) , click the endpoint. The status should indicate that the deployment has failed. Click to view the logs. Verify that max-num-seqs = 256. This value is too high for Llama-3.2-11B-Vision-Instruct. A more adequate value should be 12.
 
 ### Common Issue 2: Hugging Face token needed
 

@@ -40,7 +40,9 @@ The interaction is completed, but contains incomplete results (e.g. hitting maxT
 
 `BUDGET_EXCEEDED`
 
-The interaction was halted because the token budget was exceeded.
+Deprecated: token and execution budget exhaustion returns INCOMPLETE (11).
+
+> This item is deprecated\!
 
 `QUEUED`
 

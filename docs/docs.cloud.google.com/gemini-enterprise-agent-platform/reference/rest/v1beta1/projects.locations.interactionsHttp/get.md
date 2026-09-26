@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 **Full name** : projects.locations.interactionsHttp.get
 
-Gets an interaction.
+Retrieves the full details of a single interaction based on its `Interaction.id` .
 
 ### Endpoint
 

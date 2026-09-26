@@ -10,6 +10,14 @@ Claude Opus 4.6 on Google Cloud is optimized for coding, enterprise agents, and 
 
 **Retirement Date:** Not sooner than February 5, 2027.
 
+  - **Long-running agents:** Power production-ready assistants for multi-step, real-time applications—from customer support automation to complex operational workflows that require peak accuracy, intelligence, and speed.
+  - **Coding:** Handle everyday development tasks with enhanced performance––or plan and execute complex software projects spanning hours or days––with the ability to save, maintain, and reference information across multiple sessions.
+  - **Cybersecurity:** Deploy agents that autonomously patch vulnerabilities before exploitation––shifting from reactive detection to proactive defense.
+  - **Financial analysis:** Conduct entry-level financial analysis, deliver advanced predictive analysis, or preemptively develop intelligent risk management strategies that leverage best-in-class domain knowledge.
+  - **Computer use:** Claude Opus 4.6 on Google Cloud is a highly accurate model for computer use, enabling developers to direct Claude to use computers the way people do.
+  - **Business tasks:** Generate and edit office files like slides, documents, and spreadsheets with minimal input.
+  - **Research:** Perform focused analysis across multiple data sources, turning expert analysis into final deliverables. Ideal for complex problem solving, rapid business intelligence, and real-time decision support.
+
 [Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-opus-4-6)
 
 Model ID

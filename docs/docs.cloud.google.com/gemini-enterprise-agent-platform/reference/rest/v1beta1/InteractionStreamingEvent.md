@@ -94,9 +94,13 @@ End of mutually exclusive fields.
 
 ## InteractionCreatedSseEvent
 
+Server response confirming that a new interaction was created.
+
 Fields
 
 `interaction` ` object ( Interaction  ` )
+
+Required. Partial interaction resource emitted when the stream is created.
 
 <table>
 <colgroup>
@@ -116,11 +120,13 @@ Fields
 
 ## InteractionCompletedSseEvent
 
+Signals that the Interaction completed. Sent when the Interaction receives Complete/Cancel or naturally terminates. No more input can be sent to the Interaction after this.
+
 Fields
 
 `interaction` ` object ( Interaction  ` )
 
-Required. The completed interaction with empty outputs to reduce the payload size. Use the preceding ContentDelta events for the actual output.
+Required. Partial completed interaction resource emitted at the end of the stream.
 
 <table>
 <colgroup>

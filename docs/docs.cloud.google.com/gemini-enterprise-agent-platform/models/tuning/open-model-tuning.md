@@ -466,7 +466,7 @@ Then import the following libraries:
 
 ## Prepare dataset for tuning
 
-> Before starting the knowledge distillation, you can run [the knowledge distillation feasibility notebook](https://console.cloud.google.com/vertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_oss_distillation_feasibility.ipynb) in Colab Enterprise to see if your dataset is a good candidate for the teacher-student model pair.
+> Before starting the knowledge distillation, you can run [the knowledge distillation feasibility notebook](https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fcommunity%2Fmodel_garden%2Fmodel_garden_oss_distillation_feasibility.ipynb) in Colab Enterprise to see if your dataset is a good candidate for the teacher-student model pair.
 
 A training dataset is required for tuning. You are recommended to prepare an optional validation dataset if you'd like to evaluate your tuned model's performance.
 

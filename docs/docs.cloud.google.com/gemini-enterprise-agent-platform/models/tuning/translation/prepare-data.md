@@ -148,7 +148,7 @@ If you already have Translation Datasets uploaded to AutoML Translation, you can
 <tr class="odd">
 <td style="text-align: center;"><a href="https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/cloud_translation_docs/translate/samples/notebooks/custom_translation_llm/tuning_custom_llm_translation_dataset.ipynb"><img src="https://cloud.google.com/ml-engine/images/colab-logo-32px.png" /><br />
 Run in Colab</a></td>
-<td style="text-align: center;"><a href="https://console.cloud.google.com/vertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fpython-docs-samples%2Fcloud_translation_docs%2Ftranslate%2Fsamples%2Fnotebooks%2Fcustom_translation_llm%2Ftuning_custom_llm_translation_dataset.ipynb"><img src="https://lh3.googleusercontent.com/JmcxdQi-qOpctIvWKgPtrzZdJJK-J3sWE1RsfjZNwshCFgE_9fULcNpuXYTilIR2hjwN" width="32" /><br />
+<td style="text-align: center;"><a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fpython-docs-samples%2Fcloud_translation_docs%2Ftranslate%2Fsamples%2Fnotebooks%2Fcustom_translation_llm%2Ftuning_custom_llm_translation_dataset.ipynb"><img src="https://lh3.googleusercontent.com/JmcxdQi-qOpctIvWKgPtrzZdJJK-J3sWE1RsfjZNwshCFgE_9fULcNpuXYTilIR2hjwN" width="32" /><br />
 Run in Colab Enterprise</a></td>
 <td style="text-align: center;"><a href="https://github.com/GoogleCloudPlatform/python-docs-samples/tree/cloud_translation_docs/translate/samples/notebooks/custom_translation_llm/tuning_custom_llm_translation_dataset.ipynb"><img src="https://cloud.google.com/ml-engine/images/github-logo-32px.png" width="32" /><br />
 View on GitHub</a></td>
@@ -170,7 +170,7 @@ If you have your data in a TSV, CSV, or TMX format locally, you can upload them 
 <tr class="odd">
 <td style="text-align: center;"><a href="https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/cloud_translation_docs/translate/samples/notebooks/custom_translation_llm/tuning_custom_llm_upload_dataset.ipynb"><img src="https://cloud.google.com/ml-engine/images/colab-logo-32px.png" /><br />
 Run in Colab</a></td>
-<td style="text-align: center;"><a href="https://console.cloud.google.com/vertex-ai/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fpython-docs-samples%2Fcloud_translation_docs%2Ftranslate%2Fsamples%2Fnotebooks%2Fcustom_translation_llm%2Ftuning_custom_llm_upload_dataset.ipynb"><img src="https://lh3.googleusercontent.com/JmcxdQi-qOpctIvWKgPtrzZdJJK-J3sWE1RsfjZNwshCFgE_9fULcNpuXYTilIR2hjwN" width="32" /><br />
+<td style="text-align: center;"><a href="https://console.cloud.google.com/agent-platform/colab/import/https:%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fpython-docs-samples%2Fcloud_translation_docs%2Ftranslate%2Fsamples%2Fnotebooks%2Fcustom_translation_llm%2Ftuning_custom_llm_upload_dataset.ipynb"><img src="https://lh3.googleusercontent.com/JmcxdQi-qOpctIvWKgPtrzZdJJK-J3sWE1RsfjZNwshCFgE_9fULcNpuXYTilIR2hjwN" width="32" /><br />
 Run in Colab Enterprise</a></td>
 <td style="text-align: center;"><a href="https://github.com/GoogleCloudPlatform/python-docs-samples/tree/cloud_translation_docs/translate/samples/notebooks/custom_translation_llm/tuning_custom_llm_upload_dataset.ipynb"><img src="https://cloud.google.com/ml-engine/images/github-logo-32px.png" width="32" /><br />
 View on GitHub</a></td>

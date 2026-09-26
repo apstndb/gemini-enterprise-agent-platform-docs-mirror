@@ -28,7 +28,7 @@ Our fast, budget-friendly way to power your everyday applications
 
 [](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite)
 
-3.1 Flash Image 🍌
+3.1 Flash Image
 
 Turn ideas into production-ready assets
 
@@ -52,11 +52,11 @@ spark [Gemini 3.6 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 performance\_auto [Gemini 3.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) Create lightweight agentic workflows at top speeds and minimal cost.
 
-🍌 [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
+banana\_spark [Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads.
 
-🍌 [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
+banana\_spark [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 
-🍌 [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
+banana\_spark [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) High-fidelity image generation with reasoning-enhanced composition. Supports legible text rendering, complex multi-turn editing, and character consistency using up to 14 reference inputs.
 
 spark [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash) Gemini 3.5 Flash delivers near-Pro intelligence at Flash-tier cost and speed: Pro-level coding proficiency, parallel agentic execution, all at the same price point as a Flash model.
 
@@ -66,7 +66,7 @@ diamond [Gemini 2.5 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-p
 
 spark [Gemini 2.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash) Lightning-fast and highly capable. Delivers a balance of intelligence and latency with controllable thinking budgets for versatile applications.
 
-🍌 [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
+banana\_spark [Gemini 2.5 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-image) Turn ideas into production-ready assets. Features conversational editing, multi-image fusion, and character consistency for advanced creative workflows.
 
 performance\_auto [Gemini 2.5 Flash-Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite) Built for massive scale. Balances cost and performance for high-throughput tasks, optimized for efficiency without sacrificing multimodal understanding.
 
@@ -86,33 +86,33 @@ preview [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-age
 
 ![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 4](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma4) An open model well-suited for tasks like text generation, coding, and reasoning, and supporting multimodal input (text and image for all variants, and additionally audio for the E2B and E4B variants).
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3n](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma3n) An open model designed for efficient execution on low-resource devices, supporting multimodal input (text, image, video, and audio) and text output in over 140 languages.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3n](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3n) An open model designed for efficient execution on low-resource devices, supporting multimodal input (text, image, video, and audio) and text output in over 140 languages.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma3) An open model featuring text and image input, support for over 140 languages, and a 128K context window.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 3](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma3) An open model featuring text and image input, support for over 140 languages, and a 128K context window.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 2](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemma2) An open model supporting text generation, summarization, and extraction.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma 2](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemma2) An open model supporting text generation, summarization, and extraction.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/335) A small, lightweight open model supporting text generation, summarization, and extraction.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [Gemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/335) A small, lightweight open model supporting text generation, summarization, and extraction.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [ShieldGemma 2](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/shieldgemma2) Instruction-tuned models for evaluating text and image safety against defined policies.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [ShieldGemma 2](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/shieldgemma2) Instruction-tuned models for evaluating text and image safety against defined policies.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [PaliGemma](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/paligemma) An open vision-language model combining SigLIP and Gemma.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [PaliGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/paligemma) An open vision-language model combining SigLIP and Gemma.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [CodeGemma](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/codegemma) A powerful, lightweight open model for coding tasks, including code completion, generation, and understanding.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [CodeGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/codegemma) A powerful, lightweight open model for coding tasks, including code completion, generation, and understanding.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [TxGemma](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/txgemma) A model that generates predictions, classifications, or text based on therapeutic-related data, for building AI models with less data and compute.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [TxGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/txgemma) A model that generates predictions, classifications, or text based on therapeutic-related data, for building AI models with less data and compute.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [MedGemma](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/medgemma) A collection of Gemma 3 variants trained for performance on medical text and image comprehension.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [MedGemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/medgemma) A collection of Gemma 3 variants trained for performance on medical text and image comprehension.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [MedSigLIP](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/medsiglip) A SigLIP variant trained to encode medical images and text into a common embedding space.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [MedSigLIP](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/medsiglip) A SigLIP variant trained to encode medical images and text into a common embedding space.
 
-![](https://ai.google.dev/gemma/images/gemma_sq.png) [T5Gemma](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/T5Gemma) A family of lightweight encoder-decoder research models.
+![](https://ai.google.dev/gemma/images/gemma_sq.png) [T5Gemma](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/T5Gemma) A family of lightweight encoder-decoder research models.
 
 ## Embeddings models
 
-width\_normal [Embeddings for Text](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemini-embedding-001) Converts text data into vector representations for semantic search, classification, and clustering.
+width\_normal [Embeddings for Text](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-embedding-001) Converts text data into vector representations for semantic search, classification, and clustering.
 
-width\_normal [Multimodal Embeddings](https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/multimodalembedding) Generates vectors based on images, for tasks such as image classification and search.
+width\_normal [Multimodal Embeddings](https://console.cloud.google.com/agent-platform/publishers/google/model-garden/multimodalembedding) Generates vectors based on images, for tasks such as image classification and search.
 
 ## Veo models
 
