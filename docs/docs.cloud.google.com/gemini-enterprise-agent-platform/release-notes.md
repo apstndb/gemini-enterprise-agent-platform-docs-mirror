@@ -23,6 +23,24 @@ For more information, see the following:
   - [Gemini 3.8 Live](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
   - [Gemini Live API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
 
+Fixed
+
+**CodeMender updates (v0.10.0)**
+
+This release introduces updates to CodeMender:
+
+  - **Impact-aware PR delta scanning** : Added `--diff` and `--staged` flags to `cm find` to audit modified pull request hunks and 1-hop neighbor files while suppressing pre-existing vulnerabilities.
+  - **SARIF report export and CI gating** : Added SARIF v2.1.0 export ( `--format sarif` , `--output` ) and severity-based CI gating ( `--fail-on` ) to `cm report` to integrate scan results into CI/CD pipelines and code scanning tools.
+  - **Adaptive hybrid deep scanning** : Added `--deep` and `--deep-workers` flags to `cm find` to combine deterministic file pruning, parallel package-batched analysis, and post-triage verification for higher vulnerability recall and precision.
+  - **Custom workspace directory** : Added support for the `CM_HOME` environment variable to override the default `~/.codemender` directory for configuration, local state ( `state.db` ), backups, and artifacts.
+  - **Bug fixes** :
+      - Required build and test validation ( `build.command` ) to succeed during `cm fix` before marking a patch as applied and a finding as fixed.
+      - Stabilized vulnerability fingerprints across multiple scans and bound `cm verify` directly to the target finding ID to prevent duplicate findings.
+      - Restored the configured session model automatically when reconnecting to an active session with `cm session resume` .
+      - Updated `cm verify` to add `.exploit` to `.gitignore` before execution so cancelled verification sessions do not leave untracked proof-of-concept scripts.
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender) .
+
 Feature
 
 **Muse Spark 1.3 from Meta**

@@ -64,7 +64,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/sdk
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup	2026-09-25T21:40:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry	2026-09-25T21:40:05Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage	2026-09-25T21:39:57Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/audit-logging	2026-09-25T21:40:11Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/audit-logging	2026-09-26T11:14:16Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/cmek	2026-09-25T21:40:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/collections/collections	2026-09-25T21:39:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/data-objects	2026-09-25T21:39:57Z
@@ -610,7 +610,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-managed-datasets	2026-09-25T21:39:57Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-private-ip	2026-09-25T21:40:05Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/troubleshooting	2026-09-25T21:40:24Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials	2026-09-25T07:48:01Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials	2026-09-27T06:58:45Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/custom-training-pipelines/image-classification	2026-09-25T21:40:05Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/custom-training-pipelines/tabular	2026-09-25T21:40:18Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl	2026-09-25T07:48:01Z
@@ -2985,7 +2985,7 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/goo
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.rpc	2026-06-09T17:56:54Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rpc/google.type	2026-06-09T17:56:36Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/use-agent-platform-mcp	2026-09-25T21:40:18Z
-https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-09-25T17:47:45Z
+https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes	2026-09-27T06:58:59Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources	2026-09-25T21:40:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-locations	2026-09-25T21:40:11Z
 https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas	2026-09-25T21:40:11Z

@@ -6,7 +6,7 @@ description: Review the audit logs available for Agent Retrieval.
 data_source: docs.cloud.google.com
 ---
 
-This document lists the audited methods for Vertex Vector Search. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following:
+This document lists the audited methods for Agent Retrieval. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following:
 
   - [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   - [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -16,7 +16,7 @@ This document lists the audited methods for Vertex Vector Search. Google Cloud s
 
 ## Service name
 
-To view the Vertex Vector Search audit logs, do the following:
+To view the Agent Retrieval audit logs, do the following:
 
 1.  In the Google Cloud console, go to the Logs Explorer page:
 
@@ -29,7 +29,7 @@ To view the Vertex Vector Search audit logs, do the following:
 
 ## Methods by permission type
 
-Each IAM permission has a `type` property, whose value is an enum that can be one of four values: `ADMIN_READ` , `ADMIN_WRITE` , `DATA_READ` , or `DATA_WRITE` . When you call a method, Vertex Vector Search generates an audit log whose category is dependent on the `type` property of the permission required to perform the method. Methods that require an IAM permission with the `type` property value of `DATA_READ` , `DATA_WRITE` , or `ADMIN_READ` generate [Data Access](https://docs.cloud.google.com/logging/docs/audit#data-access) audit logs. Methods that require an IAM permission with the `type` property value of `ADMIN_WRITE` generate [Admin Activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity) audit logs.
+Each IAM permission has a `type` property, whose value is an enum that can be one of four values: `ADMIN_READ` , `ADMIN_WRITE` , `DATA_READ` , or `DATA_WRITE` . When you call a method, Agent Retrieval generates an audit log whose category is dependent on the `type` property of the permission required to perform the method. Methods that require an IAM permission with the `type` property value of `DATA_READ` , `DATA_WRITE` , or `ADMIN_READ` generate [Data Access](https://docs.cloud.google.com/logging/docs/audit#data-access) audit logs. Methods that require an IAM permission with the `type` property value of `ADMIN_WRITE` generate [Admin Activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity) audit logs.
 
 API methods in the following list that are marked with (LRO) are long-running operations (LROs). These methods usually generate two audit log entries: one when the operation starts and another when it ends. For more information see [Audit logs for long-running operations](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro) .
 
@@ -87,12 +87,21 @@ API methods in the following list that are marked with (LRO) are long-running op
 </tr>
 <tr class="odd">
 <td><code dir="ltr" translate="no">DATA_READ</code></td>
-<td><code dir="ltr" translate="no">google.cloud.vectorsearch.v1.DataObjectSearchService.QueryDataObjects</code><br />
+<td><code dir="ltr" translate="no">google.cloud.vectorsearch.v1.DataObjectSearchService.AggregateDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1.DataObjectSearchService.BatchSearchDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1.DataObjectSearchService.QueryDataObjects</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1.DataObjectSearchService.SearchDataObjects</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1.DataObjectService.GetDataObject</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1.VectorSearchService.ExportDataObjects</code> (LRO)<br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1alpha.DataObjectSearchService.AggregateDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1alpha.DataObjectSearchService.BatchSearchDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1alpha.DataObjectSearchService.QueryDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1alpha.DataObjectSearchService.SearchDataObjects</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1alpha.DataObjectService.GetDataObject</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1alpha.VectorSearchService.ExportDataObjects</code> (LRO)<br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1beta.DataObjectSearchService.AggregateDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1beta.DataObjectSearchService.BatchSearchDataObjects</code><br />
+<code dir="ltr" translate="no">google.cloud.vectorsearch.v1beta.DataObjectSearchService.QueryDataObjects</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1beta.DataObjectSearchService.SearchDataObjects</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1beta.DataObjectService.GetDataObject</code><br />
 <code dir="ltr" translate="no">google.cloud.vectorsearch.v1beta.VectorSearchService.ExportDataObjects</code> (LRO)</td>
@@ -126,11 +135,29 @@ API methods in the following list that are marked with (LRO) are long-running op
 
 ## API interface audit logs
 
-For information about how and which permissions are evaluated for each method, see the Identity and Access Management documentation for Vertex Vector Search.
+For information about how and which permissions are evaluated for each method, see the Identity and Access Management documentation for Agent Retrieval.
 
 ### `google.cloud.vectorsearch.v1.DataObjectSearchService`
 
 The following audit logs are associated with methods belonging to `google.cloud.vectorsearch.v1.DataObjectSearchService` .
+
+#### `AggregateDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1.DataObjectSearchService.AggregateDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.query - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1.DataObjectSearchService.AggregateDataObjects"`  
+
+#### `BatchSearchDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1.DataObjectSearchService.BatchSearchDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.search - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1.DataObjectSearchService.BatchSearchDataObjects"`  
 
 #### `QueryDataObjects`
 
@@ -329,6 +356,46 @@ The following audit logs are associated with methods belonging to `google.cloud.
   - **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)  
   - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1.VectorSearchService.UpdateIndex"`  
 
+### `google.cloud.vectorsearch.v1alpha.DataObjectSearchService`
+
+The following audit logs are associated with methods belonging to `google.cloud.vectorsearch.v1alpha.DataObjectSearchService` .
+
+#### `AggregateDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1alpha.DataObjectSearchService.AggregateDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.query - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1alpha.DataObjectSearchService.AggregateDataObjects"`  
+
+#### `BatchSearchDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1alpha.DataObjectSearchService.BatchSearchDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.search - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1alpha.DataObjectSearchService.BatchSearchDataObjects"`  
+
+#### `QueryDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1alpha.DataObjectSearchService.QueryDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.query - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1alpha.DataObjectSearchService.QueryDataObjects"`  
+
+#### `SearchDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1alpha.DataObjectSearchService.SearchDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.search - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1alpha.DataObjectSearchService.SearchDataObjects"`  
+
 ### `google.cloud.vectorsearch.v1alpha.DataObjectService`
 
 The following audit logs are associated with methods belonging to `google.cloud.vectorsearch.v1alpha.DataObjectService` .
@@ -511,6 +578,33 @@ The following audit logs are associated with methods belonging to `google.cloud.
 ### `google.cloud.vectorsearch.v1beta.DataObjectSearchService`
 
 The following audit logs are associated with methods belonging to `google.cloud.vectorsearch.v1beta.DataObjectSearchService` .
+
+#### `AggregateDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1beta.DataObjectSearchService.AggregateDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.query - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1beta.DataObjectSearchService.AggregateDataObjects"`  
+
+#### `BatchSearchDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1beta.DataObjectSearchService.BatchSearchDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.search - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1beta.DataObjectSearchService.BatchSearchDataObjects"`  
+
+#### `QueryDataObjects`
+
+  - **Method** : `google.cloud.vectorsearch.v1beta.DataObjectSearchService.QueryDataObjects`  
+  - **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  - **Permissions** :
+      - `vectorsearch.dataObjects.query - DATA_READ`
+  - **Method is a long-running or streaming operation** : No.  
+  - **Filter for this method** : `protoPayload.methodName="google.cloud.vectorsearch.v1beta.DataObjectSearchService.QueryDataObjects"`  
 
 #### `SearchDataObjects`
 
