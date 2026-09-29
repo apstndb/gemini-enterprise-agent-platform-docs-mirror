@@ -6,7 +6,11 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-The Interactions API is an experimental API that allows developers to build generative AI applications using generative models and agents hosted on Gemini Enterprise Agent Platform.
+> **Preview**
+> 
+> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+The Interactions API lets developers build generative AI applications using generative models and agents hosted on Gemini Enterprise Agent Platform. For conceptual information, supported models and tools, and billing and compliance details, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) . For SDK setup instructions and code samples for common interaction workflows, see the [Interactions API developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/developer-guide) .
 
 ## Creating an interaction
 
@@ -28,13 +32,41 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
+  - `gemini-3.8-flash`
+    
+    Our fast, high-performance multimodal model optimized for coding, reasoning, multimodal understanding, and agentic workflows.
+
+  - `gemini-3.7-flash`
+    
+    Our fast, high-performance multimodal model optimized for coding, reasoning, and agentic workflows. Default model for Interactions API.
+
+  - `gemini-3.6-flash`
+    
+    Fast, high-performance multimodal model optimized for reasoning, multimodal understanding, and agentic workflows.
+
+  - `gemini-3.5-flash-lite`
+    
+    Lightweight, highly cost-efficient multimodal model optimized for high throughput and low-latency agentic tasks.
+
+  - `gemini-3.1-pro-preview`
+    
+    Our most capable multimodal model for complex reasoning, coding, and multi-step agentic tasks.
+
+  - `gemini-3.1-flash-lite`
+    
+    Highly cost-efficient, low-latency model for high-frequency requests.
+
+  - `gemini-omni-flash-preview`
+    
+    Our high-performance multimodal model designed for fast, conversational video generation, editing, and cinematic control.
+
   - `lyria-3-clip-preview`
     
-    Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control.
+    Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control. Available in stateless interactions only ( `store=false` ).
 
   - `lyria-3-pro-preview`
     
-    Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles.
+    Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles. Available in stateless interactions only ( `store=false` ).
 
 The model that will complete your prompt.\\n\\nSee \[models\](https://ai.google.dev/gemini-api/docs/models) for additional details.
 
@@ -45,9 +77,13 @@ The name of the \`Agent\` used for generating the interaction.
 
 Possible values:
 
+  - `antigravity-preview-05-2026`
+    
+    Our general-purpose autonomous agent designed for multi-step reasoning, coding, file operations, and tool use.
+
   - `deep-research-preview-04-2026`
     
-    Gemini Deep Research Agent
+    Gemini Deep Research Agent designed for autonomous, multi-step web research and synthesis.
 
 The agent to interact with.
 
@@ -533,6 +569,39 @@ Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-p
     event: done
     data: [DONE]
 
+## Canceling an interaction
+
+post https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}/cancel
+
+Cancels an interaction by ID. This only applies to background interactions that are still in progress. Users will still be charged for partially generated tokens for cancelled interactions.
+
+  - [Path / Query parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById.PATH_PARAMETERS)
+  - [Response](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#cancelInteractionById.response)
+
+### Path / Query Parameters
+
+id string (required)
+
+The unique identifier of the interaction to cancel.
+
+### Response
+
+Returns an [Interaction](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/interactions-api#Resource:Interaction) resource.
+
+### Cancel Interaction
+
+#### Example Response
+
+    {
+      "id": "v1_ChdXS0l4YWZXTk9xbk0xZThQczhEcmlROBIXV0tJeGFmV05PcW5NMWU4UHM4RHJpUTg",
+      "status": "cancelled",
+      "role": "model",
+      "created": "2026-08-17T18:00:00Z",
+      "updated": "2026-08-17T18:00:02Z",
+      "object": "interaction",
+      "model": "gemini-3.7-flash"
+    }
+
 ## Deleting an interaction
 
 delete https://aiplatform.googleapis.com/v1beta1/projects/{project}/locations/global/interactions/{id}
@@ -582,13 +651,41 @@ The name of the \`Model\` used for generating the interaction.
 
 Possible values:
 
+  - `gemini-3.8-flash`
+    
+    Our fast, high-performance multimodal model optimized for coding, reasoning, multimodal understanding, and agentic workflows.
+
+  - `gemini-3.7-flash`
+    
+    Our fast, high-performance multimodal model optimized for coding, reasoning, and agentic workflows. Default model for Interactions API.
+
+  - `gemini-3.6-flash`
+    
+    Fast, high-performance multimodal model optimized for reasoning, multimodal understanding, and agentic workflows.
+
+  - `gemini-3.5-flash-lite`
+    
+    Lightweight, highly cost-efficient multimodal model optimized for high throughput and low-latency agentic tasks.
+
+  - `gemini-3.1-pro-preview`
+    
+    Our most capable multimodal model for complex reasoning, coding, and multi-step agentic tasks.
+
+  - `gemini-3.1-flash-lite`
+    
+    Highly cost-efficient, low-latency model for high-frequency requests.
+
+  - `gemini-omni-flash-preview`
+    
+    Our high-performance multimodal model designed for fast, conversational video generation, editing, and cinematic control.
+
   - `lyria-3-clip-preview`
     
-    Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control.
+    Our low-latency, music generation model optimized for high-fidelity audio clips and precise rhythmic control. Available in stateless interactions only ( `store=false` ).
 
   - `lyria-3-pro-preview`
     
-    Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles.
+    Our advanced, full-song generative model with deep compositional understanding, optimized for precise structural control and complex transitions across diverse musical styles. Available in stateless interactions only ( `store=false` ).
 
 The model that will complete your prompt.\\n\\nSee \[models\](https://ai.google.dev/gemini-api/docs/models) for additional details.
 
@@ -598,9 +695,13 @@ The name of the \`Agent\` used for generating the interaction.
 
 Possible values:
 
+  - `antigravity-preview-05-2026`
+    
+    Our general-purpose autonomous agent designed for multi-step reasoning, coding, file operations, and tool use.
+
   - `deep-research-preview-04-2026`
     
-    Gemini Deep Research Agent
+    Gemini Deep Research Agent designed for autonomous, multi-step web research and synthesis.
 
 The agent to interact with.
 

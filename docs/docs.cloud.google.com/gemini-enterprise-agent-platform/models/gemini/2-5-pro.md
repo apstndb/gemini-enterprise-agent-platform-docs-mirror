@@ -58,6 +58,8 @@ Capabilities
     Supported
   - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction)  
     Supported
+  - [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) preview Preview feature  
+    Not supported
   - [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)  
     Not supported
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
@@ -165,7 +167,7 @@ Versions
 
   - Launch stage: GA
   - Release date: June 17, 2025
-  - Retirement date: October 20, 2026
+  - Retirement date <sup>[†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-pro#retirement-date)</sup> : October 20, 2026
 
 Security controls
 
@@ -212,3 +214,5 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
+
+<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .

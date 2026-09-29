@@ -58,6 +58,8 @@ Capabilities
     Supported
   - [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instruction-introduction)  
     Not supported
+  - [Interactions API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) preview Preview feature  
+    Supported
   - [Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)  
     Not supported
   - [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output)  
@@ -170,4 +172,6 @@ Versions
 
   - Launch stage: Preview
   - Release date: June 30, 2026
-  - Retirement date: June 30, 2027
+  - Retirement date <sup>[†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview#retirement-date)</sup> : June 30, 2027
+
+<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .

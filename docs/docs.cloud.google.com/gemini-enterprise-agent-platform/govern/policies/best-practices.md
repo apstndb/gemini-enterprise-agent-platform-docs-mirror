@@ -16,8 +16,6 @@ data_source: docs.cloud.google.com
 
 > **Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
-> **Note:** This feature does not support VPC-SC.
-
 Effective governance relies on accurate, clear, and complete descriptions of tools and their parameters. Agentic systems, including agents themselves and governance layers like Semantic governance policies, require more detail than a human would to understand the applicability of available tools.
 
 ## Optimize tool descriptions

@@ -164,6 +164,8 @@ Agent Platform APIs that you can incorporate into your service perimeter include
       - Model Registry
       - Online inference
       - Open model tuning
+      - Semantic governance policy
+      - Semantic governance policy engine
       - Vector Search (index creation)
       - Vector Search (index query)
       - Custom training (control plane)

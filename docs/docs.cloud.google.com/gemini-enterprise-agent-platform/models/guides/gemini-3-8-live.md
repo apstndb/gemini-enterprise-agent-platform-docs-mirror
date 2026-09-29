@@ -253,8 +253,6 @@ Add domain-specific keywords and SKUs using `custom_vocabulary` in `AudioTranscr
 
   - [Gemini 3.8 Live model reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live)
 
-  - [Gemini Live API prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/live-api-prompt-guide)
-
   - [Configure live avatars](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars)
 
   - [Best practices with Gemini Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices)

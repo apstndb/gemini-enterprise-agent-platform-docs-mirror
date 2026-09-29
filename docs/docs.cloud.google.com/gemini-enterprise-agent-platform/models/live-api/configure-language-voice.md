@@ -39,7 +39,7 @@ The following code sample shows you how to configure language and voice.
 
 ## Guide voice tone and accent
 
-You can guide the voice's tone and accent using system instructions, and Gemini Live API responds with the voice you instructed. For example, "English with a positive upbeat voice with a French accent." For more information, see [Gemini Live API prompt guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/live-api-prompt-guide) .
+You can guide the voice's tone and accent using system instructions, and Gemini Live API responds with the voice you instructed. For example, "English with a positive upbeat voice with a French accent."
 
 ## Voices supported
 

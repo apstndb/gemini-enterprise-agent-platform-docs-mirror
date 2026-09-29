@@ -28,7 +28,7 @@ The following section provides several complete JSON configuration files that se
 
   - [CPU only cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#cpu-only-cluster) : A basic configuration using only CPU resources.
 
-  - [CPU with advanced Slurm config](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#cpu-slurm-config) : An example showing custom Slurm scheduler settings.
+  - [Advanced Slurm configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#slurm-config-maps-example) : Demonstrates setting `slurm.conf` parameters at cluster, partition, or node pool scope, and running prolog and epilog scripts.
 
 Each example is followed by a detailed description of the key parameters used within that specific configuration.
 
@@ -325,13 +325,19 @@ For a list of parameters, see [Parameter reference](https://docs.cloud.google.co
       }
     }
 
-### CPU with advanced Slurm config
+### Advanced Slurm configuration
 
-This example demonstrates how to customize the Slurm orchestrator with advanced parameters. Use this template if you need fine-grained control over job scheduling behavior, such as setting multifactor priority weights, configuring job preemption, and running prolog and epilog scripts for automated job setup and cleanup.
+This example gives fine-grained control over Slurm by setting `slurm.conf` parameters by name, and by running prolog and epilog scripts for automated job setup and cleanup. Parameters can be set cluster-wide, for a single partition, or for a single node pool.
 
-For a list of parameters, see [Parameter reference](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#param-reference) .
+There are three configuration maps, one for each `slurm.conf` record:
 
-You don't have to settle these configurations at creation time. The `scheduling` and `accounting` settings shown here can also be changed on a running cluster, without restarting nodes or disrupting queued jobs. See [Update a cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#update-a-cluster) .
+  - `config` on the Slurm spec for cluster-wide settings
+  - `config` on a partition
+  - `node_sets` entry for a node pool
+
+For the rules on parameter names, values, and which parameters are refused, see [Slurm configuration maps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#slurm-config-maps) .
+
+You don't have to settle these at creation time. All three maps can be changed on a running cluster, without restarting nodes or disrupting queued jobs. See [Update Slurm configuration settings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#update-slurm-config-maps) .
 
     {
       "display_name": "DISPLAY_NAME",
@@ -376,25 +382,17 @@ You don't have to settle these configurations at creation time. The `scheduling`
       "orchestrator_spec": {
         "slurm_spec": {
           "home_directory_storage": "projects/PROJECT_ID/locations/ZONE/instances/FILESTORE",
-          "accounting": {
-            "accounting_storage_enforce": "ACCOUNTING_STORAGE_ENFORCE"
-          },
-          "scheduling": {
-            "priority_type": "PRIORITY_TYPE",
-            "priority_weight_age": PRIORITY_WEIGHT_AGE,
-            "priority_weight_assoc": PRIORITY_WEIGHT_ASSOC,
-            "priority_weight_fairshare": PRIORITY_WEIGHT_FAIRSHARE,
-            "priority_weight_job_size": PRIORITY_WEIGHT_JOB_SIZE,
-            "priority_weight_partition": PRIORITY_WEIGHT_PARTITION,
-            "priority_weight_qos": PRIORITY_WEIGHT_QOS,
-            "priority_weight_tres": "PRIORITY_WEIGHT_TRES",
-            "preempt_type": "PREEMPT_TYPE",
-            "preempt_mode": "PREEMPT_MODE",
-            "preempt_exempt_time": "PREEMPT_EXEMPT_TIME"
+          "config": {
+            "PriorityType": "priority/multifactor",
+            "PriorityWeightAge": "1000",
+            "PriorityWeightFairshare": "10000",
+            "PreemptType": "preempt/partition_prio",
+            "PreemptMode": "SUSPEND,GANG",
+            "SchedulerParameters": "bf_continue,bf_window=1440,bf_resolution=600",
+            "AccountingStorageEnforce": "limits,qos"
           },
           "prolog_bash_scripts": [
-            "#!/bin/bash\necho 'First prolog script running'",
-            "#!/bin/bash\necho 'Second prolog script running'"
+            "#!/bin/bash\necho 'Prolog script running'"
           ],
           "epilog_bash_scripts": [
             "#!/bin/bash\necho 'Epilog script running'"
@@ -404,13 +402,29 @@ You don't have to settle these configurations at creation time. The `scheduling`
               "id": "cpu",
               "node_pool_ids": [
                 "cpu"
-              ]
+              ],
+              "config": {
+                "MaxTime": "4-00:00:00",
+                "DefMemPerCPU": "4096",
+                "PriorityTier": "20"
+              }
+            }
+          ],
+          "node_sets": [
+            {
+              "node_pool_id": "cpu",
+              "config": {
+                "Weight": "10",
+                "Features": "cpu,spot"
+              }
             }
           ],
           "login_node_pool_id": "login"
         }
       }
     }
+
+The cluster-scoped map sets multifactor priority, partition-priority preemption and `SchedulerParameters` , whose `bf_continue` term shows the composite form: a bare term turns a flag on, and terms are comma-separated. The partition map bounds job runtime and default memory for the `cpu` partition only, and the `node_sets` entry labels that pool's nodes so jobs can select them with `--constraint` .
 
 Once your cluster is defined in a JSON file, use the following REST API commands to deploy and manage the cluster. The examples use a `gcurl` alias, which is a convenient, authenticated shortcut for interacting with the API endpoints. These commands cover the full lifecycle, from initially deploying your cluster to updating a cluster getting its status, listing all clusters, and ultimately deleting the cluster.
 
@@ -534,12 +548,29 @@ These fields are defined within the `orchestrator_spec.slurm_spec` block of the 
 
   - `prolog_bash_scripts` : A list of strings, where each string contains the full content of a Bash script to be executed before a job begins.
   - `epilog_bash_scripts` : A list of strings, where each string contains the full content of a Bash script to be executed after a job completes.
-  - ACCOUNTING\_STORAGE\_ENFORCE : Enforces accounting limits for storage usage.
-  - PRIORITY\_TYPE : The scheduling priority algorithm to be used (for example, `priority/multifactor` ).
-  - `priority_weight_*` : A set of integer values that assign weight to different factors in the scheduling priority calculation (for example, `priority_weight_age` , `priority_weight_fairshare` ).
-  - PREEMPT\_TYPE : The preemption plugin to use (for example, preempt/partition\_prio ).
-  - PREEMPT\_MODE : The mode for the preemption plugin (for example, `REQUEUE` ).
-  - PREEMPT\_EXEMPT\_TIME : The time after a job starts during which it can't be preempted.
+  - `config` , `partitions[].config` and `node_sets` : Slurm parameters set by name. See [Slurm configuration maps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#slurm-config-maps) .
+  - `scheduling` and `accounting` : Superseded. These two objects expose a fixed set of priority, preemption and accounting parameters, each of which can be set by name in the cluster-scoped `config` map instead ( `priority_type` as `"PriorityType"` , `preempt_mode` as `"PreemptMode"` , and so on). They still work for clusters that use them, but new clusters should use `config` , which reaches every `slurm.conf` parameter rather than this subset.
+
+#### Slurm configuration maps
+
+Slurm parameters are set by name, in three maps, one for each `slurm.conf` record:
+
+  - `config` : Cluster-scoped settings, written as global `Key=Value` lines.
+  - `partitions[].config` : Settings for one partition, written as extra pairs on that partition's `PartitionName=` line.
+  - `node_sets` : A list of objects, each with a `node_pool_id` and a `config` map. The settings are written as extra pairs on the `NodeName=` line for that node pool's nodes. At most one entry per node pool, and the pool must be a compute pool of the cluster, not the login pool.
+
+In all three, keys are Slurm parameter names as [SchedMD documents them](https://slurm.schedmd.com/slurm.conf.html) , without matching case and ignoring underscores, so `DefMemPerCPU` , `defmempercpu` and `def_mem_per_cpu` all mean the same parameter. Values are written the way `slurm.conf` writes them, including comma-separated lists such as `"PreemptMode": "SUSPEND,GANG"` and composite values such as `"SchedulerParameters": "bf_window=1440,bf_resolution=600"` .
+
+A parameter that isn't supported in the scope you set it in, or a value that isn't legal for that parameter, is rejected when you make the request, and the error names the parameter. Nothing is silently dropped. Some parameters are refused for a specific reason:
+
+  - The service manages node health checking and job requeueing, so `HealthCheckProgram` , `HealthCheckInterval` , `HealthCheckNodeState` and `RequeueExit` can't be set.
+  - `Prolog` and `Epilog` are set through `prolog_bash_scripts` and `epilog_bash_scripts` instead.
+  - `slurmdbd.conf` parameters, such as `StorageHost` and `PurgeJobAfter` , aren't configurable: the accounting database is managed by the service.
+  - At partition scope, `Default` is refused. The default partition is a cluster-wide choice, made by ordering the `partitions` list.
+
+> **Warning:** The service validates each parameter on its own, not whether the resulting `slurm.conf` is valid as a whole. Some accepted settings stop the Slurm controller from starting, such as `"PreemptType": "preempt/none"` with `"PreemptMode": "SUSPEND,GANG"` , or a partition `AllowQos` that names a QoS the cluster doesn't define. The create or update operation can still report success, but Slurm commands such as `sinfo` and `scontrol` then fail. Check your settings against the [slurm.conf reference](https://slurm.schedmd.com/slurm.conf.html) for your cluster's Slurm version. If Slurm commands fail after a create or update, reach out to your Gemini Enterprise Agent Platform training clusters contact, who can identify the setting that caused the failure.
+
+> **Note:** The cluster-scoped `config` map supersedes the `scheduling` and `accounting` fields, so a cluster uses one or the other and a request that sets both is rejected. Note that every value is the literal `slurm.conf` text, so numbers are written as strings: `"priority_weight_age": 1000` becomes `"PriorityWeightAge": "1000"` . The partition- and node-scoped maps aren't affected: they describe different `slurm.conf` records and can be used alongside those fields.
 
 ### Runtime configuration
 

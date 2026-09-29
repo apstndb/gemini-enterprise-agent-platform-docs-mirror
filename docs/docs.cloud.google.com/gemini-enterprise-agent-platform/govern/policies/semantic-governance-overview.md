@@ -16,8 +16,6 @@ data_source: docs.cloud.google.com
 
 > **Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
-> **Note:** This feature does not support VPC-SC.
-
 ## Overview
 
 **Semantic Governance** functions as a security check layer on agents operating across your enterprise. It evaluates each proposed tool call, allowing only tool calls that don't violate specified policies or deviate from user intent. All other calls are denied.
@@ -40,13 +38,14 @@ Whereas security mechanisms like Identity and Access Management (IAM) are static
 
 The benefits at a glance:
 
-| Benefit                   | Description                                                                                                                   |
-| :------------------------ | :---------------------------------------------------------------------------------------------------------------------------- |
-| **User intent alignment** | Verifies that an agent's proposed tool calls match the original semantic intent of the user prompt to the agent.              |
-| **Security & safety**     | Prevents "rogue actions" and protects against context poisoning and data exfiltration.                                        |
-| **Business compliance**   | Ensures that agent actions comply with organizational business constraints.                                                   |
-| **High velocity**         | Author business rules in plain English without redeploying code.                                                              |
-| **Low setup effort**      | Approximately 2 to 3 minutes for policy engine enablement (up to 20 minutes if refilling warmup pool), plus networking setup. |
+| Benefit                         | Description                                                                                                                                 |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| **User intent alignment**       | Verifies that an agent's proposed tool calls match the original semantic intent of the user prompt to the agent.                            |
+| **Security & safety**           | Prevents "rogue actions" and protects against context poisoning and data exfiltration.                                                      |
+| **Business compliance**         | Ensures that agent actions comply with organizational business constraints.                                                                 |
+| **High velocity**               | Author business rules in plain English without redeploying code.                                                                            |
+| **Low setup effort**            | Approximately 2 to 3 minutes for policy engine enablement (up to 20 minutes if refilling warmup pool), plus networking setup.               |
+| **Latency & cost transparency** | Operates over private VPC-SC compatible endpoints and logs exact per-turn LLM token consumption in Cloud Logging for budget predictability. |
 
 ## Use cases for Semantic governance policies
 

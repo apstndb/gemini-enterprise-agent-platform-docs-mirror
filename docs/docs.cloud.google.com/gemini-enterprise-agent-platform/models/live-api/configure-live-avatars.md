@@ -144,9 +144,9 @@ The reference image must meet the following specifications:
 
   - **Image format** : PNG recommended. PNG uses lossless compression, and alpha transparency prevents a visible box around the avatar in light and dark modes.
   - **Color mode** : RGB.
-  - **Image size** : 704 x 1280 pixels minimum (portrait).
+  - **Image size** : 704 x 1280 pixels minimum (portrait), 1280 x 704 pixels minimum (landscape).
   - **Resolution** : 720p or higher.
-  - **Aspect ratio** : 9:16 (portrait) is standard. Landscape is also supported.
+  - **Aspect ratio** : 9:16 (portrait) and 16:9 (landscape) is standard.
   - **File size** : Less than 5 MB
   - **Quality** : No blur or compression artifacts.
 

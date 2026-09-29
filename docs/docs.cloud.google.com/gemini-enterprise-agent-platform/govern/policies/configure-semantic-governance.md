@@ -16,8 +16,6 @@ data_source: docs.cloud.google.com
 
 > **Note:** Semantic Governance Policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
-> **Note:** This feature does not support VPC-SC.
-
 ## Configure Semantic governance policies and the policy engine
 
 This section covers the transition from infrastructure readiness to policy authoring.

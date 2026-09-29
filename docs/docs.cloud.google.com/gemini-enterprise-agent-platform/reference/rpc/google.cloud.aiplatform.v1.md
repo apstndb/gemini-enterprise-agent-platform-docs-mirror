@@ -23,6 +23,7 @@ data_source: docs.cloud.google.com
   - `  IndexEndpointService  ` (interface)
   - `  IndexService  ` (interface)
   - `  JobService  ` (interface)
+  - `  LlmBidiService  ` (interface)
   - `  LlmUtilityService  ` (interface)
   - `  MatchService  ` (interface)
   - `  MetadataService  ` (interface)
@@ -87,6 +88,8 @@ data_source: docs.cloud.google.com
   - `  AutomaticResources  ` (message)
   - `  AutoraterConfig  ` (message)
   - `  AutoscalingMetricSpec  ` (message)
+  - `  AvatarConfig  ` (message)
+  - `  AvatarConfig.CustomizedAvatar  ` (message)
   - `  AvroSource  ` (message)
   - `  BatchCancelPipelineJobsOperationMetadata  ` (message)
   - `  BatchCancelPipelineJobsRequest  ` (message)
@@ -121,6 +124,28 @@ data_source: docs.cloud.google.com
   - `  BatchReadFeatureValuesResponse  ` (message)
   - `  BatchReadTensorboardTimeSeriesDataRequest  ` (message)
   - `  BatchReadTensorboardTimeSeriesDataResponse  ` (message)
+  - `  BidiGenerateContentClientContent  ` (message)
+  - `  BidiGenerateContentClientMessage  ` (message)
+  - `  BidiGenerateContentContextUpdate  ` (message)
+  - `  BidiGenerateContentContextUpdate.Tools  ` (message)
+  - `  BidiGenerateContentRealtimeInput  ` (message)
+  - `  BidiGenerateContentRealtimeInput.ActivityEnd  ` (message)
+  - `  BidiGenerateContentRealtimeInput.ActivityStart  ` (message)
+  - `  BidiGenerateContentServerContent  ` (message)
+  - `  BidiGenerateContentServerContent.InteractionStatus  ` (enum)
+  - `  BidiGenerateContentServerContent.SpeechState  ` (enum)
+  - `  BidiGenerateContentServerContent.Transcription  ` (message)
+  - `  BidiGenerateContentServerContent.TurnCompleteReason  ` (enum)
+  - `  BidiGenerateContentServerMessage  ` (message)
+  - `  BidiGenerateContentSetup  ` (message)
+  - `  BidiGenerateContentSetup.AudioTranscriptionConfig  ` (message)
+  - `  BidiGenerateContentSetup.AudioTranscriptionConfig.LanguageAuto  ` (message) **(deprecated)**
+  - `  BidiGenerateContentSetup.AudioTranscriptionConfig.LanguageHints  ` (message) **(deprecated)**
+  - `  BidiGenerateContentSetup.AudioTranscriptionConfig.Mode  ` (enum)
+  - `  BidiGenerateContentSetupComplete  ` (message)
+  - `  BidiGenerateContentToolCall  ` (message)
+  - `  BidiGenerateContentToolCallCancellation  ` (message)
+  - `  BidiGenerateContentToolResponse  ` (message)
   - `  BidiInvokeReasoningEngineRequest  ` (message)
   - `  BigQueryDestination  ` (message)
   - `  BigQuerySource  ` (message)
@@ -178,6 +203,8 @@ data_source: docs.cloud.google.com
   - `  ContentMap  ` (message)
   - `  ContentMap.Contents  ` (message)
   - `  Context  ` (message)
+  - `  ContextWindowCompressionConfig  ` (message)
+  - `  ContextWindowCompressionConfig.SlidingWindow  ` (message)
   - `  CopyModelOperationMetadata  ` (message)
   - `  CopyModelRequest  ` (message)
   - `  CopyModelResponse  ` (message)
@@ -328,6 +355,7 @@ data_source: docs.cloud.google.com
   - `  DeleteTensorboardTimeSeriesRequest  ` (message)
   - `  DeleteTrainingPipelineRequest  ` (message)
   - `  DeleteTrialRequest  ` (message)
+  - `  DenoiserConfig  ` (message)
   - `  DeployIndexOperationMetadata  ` (message)
   - `  DeployIndexRequest  ` (message)
   - `  DeployIndexResponse  ` (message)
@@ -616,6 +644,7 @@ data_source: docs.cloud.google.com
   - `  GetTrainingPipelineRequest  ` (message)
   - `  GetTrialRequest  ` (message)
   - `  GetTuningJobRequest  ` (message)
+  - `  GoAway  ` (message)
   - `  GoogleDriveSource  ` (message)
   - `  GoogleDriveSource.ResourceId  ` (message)
   - `  GoogleDriveSource.ResourceId.ResourceType  ` (enum)
@@ -635,6 +664,7 @@ data_source: docs.cloud.google.com
   - `  GroundingMetadata.SourceFlaggingUri  ` (message)
   - `  GroundingSupport  ` (message)
   - `  HarmCategory  ` (enum)
+  - `  HistoryConfig  ` (message)
   - `  HyperparameterTuningJob  ` (message)
   - `  IdMatcher  ` (message)
   - `  ImageConfig  ` (message)
@@ -995,6 +1025,7 @@ data_source: docs.cloud.google.com
   - `  Presets.Query  ` (enum)
   - `  PrivateEndpoints  ` (message)
   - `  PrivateServiceConnectConfig  ` (message)
+  - `  ProactivityConfig  ` (message)
   - `  Probe  ` (message)
   - `  Probe.ExecAction  ` (message)
   - `  Probe.GrpcAction  ` (message)
@@ -1103,6 +1134,12 @@ data_source: docs.cloud.google.com
   - `  ReadTensorboardUsageResponse  ` (message)
   - `  ReadTensorboardUsageResponse.PerMonthUsageData  ` (message)
   - `  ReadTensorboardUsageResponse.PerUserUsageData  ` (message)
+  - `  RealtimeInputConfig  ` (message)
+  - `  RealtimeInputConfig.ActivityHandling  ` (enum)
+  - `  RealtimeInputConfig.AutomaticActivityDetection  ` (message)
+  - `  RealtimeInputConfig.AutomaticActivityDetection.EndSensitivity  ` (enum)
+  - `  RealtimeInputConfig.AutomaticActivityDetection.StartSensitivity  ` (enum)
+  - `  RealtimeInputConfig.TurnCoverage  ` (enum)
   - `  ReasoningEngine  ` (message)
   - `  ReasoningEngineSpec  ` (message)
   - `  ReasoningEngineSpec.ContainerSpec  ` (message)
@@ -1221,6 +1258,8 @@ data_source: docs.cloud.google.com
   - `  ServingProfile.ServingProfileScope  ` (enum)
   - `  Session  ` (message)
   - `  SessionEvent  ` (message)
+  - `  SessionResumptionConfig  ` (message)
+  - `  SessionResumptionUpdate  ` (message)
   - `  SharePointSources  ` (message)
   - `  SharePointSources.SharePointSource  ` (message)
   - `  ShieldedVmConfig  ` (message)
@@ -1488,6 +1527,8 @@ data_source: docs.cloud.google.com
   - `  VideoMetadata  ` (message)
   - `  VideoResponseFormat  ` (message)
   - `  VideoResponseFormat.AspectRatio  ` (enum)
+  - `  VoiceActivity  ` (message)
+  - `  VoiceActivity.Type  ` (enum)
   - `  VoiceConfig  ` (message)
   - `  WorkerPoolSpec  ` (message)
   - `  WriteFeatureValuesPayload  ` (message)
@@ -6592,6 +6633,45 @@ A service for creating and managing Agent Platform's jobs.
 <dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">name</code> resource:</p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.modelDeploymentMonitoringJobs.update</code></li>
+</ul>
+<p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
+</dd>
+</dl></td>
+</tr>
+</tbody>
+</table>
+
+## LlmBidiService
+
+A service for LLM related bidirectional low latency APIs.
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>BidiGenerateContent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code dir="ltr" translate="no">rpc BidiGenerateContent(              BidiGenerateContentClientMessage            </code> ) returns ( <code dir="ltr" translate="no">             BidiGenerateContentServerMessage            </code> )</p>
+<p>Bidirectional streaming predict.</p>
+<dl>
+<dt>Authorization scopes</dt>
+<dd><p>Requires the following OAuth scope:</p>
+<ul>
+<li><code dir="ltr" translate="no">https://www.googleapis.com/auth/cloud-platform</code></li>
+</ul>
+<p>For more information, see the <a href="https://docs.cloud.google.com/docs/authentication#authorization-gcp">Authentication Overview</a> .</p>
+</dd>
+</dl>
+<dl>
+<dt>IAM Permissions</dt>
+<dd><p>Requires the following <a href="https://cloud.google.com/iam/docs">IAM</a> permission on the <code dir="ltr" translate="no">model</code> resource:</p>
+<ul>
+<li><code dir="ltr" translate="no">aiplatform.endpoints.predict</code></li>
 </ul>
 <p>For more information, see the <a href="https://cloud.google.com/iam/docs">IAM documentation</a> .</p>
 </dd>
@@ -15527,6 +15607,56 @@ Required. The resource metric name. Supported metrics:
 
 The target resource utilization in percentage (1% - 100%) for the given metric; once the real usage deviates from the target by a certain percentage, the machine replicas change. The default value is 60 (representing 60%) if not provided.
 
+## AvatarConfig
+
+Configuration of avatar.
+
+Fields
+
+`audio_bitrate_bps`
+
+`int32`
+
+Optional. The bitrate of compressed audio.
+
+`video_bitrate_bps`
+
+`int32`
+
+Optional. The bitrate of compressed video output.
+
+Union field `avatar_persona` . Avatar persona. `avatar_persona` can be only one of the following:
+
+`avatar_name`
+
+`string`
+
+Optional. Pre-built avatar id.
+
+`customized_avatar`
+
+`  CustomizedAvatar  `
+
+Optional. Customized avatar appearance with a reference image
+
+## CustomizedAvatar
+
+Customized avatar configuration.
+
+Fields
+
+`image_mime_type`
+
+`string`
+
+Optional. The mime type of the reference image, e.g., "image/jpeg".
+
+`image_data`
+
+`bytes`
+
+Optional. The data of the reference image. The dimensions of the reference image should be 16:9.
+
 ## AvroSource
 
 The storage details for Avro input content.
@@ -16398,6 +16528,750 @@ Fields
 `  TimeSeriesData  `
 
 The returned time series data.
+
+## BidiGenerateContentClientContent
+
+Incremental update of the current conversation delivered from the client. All the content here is unconditionally appended to the conversation history and used as part of the prompt to the model to generate content.
+
+A message here will interrupt any current model generation.
+
+Fields
+
+`turns[]`
+
+`  Content  `
+
+Optional. The content appended to the current conversation with the model.
+
+For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history and latest request.
+
+`turn_complete`
+
+`bool`
+
+Optional. If true, indicates that the server content generation should start with the currently accumulated prompt. Otherwise, the server will await additional messages before starting generation.
+
+## BidiGenerateContentClientMessage
+
+Messages sent by the client in the BidiGenerateContent RPC call.
+
+Fields
+
+Union field `message_type` . The type of the message. `message_type` can be only one of the following:
+
+`setup`
+
+`  BidiGenerateContentSetup  `
+
+Optional. Message to be sent in the first and only first client message.
+
+`client_content`
+
+`  BidiGenerateContentClientContent  `
+
+Optional. Incremental update of the current conversation delivered from the client.
+
+`realtime_input`
+
+`  BidiGenerateContentRealtimeInput  `
+
+Optional. User input that is sent in real time.
+
+`tool_response`
+
+`  BidiGenerateContentToolResponse  `
+
+Optional. Response to a `ToolCallMessage` received from the server.
+
+`context_update`
+
+`  BidiGenerateContentContextUpdate  `
+
+Optional. Updates to the context of the current session.
+
+## BidiGenerateContentContextUpdate
+
+Updates to the context of the current session.
+
+Only fields that are set will be updated.
+
+Updates are guaranteed to be processed *in order* with the rest of the inputs.
+
+Fields
+
+`tools`
+
+`  Tools  `
+
+Optional. An updated list of tools the model may use to generate the subsequent responses. If set, this list replaces the previously provided tools.
+
+The tools are part of the model preamble, so updating them invalidates the prefix cache. Clients should only update this field when strictly necessary as it might have a performance impact on the model generation.
+
+`system_instruction`
+
+`  Content  `
+
+Optional. Updated system instruction for the model. If set, overrides `BidiGenerateContentSetup.system_instruction` .
+
+The system instructions are part of the model preamble, so updating them invalidates the prefix cache. Clients should only update this field when strictly necessary as it might have a performance impact on the model generation.
+
+## Tools
+
+A wrapper around the list of tools.
+
+This wrapper exists because a bare `repeated Tool` field cannot tell apart "not sending a tools update" from "clearing all tools": an unset repeated field and an empty repeated field look identical on the wire. Wrapping the list in a message adds a presence bit, so the two cases become: - `tools` field unset: no update; keep the previously provided tools. - `tools` field set (even with an empty list): replace the current tools with the provided list, which may be empty to clear all tools.
+
+Fields
+
+`tools[]`
+
+`  Tool  `
+
+Optional. The list of tools the model may use to generate the next response.
+
+## BidiGenerateContentRealtimeInput
+
+User input that is sent in real time.
+
+This is different from `ClientContentUpdate` in a few ways:
+
+  - Can be sent continuously without interruption to model generation.
+  - If there is a need to mix data interleaved across the `ClientContentUpdate` and the `RealtimeUpdate` , server attempts to optimize for best response, but there are no guarantees.
+  - End of turn is not explicitly specified, but is rather derived from user activity (for example, end of speech).
+  - Even before the end of turn, the data is processed incrementally to optimize for a fast start of the response from the model.
+  - Is always assumed to be the user's input (cannot be used to populate conversation history). //
+
+Fields
+
+`media_chunks[]`
+
+`  Blob  `
+
+Optional. Inlined bytes data for media input.
+
+`audio`
+
+`  Blob  `
+
+Optional. These form the realtime audio input stream.
+
+`video`
+
+`  Blob  `
+
+Optional. These form the realtime video input stream.
+
+`activity_start`
+
+`  ActivityStart  `
+
+Optional. Marks the start of user activity. This can only be sent if automatic (i.e. server-side) activity detection is disabled.
+
+`activity_end`
+
+`  ActivityEnd  `
+
+Optional. Marks the end of user activity. This can only be sent if automatic (i.e. server-side) activity detection is disabled.
+
+`audio_stream_end`
+
+`bool`
+
+Optional. Indicates that the audio stream has ended, e.g. because the microphone was turned off.
+
+This should only be sent when automatic activity detection is enabled (which is the default).
+
+The client can reopen the stream by sending an audio message.
+
+`text`
+
+`string`
+
+Optional. These form the realtime text input stream.
+
+## ActivityEnd
+
+This type has no fields.
+
+Marks the end of user activity.
+
+## ActivityStart
+
+This type has no fields.
+
+Only one of the fields in this message must be set at a time. Marks the start of user activity.
+
+## BidiGenerateContentServerContent
+
+Incremental server update generated by the model in response to client messages.
+
+Content is generated as quickly as possible, and not in realtime. Clients may choose to buffer and play it out in realtime.
+
+Fields
+
+`turn_complete`
+
+`bool`
+
+Output only. If true, indicates that the model is done generating. Generation will only start in response to additional client messages. Can be set alongside `content` , indicating that the `content` is the last in the turn.
+
+`interrupted`
+
+`bool`
+
+Output only. If true, indicates that a client message has interrupted current model generation. If the client is playing out the content in realtime, this is a good signal to stop and empty the current queue. If the client is playing out the content in realtime, this is a good signal to stop and empty the current playback queue.
+
+`generation_complete`
+
+`bool`
+
+Output only. If true, indicates that the model is done generating.
+
+When model is interrupted while generating there will be no 'generation\_complete' message in interrupted turn, it will go through 'interrupted \> turn\_complete'.
+
+When model assumes realtime playback there will be delay between generation\_complete and turn\_complete that is caused by model waiting for playback to finish.
+
+`grounding_metadata`
+
+`  GroundingMetadata  `
+
+Output only. Metadata specifies sources used to ground generated content.
+
+`input_transcription`
+
+`  Transcription  `
+
+Optional. Input transcription. The transcription is independent of the model turn, which means it does not imply any ordering between transcription and model turn.
+
+`output_transcription`
+
+`  Transcription  `
+
+Optional. Output transcription. The transcription is independent of the model turn, which means it does not imply any ordering between transcription and model turn.
+
+`turn_complete_reason`
+
+`  TurnCompleteReason  `
+
+Output only. The reason why the turn is complete.
+
+`speech_state`
+
+`  SpeechState  `
+
+Output only. Indicates the current state of speech detection on `realtime_input.audio` . Not set or zero if the state is unchanged.
+
+`interim_input_transcription`
+
+`  Transcription  `
+
+Optional. Low-latency interim transcription updated while the user is speaking.
+
+`interaction_status`
+
+`  InteractionStatus  `
+
+Output only. The current activity status of the live session. Always sent alongside `turn_complete` .
+
+`model_turn`
+
+`  Content  `
+
+Output only. The content that the model has generated as part of the current conversation with the user.
+
+## InteractionStatus
+
+The different activity states of the live session. This field is always sent together with `turn_complete` to indicate whether the server has finished all processing.
+
+Enums
+
+`INTERACTION_STATUS_UNSPECIFIED`
+
+Unspecified interaction status.
+
+`IN_PROGRESS`
+
+The server is still actively processing user input or running background reasoning. More model output may follow.
+
+`REQUIRES_ACTION`
+
+Deprecated: Use IDLE instead. The server has completed all processing and background reasoning.
+
+> This item is deprecated\!
+
+`IDLE`
+
+The server has completed all processing and background reasoning.
+
+## SpeechState
+
+The different states of server-side speech detection.
+
+Enums
+
+`SPEECH_STATE_UNSPECIFIED`
+
+Unspecified speech state. If the speech state is changing, one of the other values will be set.
+
+`NON_SPEECH`
+
+No speech detected.
+
+`SPEECH`
+
+Speech detected.
+
+## Transcription
+
+Audio transcription message.
+
+Fields
+
+`text`
+
+`string`
+
+Optional. The transcription text.
+
+`finished`
+
+`bool`
+
+Optional. Indicates whether the transcription is complete.
+
+## TurnCompleteReason
+
+The reason why the turn is complete.
+
+Enums
+
+`TURN_COMPLETE_REASON_UNSPECIFIED`
+
+Reason is unspecified.
+
+`MALFORMED_FUNCTION_CALL`
+
+The function call generated by the model is invalid.
+
+`RESPONSE_REJECTED`
+
+The response is rejected by the model.
+
+`NEED_MORE_INPUT`
+
+Needs more input from the user.
+
+`PROHIBITED_INPUT_CONTENT`
+
+Input safety related finish reasons. Replicated from learning/genai/beyond/recipe\_runner/finish\_reason.proto:FinishReason. Input content is prohibited.
+
+`IMAGE_PROHIBITED_INPUT_CONTENT`
+
+Input image contains prohibited content.
+
+`INPUT_TEXT_CONTAIN_PROMINENT_PERSON_PROHIBITED`
+
+Input text contains prominent person reference.
+
+`INPUT_IMAGE_CELEBRITY`
+
+Input image contains celebrity.
+
+`INPUT_IMAGE_PHOTO_REALISTIC_CHILD_PROHIBITED`
+
+Input image contains photo realistic child.
+
+`INPUT_TEXT_NCII_PROHIBITED`
+
+Input text contains NCII content.
+
+`INPUT_OTHER`
+
+Other input safety issue.
+
+`INPUT_IP_PROHIBITED`
+
+Input contains IP violation.
+
+`BLOCKLIST`
+
+Input matched blocklist.
+
+`UNSAFE_PROMPT_FOR_IMAGE_GENERATION`
+
+Input is unsafe for image generation.
+
+`GENERATED_IMAGE_SAFETY`
+
+Output safety related finish reasons. Replicated from learning/genai/beyond/recipe\_runner/finish\_reason.proto:FinishReason. Generated image failed safety check.
+
+`GENERATED_CONTENT_SAFETY`
+
+Generated content failed safety check.
+
+`GENERATED_AUDIO_SAFETY`
+
+Generated audio failed safety check.
+
+`GENERATED_VIDEO_SAFETY`
+
+Generated video failed safety check.
+
+`GENERATED_CONTENT_PROHIBITED`
+
+Generated content is prohibited.
+
+`GENERATED_CONTENT_BLOCKLIST`
+
+Generated content matched blocklist.
+
+`GENERATED_IMAGE_PROHIBITED`
+
+Generated image is prohibited.
+
+`GENERATED_IMAGE_CELEBRITY`
+
+Generated image contains celebrity.
+
+`GENERATED_IMAGE_PROMINENT_PEOPLE_DETECTED_BY_REWRITER`
+
+Generated image contains prominent people detected by rewriter.
+
+`GENERATED_IMAGE_IDENTIFIABLE_PEOPLE`
+
+Generated image contains identifiable people.
+
+`GENERATED_IMAGE_MINORS`
+
+Generated image contains minors.
+
+`OUTPUT_IMAGE_IP_PROHIBITED`
+
+Generated image contains IP violation.
+
+`GENERATED_OTHER`
+
+Other generated content issue.
+
+`MAX_REGENERATION_REACHED`
+
+Max regeneration attempts reached.
+
+## BidiGenerateContentServerMessage
+
+Response message for BidiGenerateContent RPC call.
+
+Fields
+
+`usage_metadata`
+
+`  UsageMetadata  `
+
+Output only. Usage metadata about the response(s).
+
+Union field `message_type` . The type of the message. `message_type` can be only one of the following:
+
+`setup_complete`
+
+`  BidiGenerateContentSetupComplete  `
+
+Output only. Sent in response to a `BidiGenerateContentSetup` message from the client.
+
+`server_content`
+
+`  BidiGenerateContentServerContent  `
+
+Output only. Content generated by the model in response to client messages.
+
+`tool_call`
+
+`  BidiGenerateContentToolCall  `
+
+Output only. Request for the client to execute the `function_calls` and return the responses with the matching `id` s.
+
+`tool_call_cancellation`
+
+`  BidiGenerateContentToolCallCancellation  `
+
+Output only. Notification for the client that a previously issued `ToolCallMessage` with the specified `id` s should have been not executed and should be cancelled.
+
+`go_away`
+
+`  GoAway  `
+
+Output only. Server will disconnect soon.
+
+`session_resumption_update`
+
+`  SessionResumptionUpdate  `
+
+Output only. Update of the session resumption state.
+
+`voice_activity`
+
+`  VoiceActivity  `
+
+Output only. Voice activity signal.
+
+## BidiGenerateContentSetup
+
+Message to be sent in the first and only first `BidiGenerateContentClientMessage` . Contains configuration that will apply for the duration of the streaming RPC.
+
+Clients should wait for a `BidiGenerateContentSetupComplete` message before sending any additional messages.
+
+Fields
+
+`model`
+
+`string`
+
+Required. The fully qualified name of the publisher model.
+
+Publisher model format: `projects/{project}/locations/{location}/publishers/*/models/*`
+
+`generation_config`
+
+`  GenerationConfig  `
+
+Optional. Generation config.
+
+The following fields aren't supported:
+
+  - `response_logprobs`
+  - `response_mime_type`
+  - `logprobs`
+  - `response_schema`
+  - `stop_sequence`
+  - `routing_config`
+  - `audio_timestamp`
+
+`system_instruction`
+
+`  Content  `
+
+Optional. The user provided system instructions for the model. Note: only text should be used in parts and content in each part will be in a separate paragraph.
+
+`tools[]`
+
+`  Tool  `
+
+Optional. A list of `Tools` the model may use to generate the next response.
+
+A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.
+
+`session_resumption`
+
+`  SessionResumptionConfig  `
+
+Optional. Configures session resumption mechanism. If included, the server will send periodical `SessionResumptionUpdate` messages to the client.
+
+`context_window_compression`
+
+`  ContextWindowCompressionConfig  `
+
+Optional. Configures context window compression mechanism.
+
+If included, server will compress context window to fit into given length.
+
+`realtime_input_config`
+
+`  RealtimeInputConfig  `
+
+Optional. Configures the handling of realtime input.
+
+`input_audio_transcription`
+
+`  AudioTranscriptionConfig  `
+
+Optional. Configures transcription of the input audio, which aligns with the input audio language.
+
+`output_audio_transcription`
+
+`  AudioTranscriptionConfig  `
+
+Optional. Configures transcription of the output audio, which aligns with the language code specified for the output audio.
+
+`explicit_vad_signal`
+
+`bool`
+
+Optional. Indicates whether the server sends the built-in VAD signal to the user.
+
+`proactivity`
+
+`  ProactivityConfig  `
+
+Optional. Configures the proactivity of the model.
+
+This allows the model to respond proactively to the input and to ignore irrelevant input.
+
+`avatar_config`
+
+`  AvatarConfig  `
+
+Optional. Config for video generation.
+
+`safety_settings[]`
+
+`  SafetySetting  `
+
+Optional. List of safety settings to use for blocking unsafe content.
+
+`history_config`
+
+`  HistoryConfig  `
+
+Optional. Configuration for the conversation history.
+
+`labels`
+
+`map<string, string>`
+
+Optional. The labels with user-defined metadata for the request. It is used for billing and reporting only.
+
+Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
+
+## AudioTranscriptionConfig
+
+The audio transcription configuration.
+
+Fields
+
+`language_codes[]`
+
+`string`
+
+Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
+
+` adaptation_phrases[] (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Optional. Deprecated: Use `custom_vocabulary` instead. A list of phrases used for speech adaptation, which biases the speech recognition model to improve recognition of these specific terms.
+
+`custom_vocabulary[]`
+
+`string`
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
+`mode`
+
+`  Mode  `
+
+Optional. Configures transcription mode. Supported values: `VERBATIM` , `SMART` . If unspecified, defaults to `VERBATIM` transcription. In `SMART` mode, the model performs disfluency removal (eliminating filler words, repetitions, and false starts), light grammatical cleanup, automatic formatting (paragraphs, bullet points, numbered lists), and minor user edits (inline self-corrections). Timestamps and diarization are incompatible with mode `SMART` .
+
+Union field `language_config` . Deprecated: Use top-level `language_codes` instead. `language_config` can be only one of the following:
+
+` language_auto (deprecated)  `
+
+`  LanguageAuto  `
+
+> This item is deprecated\!
+
+Optional. Deprecated: Use top-level `language_codes` instead. The model will detect the language automatically.
+
+` language_hints (deprecated)  `
+
+`  LanguageHints  `
+
+> This item is deprecated\!
+
+Optional. Deprecated: Use top-level `language_codes` instead. Specifies one or more languages in the audio.
+
+## LanguageAuto
+
+This type has no fields.
+
+> This item is deprecated\!
+
+Deprecated: Use top-level `language_codes` instead. Indicates the language of the audio should be automatically detected.
+
+## LanguageHints
+
+> This item is deprecated\!
+
+Deprecated: Use top-level `language_codes` instead. Provides hints to the model about possible languages present in the audio.
+
+Fields
+
+` language_codes[] (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Required. Deprecated: Use top-level `language_codes` instead. BCP-47 language codes. At least one must be specified.
+
+## Mode
+
+Transcription mode.
+
+Enums
+
+`MODE_UNSPECIFIED`
+
+Unspecified transcription mode.
+
+`VERBATIM`
+
+Verbatim transcription mode.
+
+`SMART`
+
+Smart transcription mode.
+
+## BidiGenerateContentSetupComplete
+
+Sent in response to a `BidiGenerateContentSetup` message from the client.
+
+Fields
+
+`session_id`
+
+`string`
+
+Output only. The session id of the session.
+
+## BidiGenerateContentToolCall
+
+Request for the client to execute the `function_calls` and return the responses with the matching `id` s.
+
+Fields
+
+`function_calls[]`
+
+`  FunctionCall  `
+
+Output only. The function call to be executed.
+
+## BidiGenerateContentToolCallCancellation
+
+Notification for the client that a previously issued `ToolCallMessage` with the specified `id` s should have been not executed and should be cancelled. If there were side-effects to those tool calls, clients may attempt to undo the tool calls. This message occurs only in cases where the clients interrupt server turns.
+
+Fields
+
+`ids[]`
+
+`string`
+
+Output only. The ids of the tool calls to be cancelled.
+
+## BidiGenerateContentToolResponse
+
+Client generated response to a `ToolCall` received from the server. Individual `FunctionResponse` objects are matched to the respective `FunctionCall` objects by the `id` field.
+
+Note that in the unary and server-streaming GenerateContent APIs function calling happens by exchanging the `Content` parts, while in the bidi GenerateContent APIs function calling happens over these dedicated set of messages.
+
+Fields
+
+`function_responses[]`
+
+`  FunctionResponse  `
+
+Optional. The response to the function calls.
 
 ## BidiInvokeReasoningEngineRequest
 
@@ -17678,6 +18552,46 @@ Properties of the Context. Top level metadata keys' heading and trailing spaces 
 `string`
 
 Description of the Context
+
+## ContextWindowCompressionConfig
+
+Enables context window compression -- mechanism managing model context window so it does not exceed given length.
+
+Fields
+
+Union field `compression_mechanism` . Context window compression mechanism. `compression_mechanism` can be only one of the following:
+
+`sliding_window`
+
+`  SlidingWindow  `
+
+Sliding window compression mechanism.
+
+`trigger_tokens`
+
+`int64`
+
+Number of tokens (before running turn) that triggers context window compression mechanism.
+
+This can be also used as latency/quality knob. Shorter windows might run faster.
+
+If not set 80% of model context window will be used, leaving 20% for next user request/model response.
+
+## SlidingWindow
+
+Context window will be truncated by keeping only suffix of it. Context window will always be cut at start of USER role turn. System instructions and `BidiGenerateContentSetup.prefix_turns` will not be subject to the sliding window mechanism, they will always stay at the beginning of context window.
+
+Fields
+
+`target_tokens`
+
+`int64`
+
+Session reduction target -- how many tokens we should keep.
+
+Window shortening operation has some latency costs, so we should avoid running it on every turn.
+
+Should be \< trigger\_tokens. If not set, trigger\_tokens/2 is assumed.
 
 ## CopyModelOperationMetadata
 
@@ -20678,6 +21592,12 @@ Fields
 `string`
 
 Required. The Trial's name. Format: `projects/{project}/locations/{location}/studies/{study}/trials/{trial}`
+
+## DenoiserConfig
+
+This type has no fields.
+
+Configuration of denoiser.
 
 ## DeployIndexOperationMetadata
 
@@ -28373,6 +29293,18 @@ Fields
 
 Required. The name of the tuning job to retrieve. Format: `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
 
+## GoAway
+
+Server will not be able to service client soon.
+
+Fields
+
+`time_left`
+
+`  Duration  `
+
+The remaining time before the connection will be terminated as ABORTED. The minimal time returned here is specified differently together with the rate limits for a given model.
+
 ## GoogleDriveSource
 
 The Google Drive location for the input content.
@@ -28852,6 +29784,16 @@ Images that contain sexually explicit content.
 `HARM_CATEGORY_JAILBREAK`
 
 Prompts designed to bypass safety filters.
+
+## HistoryConfig
+
+Configuration for the conversation history.
+
+Fields
+
+`initial_history_in_client_content`
+
+`bool`
 
 ## HyperparameterTuningJob
 
@@ -40255,6 +41197,18 @@ Optional. List of projects and networks where the PSC endpoints will be created.
 
 Output only. The name of the generated service attachment resource. This is only populated if the endpoint is deployed with PrivateServiceConnect.
 
+## ProactivityConfig
+
+Configures the model's proactivity. Proactivity determines how the model should respond to input. When proactivity is enabled, the model can choose to ignore irrelevant input, respond to contextual cues, and generate content even when not explicitly prompted. This is useful for more natural, human-like interactions in streaming use cases like audio and video.
+
+Fields
+
+`proactive_audio`
+
+`bool`
+
+Optional. If enabled, the model can proactively respond to audio input, for example by ignoring out of context speech.
+
 ## Probe
 
 Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
@@ -42735,6 +43689,144 @@ User's username
 `int64`
 
 Number of times the user has read data within the Tensorboard.
+
+## RealtimeInputConfig
+
+Configures the realtime input behavior in `BidiGenerateContent` .
+
+Fields
+
+`automatic_activity_detection`
+
+`  AutomaticActivityDetection  `
+
+Optional. If not set, automatic activity detection is enabled by default. If automatic voice detection is disabled, the client must send activity signals.
+
+`activity_handling`
+
+`  ActivityHandling  `
+
+Optional. Defines what effect activity has.
+
+`turn_coverage`
+
+`  TurnCoverage  `
+
+Optional. Defines which input is included in the user's turn.
+
+`denoiser_config`
+
+`  DenoiserConfig  `
+
+Optional. The denoiser configuration.
+
+## ActivityHandling
+
+The different ways of handling user activity.
+
+Enums
+
+`ACTIVITY_HANDLING_UNSPECIFIED`
+
+If unspecified, the default behavior is `START_OF_ACTIVITY_INTERRUPTS` .
+
+`START_OF_ACTIVITY_INTERRUPTS`
+
+If true, start of activity will interrupt the model's response (also called "barge in"). The model's current response will be cut-off in the moment of the interruption. This is the default behavior.
+
+`NO_INTERRUPTION`
+
+The model's response will not be interrupted.
+
+## AutomaticActivityDetection
+
+Configures automatic detection of activity.
+
+Fields
+
+`start_of_speech_sensitivity`
+
+`  StartSensitivity  `
+
+Optional. Determines how likely speech is to be detected.
+
+`end_of_speech_sensitivity`
+
+`  EndSensitivity  `
+
+Optional. Determines how likely detected speech is ended.
+
+`prefix_padding_ms`
+
+`int32`
+
+Optional. The required duration of detected speech before start-of-speech is committed. The lower this value the more sensitive the start-of-speech detection is and the shorter speech can be recognized. However, this also increases the probability of false positives.
+
+`silence_duration_ms`
+
+`int32`
+
+Optional. The required duration of detected silence (or non-speech) before end-of-speech is committed. The larger this value, the longer speech gaps can be without interrupting the user's activity but this will increase the model's latency.
+
+`disabled`
+
+`bool`
+
+Optional. If enabled, detected voice and text input count as activity. If disabled, the client must send activity signals.
+
+## EndSensitivity
+
+End of speech sensitivity.
+
+Enums
+
+`END_SENSITIVITY_UNSPECIFIED`
+
+The default is END\_SENSITIVITY\_LOW.
+
+`END_SENSITIVITY_HIGH`
+
+Automatic detection ends speech more often.
+
+`END_SENSITIVITY_LOW`
+
+Automatic detection ends speech less often.
+
+## StartSensitivity
+
+Start of speech sensitivity.
+
+Enums
+
+`START_SENSITIVITY_UNSPECIFIED`
+
+The default is START\_SENSITIVITY\_LOW.
+
+`START_SENSITIVITY_HIGH`
+
+Automatic detection will detect the start of speech more often.
+
+`START_SENSITIVITY_LOW`
+
+Automatic detection will detect the start of speech less often.
+
+## TurnCoverage
+
+Options about which input is included in the user's turn.
+
+Enums
+
+`TURN_COVERAGE_UNSPECIFIED`
+
+If unspecified, the default behavior is `TURN_INCLUDES_ALL_INPUT` .
+
+`TURN_INCLUDES_ONLY_ACTIVITY`
+
+The users turn only includes activity since the last turn, excluding inactivity (e.g. silence on the audio stream).
+
+`TURN_INCLUDES_ALL_INPUT`
+
+The users turn includes all realtime input since the last turn, including inactivity (e.g. silence on the audio stream). This is the default behavior.
 
 ## ReasoningEngine
 
@@ -46081,6 +47173,60 @@ Optional. Metadata relating to this event.
 `  Struct  `
 
 Optional. Weakly typed raw event data in proto struct format.
+
+## SessionResumptionConfig
+
+Configuration of session resumption mechanism.
+
+Included in `BidiGenerateContentSetup.session_resumption` . If included server will send SessionResumptionUpdate messages.
+
+Fields
+
+`transparent`
+
+`bool`
+
+Optional. If set requests server to send updates with message\_index of last message sent from client included in session state.
+
+`handle`
+
+`string`
+
+Session resumption handle of previous session (session to restore).
+
+If not present new session will be started.
+
+## SessionResumptionUpdate
+
+Update of the session resumption state.
+
+Only sent if `BidiGenerateContentSetup.session_resumption` was set.
+
+Fields
+
+`new_handle`
+
+`string`
+
+New handle that represents state that can be resumed. Empty if `resumable` =false.
+
+`resumable`
+
+`bool`
+
+True if session can be resumed at this point.
+
+It might be not possible to resume session at some points. In that case we send update empty new\_handle and resumable=false. Example of such case could be model executing function calls or just generating. Resuming session (using previous session token) in such state will result in some data loss.
+
+`last_consumed_client_message_index`
+
+`int64`
+
+Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.
+
+Presence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResmumptionTokenUpdate` . This field will enable them to limit buffering (avoid keeping all requests in RAM).
+
+It will not be used for 'resumption to restore state' some time later -- in those cases partial audio and video frames are likely not needed.
 
 ## SharePointSources
 
@@ -51920,6 +53066,42 @@ Default value. This value is unused.
 `ASPECT_RATIO_NINE_BY_SIXTEEN`
 
 9:16 aspect ratio.
+
+## VoiceActivity
+
+Voice activity signal.
+
+Fields
+
+`type`
+
+`  Type  `
+
+The type of the VAD signal.
+
+`audio_offset`
+
+`  Duration  `
+
+Output only. The time voice activity detected in audio time, relative to the start of the audio stream.
+
+## Type
+
+The type of the VAD signal.
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+The default is UNSPECIFIED.
+
+`ACTIVITY_START`
+
+Start of sentence signal.
+
+`ACTIVITY_END`
+
+End of sentence signal.
 
 ## VoiceConfig
 

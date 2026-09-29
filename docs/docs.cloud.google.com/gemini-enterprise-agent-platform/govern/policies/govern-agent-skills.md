@@ -16,8 +16,6 @@ data_source: docs.cloud.google.com
 
 > **Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
-> **Note:** This feature does not support VPC-SC.
-
 An agent can access numerous tools using Model Context Protocol (MCP) servers, enterprise APIs, or custom scripts. Exposing an agent to a very large number of tool descriptions at once can lead to context bloat, which increases token costs, latency, and can degrade the LLM's reasoning performance.
 
 To optimize performance, you can use **[Agent Skills](https://agentskills.io/)** (a standard for packaging tools and procedure descriptions) to implement progressive disclosure of tools. Instead of placing the entire tool catalog in the context, the agent is exposed to a small set of skills initially. The LLM directs the agent to load specific skill packages dynamically when they become relevant.

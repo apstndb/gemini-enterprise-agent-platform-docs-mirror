@@ -281,9 +281,11 @@ The following table describes how to modify your Provisioned Throughput orders b
 </tbody>
 </table>
 
-### Split an order
+### Restructure an order
 
-You can divide an active order into two orders while maintaining the same model, region, term, expiration time, and renewal policy to facilitate partial migrations.
+#### Split an order
+
+You can divide an active Google model Provisioned Throughput order into two orders while maintaining the same model, region, term, expiration time, and renewal policy to facilitate partial migrations.
 
 To split an order, do the following:
 
@@ -291,19 +293,73 @@ To split an order, do the following:
 
 2.  Click an Order ID.
 
-3.  On the **Order details** page, click the **Split** button.
+3.  On the **Order details** page, click the **Restructure** button.
 
-4.  Enter an **Order name** for the split order that you are creating.
+4.  Select **Split Order** .
 
-5.  Enter the number of GSUs to be moved from the original order to this new order.
+5.  Enter an **Order name** for the split order that you are creating.
 
-6.  Review the **Summary of changes** table to understand how this action will impact your existing order.
+6.  Enter the number of GSUs to be moved from the original order to this new order.
 
-7.  Click **Submit changes** .
+7.  Review the **Summary of changes** table to understand how this action will impact your existing order.
+
+8.  Click **Submit changes** .
     
     The Orders summary page opens. On the Orders summary page, your new split order is shown with an **Approved** status.
 
 Within 10 minutes, the split order will move to **Active** status and the original order's GSU count will be reduced by the number of GSUs activated on the newly created order. There is no loss in service or increase in billing charges as a result of this change.
+
+#### Change scope
+
+You can move an active Google model Provisioned Throughput order from one project to another while maintaining the same model, GSUs, region, renewal policy, term, and end date by superseding and replacing an existing order with a new one.
+
+To change the scope of an order, do the following:
+
+1.  In the Google Cloud console, go to the **Provisioned Throughput Orders** page.
+
+2.  Click an Order ID.
+
+3.  On the **Order details** page, click the **Restructure** button.
+
+4.  Select **Change scope** .
+
+5.  Enter an **Order name** for the new order you are creating.
+
+6.  Select the project where you want to move your order to within the **Scope** section.
+
+7.  Review the **Summary of changes** table to understand how this action will impact your existing order.
+
+8.  Click **Submit changes** .
+    
+    The Order details page opens with a notification that the Change scope request was submitted successfully. Click **view new order** at the top of the page to be taken to the corresponding Order details page from the newly created order in the selected project. This new order will be in **Approved** status.
+
+Within 15 minutes, the newly created order will move to **Active** status, and the original order will be cancelled. There is no loss in service or increase in billing charges as a result of this change.
+
+#### Increase term
+
+You can increase the term of an active Google model Provisioned Throughput order while maintaining the same model, GSUs, region, and renewal policy by superseding and replacing an existing order with a new one.
+
+To increase the term of an order, do the following:
+
+1.  In the Google Cloud console, go to the **Provisioned Throughput Orders** page.
+
+2.  Click an Order ID.
+
+3.  On the **Order details** page, click the **Restructure** button.
+
+4.  Select **Increase term** .
+
+5.  Enter an **Order name** for the new order you are creating.
+
+6.  Select the term you want to increase to.
+
+7.  Review the **Summary of changes** table to understand how this action will impact your existing order.
+
+8.  Click **Submit changes** .
+    
+    The Order details page opens with a notification that the Increase term request was submitted successfully. Click **view new order** at the top of the page to be taken to the corresponding Order details page from the newly created order. This new order will be in **Pending** status.
+
+After successful capacity review, once the newly created order is Approved, it will then move to **Active** status, and the original order will be cancelled. There is no loss in service or double billing as a result of this change.
 
 ### When you can't change an order
 

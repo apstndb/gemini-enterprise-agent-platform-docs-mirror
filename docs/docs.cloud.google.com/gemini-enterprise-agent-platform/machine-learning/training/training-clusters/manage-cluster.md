@@ -99,6 +99,8 @@ For example, to update the node count of a pool of a [CPU-only cluster](https://
       - `orchestrator_spec.slurm_spec.epilog_bash_scripts`
       - `orchestrator_spec.slurm_spec.scheduling`
       - `orchestrator_spec.slurm_spec.accounting`
+      - `orchestrator_spec.slurm_spec.config`
+      - `orchestrator_spec.slurm_spec.node_sets`
 
   - `updateMode` (enum, optional): Specifies the update mode. Possible values are:
     
@@ -117,18 +119,22 @@ The command below updates both the node pool configuration and the Slurm partiti
 
 For repeated fields, such as `node_pools` , `prolog_bash_scripts` , and `epilog_bash_scripts` , the API only supports a full replacement operation. The user must provide the entire, expected list of items in the request payload to replace the existing list completely.
 
-**Update Slurm scheduling and accounting settings**
+**Update Slurm configuration settings**
 
-You can update Slurm scheduling settings, including preemption and accounting setting, on a running cluster. Applying these settings doesn't restart or drain any nodes. The service regenerates `slurm.conf` and reloads the Slurm controller so queued and running jobs are unaffected.
+You can change Slurm configuration on a running cluster. Applying these settings doesn't restart or drain any nodes: the service regenerates `slurm.conf` and reloads the Slurm controller, so queued and running jobs are unaffected.
 
 There is always a risk that nodes may reboot after running jobs complete due to underlying dependency changes. However, that risk is minimized with the `USER_ONLY` update mode.
 
 The new settings might take a short time to appear in `scontrol show config` after the operation completes.
 
+> **Caution:** An update with an invalid Slurm setting can succeed but leave the Slurm controller unable to start, so Slurm commands on the cluster fail. See [Slurm configuration maps](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/create-cluster#slurm-config-maps) .
+
+Cluster-scoped settings are named by `orchestrator_spec.slurm_spec.config` , node-pool settings by `orchestrator_spec.slurm_spec.node_sets` , and partition settings by `orchestrator_spec.slurm_spec.partitions` , which carries each partition's `config` along with its membership. Each map is replaced in full, in the same way as the repeated fields described earlier. Send the complete set of parameters you want; a parameter you leave out is removed. To clear a map, name its path in the `updateMask` and send it empty.
+
 The command below turns on partition-priority preemption for an existing cluster.
 
     gcurl -X PATCH -d @update-payload.json \
-    'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.scheduling&updateMode=USER_ONLY'
+    'https://REGION-aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/REGION/modelDevelopmentClusters/CLUSTER_ID?updateMask=orchestrator_spec.slurm_spec.config,orchestrator_spec.slurm_spec.scheduling,orchestrator_spec.slurm_spec.accounting&updateMode=USER_ONLY'
 
 Where `update-payload.json` contains, in part:
 
@@ -137,18 +143,21 @@ Where `update-payload.json` contains, in part:
       "orchestrator_spec": {
         "slurm_spec": {
           ...,
-          "scheduling": {
-            "preempt_type": "preempt/partition_prio",
-            "preempt_mode": "REQUEUE",
-            "preempt_exempt_time": "1:01"
+          "config": {
+            "PriorityType": "priority/multifactor",
+            "PriorityWeightAge": "1000",
+            "PreemptType": "preempt/partition_prio",
+            "PreemptMode": "REQUEUE",
+            "PreemptExemptTime": "1:01",
+            "SchedulerParameters": "bf_continue,bf_window=1440"
           }
         }
       }
     }
 
-> **Caution:** `scheduling` and `accounting` are each replaced in full, in the same way as the repeated fields described earlier. Naming one of them in the `updateMask` replaces the whole object, so any field you leave out reverts to its default rather than keeping its current value. Always send the complete set of settings you want. To turn a setting off, send the object with that field omitted; to clear the whole object, name it in the `updateMask` and omit it from the payload.
+Set cluster-wide parameters in `config` rather than in `scheduling` and `accounting` , which it supersedes. A cluster uses one or the other; a request that sets both is rejected.
 
-The same caution applies if you call `PATCH` without an `updateMask` . In that case the service diffs your entire payload against the current cluster, so a payload that omits `scheduling` clears any scheduling settings the cluster already has. Pass an `updateMask` to scope the update to the fields you intend to change.
+If you call `PATCH` without an `updateMask` , the service diffs your entire payload against the current cluster, so a payload that omits these settings clears whatever the cluster already has. Pass an `updateMask` to scope the update to the fields you intend to change, with one exception: because `config` , `scheduling` , and `accounting` supersede each other, a mask that names any of the three must name all three, as the example above does. A field you name but leave out of the payload is cleared.
 
 **Node image selection**
 

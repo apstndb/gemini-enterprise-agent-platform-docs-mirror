@@ -581,6 +581,28 @@ The following table shows the throughput, purchase increment, and burndown rates
 </thead>
 <tbody>
 <tr class="odd">
+<td>Anthropic's Claude Sonnet 5.5 on Google Cloud</td>
+<td>525</td>
+<td>1</td>
+<td>1</td>
+<td>1 input token = 1 token<br />
+1 output token = 5 tokens<br />
+1 cache write 5m token = 1.25 tokens<br />
+1 cache write 1h token = 2 tokens<br />
+1 cache hit token = 0.1 token</td>
+</tr>
+<tr class="even">
+<td>Anthropic's Claude Opus 5.5 on Google Cloud</td>
+<td>261</td>
+<td>1</td>
+<td>1</td>
+<td>1 input token = 1 token<br />
+1 output token = 5 tokens<br />
+1 cache write 5m token = 1.25 tokens<br />
+1 cache write 1h token = 2 tokens<br />
+1 cache hit token = 0.05 token</td>
+</tr>
+<tr class="odd">
 <td>Anthropic's Claude Fable 5.1 on Google Cloud</td>
 <td>105</td>
 <td>1</td>

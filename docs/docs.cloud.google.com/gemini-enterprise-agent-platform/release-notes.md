@@ -10,6 +10,40 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 28, 2026
+
+Feature
+
+**Anthropic's Claude Sonnet 5.5**
+
+[Claude Sonnet 5.5](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5) is available in Model Garden.
+
+Feature
+
+**Provisioned Throughput: Support for changing order scope and increasing term**
+
+Provisioned Throughput now directly supports from the self service console the ability to change the scope or increase the term of an order through a supersede and replace operation.
+
+For more information, see [Restructure an order](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput#restructure-order) .
+
+Feature
+
+**Gemini 3 models supported by the Interactions API in Preview**
+
+Gemini 3 models are supported by the Interactions API in [Preview](https://cloud.google.com/products#product-launch-stages) on Gemini Enterprise Agent Platform.
+
+For more information, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
+
+## September 25, 2026
+
+Feature
+
+**Semantic governance policies support VPC Service Controls (Preview)**
+
+Semantic governance policy and the Semantic governance policy engine support [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) in [Preview](https://cloud.google.com/products#product-launch-stages) . You can include Semantic governance policy and the policy engine in your service perimeter to help mitigate the risk of data exfiltration when governing agent tool calls.
+
+For more information, see [VPC Service Controls with Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls#add-restricted-services) and [Semantic governance policies overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) .
+
 ## September 24, 2026
 
 Feature

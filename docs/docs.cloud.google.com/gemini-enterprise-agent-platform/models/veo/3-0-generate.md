@@ -104,7 +104,7 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Retirement date: June 30, 2026
+  - Retirement date <sup>[†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#retirement-date)</sup> : June 30, 2026
 
 Security controls
 
@@ -116,6 +116,8 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
+
+<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .
 
 ## 3.0 Fast Generate 001
 
@@ -205,7 +207,7 @@ Versions
 
   - Launch stage: GA
   - Release date: July 29, 2025
-  - Retirement date: June 30, 2026
+  - Retirement date <sup>[†](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-0-generate#retirement-date)</sup> : June 30, 2026
 
 Security controls
 
@@ -217,5 +219,7 @@ Security controls
   - AXT
 
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.
+
+<sup>†</sup> Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/) .
 
 For Veo pricing information, see the [Veo](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#veo) section of the [Cost of building and deploying AI models in Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) page.

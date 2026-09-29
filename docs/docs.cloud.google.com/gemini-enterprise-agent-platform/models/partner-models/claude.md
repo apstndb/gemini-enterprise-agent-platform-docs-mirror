@@ -46,7 +46,9 @@ arrow\_selector\_tool [Claude Opus 4 on Google Cloud](https://docs.cloud.google.
 
 ## Claude Sonnet models
 
-graph\_5 [Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5) Anthropic's most capable Sonnet model yet, built for coding, agents, and professional work at scale.
+graph\_5 [Claude Sonnet 5.5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5) Built for coding, agents, and professional work at scale.
+
+graph\_5 [Claude Sonnet 5 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5) Built for coding, agents, and professional work at scale.
 
 graph\_5 [Claude Sonnet 4.6 on Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-6) Delivers frontier intelligence at scale—built for coding, agents, cybersecurity, and enterprise workflows.
 

@@ -662,6 +662,14 @@ Searches Model Monitoring Statistics generated within a given time window.
 
 Updates a ModelDeploymentMonitoringJob.
 
+## `        google.cloud.aiplatform.v1.LlmBidiService       `
+
+Methods
+
+`  BidiGenerateContent  `
+
+Bidirectional streaming predict.
+
 ## `        google.cloud.aiplatform.v1.LlmUtilityService       `
 
 Methods
@@ -2482,6 +2490,14 @@ Searches Model Monitoring Statistics generated within a given time window.
 `  UpdateModelDeploymentMonitoringJob  `
 
 Updates a ModelDeploymentMonitoringJob.
+
+## `        google.cloud.aiplatform.v1beta1.LlmBidiService       `
+
+Methods
+
+`  BidiGenerateContent  `
+
+Bidirectional streaming predict.
 
 ## `        google.cloud.aiplatform.v1beta1.LlmUtilityService       `
 

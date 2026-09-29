@@ -320,6 +320,46 @@ For single-turn queries, this is a single instance. For multi-turn queries, this
 
 Optional. If true, indicates that the server content generation should start with the currently accumulated prompt. Otherwise, the server will await additional messages before starting generation.
 
+### BidiGenerateContentContextUpdate
+
+Updates to the context of the current session.
+
+Only fields that are set will be updated.
+
+Updates are guaranteed to be processed *in order* with the rest of the inputs.
+
+Fields
+
+`tools`
+
+`  Tools  `
+
+Optional. An updated list of tools the model may use to generate the subsequent responses. If set, this list replaces the previously provided tools.
+
+The tools are part of the model preamble, so updating them invalidates the prefix cache. Clients should only update this field when strictly necessary as it might have a performance impact on the model generation.
+
+`system_instruction`
+
+`  Content  `
+
+Optional. Updated system instruction for the model. If set, overrides `BidiGenerateContentSetup.system_instruction` .
+
+The system instructions are part of the model preamble, so updating them invalidates the prefix cache. Clients should only update this field when strictly necessary as it might have a performance impact on the model generation.
+
+### Tools
+
+A wrapper around the list of tools.
+
+This wrapper exists because a bare `repeated Tool` field cannot tell apart "not sending a tools update" from "clearing all tools": an unset repeated field and an empty repeated field look identical on the wire. Wrapping the list in a message adds a presence bit, so the two cases become: - `tools` field unset: no update; keep the previously provided tools. - `tools` field set (even with an empty list): replace the current tools with the provided list, which may be empty to clear all tools.
+
+Fields
+
+`tools[]`
+
+`  Tool  `
+
+Optional. The list of tools the model may use to generate the next response.
+
 ### BidiGenerateContentRealtimeInput
 
 User input that is sent in real time.
@@ -340,6 +380,18 @@ Fields
 
 Optional. Inlined bytes data for media input.
 
+`audio`
+
+`  Blob  `
+
+Optional. These form the realtime audio input stream.
+
+`video`
+
+`  Blob  `
+
+Optional. These form the realtime video input stream.
+
 `activity_start`
 
 `  ActivityStart  `
@@ -351,6 +403,22 @@ Optional. Marks the start of user activity. This can only be sent if automatic (
 `  ActivityEnd  `
 
 Optional. Marks the end of user activity. This can only be sent if automatic (i.e. server-side) activity detection is disabled.
+
+`audio_stream_end`
+
+`bool`
+
+Optional. Indicates that the audio stream has ended, e.g. because the microphone was turned off.
+
+This should only be sent when automatic activity detection is enabled (which is the default).
+
+The client can reopen the stream by sending an audio message.
+
+`text`
+
+`string`
+
+Optional. These form the realtime text input stream.
 
 ### ActivityEnd
 
@@ -404,19 +472,85 @@ Output only. Metadata specifies sources used to ground generated content.
 
 `  Transcription  `
 
-Optional. Input transcription. The transcription is independent to the model turn which means it doesn't imply any ordering between transcription and model turn.
+Optional. Input transcription. The transcription is independent of the model turn, which means it does not imply any ordering between transcription and model turn.
 
 `output_transcription`
 
 `  Transcription  `
 
-Optional. Output transcription. The transcription is independent to the model turn which means it doesn't imply any ordering between transcription and model turn.
+Optional. Output transcription. The transcription is independent of the model turn, which means it does not imply any ordering between transcription and model turn.
+
+`turn_complete_reason`
+
+`  TurnCompleteReason  `
+
+Output only. The reason why the turn is complete.
+
+`speech_state`
+
+`  SpeechState  `
+
+Output only. Indicates the current state of speech detection on `realtime_input.audio` . Not set or zero if the state is unchanged.
+
+`interim_input_transcription`
+
+`  Transcription  `
+
+Optional. Low-latency interim transcription updated while the user is speaking.
+
+`interaction_status`
+
+`  InteractionStatus  `
+
+Output only. The current activity status of the live session. Always sent alongside `turn_complete` .
 
 `model_turn`
 
 `  Content  `
 
 Output only. The content that the model has generated as part of the current conversation with the user.
+
+### InteractionStatus
+
+The different activity states of the live session. This field is always sent together with `turn_complete` to indicate whether the server has finished all processing.
+
+Enums
+
+`INTERACTION_STATUS_UNSPECIFIED`
+
+Unspecified interaction status.
+
+`IN_PROGRESS`
+
+The server is still actively processing user input or running background reasoning. More model output may follow.
+
+`REQUIRES_ACTION`
+
+Deprecated: Use IDLE instead. The server has completed all processing and background reasoning.
+
+> This item is deprecated\!
+
+`IDLE`
+
+The server has completed all processing and background reasoning.
+
+### SpeechState
+
+The different states of server-side speech detection.
+
+Enums
+
+`SPEECH_STATE_UNSPECIFIED`
+
+Unspecified speech state. If the speech state is changing, one of the other values will be set.
+
+`NON_SPEECH`
+
+No speech detected.
+
+`SPEECH`
+
+Speech detected.
 
 ### Transcription
 
@@ -428,13 +562,131 @@ Fields
 
 `string`
 
-Optional. Transcription text.
+Optional. The transcription text.
 
 `finished`
 
 `bool`
 
-Optional. The bool indicates the end of the transcription.
+Optional. Indicates whether the transcription is complete.
+
+### TurnCompleteReason
+
+The reason why the turn is complete.
+
+Enums
+
+`TURN_COMPLETE_REASON_UNSPECIFIED`
+
+Reason is unspecified.
+
+`MALFORMED_FUNCTION_CALL`
+
+The function call generated by the model is invalid.
+
+`RESPONSE_REJECTED`
+
+The response is rejected by the model.
+
+`NEED_MORE_INPUT`
+
+Needs more input from the user.
+
+`PROHIBITED_INPUT_CONTENT`
+
+Input safety related finish reasons. Replicated from learning/genai/beyond/recipe\_runner/finish\_reason.proto:FinishReason. Input content is prohibited.
+
+`IMAGE_PROHIBITED_INPUT_CONTENT`
+
+Input image contains prohibited content.
+
+`INPUT_TEXT_CONTAIN_PROMINENT_PERSON_PROHIBITED`
+
+Input text contains prominent person reference.
+
+`INPUT_IMAGE_CELEBRITY`
+
+Input image contains celebrity.
+
+`INPUT_IMAGE_PHOTO_REALISTIC_CHILD_PROHIBITED`
+
+Input image contains photo realistic child.
+
+`INPUT_TEXT_NCII_PROHIBITED`
+
+Input text contains NCII content.
+
+`INPUT_OTHER`
+
+Other input safety issue.
+
+`INPUT_IP_PROHIBITED`
+
+Input contains IP violation.
+
+`BLOCKLIST`
+
+Input matched blocklist.
+
+`UNSAFE_PROMPT_FOR_IMAGE_GENERATION`
+
+Input is unsafe for image generation.
+
+`GENERATED_IMAGE_SAFETY`
+
+Output safety related finish reasons. Replicated from learning/genai/beyond/recipe\_runner/finish\_reason.proto:FinishReason. Generated image failed safety check.
+
+`GENERATED_CONTENT_SAFETY`
+
+Generated content failed safety check.
+
+`GENERATED_AUDIO_SAFETY`
+
+Generated audio failed safety check.
+
+`GENERATED_VIDEO_SAFETY`
+
+Generated video failed safety check.
+
+`GENERATED_CONTENT_PROHIBITED`
+
+Generated content is prohibited.
+
+`GENERATED_CONTENT_BLOCKLIST`
+
+Generated content matched blocklist.
+
+`GENERATED_IMAGE_PROHIBITED`
+
+Generated image is prohibited.
+
+`GENERATED_IMAGE_CELEBRITY`
+
+Generated image contains celebrity.
+
+`GENERATED_IMAGE_PROMINENT_PEOPLE_DETECTED_BY_REWRITER`
+
+Generated image contains prominent people detected by rewriter.
+
+`GENERATED_IMAGE_IDENTIFIABLE_PEOPLE`
+
+Generated image contains identifiable people.
+
+`GENERATED_IMAGE_MINORS`
+
+Generated image contains minors.
+
+`OUTPUT_IMAGE_IP_PROHIBITED`
+
+Generated image contains IP violation.
+
+`GENERATED_OTHER`
+
+Other generated content issue.
+
+`MAX_REGENERATION_REACHED`
+
+Max regeneration attempts reached.
 
 ### BidiGenerateContentSetup
 
@@ -506,19 +758,145 @@ Optional. Configures the handling of realtime input.
 
 `  AudioTranscriptionConfig  `
 
-Optional. The transcription of the input aligns with the input audio language.
+Optional. Configures transcription of the input audio, which aligns with the input audio language.
 
 `output_audio_transcription`
 
 `  AudioTranscriptionConfig  `
 
-Optional. The transcription of the output aligns with the language code specified for the output audio.
+Optional. Configures transcription of the output audio, which aligns with the language code specified for the output audio.
+
+`explicit_vad_signal`
+
+`bool`
+
+Optional. Indicates whether the server sends the built-in VAD signal to the user.
+
+`proactivity`
+
+`  ProactivityConfig  `
+
+Optional. Configures the proactivity of the model.
+
+This allows the model to respond proactively to the input and to ignore irrelevant input.
+
+`avatar_config`
+
+`  AvatarConfig  `
+
+Optional. Config for video generation.
+
+`safety_settings[]`
+
+`  SafetySetting  `
+
+Optional. List of safety settings to use for blocking unsafe content.
+
+`history_config`
+
+`  HistoryConfig  `
+
+Optional. Configuration for the conversation history.
+
+`labels`
+
+`map<string, string>`
+
+Optional. The labels with user-defined metadata for the request. It is used for billing and reporting only.
+
+Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
 
 ### AudioTranscriptionConfig
 
+The audio transcription configuration.
+
+Fields
+
+`language_codes[]`
+
+`string`
+
+Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
+
+` adaptation_phrases[] (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Optional. Deprecated: Use `custom_vocabulary` instead. A list of phrases used for speech adaptation, which biases the speech recognition model to improve recognition of these specific terms.
+
+`custom_vocabulary[]`
+
+`string`
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
+`mode`
+
+`  Mode  `
+
+Optional. Configures transcription mode. Supported values: `VERBATIM` , `SMART` . If unspecified, defaults to `VERBATIM` transcription. In `SMART` mode, the model performs disfluency removal (eliminating filler words, repetitions, and false starts), light grammatical cleanup, automatic formatting (paragraphs, bullet points, numbered lists), and minor user edits (inline self-corrections). Timestamps and diarization are incompatible with mode `SMART` .
+
+Union field `language_config` . Deprecated: Use top-level `language_codes` instead. `language_config` can be only one of the following:
+
+` language_auto (deprecated)  `
+
+`  LanguageAuto  `
+
+> This item is deprecated\!
+
+Optional. Deprecated: Use top-level `language_codes` instead. The model will detect the language automatically.
+
+` language_hints (deprecated)  `
+
+`  LanguageHints  `
+
+> This item is deprecated\!
+
+Optional. Deprecated: Use top-level `language_codes` instead. Specifies one or more languages in the audio.
+
+### LanguageAuto
+
 This type has no fields.
 
-The audio transcription configuration.
+> This item is deprecated\!
+
+Deprecated: Use top-level `language_codes` instead. Indicates the language of the audio should be automatically detected.
+
+### LanguageHints
+
+> This item is deprecated\!
+
+Deprecated: Use top-level `language_codes` instead. Provides hints to the model about possible languages present in the audio.
+
+Fields
+
+` language_codes[] (deprecated)  `
+
+`string`
+
+> This item is deprecated\!
+
+Required. Deprecated: Use top-level `language_codes` instead. BCP-47 language codes. At least one must be specified.
+
+### Mode
+
+Transcription mode.
+
+Enums
+
+`MODE_UNSPECIFIED`
+
+Unspecified transcription mode.
+
+`VERBATIM`
+
+Verbatim transcription mode.
+
+`SMART`
+
+Smart transcription mode.
 
 ### BidiGenerateContentSetupComplete
 
@@ -530,7 +908,7 @@ Fields
 
 `string`
 
-The session id of the session.
+Output only. The session id of the session.
 
 ### BidiGenerateContentToolCall
 
@@ -569,218 +947,6 @@ Fields
 `  FunctionResponse  `
 
 Optional. The response to the function calls.
-
-## RealtimeInputConfig
-
-Configures the realtime input behavior in `BidiGenerateContent` .
-
-Fields
-
-`automatic_activity_detection`
-
-`  AutomaticActivityDetection  `
-
-Optional. If not set, automatic activity detection is enabled by default. If automatic voice detection is disabled, the client must send activity signals.
-
-`activity_handling`
-
-`  ActivityHandling  `
-
-Optional. Defines what effect activity has.
-
-`turn_coverage`
-
-`  TurnCoverage  `
-
-Optional. Defines which input is included in the user's turn.
-
-## ActivityHandling
-
-The different ways of handling user activity.
-
-Enums
-
-`ACTIVITY_HANDLING_UNSPECIFIED`
-
-If unspecified, the default behavior is `START_OF_ACTIVITY_INTERRUPTS` .
-
-`START_OF_ACTIVITY_INTERRUPTS`
-
-If true, start of activity will interrupt the model's response (also called "barge in"). The model's current response will be cut-off in the moment of the interruption. This is the default behavior.
-
-`NO_INTERRUPTION`
-
-The model's response will not be interrupted.
-
-## AutomaticActivityDetection
-
-Configures automatic detection of activity.
-
-Fields
-
-`start_of_speech_sensitivity`
-
-`  StartSensitivity  `
-
-Optional. Determines how likely speech is to be detected.
-
-`end_of_speech_sensitivity`
-
-`  EndSensitivity  `
-
-Optional. Determines how likely detected speech is ended.
-
-`prefix_padding_ms`
-
-`int32`
-
-Optional. The required duration of detected speech before start-of-speech is committed. The lower this value the more sensitive the start-of-speech detection is and the shorter speech can be recognized. However, this also increases the probability of false positives.
-
-`silence_duration_ms`
-
-`int32`
-
-Optional. The required duration of detected silence (or non-speech) before end-of-speech is committed. The larger this value, the longer speech gaps can be without interrupting the user's activity but this will increase the model's latency.
-
-`disabled`
-
-`bool`
-
-Optional. If enabled, detected voice and text input count as activity. If disabled, the client must send activity signals.
-
-## EndSensitivity
-
-End of speech sensitivity.
-
-Enums
-
-`END_SENSITIVITY_UNSPECIFIED`
-
-The default is END\_SENSITIVITY\_LOW.
-
-`END_SENSITIVITY_HIGH`
-
-Automatic detection ends speech more often.
-
-`END_SENSITIVITY_LOW`
-
-Automatic detection ends speech less often.
-
-## StartSensitivity
-
-Start of speech sensitivity.
-
-Enums
-
-`START_SENSITIVITY_UNSPECIFIED`
-
-The default is START\_SENSITIVITY\_LOW.
-
-`START_SENSITIVITY_HIGH`
-
-Automatic detection will detect the start of speech more often.
-
-`START_SENSITIVITY_LOW`
-
-Automatic detection will detect the start of speech less often.
-
-## TurnCoverage
-
-Options about which input is included in the user's turn.
-
-Enums
-
-`TURN_COVERAGE_UNSPECIFIED`
-
-If unspecified, the default behavior is `TURN_INCLUDES_ALL_INPUT` .
-
-`TURN_INCLUDES_ONLY_ACTIVITY`
-
-The users turn only includes activity since the last turn, excluding inactivity (e.g. silence on the audio stream).
-
-`TURN_INCLUDES_ALL_INPUT`
-
-The users turn includes all realtime input since the last turn, including inactivity (e.g. silence on the audio stream). This is the default behavior.
-
-### UsageMetadata
-
-Metadata on the usage of the cached content.
-
-Fields
-
-`total_token_count`
-
-`int32`
-
-Total number of tokens that the cached content consumes.
-
-`text_count`
-
-`int32`
-
-Number of text characters.
-
-`image_count`
-
-`int32`
-
-Number of images.
-
-`video_duration_seconds`
-
-`int32`
-
-Duration of video in seconds.
-
-`audio_duration_seconds`
-
-`int32`
-
-Duration of audio in seconds.
-
-### GoAway
-
-Server will not be able to service client soon.
-
-Fields
-
-`time_left`
-
-`  Duration  `
-
-The remaining time before the connection will be terminated as ABORTED. The minimal time returned here is specified differently together with the rate limits for a given model.
-
-### SessionResumptionUpdate
-
-Update of the session resumption state.
-
-Only sent if `BidiGenerateContentSetup.session_resumption` was set.
-
-Fields
-
-`new_handle`
-
-`string`
-
-New handle that represents state that can be resumed. Empty if `resumable` =false.
-
-`resumable`
-
-`bool`
-
-True if session can be resumed at this point.
-
-It might be not possible to resume session at some points. In that case we send update empty new\_handle and resumable=false. Example of such case could be model executing function calls or just generating. Resuming session (using previous session token) in such state will result in some data loss.
-
-`last_consumed_client_message_index`
-
-`int64`
-
-Index of last message sent by client that is included in state represented by this SessionResumptionToken. Only sent when `SessionResumptionConfig.transparent` is set.
-
-Presence of this index allows users to transparently reconnect and avoid issue of losing some part of realtime audio input/video. If client wishes to temporarily disconnect (for example as result of receiving GoAway) they can do it without losing state by buffering messages sent since last `SessionResmumptionTokenUpdate` . This field will enable them to limit buffering (avoid keeping all requests in RAM).
-
-It will not be used for 'resumption to restore state' some time later -- in those cases partial audio and video frames are likely not needed.
 
 ## What's next
 

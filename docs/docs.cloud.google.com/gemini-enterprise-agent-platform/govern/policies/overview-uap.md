@@ -6,8 +6,6 @@ description: Learn about policies to govern agent interactions.
 data_source: docs.cloud.google.com
 ---
 
-> **Note:** This feature does not support VPC Service Controls.
-
 You can define, apply, and manage policies that govern agent interactions.
 
 By using the **Policies** page, you can do the following:

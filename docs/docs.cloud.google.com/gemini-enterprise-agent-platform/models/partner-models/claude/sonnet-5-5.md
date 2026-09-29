@@ -1,26 +1,25 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5
-title: Claude Sonnet 5 on Google Cloud
-description: Claude Sonnet 5 is built for coding, agents, and professional work at scale.
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5
+title: Claude Sonnet 5.5 on Google Cloud
+description: Claude Sonnet 5.5 is built for coding, agents, and professional work at scale.
 data_source: docs.cloud.google.com
 ---
 
-Claude Sonnet 5 on Google Cloud is built for coding, agents, and professional work at scale.
+Claude Sonnet 5.5 on Google Cloud is built for coding, agents, and professional work at scale. For full information, see [Anthropic's documentation](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) .
 
-**Retirement Date:** Not sooner than December 24, 2026.
+**Retirement Date:** Not sooner than September 28, 2027.
 
-  - **Agents** : Claude Sonnet 5 on Google Cloud can operate as both a lead-agent and sub-agent in production pipelines, with reliable tool use and the cost profile to run high-volume agentic workloads at scale.
-  - **Coding** : Claude Sonnet 5 on Google Cloud is built for everyday development work: building features, refactoring, and debugging across complex codebases without losing quality.
-  - **Enterprise workflows** : Users need fewer rounds of editing to reach production-ready documents, spreadsheets, and presentations. Perfect for teams that need a reliable, everyday model for office tasks.
-  - **Financial analysis** : Claude Sonnet 5 on Google Cloud pairs general intelligence improvements with stronger analysis and spreadsheet work, fitting high-volume financial workflows where precision and iteration speed matter.
-  - **Computer use** : Claude Sonnet 5 on Google Cloud is our most efficient computer-use model, making browser automation cost-effective enough to deploy across business tools at scale.
+In addition to the features of Claude Sonnet 5 on Google Cloud, Claude Sonnet 5.5 on Google Cloud adds:
 
-[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5)
+  - **New thinking type value** : Claude Sonnet 5.5 on Google Cloud adds a new `thinking.type` value, `between_tools` , which is the lowest thinking setting available on this model. Claude Sonnet 5.5 on Google Cloud doesn't support `thinking: {"type": "disabled"}` . If you want to turn thinking off, or as close to off as possible, use `between_tools` . With `between_tools` , the model does no extended thinking, and the short progress updates it writes between tool calls come back as thinking blocks containing the update text. The response format is unchanged.
+  - **Adaptive thinking** can be turned on or off.
+
+[Try in Agent Studio](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5) [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/anthropic/model-garden/claude-sonnet-5-5)
 
 Model ID
 
-`claude-sonnet-5`
+`claude-sonnet-5-5`
 
 Launch stage
 
@@ -73,10 +72,10 @@ Documents
 
 Versions
 
-`claude-sonnet-5`
+`claude-sonnet-5-5`
 
   - **Launch stage:** Generally available
-  - **Release date:** June 30, 2026
+  - **Release date:** September 28, 2026
 
 Supported regions
 

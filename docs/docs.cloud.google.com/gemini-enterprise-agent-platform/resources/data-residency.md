@@ -740,25 +740,7 @@ To learn what capabilities support data residency, see [Supported capabilities](
 <td></td>
 </tr>
 <tr class="even">
-<td>Codestral (24.05)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>Codestral 2</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Mistral Large (24.07)</td>
 <td></td>
 <td></td>
 <td></td>
