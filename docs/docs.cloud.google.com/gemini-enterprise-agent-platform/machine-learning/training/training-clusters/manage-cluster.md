@@ -94,6 +94,7 @@ For example, to update the node count of a pool of a [CPU-only cluster](https://
       - `labels`
       - `node_pools`
       - `orchestrator_spec.slurm_spec.partitions`
+      - `orchestrator_spec.slurm_spec.default_partition_id`
       - `orchestrator_spec.slurm_spec.login_node_pool_id`
       - `orchestrator_spec.slurm_spec.prolog_bash_scripts`
       - `orchestrator_spec.slurm_spec.epilog_bash_scripts`
@@ -118,6 +119,10 @@ The command below updates both the node pool configuration and the Slurm partiti
 **Important note on repeated fields**
 
 For repeated fields, such as `node_pools` , `prolog_bash_scripts` , and `epilog_bash_scripts` , the API only supports a full replacement operation. The user must provide the entire, expected list of items in the request payload to replace the existing list completely.
+
+**Change the default partition**
+
+To change the default partition without resending `partitions` , set `default_partition_id` and specify only `orchestrator_spec.slurm_spec.default_partition_id` in the `updateMask` . An update that removes or renames the partition that `default_partition_id` specifies is rejected.
 
 **Update Slurm configuration settings**
 

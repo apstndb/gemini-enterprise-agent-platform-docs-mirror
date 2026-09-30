@@ -373,6 +373,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></p>
@@ -406,6 +407,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
+<p><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  get</code></p>
@@ -458,6 +460,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></p>
@@ -912,6 +915,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></p>
@@ -945,6 +949,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
+<p><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  get</code></p>
@@ -997,6 +1002,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></p>
@@ -1451,6 +1457,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></p>
@@ -1484,6 +1491,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
+<p><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  get</code></p>
@@ -1536,6 +1544,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></p>
@@ -2086,6 +2095,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.  interconnects.  listEffectiveTags</code></li>
 <li><code dir="ltr" translate="no">compute.  interconnects.  listTagBindings</code></li>
 <li><code dir="ltr" translate="no">compute.  interconnects.  setLabels</code></li>
+<li><code dir="ltr" translate="no">compute.interconnects.setName</code></li>
 <li><code dir="ltr" translate="no">compute.interconnects.update</code></li>
 <li><code dir="ltr" translate="no">compute.interconnects.use</code></li>
 <li><code dir="ltr" translate="no">compute.licenseCodes.get</code></li>
@@ -2385,10 +2395,12 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.  regionSslPolicies.  delete</code></li>
 <li><code dir="ltr" translate="no">compute.  regionSslPolicies.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></li>
+<li><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></li>
 <li><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></li>
 <li><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></li>
 <li><code dir="ltr" translate="no">compute.  regionSslPolicies.  listTagBindings</code></li>
+<li><code dir="ltr" translate="no">compute.  regionSslPolicies.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.  regionSslPolicies.  update</code></li>
 <li><code dir="ltr" translate="no">compute.regionSslPolicies.use</code></li>
 <li><code dir="ltr" translate="no">compute.  regionTargetHttpProxies.  create</code></li>
@@ -2442,6 +2454,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.reservationBlocks.get</code></li>
 <li><code dir="ltr" translate="no">compute.reservationBlocks.list</code></li>
 <li><code dir="ltr" translate="no">compute.  reservationBlocks.  performMaintenance</code></li>
+<li><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></li>
 <li><code dir="ltr" translate="no">compute.reservationSlots.get</code></li>
 <li><code dir="ltr" translate="no">compute.reservationSlots.list</code></li>
 <li><code dir="ltr" translate="no">compute.  reservationSlots.  update</code></li>
@@ -2566,10 +2579,12 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <li><code dir="ltr" translate="no">compute.sslPolicies.delete</code></li>
 <li><code dir="ltr" translate="no">compute.  sslPolicies.  deleteTagBinding</code></li>
 <li><code dir="ltr" translate="no">compute.sslPolicies.get</code></li>
+<li><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.sslPolicies.list</code></li>
 <li><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></li>
 <li><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></li>
 <li><code dir="ltr" translate="no">compute.  sslPolicies.  listTagBindings</code></li>
+<li><code dir="ltr" translate="no">compute.  sslPolicies.  setIamPolicy</code></li>
 <li><code dir="ltr" translate="no">compute.sslPolicies.update</code></li>
 <li><code dir="ltr" translate="no">compute.sslPolicies.use</code></li>
 <li><code dir="ltr" translate="no">compute.storagePools.create</code></li>
@@ -3126,6 +3141,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></p>
@@ -3159,6 +3175,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
+<p><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  get</code></p>
@@ -3211,6 +3228,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></p>
@@ -3640,6 +3658,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></p>
@@ -3673,6 +3692,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
+<p><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.list</code></p>
 <p><code dir="ltr" translate="no">compute.  reservationSubBlocks.  get</code></p>
@@ -3725,6 +3745,7 @@ Agent Platform Workbench resources are managed through the Notebooks API. Theref
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></p>
@@ -4398,6 +4419,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  regionSslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.regionSslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  regionSslPolicies.  listEffectiveTags</code></p>
@@ -4431,6 +4453,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 </ul>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.get</code></p>
 <p><code dir="ltr" translate="no">compute.reservationBlocks.list</code></p>
+<p><code dir="ltr" translate="no">compute.  reservationConsumedInstances.  list</code></p>
 <p><code dir="ltr" translate="no">compute.reservationSlots.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">compute.reservationSlots.get</code></li>
@@ -4514,6 +4537,7 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listEffectiveTags</code></p>
 <p><code dir="ltr" translate="no">compute.  sslCertificates.  listTagBindings</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.get</code></p>
+<p><code dir="ltr" translate="no">compute.  sslPolicies.  getIamPolicy</code></p>
 <p><code dir="ltr" translate="no">compute.sslPolicies.list</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listAvailableFeatures</code></p>
 <p><code dir="ltr" translate="no">compute.  sslPolicies.  listEffectiveTags</code></p>

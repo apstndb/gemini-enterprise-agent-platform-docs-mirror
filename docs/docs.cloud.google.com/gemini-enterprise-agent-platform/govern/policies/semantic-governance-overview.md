@@ -130,7 +130,10 @@ For every evaluation, the system returns a verdict:
 
 > **Information exposure risk:** Semantic governance policies are Service Data and subject to the [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) . When a policy blocks an action, the policy engine returns a structured denial response containing a rationale that cites your constraint details. For example, a denial rationale might read: `"The requested refund amount exceeds the limit of $100 for refunds that can be granted."` Because this rationale may be presented to end users, don't include sensitive, confidential, or proprietary information in your constraints.
 > 
-> **Workaround:** If you want to prevent raw policy rationales from being shown to end users, write logic in your agent application code to intercept the denial response and redact or replace the rationale before presenting the message to the user.
+> **Workarounds:** To prevent policy rationales from being shown to end users, do either of the following:
+> 
+>   - Set a fixed [**Denial message**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#create-a-policy) on the policy (up to 1,000 characters). When configured, the policy engine shows this message to end users in place of the rationale on denial. Configure it in the Google Cloud console on the policy create or edit page, set `agentResponseCustomization.denialMessage` on the policy resource using the REST API, or set `--agent-response-denial-message` on `gcloud beta ai semantic-governance-policies create` or `gcloud beta ai semantic-governance-policies update` . See also [Denial messages with multiple policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#denial-messages-multiple-policies) .
+>   - Write logic in your agent application code to intercept the denial response and redact or replace the rationale before presenting the message to the user.
 
 ### Applying Constraints
 

@@ -410,6 +410,7 @@ Once the policy engine is active, you can define the technical and behavioral gu
           - To apply the constraint to every action, select the **Apply constraints to all tools** checkbox.
           - To target specific resources, select an **MCP Server** and the individual **Tools** from the drop-down menus.
       - **Constraints** : Enter your business rules in natural language (up to 5,000 characters).
+      - **Denial message** : (Optional) Enter a message (up to 1,000 characters) to show users when this policy denies a request, in place of the policy rationale. In the REST API, this maps to `agentResponseCustomization.denialMessage` on the policy resource; with the Google Cloud CLI, use `--agent-response-denial-message` on `gcloud beta ai semantic-governance-policies create` or `gcloud beta ai semantic-governance-policies update` (see the **gcloud** tab below). See [Information exposure risk](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#natural-language-constraints-nlc) and [Denial messages with multiple policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#denial-messages-multiple-policies) .
 4.  Click **Create** .
 
 ### gcloud
@@ -441,6 +442,18 @@ Before running Semantic governance policy commands, set the regional API endpoin
         --natural-language-constraint="Always use UPS as the shipping provider for shipments within the USA. Always use DHL as the shipping provider for shipments within the EU." \
         --project=PROJECT_ID
 
+To configure a denial message (see the **Denial message** bullet under the **Console** tab, and [Denial messages with multiple policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#denial-messages-multiple-policies) ), add `--agent-response-denial-message` :
+
+    gcloud beta ai semantic-governance-policies create POLICY_ID \
+        --location=LOCATION \
+        --display-name="Semantic governance policy for ShippingAgent-1" \
+        --agent=projects/PROJECT_ID/locations/LOCATION/agents/AGENT_ID \
+        --natural-language-constraint="Always use UPS as the shipping provider for shipments within the USA. Always use DHL as the shipping provider for shipments within the EU." \
+        --agent-response-denial-message="Sorry, I can only book shipments through the approved carriers for your region." \
+        --project=PROJECT_ID
+
+You can also add or update `--agent-response-denial-message` on an existing policy with `gcloud beta ai semantic-governance-policies update` .
+
 ##### Find your MCP server
 
     gcloud alpha agent-registry mcp-servers list \
@@ -457,6 +470,22 @@ Before running Semantic governance policy commands, set the regional API endpoin
         --mcp-tools="mcp-server=MCP_SERVER,tools=TOOL_NAME" \
         --natural-language-constraint="NLC_TEXT" \
         --project=PROJECT_ID
+
+### Denial messages with multiple policies
+
+When a single request triggers denials from multiple policies, the policy engine combines the denial messages configured on those policies before returning the response to the user. The following behavior applies:
+
+  - Denial messages from each policy with a deny verdict are shown together, separated by blank lines.
+  - Duplicate messages are shown once.
+  - If some firing policies have a denial message configured and others don't, a generic line *"This request was denied due to another business policy."* is appended to cover the policies without one.
+  - At most 5 denial messages are shown per request; additional ones are omitted.
+
+> **Note:** Because Semantic governance policies use an LLM to attribute a denial to specific firing policies, attribution isn't always available for every request. When a relevant policy has a denial message configured but no policy is attributed, the policy engine returns the generic message *"This request was denied due to another business policy."* The LLM may not evaluate all policies if it determines that the request should be denied based on the first few policies.
+> 
+> If a request returns only the generic denial message, try the following troubleshooting steps:
+> 
+>   - **Users:** Resubmit the request. Because the LLM is non-deterministic, a subsequent evaluation may attribute the denial to a specific policy and return that policy's configured denial message.
+>   - **Policy administrators:** Review the [policy evaluation logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#view-logs) for the request. Each log entry includes the per-policy verdict and rationale, so you can identify which policy denied the request even when attribution isn't surfaced to the end user.
 
 ### Enabling dry run mode
 

@@ -456,6 +456,8 @@ For information about how to create an ANN index, go to [Creating an ANN Index](
 
 The following example demonstrates how to perform a vector search on a dense ANN index with a target recall rate of `0.95` .
 
+### REST
+
 HTTP method and URL:
 
     POST https://vectorsearch.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID/dataObjects:search
@@ -484,6 +486,70 @@ Request JSON body:
         }
       }
     }
+
+### gcloud
+
+Save the query vector to a JSON file, for example `vector.json` :
+
+    {
+      "dense": {
+        "values": [0.42426406871192845, 0.565685424949238, 0.7071067811865475]
+      }
+    }
+
+Then run the [`gcloud vector-search collections data-objects search`](https://docs.cloud.google.com/sdk/gcloud/reference/vector-search/collections/data-objects/search) command:
+
+    gcloud vector-search collections data-objects search \
+        --project=PROJECT_ID \
+        --location=LOCATION \
+        --collection=COLLECTION_ID \
+        --vector-search-field=plot_embedding \
+        --vector-from-file=vector.json \
+        --use-index=INDEX_ID \
+        --dense-scann-target-recall=0.95 \
+        --top-k=10
+
+### Python
+
+    from google.cloud import vectorsearch_v1
+    
+    # Create the client
+    data_object_search_service_client = vectorsearch_v1.DataObjectSearchServiceClient()
+    
+    collection = "projects/PROJECT_ID/locations/LOCATION/collections/COLLECTION_ID"
+    
+    # Set the target recall rate on the index hint
+    search_hint = vectorsearch_v1.SearchHint(
+        index_hint=vectorsearch_v1.SearchHint.IndexHint(
+            name=f"{collection}/indexes/INDEX_ID",
+            dense_scann_params=vectorsearch_v1.SearchHint.IndexHint.DenseScannParams(
+                target_recall=0.95,
+            ),
+        ),
+    )
+    
+    # Initialize request
+    vector_search = vectorsearch_v1.VectorSearch(
+        search_field="plot_embedding",
+        vector={"values": [0.42426406871192845, 0.565685424949238, 0.7071067811865475]},
+        top_k=10,
+        search_hint=search_hint,
+        output_fields=vectorsearch_v1.OutputFields(
+            data_fields=["*"],
+            vector_fields=["*"],
+            metadata_fields=["*"],
+        ),
+    )
+    request = vectorsearch_v1.SearchDataObjectsRequest(
+        parent=collection,
+        vector_search=vector_search,
+    )
+    
+    # Make the request
+    response = data_object_search_service_client.search_data_objects(request=request)
+    
+    # Handle the response
+    print(response)
 
 ## Text search
 

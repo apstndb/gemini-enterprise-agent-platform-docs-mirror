@@ -542,7 +542,8 @@ These fields are defined within the `orchestrator_spec.slurm_spec` block of the 
 
   - HOME\_DIRECTORY\_STORAGE (corresponds to `home_directory_storage` ): The full resource name of the pre-existing storage instance to be mounted as the `/home` directory. Can be a Filestore or Lustre instance.
   - LOGIN\_NODE\_POOL\_ID (corresponds to `login_node_pool_id` ): The id of the node pool that should be used for login nodes.
-  - `partitions` : A list of partition objects, where each object requires an `id` and a list of `node_pool_ids` . The first partition in the list is the cluster's default partition: Slurm jobs submitted without an explicit partition (for example, `sbatch` without `--partition` ) run on it. To set the default partition, reorder the list of partitions so that the default partition is at the top of the list. This applies to updates as well: reordering the partitions of an existing cluster changes its default partition.
+  - `partitions` : A list of partition objects, where each object requires an `id` and a list of `node_pool_ids` .
+  - `default_partition_id` (optional): The `id` of the partition used to execute Slurm jobs when no partition is explicitly specified (for example, when running `sbatch` without the `--partition` flag). If left unset, the first partition in the partitions list becomes the default, therefore reordering the list will change the default partition.
 
 #### Advanced Slurm settings
 
@@ -566,7 +567,7 @@ A parameter that isn't supported in the scope you set it in, or a value that isn
   - The service manages node health checking and job requeueing, so `HealthCheckProgram` , `HealthCheckInterval` , `HealthCheckNodeState` and `RequeueExit` can't be set.
   - `Prolog` and `Epilog` are set through `prolog_bash_scripts` and `epilog_bash_scripts` instead.
   - `slurmdbd.conf` parameters, such as `StorageHost` and `PurgeJobAfter` , aren't configurable: the accounting database is managed by the service.
-  - At partition scope, `Default` is refused. The default partition is a cluster-wide choice, made by ordering the `partitions` list.
+  - At partition scope, `Default` is refused. The default partition is a cluster-wide choice, set with `default_partition_id` .
 
 > **Warning:** The service validates each parameter on its own, not whether the resulting `slurm.conf` is valid as a whole. Some accepted settings stop the Slurm controller from starting, such as `"PreemptType": "preempt/none"` with `"PreemptMode": "SUSPEND,GANG"` , or a partition `AllowQos` that names a QoS the cluster doesn't define. The create or update operation can still report success, but Slurm commands such as `sinfo` and `scontrol` then fail. Check your settings against the [slurm.conf reference](https://slurm.schedmd.com/slurm.conf.html) for your cluster's Slurm version. If Slurm commands fail after a create or update, reach out to your Gemini Enterprise Agent Platform training clusters contact, who can identify the setting that caused the failure.
 

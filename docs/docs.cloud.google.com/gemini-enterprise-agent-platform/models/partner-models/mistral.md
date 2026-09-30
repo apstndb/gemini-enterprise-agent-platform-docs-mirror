@@ -6,6 +6,8 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
+> **Note:** Mistral AI models are not a Google product, and their availability in Gemini Enterprise Agent Platform is subject to the terms for "Separate Offerings" in the AI/ML Services section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms) , and separate terms found in the relevant model card.
+
 Mistral AI models on Gemini Enterprise Agent Platform offer fully managed and serverless models as APIs. To use a Mistral AI model on Agent Platform, send a request directly to the Agent Platform API endpoint. Because Mistral AI models use a managed API, there's no need to provision or manage infrastructure.
 
 You can stream your responses to reduce the end-user latency perception. A streamed response uses server-sent events (SSE) to incrementally stream the response.

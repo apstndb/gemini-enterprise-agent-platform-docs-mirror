@@ -139,9 +139,14 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
                 In `ALL_TRAFFIC` mode:
                 
                   - **Public internet and SaaS traffic** : Resolves using standard public recursive DNS without requiring Cloud DNS peering. Outbound traffic enters your VPC network and exits to the public internet using Cloud NAT configured on the network attachment subnet.
+                
                   - **Internal private services** : Resolves private domain names (such as `corp.internal.` ) to RFC 1918 IP addresses using Cloud DNS peering with your private Cloud DNS managed zone.
+                
                   - **Standard Google Cloud APIs (without VPC Service Controls)** : If you aren't using VPC Service Controls, Cloud DNS peering is not required for `googleapis.com.` . Requests to Google APIs resolve to default public VIPs and are routed privately through Private Google Access enabled on the network attachment subnet, bypassing Cloud NAT.
+                
                   - **Google Cloud APIs (with VPC Service Controls)** : Directs requests to the `restricted.googleapis.com` range ( `199.36.153.4/30` ) or internal PSC endpoints in your VPC network. Configuring Cloud DNS peering for `googleapis.com.` ensures that your agents resolve Google APIs to the restricted VIP range, enforcing perimeter security.
+                    
+                    If requests fail with VPC Service Controls violations such as `NETWORK_NOT_IN_SAME_SERVICE_PERIMETER` or `SECURITY_POLICY_VIOLATED` on `compute.googleapis.com` or `dns.googleapis.com` that reference the host project, verify that the host project is in the same perimeter as the gateway project.
             
             The following table summarizes how DNS resolution and traffic routing operate across different traffic destinations:
             
@@ -212,6 +217,8 @@ To deploy an Agent Gateway with an agent connectivity template, perform the foll
             
             1.  [Create the subnet](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks#add-subnets) in the host project.
             2.  [Create the network attachment](https://docs.cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments) in the host project.
+        
+        If you use VPC Service Controls, the Shared VPC host project that owns the network attachment's subnet and the `dnsPeeringConfig.targetNetwork` must be in the same service perimeter as the project where you deploy the agent gateway. This applies even when you create the network attachment in the service project, because the subnet and VPC network still belong to the host project. If your private Cloud DNS zones are hosted in a separate DNS project, include that project in the perimeter too.
         
         Note the URI of the network attachment. You'll need it when you update the PSC\_NETWORK\_ATTACHMENT\_URI attribute of the connectivity template resource in a later step.
 

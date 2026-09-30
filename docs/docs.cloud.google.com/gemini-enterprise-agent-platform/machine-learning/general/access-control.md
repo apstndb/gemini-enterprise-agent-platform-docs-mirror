@@ -375,6 +375,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.models.list</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  clearTrainingData</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
 <li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
@@ -1011,6 +1012,7 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 </ul>
 <p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
 <ul>
+<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  clearTrainingData</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
 <li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
 <li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
@@ -1762,13 +1764,10 @@ For example, you can create a custom role with the `aiplatform.endpoints.predict
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
-</ul>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></p>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
@@ -3542,13 +3541,10 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
-</ul>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></p>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
@@ -4612,13 +4608,10 @@ Service agent roles should only be granted to [service agents](https://docs.clou
 <li><code dir="ltr" translate="no">aiplatform.models.update</code></li>
 <li><code dir="ltr" translate="no">aiplatform.models.upload</code></li>
 </ul>
-<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.*</code></p>
-<ul>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></li>
-<li><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></li>
-<li><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></li>
-</ul>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  disable</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  enable</code></p>
+<p><code dir="ltr" translate="no">aiplatform.monitoredAgents.get</code></p>
+<p><code dir="ltr" translate="no">aiplatform.  monitoredAgents.  list</code></p>
 <p><code dir="ltr" translate="no">aiplatform.nasJobs.*</code></p>
 <ul>
 <li><code dir="ltr" translate="no">aiplatform.nasJobs.cancel</code></li>
@@ -5830,12 +5823,13 @@ Gives Vertex AI the permissions it needs to function.
   - `aiplatform.models.update`
   - `aiplatform.models.upload`
 
-`aiplatform.monitoredAgents.*`
+`aiplatform. monitoredAgents. disable`
 
-  - `aiplatform. monitoredAgents. disable`
-  - `aiplatform. monitoredAgents. enable`
-  - `aiplatform.monitoredAgents.get`
-  - `aiplatform. monitoredAgents. list`
+`aiplatform. monitoredAgents. enable`
+
+`aiplatform.monitoredAgents.get`
+
+`aiplatform. monitoredAgents. list`
 
 `aiplatform.nasJobs.*`
 
@@ -7060,12 +7054,13 @@ Gives Vertex AI Custom Code the proper permissions. The aiplatform.customJobs.cr
   - `aiplatform.models.update`
   - `aiplatform.models.upload`
 
-`aiplatform.monitoredAgents.*`
+`aiplatform. monitoredAgents. disable`
 
-  - `aiplatform. monitoredAgents. disable`
-  - `aiplatform. monitoredAgents. enable`
-  - `aiplatform.monitoredAgents.get`
-  - `aiplatform. monitoredAgents. list`
+`aiplatform. monitoredAgents. enable`
+
+`aiplatform.monitoredAgents.get`
+
+`aiplatform. monitoredAgents. list`
 
 `aiplatform.nasJobs.*`
 
@@ -8210,6 +8205,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 
 `compute.regionSslPolicies.get`
 
+`compute. regionSslPolicies. getIamPolicy`
+
 `compute.regionSslPolicies.list`
 
 `compute. regionSslPolicies. listAvailableFeatures`
@@ -8265,6 +8262,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `compute.reservationBlocks.get`
 
 `compute.reservationBlocks.list`
+
+`compute. reservationConsumedInstances. list`
 
 `compute.reservationSlots.*`
 
@@ -8386,6 +8385,8 @@ Provide access for notebooks service agent to manage notebook instances in user 
 `compute. sslCertificates. listTagBindings`
 
 `compute.sslPolicies.get`
+
+`compute. sslPolicies. getIamPolicy`
 
 `compute.sslPolicies.list`
 

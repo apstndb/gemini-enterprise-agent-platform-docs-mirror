@@ -6,39 +6,49 @@ description: Review the locations where agents deployed to Gemini Enterprise Age
 data_source: docs.cloud.google.com
 ---
 
-This page lists the supported locations for Google agents and agent infrastructure features (such as runtime, sessions, and memory banks) in Gemini Enterprise Agent Platform.
+This page lists the supported locations for Google agents and agent infrastructure features in Gemini Enterprise Agent Platform.
 
-To see supported locations for generative AI models on Agent Platform, see [Deployments and endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
+Supported locations for agent infrastructure features provide [data-at-rest residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#data-at-rest) for your data (including agent source code, deployment packages, session history, memory bank entries, and metadata) in the selected location. When an agent invokes foundation models or generative AI services, ML processing support is governed by the [location and endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) configured for that model.
 
-[Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) , [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) , [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) , [Sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) ( [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , [shell execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/shell-sandbox-quickstart) , [Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) , and [custom container images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) ), and [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy) are supported in the following zones, regions, and multi-regions. For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
+For more information about regions and zones, see [Geography and regions](https://docs.cloud.google.com/docs/geography-and-regions) .
 
-| Region                                  | Location          | Supported versions                                                              |
-| --------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
-| `us-east1`                              | South Carolina    | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `us-east4`                              | Northern Virginia | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `us-west1`                              | Oregon            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `us-central1`                           | Iowa              | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-west1`                          | Belgium           | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-west2`                          | London            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-west3`                          | Frankfurt         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-west4`                          | Netherlands       | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-west6`                          | Zurich            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-west8`                          | Milan             | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `europe-southwest1`                     | Madrid            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `asia-east1`                            | Taiwan            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| ` asia-east2         †        `         | Hong Kong         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `asia-northeast1`                       | Tokyo             | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| ` asia-northeast3         †        `    | Seoul             | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `asia-south1`                           | Mumbai            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `asia-southeast1`                       | Singapore         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| ` asia-southeast2           †         ` | Jakarta           | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| ` australia-southeast2  `               | Melbourne         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `me-west1`                              | Tel Aviv          | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `northamerica-northeast1`               | Montréal          | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| ` northamerica-northeast2    `          | Toronto           | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
-| `southamerica-east1`                    | São Paulo         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+The following agent infrastructure features are supported in the zones, regions, and multi-regions listed in the table:
 
-<sup></sup> Memory Bank is not supported in this region. <sup>†</sup> Agent Gateway is not supported in this region.
+  - [Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)
+  - [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions)
+  - [Agent Platform Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank)
+  - [Sandboxes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) ( [Code Execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/code-execution-overview) , [shell execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/shell-sandbox-quickstart) , [Computer Use](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use) , and [custom container images](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) )
+  - [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-gateway-runtime-deploy)
+
+| Region                                       | Location          | Supported versions                                                              |
+| -------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
+| `us-east1`                                   | South Carolina    | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `us-east4`                                   | Northern Virginia | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `us-west1`                                   | Oregon            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `us-central1`                                | Iowa              | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-west1`                               | Belgium           | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-west2`                               | London            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-west3`                               | Frankfurt         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-west4`                               | Netherlands       | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-west6`                               | Zurich            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-west8`                               | Milan             | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `europe-southwest1`                          | Madrid            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `asia-east1`                                 | Taiwan            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| ` asia-east2         †        `              | Hong Kong         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `asia-northeast1`                            | Tokyo             | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| ` asia-northeast3         †        `         | Seoul             | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `asia-south1`                                | Mumbai            | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `asia-southeast1`                            | Singapore         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| ` asia-southeast2         *†        `        | Jakarta           | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| ` australia-southeast2         *        `    | Melbourne         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `me-west1`                                   | Tel Aviv          | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `northamerica-northeast1`                    | Montréal          | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| ` northamerica-northeast2         *        ` | Toronto           | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+| `southamerica-east1`                         | São Paulo         | `v1` is supported for GA features. `v1beta1` is supported for Preview features. |
+
+<sup>\*</sup> Memory Bank is not supported in this region.
+
+<sup>†</sup> Agent Gateway is not supported in this region.
 
 ## Multi-regional and global endpoints
 

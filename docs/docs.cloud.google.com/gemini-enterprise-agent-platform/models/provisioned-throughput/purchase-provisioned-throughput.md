@@ -311,7 +311,7 @@ Within 10 minutes, the split order will move to **Active** status and the origin
 
 #### Change scope
 
-You can move an active Google model Provisioned Throughput order from one project to another while maintaining the same model, GSUs, region, renewal policy, term, and end date by superseding and replacing an existing order with a new one.
+You can move an active Google model Provisioned Throughput order from one project to another within the same organization while maintaining the same model, GSUs, region, renewal policy, term, and end date by superseding and replacing an existing order with a new one.
 
 To change the scope of an order, do the following:
 

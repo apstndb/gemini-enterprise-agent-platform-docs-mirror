@@ -6,7 +6,7 @@ description: You can generate Gemini Omni or Veo on Gemini Enterprise Agent Plat
 data_source: docs.cloud.google.com
 ---
 
-You can use Gemini Omni or Veo on Gemini Enterprise Agent Platform to generate new videos using an existing image as the first frame. Image first frame to video available through [Gemini Enterprise Agent Platform Media Studio](https://console.cloud.google.com/gemini-enterprise-agent-platform/studio/media/video) or using the [Gemini Enterprise Agent Platform video generation API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) .
+You can use Gemini Omni or Veo on Gemini Enterprise Agent Platform to generate new videos using an existing image as the first frame. Image first frame to video available through [Gemini Enterprise Agent Platform Media Studio](https://console.cloud.google.com/agent-platform/studio/media/video) or using the [Gemini Enterprise Agent Platform video generation API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.endpoints/predict) .
 
 The following models support generating videos from an image:
 

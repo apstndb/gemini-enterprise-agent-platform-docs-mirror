@@ -40,6 +40,8 @@ For example:
       }
     ]
 
+Jobs submitted without `--partition` run on the default partition. To specify the default partition, set `default_partition_id` in the `slurm_spec` to the `id` of one of your partitions. If you leave it unset, the first partition in the list is the default.
+
 ### Login nodes
 
 The login node pool provides dedicated nodes that serve as the primary entry point for users to interact with the cluster. The `login_node_pool_id` field specifies the unique identifier for this pool.
