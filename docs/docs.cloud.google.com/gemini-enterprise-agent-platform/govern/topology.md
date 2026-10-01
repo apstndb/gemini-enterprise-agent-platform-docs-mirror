@@ -1,101 +1,38 @@
 ---
 name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology
 uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology
-title: View agent relationships
-description: View agents and their relationships in Gemini Enterprise Agent Platform.
+title: Agent topology graphs
+description: Learn about viewing agent topologies to help you govern and monitor agents.
 data_source: docs.cloud.google.com
 ---
 
-> **Preview**
-> 
-> This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+To support AI application governance, configuration validation, and dependency analysis, you can run queries that correlate agent data with other Google Cloud data and display the results as a topology graph.
 
-You can view agent relationships in Gemini Enterprise Agent Platform, including communication between agents and communication between agents and MCP servers.
+There are two ways to view a topology:
 
-Using provided queries, you can explore the query results as a topology graph or as a table. Information about agent relationships can help you to understand dependencies and support agent governance.
+  - View topologies for [an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology) - In Agent Registry, you can run predefined queries to show traffic to and from a selected agent.
+  - View topologies for a [project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology) - The **Topology** page provides full query capabilities. You can run predefined queries or use a visual query builder to create your own queries.
 
-You can view data for both discovered agents and agents that are registered with [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) . Gemini Enterprise Agent Platform determines relationships using aggregated trace data.
+The App Topology API provides these topology graph capabilities in Gemini Enterprise Agent Platform. To learn about using the App Topology MCP server and viewing topology graphs in other products, see the [App Topology documentation](https://docs.cloud.google.com/app-topology) .
 
-> **Note:** In October 2026, the App Topology API transitions to a usage-based billing model that includes a daily free data usage allotment. For more information, see [App Topology pricing](https://docs.cloud.google.com/hub/docs/app-topology#pricing) .
+> **Note:** On October 15, 2026, the App Topology API transitions to a usage-based billing model that includes a daily free data usage allotment. For more information, see [App Topology pricing](https://docs.cloud.google.com/hub/docs/app-topology#pricing) .
 
 ### Limitations
 
+Data availability:
+
+  - Trace connections show latency and error rate information from the most recent hour of data. You can't change the time range.
+  - When you delete a Developer Connect insights event, the event might still appear in App Topology query results for a few days.
   - Query results only include components that meet the following criteria:
       - Agents must have [functional type](https://docs.cloud.google.com/app-hub/docs/reference/rest/v1/FunctionalType) set to `AGENT` and be deployed using ADK, Gemini Enterprise, or Cloud Run; or be deployed using GKE and registered with [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) .
       - MCP servers must have [functional type](https://docs.cloud.google.com/app-hub/docs/reference/rest/v1/FunctionalType) set to `MCP` . First-party MCP servers deployed using OneMCP, GKE, or Cloud Run are included. Other MCP servers must be registered with [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) to be included.
       - Other components, such as tools and models, or Workspace Agents aren't included in results.
   - When an MCP server is registered to Agent Registry, it is classified as a shared resource by App Hub which won't show edges to other nodes in the topology graph. This limitation only applies if the MCP server is classified as a shared resource and doesn't apply to application-exclusive resources, such as Gemini Enterprise data connectors or MCP servers hosted on Cloud Run.
-
-## Before you begin
-
-1.  Enable the App Hub, App Topology, Observability, and Trace APIs, if any are not already enabled.
-    
-    **Roles required to enable APIs**
-    
-    To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role ( `roles/owner` ). Otherwise, you can get this permission through the Service Usage Admin role ( `roles/serviceusage.serviceUsageAdmin` ). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
-
-2.  [Instrument your AI applications with OpenTelemetry](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-overview) .
-
-### Required roles
-
-To get the permissions that you need to view topology graphs, ask your administrator to grant you the following IAM roles on the project:
-
-  - View graphs: [App Topology Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/apptopology#apptopology.viewer) ( `roles/apptopology.viewer` )
-  - View registered agent data: Agent Registry API Viewer ( `agentregistry.viewer` )
-
-For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
-
-You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined) .
-
-## View graphs for a project
-
-1.  In the Google Cloud console, go to the Topology page.
-
-2.  In the project picker, select the project that contains your agents.
-
-3.  In the **Queries** section, click a query.
-
-4.  The **Graph** section displays the results for the selected query.
-    
-    The topology graph is fully interactive. You can zoom in and out and drag nodes around to help you visualize the relationships. To open a panel that provides additional details about a node in the graph, click the node.
-
-5.  To view the query results as a table, click **Table** .
-    
-      - To select the columns that the table displays, click **Column display options** view\_column
-      - To filter the table for specific properties, select the properties in the **Filter** field.
-      - You can also sort each column in ascending or descending order.
-
-6.  To refine or customize your query, you can edit the selected query and view results as a topology graph in Cloud Hub. Click **Edit in Cloud Hub** .
-
-To view additional data about agents in the selected project, view the dashboards in [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/application-monitoring-ai-resources) .
-
-## View graphs for a registered agent
-
-1.  In the Google Cloud console, go to the Agent Registry page.
-
-2.  In the project picker, select the project that contains your agents.
-
-3.  On the **Agents** tab, click the name of the agent that you want to view.
-
-4.  Click the **Topology** tab.
-
-5.  In the **Queries** section, click a query.
-
-6.  The **Graph** section displays the results for the selected query.
-    
-    The topology graph is fully interactive. You can zoom in and out and drag nodes around to help you visualize the relationships. To open a panel that provides additional details about a node in the graph, click the node.
-
-7.  To view the query results as a table, click **Table** .
-    
-      - To select the columns that the table displays, click **Column display options** view\_column
-      - To filter the table for specific properties, select the properties in the **Filter** field.
-      - You can also sort each column in ascending or descending order.
-
-8.  To refine or customize your query, you can edit the selected query and view results as a topology graph in Cloud Hub. Click **Edit in Cloud Hub** .
-
-To view additional data about the selected agent, view the dashboards in [Application Monitoring](https://docs.cloud.google.com/monitoring/docs/application-monitoring-ai-resources) .
+  - For security and compliance data provided by Security Command Center:
+      - The provided data is in [Preview](https://cloud.google.com/products#product-launch-stages)
+      - Data is only available for projects and applications in a Google Cloud organization.
 
 ## What's next
 
-  - [Register discovered agents](https://docs.cloud.google.com/agent-registry/register-agents) in Agent Registry.
-  - Create custom queries in for agentic data and other resources in [Cloud Hub](https://docs.cloud.google.com/hub/docs/app-topology) .
+  - [View topologies for a project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology) .
+  - [View traffic to and from an agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology) .

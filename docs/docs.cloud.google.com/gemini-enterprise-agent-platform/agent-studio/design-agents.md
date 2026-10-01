@@ -205,22 +205,41 @@ For existing agents, these deprecated tools are read-only. To maintain full func
 
 If your agent uses a deprecated Agent Platform Search Data Store tool, migrate to the Agent Search MCP server available in Agent Registry. This tool displays as `discoveryengine.googleapis.com` in Agent Registry.
 
-The Agent Search MCP server replaces individual data store connections with a unified search experience across multiple data stores in your project.
+Connecting the Agent Search MCP server doesn't automatically carry over the data source selection from an existing tool. You must define the target serving configuration in the agent's instructions. Also, the agent identity requires access permissions.
 
-Connecting the Agent Search MCP server doesn't automatically carry over the data source selection from an existing tool. MCP search requires an appropriate target serving configuration and access permissions. Verify that the replacement searches the intended data sources before removing the existing tool.
+#### Before you begin
+
+Grant the Discovery Engine Viewer ( `roles/discoveryengine.viewer` ) role to the agent identity. We recommend granting this role directly on the target data store or search application. However, for troubleshooting purposes, you can grant it on the project. To find the agent's identity principal and grant the role, see [Manage roles manually](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#manual-permissions) .
+
+The [permissions dialog](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/design-agents#permissions-dialog-behavior) automatically grants the MCP Tool User role ( `roles/mcp.toolUser` ), which is required if the agent uses an Agent Registry MCP tool.
+
+#### Migrate your tool
 
 To migrate your tool, follow these steps:
 
 1.  Open your agent in the Agent Studio canvas.
+
 2.  Locate the deprecated Vertex AI Search Data Store tool in the **Tools** panel. This deprecated tool appears as read-only.
-3.  Click **Remove** to detach the deprecated tool.
+
+3.  Note the tool's settings, such as the project ID, location, and data store ID. Then, click **Remove** to detach the deprecated tool. You can't add the tool back after you remove it.
+
 4.  Click **Add** (+) next to **MCP Server from Agent Registry** .
+
 5.  Include the following details:
+    
     1.  **Location:** Select the region where your tools are registered.
     2.  **MCP Server:** Select **Agent Search** or `discoveryengine.googleapis.com` from the list of registered MCP servers.
     3.  **Auth Config:** Select **None** . The access is resolved through standard IAM bindings.
     4.  Click **Add** .
     5.  If you are saving the agent for the first time, click **Save** in the canvas header. Subsequent changes are automatically saved.
+
+6.  In the agent's instructions, specify the target serving configuration using the values that you noted in step 3. For example:
+    
+        Use the search tool to answer questions about YOUR_TOPIC.
+        When using the search tool, use this servingConfig:
+        projects/PROJECT_ID/locations/LOCATION/collections/default_collection/dataStores/DATA_STORE_ID/servingConfigs/default_search
+    
+    For a search application, replace ` dataStores/ DATA_STORE_ID  ` with ` engines/ APP_ID  ` . For supported formats and arguments, see [MCP Tools Reference: discoveryengine.googleapis.com](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/mcp/search) .
 
 ### Migrate from legacy direct MCP server
 

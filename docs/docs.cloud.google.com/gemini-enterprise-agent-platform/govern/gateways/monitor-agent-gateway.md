@@ -6,7 +6,7 @@ description: Monitor traffic through Agent Gateway.
 data_source: docs.cloud.google.com
 ---
 
-Use this page to learn how to view logs and monitor requests and access control decisions for traffic routed through your Agent Gateway deployment.
+Use this page to learn how to view logs, monitor requests, and track distributed traces for traffic routed through your Agent Gateway deployment.
 
 ## Logging
 
@@ -134,6 +134,136 @@ Use the following steps to access the observability dashboard for a gateway in t
 **Dashboard data requirements**
 
 The Agent Gateway observability dashboard uses Observability Analytics to display data. If the dashboard isn't loading data, ensure that you [upgrade the `_Default` log bucket to use Observability Analytics](https://docs.cloud.google.com/logging/docs/buckets#upgrade-bucket) . The dashboard retrieves data from the `_Default` bucket's [`_AllLogs` view](https://docs.cloud.google.com/logging/docs/logs-views#auto-create-views) .
+
+## Use Cloud Trace
+
+> **Preview**
+> 
+> This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) . Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
+
+Agent Gateway integrates with Cloud Trace to provide end-to-end request observability for agent workloads. Because Agent Gateway serves as the central control point for AI agents, enabling Trace gives you visibility into how requests travel from your agents through the gateway and across multiple Google Cloud services, tools, agents, and MCP servers. By tracking request flows across these service boundaries, Trace delivers complete distributed tracing for your agent architectures.
+
+Using Trace, you can accomplish the following:
+
+  - **Debug agent interactions with precision** : Track the full journey of a request across service boundaries to isolate latency bottlenecks and failing backend calls.
+  - **Honor upstream sampling decisions** : Use *parent-based sampling* to maintain end-to-end trace continuity when upstream agents or clients initiate tracing, ensuring high-priority requests are fully captured without increasing baseline sampling rates for routine traffic.
+  - **Unify observability with open standards** : Built on OpenTelemetry and W3C TraceContext standards, traces seamlessly propagate context across your AI agents, Agent Gateway, target MCP servers or tools, and third-party monitoring platforms.
+  - **Accelerate root-cause analysis** : Correlate trace spans directly with gateway request logs and metrics using `trace_id` to troubleshoot production issues faster.
+
+To learn more about Trace, see [Cloud Trace overview](https://docs.cloud.google.com/trace/docs/overview) .
+
+### Required roles
+
+You must have the following Identity and Access Management (IAM) roles on your project:
+
+  - To configure and update a tracing policy: Compute Network Admin ( `roles/compute.networkAdmin` ) or Compute Admin ( `roles/compute.admin` )
+  - To view traces in the Google Cloud console: Cloud Trace User ( `roles/cloudtrace.user` )
+
+Additionally, to allow Agent Gateway to write trace spans to Trace, you must grant the [Cloud Trace Agent role](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudtrace#cloudtrace.agent) ( `roles/cloudtrace.agent` ) to the following service accounts:
+
+  - Compute Engine service agent: `service- PROJECT_NUMBER @compute-system.iam.gserviceaccount.com`
+  - Network Security service agent: `service- PROJECT_NUMBER @gcp-sa-networksecurity.iam.gserviceaccount.com`
+  - Agent Gateway service agent: `service- PROJECT_NUMBER @gcp-sa-agentgateway.iam.gserviceaccount.com`
+  - Agent or client workload service account: If the calling AI agent or client workload initiates the trace and exports its own parent spans to Trace, then the workload's service account or the custom service account attached to the agent must also be granted the `roles/cloudtrace.agent` role on the project. Otherwise, only the Agent Gateway child span is written and the parent span will be missing in Trace.
+
+Replace `  PROJECT_NUMBER  ` with your Google Cloud project number.
+
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access) .
+
+### Enable tracing
+
+To enable tracing for Agent Gateway, create an observability policy YAML file and import it using the gcloud CLI.
+
+1.  Create a configuration file named `tracing-policy.yaml` :
+    
+        name: "projects/PROJECT_ID/locations/REGION/telemetryPolicies/POLICY_NAME"
+        targetTelemetry:
+          resources: # You can attach a policy to multiple gateways
+          - "//networkservices.googleapis.com/projects/PROJECT_ID/locations/REGION/agentGateways/AGENT_GATEWAY_NAME"
+        displayName: "Tracing policy for Agent Gateway traffic"
+        tracingConfiguration:
+          samplingRate: SAMPLING_RATE
+          parentBasedSampling:
+            enabled: ENABLE_PARENT_BASED_SAMPLING
+            samplingRate: PARENT_BASED_SAMPLING_RATE
+    
+    Replace the following:
+    
+      - `  PROJECT_ID  ` : Your Google Cloud project ID.
+      - `  REGION  ` : The region of your gateway (for example, `europe-west1` ).
+      - `  POLICY_NAME  ` : A name for the observability policy (for example, `my-agw-tracing-policy` ).
+      - `  AGENT_GATEWAY_NAME  ` : The name of your gateway.
+      - `  SAMPLING_RATE  ` : The fraction of requests to trace. Set to a value from `0.0` to `1.0` . For high-traffic production environments, we recommend a rate of 1% ( `0.01` ) or 0.1% ( `0.001` ) to balance observability and ingestion costs.
+      - `  ENABLE_PARENT_BASED_SAMPLING  ` : Controls whether to honor the sampled bit in incoming `traceparent` headers from upstream callers. Set to `true` or `false` .
+      - `  PARENT_BASED_SAMPLING_RATE  ` : The fraction of pre-sampled requests to trace. Set to a value from `0.0` to `1.0` . For example, `1.0` traces 100% of pre-sampled requests.
+
+2.  Import the observability policy:
+    
+        gcloud beta network-services telemetry-policies import POLICY_NAME \
+           --source=tracing-policy.yaml \
+           --location=REGION
+
+### View traces
+
+After enabling distributed tracing and sending traffic through your gateway, you can view trace details in the Google Cloud console:
+
+1.  In the Google Cloud console, go to the ![](https://docs.cloud.google.com/static/stackdriver/images/trace-explorer-icon.png) **Trace explorer** page:
+    
+    You can also find this page by using the search bar.
+
+2.  In the **Filter** bar, enter a trace filter expression (for example, to filter by latency threshold, HTTP status code, or request URI) or search by the specific trace ID.
+    
+    To learn more about using the Trace explorer UI, see [Find and explore traces](https://docs.cloud.google.com/trace/docs/finding-traces) .
+    
+    ### Trace explorer
+    
+    ![Trace explorer view in Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-details-view.png)
+    
+    ### Trace timeline view
+    
+    ![Timeline view in Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-timeline-view.png)
+    
+    ### Trace graph view
+    
+    ![Graph view in Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-graph-view.png)
+
+### Correlate traces with logs and metrics
+
+Agent Gateway provides seamless correlation between traces, logs, and metrics:
+
+  - **Log-trace correlation** : every gateway request log entry written to Cloud Logging contains a `trace` field with the format: ` projects/ PROJECT_ID /traces/ TRACE_ID  ` .
+    
+      - In the [**Logs Explorer**](https://console.cloud.google.com/logs) , click the log entry and then select **View trace details** to navigate directly to the corresponding span in Trace.
+      - In Trace, click **Show logs** on the **Trace Details** pane to view all gateway request logs that are associated with that request.
+
+  - **Metric correlation** : compare latency spikes observed in Cloud Monitoring metrics, such as `networkservices.googleapis.com/agentgateway/total_latencies` , with trace span breakdowns to identify whether a latency spike occurred within the gateway or at the destination tool or server.
+
+### Troubleshooting
+
+This section describes common issues and their resolutions.
+
+  - **Traces do not appear in Cloud Trace** :
+    
+    1.  Verify that the Cloud Trace API ( `cloudtrace.googleapis.com` ) is enabled on your project:
+        
+            gcloud services enable cloudtrace.googleapis.com --project=PROJECT_ID
+    
+    2.  Verify that the required [Cloud Trace Agent IAM roles ( `roles/cloudtrace.agent` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#trace-roles) have been granted to all the required service accounts.
+    
+    3.  Verify that the observability policy exists in the correct region and that it references the appropriate Agent Gateway gateway:
+        
+            gcloud beta network-services telemetry-policies describe POLICY_NAME \
+                --location=REGION
+    
+    4.  Check the configured `samplingRate` . If traffic volume is low or the sampling rate is low, traces might not be captured immediately. To confirm that tracing is functioning, you can temporarily update your policy to use 100% sampling ( `samplingRate: 1.00` ). Restore your production rate when you are finished testing.
+
+  - **Incomplete trace spans** :
+    
+    If trace spans appear as independent or disconnected root traces instead of child spans of your application requests, then do the following:
+    
+    1.  Verify that `parentBasedSampling` is enabled (set to `true` ) in your observability policy.
+    2.  Verify that the calling AI agent or workload's service account has been granted the Cloud Trace Agent role ( `roles/cloudtrace.agent` ) on the project so that parent spans can be exported to Trace.
+    3.  Verify that your application uses an OpenTelemetry SDK that has distributed tracing context propagation enabled so that the W3C `traceparent` header is propagated across service boundaries. For more information, see the [OpenTelemetry TraceContext propagator documentation](https://opentelemetry.io/docs/concepts/context-propagation/) .
 
 ## What's next
 

@@ -10,6 +10,10 @@ data_source: docs.cloud.google.com
 > 
 > This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1) , and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos) . You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum) , subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages) .
 
+> To see an example of how to use the Interactions API, run the "Gemini API: Getting started with Interactions API" notebook in one of the following environments:
+> 
+> [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png) Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_interactions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png) Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_interactions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png) Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Fgetting-started%2Fintro_interactions_api.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png) View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_interactions_api.ipynb)
+
 The Interactions API provides a unified, stateful interface for building generative AI applications with Gemini models and autonomous agents on Gemini Enterprise Agent Platform. Use the Interactions API to run multi-turn conversations, stream real-time responses, enforce structured outputs, execute function calls, and orchestrate long-running background tasks.
 
 This guide shows you how to install the Google Gen AI SDK, authenticate your client, and implement common interaction workflows. For conceptual details about the interaction lifecycle, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
@@ -497,7 +501,7 @@ If the calling principal lacks sufficient permissions, the Interactions API retu
 
     Access error:
     PERMISSION_DENIED - 403 Forbidden: Calling principal lacks
-    storage.objects.get on one or more GCS URIs.
+    storage.objects.get on one or more Cloud Storage URIs.
 
 To resolve this issue, grant the Storage Object Viewer role ( `roles/storage.objectViewer` ) on the bucket or object to the authenticated caller.
 

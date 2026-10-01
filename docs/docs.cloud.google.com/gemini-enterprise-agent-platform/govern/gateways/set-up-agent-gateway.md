@@ -16,6 +16,9 @@ The following permissions are required to create and manage Agent Gateways. You 
 
 #### Required permissions
 
+  - `agentregistry.agents.list`
+  - `agentregistry.endpoints.list`
+  - `agentregistry.mcpServers.list`
   - `compute.networkAttachments.list`
   - `compute.regions.list`
   - `modelarmor.templates.list`
