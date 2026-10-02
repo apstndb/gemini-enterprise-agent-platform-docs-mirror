@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment
 title: Install and configure the CLI
 description: Learn how to download the CodeMender CLI, configure Google Cloud credentials, and initialize your workspace.
 data_source: docs.cloud.google.com
@@ -222,7 +222,7 @@ Run `cm init` from the root directory of your codebase to create local state tra
 
     cm init
 
-Use the --verify flag to test connectivity to the cloud-hosted reasoning engine and verify workspace settings:
+Use the `--verify` flag to test connectivity to the cloud-hosted reasoning engine and verify workspace settings:
 
     cm init --verify
 
@@ -287,7 +287,7 @@ Here is what the core default parameters mean:
     
       - **What it means:** Configuration block for security policies.
       - **Sub-parameters:**
-          - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (e.g., `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
+          - **`protected_files: []`** : (List of Strings) Files or directories on the host system that you want to mount **read-only** inside the sandbox to protect them from modification (for example, `["~/.ssh/*"]` ). Supports path expansion ( `~` ) and wildcards ( `*` ).
 
   - **`model: "gemini-3.8-flash"`**
     
@@ -304,13 +304,13 @@ Here is what the core default parameters mean:
       - **What it means:** Defines the exact shell command that CodeMender executes to compile and build your project, as well as run your unit and regression tests.
       - **Why this is the default:** Setting a build and test command is critical for the verification workflow. It allows CodeMender to compile your project and run your existing test suite in the isolated sandbox environment to prove that the generated security patch successfully mitigates the vulnerability without breaking existing application logic.
 
-> **Summary recommendation:** Treat `config.yaml` as your agent policy document. In local development, we highly recommend that you keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `human_confirmation: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable sandbox virtual machines or CI/CD pipelines.
+> **Summary:** Treat `config.yaml` as your agent policy document. In local development, keep the built-in sandbox enabled ( `sandbox.enabled: true` or the `--sandbox` flag) and keep `human_confirmation: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable sandbox virtual machines or CI/CD pipelines.
 
 ## Execution sandboxing
 
-To safeguard your workstation against unintended file modifications or unexpected tool side effects, the CodeMender CLI runs inside an OS-level sandbox by default. You can disable sandboxing persistently in [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#sandbox-configuration) or bypass it per-command using CLI flags.
+To safeguard your workstation against unintended file modifications or unexpected tool side effects, the CodeMender CLI runs inside an OS-level sandbox by default. You can disable sandboxing persistently in [configuration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#sandbox-configuration) or bypass it per-command using CLI flags.
 
-While this sandboxing offers an initial layer of defense on your workstation, it offers weaker security protection than running the agent in a fully isolated virtual machine (VM):
+Although this sandboxing offers an initial layer of defense on your workstation, it offers weaker security protection than running the agent in a fully isolated virtual machine (VM):
 
   - **Linux** : Uses kernel namespaces ( `CLONE_NEWNS` , `CLONE_NEWUSER` , etc.) and `seccomp` filters to isolate mount points and restrict system calls.
   - **macOS** : Uses the built-in `sandbox-exec` (Seatbelt) mechanism.
@@ -349,7 +349,7 @@ If your project requires network access for builds or tests, you have the follow
 
 You can configure and control the sandbox using the following options:
 
-  - **Persistent Configuration ( `config.yaml` )** : You can customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) for details.
+  - **Persistent Configuration ( `config.yaml` )** : You can customize sandbox behavior, file system mounts, network access, and security policies by adding `sandbox` , `execution` , and `security` blocks to your `config.yaml` file. See [Configuration parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) for details.
   - **Control the sandbox using the CLI ( `--sandbox` )** : You can explicitly enable or disable the sandbox for a single run by passing `--sandbox=true` or `--sandbox=false` to `cm find` , `cm verify` , or `cm fix` .
   - **Bypass isolation using the CLI ( `--unrestricted` )** : You can temporarily bypass all sandbox protections for a single run by passing the `--unrestricted` flag. This disables the file system path boundaries (allowing the agent to access any path on your host) and disables the OS-level container isolation entirely (including network isolation).
 
@@ -360,7 +360,7 @@ Depending on your security requirements and development environment, you can cho
 | Method                          | Description                                                                                                                                                                                                         | Advantages                                                                                                                                             | Disadvantages                                                                                                                                                                               |
 | :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Built-in sandbox** (OS-level) | Enabled by default; you can disable it in the `config.yaml` file or bypass it using CLI flags. Uses built-in OS features (namespaces/seccomp, `sandbox-exec` , `AppContainer` (Experimental)) to isolate execution. | **Lightweight** ; zero startup overhead; direct access to local workspace tools with fine-grained control. Recommended for everyday local development. | Security relies on OS kernel features; less isolated than a full VM; Windows support is experimental and may require administrative privileges or be incompatible with some configurations. |
-| **Containers**                  | Running the agent in a container (e.g., Docker).                                                                                                                                                                    | Good isolation; standardized environment.                                                                                                              | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.                                                                                     |
+| **Containers**                  | Running the agent in a container (for example, Docker).                                                                                                                                                             | Good isolation; standardized environment.                                                                                                              | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.                                                                                     |
 | **Full VMs**                    | Running the agent in a dedicated VM.                                                                                                                                                                                | Maximum security; complete isolation.                                                                                                                  | High resource overhead; slow startup; disallows direct interaction with tools on the local machine.                                                                                         |
 
 ## Telemetry

@@ -62,4 +62,5 @@ The following agent infrastructure features are supported in the zones, regions,
 
 Usage of the global endpoint is supported for the following Google agents.
 
+  - [CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) (Preview)
   - [Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/google/deep-research) (Preview)

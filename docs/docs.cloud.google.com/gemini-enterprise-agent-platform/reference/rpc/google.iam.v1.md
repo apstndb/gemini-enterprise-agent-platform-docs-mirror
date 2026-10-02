@@ -61,6 +61,7 @@ This is intentionally not a CRUD style API because access control policies are c
 <dt>IAM Permissions</dt>
 <dd><p>Requires <strong>one of</strong> the following <a href="https://cloud.google.com/iam/docs">IAM</a> permissions on the <code dir="ltr" translate="no">resource</code> resource, depending on the resource type:</p>
 <ul>
+<li><code dir="ltr" translate="no">aiplatform.agents.getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.endpoints.getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.entityTypes.getIamPolicy</code></li>
 <li><code dir="ltr" translate="no">aiplatform.featureGroups.getIamPolicy</code></li>

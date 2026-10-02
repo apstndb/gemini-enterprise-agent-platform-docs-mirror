@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/import-findings
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/import-findings
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/import-findings
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/import-findings
 title: Import third-party security findings
 description: Learn how to import vulnerability findings from other static analysis tools directly into CodeMender.
 data_source: docs.cloud.google.com

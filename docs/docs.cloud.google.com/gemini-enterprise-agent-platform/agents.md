@@ -33,6 +33,8 @@ The Build pillar provides raw intelligence and connectivity (including Model Gar
 
   - **[Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) :** Provides a low-code development environment for agent creation.
   - **[Agent Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden) :** Provides a library of prebuilt agent samples that accelerate agent development for common AI patterns and use cases.
+  - **[CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) :** Provides an autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
+  - **[Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) :** Provides an autonomous research agent that plans, executes, and synthesizes multi-step research reports.
   - **[Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) :** Is used for code-first development of complex agents and orchestration logic.
   - **[Model Garden](https://console.cloud.google.com/agent-platform/model-garden) :** Is a library of over 200 foundation models from Google, partners, and open source communities for discovery and experimentation.
 

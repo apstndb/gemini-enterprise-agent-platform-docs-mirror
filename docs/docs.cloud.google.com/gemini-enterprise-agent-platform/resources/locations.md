@@ -261,6 +261,12 @@ Gemini models
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
 
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -389,6 +395,12 @@ Gemini models
 
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
 
 Embeddings models
 
@@ -534,6 +546,12 @@ Gemini models
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
 
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -662,6 +680,12 @@ Gemini models
 
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
 
 Embeddings models
 
@@ -816,6 +840,12 @@ Gemini models
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
 
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -960,6 +990,12 @@ Gemini models
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
 
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
+
 Embeddings models
 
 [Gemini Embedding 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/embedding-2)  
@@ -1091,6 +1127,12 @@ Gemini models
 
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview  
 `(['gemini-3.5-live-translate-preview'])`
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview  
+`(gemini-3.8-flash-tts)`
+
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview  
+`(gemini-3.8-flash-lite-tts)`
 
 Embeddings models
 

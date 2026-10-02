@@ -34,11 +34,11 @@ Input only. Whether to store the response and request for later retrieval.
 
 The name of the `Model` used for generating the completion.
 
-`interaction.modelInteraction.generationConfig.temperature` `number`
+` interaction.modelInteraction.generationConfig.temperature (deprecated)  ` `number`
 
 Controls the randomness of the output.
 
-`interaction.modelInteraction.generationConfig.topP` `number`
+` interaction.modelInteraction.generationConfig.topP (deprecated)  ` `number`
 
 The maximum cumulative probability of tokens to consider when sampling.
 

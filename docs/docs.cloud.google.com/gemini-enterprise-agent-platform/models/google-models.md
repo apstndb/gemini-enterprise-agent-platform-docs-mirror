@@ -74,6 +74,10 @@ audio\_spark [Gemini 2.5 Flash with Gemini Live API](https://docs.cloud.google.c
 
 ## Preview Gemini models
 
+preview [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) Our flagship text-to-speech model for studio-grade voice fidelity, expressive acting, regional accents, and stable long-form multi-speaker audio.
+
+preview [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) Fast, cost-efficient text-to-speech for high-throughput production workloads and voice agents.
+
 preview [Gemini Omni 1.1 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) Generate video from text or reference assets, or edit existing videos.
 
 preview [Gemini Omni Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview) Generate video from text or reference assets, or edit existing videos.

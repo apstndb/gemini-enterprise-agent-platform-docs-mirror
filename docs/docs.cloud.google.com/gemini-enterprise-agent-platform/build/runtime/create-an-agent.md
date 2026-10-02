@@ -10,6 +10,8 @@ data_source: docs.cloud.google.com
 
 Agent Platform supports deploying agents built with various frameworks. To get started, you must first develop an agent that can be deployed on the platform.
 
+You can also use Google-built prebuilt agents, such as [CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) for autonomous code security and [Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research) for multi-step research synthesis, or start from prebuilt samples in [Agent Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden) .
+
 The Agents API enables developers to build and deploy agents from configuration. These agents run within a secured Linux-based sandbox, leveraging the Antigravity harness and providing access to tools and skills. For more information on managed agents, see [Managed Agents API on Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents) .
 
 The easiest way to develop an agent is to use one of the framework-specific templates that we provide. These templates handle common aspects of agent development, such as serializing objects and separating initialization code from execution code. We provide templates for the following frameworks:

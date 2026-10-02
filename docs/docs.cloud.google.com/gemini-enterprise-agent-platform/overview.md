@@ -38,6 +38,7 @@ Use these tools and services to design, prototype, and develop your AI agents.
   - [**Agent Development Kit:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) A modular, model-agnostic framework for building and deploying complex AI agents.
   - [**Agent Studio:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio) A low-code visual canvas for designing, prototyping, and managing agent reasoning loops and workflows.
   - [**Agent Garden:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden) A library of prebuilt agents and templates to accelerate development.
+  - [**CodeMender:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender) An autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
   - [**Model Garden:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) Access to Google's frontier models (like Gemini models), third-party, and open-source models.
   - [**RAG Engine:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) Securely connects private enterprise data to LLMs to improve answer accuracy and reduce hallucinations.
   - [**Vector Search:**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) AI-native search engine for storing, searching, and managing data for AI applications.

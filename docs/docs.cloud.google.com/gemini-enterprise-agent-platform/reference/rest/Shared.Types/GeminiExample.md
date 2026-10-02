@@ -731,21 +731,21 @@ Tool to support URL context.
 
 ## ComputerUse
 
-Tool to support computer use.
+A tool that enables the model to interact directly with a computer environment.
 
 Fields
 
 `environment` ` enum ( Environment  ` )
 
-Required. The environment being operated.
+Required. The target environment where the computer use tool operates.
 
 `excludedPredefinedFunctions[]` `string`
 
-Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included in the final model call. Some of them can be explicitly excluded from being automatically included. This can serve two purposes: 1. Using a more restricted / different action space. 2. Improving the definitions / instructions of predefined functions.
+Optional. A list of predefined functions to explicitly exclude from the model call. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included. Excluding functions allows for a more restricted action space or custom definitions for predefined functions.
 
 `enablePromptInjectionDetection` `boolean`
 
-Optional. Enables the prompt injection detection check on computer-use request.
+Optional. Whether to enable the prompt injection detection check on the computer use request.
 
 <table>
 <colgroup>

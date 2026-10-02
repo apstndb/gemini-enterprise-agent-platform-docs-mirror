@@ -15655,7 +15655,11 @@ Optional. The mime type of the reference image, e.g., "image/jpeg".
 
 `bytes`
 
-Optional. The data of the reference image. The dimensions of the reference image should be 16:9.
+Optional. The data of the reference image, at most 5 MB.
+
+The image may be portrait or landscape, and must be at least 704x1280 (portrait) or 1280x704 (landscape). Orientation is determined by the image itself: an image is treated as landscape only when its width is strictly greater than its height, so a square image is treated as portrait and must meet the portrait minimum.
+
+An image that is too small is rejected with INVALID\_ARGUMENT at setup.
 
 ## AvroSource
 
@@ -46808,7 +46812,7 @@ Required. The natural language constraint of the SemanticGovernancePolicy.
 
 `string`
 
-Required. The name of the agent in Agent Registry that is affected by this policy.
+Required. The name of the agent in Agent Registry that is affected by this policy. Format: `projects/{project}/locations/{location}/agents/{agent}`
 
 `mcp_tools[]`
 
@@ -46848,7 +46852,7 @@ Required. The resource name of the McpServer in Agent Registry that is affected 
 
 `string`
 
-Optional. The resource names of the McpTools used by the Agent that is affected by this policy. If not specified, the policy applies to all McpTools in the McpServer.
+Required. The resource names of the tools used by the Agent that is affected by this policy. Currently, exactly one tool must be specified.
 
 ## SemanticGovernancePolicyEngine
 
@@ -50020,7 +50024,7 @@ See also `  ExecutableCode  ` and `  CodeExecutionResult  ` , which are input an
 
 ## ComputerUse
 
-Tool to support computer use.
+A tool that enables the model to interact directly with a computer environment.
 
 Fields
 
@@ -50028,27 +50032,27 @@ Fields
 
 `  Environment  `
 
-Required. The environment being operated.
+Required. The target environment where the computer use tool operates.
 
 `excluded_predefined_functions[]`
 
 `string`
 
-Optional. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included in the final model call. Some of them can be explicitly excluded from being automatically included. This can serve two purposes: 1. Using a more restricted / different action space. 2. Improving the definitions / instructions of predefined functions.
+Optional. A list of predefined functions to explicitly exclude from the model call. By default, [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions) are included. Excluding functions allows for a more restricted action space or custom definitions for predefined functions.
 
 ## Environment
 
-Represents the environment being operated, such as a web browser.
+The environment in which the computer use tool operates.
 
 Enums
 
 `ENVIRONMENT_UNSPECIFIED`
 
-Defaults to browser.
+The environment is unspecified.
 
 `ENVIRONMENT_BROWSER`
 
-Operates in a web browser.
+The tool operates in a web browser.
 
 ## ExaAiSearch
 
@@ -51311,6 +51315,12 @@ See <https://goo.gl/xmQnxf> for more information and examples of labels.
 `string`
 
 Output only. The Experiment associated with this `  TuningJob  ` .
+
+`gcs_metrics_uri`
+
+`string`
+
+Output only. The Cloud Storage metrics URI associated with this `  TuningJob  ` .
 
 `tuned_model`
 

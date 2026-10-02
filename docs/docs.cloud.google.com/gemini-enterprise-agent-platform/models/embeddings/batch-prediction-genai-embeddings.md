@@ -22,10 +22,10 @@ Gemini Embedding batch prediction is built on [Gemini Batch Inference](https://d
 
 The following table lists the supported Gemini embedding models and locations for batch inference:
 
-| Model                | Model ID               | Supported locations                                                                    |
-| -------------------- | ---------------------- | -------------------------------------------------------------------------------------- |
-| Gemini Embedding 001 | `gemini-embedding-001` | `us-central1` , `us-east4` , `us-west1` , `us-west4` , `europe-west1` , `europe-west4` |
-| Gemini Embedding 2   | `gemini-embedding-2`   | Global ( `global` ), US multi-region ( `us` ), EU multi-region ( `eu` )                |
+| Model                | Model ID               | Supported locations                                                                                 |
+| -------------------- | ---------------------- | --------------------------------------------------------------------------------------------------- |
+| Gemini Embedding 001 | `gemini-embedding-001` | `us-central1` , `us-east1` , `us-east4` , `us-west1` , `us-west4` , `europe-west1` , `europe-west4` |
+| Gemini Embedding 2   | `gemini-embedding-2`   | Global ( `global` ), US multi-region ( `us` ), EU multi-region ( `eu` )                             |
 
 For more information about regional and global endpoints, see [Locations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) .
 
@@ -242,7 +242,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
     # See the documentation: https://googleapis.github.io/python-genai/genai.html#genai.batches.Batches.create
     job = client.batches.create(
-        model="text-embedding-005",
+        model="gemini-embedding-001",
         # Source link: https://storage.cloud.google.com/cloud-samples-data/generative-ai/embeddings/embeddings_input.jsonl
         src="gs://cloud-samples-data/generative-ai/embeddings/embeddings_input.jsonl",
         config=CreateBatchJobConfig(dest=output_uri),
@@ -310,7 +310,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
         if err != nil {
             return fmt.Errorf("failed to create genai client: %w", err)
         }
-        modelName := "text-embedding-005"
+        modelName := "gemini-embedding-001"
         // See the documentation: https://pkg.go.dev/google.golang.org/genai#Batches.Create
         job, err := client.Batches.Create(ctx,
             modelName,
@@ -408,7 +408,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
       // See the documentation: https://googleapis.github.io/js-genai/release_docs/classes/batches.Batches.html
       let job = await client.batches.create({
-        model: 'text-embedding-005',
+        model: 'gemini-embedding-001',
         // Source link: https://storage.cloud.google.com/cloud-samples-data/batch/prompt_for_batch_gemini_predict.jsonl
         src: 'gs://cloud-samples-data/generative-ai/embeddings/embeddings_input.jsonl',
         config: {
@@ -481,7 +481,7 @@ Set environment variables to use the Google Gen AI SDK with Vertex AI:
     
       public static void main(String[] args) throws InterruptedException {
         // TODO(developer): Replace these variables before running the sample.
-        String modelId = "text-embedding-005";
+        String modelId = "gemini-embedding-001";
         String outputGcsUri = "gs://your-bucket/your-prefix";
         createBatchJob(modelId, outputGcsUri);
       }

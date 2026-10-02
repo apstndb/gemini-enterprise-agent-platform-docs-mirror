@@ -8,7 +8,7 @@ data_source: docs.cloud.google.com
 
 This page shows you how to use Vertex AI Studio to convert speech to text.
 
-To learn how to convert text to speech, see [Convert text to speech](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/speech/text-to-speech) .
+To learn how to convert text to speech, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .
 
 ## Convert speech to text
 

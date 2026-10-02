@@ -6,22 +6,22 @@ description: Gemini Enterprise Agent Platform is a central console designed for 
 data_source: docs.cloud.google.com
 ---
 
-Represents the environment being operated, such as a web browser.
+The environment in which the computer use tool operates.
 
 Enums
 
 `ENVIRONMENT_UNSPECIFIED`
 
-Defaults to browser.
+The environment is unspecified.
 
 `ENVIRONMENT_BROWSER`
 
-Operates in a web browser.
+The tool operates in a web browser.
 
 `ENVIRONMENT_MOBILE`
 
-Operates in a mobile environment.
+The tool operates in a mobile environment.
 
 `ENVIRONMENT_DESKTOP`
 
-Operates in a desktop environment.
+The tool operates in a desktop environment.

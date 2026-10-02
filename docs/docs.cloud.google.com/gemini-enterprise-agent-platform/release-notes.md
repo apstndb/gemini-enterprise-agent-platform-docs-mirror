@@ -10,6 +10,31 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) , or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table) .
 
+## September 30, 2026
+
+Feature
+
+**Cloud Trace integration with Agent Gateway (Preview)**
+
+Agent Gateway integrates with Cloud Trace in [Preview](https://cloud.google.com/products#product-launch-stages) to provide end-to-end request observability for agent workloads. Enabling Cloud Trace gives you visibility into how requests travel from your agents through the gateway and across Google Cloud services, tools, agents, and MCP servers.
+
+For more information, see [Use Cloud Trace](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#use-cloud-trace) .
+
+Feature
+
+**xAI's Grok 4.7**
+
+[Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is available in [Preview](https://cloud.google.com/products#product-launch-stages) in Model Garden.
+
+Feature
+
+The App Topology API that provides agent topologies in Gemini Enterprise Agent Platform is now [generally available](https://cloud.google.com/products#product-launch-stages)
+
+This launch introduces the following changes:
+
+  - A new query builder for customizing suggested quick queries or creating your own query on the **Topologies** page. Custom queries let you explore more data related to your agents, such as identity, alerts, vulnerabilities, and underlying infrastructure. For details, see [View topologies for a project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology) .
+  - A streamlined experience for the [single-agent topology](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-agent-registry-topology) in Agent Registry. A topology with single-hop traffic to and from the agent automatically loads on the page.
+
 ## September 29, 2026
 
 Feature
@@ -45,6 +70,14 @@ Feature
 Gemini 3 models are supported by the Interactions API in [Preview](https://cloud.google.com/products#product-launch-stages) on Gemini Enterprise Agent Platform.
 
 For more information, see the [Interactions API overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions) .
+
+Feature
+
+**Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS (Preview)**
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) are available in [Preview](https://cloud.google.com/products#product-launch-stages) on the global endpoint. The models support structured speaker and style metadata, inline vocal tags, multi-speaker dialogue, streaming, [voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) , and [voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) .
+
+For more information, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview) .
 
 ## September 25, 2026
 

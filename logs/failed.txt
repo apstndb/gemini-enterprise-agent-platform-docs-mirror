@@ -1,7 +1,1 @@
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/migration-guide
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/prompting-guide
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design
-200 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication
+

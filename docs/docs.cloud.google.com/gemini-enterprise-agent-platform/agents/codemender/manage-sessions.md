@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/manage-sessions
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/manage-sessions
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions
 title: Manage sessions and export reports
 description: Learn how to list, resume, and cancel CodeMender sessions, as well as export HTML and Markdown reports.
 data_source: docs.cloud.google.com
@@ -116,7 +116,7 @@ CodeMender categorizes findings into the following severity levels:
       - **Why it's categorized as Critical:** It meets high-consequence impact thresholds (like Remote Code Execution or root-level writes), is directly reachable from untrusted boundaries without prerequisites, and is backed by high-confidence taint-flow analysis or a validated Proof of Concept (PoC) executed inside CodeMender's sandbox.
   - **`HIGH`**
       - **What it means:** The vulnerability represents a severe security flaw that could lead to unauthorized system control, privilege escalation, or significant data exposure, but requires specific conditions to execute.
-      - **Why it's categorized as High:** While the impact of exploitation is high (e.g., arbitrary database reads or administrative hijacking), the exploitability is slightly constrained. It might require an attacker to have standard user authentication, depend on a specific system configuration, or require a highly precise chain of actions.
+      - **Why it's categorized as High:** Although the impact of exploitation is high (for example, arbitrary database reads or administrative hijacking), the exploitability is slightly constrained. It might require an attacker to have standard user authentication, depend on a specific system configuration, or require a highly precise chain of actions.
   - **`MEDIUM`**
       - **What it means:** The vulnerability presents a moderate risk, typically exposing restricted data or allowing localized disruptions, but is low risk to the host system.
       - **Why it's categorized as Medium:** The exploit is heavily gated by reachability or complexity. It generally requires active user interaction (like clicking a malicious link), deep privileges, or complex conditions to bypass defensive layers, and its ultimate affected area is restricted.

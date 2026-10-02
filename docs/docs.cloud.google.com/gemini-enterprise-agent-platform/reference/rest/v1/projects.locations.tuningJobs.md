@@ -68,6 +68,10 @@ See <https://goo.gl/xmQnxf> for more information and examples of labels.
 
 Output only. The Experiment associated with this `  TuningJob  ` .
 
+`gcsMetricsUri` `string`
+
+Output only. The Cloud Storage metrics URI associated with this `  TuningJob  ` .
+
 `tunedModel` ` object ( TunedModel  ` )
 
 Output only. The tuned model resources associated with this `  TuningJob  ` .
@@ -125,7 +129,7 @@ End of mutually exclusive fields.
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;tunedModelDisplayName&quot;: string,&quot;description&quot;: string,&quot;state&quot;: enum (JobState),&quot;createTime&quot;: string,&quot;startTime&quot;: string,&quot;endTime&quot;: string,&quot;updateTime&quot;: string,&quot;error&quot;: {object (Status)},&quot;labels&quot;: {string: string,...},&quot;experiment&quot;: string,&quot;tunedModel&quot;: {object (TunedModel)},&quot;tuningDataStats&quot;: {object (TuningDataStats)},&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;serviceAccount&quot;: string,&quot;evaluateDatasetRuns&quot;: [{object (EvaluateDatasetRun)}],// source_model&quot;baseModel&quot;: string,&quot;preTunedModel&quot;: {object (PreTunedModel)}// Union type// tuning_spec&quot;supervisedTuningSpec&quot;: {object (SupervisedTuningSpec)}// Union type}</code></pre></td>
+<td><pre dir="ltr" data-is-upgraded="" style="border: 0;margin: 0;" translate="no"><code>{&quot;name&quot;: string,&quot;tunedModelDisplayName&quot;: string,&quot;description&quot;: string,&quot;state&quot;: enum (JobState),&quot;createTime&quot;: string,&quot;startTime&quot;: string,&quot;endTime&quot;: string,&quot;updateTime&quot;: string,&quot;error&quot;: {object (Status)},&quot;labels&quot;: {string: string,...},&quot;experiment&quot;: string,&quot;gcsMetricsUri&quot;: string,&quot;tunedModel&quot;: {object (TunedModel)},&quot;tuningDataStats&quot;: {object (TuningDataStats)},&quot;encryptionSpec&quot;: {object (EncryptionSpec)},&quot;serviceAccount&quot;: string,&quot;evaluateDatasetRuns&quot;: [{object (EvaluateDatasetRun)}],// source_model&quot;baseModel&quot;: string,&quot;preTunedModel&quot;: {object (PreTunedModel)}// Union type// tuning_spec&quot;supervisedTuningSpec&quot;: {object (SupervisedTuningSpec)}// Union type}</code></pre></td>
 </tr>
 </tbody>
 </table>

@@ -1930,15 +1930,19 @@ Configuration parameters for model interactions.
 
 Fields
 
-`temperature`
+` temperature (deprecated)  `
 
 `float`
+
+> This item is deprecated\!
 
 Controls the randomness of the output.
 
-`top_p`
+` top_p (deprecated)  `
 
 `float`
+
+> This item is deprecated\!
 
 The maximum cumulative probability of tokens to consider when sampling.
 

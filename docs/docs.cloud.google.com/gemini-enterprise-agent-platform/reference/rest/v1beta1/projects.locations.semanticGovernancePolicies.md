@@ -46,7 +46,7 @@ Required. The natural language constraint of the SemanticGovernancePolicy.
 
 `agent` `string`
 
-Required. The name of the agent in Agent Registry that is affected by this policy.
+Required. The name of the agent in Agent Registry that is affected by this policy. Format: `projects/{project}/locations/{location}/agents/{agent}`
 
 `mcpTools[]` ` object ( McpTool  ` )
 
@@ -92,7 +92,7 @@ Required. The resource name of the McpServer in Agent Registry that is affected 
 
 `tools[]` `string`
 
-Optional. The resource names of the McpTools used by the Agent that is affected by this policy. If not specified, the policy applies to all McpTools in the McpServer.
+Required. The resource names of the tools used by the Agent that is affected by this policy. Currently, exactly one tool must be specified.
 
 <table>
 <colgroup>

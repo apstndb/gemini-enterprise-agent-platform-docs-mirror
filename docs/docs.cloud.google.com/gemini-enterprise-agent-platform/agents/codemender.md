@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/codemender
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender
 title: CodeMender overview
 description: Gemini Enterprise Agent Platform is a central console designed for platform and security administrators to build, scale, monitor, optimize, and govern the entire lifecycle of AI agents.
 data_source: docs.cloud.google.com
@@ -12,9 +12,9 @@ data_source: docs.cloud.google.com
 > 
 > Pre-GA products are in various stages of internal testing and review. As such, customers should closely supervise the use of CodeMender, and not use CodeMender in situations where serious errors cannot be corrected. This product is made available to Customers solely for limited testing and evaluation, and may not be used for commercial or production purposes.
 > 
-> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) . When using CodeMender powered by a Gemini Cyber model, your access to and use of that model are also governed by Section 31(a) of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) (Gemini Cyber).
+> You may only use CodeMender to analyze (i) source code that you own or are authorized to use or (ii) open source code distributed under an OSI-approved license. You must use this offering solely for legitimate security defense purposes (and not for unauthorized testing, exploitation, or cyberattacks) in compliance with the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805) and the [Generative AI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy) . When using CodeMender built with a Gemini Cyber model, your access to and use of that model are also governed by Section 31(a) of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#1) (Gemini Cyber).
 > 
-> When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) (“Modifying, Disregarding, or Disabling Safety Filters”) of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
+> When disabling human confirmation of write and tool execution actions (as described in the [configuration file parameters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) ), Customer is responsible for such modification under Section 20(j) ("Modifying, Disregarding, or Disabling Safety Filters") of the Service Specific Terms. The customer agrees not to automatically bypass or circumvent other responses requiring human confirmation.
 
 The launch of advanced AI models triggered widespread concern regarding code vulnerabilities. As attackers gain access to new capabilities for generating exploits, security teams are under immense time pressure to proactively find and fix vulnerabilities before attackers exploit them.
 
@@ -95,7 +95,7 @@ For example, to scan additional languages or script formats:
         - build
         - .gradle
 
-For more information on configuring scan options, see [Configuration parameters ( `config.yaml` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configuration-file) .
+For more information on configuring scan options, see [Configuration parameters ( `config.yaml` )](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configuration-file) .
 
 ### Note on quality
 
@@ -113,7 +113,7 @@ CodeMender supports the following models:
   - [Gemini 3.5 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash)
   - [Gemini 3.1 Pro](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro) preview
 
-To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender#specifying-the-model) .
+To specify a model when running CodeMender CLI commands, see [Specifying the model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender#specifying-the-model) .
 
 ## Supported regions
 
@@ -149,17 +149,17 @@ To view cumulative billed token usage and cost trends across your Google Cloud p
 
 Set up the CLI tool and initialize your workspace to start scanning.
 
-> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass it (using the `--unrestricted` flag), we highly recommend running the CLI in an isolated VM or container to protect your host system.
+> **Warning:** CodeMender executes commands and may modify files directly on your host system. By default, these commands run inside a local process-level sandbox. If you disable the sandbox (in `config.yaml` or using the `--sandbox=false` flag) or bypass it (using the `--unrestricted` flag), run the CLI in an isolated VM or container to protect your host system.
 
 ### Prerequisites
 
 Before you initialize the CodeMender CLI, ensure your environment is prepared correctly:
 
-  - **[Set up Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#gcp-project-setup-iam-permissions) :** Set up your Google Cloud project with required APIs and IAM roles.
-  - **[Download the CodeMender CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#download-cli) :** Download and install the CodeMender CLI binary for your operating system.
-  - **[Configure Google Cloud credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#configure-credentials) :** Configure Google Cloud Application Default Credentials (ADC) to authenticate the CLI.
+  - **[Set up Google Cloud project](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#gcp-project-setup-iam-permissions) :** Set up your Google Cloud project with required APIs and IAM roles.
+  - **[Download the CodeMender CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#download-cli) :** Download and install the CodeMender CLI binary for your operating system.
+  - **[Configure Google Cloud credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#configure-credentials) :** Configure Google Cloud Application Default Credentials (ADC) to authenticate the CLI.
   - **Provision your source code:** Clone or copy the source code of the project you want to scan into your workspace.
-  - **[Configure Sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment#sandbox-configuration) :** Define directory mounts, network access profiles, and security exceptions for the sandbox environment.
+  - **[Configure Sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#sandbox-configuration) :** Define directory mounts, network access profiles, and security exceptions for the sandbox environment.
 
 ### Specifying the model
 
@@ -211,14 +211,14 @@ CodeMender uses a "Zero-Data-Access" approach regarding human visibility:
   - **No human access:** No human groups or Google engineers have access to read customer data in the production environment.
   - **No operator visibility:** Even for production debugging and error tracking, Google operators are restricted and do not have visibility into customer source code context or transient session states.
   - **Strict isolation:** We logically isolate and access-control all data by organization and customer billing-project to protect tenant privacy within our shared infrastructure.
-  - **VPC Service Controls (VPC-SC):** To further protect your environment, CodeMender's architecture fully supports VPC Service Controls (VPC-SC). This lets you define a secure security perimeter around your Google Cloud resources, helping to mitigate any data exfiltration risks while your localized data is sent to the cloud reasoning engine.
+  - **VPC Service Controls (VPC-SC):** To further protect your environment, CodeMender's architecture fully supports VPC Service Controls (VPC-SC). This lets you define a secure security perimeter around your Google Cloud resources, helping to mitigate any data exfiltration risks when your localized data is sent to the cloud reasoning engine.
 
 ## What's next
 
 For detailed instructions, see the following guides:
 
-  - [Install and configure the CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/set-up-environment)
-  - [Scan and verify code vulnerabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/scan-and-verify)
-  - [Import third-party security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/import-findings)
-  - [Fix code vulnerabilities and manage diffs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/fix-and-patch)
-  - [Manage sessions and export reports](https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/manage-sessions)
+  - [Install and configure the CLI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment)
+  - [Scan and verify code vulnerabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/scan-and-verify)
+  - [Import third-party security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/import-findings)
+  - [Fix code vulnerabilities and manage diffs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/fix-and-patch)
+  - [Manage sessions and export reports](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions)

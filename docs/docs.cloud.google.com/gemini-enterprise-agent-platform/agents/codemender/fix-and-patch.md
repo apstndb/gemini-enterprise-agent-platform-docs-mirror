@@ -1,6 +1,6 @@
 ---
-name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/fix-and-patch
-uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/codemender/fix-and-patch
+name: documents/docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/fix-and-patch
+uri: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/fix-and-patch
 title: Fix code vulnerabilities and manage diffs
 description: Learn how to generate, test, auto-apply, and stage automated code patches using CodeMender.
 data_source: docs.cloud.google.com
@@ -14,7 +14,7 @@ CodeMender can automatically produce, validate, and apply source code patches fo
 
 ## Generate vulnerability fixes
 
-Use `cm fix` to generate a validated security patch for a verified finding::
+Use `cm fix` to generate a validated security patch for a verified finding:
 
     cm fix FINDING_ID
 
